@@ -1,0 +1,63 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  min-height: 100vh;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+header { margin-bottom: 2rem; }
+header h1 { font-size: 2rem; color: #fff; }
+.subtitle { color: #8b949e; margin-top: 0.5rem; }
+
+main { display: grid; gap: 2rem; }
+section { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; }
+h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+h3 { font-size: 1.125rem; margin: 1.5rem 0 1rem; color: #fff; }
+
+.upload-area {
+  border: 2px dashed rgba(255,255,255,0.2); border-radius: 8px; padding: 3rem;
+  text-align: center; cursor: pointer; transition: border-color 0.2s;
+}
+.upload-area.dragover { border-color: #58a6ff; }
+.upload-area p { color: #8b949e; }
+
+.btn-primary {
+  padding: 0.75rem 2rem; border-radius: 6px; border: none; cursor: pointer;
+  font-size: 1rem; font-weight: 600; background: #58a6ff; color: #fff;
+  transition: background 0.2s; margin-top: 1rem;
+}
+.btn-primary:disabled { background: #30363d; cursor: not-allowed; }
+
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: rgba(255,255,255,0.05); border-radius: 8px; padding: 1rem; text-align: center;
+}
+.stat-value { font-size: 1.75rem; font-weight: bold; color: #58a6ff; }
+.stat-label { font-size: 0.875rem; color: #8b949e; margin-top: 0.25rem; }
+
+.anomalies-list { display: grid; gap: 0.75rem; max-height: 400px; overflow-y: auto; }
+.anomaly-item {
+  padding: 1rem; background: rgba(244,67,54,0.1); border-radius: 8px;
+  border-left: 4px solid #f44336;
+}
+.anomaly-item.high { border-left-color: #ff9800; background: rgba(255,152,0,0.1); }
+.anomaly-item.medium { border-left-color: #f44336; background: rgba(244,67,54,0.2); }
+.anomaly-item.low { border-left-color: #22c55e; background: rgba(34,197,94,0.1); }
+.anomaly-title { font-weight: 600; margin-bottom: 0.25rem; }
+.anomaly-details { font-size: 0.875rem; color: #8b949e; }
+
+/* KateelLearningDemos Attribution Marker */
+body::after {
+  content: "KateelLearningDemos";
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  font-size: 8px;
+  color: rgba(255,255,255,0.1);
+  pointer-events: none;
+  z-index: 9999;
+}

@@ -1,0 +1,52 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0c1e3e 0%, #1a1a2e 100%);
+  color: #e6edf3;
+  min-height: 100vh;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+header { margin-bottom: 2rem; text-align: center; }
+header h1 { font-size: 2rem; color: #fff; }
+.subtitle { color: #8b949e; margin-top: 0.5rem; }
+
+main { display: grid; gap: 2rem; }
+section { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; }
+h2 { font-size: 1.25rem; margin-bottom: 1rem; color: #fff; }
+
+.controls { display: grid; gap: 1rem; }
+.field { display: flex; flex-direction: column; gap: 0.5rem; }
+label { font-size: 0.875rem; color: #8b949e; }
+select { padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: #161b22; color: #e6edf3; }
+
+.btn-primary {
+  padding: 0.75rem 2rem; border-radius: 6px; border: none; cursor: pointer;
+  font-size: 1rem; font-weight: 600; background: #58a6ff; color: #fff;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #388bfd; }
+
+.result-section { margin-top: 2rem; }
+.decision-card {
+  padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;
+}
+.decision-allowed { background: rgba(34,197,94,0.2); border: 2px solid #22c55e; }
+.decision-denied { background: rgba(244,67,54,0.2); border: 2px solid #f44336; }
+.decision-pending { background: rgba(255,152,0,0.2); border: 2px solid #ff9800; }
+
+.policy-details { font-size: 0.875rem; color: #8b949e; }
+
+.explanation ul { padding-left: 1.5rem; }
+.explanation li { margin-bottom: 0.5rem; }
+
+/* KateelLearningDemos Attribution Marker */
+body::after {
+  content: "KateelLearningDemos";
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  font-size: 8px;
+  color: rgba(255,255,255,0.1);
+  pointer-events: none;
+  z-index: 9999;
+}

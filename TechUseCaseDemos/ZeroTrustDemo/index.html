@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Zero Trust Architecture</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Zero Trust Architecture Simulator</h1>
+      <p class="subtitle">Never trust, always verify - network access control simulation</p>
+    </header>
+    
+    <main>
+      <section class="controls">
+        <h2>Access Request</h2>
+        <div class="field">
+          <label for="userSelect">Select User</label>
+          <select id="userSelect">
+            <option value="alice">Alice (Developer)</option>
+            <option value="bob">Bob (Analyst)</option>
+            <option value="charlie">Charlie (Guest)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="resourceSelect">Select Resource</label>
+          <select id="resourceSelect">
+            <option value="database">Production Database</option>
+            <option value="api">API Gateway</option>
+            <option value="fileshare">Financial Fileshare</option>
+            <option value="admin">Admin Panel</option>
+          </select>
+        </div>
+        <button id="requestAccessBtn" class="btn-primary">Request Access</button>
+      </section>
+      
+      <section id="resultSection" class="result-section hidden">
+        <h2>Access Decision</h2>
+        <div id="decisionResult" class="decision-card"></div>
+        <div id="policyDetails" class="policy-details"></div>
+      </section>
+      
+      <section class="explanation">
+        <h2>Zero Trust Principles</h2>
+        <ul>
+          <li><strong>Verify Explicitly</strong>: Authenticate and authorize every request</li>
+          <li><strong>Use Least Privilege</strong>: Grant minimum necessary access</li>
+          <li><strong>Assume Breach</strong>: Operate as if the network is compromised</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>SIEM Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>SIEM Dashboard</h1>
+      <p class="subtitle">Security Incident and Event Management with AI-driven alerting</p>
+    </header>
+    
+    <main>
+      <section class="stats-section">
+        <div class="stat-card">
+          <div class="stat-value" id="totalEvents">0</div>
+          <div class="stat-label">Total Events (24h)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="alertsCount">0</div>
+          <div class="stat-label">Active Alerts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="criticalCount">0</div>
+          <div class="stat-label">Critical</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="resolvedCount">0</div>
+          <div class="stat-label">Resolved</div>
+        </div>
+      </section>
+      
+      <section class="alerts-section">
+        <div class="section-header">
+          <h2>Security Alerts</h2>
+          <button id="refreshBtn" class="btn-secondary">Refresh</button>
+        </div>
+        <div id="alertsList" class="alerts-list"></div>
+      </section>
+      
+      <section class="events-section">
+        <div class="section-header">
+          <h2>Recent Events</h2>
+        </div>
+        <div id="eventsTable" class="events-table"></div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
