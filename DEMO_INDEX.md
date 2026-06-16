@@ -63,6 +63,7 @@ This file is a curated index of the most useful demos in the repository.
 ### Compliance (Advanced)
 
 - `DomainUseCaseDemos\Compliance\MuleAccountDetection` - AML transaction monitoring
+- `DomainUseCaseDemos\Compliance\AlertTriage001` - Prioritize regulatory alerts
 
 ### Supply Chain (Advanced)
 
@@ -89,28 +90,33 @@ This file is a curated index of the most useful demos in the repository.
 - `TechUseCaseDemos\Forecast\tsdemo001`
 
 ### Browser AI Demos
-- `TechUseCaseDemos\\VoiceNotesApp001` - Speech-to-text with localStorage
-- `TechUseCaseDemos\\AISummarizer001` - Transcript to bullet points demo
-- `TechUseCaseDemos\\CreditScoringDemo` - Logistic regression credit scoring
-- `TechUseCaseDemos\\PortfolioOptimizer` - Mean-variance portfolio optimization
-- `TechUseCaseDemos\\FraudPlayground` - Anomaly detection for fraud
-- `TechUseCaseDemos\\ABTestingFramework` - Statistical significance calculator
-- `TechUseCaseDemos\\AIROICalculator` - AI project ROI estimation
-- `TechUseCaseDemos\\FeatureStoreDemo` - ML feature registry
-- `TechUseCaseDemos\\AIProductCanvas` - AI product planning tool
-- `TechUseCaseDemos\\QFDDemo` - Quality Function Deployment for feature prioritization
+
+- `TechUseCaseDemos\VoiceNotesApp001` - Speech-to-text with localStorage
+- `TechUseCaseDemos\AISummarizer001` - Transcript to bullet points demo
+- `TechUseCaseDemos\CreditScoringDemo` - Logistic regression credit scoring
+- `TechUseCaseDemos\PortfolioOptimizer` - Mean-variance portfolio optimization
+- `TechUseCaseDemos\FraudPlayground` - Anomaly detection for fraud
+- `TechUseCaseDemos\ABTestingFramework` - Statistical significance calculator
+- `TechUseCaseDemos\AIROICalculator` - AI project ROI estimation
+- `TechUseCaseDemos\FeatureStoreDemo` - ML feature registry
+- `TechUseCaseDemos\AIProductCanvas` - AI product planning tool
+- `TechUseCaseDemos\QFDDemo` - Quality Function Deployment for feature prioritization
 
 ### AI Product Management Demos
-- `TechUseCaseDemos\\AIRiskCalculator` - Assess technical, operational, and compliance risks
-- `TechUseCaseDemos\\AIResourcePlanner` - Estimate compute resources and costs
-- `TechUseCaseDemos\\AIDecisionTracker` - Log and review AI product decisions
-- `TechUseCaseDemos\\AIGovernanceScorecard` - Assess AI ethics and compliance
-- `TechUseCaseDemos\\MLModelRegistry` - Version and track machine learning models
-- `TechUseCaseDemos\\AIPerformanceDashboard` - Monitor model metrics and KPIs
-- `TechUseCaseDemos\\DataDriftDetector` - Monitor input data distribution changes
-- `TechUseCaseDemos\\AIFeatureImpact` - Prioritize features by business impact
-- `TechUseCaseDemos\\AITeamCollaboration` - RACI matrix for AI projects
-- `TechUseCaseDemos\\AIRegulatoryTracker` - Track compliance requirements and deadlines
+
+- `TechUseCaseDemos\AIRiskCalculator` - Assess technical, operational, and compliance risks
+- `TechUseCaseDemos\AIResourcePlanner` - Estimate compute resources and costs
+- `TechUseCaseDemos\AIDecisionTracker` - Log and review AI product decisions
+- `TechUseCaseDemos\AIGovernanceScorecard` - Assess AI ethics and compliance
+- `TechUseCaseDemos\MLModelRegistry` - Version and track machine learning models
+- `TechUseCaseDemos\AIPerformanceDashboard` - Monitor model metrics and KPIs
+- `TechUseCaseDemos\DataDriftDetector` - Monitor input data distribution changes
+- `TechUseCaseDemos\AIFeatureImpact` - Prioritize features by business impact
+- `TechUseCaseDemos\AITeamCollaboration` - RACI matrix for AI projects
+- `TechUseCaseDemos\AIRegulatoryTracker` - Track compliance requirements and deadlines
+- `TechUseCaseDemos\AIPRDTemplate` - Structured template for AI-specific requirements
+- `TechUseCaseDemos\ModelVersionComparator` - Compare model versions side-by-side
+- `TechUseCaseDemos\AICostBenefitAnalyzer` - Financial modeling for AI investments
 
 ### Pattern Mining
 
@@ -121,10 +127,12 @@ This file is a curated index of the most useful demos in the repository.
 ## Browser-Based Security Demos (IoT)
 
 ### Linux Network Penetration
-- `TechUseCaseDemos\\IoT_Ethernet_PenTest_v86` - In-browser Linux VM for network security labs
+
+- `TechUseCaseDemos\IoT_Ethernet_PenTest_v86` - In-browser Linux VM for network security labs
 
 ### Embedded Firmware Security
-- `TechUseCaseDemos\\Embedded_Firmware_Exploit_Wokwi` - Raspberry Pi Pico firmware exploitation in browser
+
+- `TechUseCaseDemos\Embedded_Firmware_Exploit_Wokwi` - Raspberry Pi Pico firmware exploitation in browser
 
 ## Mini Project
 

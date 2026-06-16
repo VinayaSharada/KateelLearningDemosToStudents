@@ -8,16 +8,16 @@ It is intended as an educational starting point for model monitoring and governa
 
 ## Files in This Folder
 
-- `generate_synthetic_data.py` creates training, baseline, and monitoring datasets
-- `drift_monitoring_demo.py` trains a model and compares model behavior across time periods
-- `requirements.txt` local dependencies
+|- `generate_synthetic_data.py` creates training, baseline, and monitoring datasets
+|- `drift_monitoring_demo.py` trains a model and compares model behavior across time periods
+|- `requirements.txt` local dependencies
 
 ## What Students Learn
 
-- why production monitoring matters after model deployment
-- how feature drift can appear even when code does not change
-- how approval thresholds change business outcomes
-- how to think about champion-challenger and monitoring dashboards
+|- why production monitoring matters after model deployment
+|- how feature drift can appear even when code does not change
+|- how approval thresholds change business outcomes
+|- how to think about champion-challenger and monitoring dashboards
 
 ## How To Run
 
@@ -31,7 +31,13 @@ python drift_monitoring_demo.py
 
 ## Suggested Extensions
 
-- add PSI bands for alert severity
-- simulate fairness drift across groups
-- compare more than one threshold
-- add a simple monitoring dashboard export
+|- add PSI bands for alert severity
+|- simulate fairness drift across groups
+|- compare more than one threshold
+|- add a simple monitoring dashboard export
+
+## Attribution
+
+This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
+
+**Educational Use Only** - For usage guidelines, see the main repository.

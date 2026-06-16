@@ -1,0 +1,56 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+header { text-align: center; margin-bottom: 2rem; }
+header h1 { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; }
+.subtitle { color: #888; }
+
+main { display: grid; gap: 2rem; }
+section { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; }
+h2 { font-size: 1.25rem; margin-bottom: 1rem; color: #fff; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+.field { display: flex; flex-direction: column; gap: 0.5rem; }
+label { font-size: 0.875rem; color: #aaa; }
+input, select { padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; }
+
+.btn-primary {
+  padding: 0.75rem 1.5rem; border-radius: 6px; border: none; cursor: pointer;
+  font-size: 1rem; font-weight: 600; background: #4fc3f7; color: #1a1a2e;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #29b6f6; }
+
+.alerts-list { display: grid; gap: 1rem; }
+.alert-card {
+  background: rgba(255,255,255,0.05); border-radius: 8px; padding: 1rem;
+  border-left: 4px solid #888;
+}
+.alert-card.high { border-left-color: #f44336; }
+.alert-card.medium { border-left-color: #ff9800; }
+.alert-card.low { border-left-color: #4caf50; }
+
+.alert-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.alert-name { font-weight: 600; }
+.alert-meta { font-size: 0.875rem; color: #888; }
+.alert-deadline { font-size: 0.875rem; margin-top: 0.5rem; }
+.days-urgent { color: #f44336; font-weight: bold; }
+.days-warning { color: #ff9800; }
+.days-normal { color: #4caf50; }
+
+/* KateelLearningDemos Attribution Marker */
+body::after {
+  content: "KateelLearningDemos";
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  font-size: 8px;
+  color: rgba(255,255,255,0.1);
+  pointer-events: none;
+  z-index: 9999;
+}

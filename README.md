@@ -32,7 +32,7 @@ python classificationdemo.py
 | **Cyber Security** | [Catalog](CourseCatalogs/Cyber_Security_Catalog.md) | 2+ | IoT security, network penetration, threat detection |
 | **Data Mining** | [Catalog](CourseCatalogs/DataMining/README.md) | 7 | Classification, clustering, forecasting, pattern mining |
 | **NLP & Information Extraction** | [Catalog](CourseCatalogs/NLP/README.md) | 16+ | Entity recognition, sentiment, RAG, voice assistants |
-| **Management of AI Products** | [Catalog](CourseCatalogs/Management_of_AI_Products_Catalog.md) | 6 | Product strategy, risk, governance, RAG |
+| **Management of AI Products** | [Catalog](CourseCatalogs/Management_of_AI_Products_Catalog.md) | 13+ | Product strategy, risk, governance, RAG, financial analysis |
 | **Public Policy & Governance** | [Catalog](CourseCatalogs/PublicPolicyGovernance/README.md) | 2 | Resource allocation, AI compliance |
 
 ---

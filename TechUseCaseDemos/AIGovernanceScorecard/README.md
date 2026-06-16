@@ -11,11 +11,16 @@
 3. View compliance score and status
 
 ## Checklist Items
-- Fairness and Bias Mitigation
-- Model Transparency/Explainability
-- Privacy Protection (GDPR/CCPA)
-- Safety and Security Measures
-- Audit Trail and Documentation
-- Model Validation and Testing
-- Ongoing Monitoring Plan
-- Governance Committee
+|- Fairness and Bias Mitigation
+|- Model Transparency/Explainability
+|- Privacy Protection (GDPR/CCPA)
+|- Safety and Security Measures
+|- Audit Trail and Documentation
+|- Model Validation and Testing
+|- Ongoing Monitoring Plan
+|- Governance Committee
+
+## Attribution
+This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
+
+**Educational Use Only** - For usage guidelines, see the main repository.

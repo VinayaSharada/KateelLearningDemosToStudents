@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Model Version Comparator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Model Version Comparator</h1>
+      <p class="subtitle">Compare AI model versions side-by-side</p>
+    </header>
+    
+    <main>
+      <section class="input-section">
+        <h2>Model A (Baseline)</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="modelAName">Model Name</label>
+            <input type="text" id="modelAName" value="churn_v1.0">
+          </div>
+          <div class="field">
+            <label for="modelAAccuracy">Accuracy</label>
+            <input type="number" id="modelAAccuracy" step="0.01" value="0.85">
+          </div>
+          <div class="field">
+            <label for="modelAPrecision">Precision</label>
+            <input type="number" id="modelAPrecision" step="0.01" value="0.82">
+          </div>
+          <div class="field">
+            <label for="modelARecall">Recall</label>
+            <input type="number" id="modelARecall" step="0.01" value="0.78">
+          </div>
+          <div class="field">
+            <label for="modelALatency">Latency (ms)</label>
+            <input type="number" id="modelALatency" value="120">
+          </div>
+          <div class="field">
+            <label for="modelAVersion">Version</label>
+            <input type="text" id="modelAVersion" value="v1.0">
+          </div>
+        </div>
+      </section>
+      
+      <section class="input-section">
+        <h2>Model B (Candidate)</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="modelBName">Model Name</label>
+            <input type="text" id="modelBName" value="churn_v2.0">
+          </div>
+          <div class="field">
+            <label for="modelBAccuracy">Accuracy</label>
+            <input type="number" id="modelBAccuracy" step="0.01" value="0.87">
+          </div>
+          <div class="field">
+            <label for="modelBPrecision">Precision</label>
+            <input type="number" id="modelBPrecision" step="0.01" value="0.85">
+          </div>
+          <div class="field">
+            <label for="modelBRecall">Recall</label>
+            <input type="number" id="modelBRecall" step="0.01" value="0.80">
+          </div>
+          <div class="field">
+            <label for="modelBLatency">Latency (ms)</label>
+            <input type="number" id="modelBLatency" value="150">
+          </div>
+          <div class="field">
+            <label for="modelBVersion">Version</label>
+            <input type="text" id="modelBVersion" value="v2.0">
+          </div>
+        </div>
+      </section>
+      
+      <div class="actions">
+        <button id="compareBtn" class="btn-primary">Compare Models</button>
+      </div>
+      
+      <section id="resultsSection" class="results-section hidden">
+        <h2>Comparison Results</h2>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th id="headerA">Model A</th>
+                <th id="headerB">Model B</th>
+                <th>Change</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody"></tbody>
+          </table>
+        </div>
+        
+        <div id="recommendation" class="recommendation hidden"></div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

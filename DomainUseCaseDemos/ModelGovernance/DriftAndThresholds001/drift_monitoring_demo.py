@@ -1,3 +1,5 @@
+# KateelLearningDemos Attribution Marker - vinallcontact@gmail.com
+# Attribution: vinallcontact@gmail.com
 from pathlib import Path
 
 import numpy as np
@@ -73,6 +75,9 @@ def main():
     else:
         print("\nPSI Alerts")
         print(alerts.to_string(index=False))
+    
+    print("\n--- KateelLearningDemos Attribution ---")
+    print("Attribution: vinallcontact@gmail.com")
 
 
 if __name__ == "__main__":

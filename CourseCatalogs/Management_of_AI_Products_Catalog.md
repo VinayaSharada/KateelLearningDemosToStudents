@@ -50,12 +50,27 @@ This catalog organizes demos for managing AI products throughout their lifecycle
 
 ## New Demos
 
+### Product Requirements
+|- `TechUseCaseDemos\AIPRDTemplate` - Structured template for AI-specific requirements (data, model, ethical considerations)
+
+### Model Comparison
+|- `TechUseCaseDemos\ModelVersionComparator` - Compare model versions side-by-side with metrics
+
+### Financial Analysis
+|- `TechUseCaseDemos\AICostBenefitAnalyzer` - Financial modeling for AI investments (ROI, payback)
+
 ### RAG Solutions
-- `TechUseCaseDemos\RAGSolutions` - Multiple RAG architectures with voice support
+|- `TechUseCaseDemos\RAGSolutions` - Multiple RAG architectures with voice support
   - Standard RAG, Graph RAG, PageIndex RAG
   - Voice-enabled variants for all three
 
 ### Emotional Support AI
-- `TechUseCaseDemos\EmotionalSupportAssistant` - AI companion for loneliness support
+|- `TechUseCaseDemos\EmotionalSupportAssistant` - AI companion for loneliness support
   - Emotion detection and knowledge graph building
   - Empathetic responses with voice support
+
+### AI Strategy
+|- `DomainUseCaseDemos\AIStrategy\FinTechRoadmap001` - Strategic planning tool for AI product lifecycle
+
+### Compliance
+|- `DomainUseCaseDemos\Compliance\AlertTriage001` - Prioritize regulatory alerts by severity and deadline

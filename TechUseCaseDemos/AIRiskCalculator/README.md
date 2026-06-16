@@ -11,7 +11,12 @@
 3. View real-time risk assessment
 
 ## Risk Factors
-- **Model Complexity**: Higher complexity = higher technical risk
-- **Data Quality**: Poor data = higher technical risk
-- **Regulatory Pressure**: More regulation = higher compliance risk
-- **Business Impact**: Higher impact = higher operational/compliance risk
+|- **Model Complexity**: Higher complexity = higher technical risk
+|- **Data Quality**: Poor data = higher technical risk
+|- **Regulatory Pressure**: More regulation = higher compliance risk
+|- **Business Impact**: Higher impact = higher operational/compliance risk
+
+## Attribution
+This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
+
+**Educational Use Only** - For usage guidelines, see the main repository.

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Compliance Alert Triage System</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Compliance Alert Triage System</h1>
+      <p class="subtitle">Prioritize regulatory alerts by severity and deadline</p>
+    </header>
+    
+    <main>
+      <section class="input-section">
+        <h2>Add New Alert</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="alertName">Alert Name</label>
+            <input type="text" id="alertName" placeholder="e.g., GDPR Data Breach">
+          </div>
+          <div class="field">
+            <label for="regulation">Regulation</label>
+            <select id="regulation">
+              <option value="GDPR">GDPR</option>
+              <option value="CCPA">CCPA</option>
+              <option value="SOX">SOX</option>
+              <option value="Basel III">Basel III</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="severity">Severity</label>
+            <select id="severity">
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="deadline">Deadline</label>
+            <input type="date" id="deadline">
+          </div>
+        </div>
+        <button id="addBtn" class="btn-primary">Add Alert</button>
+      </section>
+      
+      <section class="alerts-section">
+        <h2>Prioritized Alerts</h2>
+        <div id="alertsList" class="alerts-list"></div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

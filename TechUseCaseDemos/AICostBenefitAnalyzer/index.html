@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Cost-Benefit Analyzer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>AI Cost-Benefit Analyzer</h1>
+      <p class="subtitle">Financial modeling for AI investments</p>
+    </header>
+    
+    <main>
+      <section class="input-section">
+        <h2>Development Costs</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="dataCost">Data Acquisition & Labeling ($)</label>
+            <input type="number" id="dataCost" value="50000">
+          </div>
+          <div class="field">
+            <label for="computeCost">Compute/Infrastructure ($)</label>
+            <input type="number" id="computeCost" value="30000">
+          </div>
+          <div class="field">
+            <label for="personnelCost">Personnel (Engineer-Years)</label>
+            <input type="number" id="personnelCost" value="2" step="0.5">
+          </div>
+          <div class="field">
+            <label for="personnelRate">Avg. Engineer Rate ($/year)</label>
+            <input type="number" id="personnelRate" value="150000">
+          </div>
+        </div>
+      </section>
+      
+      <section class="input-section">
+        <h2>Business Value</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="expectedVolume">Expected Volume (transactions/month)</label>
+            <input type="number" id="expectedVolume" value="100000">
+          </div>
+          <div class="field">
+            <label for="valuePerTransaction">Value Per Transaction ($)</label>
+            <input type="number" id="valuePerTransaction" value="5">
+          </div>
+          <div class="field">
+            <label for="efficiencyGain">Efficiency Gain (%)</label>
+            <input type="number" id="efficiencyGain" value="20" step="1">
+          </div>
+        </div>
+      </section>
+      
+      <div class="actions">
+        <button id="calculateBtn" class="btn-primary">Calculate ROI</button>
+      </div>
+      
+      <section id="resultsSection" class="results-section hidden">
+        <h2>Financial Analysis</h2>
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-label">Total Development Cost</div>
+            <div class="result-value" id="totalCost">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Annual Business Value</div>
+            <div class="result-value" id="annualValue">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Net Present Value (3 years)</div>
+            <div class="result-value" id="npv">$0</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">ROI (%)</div>
+            <div class="result-value" id="roi">0%</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Payback Period</div>
+            <div class="result-value" id="payback">0 months</div>
+          </div>
+        </div>
+        
+        <div id="recommendation" class="recommendation"></div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

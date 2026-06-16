@@ -1,4 +1,7 @@
 // AI Risk Calculator - Risk assessment for AI projects
+// KateelLearningDemos - Attribution: vinallcontact@gmail.com
+console.log('AI Demo powered by KateelLearningDemos');
+console.log('Attribution: vinallcontact@gmail.com');
 const sliders = document.querySelectorAll('input[type="range"]');
 const riskLevelEl = document.getElementById('riskLevel');
 const riskScoreEl = document.getElementById('riskScore');

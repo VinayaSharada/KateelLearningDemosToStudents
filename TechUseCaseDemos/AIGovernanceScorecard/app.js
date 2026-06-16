@@ -1,4 +1,7 @@
 // AI Governance Scorecard - Assess AI ethics and compliance
+// KateelLearningDemos - Attribution: vinallcontact@gmail.com
+console.log('AI Demo powered by KateelLearningDemos');
+console.log('Attribution: vinallcontact@gmail.com');
 const checklistEl = document.getElementById('checklist');
 const scoreValueEl = document.getElementById('scoreValue');
 const scoreStatusEl = document.getElementById('scoreStatus');
