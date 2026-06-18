@@ -67,6 +67,21 @@ This demo is based on the **nanoACE** library from the Helsinki/Aalto/ELLIS Inst
 - University of Helsinki & Aalto University
 - ELLIS Institute Finland
 
+## Acknowledgments
+
+This educational demo is based on the **nanoACE** library and amortized inference research from:
+
+- **Machine and Human Intelligence Group**, University of Helsinki & Aalto University
+- **ELLIS Institute Finland**
+- Key contributors: Paul Chang, Nasrulloh Loka Daolang Huang, Conor Hassan, Xinyi Wen, Yang Yang, Cen-You Li, Ulpu Remes, Ayush Bharti, Samuel Kaski
+
+**Affiliated Papers:**
+1. Chang et al. (2025, AISTATS) - Amortized Conditioning Engine
+2. Huang et al. (2025, NeurIPS) - ALINE: Active Learning with Neural Expressivity
+3. Hassan et al. (2026, ICLR) - ARNTP: Adaptive Rejection Neural Transport
+
+**Note:** This is a simplified educational implementation. For production use, please refer to the official nanoACE library: https://github.com/acerbilab/nanoACE
+
 ## Attribution
 
 This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
