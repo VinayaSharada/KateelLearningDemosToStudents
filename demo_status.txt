@@ -188,6 +188,11 @@ Total Demos Verified: 61+
 
 Status: COMPLETE
 
+AI Model Philosophy:
+1. Browser-based SLMs (first choice)
+2. Backend SLMs downloaded locally (second choice)
+3. External LLM APIs (last resort)
+
 Critical Open Bugs: 0
 
 Repository State:
