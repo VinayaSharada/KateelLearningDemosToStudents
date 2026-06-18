@@ -132,6 +132,8 @@ We follow a **three-tier approach** for AI model usage:
 | [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity | Option sensitivity measures | Hedge positions, manage risk |
 | [Counterparty Risk](TechUseCaseDemos/CounterpartyRiskDemo/) | CVA/DVA calculations | Credit valuation adjustment | Counterparty risk, expected exposure |
 | [Bond Pricing](TechUseCaseDemos/BondPricingDemo/) | Bond pricing with duration | Present value of cash flows | Yield, duration, premium/discount |
+|| [Bank Failure Prediction](TechUseCaseDemos/BankFailurePrediction/) | Predict bank failures using financial ratios | Credit risk, logistic regression | Regulatory compliance, risk assessment |
+|| [Options Pricing](TechUseCaseDemos/OptionsPricing/) | Options pricing with Greeks | Black-Scholes-Merton calculus | Delta hedging, volatility impact |
 
 ---
 
