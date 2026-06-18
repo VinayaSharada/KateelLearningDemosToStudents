@@ -27,7 +27,7 @@ python classificationdemo.py
 
 | Course | Catalog | Demos | Key Topics |
 |--------|---------|-------|------------|
-| **AI/ML Financial Services** | [Catalog](CourseCatalogs/AI_ML_Financial_Services_Catalog.md) | 6 | Banking, fraud, credit, wealth management |
+| **AI/ML Financial Services** | [Catalog](CourseCatalogs/AI_ML_Financial_Services_Catalog.md) | 11+ | Banking, fraud, credit, wealth management, options, VaR |
 | **Wealth Management** | [Catalog](CourseCatalogs/WealthManagement/README.md) | 3+ | Portfolio theory, options pricing, NPV |
 | **Cyber Security** | [Catalog](CourseCatalogs/Cyber_Security_Catalog.md) | 7+ | IoT security, network penetration, threat detection |
 | **Data Mining** | [Catalog](CourseCatalogs/DataMining/README.md) | 7 | Classification, clustering, forecasting, pattern mining |
@@ -75,6 +75,15 @@ python classificationdemo.py
 ||| [Content Summarizer](TechUseCaseDemos/AIContentSummarizer/) | Extractive vs abstractive summarization |
 ||| [Data Analyzer](TechUseCaseDemos/AIDataAnalyzer/) | Statistical vs AI-powered insights |
 ||| [Probabilistic Decision Engine](TechUseCaseDemos/ProbabilisticDecisionEngine/) | Amortized inference for real-time predictions |
+
+### Advanced Finance Quant (New!)
+| Demo | Description |
+|------|-------------|
+||| [Black-Scholes Option Pricer](TechUseCaseDemos/OptionPricingDemo/) | European option pricing with Greeks |
+||| [Monte Carlo Options](TechUseCaseDemos/MonteCarloOptions/) | Simulation-based exotic option pricing |
+||| [Risk Parity Portfolio](TechUseCaseDemos/RiskParityPortfolio/) | Equalize risk contribution across assets |
+||| [VaR Calculator](TechUseCaseDemos/VaRCalculator/) | Value at Risk with Expected Shortfall |
+||| [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity |
 
 ---
 
@@ -125,4 +134,4 @@ KateelLearningDemosToStudents/
 
 ---
 
-*Total Demos: 54+ | Last Updated: June 2026 | Repository State: PASS*
+*Total Demos: 59+ | Last Updated: June 2026 | Repository State: PASS*
