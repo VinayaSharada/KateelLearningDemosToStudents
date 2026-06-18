@@ -6,6 +6,24 @@
 - Practice prompt engineering for resource discovery
 - Experience the difference in user satisfaction
 
+## Theory Behind This Demo
+
+### Traditional Search
+Based on **Boolean retrieval models** where documents are matched using exact keyword matching. Uses TF-IDF (Term Frequency-Inverse Document Frequency) for ranking.
+
+**Key Concepts:**
+- Inverted index for fast lookup
+- Cosine similarity for document ranking
+- Limited to exact term matches
+
+### AI-Enriched Recommendation
+Based on **embedding-based retrieval** using transformer models. Maps queries and documents into a shared semantic space.
+
+**Key Concepts:**
+- Sentence transformers for semantic embeddings
+- Cosine similarity in embedding space
+- Contextual understanding of user intent
+
 ## How to Run
 1. Open `index.html` in a browser
 2. Enter a learning query (e.g., "Explain machine learning to beginners")

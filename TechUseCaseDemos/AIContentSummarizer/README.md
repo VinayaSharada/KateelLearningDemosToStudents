@@ -6,6 +6,24 @@
 - Practice prompt engineering for content generation
 - Experience toggle between AI/no-AI modes
 
+## Theory Behind This Demo
+
+### Extractive Summarization
+Based on **statistical and heuristic methods** that select important sentences from the source text without generating new content.
+
+**Key Concepts:**
+- Sentence scoring using TF-IDF, TextRank
+- Sliding window approach for coherence
+- Preserves factual accuracy by copying directly
+
+### Abstractive Summarization
+Based on **sequence-to-sequence transformer models** that generate new text summarizing the key points.
+
+**Key Concepts:**
+- Encoder-decoder architecture with attention
+- Autoregressive generation
+- Can capture meaning beyond exact wording
+
 ## How to Run
 1. Open `index.html` in a browser
 2. Toggle "Enable AI Summarization" on/off

@@ -6,6 +6,26 @@
 - Practice prompt engineering for analysis focus
 - Experience toggle between AI/no-AI modes
 
+## Theory Behind This Demo
+
+### Traditional Statistical Analysis
+Based on **descriptive statistics** and **inferential methods** that compute numerical summaries of data.
+
+**Key Concepts:**
+- Central tendency (mean, median, mode)
+- Dispersion (variance, standard deviation)
+- Correlation analysis
+- Hypothesis testing
+
+### AI-Driven Data Analysis
+Based on **large language models** trained on diverse data sources to understand context and generate insights.
+
+**Key Concepts:**
+- Pattern recognition beyond statistics
+- Context-aware interpretation
+- Natural language generation of insights
+- Business context understanding
+
 ## How to Run
 1. Open `index.html` in a browser
 2. Toggle "Enable AI Analysis" on/off

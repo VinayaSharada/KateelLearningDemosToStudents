@@ -9,6 +9,18 @@
 
 ---
 
+## 📊 Repository Statistics
+
+| Metric | Value |
+|--------|-------|
+| **Total Demos** | 61+ |
+| **Browser-Based Demos** | 40+ |
+| **Python Demos** | 20+ |
+| **Courses Covered** | 7 |
+| **Attribution Email** | vinallcontact@gmail.com |
+
+---
+
 ## 🚀 Quick Start (30 Seconds)
 
 ```bash
@@ -69,26 +81,26 @@ python classificationdemo.py
 ||| [University Knowledge Assistant](TechUseCaseDemos/UniversityKnowledgeAssistant/) | Hybrid RAG | FalkorDB + PageIndex + Voice |
 
 ### AI Workflow Demos (Most Memorable!)
-| Demo | Description |
-|------|-------------|
-||| [Learning Resource Recommender](TechUseCaseDemos/AIWorkflowDemo/) | Traditional search vs AI recommendations |
-||| [Content Summarizer](TechUseCaseDemos/AIContentSummarizer/) | Extractive vs abstractive summarization |
-||| [Data Analyzer](TechUseCaseDemos/AIDataAnalyzer/) | Statistical vs AI-powered insights |
-||| [Probabilistic Decision Engine](TechUseCaseDemos/ProbabilisticDecisionEngine/) | Amortized inference for real-time predictions |
+| Demo | Description | Theory | Learning Outcomes |
+|------|-------------|--------|-------------------|
+||| [Learning Resource Recommender](TechUseCaseDemos/AIWorkflowDemo/) | Traditional search vs AI recommendations | Collaborative filtering, embeddings similarity | Compare precision/recall, understand embedding spaces |
+||| [Content Summarizer](TechUseCaseDemos/AIContentSummarizer/) | Extractive vs abstractive summarization | NLP transformer architectures, attention mechanisms | Evaluate coherence vs factual accuracy |
+||| [Data Analyzer](TechUseCaseDemos/AIDataAnalyzer/) | Statistical vs AI-powered data analysis | Descriptive statistics, anomaly detection | Interpret statistical significance vs narrative insights |
+||| [Probabilistic Decision Engine](TechUseCaseDemos/ProbabilisticDecisionEngine/) | Amortized inference for real-time predictions | Variational inference, amortized posterior estimation | Understand trade-offs between speed and accuracy |
 
 ### Agentic AI (CopilotKit)
-| Demo | Description |
-|------|-------------|
-||| [CopilotKit Agent Demo](TechUseCaseDemos/CopilotKitDemo/) | Agentic workflows with streaming and tools |
+| Demo | Description | Theory | Learning Outcomes |
+|------|-------------|--------|-------------------|
+||| [CopilotKit Agent Demo](TechUseCaseDemos/CopilotKitDemo/) | Agentic workflows with streaming and tools | LLM function calling, agent orchestration | Build agentic applications with tool integration |
 
 ### Advanced Finance Quant (New!)
-| Demo | Description |
-|------|-------------|
-||| [Black-Scholes Option Pricer](TechUseCaseDemos/OptionPricingDemo/) | European option pricing with Greeks |
-||| [Monte Carlo Options](TechUseCaseDemos/MonteCarloOptions/) | Simulation-based exotic option pricing |
-||| [Risk Parity Portfolio](TechUseCaseDemos/RiskParityPortfolio/) | Equalize risk contribution across assets |
-||| [VaR Calculator](TechUseCaseDemos/VaRCalculator/) | Value at Risk with Expected Shortfall |
-||| [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity |
+| Demo | Description | Theory | Learning Outcomes |
+|------|-------------|--------|-------------------|
+||| [Black-Scholes Option Pricer](TechUseCaseDemos/OptionPricingDemo/) | European option pricing with Greeks | Black-Scholes-Merton stochastic calculus | Understand delta hedging, volatility impact |
+||| [Monte Carlo Options](TechUseCaseDemos/MonteCarloOptions/) | Simulation-based exotic option pricing | Monte Carlo methods, risk-neutral valuation | Learn convergence, variance reduction techniques |
+||| [Risk Parity Portfolio](TechUseCaseDemos/RiskParityPortfolio/) | Equalize risk contribution across assets | Risk parity theory, volatility weighting | Compare with equal weighting, optimize risk allocation |
+||| [VaR Calculator](TechUseCaseDemos/VaRCalculator/) | Value at Risk with Expected Shortfall | Parametric and historical simulation methods | Understand tail risk, regulatory capital requirements |
+||| [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity | Option sensitivity measures | Hedge option positions, manage risk exposure |
 
 ---
 
@@ -139,4 +151,4 @@ KateelLearningDemosToStudents/
 
 ---
 
-*Total Demos: 60+ | Last Updated: June 2026 | Repository State: PASS*
+*Total Demos: 61+ | Last Updated: June 2026 | Repository State: PASS*
