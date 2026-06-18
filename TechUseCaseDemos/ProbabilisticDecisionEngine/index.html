@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Probabilistic Decision Engine</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Probabilistic Decision Engine</h1>
+      <p class="subtitle">Interactive amortized inference for healthcare decisions</p>
+    </header>
+    
+    <main>
+      <section class="intro">
+        <p><strong>Amortized Conditioning Engine (ACE)</strong> - Change assumptions and queries in real-time to see probabilistic predictions update instantly.</p>
+        <p>Demo: Healthcare treatment decision support with probabilistic inference.</p>
+      </section>
+      
+      <section class="controls-grid">
+        <div class="control-card">
+          <h3>Patient Profile</h3>
+          <div class="field">
+            <label>Age: <span id="ageValue">45</span></label>
+            <input type="range" id="ageSlider" min="18" max="80" value="45" />
+          </div>
+          <div class="field">
+            <label>Biomarker Level: <span id="biomarkerValue">0.65</span></label>
+            <input type="range" id="biomarkerSlider" min="0" max="1" step="0.05" value="0.65" />
+          </div>
+          <div class="field">
+            <label>Symptom Severity: <span id="symptomValue">Medium</span></label>
+            <select id="symptomSelect">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="control-card">
+          <h3>Treatment Options</h3>
+          <div class="field">
+            <label>
+              <input type="checkbox" id="treatmentA" checked /> Standard Treatment
+            </label>
+            <label>
+              <input type="checkbox" id="treatmentB" /> Experimental Therapy
+            </label>
+            <label>
+              <input type="checkbox" id="treatmentC" /> Combination Approach
+            </label>
+          </div>
+          <div class="field">
+            <label for="queryInput">Custom Query</label>
+            <input type="text" id="queryInput" placeholder="e.g., What if age > 60?" />
+          </div>
+        </div>
+      </section>
+      
+      <section class="results-section">
+        <h3>Probabilistic Predictions (Updated in Real-Time)</h3>
+        <div class="predictions-grid">
+          <div class="prediction-card">
+            <h4>Recovery Probability</h4>
+            <div class="probability-bar">
+              <div id="recoveryBar" class="bar-fill"></div>
+            </div>
+            <div id="recoveryValue" class="probability-value">72%</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Risk Assessment</h4>
+            <div class="probability-bar">
+              <div id="riskBar" class="bar-fill risk"></div>
+            </div>
+            <div id="riskValue" class="probability-value">28%</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Treatment Recommendation</h4>
+            <div id="recommendationText" class="recommendation">Standard Treatment recommended</div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="explanation">
+        <h3>How Amortized Inference Works</h3>
+        <ul>
+          <li><strong>Forward Pass:</strong> Neural network predicts posterior in milliseconds</li>
+          <li><strong>Real-time Updates:</strong> Change assumptions → instant predictions</li>
+          <li><strong>Multiple Queries:</strong> Compare scenarios without retraining</li>
+          <li><strong>Applications:</strong> Healthcare, finance, robotics, active learning</li>
+        </ul>
+        <div class="papers">
+          <p><strong>Based on research from:</strong> Helsinki Institute, Aalto University, ELLIS Institute Finland</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
