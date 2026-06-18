@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Monte Carlo Options Pricer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Monte Carlo Options Pricer</h1>
+      <p class="subtitle">Simulate stock paths for option pricing</p>
+    </header>
+    
+    <main>
+      <section class="intro">
+        <p>Monte Carlo simulation generates thousands of possible stock price paths to estimate option prices. More simulations = more accurate results.</p>
+      </section>
+      
+      <section class="controls-grid">
+        <div class="control-card">
+          <h3>Market Parameters</h3>
+          <div class="field">
+            <label>Spot Price (S): <span id="spotValue">100</span></label>
+            <input type="range" id="spotSlider" min="50" max="200" value="100" step="1"/>
+          </div>
+          <div class="field">
+            <label>Volatility (σ): <span id="volValue">0.2</span> (20%)</label>
+            <input type="range" id="volSlider" min="0.05" max="0.5" value="0.2" step="0.01"/>
+          </div>
+          <div class="field">
+            <label>Risk-free Rate (r): <span id="rateValue">0.05</span>%</label>
+            <input type="range" id="rateSlider" min="0" max="10" value="5" step="0.1"/>
+          </div>
+        </div>
+        
+        <div class="control-card">
+          <h3>Simulation Settings</h3>
+          <div class="field">
+            <label>Time to Expiry (T): <span id="timeValue">0.5</span> years</label>
+            <input type="range" id="timeSlider" min="0.08" max="2" value="0.5" step="0.08"/>
+          </div>
+          <div class="field">
+            <label>Number of Paths: <span id="pathsValue">10000</span></label>
+            <input type="range" id="pathsSlider" min="1000" max="50000" value="10000" step="1000"/>
+          </div>
+          <div class="field">
+            <label>Strike Price (K): <span id="strikeValue">100</span></label>
+            <input type="range" id="strikeSlider" min="50" max="150" value="100" step="1"/>
+          </div>
+        </div>
+      </section>
+      
+      <section class="results-section">
+        <h3>Simulation Results</h3>
+        <div class="predictions-grid">
+          <div class="prediction-card">
+            <h4>Call Option Price</h4>
+            <div id="callPrice" class="probability-value">$10.45</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Put Option Price</h4>
+            <div id="putPrice" class="probability-value">$5.57</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Standard Error</h4>
+            <div id="stdError" class="probability-value">$0.12</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Convergence</h4>
+            <div id="convergence" class="probability-value">95%</div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="explanation">
+        <h3>Monte Carlo Method</h3>
+        <ul>
+          <li><strong>Step 1:</strong> Generate random normal variables</li>
+          <li><strong>Step 2:</strong> Simulate stock price paths using GBM</li>
+          <li><strong>Step 3:</strong> Calculate payoff for each path</li>
+          <li><strong>Step 4:</strong> Average payoffs and discount</li>
+        </ul>
+        <div class="papers">
+          <p><strong>Key Insight:</strong> More paths reduce standard error and improve accuracy.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
