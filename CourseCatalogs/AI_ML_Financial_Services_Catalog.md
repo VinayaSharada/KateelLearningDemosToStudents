@@ -24,7 +24,6 @@ This catalog organizes demos relevant to AI/ML applications in financial service
 
 ### Risk Management
 - `TechUseCaseDemos\CounterpartyRiskDemo` - CVA/DVA calculations for counterparty risk
-- `DomainUseCaseDemos\RiskManagement\CounterPartyRisk` - CVA and credit risk
 - `DomainUseCaseDemos\RiskManagement\ContagionModel` - Network-based systemic risk
 
 ### Portfolio Optimization
@@ -34,7 +33,6 @@ This catalog organizes demos relevant to AI/ML applications in financial service
 
 ### Value at Risk
 - `TechUseCaseDemos\VaRCalculator` - VaR and Expected Shortfall calculations
-- `DomainUseCaseDemos\RiskManagement\VaR` - Historical simulation VaR
 
 ## Advanced Level
 
@@ -43,11 +41,6 @@ This catalog organizes demos relevant to AI/ML applications in financial service
 - `TechUseCaseDemos\MonteCarloOptions` - Monte Carlo simulation for exotic options
 - `TechUseCaseDemos\GreeksCalculator` - Delta, Gamma, Vega, Theta sensitivity analysis
 - `TechUseCaseDemos\BondPricingDemo` - Bond pricing with duration
-- `DomainUseCaseDemos\QuantFinance\BlackScholesOption` - European option pricing
-
-### Fixed Income Analytics
-- `TechUseCaseDemos\BondPricingDemo` - Bond pricing and yield calculations
-- `TechUseCaseDemos\RiskParityPortfolio` - Risk parity in fixed income
 
 ### Compliance & AML
 - `DomainUseCaseDemos\Compliance\MuleAccountDetection` - AML transaction monitoring
