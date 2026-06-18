@@ -218,6 +218,16 @@ AI Model Philosophy:
 2. Backend SLMs downloaded locally (second choice)
 3. External LLM APIs (last resort)
 
+Demos Imported from Organization:
+- BankFailurePrediction (bank failure prediction)
+- OptionsPricing (options pricing with Greeks)
+
+All READMEs Enhanced:
+- Theory sections added
+- Learning outcomes tables
+- Use cases documented
+- Visual hierarchy improved
+
 Course Catalogs Updated:
 - AI_ML_Financial_Services_Catalog.md
 - Management_of_AI_Products_Catalog.md
