@@ -9,6 +9,24 @@
 
 ---
 
+## 🎯 AI Model Philosophy
+
+We follow a **three-tier approach** for AI model usage:
+
+| Tier | Approach | Description | Examples |
+|------|----------|-------------|----------|
+| **1st Choice** | **Browser-based SLMs** | Models running locally in browser | SmolLM2, DistilBERT, Whisper Tiny, all-MiniLM |
+| **2nd Choice** | **Backend SLMs (Downloaded)** | Models downloaded and run locally | Phi-3.5, Mistral, Llama.cpp models |
+| **3rd Choice** | **External LLM APIs** | Cloud APIs only when no alternative | OpenAI, Anthropic, Google (last resort) |
+
+**Why this philosophy?**
+- **Zero cloud required** for 80%+ of demos
+- **No API keys** needed for core functionality
+- **Privacy preserved** - data stays local
+- **Cost effective** - no per-token charges
+
+---
+
 ## 📊 Repository Statistics
 
 | Metric | Value |
@@ -147,7 +165,7 @@ KateelLearningDemosToStudents/
 
 ## 🔍 SEO Tags
 
-`AI ML demos, machine learning tutorials, data science projects, NLP examples, RAG implementation, Graph RAG, browser AI, zero-shot learning, transformers.js, sentiment analysis, clustering algorithms, time series forecasting, fraud detection, IoT security labs, responsible AI, emotional AI, knowledge graph, voice assistant demo, synthetic data, classroom AI, educational ML, student projects, faculty resources, university chatbot, university assistant, FalkorDB, PageIndex, Phi-3.5, Mistral, llama.cpp, Web Speech API, PDF extraction, web scraping, university website, educational technology, AI education, machine learning education, NLP tutorials, RAG demos, voice AI, embedded AI, cybersecurity demos, finance ML, banking AI, student support AI, portfolio optimization, black scholes, npv calculator, wealth management, options pricing, capital budgeting, robo advisory, copilotkit, agentic ai`
+`AI ML demos, machine learning tutorials, data science projects, NLP examples, RAG implementation, Graph RAG, browser AI, zero-shot learning, transformers.js, sentiment analysis, clustering algorithms, time series forecasting, fraud detection, IoT security labs, responsible AI, emotional AI, knowledge graph, voice assistant demo, synthetic data, classroom AI, educational ML, student projects, faculty resources, university chatbot, university assistant, FalkorDB, PageIndex, Phi-3.5, Mistral, llama.cpp, Web Speech API, PDF extraction, web scraping, university website, educational technology, AI education, machine learning education, NLP tutorials, RAG demos, voice AI, embedded AI, cybersecurity demos, finance ML, banking AI, student support AI, portfolio optimization, black scholes, npv calculator, wealth management, options pricing, capital budgeting, robo advisory, copilotkit, agentic ai, small language models, slm, browser ai, local models`
 
 ---
 
