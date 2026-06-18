@@ -2,44 +2,21 @@
 
 > **AI/ML Demos for Students, Faculty & Practitioners** | Zero API Keys | Zero Server | 100% Classroom-Ready
 
+[![License: Educational Use](https://img.shields.io/badge/License-Educational%20Use-yellow.svg)](https://opensource.org/licenses)
+[![Demos](https://img.shields.io/badge/Total%20Demos-63%2B-blue)](#)
+[![Courses](https://img.shields.io/badge/Courses-7-blue)](#)
+[![Browser-Based](https://img.shields.io/badge/Browser--Based-42%2B-green)](#)
+[![Python](https://img.shields.io/badge/Python-20%2B-orange)](#)
+
 **Author:** Professor Vinaya Sathyanarayana  
-**GitHub:** [VinayaSharada](https://github.com/VinayaSharada)  
-**Contact:** vinallcontact@gmail.com  
-**License:** Educational Use Only | **Stars:** [![Star Repo](https://img.shields.io/github/stars/VinayaSharada/KateelLearningDemosToStudents?style=social)](https://github.com/VinayaSharada/KateelLearningDemosToStudents/stargazers)
+**GitHub:** [@VinayaSharada](https://github.com/VinayaSharada)  
+**Contact:** [vinallcontact@gmail.com](mailto:vinallcontact@gmail.com)
 
 ---
 
-## 🎯 AI Model Philosophy
+## 🚀 Quick Start
 
-We follow a **three-tier approach** for AI model usage:
-
-| Tier | Approach | Description | Examples |
-|------|----------|-------------|----------|
-| **1st Choice** | **Browser-based SLMs** | Models running locally in browser | SmolLM2, DistilBERT, Whisper Tiny, all-MiniLM |
-| **2nd Choice** | **Backend SLMs (Downloaded)** | Models downloaded and run locally | Phi-3.5, Mistral, Llama.cpp models |
-| **3rd Choice** | **External LLM APIs** | Cloud APIs only when no alternative | OpenAI, Anthropic, Google (last resort) |
-
-**Why this philosophy?**
-- **Zero cloud required** for 80%+ of demos
-- **No API keys** needed for core functionality
-- **Privacy preserved** - data stays local
-- **Cost effective** - no per-token charges
-
----
-
-## 📊 Repository Statistics
-
-|| Metric | Value |
-||--------|-------|
-|| **Total Demos** | 63+ |
-|| **Browser-Based Demos** | 42+ |
-|| **Python Demos** | 20+ |
-|| **Courses Covered** | 7 |
-|| **Attribution Email** | vinallcontact@gmail.com |
-
----
-
-## 🚀 Quick Start (30 Seconds)
+Get started in under 30 seconds:
 
 ```bash
 # Browser Demos - No Installation Required
@@ -53,23 +30,52 @@ python classificationdemo.py
 
 ---
 
-## 📚 Course-Specific Documentation
+## 🎯 AI Model Philosophy
 
-| Course | Catalog | Demos | Key Topics |
-|--------|---------|-------|------------|
-| **AI/ML Financial Services** | [Catalog](CourseCatalogs/AI_ML_Financial_Services_Catalog.md) | 11+ | Banking, fraud, credit, wealth management, options, VaR |
-| **Wealth Management** | [Catalog](CourseCatalogs/WealthManagement/README.md) | 3+ | Portfolio theory, options pricing, NPV |
-| **Cyber Security** | [Catalog](CourseCatalogs/Cyber_Security_Catalog.md) | 7+ | IoT security, network penetration, threat detection |
-| **Data Mining** | [Catalog](CourseCatalogs/DataMining/README.md) | 7 | Classification, clustering, forecasting, pattern mining |
-| **NLP & Information Extraction** | [Catalog](CourseCatalogs/NLP/README.md) | 16+ | Entity recognition, sentiment, RAG, voice assistants |
-| **Management of AI Products** | [Catalog](CourseCatalogs/Management_of_AI_Products_Catalog.md) | 16+ | Product strategy, risk, governance, RAG, financial analysis, **AI Workflow Demos** |
-| **Public Policy & Governance** | [Catalog](CourseCatalogs/PublicPolicyGovernance/README.md) | 2 | Resource allocation, AI compliance |
+We follow a **three-tier approach** for AI model usage:
+
+| Tier | Approach | Description | Examples |
+|------|----------|-------------|----------|
+| **🥇 1st Choice** | **Browser-based SLMs** | Models running locally in browser | SmolLM2, DistilBERT, Whisper Tiny, all-MiniLM |
+| **🥈 2nd Choice** | **Backend SLMs** | Models downloaded and run locally | Phi-3.5, Mistral, Llama.cpp models |
+| **🥉 3rd Choice** | **External LLM APIs** | Cloud APIs only when no alternative | OpenAI, Anthropic, Google (last resort) |
+
+**Why this philosophy?**
+- ✅ **Zero cloud required** for 80%+ of demos
+- ✅ **No API keys** needed for core functionality
+- ✅ **Privacy preserved** - data stays local
+- ✅ **Cost effective** - no per-token charges
+
+---
+
+## 📊 Repository Overview
+
+| Metric | Value |
+|--------|-------|
+| **Total Demos** | 63+ |
+| **Browser-Based Demos** | 42+ |
+| **Python Demos** | 20+ |
+| **Courses Covered** | 7 |
+
+---
+
+## 📚 Course Catalogs
+
+| Course | Demos | Key Topics |
+|--------|-------|------------|
+| **[AI/ML Financial Services](CourseCatalogs/AI_ML_Financial_Services_Catalog.md)** | 11+ | Banking, fraud, credit, wealth management, options, VaR |
+| **[Management of AI Products](CourseCatalogs/Management_of_AI_Products_Catalog.md)** | 16+ | Product strategy, risk, governance, RAG, financial analysis |
+| **[Cyber Security](CourseCatalogs/Cyber_Security_Catalog.md)** | 7+ | IoT security, threat detection, penetration testing |
+| **[NLP & Information Extraction](CourseCatalogs/NLP/README.md)** | 16+ | Entity recognition, sentiment, RAG, voice assistants |
+| **[Data Mining](CourseCatalogs/DataMining/README.md)** | 7 | Classification, clustering, forecasting, pattern mining |
+| **[Wealth Management](CourseCatalogs/WealthManagement/README.md)** | 3+ | Portfolio theory, options pricing, NPV |
+| **[Public Policy & Governance](CourseCatalogs/PublicPolicyGovernance/README.md)** | 2 | Resource allocation, AI compliance |
 
 > **New!** AI Workflow Demos section in Management of AI Products catalog - perfect for showing AI value transformation
 
 ---
 
-## 🎯 Who This Is For
+## 🎓 Who This Is For
 
 | Audience | What You Get |
 |----------|--------------|
@@ -81,57 +87,55 @@ python classificationdemo.py
 
 ## 🤖 Featured Demos
 
-### Browser-Based AI (Zero Cloud)
+### 🌐 Browser-Based AI (Zero Cloud)
+
 | Demo | Model | Size | Use Case |
 |------|-------|------|----------|
-|| [Local Chat Advisor](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/) | SmolLM2-135M | 135 MB | Conversational AI |
-|| [Smart Ticket Tagger](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/) | DistilBERT | 140 MB | Customer support |
-|| [Whisper Voice Transcriber](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/) | Whisper Tiny | 39 MB | Speech-to-text |
-|| [Semantic Search Engine](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/6-semantic-search/) | all-MiniLM | 23 MB | Document search |
+| [Local Chat Advisor](TechUseCaseDemos/Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/) | SmolLM2-135M | 135 MB | Conversational AI |
+| [Smart Ticket Tagger](TechUseCaseDemos/Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/) | DistilBERT | 140 MB | Customer support |
+| [Whisper Voice Transcriber](TechUseCaseDemos/Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/) | Whisper Tiny | 39 MB | Speech-to-text |
+| [Semantic Search Engine](TechUseCaseDemos/Browser-AI-Demos/Browser-AI-Product-Demos/6-semantic-search/) | all-MiniLM | 23 MB | Document search |
 
-### RAG Solutions (New!)
+### 📄 RAG Solutions (New!)
+
 | Demo | Type | Key Feature |
 |------|------|-------------|
-||| [Standard RAG](TechUseCaseDemos/RAGSolutions/StandardRAG/) | Text-based | Document upload + QA |
-||| [Graph RAG](TechUseCaseDemos/RAGSolutions/GraphRAG/) | Graph-based | Knowledge traversal |
-||| [Voice RAG](TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/) | Voice-enabled | Speak + get answers |
-||| [Emotional Support AI](TechUseCaseDemos/EmotionalSupportAssistant/) | Empathetic AI | Emotion detection |
-||| [University Knowledge Assistant](TechUseCaseDemos/UniversityKnowledgeAssistant/) | Hybrid RAG | FalkorDB + PageIndex + Voice |
+| [Standard RAG](TechUseCaseDemos/RAGSolutions/StandardRAG/) | Text-based | Document upload + QA |
+| [Graph RAG](TechUseCaseDemos/RAGSolutions/GraphRAG/) | Graph-based | Knowledge traversal |
+| [Voice RAG](TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/) | Voice-enabled | Speak + get answers |
+| [Emotional Support AI](TechUseCaseDemos/EmotionalSupportAssistant/) | Empathetic AI | Emotion detection |
+| [University Knowledge Assistant](TechUseCaseDemos/UniversityKnowledgeAssistant/) | Hybrid RAG | FalkorDB + PageIndex + Voice |
 
-### AI Workflow Demos (Most Memorable!)
+### 🔁 AI Workflow Demos (Most Memorable!)
+
 | Demo | Description | Theory | Learning Outcomes |
 |------|-------------|--------|-------------------|
-||| [Learning Resource Recommender](TechUseCaseDemos/AIWorkflowDemo/) | Traditional search vs AI recommendations | Collaborative filtering, embeddings similarity | Compare precision/recall, understand embedding spaces |
-||| [Content Summarizer](TechUseCaseDemos/AIContentSummarizer/) | Extractive vs abstractive summarization | NLP transformer architectures, attention mechanisms | Evaluate coherence vs factual accuracy |
-||| [Data Analyzer](TechUseCaseDemos/AIDataAnalyzer/) | Statistical vs AI-powered data analysis | Descriptive statistics, anomaly detection | Interpret statistical significance vs narrative insights |
-||| [Probabilistic Decision Engine](TechUseCaseDemos/ProbabilisticDecisionEngine/) | Amortized inference for real-time predictions | Variational inference, amortized posterior estimation | Understand trade-offs between speed and accuracy |
+| [Learning Resource Recommender](TechUseCaseDemos/AIWorkflowDemo/) | Traditional vs AI recommendations | Collaborative filtering, embeddings | Compare precision/recall, understand embedding spaces |
+| [Content Summarizer](TechUseCaseDemos/AIContentSummarizer/) | Extractive vs abstractive summarization | NLP transformers, attention | Evaluate coherence vs factual accuracy |
+| [Data Analyzer](TechUseCaseDemos/AIDataAnalyzer/) | Statistical vs AI-powered analysis | Descriptive stats, anomaly detection | Interpret statistical vs narrative insights |
+| [Probabilistic Decision Engine](TechUseCaseDemos/ProbabilisticDecisionEngine/) | Amortized inference for predictions | Variational inference | Trade-offs between speed and accuracy |
 
-### Agentic AI (CopilotKit)
+### 💼 Agentic AI (CopilotKit)
+
 | Demo | Description | Theory | Learning Outcomes |
 |------|-------------|--------|-------------------|
-||| [CopilotKit Agent Demo](TechUseCaseDemos/CopilotKitDemo/) | Agentic workflows with streaming and tools | LLM function calling, agent orchestration | Build agentic applications with tool integration |
+| [CopilotKit Agent Demo](TechUseCaseDemos/CopilotKitDemo/) | Agentic workflows with streaming and tools | LLM function calling, orchestration | Build agentic applications with tool integration |
 
-### Advanced Finance Quant (New!)
+### 📈 Advanced Finance Quant (New!)
+
 | Demo | Description | Theory | Learning Outcomes |
 |------|-------------|--------|-------------------|
-||| [Black-Scholes Option Pricer](TechUseCaseDemos/OptionPricingDemo/) | European option pricing with Greeks | Black-Scholes-Merton stochastic calculus | Understand delta hedging, volatility impact |
-||| [Monte Carlo Options](TechUseCaseDemos/MonteCarloOptions/) | Simulation-based exotic option pricing | Monte Carlo methods, risk-neutral valuation | Learn convergence, variance reduction techniques |
-||| [Risk Parity Portfolio](TechUseCaseDemos/RiskParityPortfolio/) | Equalize risk contribution across assets | Risk parity theory, volatility weighting | Compare with equal weighting, optimize risk allocation |
-||| [VaR Calculator](TechUseCaseDemos/VaRCalculator/) | Value at Risk with Expected Shortfall | Parametric and historical simulation methods | Understand tail risk, regulatory capital requirements |
-|||| [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity | Option sensitivity measures | Hedge option positions, manage risk exposure |\n|||| [Counterparty Risk](TechUseCaseDemos/CounterpartyRiskDemo/) | CVA/DVA calculations | Credit valuation adjustment theory | Understand counterparty risk, expected exposure, LGD |\n|||| [Bond Pricing](TechUseCaseDemos/BondPricingDemo/) | Bond pricing with duration | Present value of future cash flows | Understand yield, duration, premium/discount bonds |
+| [Black-Scholes Option Pricer](TechUseCaseDemos/OptionPricingDemo/) | European option pricing with Greeks | Black-Scholes-Merton calculus | Delta hedging, volatility impact |
+| [Monte Carlo Options](TechUseCaseDemos/MonteCarloOptions/) | Simulation-based exotic option pricing | Monte Carlo, risk-neutral valuation | Convergence, variance reduction |
+| [Risk Parity Portfolio](TechUseCaseDemos/RiskParityPortfolio/) | Equalize risk contribution | Risk parity theory | Optimize risk allocation |
+| [VaR Calculator](TechUseCaseDemos/VaRCalculator/) | Value at Risk with Expected Shortfall | Parametric/Historical simulation | Tail risk, regulatory capital |
+| [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity | Option sensitivity measures | Hedge positions, manage risk |
+| [Counterparty Risk](TechUseCaseDemos/CounterpartyRiskDemo/) | CVA/DVA calculations | Credit valuation adjustment | Counterparty risk, expected exposure |
+| [Bond Pricing](TechUseCaseDemos/BondPricingDemo/) | Bond pricing with duration | Present value of cash flows | Yield, duration, premium/discount |
 
 ---
 
-## 🌟 Why A Lot of People Use This
-
-- **No cloud required** - Many demos run entirely in browser
-- **No API keys** - Local models only
-- **Production patterns** - Real-world best practices
-- **Active maintenance** - New demos monthly
-
----
-
-## 📖 Repository Structure
+## 🏗️ Repository Structure
 
 ```
 KateelLearningDemosToStudents/
@@ -145,28 +149,41 @@ KateelLearningDemosToStudents/
 
 ---
 
+## 🎯 Why Use This?
+
+- ✅ **No cloud required** - Many demos run entirely in browser
+- ✅ **No API keys** - Local models only
+- ✅ **Production patterns** - Real-world best practices
+- ✅ **Active maintenance** - New demos monthly
+- ✅ **Educational focus** - Theory + hands-on learning
+
+---
+
 ## 📧 Stay Connected
 
-**Email for course adoption:** vinallcontact@gmail.com  
+**Email for course adoption:** [vinallcontact@gmail.com](mailto:vinallcontact@gmail.com)  
 **Subject format:** `[KateelLearningDemos] Usage - <Your Name/Institution>`
 
 ---
 
-## 📄 Usage Policy
+## 📄 License & Attribution
 
 **Educational Use** - Free for students, faculty, and practitioners.  
 **Attribution required** - Include citation in presentations/publications.
 
 > *Demos and course material adapted from the **KateelLearningDemosToStudents** repository*  
-> *by Professor Vinaya Sathyanarayana (GitHub: VinayaSharada)*  
-> *https://github.com/VinayaSharada/KateelLearningDemosToStudents*
+> *by Professor Vinaya Sathyanarayana*  
+> *[GitHub Repository](https://github.com/VinayaSharada/KateelLearningDemosToStudents)*
 
 ---
 
-## 🔍 SEO Tags
+## ❤️ Support
 
-`AI ML demos, machine learning tutorials, data science projects, NLP examples, RAG implementation, Graph RAG, browser AI, zero-shot learning, transformers.js, sentiment analysis, clustering algorithms, time series forecasting, fraud detection, IoT security labs, responsible AI, emotional AI, knowledge graph, voice assistant demo, synthetic data, classroom AI, educational ML, student projects, faculty resources, university chatbot, university assistant, FalkorDB, PageIndex, Phi-3.5, Mistral, llama.cpp, Web Speech API, PDF extraction, web scraping, university website, educational technology, AI education, machine learning education, NLP tutorials, RAG demos, voice AI, embedded AI, cybersecurity demos, finance ML, banking AI, student support AI, portfolio optimization, black scholes, npv calculator, wealth management, options pricing, capital budgeting, robo advisory, copilotkit, agentic ai, small language models, slm, browser ai, local models, amortized inference, variational inference, value at risk, greeks calculator, risk parity, monte carlo simulation, black scholes option pricing, ai workflow, ai product management, ai governance, ai risk calculator, ai roi calculator, ai product canvas, ai resource planner, ai decision tracker, ai feature impact, ai governance scorecard, ai regulatory tracker, prompt engineering, ai toggle, ai summarization, ai content analysis, probabilistic decision engine, healthcare ai, ai agent demos, streaming ai, ai tools integration, zero api key, zero cloud required, classroom ready, educational resources, professor vinaya sathyanarayana`
+If you find this repository helpful, please consider:
+- ⭐ Starring the repository
+- 🍴 Forking and contributing
+- 📧 Reaching out for collaboration opportunities
 
 ---
 
-*Total Demos: 61+ | Last Updated: June 2026 | Repository State: PASS*
+*Last Updated: June 2026 | Total Demos: 63+*
