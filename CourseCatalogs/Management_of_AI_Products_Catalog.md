@@ -6,99 +6,106 @@ This catalog organizes demos for managing AI products throughout their lifecycle
 ## Product Discovery & Planning
 
 ### Feature Prioritization
-|- `TechUseCaseDemos\\QFDDemo` - Quality Function Deployment for feature prioritization
-|- `TechUseCaseDemos\\AIFeatureImpact` - Prioritize features by business impact
+- `TechUseCaseDemos\QFDDemo` - Quality Function Deployment for feature prioritization
+- `TechUseCaseDemos\AIFeatureImpact` - Prioritize features by business impact
 
 ### Product Canvas
-|- `TechUseCaseDemos\\AIProductCanvas` - AI product planning tool
+- `TechUseCaseDemos\AIProductCanvas` - AI product planning tool
 
 ## Risk & Resource Management
 
 ### Risk Assessment
-|- `TechUseCaseDemos\\AIRiskCalculator` - Assess technical, operational, and compliance risks
+- `TechUseCaseDemos\AIRiskCalculator` - Assess technical, operational, and compliance risks
 
 ### Resource Planning
-|- `TechUseCaseDemos\\AIResourcePlanner` - Estimate compute resources and costs
-|- `TechUseCaseDemos\\AIROICalculator` - AI project ROI estimation
+- `TechUseCaseDemos\AIResourcePlanner` - Estimate compute resources and costs
+- `TechUseCaseDemos\AIROICalculator` - AI project ROI estimation
 
 ## Model & Data Management
 
 ### Model Registry
-|- `TechUseCaseDemos\\MLModelRegistry` - Version and track ML models
+- `TechUseCaseDemos\MLModelRegistry` - Version and track ML models
 
 ### Data Quality
-|- `TechUseCaseDemos\\DataDriftDetector` - Monitor input data distribution changes
+- `TechUseCaseDemos\DataDriftDetector` - Monitor input data distribution changes
 
 ## Performance & Monitoring
 
 ### Performance Dashboard
-|- `TechUseCaseDemos\\AIPerformanceDashboard` - Monitor model metrics and KPIs
+- `TechUseCaseDemos\AIPerformanceDashboard` - Monitor model metrics and KPIs
 
 ## Team & Governance
 
 ### Team Collaboration
-|- `TechUseCaseDemos\\AITeamCollaboration` - RACI matrix for AI projects
+- `TechUseCaseDemos\AITeamCollaboration` - RACI matrix for AI projects
 
 ### Governance
-|- `TechUseCaseDemos\\AIGovernanceScorecard` - Assess AI ethics and compliance
+- `TechUseCaseDemos\AIGovernanceScorecard` - Assess AI ethics and compliance
 
 ### Decision Tracking
-|- `TechUseCaseDemos\\AIDecisionTracker` - Log and review AI product decisions
+- `TechUseCaseDemos\AIDecisionTracker` - Log and review AI product decisions
 
 ### Regulatory Compliance
-|- `TechUseCaseDemos\\AIRegulatoryTracker` - Track compliance requirements and deadlines
+- `TechUseCaseDemos\AIRegulatoryTracker` - Track compliance requirements and deadlines
 
 ## New Demos
 
 ### Product Requirements
-||- `TechUseCaseDemos\\AIPRDTemplate` - Structured template for AI-specific requirements (data, model, ethical considerations)
+- `TechUseCaseDemos\AIPRDTemplate` - Structured template for AI-specific requirements (data, model, ethical considerations)
 
 ### Model Comparison
-||- `TechUseCaseDemos\\ModelVersionComparator` - Compare model versions side-by-side with metrics
+- `TechUseCaseDemos\ModelVersionComparator` - Compare model versions side-by-side with metrics
 
 ### Financial Analysis
-||- `TechUseCaseDemos\\AICostBenefitAnalyzer` - Financial modeling for AI investments (ROI, payback)
+- `TechUseCaseDemos\AICostBenefitAnalyzer` - Financial modeling for AI investments (ROI, payback)
+
+### Quantitative Finance (Advanced)
+- `TechUseCaseDemos\CounterpartyRiskDemo` - CVA/DVA calculations for counterparty risk
+- `TechUseCaseDemos\BondPricingDemo` - Bond pricing with duration calculations
+- `TechUseCaseDemos\OptionPricingDemo` - Black-Scholes European option pricing
+- `TechUseCaseDemos\MonteCarloOptions` - Monte Carlo simulation for exotic options
+- `TechUseCaseDemos\RiskParityPortfolio` - Risk parity portfolio construction
+- `TechUseCaseDemos\VaRCalculator` - VaR and Expected Shortfall calculations
+- `TechUseCaseDemos\GreeksCalculator` - Delta, Gamma, Vega, Theta sensitivity analysis
 
 ### RAG Solutions
-||- `TechUseCaseDemos\\RAGSolutions` - Multiple RAG architectures with voice support
- |  - Standard RAG, Graph RAG, PageIndex RAG
- |  - Voice-enabled variants for all three
+- `TechUseCaseDemos\RAGSolutions` - Multiple RAG architectures with voice support
+  - Standard RAG, Graph RAG, PageIndex RAG
+  - Voice-enabled variants for all three
 
 ### Emotional Support AI
-||- `TechUseCaseDemos\\EmotionalSupportAssistant` - AI companion for loneliness support
- |  - Emotion detection and knowledge graph building
- |  - Empathetic responses with voice support
+- `TechUseCaseDemos\EmotionalSupportAssistant` - AI companion for loneliness support
+  - Emotion detection and knowledge graph building
+  - Empathetic responses with voice support
 
 ### AI Strategy
-||- `DomainUseCaseDemos\\AIStrategy\\FinTechRoadmap001` - Strategic planning tool for AI product lifecycle
+- `DomainUseCaseDemos\AIStrategy\FinTechRoadmap001` - Strategic planning tool for AI product lifecycle
 
 ### Compliance
-||- `DomainUseCaseDemos\\Compliance\\AlertTriage001` - Prioritize regulatory alerts by severity and deadline
+- `DomainUseCaseDemos\Compliance\AlertTriage001` - Prioritize regulatory alerts by severity and deadline
 
 ## AI-Enriched Workflows (Most Memorable!)
 
 ### Workflow Transformation Showcase
-
-||- `TechUseCaseDemos\\AIWorkflowDemo` - Compare traditional vs AI-enriched workflows
- |  - Demonstrates natural language understanding vs keyword search
- |  - Shows personalized recommendations vs static ranking
- |  - Interactive prompt experimentation for students
- |  - Key learning: Value of embedded AI in business processes
+- `TechUseCaseDemos\AIWorkflowDemo` - Compare traditional vs AI-enriched workflows
+  - Demonstrates natural language understanding vs keyword search
+  - Shows personalized recommendations vs static ranking
+  - Interactive prompt experimentation for students
+  - Key learning: Value of embedded AI in business processes
 
 ### Content & Data Analysis
+- `TechUseCaseDemos\AIContentSummarizer` - Traditional vs AI-powered content summarization
+  - Toggle AI on/off to compare approaches
+  - Custom prompts for different summary styles
+  - Experience abstractive vs extractive summarization
 
-||- `TechUseCaseDemos\\AIContentSummarizer` - Traditional vs AI-powered content summarization
- |  - Toggle AI on/off to compare approaches
- |  - Custom prompts for different summary styles
- |  - Experience abstractive vs extractive summarization
-
-|||- `TechUseCaseDemos\\AIDataAnalyzer` - Traditional vs AI-powered data analysis
- |  - Toggle AI on/off to compare statistical vs narrative insights
- |  - Select analysis focus (trends, anomalies, insights, forecast)
- |  - Experience prompt-driven data interpretation
+- `TechUseCaseDemos\AIDataAnalyzer` - Traditional vs AI-powered data analysis
+  - Toggle AI on/off to compare statistical vs narrative insights
+  - Select analysis focus (trends, anomalies, insights, forecast)
+  - Experience prompt-driven data interpretation
 
 ### Probabilistic AI
-|||- `TechUseCaseDemos\\ProbabilisticDecisionEngine` - Amortized inference for probabilistic AI
- |  - Real-time predictions with uncertainty quantification
- |  - Change assumptions and queries instantly
- |  - Healthcare decision support demonstration
+- `TechUseCaseDemos\ProbabilisticDecisionEngine` - Amortized inference for probabilistic AI
+  - Real-time predictions with uncertainty quantification
+  - Change assumptions and queries instantly
+  - Healthcare decision support demonstration
