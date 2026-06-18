@@ -95,6 +95,8 @@ Verification Period: 2026-06-12 to 2026-06-13
 * PASS - GreeksCalculator - Delta, Gamma, Vega, Theta sensitivity
 * PASS - CounterpartyRiskDemo - CVA/DVA calculations
 * PASS - BondPricingDemo - Bond pricing with duration
+* PASS - BankFailurePrediction - Predict bank failures using financial ratios (imported)
+* PASS - OptionsPricing - Options pricing with Greeks (imported)
 
 ### AI Workflow Demos (Most Memorable!)
 
@@ -214,7 +216,7 @@ Removed duplicates:
 
 # Final Result
 
-Total Demos Verified: 61+
+Total Demos Verified: 63+
 
 Status: COMPLETE
 
