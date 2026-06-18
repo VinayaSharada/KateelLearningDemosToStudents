@@ -92,7 +92,13 @@ This catalog organizes demos for managing AI products throughout their lifecycle
  |  - Custom prompts for different summary styles
  |  - Experience abstractive vs extractive summarization
 
-||- `TechUseCaseDemos\\AIDataAnalyzer` - Traditional vs AI-powered data analysis
+|||- `TechUseCaseDemos\\AIDataAnalyzer` - Traditional vs AI-powered data analysis
  |  - Toggle AI on/off to compare statistical vs narrative insights
  |  - Select analysis focus (trends, anomalies, insights, forecast)
  |  - Experience prompt-driven data interpretation
+
+### Probabilistic AI
+|||- `TechUseCaseDemos\\ProbabilisticDecisionEngine` - Amortized inference for probabilistic AI
+ |  - Real-time predictions with uncertainty quantification
+ |  - Change assumptions and queries instantly
+ |  - Healthcare decision support demonstration
