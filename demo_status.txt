@@ -113,6 +113,12 @@ Verification Period: 2026-06-12 to 2026-06-13
 * OptionPricingDemo - Black-Scholes-Merton theory
 * VaRCalculator - VaR and ES theory
 
+### AI Model Philosophy
+All demos follow the three-tier approach:
+1. Browser-based SLMs (first choice)
+2. Backend SLMs downloaded locally (second choice)
+3. External LLM APIs (last resort)
+
 ---
 
 # Bugs Fixed During Verification
