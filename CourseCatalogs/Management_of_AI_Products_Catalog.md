@@ -84,3 +84,15 @@ This catalog organizes demos for managing AI products throughout their lifecycle
  |  - Shows personalized recommendations vs static ranking
  |  - Interactive prompt experimentation for students
  |  - Key learning: Value of embedded AI in business processes
+
+### Content & Data Analysis
+
+||- `TechUseCaseDemos\\AIContentSummarizer` - Traditional vs AI-powered content summarization
+ |  - Toggle AI on/off to compare approaches
+ |  - Custom prompts for different summary styles
+ |  - Experience abstractive vs extractive summarization
+
+||- `TechUseCaseDemos\\AIDataAnalyzer` - Traditional vs AI-powered data analysis
+ |  - Toggle AI on/off to compare statistical vs narrative insights
+ |  - Select analysis focus (trends, anomalies, insights, forecast)
+ |  - Experience prompt-driven data interpretation

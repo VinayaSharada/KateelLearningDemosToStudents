@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Content Summarizer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>AI Content Summarizer</h1>
+      <p class="subtitle">Compare traditional vs AI-powered content summarization</p>
+    </header>
+    
+    <main>
+      <section class="controls">
+        <div class="toggle-section">
+          <label>
+            <input type="checkbox" id="aiToggle" /> Enable AI Summarization
+          </label>
+        </div>
+        
+        <div id="promptSection" class="prompt-section hidden">
+          <div class="field">
+            <label for="summaryPrompt">Custom Summary Prompt</label>
+            <input type="text" id="summaryPrompt" placeholder="Summarize in 3 bullet points for a busy manager..." />
+          </div>
+        </div>
+      </section>
+      
+      <section class="content-section">
+        <div class="field">
+          <label for="contentInput">Paste Content to Summarize</label>
+          <textarea id="contentInput" rows="12">The rapid advancement of artificial intelligence has transformed numerous industries. Machine learning algorithms now power recommendation systems, autonomous vehicles, and medical diagnosis tools. While AI brings unprecedented efficiency and capability, it also raises important questions about job displacement, ethical considerations, and the need for robust governance frameworks. Organizations must balance innovation with responsibility, ensuring AI systems are developed and deployed transparently and fairly. The future of AI depends on collaborative efforts between technologists, policymakers, and society as a whole to maximize benefits while mitigating risks.</textarea>
+        </div>
+        <button id="summarizeBtn" class="btn-primary">Summarize</button>
+      </section>
+      
+      <section id="resultSection" class="result-section hidden">
+        <div class="results-container">
+          <div class="result-card">
+            <h3>Traditional Summary (Extractive)</h3>
+            <div id="traditionalResult" class="result-content"></div>
+          </div>
+          <div class="result-card ai-result">
+            <h3>AI Summary (Abstractive)</h3>
+            <div id="aiResult" class="result-content"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
