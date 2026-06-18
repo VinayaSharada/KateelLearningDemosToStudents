@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Check for broken links
+      run: |
+        echo "Checking for broken links..."
+        # Add link checking logic here
+    - name: Validate demo structure
+      run: |
+        echo "Validating demo structure..."
+        find TechUseCaseDemos -name "index.html" -o -name "README.md" | wc -l
