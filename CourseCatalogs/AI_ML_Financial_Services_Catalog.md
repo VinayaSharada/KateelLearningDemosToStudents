@@ -24,6 +24,7 @@ This catalog organizes demos relevant to AI/ML applications in financial service
 
 ### Risk Management
 - `TechUseCaseDemos\CounterpartyRiskDemo` - CVA/DVA calculations for counterparty risk
+- `TechUseCaseDemos\BankFailurePrediction` - Predict bank failures using financial ratios
 - `DomainUseCaseDemos\RiskManagement\ContagionModel` - Network-based systemic risk
 
 ### Portfolio Optimization
@@ -38,6 +39,7 @@ This catalog organizes demos relevant to AI/ML applications in financial service
 
 ### Quantitative Finance
 - `TechUseCaseDemos\OptionPricingDemo` - Black-Scholes European option pricing
+- `TechUseCaseDemos\OptionsPricing` - Options pricing with Greeks (new)
 - `TechUseCaseDemos\MonteCarloOptions` - Monte Carlo simulation for exotic options
 - `TechUseCaseDemos\GreeksCalculator` - Delta, Gamma, Vega, Theta sensitivity analysis
 - `TechUseCaseDemos\BondPricingDemo` - Bond pricing with duration
