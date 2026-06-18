@@ -88,12 +88,14 @@ Verification Period: 2026-06-12 to 2026-06-13
 * PASS - SecureCodeReview - Static analysis for vulnerabilities
 
 ### Finance & Quant (Advanced)
-
+### Finance & Quant (Advanced)
 * PASS - OptionPricingDemo - Black-Scholes European option pricing
 * PASS - MonteCarloOptions - Monte Carlo simulation for options
 * PASS - RiskParityPortfolio - Equalize risk contribution across assets
 * PASS - VaRCalculator - Value at Risk with Expected Shortfall
 * PASS - GreeksCalculator - Delta, Gamma, Vega, Theta sensitivity
+* PASS - CounterpartyRiskDemo - CVA/DVA calculations
+* PASS - BondPricingDemo - Bond pricing with duration
 
 ### AI Workflow Demos (Most Memorable!)
 
@@ -192,7 +194,7 @@ Updated SEO tags with 50+ additional keywords including:
 
 # Final Result
 
-Total Demos Verified: 61+
+Total Demos Verified: 63+
 
 Status: COMPLETE
 

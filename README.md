@@ -29,13 +29,13 @@ We follow a **three-tier approach** for AI model usage:
 
 ## 📊 Repository Statistics
 
-| Metric | Value |
-|--------|-------|
-| **Total Demos** | 61+ |
-| **Browser-Based Demos** | 40+ |
-| **Python Demos** | 20+ |
-| **Courses Covered** | 7 |
-| **Attribution Email** | vinallcontact@gmail.com |
+|| Metric | Value |
+||--------|-------|
+|| **Total Demos** | 63+ |
+|| **Browser-Based Demos** | 42+ |
+|| **Python Demos** | 20+ |
+|| **Courses Covered** | 7 |
+|| **Attribution Email** | vinallcontact@gmail.com |
 
 ---
 
@@ -118,7 +118,7 @@ python classificationdemo.py
 ||| [Monte Carlo Options](TechUseCaseDemos/MonteCarloOptions/) | Simulation-based exotic option pricing | Monte Carlo methods, risk-neutral valuation | Learn convergence, variance reduction techniques |
 ||| [Risk Parity Portfolio](TechUseCaseDemos/RiskParityPortfolio/) | Equalize risk contribution across assets | Risk parity theory, volatility weighting | Compare with equal weighting, optimize risk allocation |
 ||| [VaR Calculator](TechUseCaseDemos/VaRCalculator/) | Value at Risk with Expected Shortfall | Parametric and historical simulation methods | Understand tail risk, regulatory capital requirements |
-||| [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity | Option sensitivity measures | Hedge option positions, manage risk exposure |
+|||| [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity | Option sensitivity measures | Hedge option positions, manage risk exposure |\n|||| [Counterparty Risk](TechUseCaseDemos/CounterpartyRiskDemo/) | CVA/DVA calculations | Credit valuation adjustment theory | Understand counterparty risk, expected exposure, LGD |\n|||| [Bond Pricing](TechUseCaseDemos/BondPricingDemo/) | Bond pricing with duration | Present value of future cash flows | Understand yield, duration, premium/discount bonds |
 
 ---
 
