@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Bond Pricing Calculator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Bond Pricing Calculator</h1>
+      <p class="subtitle">Calculate bond prices, yield, and duration</p>
+    </header>
+    
+    <main>
+      <section class="intro">
+        <p>Calculate <strong>bond prices</strong>, <strong>yield to maturity</strong>, and <strong>duration</strong> using present value of future cash flows.</p>
+      </section>
+      
+      <section class="controls-grid">
+        <div class="control-card">
+          <h3>Bond Parameters</h3>
+          <div class="field">
+            <label>Face Value: <span id="faceValue">$1000</span></label>
+            <input type="range" id="faceSlider" min="100" max="10000" value="1000" step="100"/>
+          </div>
+          <div class="field">
+            <label>Coupon Rate: <span id="couponValue">5%</span></label>
+            <input type="range" id="couponSlider" min="0.01" max="0.2" value="0.05" step="0.001"/>
+          </div>
+          <div class="field">
+            <label>Years to Maturity: <span id="yearsValue">10</span></label>
+            <input type="range" id="yearsSlider" min="1" max="30" value="10" step="1"/>
+          </div>
+        </div>
+        
+        <div class="control-card">
+          <h3>Market Parameters</h3>
+          <div class="field">
+            <label>Yield to Maturity: <span id="ytmValue">5%</span></label>
+            <input type="range" id="ytmSlider" min="0.01" max="0.2" value="0.05" step="0.001"/>
+          </div>
+          <div class="field">
+            <label>Frequency</label>
+            <select id="freqSelect">
+              <option value="1">Annual</option>
+              <option value="2" selected>Semi-Annual</option>
+              <option value="4">Quarterly</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      
+      <section class="results-section">
+        <h3>Bond Valuation Results</h3>
+        <div class="predictions-grid">
+          <div class="prediction-card">
+            <h4>Bond Price</h4>
+            <div id="priceValue" class="probability-value">$1000.00</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Yield (YTM)</h4>
+            <div id="ytmResult" class="probability-value">5.0%</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Duration</h4>
+            <div id="durationValue" class="probability-value">7.2 yrs</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Par/Yield</h4>
+            <div id="parValue" class="probability-value">At Par</div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="explanation">
+        <h3>Theory</h3>
+        <ul>
+          <li><strong>Bond Price:</strong> PV of coupons + PV of face value</li>
+          <li><strong>Duration:</strong> Weighted average time to cash flows</li>
+          <li><strong>Convexity:</strong> Second-order sensitivity measure</li>
+          <li><strong>Par Bond:</strong> Price = Face when Coupon = YTM</li>
+        </ul>
+        <div class="papers">
+          <p><strong>Formula:</strong> P = Σ C/(1+y)^t + F/(1+y)^T</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
