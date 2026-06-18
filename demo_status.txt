@@ -119,6 +119,14 @@ All demos follow the three-tier approach:
 2. Backend SLMs downloaded locally (second choice)
 3. External LLM APIs (last resort)
 
+### SEO Enhancement
+Updated SEO tags with 50+ additional keywords including:
+- Amortized inference, variational inference
+- Value at risk, Greeks calculator, risk parity
+- Monte Carlo simulation, Black-Scholes option pricing
+- AI workflow, AI product management, AI governance
+- Professor Vinaya Sathyanarayana, KateelLearningDemos
+
 ---
 
 # Bugs Fixed During Verification
