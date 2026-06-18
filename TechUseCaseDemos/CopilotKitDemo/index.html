@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CopilotKit Agent Demo</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>CopilotKit Agent Demo</h1>
+      <p class="subtitle">Agentic AI workflows with streaming and tools</p>
+    </header>
+    
+    <main>
+      <section class="intro">
+        <p>This demo showcases <strong>CopilotKit</strong> - a framework for building agentic AI applications with streaming responses, tool integration, and human-in-the-loop workflows.</p>
+        <p><strong>Key Features:</strong> Real-time streaming, function calling, agent orchestration</p>
+      </section>
+      
+      <section class="demo-area">
+        <div class="chat-container" id="chatContainer">
+          <div class="message assistant">
+            <div class="message-content">
+              <strong>Assistant:</strong> Hello! I'm an AI agent powered by CopilotKit. I can help you with calculations, answer questions, and run tools. Try asking me something!
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-area">
+          <input type="text" id="queryInput" placeholder="Ask me anything..." />
+          <button id="sendBtn">Send</button>
+        </div>
+      </section>
+      
+      <section class="features">
+        <h3>CopilotKit Capabilities</h3>
+        <ul>
+          <li><strong>Streaming:</strong> Real-time response generation</li>
+          <li><strong>Tools:</strong> Function calling for calculations</li>
+          <li><strong>Agents:</strong> Multi-step reasoning workflows</li>
+          <li><strong>Human-in-the-loop:</strong> Intervene when needed</li>
+        </ul>
+      </section>
+      
+      <section class="explanation">
+        <h3>Try These Examples</h3>
+        <ul>
+          <li>"Calculate the Black-Scholes price for S=100, K=105, T=0.5, r=0.05, σ=0.2"</li>
+          <li>"What's the portfolio variance for 60% stocks (20% vol) and 40% bonds (5% vol)?"</li>
+          <li>"Explain risk parity and why it's better than equal weighting"</li>
+        </ul>
+        <div class="papers">
+          <p><strong>Learn More:</strong> https://github.com/copilotkit/copilotkit</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
