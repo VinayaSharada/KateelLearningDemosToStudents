@@ -6,31 +6,31 @@ This page provides quick access to all demos for the Data Mining course covering
 ## 🎯 Core Techniques
 
 ### 📊 Pattern Mining
-| Demo | Description | Location |
-|------|-------------|----------|
-| Frequent Itemset Mining | Apriori/FP-Growth on transaction data | `TechUseCaseDemos/PatternMining/demo002/` |
-| Sequential Pattern Mining | Pattern sequences in temporal data | `TechUseCaseDemos/PatternMining/demo001/` |
-| Sequential Pattern Mining (Advanced) | Advanced sequence mining | `TechUseCaseDemos/PatternMining/demo003/` |
+|| Demo | Description | Location |
+||------|-------------|----------|
+|| Frequent Itemset Mining | Apriori/FP-Growth on transaction data | `TechUseCaseDemos/PatternMining/demo002/` |
+|| Sequential Pattern Mining | Pattern sequences in temporal data | `TechUseCaseDemos/PatternMining/demo001/` |
+|| Sequential Pattern Mining (Advanced) | Advanced sequence mining | `TechUseCaseDemos/PatternMining/demo003/` |
 
 ### 🔵 Clustering
-| Demo | Description | Location |
-|------|-------------|----------|
-| Customer Segmentation | K-Means, DBSCAN, Agglomerative | `TechUseCaseDemos/Clustering/demo002/` |
+|| Demo | Description | Location |
+||------|-------------|----------|
+|| Customer Segmentation | K-Means, DBSCAN, Agglomerative | `TechUseCaseDemos/Clustering/demo002/` |
 
 ### 📈 Classification
-| Demo | Description | Location |
-|------|-------------|----------|
-| Ensemble Classification | Random Forest, Gradient Boosting | `TechUseCaseDemos/Classification/demo001/` |
+|| Demo | Description | Location |
+||------|-------------|----------|
+|| Ensemble Classification | Random Forest, Gradient Boosting | `TechUseCaseDemos/Classification/demo001/` |
 
 ### 📉 Time Series Forecasting
-| Demo | Description | Location |
-|------|-------------|----------|
-| LSTM Forecasting | RNN-based time series prediction | `TechUseCaseDemos/Forecast/tsdemo001/` |
+|| Demo | Description | Location |
+||------|-------------|----------|
+|| LSTM Forecasting | RNN-based time series prediction | `TechUseCaseDemos/Forecast/tsdemo001/` |
 
 ### 🔍 Outlier Detection
-| Demo | Description | Location |
-|------|-------------|----------|
-| Anomaly Detection | Statistical & ML-based methods | `TechUseCaseDemos/Outlier/demo001/` |
+|| Demo | Description | Location |
+||------|-------------|----------|
+|| Anomaly Detection | Statistical & ML-based methods | `TechUseCaseDemos/Outlier/demo001/` |
 
 ## Quick Start
 
@@ -55,10 +55,19 @@ python main.py
 4. **Forecasting** - Predict future values
 5. **Outlier Detection** - Find anomalies
 
+## New Additions
+
+### AI-Powered Analysis
+|| Demo | Description | Location |
+||------|-------------|----------|
+|| DataDriftDetector | Monitor input data distribution changes | `TechUseCaseDemos/DataDriftDetector/` |
+|| FeatureStoreDemo | Manage and serve ML features | `TechUseCaseDemos/FeatureStoreDemo/` |
+|| MLModelRegistry | Version and track ML models | `TechUseCaseDemos/MLModelRegistry/` |
+
 ## Course Catalog
 
 See full catalog: [CourseCatalogs/](../)
 
 ---
 
-*This course is part of the KateelLearningDemosToStudents collection by Professor Vinaya Sathyanarayana.*
+*Total Demos: 7 | Attribution: vinallcontact@gmail.com*

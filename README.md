@@ -23,17 +23,19 @@ python classificationdemo.py
 
 ---
 
-## 📚 Course-Specific Documentation (Top Priority)
+## 📚 Course-Specific Documentation
 
 | Course | Catalog | Demos | Key Topics |
 |--------|---------|-------|------------|
 | **AI/ML Financial Services** | [Catalog](CourseCatalogs/AI_ML_Financial_Services_Catalog.md) | 6 | Banking, fraud, credit, wealth management |
 | **Wealth Management** | [Catalog](CourseCatalogs/WealthManagement/README.md) | 3+ | Portfolio theory, options pricing, NPV |
-| **Cyber Security** | [Catalog](CourseCatalogs/Cyber_Security_Catalog.md) | 2+ | IoT security, network penetration, threat detection |
+| **Cyber Security** | [Catalog](CourseCatalogs/Cyber_Security_Catalog.md) | 7+ | IoT security, network penetration, threat detection |
 | **Data Mining** | [Catalog](CourseCatalogs/DataMining/README.md) | 7 | Classification, clustering, forecasting, pattern mining |
 | **NLP & Information Extraction** | [Catalog](CourseCatalogs/NLP/README.md) | 16+ | Entity recognition, sentiment, RAG, voice assistants |
-| **Management of AI Products** | [Catalog](CourseCatalogs/Management_of_AI_Products_Catalog.md) | 13+ | Product strategy, risk, governance, RAG, financial analysis |
+| **Management of AI Products** | [Catalog](CourseCatalogs/Management_of_AI_Products_Catalog.md) | 16+ | Product strategy, risk, governance, RAG, financial analysis, **AI Workflow Demos** |
 | **Public Policy & Governance** | [Catalog](CourseCatalogs/PublicPolicyGovernance/README.md) | 2 | Resource allocation, AI compliance |
+
+> **New!** AI Workflow Demos section in Management of AI Products catalog - perfect for showing AI value transformation
 
 ---
 
@@ -52,19 +54,26 @@ python classificationdemo.py
 ### Browser-Based AI (Zero Cloud)
 | Demo | Model | Size | Use Case |
 |------|-------|------|----------|
-| [Local Chat Advisor](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/) | SmolLM2-135M | 135 MB | Conversational AI |
-| [Smart Ticket Tagger](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/) | DistilBERT | 140 MB | Customer support |
-| [Whisper Voice Transcriber](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/) | Whisper Tiny | 39 MB | Speech-to-text |
-| [Semantic Search Engine](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/6-semantic-search/) | all-MiniLM | 23 MB | Document search |
+|| [Local Chat Advisor](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/) | SmolLM2-135M | 135 MB | Conversational AI |
+|| [Smart Ticket Tagger](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/) | DistilBERT | 140 MB | Customer support |
+|| [Whisper Voice Transcriber](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/) | Whisper Tiny | 39 MB | Speech-to-text |
+|| [Semantic Search Engine](🤖%20Browser-AI-Demos/Browser-AI-Product-Demos/6-semantic-search/) | all-MiniLM | 23 MB | Document search |
 
 ### RAG Solutions (New!)
-|| Demo | Type | Key Feature |
-||------|------|-------------|
-|| [Standard RAG](TechUseCaseDemos/RAGSolutions/StandardRAG/) | Text-based | Document upload + QA |
-|| [Graph RAG](TechUseCaseDemos/RAGSolutions/GraphRAG/) | Graph-based | Knowledge traversal |
-|| [Voice RAG](TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/) | Voice-enabled | Speak + get answers |
-|| [Emotional Support AI](TechUseCaseDemos/EmotionalSupportAssistant/) | Empathetic AI | Emotion detection |
-|| [University Knowledge Assistant](TechUseCaseDemos/UniversityKnowledgeAssistant/) | Hybrid RAG | FalkorDB + PageIndex + Voice |
+| Demo | Type | Key Feature |
+|------|------|-------------|
+||| [Standard RAG](TechUseCaseDemos/RAGSolutions/StandardRAG/) | Text-based | Document upload + QA |
+||| [Graph RAG](TechUseCaseDemos/RAGSolutions/GraphRAG/) | Graph-based | Knowledge traversal |
+||| [Voice RAG](TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/) | Voice-enabled | Speak + get answers |
+||| [Emotional Support AI](TechUseCaseDemos/EmotionalSupportAssistant/) | Empathetic AI | Emotion detection |
+||| [University Knowledge Assistant](TechUseCaseDemos/UniversityKnowledgeAssistant/) | Hybrid RAG | FalkorDB + PageIndex + Voice |
+
+### AI Workflow Demos (Most Memorable!)
+| Demo | Description |
+|------|-------------|
+||| [Learning Resource Recommender](TechUseCaseDemos/AIWorkflowDemo/) | Traditional search vs AI recommendations |
+||| [Content Summarizer](TechUseCaseDemos/AIContentSummarizer/) | Extractive vs abstractive summarization |
+||| [Data Analyzer](TechUseCaseDemos/AIDataAnalyzer/) | Statistical vs AI-powered insights |
 
 ---
 
@@ -115,4 +124,4 @@ KateelLearningDemosToStudents/
 
 ---
 
-*This repository is actively maintained by Professor Vinaya Sathyanarayana. Star ⭐ to stay notified of new demos and updates.*
+*Total Demos: 53+ | Last Updated: June 2026 | Repository State: PASS*

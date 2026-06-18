@@ -6,75 +6,106 @@ This catalog organizes demos relevant to cybersecurity applications using AI/ML.
 ## IoT Security Labs (Browser-Based)
 
 ### Network Penetration Testing
-- `TechUseCaseDemos\IoT_Ethernet_PenTest_v86` - In-browser Linux VM for network security labs
+|- `TechUseCaseDemos\\IoT_Ethernet_PenTest_v86` - In-browser Linux VM for network security labs
 
 ### Embedded Firmware Security
-- `TechUseCaseDemos\Embedded_Firmware_Exploit_Wokwi` - Raspberry Pi Pico firmware exploitation via Wokwi
+|- `TechUseCaseDemos\\Embedded_Firmware_Exploit_Wokwi` - Raspberry Pi Pico firmware exploitation via Wokwi
 
 ## Threat Detection & Monitoring
 
 ### Fraud & Anomaly Detection
-- `TechUseCaseDemos\FraudPlayground` - Anomaly detection for fraud
-- `DomainUseCaseDemos\CreditCards\CreditCardFraud` - Credit card fraud detection
-- `DomainUseCaseDemos\CreditCards\CreditCardTxnFraud` - Transaction fraud classification
-- `DomainUseCaseDemos\CreditCards\CreditCardFraudOutlier001` - Fraud outlier detection
-- `DomainUseCaseDemos\CreditCards\CreditCardFraudOutlier002` - Advanced fraud outlier detection
+|- `TechUseCaseDemos\\FraudPlayground` - Anomaly detection for fraud
+|- `DomainUseCaseDemos\\CreditCards\\CreditCardFraud` - Credit card fraud detection
+|- `DomainUseCaseDemos\\CreditCards\\CreditCardTxnFraud` - Transaction fraud classification
+|- `DomainUseCaseDemos\\CreditCards\\CreditCardFraudOutlier001` - Fraud outlier detection
+|- `DomainUseCaseDemos\\CreditCards\\CreditCardFraudOutlier002` - Advanced fraud outlier detection
 
 ### Compliance Monitoring
-- `DomainUseCaseDemos\Compliance\MuleAccountDetection` - AML transaction monitoring
+|- `DomainUseCaseDemos\\Compliance\\MuleAccountDetection` - AML transaction monitoring
 
 ## Network & System Security
 
 ### Network Security
-- `TechUseCaseDemos\PatternMining\demo002` - Pattern mining for threat detection
-- `DomainUseCaseDemos\Banking\BankQ` - Queue analytics for operational security
+|- `TechUseCaseDemos\\PatternMining\\demo002` - Pattern mining for threat detection
+|- `DomainUseCaseDemos\\Banking\\BankQ` - Queue analytics for operational security
 
 ## Foundational Security Concepts
 
 ### Statistical Analysis
-- `TechUseCaseDemos\ABTestingFramework` - Statistical significance for security testing
-- `TechUseCaseDemos\CreditScoringDemo` - Risk scoring models applicable to security
+|- `TechUseCaseDemos\\ABTestingFramework` - Statistical significance for security testing
+|- `TechUseCaseDemos\\CreditScoringDemo` - Risk scoring models applicable to security
 
 ## Security Operations
 
 ### Data Protection
-- `TechUseCaseDemos\VoiceNotesApp001` - Secure speech-to-text with localStorage
-- `TechUseCaseDemos\AISummarizer001` - Secure transcript processing
+|- `TechUseCaseDemos\\VoiceNotesApp001` - Secure speech-to-text with localStorage
+|- `TechUseCaseDemos\\AISummarizer001` - Secure transcript processing
 
 ## Risk Management
 
 ### Security Risk Assessment
-- `TechUseCaseDemos\AIRiskCalculator` - Assess technical, operational, and compliance risks
-- `DomainUseCaseDemos\RiskManagement\CounterPartyRisk` - Counterparty risk (applicable to vendor risk)
+|- `TechUseCaseDemos\\AIRiskCalculator` - Assess technical, operational, and compliance risks
+|- `DomainUseCaseDemos\\RiskManagement\\CounterPartyRisk` - Counterparty risk (applicable to vendor risk)
 
 ## Aircraft IoT Cyber Security (Advanced)
 
 ### Penetration Testing
-- `CyberSecurityDemos\IoTAircraftNetwork\PenTestSimulator` - Simulate attacks on aircraft IoT systems
+|- `CyberSecurityDemos\\IoTAircraftNetwork\\PenTestSimulator` - Simulate attacks on aircraft IoT systems
 
 ### Threat Modeling
-- `CyberSecurityDemos\IoTAircraftNetwork\ThreatModelingMatrix` - STRIDE analysis for aviation threats
+|- `CyberSecurityDemos\\IoTAircraftNetwork\\ThreatModelingMatrix` - STRIDE analysis for aviation threats
 
 ### Intrusion Detection
-- `CyberSecurityDemos\IoTAircraftNetwork\IntrusionDetection` - Real-time network monitoring
+|- `CyberSecurityDemos\\IoTAircraftNetwork\\IntrusionDetection` - Real-time network monitoring
 
 ### Network Analysis
-- `CyberSecurityDemos\IoTAircraftNetwork\NetworkTrafficAnalyzer` - Protocol analysis (CAN, ARINC, TCP/UDP)
+|- `CyberSecurityDemos\\IoTAircraftNetwork\\NetworkTrafficAnalyzer` - Protocol analysis (CAN, ARINC, TCP/UDP)
 
 ### Vulnerability Assessment
-- `CyberSecurityDemos\IoTAircraftNetwork\VulnScanner` - CVE-based security assessment
+|- `CyberSecurityDemos\\IoTAircraftNetwork\\VulnScanner` - CVE-based security assessment
 
 ### OWASP ZAP Setup Guide
-- `CyberSecurityDemos\\IoTAircraftNetwork\\OWASP_ZAP_Setup.md` - Browser-based OWASP ZAP setup
+|- `CyberSecurityDemos\\IoTAircraftNetwork\\OWASP_ZAP_Setup.md` - Browser-based OWASP ZAP setup
+
+## New Security Operations Center (SOC) Demos
+
+### SIEM & Monitoring
+|- `TechUseCaseDemos\\SIEMDashboard` - Security Incident and Event Management dashboard
+  - Real-time alert visualization
+  - Incident triage workflows
+
+### Malware Analysis
+|- `TechUseCaseDemos\\MalwareSandbox` - Interactive malware analysis environment
+  - Multi-AV engine detection
+  - Behavioral analysis simulation
+
+### Zero Trust Architecture
+|- `TechUseCaseDemos\\ZeroTrustDemo` - Zero Trust access control simulation
+  - Least-privilege access models
+  - Continuous verification workflows
+
+### Threat Hunting
+|- `TechUseCaseDemos\\ThreatHunter` - ML-powered threat detection
+  - Anomaly detection in security logs
+  - Risk scoring and prioritization
+
+### Secure Code Review
+|- `TechUseCaseDemos\\SecureCodeReview` - Static analysis for vulnerabilities
+  - Common vulnerability patterns
+  - Secure coding best practices
 
 ## New Additions
 
 ### Voice Security Operations
-- `TechUseCaseDemos\\EmotionalSupportAssistant` - Security analyst sentiment analysis
+|- `TechUseCaseDemos\\EmotionalSupportAssistant` - Security analyst sentiment analysis
   - Emotion detection during incident response
   - Voice-enabled security monitoring
 
 ### RAG for Security Documents
-- `TechUseCaseDemos\\RAGSolutions` - Security policy and log analysis
+|- `TechUseCaseDemos\\RAGSolutions` - Security policy and log analysis
   - Standard RAG for incident report analysis
   - PageIndex RAG for compliance document review
+
+---
+
+**Total Demos:** 7+ new security demos | **Attribution:** vinallcontact@gmail.com
