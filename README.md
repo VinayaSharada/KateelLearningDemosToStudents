@@ -74,6 +74,7 @@ python classificationdemo.py
 ||| [Learning Resource Recommender](TechUseCaseDemos/AIWorkflowDemo/) | Traditional search vs AI recommendations |
 ||| [Content Summarizer](TechUseCaseDemos/AIContentSummarizer/) | Extractive vs abstractive summarization |
 ||| [Data Analyzer](TechUseCaseDemos/AIDataAnalyzer/) | Statistical vs AI-powered insights |
+||| [Probabilistic Decision Engine](TechUseCaseDemos/ProbabilisticDecisionEngine/) | Amortized inference for real-time predictions |
 
 ---
 
@@ -124,4 +125,4 @@ KateelLearningDemosToStudents/
 
 ---
 
-*Total Demos: 53+ | Last Updated: June 2026 | Repository State: PASS*
+*Total Demos: 54+ | Last Updated: June 2026 | Repository State: PASS*
