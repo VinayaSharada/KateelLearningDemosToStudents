@@ -3,10 +3,10 @@
 > **AI/ML Demos for Students, Faculty & Practitioners** | Zero API Keys | Zero Server | 100% Classroom-Ready
 
 [![License: Educational Use](https://img.shields.io/badge/License-Educational%20Use-yellow.svg)](https://opensource.org/licenses)
-[![Demos](https://img.shields.io/badge/Total%20Demos-63%2B-blue)](#)
-[![Courses](https://img.shields.io/badge/Courses-7-blue)](#)
-[![Browser-Based](https://img.shields.io/badge/Browser--Based-42%2B-green)](#)
-[![Python](https://img.shields.io/badge/Python-20%2B-orange)](#)
+[![Demos](https://img.shields.io/badge/Total%20Demos-63%2B-blue)](#)]
+[![Courses](https://img.shields.io/badge/Courses-7-blue)](#)]
+[![Browser-Based](https://img.shields.io/badge/Browser--Based-44%2B-green)](#)]
+[![Python](https://img.shields.io/badge/Python-20%2B-orange)](#)]
 
 **Author:** Professor Vinaya Sathyanarayana  
 **GitHub:** [@VinayaSharada](https://github.com/VinayaSharada)  
@@ -53,7 +53,7 @@ We follow a **three-tier approach** for AI model usage:
 | Metric | Value |
 |--------|-------|
 | **Total Demos** | 63+ |
-|| **Browser-Based Demos** | 44+ |
+| **Browser-Based Demos** | 44+ |
 | **Python Demos** | 20+ |
 | **Courses Covered** | 7 |
 

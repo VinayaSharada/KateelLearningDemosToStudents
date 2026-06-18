@@ -1,12 +1,12 @@
 # Options Pricing Calculator
 
-## Learning Objectives
+## 🎯 Learning Objectives
 - Understand the Black-Scholes model for European options
 - Learn how volatility affects option pricing
 - Explore the Greeks (Delta, Gamma, Vega)
 - Understand risk-neutral valuation
 
-## Theory Behind This Demo
+## 📚 Theory Behind This Demo
 
 ### Black-Scholes-Merton Model
 Developed in 1973 by Fischer Black, Myron Scholes, and Robert Merton. Based on **stochastic calculus** and **risk-neutral valuation**.
@@ -29,18 +29,33 @@ d₂ = d₁ - σ√T
 **Delta (Δ)**: Rate of change of option price w.r.t. underlying price  
 **Gamma (Γ)**: Rate of change of delta w.r.t. underlying price  
 **Vega (ν)**: Rate of change of option price w.r.t. volatility  
+**Theta (Θ)**: Rate of change of option price w.r.t. time
 
-## How to Run
+## 🚀 How to Run
 1. Open `index.html` in a browser
 2. Adjust spot price, strike price, and volatility
 3. See call and put prices update in real-time
 4. Observe how Greeks change with parameters
 
-## Key Concepts
+## 🔑 Key Concepts
 - Black-Scholes Formula
 - Option sensitivity measures
 - Delta hedging
 - Volatility impact
+
+## 📊 Learning Outcomes
+| Concept | What You'll Understand |
+|---------|------------------------|
+| Option Pricing | How intrinsic value + time value combine |
+| Volatility Impact | Why OTM options are more sensitive to vol |
+| Time Decay | Why options lose value as expiration approaches |
+| Hedging | How Greeks guide delta-neutral positions |
+
+## 💡 Use Cases
+- **Trading**: Price options for arbitrage
+- **Risk Management**: Calculate hedging ratios (Greeks)
+- **Valuation**: Price employee stock options
+- **Education**: Teach derivatives pricing
 
 ## Attribution
 KateelLearningDemos - vinallcontact@gmail.com
