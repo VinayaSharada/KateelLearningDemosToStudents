@@ -144,6 +144,11 @@ Professional redesign completed:
 - FUNDING.yml
 - SEO keywords in HTML comments
 
+### Duplicates Consolidated
+Removed duplicates:
+- DomainUseCaseDemos\RiskManagement\CounterPartyRisk (kept TechUseCaseDemos version)
+- DomainUseCaseDemos\QuantFinance\BlackScholesOption (kept TechUseCaseDemos version)
+
 ---
 
 # Bugs Fixed During Verification
