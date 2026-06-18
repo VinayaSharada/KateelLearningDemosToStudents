@@ -106,6 +106,13 @@ Verification Period: 2026-06-12 to 2026-06-13
 
 * PASS - CopilotKitDemo - Agentic AI workflows with streaming and tools
 
+### Theory & Learning Outcomes Added
+* AIWorkflowDemo - Embedding-based retrieval theory
+* AIContentSummarizer - Abstractive vs extractive theory
+* AIDataAnalyzer - AI-driven analysis theory
+* OptionPricingDemo - Black-Scholes-Merton theory
+* VaRCalculator - VaR and ES theory
+
 ---
 
 # Bugs Fixed During Verification
