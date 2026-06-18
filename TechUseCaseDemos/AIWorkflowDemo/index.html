@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Workflow Demo: Learning Resource Recommender</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Learning Resource Recommender</h1>
+      <p class="subtitle">Compare traditional vs AI-enriched learning workflows</p>
+    </header>
+    
+    <main>
+      <div class="workflow-toggle">
+        <label for="workflowSelect">Select Workflow:</label>
+        <select id="workflowSelect">
+          <option value="traditional">Traditional Workflow</option>
+          <option value="ai">AI-Enriched Workflow</option>
+        </select>
+      </div>
+      
+      <section class="search-section">
+        <h2>Your Learning Query</h2>
+        <div class="input-group">
+          <input type="text" id="queryInput" placeholder="What do you want to learn? (e.g., 'Explain machine learning to beginners')" />
+          <button id="searchBtn" class="btn-primary">Find Resources</button>
+        </div>
+      </section>
+      
+      <section id="promptSection" class="prompt-section hidden">
+        <h2>AI Prompt Experimentation</h2>
+        <div class="prompt-interface">
+          <textarea id="promptInput" placeholder="Enter your prompt for the AI assistant..." rows="3"></textarea>
+          <button id="customPromptBtn" class="btn-secondary">Run Custom Prompt</button>
+        </div>
+      </section>
+      
+      <section class="results-section">
+        <h2 id="resultsTitle">Recommended Resources</h2>
+        <div id="resultsGrid" class="results-grid"></div>
+      </section>
+      
+      <section class="comparison-section">
+        <h2>Workflow Comparison</h2>
+        <div class="comparison-grid">
+          <div class="workflow-card">
+            <h3>Traditional Workflow</h3>
+            <ul>
+              <li>Keyword search</li>
+              <li>Manual filtering</li>
+              <li>Static ranking</li>
+              <li>Limited personalization</li>
+            </ul>
+          </div>
+          <div class="workflow-card ai-card">
+            <h3>AI-Enriched Workflow</h3>
+            <ul>
+              <li>Natural language understanding</li>
+              <li>Contextual recommendations</li>
+              <li>Learning style adaptation</li>
+              <li>Prompt experimentation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
