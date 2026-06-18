@@ -47,14 +47,28 @@ Amortized Inference (ACE):
 
 The amortized posterior network is trained once, then can make predictions instantly for any new query.
 
-## Research Credits
-Based on work from:
-- Helsinki Institute for Information Science
-- Aalto University
+## Related Work
+
+This demo is based on the **nanoACE** library from the Helsinki/Aalto/ELLIS Institute Finland research group:
+
+- **Playground**: https://acerbilab.github.io/nanoACE/
+- **GitHub**: https://github.com/acerbilab/nanoACE
+- **Paper (AISTATS 2025)**: https://acerbilab.github.io/amortized-conditioning-engine/
+- **Paper (NeurIPS 2025)**: https://huangdaolang.com/aline/
+- **Paper (ICLR 2026)**: https://conorhassan.com/projects/artnp/
+
+### Key Papers
+1. Chang et al. (2025, AISTATS) - Amortized Conditioning Engine
+2. Huang et al. (2025, NeurIPS) - ALINE: Active Learning with Neural Expressivity
+3. Hassan et al. (2026, ICLR) - ARNTP: Adaptive Rejection Neural Transport
+
+### Research Group
+- **Machine and Human Intelligence Group**
+- University of Helsinki & Aalto University
 - ELLIS Institute Finland
-- Contributors: Paul Chang, Nasrulloh Loka Daolang, Conor Hassan, Xinyi Wen, Yang Yang, Cen-You Li, Ulpu Remes, Ayush Bharti, Samuel Kaski
 
 ## Attribution
+
 This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
 
 **Educational Use Only** - For usage guidelines, see the main repository.
