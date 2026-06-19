@@ -36,19 +36,24 @@ function init() {
   compareBtn.addEventListener('click', compareScenarios);
   exportBtn.addEventListener('click', exportResults);
   
+  // Add event listeners to all inputs
+  [inflowsInput, outflowsInput, seasonalSelect].forEach(el => {
+    el.addEventListener('input', updateCalculations);
+  });
+  
   updateCalculations();
 }
 
 function handleScenarioChange() {
   const scenario = scenarioSelect.value;
+  
   if (scenario === 'custom') {
-    customControls.style.display = 'grid';
+    customControls.style.display = 'block';
   } else {
     customControls.style.display = 'none';
-    if (scenarios[scenario]) {
-      updateCalculations();
-    }
   }
+  
+  updateCalculations();
 }
 
 function updateCalculations() {
@@ -88,8 +93,8 @@ function updateCalculations() {
   surplusCashEl.textContent = '$' + surplusCash.toLocaleString();
   
   // Update risk indicators
-  borrowingNeedEl.className = borrowingNeed > 1000000 ? 'kpi-value risk' : 'kpi-value';
-  surplusCashEl.className = surplusCash > 1000000 ? 'kpi-value good' : 'kpi-value';
+  borrowingNeedEl.className = 'kpi-value ' + (borrowingNeed > 1000000 ? 'risk' : 'good');
+  surplusCashEl.className = 'kpi-value ' + (surplusCash > 1000000 ? 'good' : '');
   
   updateAIInsights();
 }
@@ -105,10 +110,10 @@ function updateAIInsights() {
   
   const recommendations = {
     normal: 'Maintain current cash management practices. Consider investing surplus cash for additional returns.',
-    revenueDecline: 'Consider accelerating receivables collection and negotiating extended payment terms with suppliers.',
-    paymentAcceleration: 'Evaluate early payment discounts and optimize payment timing to preserve cash.',
-    emergencyOutflow: 'Activate emergency credit facility and consider asset liquidation options.',
-    custom: 'Review cash flow projections and consider hedging strategies for volatile scenarios.'
+    revenueDecline: 'Consider accelerating receivables collection by 5-7 days and negotiating extended payment terms with suppliers.',
+    paymentAcceleration: 'Evaluate early payment discounts and optimize payment timing to preserve cash. Defer non-critical payments.',
+    emergencyOutflow: 'Activate emergency credit facility immediately. Consider temporary furloughs or delayed vendor payments.',
+    custom: 'Review cash flow projections. Key actions: 1) Accelerate collections, 2) Delay payments, 3) Secure short-term credit.'
   };
   
   recommendationText.textContent = recommendations[scenario] || recommendations.custom;
@@ -124,12 +129,20 @@ function resetValues() {
 }
 
 function compareScenarios() {
-  alert('Comparing all scenarios:\n\n' +
-    'Normal: Ending Cash $16.3M\n' +
-    'Revenue Decline: Ending Cash $14.1M\n' +
-    'Payment Acceleration: Ending Cash $15.2M\n' +
-    'Emergency Outflow: Ending Cash $11.8M\n\n' +
-    'AI recommends optimizing receivables collection to improve cash position.');
+  const scenarios_data = [
+    { name: 'Normal', ending: 15000000 + 5000000 - 4200000 },
+    { name: 'Revenue Decline', ending: 15000000 + 4250000 - 4200000 },
+    { name: 'Payment Acceleration', ending: 15000000 + 5000000 - 5040000 },
+    { name: 'Emergency Outflow', ending: 15000000 + 5000000 - 6300000 }
+  ];
+  
+  let msg = '📊 Scenario Comparison:\n\n';
+  scenarios_data.forEach(s => {
+    msg += `${s.name}: Ending Cash $${Math.round(s.ending/1000000)}M\n`;
+  });
+  msg += '\n💡 AI Recommendation: Optimize receivables collection timing to improve cash position across all scenarios.';
+  
+  alert(msg);
 }
 
 function exportResults() {
@@ -137,6 +150,7 @@ function exportResults() {
     scenario: scenarioSelect.value,
     inflows: inflowsInput.value,
     outflows: outflowsInput.value,
+    seasonal: seasonalSelect.value,
     startingCash: startingCashEl.textContent,
     endingCash: endingCashEl.textContent,
     borrowingNeed: borrowingNeedEl.textContent,

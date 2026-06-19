@@ -20,18 +20,41 @@
     <header>
       <h1>Liquidity Stress Testing Simulator</h1>
       <p class="subtitle">Treasury Modernization & Liquidity Visibility - Session 1</p>
+      <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
+        📚 <strong>Learning Objective:</strong> Understand liquidity forecasting, stress testing scenarios, and AI-driven cash management decisions
+      </p>
     </header>
 
     <main>
+      <!-- Help Section -->
+      <section class="help-section" id="helpSection">
+        <h3>📖 How to Use This Demo</h3>
+        <div class="help-grid">
+          <div class="help-item">
+            <strong>1. Select Scenario:</strong> Choose from preset stress scenarios or create custom
+          </div>
+          <div class="help-item">
+            <strong>2. Adjust Parameters:</strong> Modify cash inflows, outflows, and seasonal factors
+          </div>
+          <div class="help-item">
+            <strong>3. Toggle AI:</strong> Enable AI insights for recommendations
+          </div>
+          <div class="help-item">
+            <strong>4. Analyze Results:</strong> Review ending cash, borrowing needs, and surplus
+          </div>
+        </div>
+      </section>
+
       <!-- Controls Section -->
       <section class="controls-section">
+        <h3>🎛️ Scenario Controls</h3>
         <div class="control-row">
           <div class="control-group">
             <label for="scenarioSelect">Stress Scenario</label>
             <select id="scenarioSelect">
               <option value="normal">Normal Operations</option>
               <option value="revenueDecline">Revenue Decline (-15%)</option>
-              <option value="paymentAcceleration">Payment Acceleration (+20 days)</option>
+              <option value="paymentAcceleration">Payment Acceleration</option>
               <option value="emergencyOutflow">Emergency Investment Outflow</option>
               <option value="custom">Custom Scenario</option>
             </select>
@@ -44,25 +67,28 @@
           </div>
         </div>
 
-        <div class="control-row" id="customControls" style="display: none;">
-          <div class="control-group">
-            <label for="customRevenue">Revenue Change (%)</label>
-            <input type="number" id="customRevenue" value="-10" min="-50" max="50" step="1">
-          </div>
-          <div class="control-group">
-            <label for="customExpenses">Expense Change (%)</label>
-            <input type="number" id="customExpenses" value="5" min="-30" max="30" step="1">
-          </div>
-          <div class="control-group">
-            <label for="customTiming">Cash Timing Shift (days)</label>
-            <input type="number" id="customTiming" value="0" min="-30" max="30" step="1">
+        <div id="customControls" style="display: none;" class="custom-controls">
+          <h4>Custom Scenario Parameters</h4>
+          <div class="control-row">
+            <div class="control-group">
+              <label for="customRevenue">Revenue Change (%)</label>
+              <input type="number" id="customRevenue" value="-10" min="-50" max="50" step="1">
+            </div>
+            <div class="control-group">
+              <label for="customExpenses">Expense Change (%)</label>
+              <input type="number" id="customExpenses" value="5" min="-30" max="30" step="1">
+            </div>
+            <div class="control-group">
+              <label for="customTiming">Cash Timing Shift (days)</label>
+              <input type="number" id="customTiming" value="0" min="-30" max="30" step="1">
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Cash Flow Projection Panel -->
       <section class="panel-section">
-        <h2>Cash Flow Projection Panel</h2>
+        <h3>💰 Cash Flow Projection Panel</h3>
         <div class="cash-flow-grid">
           <div class="flow-item">
             <label>Monthly Inflows ($)</label>
@@ -86,7 +112,7 @@
 
       <!-- Liquidity Dashboard -->
       <section class="dashboard-section">
-        <h2>Liquidity Dashboard</h2>
+        <h3>📊 Liquidity Dashboard</h3>
         <div class="kpi-grid">
           <div class="kpi-card">
             <div class="kpi-label">Starting Cash (USD)</div>
@@ -112,10 +138,10 @@
 
       <!-- AI Comparison View -->
       <section class="ai-comparison-section">
-        <h2>AI Comparison View</h2>
+        <h3>🤖 AI Comparison View</h3>
         <div class="comparison-grid">
           <div class="comparison-card">
-            <h3>Without AI</h3>
+            <h4>Without AI</h4>
             <div class="metric">
               <span>Risk of Shortage:</span>
               <span class="value risk">12%</span>
@@ -126,7 +152,7 @@
             </div>
           </div>
           <div class="comparison-card">
-            <h3>With AI Insights</h3>
+            <h4>With AI Insights</h4>
             <div class="metric">
               <span>Risk of Shortage:</span>
               <span class="value good">3%</span>
@@ -138,7 +164,7 @@
           </div>
         </div>
         <div class="ai-insight" id="aiInsight">
-          <strong>AI Recommendation:</strong> <span id="recommendationText">Consider accelerating receivables collection by 5 days to avoid potential shortage in Month 3.</span>
+          <strong>AI Recommendation:</strong> <span id="recommendationText">Select a scenario to see AI recommendations.</span>
         </div>
       </section>
 
