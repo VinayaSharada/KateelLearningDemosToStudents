@@ -109,6 +109,10 @@ Verification Period: 2026-06-12 to 2026-06-13
 
 * PASS - CopilotKitDemo - Agentic AI workflows with streaming and tools
 
+### LiteParse RAG Demo (New!)
+
+* PASS - LiteParseDemo - PDF-to-markdown conversion for RAG workflows
+
 ### Theory & Learning Outcomes Added
 * AIWorkflowDemo - Embedding-based retrieval theory
 * AIContentSummarizer - Abstractive vs extractive theory
@@ -228,27 +232,6 @@ LiteParse Demo Added:
 All READMEs Enhanced:
 - Theory sections added
 - Learning outcomes tables
-- Use cases documented
-- Visual hierarchy improved
-
-Course Catalogs Updated:
-- AI_ML_Financial_Services_Catalog.md
-- Management_of_AI_Products_Catalog.md
-
-SEO Optimization Files Added:
-- GitHub Actions CI workflow
-- CODEOWNERS file
-- CONTRIBUTING.md
-- FUNDING.yml
-- SEO keywords in HTML comments
-
-Duplicates Consolidated:
-- DomainUseCaseDemos\RiskManagement\CounterPartyRisk
-- DomainUseCaseDemos\QuantFinance\BlackScholesOption
-
-README Enhancement:
-- All demos now have detailed READMEs with theory sections
-- Learning outcomes tables added
 - Use cases documented
 - Visual hierarchy improved
 
