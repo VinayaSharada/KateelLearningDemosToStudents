@@ -3,109 +3,98 @@
 console.log('FX Hedge Strategy Optimizer - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
-// Scenario definitions
-const scenarios = {
-  stable: { vol: 8, trend: 0, name: 'Stable Market' },
-  volatile: { vol: 15, trend: 0, name: 'High Volatility' },
-  trending: { vol: 10, trend: 2, name: 'Strong Trend' },
-  crisis: { vol: 20, trend: -3, name: 'Market Crisis' }
+// Market scenarios
+const marketScenarios = {
+  stable: { vol: 0.05, trend: 0, name: 'Stable Market' },
+  volatile: { vol: 0.15, trend: 0, name: 'High Volatility' },
+  trending: { vol: 0.08, trend: 0.02, name: 'Strong Trend' },
+  crisis: { vol: 0.25, trend: -0.05, name: 'Market Crisis' }
 };
 
 // DOM Elements
 const scenarioSelect = document.getElementById('scenarioSelect');
 const aiToggle = document.getElementById('aiToggle');
-const spotRateInput = document.getElementById('spotRate');
-const exposureInput = document.getElementById('exposureAmount');
-const timeHorizonInput = document.getElementById('timeHorizon');
-const naturalHedgeInput = document.getElementById('naturalHedge');
+const spotRateEl = document.getElementById('spotRate');
+const exposureAmountEl = document.getElementById('exposureAmount');
+const timeHorizonEl = document.getElementById('timeHorizon');
+const naturalHedgeEl = document.getElementById('naturalHedge');
 const aiRecommendation = document.getElementById('aiRecommendation');
 const resetBtn = document.getElementById('resetBtn');
-const compareBtn = document.getElementById('compareBtn');
 const exportBtn = document.getElementById('exportBtn');
+
+let selectedInstrument = 'forward';
 
 // Initialize
 function init() {
-  scenarioSelect.addEventListener('change', updateScenario);
+  scenarioSelect.addEventListener('change', updateMarketConditions);
   aiToggle.addEventListener('change', updateAIInsights);
   resetBtn.addEventListener('click', resetValues);
-  compareBtn.addEventListener('click', compareStrategies);
   exportBtn.addEventListener('click', exportResults);
   
-  updateScenario();
+  // Instrument selection
+  document.querySelectorAll('.instrument-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.instrument-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedInstrument = card.dataset.instrument;
+    });
+  });
+  document.querySelector('.instrument-card').classList.add('selected');
+  
+  updateMarketConditions();
 }
 
-function updateScenario() {
+function updateMarketConditions() {
   const scenario = scenarioSelect.value;
-  const scenarioData = scenarios[scenario];
+  const scenarioData = marketScenarios[scenario];
   
-  if (scenarioData) {
-    // Update UI based on scenario
-    spotRateInput.value = scenario === 'stable' ? 0.92 : scenario === 'volatile' ? 0.91 : 0.93;
-  }
-  
-  updateCalculations();
-}
-
-function updateCalculations() {
-  const spotRate = parseFloat(spotRateInput.value);
-  const exposure = parseFloat(exposureInput.value);
-  const timeHorizon = parseFloat(timeHorizonInput.value);
-  const naturalHedge = parseFloat(naturalHedgeInput.value) || 0;
-  
-  // Calculate forward rate
-  const forwardRate = spotRate * (1 + 0.045 * timeHorizon / 12) / (1 + 0.035 * timeHorizon / 12);
-  
-  // Calculate option premium (simplified)
-  const volatility = 8;
-  const optionPremium = exposure * 0.015;
+  // Update spot rate based on scenario
+  const baseRate = 0.92;
+  const newRate = scenario === 'trending' ? baseRate + scenarioData.trend * 10 : baseRate;
+  spotRateEl.value = newRate.toFixed(4);
   
   updateAIInsights();
 }
 
 function updateAIInsights() {
-  if (!aiToggle.checked) {
-    aiRecommendation.textContent = 'Enable AI Insights to see recommendations.';
-    return;
-  }
+  if (!aiToggle.checked) return;
   
   const scenario = scenarioSelect.value;
-  const exposure = parseFloat(exposureInput.value) || 1000000;
+  const scenarioData = marketScenarios[scenario];
+  const exposure = parseFloat(exposureAmountEl.value) || 1000000;
   
-  const recommendations = {
-    stable: `Based on stable market conditions, recommend 75% hedging with forwards for EUR ${exposure.toLocaleString()} exposure. Estimated cost: $${(exposure * 0.002).toLocaleString()}.`,
-    volatile: `High volatility detected. Recommend options strategy for EUR ${exposure.toLocaleString()} exposure. Estimated cost: $${(exposure * 0.015).toLocaleString()}.`,
-    trending: `Strong trend detected. Consider dynamic hedging with 60% coverage and trend-following overlay.`,
-    crisis: `Market crisis conditions. Recommend maximum hedging (90%) with options for protection.`,
-    custom: `For custom scenario, recommend 70-80% hedging with mix of forwards and options.`
-  };
+  let recommendation = '';
   
-  aiRecommendation.textContent = recommendations[scenario] || recommendations.custom;
+  if (scenarioData.vol > 0.15) {
+    recommendation = `HIGH VOLATILITY DETECTED: Recommend options-based hedging for protection. Consider 80-90% coverage with put options.`;
+  } else if (scenarioData.vol > 0.10) {
+    recommendation = `Moderate volatility: 75% forward contracts + 25% options for balanced approach.`;
+  } else {
+    recommendation = `Stable market: Forward contracts recommended. 75% hedging provides optimal cost-risk balance.`;
+  }
+  
+  recommendation += ` Natural hedge of ${naturalHedgeEl.value}% reduces effective exposure to $${(exposure * (1 - naturalHedgeEl.value/100) / 1000000).toFixed(2)}M.`;
+  
+  aiRecommendation.textContent = recommendation;
 }
 
 function resetValues() {
   scenarioSelect.value = 'stable';
-  spotRateInput.value = 0.92;
-  exposureInput.value = 1000000;
-  timeHorizonInput.value = 6;
-  naturalHedgeInput.value = 30;
-  updateCalculations();
-}
-
-function compareStrategies() {
-  alert('Strategy Comparison Results:\n\n' +
-    'Hedge 50%: ±$32,500 volatility, $15,000 cost\n' +
-    'Hedge 75%: ±$16,250 volatility, $22,500 cost\n' +
-    'Hedge 90%: ±$6,500 volatility, $27,000 cost\n\n' +
-    'AI recommends 75% hedge for optimal risk-return balance.');
+  spotRateEl.value = 0.92;
+  exposureAmountEl.value = 1000000;
+  timeHorizonEl.value = 6;
+  naturalHedgeEl.value = 30;
+  updateMarketConditions();
 }
 
 function exportResults() {
   const data = {
     scenario: scenarioSelect.value,
-    spotRate: spotRateInput.value,
-    exposure: exposureInput.value,
-    timeHorizon: timeHorizonInput.value,
-    naturalHedge: naturalHedgeInput.value,
+    spotRate: spotRateEl.value,
+    exposure: exposureAmountEl.value,
+    timeHorizon: timeHorizonEl.value,
+    naturalHedge: naturalHedgeEl.value,
+    instrument: selectedInstrument,
     aiEnabled: aiToggle.checked,
     timestamp: new Date().toISOString()
   };
@@ -114,7 +103,7 @@ function exportResults() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'fx-hedge-results.json';
+  a.download = 'fx-hedge-strategy.json';
   a.click();
   URL.revokeObjectURL(url);
 }

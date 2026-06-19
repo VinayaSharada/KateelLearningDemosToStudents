@@ -20,18 +20,41 @@
     <header>
       <h1>FX Hedge Strategy Optimizer</h1>
       <p class="subtitle">Treasury Modernization & FX Risk - Session 2</p>
+      <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
+        📚 <strong>Learning Objective:</strong> Compare hedge instruments, understand risk-return trade-offs, and experience AI-driven decision support
+      </p>
     </header>
 
     <main>
+      <!-- Help Section -->
+      <section class="help-section">
+        <h3>📖 How to Use This Demo</h3>
+        <div class="help-grid">
+          <div class="help-item">
+            <strong>1. Select Market Scenario:</strong> Choose market conditions (stable, volatile, crisis)
+          </div>
+          <div class="help-item">
+            <strong>2. Set Exposure:</strong> Enter EUR amount and time horizon
+          </div>
+          <div class="help-item">
+            <strong>3. Choose Hedge Instrument:</strong> Compare Forwards, Options, Swaps, Natural Hedge
+          </div>
+          <div class="help-item">
+            <strong>4. Analyze Strategies:</strong> Compare 50%, 75%, 90% hedging levels
+          </div>
+        </div>
+      </section>
+
       <!-- Controls Section -->
       <section class="controls-section">
+        <h3>🎛️ Market Controls</h3>
         <div class="control-row">
           <div class="control-group">
             <label for="scenarioSelect">Market Scenario</label>
             <select id="scenarioSelect">
               <option value="stable">Stable Market</option>
               <option value="volatile">High Volatility</option>
-              <option value=" trending">Strong Trend</option>
+              <option value="trending">Strong Trend</option>
               <option value="crisis">Market Crisis</option>
               <option value="custom">Custom Scenario</option>
             </select>
@@ -47,7 +70,7 @@
 
       <!-- FX Exposure Calculator -->
       <section class="panel-section">
-        <h2>FX Exposure Calculator</h2>
+        <h3>💱 FX Exposure Calculator</h3>
         <div class="exposure-grid">
           <div class="exposure-item">
             <label for="spotRate">Spot Rate (USD/EUR)</label>
@@ -70,7 +93,7 @@
 
       <!-- Hedge Instrument Selector -->
       <section class="panel-section">
-        <h2>Hedge Instrument Selector</h2>
+        <h3>🛡️ Hedge Instrument Selector</h3>
         <div class="instrument-grid">
           <div class="instrument-card" data-instrument="forward">
             <h3>Forwards</h3>
@@ -97,7 +120,7 @@
 
       <!-- Strategy Comparison -->
       <section class="results-section">
-        <h2>Strategy Comparison</h2>
+        <h3>📊 Strategy Comparison</h3>
         <div class="strategy-grid">
           <div class="strategy-card">
             <h3>Hedge 50%</h3>
@@ -136,8 +159,8 @@
       </section>
 
       <!-- AI Insights -->
-      <section class="ai-section" id="aiSection">
-        <h2>AI Insights</h2>
+      <section class="ai-section">
+        <h3>🤖 AI Insights</h3>
         <div class="ai-insight">
           <strong>AI Recommendation:</strong> <span id="aiRecommendation">Based on current market conditions, recommend 75% hedging with options for optimal risk-return balance.</span>
         </div>
