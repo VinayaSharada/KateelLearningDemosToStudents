@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>KateelLearningDemos - Browser-Based AI Demos</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 2rem; }
+    header h1 { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; }
+    header p { color: #94a3b8; }
+    .demos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .demo-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .demo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .demo-card h3 { color: #60a5fa; margin-bottom: 0.5rem; }
+    .demo-card p { color: #94a3b8; font-size: 0.875rem; margin-bottom: 1rem; }
+    .demo-card a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #3b82f6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.875rem;
+    }
+    .demo-card a:hover { background: #29b6f6; }
+    .section { margin-top: 3rem; }
+    .section h2 { color: #fff; margin-bottom: 1rem; }
+    .attribution { text-align: center; margin-top: 3rem; color: #64748b; font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>KateelLearningDemos</h1>
+      <p>Browser-Based AI/ML Demos for Finance Education</p>
+    </header>
+
+    <div class="demos-grid">
+      <!-- Treasury Management Demos -->
+      <div class="demo-card">
+        <h3>Treasury Control Tower</h3>
+        <p>Real-time liquidity dashboard with forecasting and AI-driven insights.</p>
+        <a href="/TechUseCaseDemos/TreasuryControlTower/">Launch Demo</a>
+      </div>
+      <div class="demo-card">
+        <h3>FX Hedge Simulator</h3>
+        <p>Interactive FX hedging strategy simulator with options pricing.</p>
+        <a href="/TechUseCaseDemos/FXHedgeSimulator/">Launch Demo</a>
+      </div>
+      <div class="demo-card">
+        <h3>CCC Analyzer</h3>
+        <p>Cash Conversion Cycle optimization tool with AI recommendations.</p>
+        <a href="/TechUseCaseDemos/CCCAnalyzer/">Launch Demo</a>
+      </div>
+      <div class="demo-card">
+        <h3>Collections Predictor</h3>
+        <p>AI-powered collections prioritization with payment prediction.</p>
+        <a href="/TechUseCaseDemos/CollectionsPredictor/">Launch Demo</a>
+      </div>
+      <div class="demo-card">
+        <h3>Smart Contract Treasury</h3>
+        <p>Blockchain-based treasury operations with multi-sig workflows.</p>
+        <a href="/TechUseCaseDemos/SmartContractTreasury/">Launch Demo</a>
+      </div>
+      <div class="demo-card">
+        <h3>Stablecoin Manager</h3>
+        <p>Digital asset treasury management with yield optimization.</p>
+        <a href="/TechUseCaseDemos/StablecoinManager/">Launch Demo</a>
+      </div>
+      <div class="demo-card">
+        <h3>AI Hedge Orchestrator</h3>
+        <p>Multi-asset hedging strategy with AI-driven recommendations.</p>
+        <a href="/TechUseCaseDemos/AIHedgeOrchestrator/">Launch Demo</a>
+      </div>
+      <div class="demo-card">
+        <h3>Treasury Transform Blueprint</h3>
+        <p>End-to-end treasury transformation simulator with ROI calculator.</p>
+        <a href="/TechUseCaseDemos/TreasuryTransformBlueprint/">Launch Demo</a>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Attribution: vinallcontact@gmail.com | KateelLearningDemosToStudents
+    </div>
+  </div>
+</body>
+</html>
