@@ -3,18 +3,39 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Smart Contract Treasury</title>
+  <title>Smart Contract Treasury Operations</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <!-- Attribution: vinallcontact@gmail.com -->
   <div class="container">
     <header>
-      <h1>Smart Contract Treasury</h1>
-      <p class="subtitle">Blockchain-based treasury operations</p>
+      <h1>Smart Contract Treasury Operations</h1>
+      <p class="subtitle">Treasury Modernization & Blockchain - Sessions 5-6</p>
     </header>
 
     <main>
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <div class="control-row">
+          <div class="control-group">
+            <label for="scenarioSelect">Treasury Scenario</label>
+            <select id="scenarioSelect">
+              <option value="daily">Daily Operations</option>
+              <option value="monthly">Monthly Settlement</option>
+              <option value="quarterly">Quarterly Treasury</option>
+              <option value="custom">Custom Scenario</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="aiToggle" checked>
+              Enable AI Insights
+            </label>
+          </div>
+        </div>
+      </section>
+
       <!-- Wallet Info -->
       <section class="wallet-section">
         <h2>Treasury Wallet</h2>
@@ -33,15 +54,15 @@
           <div class="balance-grid">
             <div class="balance-item">
               <span class="token">USDC</span>
-              <span class="amount" id="usdcBalance">2,500,000</span>
+              <span class="amount" id="usdcBalance">$2,500,000</span>
             </div>
             <div class="balance-item">
               <span class="token">USDT</span>
-              <span class="amount" id="usdtBalance">1,800,000</span>
+              <span class="amount" id="usdtBalance">$1,800,000</span>
             </div>
             <div class="balance-item">
               <span class="token">DAI</span>
-              <span class="amount" id="daiBalance">950,000</span>
+              <span class="amount" id="daiBalance">$950,000</span>
             </div>
           </div>
         </div>
@@ -102,45 +123,28 @@
         </div>
       </section>
 
-      <!-- Transaction History -->
-      <section class="history-section">
-        <h2>Transaction History</h2>
-        <div class="history-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Hash</th>
-                <th>Type</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0x...7a3b</td>
-                <td>Payment</td>
-                <td>250,000 USDC</td>
-                <td><span class="status completed">Completed</span></td>
-                <td>2024-06-15</td>
-              </tr>
-              <tr>
-                <td>0x...9f2c</td>
-                <td>Approval</td>
-                <td>Multi-sig</td>
-                <td><span class="status completed">Completed</span></td>
-                <td>2024-06-14</td>
-              </tr>
-              <tr>
-                <td>0x...4e8d</td>
-                <td>Payment</td>
-                <td>75,000 USDT</td>
-                <td><span class="status completed">Completed</span></td>
-                <td>2024-06-10</td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- AI Insights -->
+      <section class="ai-section" id="aiSection">
+        <h2>AI Security Insights</h2>
+        <div class="ai-insight">
+          <strong>AI Recommendation:</strong> <span id="aiRecommendation">Transaction TX-001 requires additional verification. Recommend multi-factor authentication for large transfers.</span>
         </div>
+        <div class="ai-metrics">
+          <div class="ai-metric">
+            <span>Fraud Risk Score:</span>
+            <span class="value">2%</span>
+          </div>
+          <div class="ai-metric">
+            <span>Smart Contract Safety:</span>
+            <span class="value">High</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <section class="actions-section">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="exportBtn">Export Results</button>
       </section>
     </main>
   </div>

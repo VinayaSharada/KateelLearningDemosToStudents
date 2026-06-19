@@ -1,48 +1,94 @@
-// Smart Contract Treasury
+// Smart Contract Treasury Operations
 // KateelLearningDemos - Attribution: vinallcontact@gmail.com
-console.log('Smart Contract Treasury - Powered by KateelLearningDemos');
+console.log('Smart Contract Treasury Operations - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
-// Simulated blockchain interaction
-const mockWallet = {
-  address: '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
-  balances: { USDC: 2500000, USDT: 1800000, DAI: 950000 }
+// Scenario definitions
+const scenarios = {
+  daily: { name: 'Daily Operations', txCount: 5, avgAmount: 25000 },
+  monthly: { name: 'Monthly Settlement', txCount: 1, avgAmount: 150000 },
+  quarterly: { name: 'Quarterly Treasury', txCount: 1, avgAmount: 500000 }
 };
 
-// Execute payment simulation
-document.getElementById('executeBtn').addEventListener('click', function() {
-  const recipient = document.getElementById('recipient').value;
-  const amount = document.getElementById('amount').value;
-  const token = document.getElementById('token').value;
+// DOM Elements
+const scenarioSelect = document.getElementById('scenarioSelect');
+const aiToggle = document.getElementById('aiToggle');
+const resetBtn = document.getElementById('resetBtn');
+const exportBtn = document.getElementById('exportBtn');
+const aiRecommendation = document.getElementById('aiRecommendation');
+
+// Initialize
+function init() {
+  scenarioSelect.addEventListener('change', updateScenario);
+  aiToggle.addEventListener('change', updateAIInsights);
+  resetBtn.addEventListener('click', resetValues);
+  exportBtn.addEventListener('click', exportResults);
   
-  if (!recipient || !amount) {
-    alert('Please fill in all fields');
+  updateScenario();
+}
+
+function updateScenario() {
+  const scenario = scenarioSelect.value;
+  const scenarioData = scenarios[scenario];
+  
+  // Update balances based on scenario
+  const usdcBalance = scenarioData.name === 'Daily Operations' ? 2500000 : 3000000;
+  const usdtBalance = scenarioData.name === 'Daily Operations' ? 1800000 : 2200000;
+  const daiBalance = scenarioData.name === 'Daily Operations' ? 950000 : 1200000;
+  
+  document.getElementById('usdcBalance').textContent = '$' + usdcBalance.toLocaleString();
+  document.getElementById('usdtBalance').textContent = '$' + usdtBalance.toLocaleString();
+  document.getElementById('daiBalance').textContent = '$' + daiBalance.toLocaleString();
+  
+  updateAIInsights();
+}
+
+function updateAIInsights() {
+  if (!aiToggle.checked) {
+    aiRecommendation.textContent = 'Enable AI Insights to see security recommendations.';
     return;
   }
   
-  // Simulate transaction
-  alert(`Transaction initiated!\nRecipient: ${recipient}\nAmount: ${amount} ${token}\n\nThis would trigger a multi-sig approval workflow in production.`);
-});
+  const scenario = scenarioSelect.value;
+  
+  const recommendations = {
+    daily: 'Monitor transaction frequency. Consider batch processing to reduce gas costs.',
+    monthly: 'Review monthly settlement patterns. Optimize timing for better exchange rates.',
+    quarterly: 'Large quarterly transfers require additional security verification. Recommend multi-factor approval.',
+    custom: 'Ensure all transactions follow treasury policies. AI monitors for anomalies.'
+  };
+  
+  aiRecommendation.textContent = recommendations[scenario] || recommendations.custom;
+}
 
-// Approve transaction
-document.querySelectorAll('.btn-approve').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const txItem = this.closest('.tx-item');
-    txItem.classList.remove('pending');
-    txItem.classList.add('completed');
-    txItem.querySelector('.tx-actions').innerHTML = '<span class="status completed">Approved</span>';
-  });
-});
+function resetValues() {
+  scenarioSelect.value = 'daily';
+  document.getElementById('recipient').value = '';
+  document.getElementById('amount').value = 50000;
+  document.getElementById('token').value = 'USDC';
+  updateScenario();
+}
 
-// Reject transaction
-document.querySelectorAll('.btn-reject').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const txItem = this.closest('.tx-item');
-    txItem.classList.remove('pending');
-    txItem.classList.add('rejected');
-    txItem.querySelector('.tx-actions').innerHTML = '<span class="status rejected">Rejected</span>';
-  });
-});
+function exportResults() {
+  const data = {
+    scenario: scenarioSelect.value,
+    balances: {
+      usdc: document.getElementById('usdcBalance').textContent,
+      usdt: document.getElementById('usdtBalance').textContent,
+      dai: document.getElementById('daiBalance').textContent
+    },
+    aiEnabled: aiToggle.checked,
+    timestamp: new Date().toISOString()
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'smart-contract-treasury-results.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
 
-// Initialize
-console.log('Smart Contract Treasury initialized');
+// Initialize on load
+document.addEventListener('DOMContentLoaded', init);
