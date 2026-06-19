@@ -1,89 +1,123 @@
-// FX Hedge Simulator
+// FX Hedge Strategy Optimizer
 // KateelLearningDemos - Attribution: vinallcontact@gmail.com
-console.log('FX Hedge Simulator - Powered by KateelLearningDemos');
+console.log('FX Hedge Strategy Optimizer - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
-// Black-Scholes Option Pricing
-function blackScholesPut(S, K, T, r, sigma) {
-  // S = Spot price
-  // K = Strike price
-  // T = Time to maturity (in years)
-  // r = Risk-free rate
-  // sigma = Volatility
-  
-  if (T <= 0) return Math.max(K - S, 0);
-  
-  const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * Math.sqrt(T));
-  const d2 = d1 - sigma * Math.sqrt(T);
-  
-  // Cumulative normal distribution approximation
-  const N = (x) => 0.5 * (1 + erf(x / Math.sqrt(2)));
-  
-  const put = K * Math.exp(-r * T) * N(-d2) - S * N(-d1);
-  return put;
-}
+// Scenario definitions
+const scenarios = {
+  stable: { vol: 8, trend: 0, name: 'Stable Market' },
+  volatile: { vol: 15, trend: 0, name: 'High Volatility' },
+  trending: { vol: 10, trend: 2, name: 'Strong Trend' },
+  crisis: { vol: 20, trend: -3, name: 'Market Crisis' }
+};
 
-// Error function approximation
-function erf(x) {
-  const a1 =  0.254829592;
-  const a2 = -0.284496736;
-  const a3 =  1.421413741;
-  const a4 = -1.453152027;
-  const a5 =  1.061405429;
-  const p  =  0.3275911;
-  
-  const sign = x < 0 ? -1 : 1;
-  x = Math.abs(x);
-  
-  const t = 1.0 / (1.0 + p * x);
-  const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
-  
-  return sign * y;
-}
-
-// Forward Rate Calculation
-function calculateForwardRate(spot, usdRate, eurRate, timeMonths) {
-  const T = timeMonths / 12;
-  return spot * (1 + (usdRate / 100) * T) / (1 + (eurRate / 100) * T);
-}
-
-// Update calculations
-function updateCalculations() {
-  // Get input values
-  const spotRate = parseFloat(document.getElementById('spotRate').value);
-  const exposureAmount = parseFloat(document.getElementById('exposureAmount').value);
-  const timeHorizon = parseFloat(document.getElementById('timeHorizon').value);
-  const usdRate = parseFloat(document.getElementById('usdRate').value);
-  const eurRate = parseFloat(document.getElementById('eurRate').value);
-  const strikePrice = parseFloat(document.getElementById('strikePrice').value);
-  const volatility = parseFloat(document.getElementById('volatility').value) / 100;
-  const riskFreeRate = parseFloat(document.getElementById('riskFreeRate').value) / 100;
-  
-  // Calculate forward rate
-  const forwardRate = calculateForwardRate(spotRate, usdRate, eurRate, timeHorizon);
-  const forwardCost = exposureAmount * forwardRate;
-  
-  // Calculate option price
-  const T = timeHorizon / 12;
-  const optionPrice = blackScholesPut(spotRate, strikePrice, T, riskFreeRate, volatility);
-  const optionPremium = exposureAmount * optionPrice;
-  const optionPV = optionPremium; // Simplified
-  
-  // Update UI
-  document.getElementById('forwardRate').textContent = forwardRate.toFixed(4);
-  document.getElementById('forwardCost').textContent = '$' + (forwardCost / 1000000).toFixed(2) + 'M';
-  document.getElementById('optionPremium').textContent = '$' + (optionPremium / 1000).toFixed(0);
-  document.getElementById('optionPV').textContent = '$' + (optionPV / 1000).toFixed(0);
-}
+// DOM Elements
+const scenarioSelect = document.getElementById('scenarioSelect');
+const aiToggle = document.getElementById('aiToggle');
+const spotRateInput = document.getElementById('spotRate');
+const exposureInput = document.getElementById('exposureAmount');
+const timeHorizonInput = document.getElementById('timeHorizon');
+const naturalHedgeInput = document.getElementById('naturalHedge');
+const aiRecommendation = document.getElementById('aiRecommendation');
+const resetBtn = document.getElementById('resetBtn');
+const compareBtn = document.getElementById('compareBtn');
+const exportBtn = document.getElementById('exportBtn');
 
 // Initialize
-document.addEventListener('DOMContentLoaded', function() {
-  // Add event listeners to all inputs
-  const inputs = document.querySelectorAll('input');
-  inputs.forEach(input => {
-    input.addEventListener('input', updateCalculations);
-  });
+function init() {
+  scenarioSelect.addEventListener('change', updateScenario);
+  aiToggle.addEventListener('change', updateAIInsights);
+  resetBtn.addEventListener('click', resetValues);
+  compareBtn.addEventListener('click', compareStrategies);
+  exportBtn.addEventListener('click', exportResults);
   
-  // Initial calculation
+  updateScenario();
+}
+
+function updateScenario() {
+  const scenario = scenarioSelect.value;
+  const scenarioData = scenarios[scenario];
+  
+  if (scenarioData) {
+    // Update UI based on scenario
+    spotRateInput.value = scenario === 'stable' ? 0.92 : scenario === 'volatile' ? 0.91 : 0.93;
+  }
+  
   updateCalculations();
-});
+}
+
+function updateCalculations() {
+  const spotRate = parseFloat(spotRateInput.value);
+  const exposure = parseFloat(exposureInput.value);
+  const timeHorizon = parseFloat(timeHorizonInput.value);
+  const naturalHedge = parseFloat(naturalHedgeInput.value) || 0;
+  
+  // Calculate forward rate
+  const forwardRate = spotRate * (1 + 0.045 * timeHorizon / 12) / (1 + 0.035 * timeHorizon / 12);
+  
+  // Calculate option premium (simplified)
+  const volatility = 8;
+  const optionPremium = exposure * 0.015;
+  
+  updateAIInsights();
+}
+
+function updateAIInsights() {
+  if (!aiToggle.checked) {
+    aiRecommendation.textContent = 'Enable AI Insights to see recommendations.';
+    return;
+  }
+  
+  const scenario = scenarioSelect.value;
+  const exposure = parseFloat(exposureInput.value) || 1000000;
+  
+  const recommendations = {
+    stable: `Based on stable market conditions, recommend 75% hedging with forwards for EUR ${exposure.toLocaleString()} exposure. Estimated cost: $${(exposure * 0.002).toLocaleString()}.`,
+    volatile: `High volatility detected. Recommend options strategy for EUR ${exposure.toLocaleString()} exposure. Estimated cost: $${(exposure * 0.015).toLocaleString()}.`,
+    trending: `Strong trend detected. Consider dynamic hedging with 60% coverage and trend-following overlay.`,
+    crisis: `Market crisis conditions. Recommend maximum hedging (90%) with options for protection.`,
+    custom: `For custom scenario, recommend 70-80% hedging with mix of forwards and options.`
+  };
+  
+  aiRecommendation.textContent = recommendations[scenario] || recommendations.custom;
+}
+
+function resetValues() {
+  scenarioSelect.value = 'stable';
+  spotRateInput.value = 0.92;
+  exposureInput.value = 1000000;
+  timeHorizonInput.value = 6;
+  naturalHedgeInput.value = 30;
+  updateCalculations();
+}
+
+function compareStrategies() {
+  alert('Strategy Comparison Results:\n\n' +
+    'Hedge 50%: ±$32,500 volatility, $15,000 cost\n' +
+    'Hedge 75%: ±$16,250 volatility, $22,500 cost\n' +
+    'Hedge 90%: ±$6,500 volatility, $27,000 cost\n\n' +
+    'AI recommends 75% hedge for optimal risk-return balance.');
+}
+
+function exportResults() {
+  const data = {
+    scenario: scenarioSelect.value,
+    spotRate: spotRateInput.value,
+    exposure: exposureInput.value,
+    timeHorizon: timeHorizonInput.value,
+    naturalHedge: naturalHedgeInput.value,
+    aiEnabled: aiToggle.checked,
+    timestamp: new Date().toISOString()
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'fx-hedge-results.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', init);

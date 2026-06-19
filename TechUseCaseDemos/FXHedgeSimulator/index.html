@@ -3,145 +3,153 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>FX Hedge Simulator</title>
+  <title>FX Hedge Strategy Optimizer</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <!-- Attribution: vinallcontact@gmail.com -->
   <div class="container">
     <header>
-      <h1>FX Hedge Simulator</h1>
-      <p class="subtitle">Interactive currency hedging strategy tool</p>
+      <h1>FX Hedge Strategy Optimizer</h1>
+      <p class="subtitle">Treasury Modernization & FX Risk - Session 2</p>
     </header>
 
     <main>
-      <!-- Exposure Input -->
-      <section class="input-section">
-        <h2>Currency Exposure</h2>
-        <div class="grid">
-          <div class="field">
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <div class="control-row">
+          <div class="control-group">
+            <label for="scenarioSelect">Market Scenario</label>
+            <select id="scenarioSelect">
+              <option value="stable">Stable Market</option>
+              <option value="volatile">High Volatility</option>
+              <option value=" trending">Strong Trend</option>
+              <option value="crisis">Market Crisis</option>
+              <option value="custom">Custom Scenario</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="aiToggle" checked>
+              Enable AI Insights
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- FX Exposure Calculator -->
+      <section class="panel-section">
+        <h2>FX Exposure Calculator</h2>
+        <div class="exposure-grid">
+          <div class="exposure-item">
             <label for="spotRate">Spot Rate (USD/EUR)</label>
             <input type="number" id="spotRate" step="0.0001" value="0.92">
           </div>
-          <div class="field">
+          <div class="exposure-item">
             <label for="exposureAmount">Exposure Amount (EUR)</label>
             <input type="number" id="exposureAmount" value="1000000" step="100000">
           </div>
-          <div class="field">
+          <div class="exposure-item">
             <label for="timeHorizon">Time Horizon (Months)</label>
             <input type="number" id="timeHorizon" value="6" min="1" max="24">
           </div>
-        </div>
-      </section>
-
-      <!-- Forward Contract Calculator -->
-      <section class="calculator-section">
-        <h2>Forward Contract</h2>
-        <div class="grid">
-          <div class="field">
-            <label for="usdRate">USD Interest Rate (%)</label>
-            <input type="number" id="usdRate" step="0.25" value="4.5">
-          </div>
-          <div class="field">
-            <label for="eurRate">EUR Interest Rate (%)</label>
-            <input type="number" id="eurRate" step="0.25" value="3.5">
-          </div>
-        </div>
-        <div class="result-box">
-          <div class="result-item">
-            <span>Forward Rate:</span>
-            <span class="result-value" id="forwardRate">0.9152</span>
-          </div>
-          <div class="result-item">
-            <span>Estimated Cost:</span>
-            <span class="result-value" id="forwardCost">$920,000</span>
+          <div class="exposure-item">
+            <label for="naturalHedge">Natural Hedge Available (%)</label>
+            <input type="number" id="naturalHedge" value="30" min="0" max="100">
           </div>
         </div>
       </section>
 
-      <!-- Options Pricing -->
-      <section class="calculator-section">
-        <h2>Currency Option (Put)</h2>
-        <div class="grid">
-          <div class="field">
-            <label for="strikePrice">Strike Price</label>
-            <input type="number" id="strikePrice" step="0.0001" value="0.93">
+      <!-- Hedge Instrument Selector -->
+      <section class="panel-section">
+        <h2>Hedge Instrument Selector</h2>
+        <div class="instrument-grid">
+          <div class="instrument-card" data-instrument="forward">
+            <h3>Forwards</h3>
+            <p>Fixed rate, known timing</p>
+            <div class="cost">Cost: 0.2%</div>
           </div>
-          <div class="field">
-            <label for="volatility">Implied Volatility (%)</label>
-            <input type="number" id="volatility" step="0.5" value="8.0">
+          <div class="instrument-card" data-instrument="option">
+            <h3>Options</h3>
+            <p>Protection with premium cost</p>
+            <div class="cost">Cost: 1.5%</div>
           </div>
-          <div class="field">
-            <label for="riskFreeRate">Risk-Free Rate (%)</label>
-            <input type="number" id="riskFreeRate" step="0.25" value="4.0">
+          <div class="instrument-card" data-instrument="swap">
+            <h3>Swaps</h3>
+            <p>Longer-term equilibrium</p>
+            <div class="cost">Cost: 0.5%</div>
           </div>
-        </div>
-        <div class="result-box">
-          <div class="result-item">
-            <span>Option Premium:</span>
-            <span class="result-value" id="optionPremium">$25,450</span>
-          </div>
-          <div class="result-item">
-            <span>Present Value:</span>
-            <span class="result-value" id="optionPV">$24,800</span>
+          <div class="instrument-card" data-instrument="natural">
+            <h3>Natural Hedge</h3>
+            <p>No cost, slower execution</p>
+            <div class="cost">Cost: 0%</div>
           </div>
         </div>
       </section>
 
-      <!-- Correlation Analysis -->
-      <section class="analysis-section">
-        <h2>Currency Correlation Matrix</h2>
-        <div class="correlation-grid">
-          <div class="corr-cell">
-            <div class="corr-label">USD/EUR</div>
-            <div class="corr-value">0.85</div>
-          </div>
-          <div class="corr-cell">
-            <div class="corr-label">USD/GBP</div>
-            <div class="corr-value">0.78</div>
-          </div>
-          <div class="corr-cell">
-            <div class="corr-label">USD/JPY</div>
-            <div class="corr-value">0.65</div>
-          </div>
-          <div class="corr-cell">
-            <div class="corr-label">EUR/GBP</div>
-            <div class="corr-value">0.72</div>
-          </div>
-        </div>
-        <p class="corr-note">Higher correlation = more effective hedging with related currencies</p>
-      </section>
-
-      <!-- Hedge Effectiveness -->
+      <!-- Strategy Comparison -->
       <section class="results-section">
-        <h2>Hedge Effectiveness</h2>
-        <div class="effectiveness-grid">
-          <div class="effect-card">
-            <div class="effect-label">Unhedged Risk</div>
-            <div class="effect-value risk">±$65,000</div>
+        <h2>Strategy Comparison</h2>
+        <div class="strategy-grid">
+          <div class="strategy-card">
+            <h3>Hedge 50%</h3>
+            <div class="metric">
+              <span>P&L Volatility:</span>
+              <span class="value">±$32,500</span>
+            </div>
+            <div class="metric">
+              <span>Hedging Cost:</span>
+              <span class="value">$15,000</span>
+            </div>
           </div>
-          <div class="effect-card">
-            <div class="effect-label">Forward Hedge</div>
-            <div class="effect-value neutral">±$12,000</div>
+          <div class="strategy-card">
+            <h3>Hedge 75%</h3>
+            <div class="metric">
+              <span>P&L Volatility:</span>
+              <span class="value">±$16,250</span>
+            </div>
+            <div class="metric">
+              <span>Hedging Cost:</span>
+              <span class="value">$22,500</span>
+            </div>
           </div>
-          <div class="effect-card">
-            <div class="effect-label">Option Hedge</div>
-            <div class="effect-value good">±$8,500</div>
-          </div>
-          <div class="effect-card">
-            <div class="effect-label">Risk Reduction</div>
-            <div class="effect-value success">81%</div>
+          <div class="strategy-card recommended">
+            <h3>Hedge 90%</h3>
+            <div class="metric">
+              <span>P&L Volatility:</span>
+              <span class="value">±$6,500</span>
+            </div>
+            <div class="metric">
+              <span>Hedging Cost:</span>
+              <span class="value">$27,000</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Strategy Recommendation -->
-      <section class="recommendation-section">
-        <h2>Strategy Recommendation</h2>
-        <div class="recommendation-box">
-          <p><strong>Recommended: Currency Forward</strong></p>
-          <p>For EUR 1,000,000 exposure over 6 months, a forward contract at 0.9152 provides the best risk-return balance. The option strategy offers slightly better protection but at higher cost.</p>
+      <!-- AI Insights -->
+      <section class="ai-section" id="aiSection">
+        <h2>AI Insights</h2>
+        <div class="ai-insight">
+          <strong>AI Recommendation:</strong> <span id="aiRecommendation">Based on current market conditions, recommend 75% hedging with options for optimal risk-return balance.</span>
         </div>
+        <div class="ai-metrics">
+          <div class="ai-metric">
+            <span>Confidence Score:</span>
+            <span class="value">87%</span>
+          </div>
+          <div class="ai-metric">
+            <span>Model Accuracy:</span>
+            <span class="value">92%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action Buttons -->
+      <section class="actions-section">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="compareBtn">Compare All Strategies</button>
+        <button class="btn" id="exportBtn">Export Results</button>
       </section>
     </main>
   </div>
