@@ -1,0 +1,213 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+main {
+  display: grid;
+  gap: 2rem;
+}
+
+section {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.75rem;
+}
+
+/* Summary Grid */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.summary-card {
+  background: rgba(0,0,0,0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.summary-label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.summary-value {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #60a5fa;
+}
+
+.summary-value.success {
+  color: #4ade80;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+th {
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+td {
+  color: #cbd5e1;
+}
+
+td.overdue {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+/* Probability Bar */
+.prob-bar {
+  display: inline-block;
+  width: 80px;
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.prob-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ade80, #22c55e);
+  border-radius: 4px;
+}
+
+/* Risk Badges */
+.risk {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.risk.low {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4ade80;
+}
+
+.risk.high {
+  background: rgba(255, 152, 0, 0.2);
+  color: #fbbf24;
+}
+
+.risk.critical {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f87171;
+}
+
+/* Action Buttons */
+.btn-action {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+}
+
+.btn-action:hover {
+  background: #29b6f6;
+}
+
+/* Forecast Grid */
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.forecast-item {
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.forecast-label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.forecast-prob {
+  font-size: 0.75rem;
+  color: #60a5fa;
+  margin-top: 0.25rem;
+}
+
+/* Attribution Marker */
+body::after {
+  content: "KateelLearningDemos";
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  font-size: 8px;
+  color: rgba(255,255,255,0.1);
+  pointer-events: none;
+  z-index: 9999;
+}

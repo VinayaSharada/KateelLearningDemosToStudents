@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Smart Contract Treasury</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Smart Contract Treasury</h1>
+      <p class="subtitle">Blockchain-based treasury operations</p>
+    </header>
+
+    <main>
+      <!-- Wallet Info -->
+      <section class="wallet-section">
+        <h2>Treasury Wallet</h2>
+        <div class="wallet-info">
+          <div class="wallet-item">
+            <div class="wallet-label">Wallet Address</div>
+            <div class="wallet-value" id="walletAddress">0x742d35Cc6634C0532925a3b844Bc454e4438f44e</div>
+          </div>
+          <div class="wallet-item">
+            <div class="wallet-label">Signer Status</div>
+            <div class="wallet-value"><span class="status connected">Connected</span></div>
+          </div>
+        </div>
+        <div class="balances">
+          <h3>Token Balances</h3>
+          <div class="balance-grid">
+            <div class="balance-item">
+              <span class="token">USDC</span>
+              <span class="amount" id="usdcBalance">2,500,000</span>
+            </div>
+            <div class="balance-item">
+              <span class="token">USDT</span>
+              <span class="amount" id="usdtBalance">1,800,000</span>
+            </div>
+            <div class="balance-item">
+              <span class="token">DAI</span>
+              <span class="amount" id="daiBalance">950,000</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Execute Payment -->
+      <section class="payment-section">
+        <h2>Execute Payment</h2>
+        <div class="payment-form">
+          <div class="grid">
+            <div class="field">
+              <label for="recipient">Recipient Address</label>
+              <input type="text" id="recipient" placeholder="0x...">
+            </div>
+            <div class="field">
+              <label for="amount">Amount</label>
+              <input type="number" id="amount" value="50000" step="1000">
+            </div>
+            <div class="field">
+              <label for="token">Token</label>
+              <select id="token">
+                <option value="USDC">USDC</option>
+                <option value="USDT">USDT</option>
+                <option value="DAI">DAI</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-execute" id="executeBtn">Execute Multi-sig Payment</button>
+        </div>
+      </section>
+
+      <!-- Pending Transactions -->
+      <section class="pending-section">
+        <h2>Pending Transactions</h2>
+        <div class="transactions">
+          <div class="tx-item pending">
+            <div class="tx-info">
+              <span class="tx-id">TX-001</span>
+              <span class="tx-recipient">0x...a8b2</span>
+              <span class="tx-amount">50,000 USDC</span>
+            </div>
+            <div class="tx-actions">
+              <button class="btn-approve">Approve</button>
+              <button class="btn-reject">Reject</button>
+            </div>
+          </div>
+          <div class="tx-item pending">
+            <div class="tx-info">
+              <span class="tx-id">TX-002</span>
+              <span class="tx-recipient">0x...c4d1</span>
+              <span class="tx-amount">125,000 USDT</span>
+            </div>
+            <div class="tx-actions">
+              <button class="btn-approve">Approve</button>
+              <button class="btn-reject">Reject</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Transaction History -->
+      <section class="history-section">
+        <h2>Transaction History</h2>
+        <div class="history-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Hash</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0x...7a3b</td>
+                <td>Payment</td>
+                <td>250,000 USDC</td>
+                <td><span class="status completed">Completed</span></td>
+                <td>2024-06-15</td>
+              </tr>
+              <tr>
+                <td>0x...9f2c</td>
+                <td>Approval</td>
+                <td>Multi-sig</td>
+                <td><span class="status completed">Completed</span></td>
+                <td>2024-06-14</td>
+              </tr>
+              <tr>
+                <td>0x...4e8d</td>
+                <td>Payment</td>
+                <td>75,000 USDT</td>
+                <td><span class="status completed">Completed</span></td>
+                <td>2024-06-10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Collections Predictor</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Collections Predictor</h1>
+      <p class="subtitle">AI-powered collections prioritization dashboard</p>
+    </header>
+
+    <main>
+      <!-- Summary Stats -->
+      <section class="summary-section">
+        <h2>Collections Overview</h2>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-label">Total AR Outstanding</div>
+            <div class="summary-value">$45.2M</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">Overdue Invoices</div>
+            <div class="summary-value">1,247</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">Predicted Recovery</div>
+            <div class="summary-value success">$38.5M</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">Forecast Accuracy</div>
+            <div class="summary-value">87%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Invoice Table -->
+      <section class="invoice-section">
+        <h2>Invoice Predictions</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Customer</th>
+                <th>Amount</th>
+                <th>Age (Days)</th>
+                <th>Pay Prob (7d)</th>
+                <th>Pay Prob (14d)</th>
+                <th>Dispute Risk</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>INV-2024-001247</td>
+                <td>TechCorp Inc</td>
+                <td>$125,000</td>
+                <td class="overdue">45</td>
+                <td><span class="prob-bar"><span class="prob-fill" style="width: 85%"></span></span></td>
+                <td><span class="prob-bar"><span class="prob-fill" style="width: 95%"></span></span></td>
+                <td><span class="risk low">Low</span></td>
+                <td><button class="btn-action">Call</button></td>
+              </tr>
+              <tr>
+                <td>INV-2024-001198</td>
+                <td>Global Solutions</td>
+                <td>$89,500</td>
+                <td class="overdue">68</td>
+                <td><span class="prob-bar"><span class="prob-fill" style="width: 45%"></span></span></td>
+                <td><span class="prob-bar"><span class="prob-fill" style="width: 70%"></span></span></td>
+                <td><span class="risk high">High</span></td>
+                <td><button class="btn-action">Escalate</button></td>
+              </tr>
+              <tr>
+                <td>INV-2024-001302</td>
+                <td>District Energy</td>
+                <td>$210,000</td>
+                <td class="overdue">32</td>
+                <td><span class="prob-bar"><span class="prob-fill" style="width: 95%"></span></span></td>
+                <td><span class="prob-bar"><span class="prob-fill" style="width: 98%"></span></span></td>
+                <td><span class="risk low">Low</span></td>
+                <td><button class="btn-action">Email</button></td>
+              </tr>
+              <tr>
+                <td>INV-2024-001256</td>
+                <td>City Council</td>
+                <td>$345,000</td>
+                <td class="overdue">92</td>
+                <td><span class="prob-bar"><span class="prob-fill" style="width: 20%"></span></span></td>
+                <td><span class="prob-bar"><span class="prob-fill" style="width: 40%"></span></span></td>
+                <td><span class="risk critical">Critical</span></td>
+                <td><button class="btn-action">Legal</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Collections Forecast -->
+      <section class="forecast-section">
+        <h2>Collections Forecast</h2>
+        <div class="forecast-grid">
+          <div class="forecast-item">
+            <div class="forecast-label">Week 1</div>
+            <div class="forecast-value">$8.2M</div>
+            <div class="forecast-prob">85% confidence</div>
+          </div>
+          <div class="forecast-item">
+            <div class="forecast-label">Week 2</div>
+            <div class="forecast-value">$7.8M</div>
+            <div class="forecast-prob">82% confidence</div>
+          </div>
+          <div class="forecast-item">
+            <div class="forecast-label">Week 3</div>
+            <div class="forecast-value">$6.5M</div>
+            <div class="forecast-prob">78% confidence</div>
+          </div>
+          <div class="forecast-item">
+            <div class="forecast-label">Week 4</div>
+            <div class="forecast-value">$5.9M</div>
+            <div class="forecast-prob">75% confidence</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

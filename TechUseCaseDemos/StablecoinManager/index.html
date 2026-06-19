@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Stablecoin Manager</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Stablecoin Manager</h1>
+      <p class="subtitle">Digital asset treasury management</p>
+    </header>
+
+    <main>
+      <!-- Total Holdings -->
+      <section class="holdings-section">
+        <h2>Total Stablecoin Holdings</h2>
+        <div class="total-holdings">
+          <div class="total-value">$42,500,000</div>
+          <div class="total-label">Total Value Locked (TVL)</div>
+        </div>
+        <div class="asset-grid">
+          <div class="asset-item">
+            <span class="asset-symbol">USDC</span>
+            <span class="asset-amount">$25,000,000</span>
+            <span class="asset-pct">58.8%</span>
+          </div>
+          <div class="asset-item">
+            <span class="asset-symbol">USDT</span>
+            <span class="asset-amount">$12,000,000</span>
+            <span class="asset-pct">28.2%</span>
+          </div>
+          <div class="asset-item">
+            <span class="asset-symbol">DAI</span>
+            <span class="asset-amount">$5,500,000</span>
+            <span class="asset-pct">13.0%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Allocation Strategy -->
+      <section class="allocation-section">
+        <h2>Allocation Strategy</h2>
+        <div class="allocation-controls">
+          <div class="alloc-control">
+            <label for="lendingPct">Lending (Aave)</label>
+            <input type="range" id="lendingPct" min="0" max="100" value="60">
+            <span id="lendingPctVal">60%</span>
+          </div>
+          <div class="alloc-control">
+            <label for="dexPct">DEX Liquidity (Curve)</label>
+            <input type="range" id="dexPct" min="0" max="100" value="25">
+            <span id="dexPctVal">25%</span>
+          </div>
+          <div class="alloc-control">
+            <label for="cashPct">Cash Reserve</label>
+            <input type="range" id="cashPct" min="0" max="100" value="15">
+            <span id="cashPctVal">15%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Yield Projections -->
+      <section class="yield-section">
+        <h2>Yield Projections (Annual)</h2>
+        <div class="yield-grid">
+          <div class="yield-card">
+            <div class="yield-label">Aave Lending</div>
+            <div class="yield-value" id="aaveYield">3.2%</div>
+            <div class="yield-amount">$1,360,000</div>
+          </div>
+          <div class="yield-card">
+            <div class="yield-label">Curve Pools</div>
+            <div class="yield-value" id="curveYield">2.8%</div>
+            <div class="yield-amount">$1,190,000</div>
+          </div>
+          <div class="yield-card">
+            <div class="yield-label">Convex Boost</div>
+            <div class="yield-value" id="convexYield">4.5%</div>
+            <div class="yield-amount">$1,912,500</div>
+          </div>
+          <div class="yield-card total">
+            <div class="yield-label">Total Projected Yield</div>
+            <div class="yield-value" id="totalYield">3.6%</div>
+            <div class="yield-amount">$1,532,500</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Risk Metrics -->
+      <section class="risk-section">
+        <h2>Risk Metrics</h2>
+        <div class="risk-grid">
+          <div class="risk-item">
+            <span class="risk-label">Sharpe Ratio</span>
+            <span class="risk-value">1.85</span>
+          </div>
+          <div class="risk-item">
+            <span class="risk-label">Volatility (30d)</span>
+            <span class="risk-value">1.2%</span>
+          </div>
+          <div class="risk-item">
+            <span class="risk-label">Max Drawdown</span>
+            <span class="risk-value">-2.5%</span>
+          </div>
+          <div class="risk-item">
+            <span class="risk-label">Value at Risk (95%)</span>
+            <span class="risk-value">$2,100,000</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Position Summary -->
+      <section class="position-section">
+        <h2>Position Summary</h2>
+        <div class="position-grid">
+          <div class="position-item">
+            <span>On-Chain TVL</span>
+            <span class="pos-value">$26,750,000</span>
+          </div>
+          <div class="position-item">
+            <span>Off-Chain Cash</span>
+            <span class="pos-value">$15,750,000</span>
+          </div>
+          <div class="position-item">
+            <span>Allocated to Strategies</span>
+            <span class="pos-value success">$22,175,000</span>
+          </div>
+          <div class="position-item">
+            <span>Unallocated</span>
+            <span class="pos-value warning">$20,325,000</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

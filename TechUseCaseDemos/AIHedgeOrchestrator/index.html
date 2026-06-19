@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI Hedge Orchestrator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>AI Hedge Orchestrator</h1>
+      <p class="subtitle">Multi-asset hedging strategy simulator</p>
+    </header>
+
+    <main>
+      <!-- Portfolio Exposure -->
+      <section class="portfolio-section">
+        <h2>Portfolio Exposure</h2>
+        <div class="exposure-grid">
+          <div class="exposure-item">
+            <span class="exposure-label">EUR Exposure</span>
+            <input type="number" class="exposure-input" id="eurExposure" value="5000000" step="100000">
+            <span class="exposure-currency">USD</span>
+          </div>
+          <div class="exposure-item">
+            <span class="exposure-label">GBP Exposure</span>
+            <input type="number" class="exposure-input" id="gbpExposure" value="3000000" step="100000">
+            <span class="exposure-currency">USD</span>
+          </div>
+          <div class="exposure-item">
+            <span class="exposure-label">JPY Exposure</span>
+            <input type="number" class="exposure-input" id="jpyExposure" value="200000000" step="1000000">
+            <span class="exposure-currency">USD</span>
+          </div>
+          <div class="exposure-item">
+            <span class="exposure-label">Commodity Exposure</span>
+            <input type="number" class="exposure-input" id="commodityExposure" value="1500000" step="100000">
+            <span class="exposure-currency">USD</span>
+          </div>
+        </div>
+        <button class="btn-optimize" id="optimizeBtn">Optimize Hedge Ratios</button>
+      </section>
+
+      <!-- AI Recommendations -->
+      <section class="recommendation-section">
+        <h2>AI Hedge Recommendations</h2>
+        <div class="recommendation-grid">
+          <div class="rec-card">
+            <div class="rec-asset">EUR/USD</div>
+            <div class="rec-hedge">
+              <span class="rec-label">Hedge Ratio</span>
+              <span class="rec-value" id="eurHedge">85%</span>
+            </div>
+            <div class="rec-confidence">Confidence: 92%</div>
+          </div>
+          <div class="rec-card">
+            <div class="rec-asset">GBP/USD</div>
+            <div class="rec-hedge">
+              <span class="rec-label">Hedge Ratio</span>
+              <span class="rec-value" id="gbpHedge">70%</span>
+            </div>
+            <div class="rec-confidence">Confidence: 87%</div>
+          </div>
+          <div class="rec-card">
+            <div class="rec-asset">USD/JPY</div>
+            <div class="rec-hedge">
+              <span class="rec-label">Hedge Ratio</span>
+              <span class="rec-value" id="jpyHedge">60%</span>
+            </div>
+            <div class="rec-confidence">Confidence: 78%</div>
+          </div>
+          <div class="rec-card">
+            <div class="rec-asset">Commodities</div>
+            <div class="rec-hedge">
+              <span class="rec-label">Hedge Ratio</span>
+              <span class="rec-value" id="commodityHedge">40%</span>
+            </div>
+            <div class="rec-confidence">Confidence: 72%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Backtesting Results -->
+      <section class="backtest-section">
+        <h2>Backtesting Results (3 Years)</h2>
+        <div class="backtest-grid">
+          <div class="bt-card">
+            <div class="bt-label">Sharpe Ratio</div>
+            <div class="bt-value">1.45</div>
+          </div>
+          <div class="bt-card">
+            <div class="bt-label">Max Drawdown</div>
+            <div class="bt-value">-12.5%</div>
+          </div>
+          <div class="bt-card">
+            <div class="bt-label">Win Rate</div>
+            <div class="bt-value">73%</div>
+          </div>
+          <div class="bt-card">
+            <div class="bt-label">Avg Return</div>
+            <div class="bt-value">8.2%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stress Testing -->
+      <section class="stress-section">
+        <h2>Stress Testing Scenarios</h2>
+        <div class="stress-grid">
+          <div class="stress-item">
+            <span>2008 Crisis Simulation</span>
+            <span class="stress-result">-8.5%</span>
+          </div>
+          <div class="stress-item">
+            <span>COVID Shock</span>
+            <span class="stress-result">-15.2%</span>
+          </div>
+          <div class="stress-item">
+            <span>Rate Shock (200bps)</span>
+            <span class="stress-result">-3.8%</span>
+          </div>
+          <div class="stress-item">
+            <span>Commodity Spike</span>
+            <span class="stress-result">-6.1%</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

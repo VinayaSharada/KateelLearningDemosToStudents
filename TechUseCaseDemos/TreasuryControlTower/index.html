@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Treasury Control Tower</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <div class="container">
+    <header>
+      <h1>Treasury Control Tower</h1>
+      <p class="subtitle">Real-time liquidity dashboard with AI-driven insights</p>
+    </header>
+
+    <main>
+      <!-- Cash Position Overview -->
+      <section class="dashboard-section">
+        <h2>Live Cash Position</h2>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Total Cash (USD)</div>
+            <div class="kpi-value" id="totalCash">$24,580,000</div>
+            <div class="kpi-trend positive">↑ 2.4% from yesterday</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">USD Equivalent</div>
+            <div class="kpi-value" id="usdEquiv">$24,580,000</div>
+            <div class="kpi-trend">4 currencies</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Days Cash</div>
+            <div class="kpi-value" id="daysCash">45.2</div>
+            <div class="kpi-trend">Target: 45-60</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Liquidity Ratio</div>
+            <div class="kpi-value" id="liquidityRatio">28.5%</div>
+            <div class="kpi-trend">Target: >25%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Currency Breakdown -->
+      <section class="dashboard-section">
+        <h2>Currency Breakdown</h2>
+        <div class="currency-grid">
+          <div class="currency-item">
+            <span class="currency-flag">🇺🇸</span>
+            <span class="currency-name">USD</span>
+            <span class="currency-amount">$12,000,000</span>
+          </div>
+          <div class="currency-item">
+            <span class="currency-flag">🇪🇺</span>
+            <span class="currency-name">EUR</span>
+            <span class="currency-amount">€8,500,000</span>
+          </div>
+          <div class="currency-item">
+            <span class="currency-flag">🇬🇧</span>
+            <span class="currency-name">GBP</span>
+            <span class="currency-amount">£4,200,000</span>
+          </div>
+          <div class="currency-item">
+            <span class="currency-flag">🇯🇵</span>
+            <span class="currency-name">JPY</span>
+            <span class="currency-amount">¥2,100,000,000</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cash Flow Forecast -->
+      <section class="dashboard-section">
+        <h2>Cash Flow Forecast (Next 12 Weeks)</h2>
+        <div class="chart-container">
+          <canvas id="forecastChart" width="400" height="200"></canvas>
+        </div>
+        <div class="forecast-controls">
+          <label>
+            <input type="checkbox" id="aiForecast" checked>
+            Enable AI Forecast
+          </label>
+        </div>
+      </section>
+
+      <!-- Scenario Planning -->
+      <section class="dashboard-section">
+        <h2>Scenario Planning</h2>
+        <div class="scenario-controls">
+          <div class="control-group">
+            <label for="revenueChange">Revenue Change (%)</label>
+            <input type="range" id="revenueChange" min="-20" max="20" value="0">
+            <span id="revenueValue">0%</span>
+          </div>
+          <div class="control-group">
+            <label for="expenseChange">Expense Change (%)</label>
+            <input type="range" id="expenseChange" min="-20" max="20" value="0">
+            <span id="expenseValue">0%</span>
+          </div>
+        </div>
+        <div class="scenario-results">
+          <div class="result-item">
+            <span>Projected Cash End Period:</span>
+            <span class="result-value" id="projectedCash">$26,850,000</span>
+          </div>
+          <div class="result-item">
+            <span>Liquidity Impact:</span>
+            <span class="result-value" id="liquidityImpact">Neutral</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Treasury KPIs -->
+      <section class="dashboard-section">
+        <h2>Treasury KPIs</h2>
+        <div class="kpi-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Current</th>
+                <th>Target</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DSO (Days Sales Outstanding)</td>
+                <td>32 days</td>
+                <td>< 30 days</td>
+                <td><span class="status warning">Warning</span></td>
+              </tr>
+              <tr>
+                <td>DPO (Days Payable Outstanding)</td>
+                <td>28 days</td>
+                <td>< 35 days</td>
+                <td><span class="status good">Good</span></td>
+              </tr>
+              <tr>
+                <td>Inventory Days</td>
+                <td>45 days</td>
+                <td>< 40 days</td>
+                <td><span class="status warning">Warning</span></td>
+              </tr>
+              <tr>
+                <td>CCC (Cash Conversion Cycle)</td>
+                <td>55 days</td>
+                <td>< 45 days</td>
+                <td><span class="status warning">Warning</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
