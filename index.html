@@ -13,10 +13,12 @@
       min-height: 100vh;
       padding: 2rem;
     }
-    .container { max-width: 1200px; margin: 0 auto; }
+    .container { max-width: 1400px; margin: 0 auto; }
     header { text-align: center; margin-bottom: 2rem; }
     header h1 { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; }
     header p { color: #94a3b8; }
+    .section { margin-top: 3rem; }
+    .section h2 { color: #fff; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .demos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -33,7 +35,7 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
-    .demo-card h3 { color: #60a5fa; margin-bottom: 0.5rem; }
+    .demo-card h3 { color: #60a5fa; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .demo-card p { color: #94a3b8; font-size: 0.875rem; margin-bottom: 1rem; }
     .demo-card a {
       display: inline-block;
@@ -45,8 +47,6 @@
       font-size: 0.875rem;
     }
     .demo-card a:hover { background: #29b6f6; }
-    .section { margin-top: 3rem; }
-    .section h2 { color: #fff; margin-bottom: 1rem; }
     .attribution { text-align: center; margin-top: 3rem; color: #64748b; font-size: 0.875rem; }
   </style>
 </head>
@@ -55,49 +55,86 @@
     <header>
       <h1>KateelLearningDemos</h1>
       <p>Browser-Based AI/ML Demos for Finance Education</p>
+      <p style="color: #64748b; font-size: 0.875rem;">Attribution: vinallcontact@gmail.com | 73+ Demos Available</p>
     </header>
 
-    <div class="demos-grid">
-      <!-- Treasury Management Demos -->
-      <div class="demo-card">
-        <h3>Treasury Control Tower</h3>
-        <p>Real-time liquidity dashboard with forecasting and AI-driven insights.</p>
-        <a href="/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/">Launch Demo</a>
+    <!-- CFOWorkshop Demos -->
+    <div class="section">
+      <h2>🏦 CFOWorkshop - Treasury Management</h2>
+      <div class="demos-grid">
+        <div class="demo-card"><h3>Treasury Control Tower</h3><p>Real-time liquidity dashboard with forecasting.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/">Launch</a></div>
+        <div class="demo-card"><h3>FX Hedge Simulator</h3><p>Interactive FX hedging strategy simulator.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/FXHedgeSimulator/">Launch</a></div>
+        <div class="demo-card"><h3>CCC Analyzer</h3><p>Cash Conversion Cycle optimization tool.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/CCCAnalyzer/">Launch</a></div>
+        <div class="demo-card"><h3>Collections Predictor</h3><p>AI-powered collections prioritization.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/CollectionsPredictor/">Launch</a></div>
+        <div class="demo-card"><h3>Smart Contract Treasury</h3><p>Blockchain treasury operations.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/SmartContractTreasury/">Launch</a></div>
+        <div class="demo-card"><h3>Stablecoin Manager</h3><p>Digital asset treasury management.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/StablecoinManager/">Launch</a></div>
+        <div class="demo-card"><h3>AI Hedge Orchestrator</h3><p>Multi-asset hedging with AI.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIHedgeOrchestrator/">Launch</a></div>
+        <div class="demo-card"><h3>Treasury Transform Blueprint</h3><p>End-to-end transformation simulator.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/">Launch</a></div>
       </div>
-      <div class="demo-card">
-        <h3>FX Hedge Simulator</h3>
-        <p>Interactive FX hedging strategy simulator with options pricing.</p>
-        <a href="/KateelLearningDemosToStudents/TechUseCaseDemos/FXHedgeSimulator/">Launch Demo</a>
+    </div>
+
+    <!-- AI Workflow Demos -->
+    <div class="section">
+      <h2>🔄 AI Workflow Demos</h2>
+      <div class="demos-grid">
+        <div class="demo-card"><h3>AI Content Summarizer</h3><p>Extractive and abstractive summarization.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIContentSummarizer/">Launch</a></div>
+        <div class="demo-card"><h3>AI Data Analyzer</h3><p>Statistical and AI-powered analysis.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIDataAnalyzer/">Launch</a></div>
+        <div class="demo-card"><h3>AI Decision Tracker</h3><p>Track AI decisions and outcomes.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIDecisionTracker/">Launch</a></div>
+        <div class="demo-card"><h3>AI Workflow Demo</h3><p>End-to-end AI workflow demonstration.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIWorkflowDemo/">Launch</a></div>
+        <div class="demo-card"><h3>Probabilistic Decision Engine</h3><p>Amortized inference for predictions.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/">Launch</a></div>
+        <div class="demo-card"><h3>Learning Resource Recommender</h3><p>Traditional vs AI recommendations.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIWorkflowDemo/">Launch</a></div>
       </div>
-      <div class="demo-card">
-        <h3>CCC Analyzer</h3>
-        <p>Cash Conversion Cycle optimization tool with AI recommendations.</p>
-        <a href="/KateelLearningDemosToStudents/TechUseCaseDemos/CCCAnalyzer/">Launch Demo</a>
+    </div>
+
+    <!-- Finance & Quant Demos -->
+    <div class="section">
+      <h2>📈 Finance & Quantitative Analysis</h2>
+      <div class="demos-grid">
+        <div class="demo-card"><h3>Black-Scholes Option Pricer</h3><p>European option pricing with Greeks.</p><a href="/KateelLearningDemosToStudents/DomainUseCaseDemos/QuantFinance/BlackScholesOption/">Launch</a></div>
+        <div class="demo-card"><h3>VaR Calculator</h3><p>Value at Risk with Expected Shortfall.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/VaRCalculator/">Launch</a></div>
+        <div class="demo-card"><h3>Greeks Calculator</h3><p>Delta, Gamma, Vega, Theta sensitivity.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/GreeksCalculator/">Launch</a></div>
+        <div class="demo-card"><h3>Monte Carlo Options</h3><p>Simulation-based exotic option pricing.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloOptions/">Launch</a></div>
+        <div class="demo-card"><h3>Portfolio Optimizer</h3><p>Risk-adjusted portfolio optimization.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/PortfolioOptimizer/">Launch</a></div>
+        <div class="demo-card"><h3>Risk Parity Portfolio</h3><p>Equalize risk contribution.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/RiskParityPortfolio/">Launch</a></div>
+        <div class="demo-card"><h3>Credit Scoring Demo</h3><p>Customer credit risk scoring.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/CreditScoringDemo/">Launch</a></div>
+        <div class="demo-card"><h3>Bank Failure Prediction</h3><p>Predict bank failures using financial ratios.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/BankFailurePrediction/">Launch</a></div>
       </div>
-      <div class="demo-card">
-        <h3>Collections Predictor</h3>
-        <p>AI-powered collections prioritization with payment prediction.</p>
-        <a href="/KateelLearningDemosToStudents/TechUseCaseDemos/CollectionsPredictor/">Launch Demo</a>
+    </div>
+
+    <!-- RAG Solutions -->
+    <div class="section">
+      <h2>📄 RAG Solutions</h2>
+      <div class="demos-grid">
+        <div class="demo-card"><h3>Standard RAG</h3><p>Document upload + QA.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/StandardRAG/">Launch</a></div>
+        <div class="demo-card"><h3>Graph RAG</h3><p>Knowledge traversal.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/GraphRAG/">Launch</a></div>
+        <div class="demo-card"><h3>Voice RAG</h3><p>Speak + get answers.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/">Launch</a></div>
+        <div class="demo-card"><h3>LiteParse Demo</h3><p>PDF-to-markdown for RAG.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/LiteParseDemo/">Launch</a></div>
       </div>
-      <div class="demo-card">
-        <h3>Smart Contract Treasury</h3>
-        <p>Blockchain-based treasury operations with multi-sig workflows.</p>
-        <a href="/KateelLearningDemosToStudents/TechUseCaseDemos/SmartContractTreasury/">Launch Demo</a>
+    </div>
+
+    <!-- AI Product Management -->
+    <div class="section">
+      <h2>💼 AI Product Management</h2>
+      <div class="demos-grid">
+        <div class="demo-card"><h3>AI PRD Template</h3><p>AI Product Requirements Document template.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIPRDTemplate/">Launch</a></div>
+        <div class="demo-card"><h3>AI Product Canvas</h3><p>Product strategy canvas.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIProductCanvas/">Launch</a></div>
+        <div class="demo-card"><h3>AI ROI Calculator</h3><p>Financial ROI analysis for AI projects.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIROICalculator/">Launch</a></div>
+        <div class="demo-card"><h3>Model Version Comparator</h3><p>Compare model versions.</p><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/">Launch</a></div>
       </div>
-      <div class="demo-card">
-        <h3>Stablecoin Manager</h3>
-        <p>Digital asset treasury management with yield optimization.</p>
-        <a href="/KateelLearningDemosToStudents/TechUseCaseDemos/StablecoinManager/">Launch Demo</a>
-      </div>
-      <div class="demo-card">
-        <h3>AI Hedge Orchestrator</h3>
-        <p>Multi-asset hedging strategy with AI-driven recommendations.</p>
-        <a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIHedgeOrchestrator/">Launch Demo</a>
-      </div>
-      <div class="demo-card">
-        <h3>Treasury Transform Blueprint</h3>
-        <p>End-to-end treasury transformation simulator with ROI calculator.</p>
-        <a href="/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/">Launch Demo</a>
+    </div>
+
+    <!-- More Demos (Compact List) -->
+    <div class="section">
+      <h2>🎯 More Demos</h2>
+      <div class="demos-grid">
+        <div class="demo-card"><h3>AB Testing Framework</h3><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/ABTestingFramework/">Launch</a></div>
+        <div class="demo-card"><h3>AI Governance Scorecard</h3><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIGovernanceScorecard/">Launch</a></div>
+        <div class="demo-card"><h3>AI Regulatory Tracker</h3><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIRegulatoryTracker/">Launch</a></div>
+        <div class="demo-card"><h3>Counterparty Risk</h3><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/CounterpartyRiskDemo/">Launch</a></div>
+        <div class="demo-card"><h3>Data Drift Detector</h3><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/DataDriftDetector/">Launch</a></div>
+        <div class="demo-card"><h3>Fraud Playground</h3><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/FraudPlayground/">Launch</a></div>
+        <div class="demo-card"><h3>Emotional Support AI</h3><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/EmotionalSupportAssistant/">Launch</a></div>
+        <div class="demo-card"><h3>University Knowledge Assistant</h3><a href="/KateelLearningDemosToStudents/TechUseCaseDemos/UniversityKnowledgeAssistant/">Launch</a></div>
       </div>
     </div>
 
