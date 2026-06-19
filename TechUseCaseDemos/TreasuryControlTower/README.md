@@ -1,33 +1,36 @@
-# Treasury Control Tower
+# Liquidity Stress Testing Simulator
 
 ## Overview
-Real-time liquidity dashboard with forecasting and AI-driven insights for modern treasury management.
+Browser-based hands-on exercise for treasury modernization and liquidity visibility (Session 1).
 
 ## Learning Objectives
-- Understand real-time cash position monitoring and forecasting
-- Learn AI-powered cash flow prediction techniques
-- Analyze treasury KPIs and performance metrics
-- Explore scenario planning for liquidity management
+- Understand liquidity forecasting importance
+- Experience AI value in risk detection
+- Learn scenario planning methodology
+- Practice cash flow projection skills
 
 ## Features
-- **Live Cash Position Monitoring**: Real-time view of cash balances across entities
-- **AI-Powered Forecasting**: Machine learning-based cash flow predictions
-- **Treasury KPIs Dashboard**: DSO, DPO, CCC, and liquidity ratios
-- **Scenario Planning Tool**: Stress-test liquidity under different conditions
+- **Cash Flow Projection Panel**: Editable inflows/outflows with seasonal adjustment
+- **Stress Testing Scenarios**: 5 predefined scenarios plus custom options
+- **Liquidity Dashboard**: Real-time cash position visualization
+- **AI Comparison View**: Shows risk with and without AI insights
+- **Export Functionality**: Download results as JSON
 
 ## How to Run
 1. Open `index.html` in a browser
-2. Review the live cash position dashboard
-3. Adjust parameters to see forecast changes
-4. Use scenario planning to test liquidity under stress conditions
+2. Select a stress scenario from dropdown
+3. Adjust cash flow inputs as needed
+4. Toggle AI insights on/off
+5. View results and export if needed
 
-## Key Treasury Metrics
-| Metric | Description | Target |
-|--------|-------------|--------|
-| Cash Ratio | Cash / Total Assets | > 15% |
-| Operating Cash Flow | Cash from operations | Positive |
-| Current Ratio | Current Assets / Liabilities | > 1.5 |
-| Quick Ratio | Liquid assets / Liabilities | > 1.0 |
+## Scenarios Included
+| Scenario | Description | Impact |
+|----------|-------------|--------|
+| Normal Operations | Standard business conditions | Baseline |
+| Revenue Decline (-15%) | Economic downturn | Cash shortage risk |
+| Payment Acceleration | Early supplier payments | Increased cash outflow |
+| Emergency Outflow | Unexpected investment | Liquidity stress |
+| Custom | User-defined parameters | Your own analysis |
 
 ## Attribution
 This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
