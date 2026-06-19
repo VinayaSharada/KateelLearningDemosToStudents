@@ -73,6 +73,12 @@ This catalog organizes demos for managing AI products throughout their lifecycle
   - Standard RAG, Graph RAG, PageIndex RAG
   - Voice-enabled variants for all three
 
+### Document Processing (New!)
+- `TechUseCaseDemos\LiteParseDemo` - PDF-to-markdown conversion for RAG workflows
+  - LiteParse integration for document processing
+  - Markdown output for intelligent document analysis
+  - Q&A over documents demonstration
+
 ### Emotional Support AI
 - `TechUseCaseDemos\EmotionalSupportAssistant` - AI companion for loneliness support
   - Emotion detection and knowledge graph building

@@ -98,13 +98,14 @@ We follow a **three-tier approach** for AI model usage:
 
 ### 📄 RAG Solutions (New!)
 
-| Demo | Type | Key Feature |
-|------|------|-------------|
-| [Standard RAG](TechUseCaseDemos/RAGSolutions/StandardRAG/) | Text-based | Document upload + QA |
-| [Graph RAG](TechUseCaseDemos/RAGSolutions/GraphRAG/) | Graph-based | Knowledge traversal |
-| [Voice RAG](TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/) | Voice-enabled | Speak + get answers |
-| [Emotional Support AI](TechUseCaseDemos/EmotionalSupportAssistant/) | Empathetic AI | Emotion detection |
-| [University Knowledge Assistant](TechUseCaseDemos/UniversityKnowledgeAssistant/) | Hybrid RAG | FalkorDB + PageIndex + Voice |
+|| Demo | Type | Key Feature |
+||------|------|-------------|
+|| [Standard RAG](TechUseCaseDemos/RAGSolutions/StandardRAG/) | Text-based | Document upload + QA |
+|| [Graph RAG](TechUseCaseDemos/RAGSolutions/GraphRAG/) | Graph-based | Knowledge traversal |
+|| [Voice RAG](TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/) | Voice-enabled | Speak + get answers |
+|| [Emotional Support AI](TechUseCaseDemos/EmotionalSupportAssistant/) | Empathetic AI | Emotion detection |
+|| [University Knowledge Assistant](TechUseCaseDemos/UniversityKnowledgeAssistant/) | Hybrid RAG | FalkorDB + PageIndex + Voice |
+|| [LiteParse RAG](TechUseCaseDemos/LiteParseDemo/) | Document Processing | PDF-to-markdown for RAG |
 
 ### 🔁 AI Workflow Demos (Most Memorable!)
 

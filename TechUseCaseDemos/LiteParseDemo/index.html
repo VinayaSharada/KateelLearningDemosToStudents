@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>LiteParse RAG Demo</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📄 LiteParse RAG Demo</h1>
+      <p class="subtitle">PDF-to-Markdown for Intelligent Document Processing</p>
+    </header>
+    
+    <main>
+      <section class="upload-section">
+        <h2>Upload PDF Document</h2>
+        <div class="upload-area" id="uploadArea">
+          <p>📎 Drag & drop PDF here or click to browse</p>
+          <input type="file" id="fileInput" accept=".pdf" />
+        </div>
+      </section>
+      
+      <section class="preview-section">
+        <h2>Markdown Output</h2>
+        <div class="output-container">
+          <pre id="markdownOutput">Your PDF content will appear here...</pre>
+        </div>
+      </section>
+      
+      <section class="query-section">
+        <h2>Ask Questions About Your Document</h2>
+        <div class="query-container">
+          <input type="text" id="questionInput" placeholder="What is this document about?" />
+          <button id="askButton">Ask</button>
+        </div>
+        <div id="answerOutput" class="answer-output"></div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
