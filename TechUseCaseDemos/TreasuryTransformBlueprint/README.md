@@ -1,32 +1,35 @@
-# Treasury Transform Blueprint
+# Treasury Transformation Blueprint
 
 ## Overview
-End-to-end treasury transformation simulator with maturity model assessment and digital roadmap planning.
+Browser-based hands-on exercise for Course Synthesis (Session 8).
 
 ## Learning Objectives
-- Assess current treasury maturity level
-- Develop digital transformation roadmap
+- Synthesize learning across all sessions
+- Create actionable transformation plan
+- Communicate treasury strategy effectively
 - Calculate ROI for treasury technology investments
-- Create change management playbook for treasury teams
 
 ## Features
-- **Maturity Model Assessment**: Evaluate treasury capabilities across 5 dimensions
-- **Transformation Roadmap**: Year-by-year digital transformation plan
-- **ROI Calculator**: Financial justification for treasury tech investments
-- **Change Management**: Stakeholder engagement and adoption strategies
+- **Maturity Assessment**: 5-dimension treasury maturity model
+- **Transformation Roadmap**: 3-year phased implementation
+- **ROI Calculator**: Investment vs savings analysis
+- **Change Management**: Stakeholder map and communication plan
+- **AI Insights**: Strategic recommendations
 
 ## How to Run
 1. Open `index.html` in a browser
-2. Take the maturity assessment
-3. View personalized transformation roadmap
-4. Calculate ROI and download implementation plan
+2. Select organization size or customize
+3. Assess current maturity levels
+4. Generate transformation roadmap
+5. Calculate investment ROI
+6. Export blueprint for presentation
 
-## Treasury Maturity Dimensions
-1. **Data & Analytics** - Data quality, real-time visibility, predictive analytics
-2. **Technology** - Systems integration, automation, cloud adoption
-3. **Processes** - Standardization, optimization, compliance
-4. **People & Skills** - Training, talent acquisition, change management
-5. **Risk Management** - Hedging, fraud prevention, regulatory compliance
+## Organization Sizes
+| Size | Investment | Annual Savings |
+|------|------------|----------------|
+| Small Enterprise | $1M | $500K |
+| Medium Enterprise | $2.5M | $1.5M |
+| Large Enterprise | $5M | $3M |
 
 ## Attribution
 This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.

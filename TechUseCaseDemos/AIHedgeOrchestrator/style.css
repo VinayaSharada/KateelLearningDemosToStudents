@@ -21,7 +21,7 @@ header h1 {
   font-size: 2.5rem;
   color: #fff;
   margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, #ef4444, #dc2626);
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -52,6 +52,33 @@ section h2 {
   padding-bottom: 0.75rem;
 }
 
+/* Controls */
+.control-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.control-group input,
+.control-group select {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
 /* Exposure Grid */
 .exposure-grid {
   display: grid;
@@ -65,7 +92,7 @@ section h2 {
   gap: 0.5rem;
 }
 
-.exposure-label {
+.exposure-item .exposure-label {
   font-size: 0.875rem;
   color: #94a3b8;
 }
@@ -79,26 +106,26 @@ section h2 {
 }
 
 .exposure-currency {
+  color: #60a5fa;
   font-size: 0.875rem;
-  color: #94a3b8;
 }
 
 .btn-optimize {
   padding: 0.75rem 2rem;
   border-radius: 6px;
   border: none;
-  background: linear-gradient(90deg, #ef4444, #dc2626);
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
   color: #fff;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s;
   margin-top: 1rem;
 }
 
 .btn-optimize:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
 }
 
 /* Recommendation Grid */
@@ -118,7 +145,7 @@ section h2 {
 .rec-asset {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: #60a5fa;
   margin-bottom: 1rem;
 }
 
@@ -127,23 +154,36 @@ section h2 {
 }
 
 .rec-label {
-  display: block;
-  font-size: 0.75rem;
   color: #94a3b8;
+  font-size: 0.875rem;
 }
 
 .rec-value {
-  font-size: 1.5rem;
+  display: block;
+  font-size: 1.25rem;
   font-weight: bold;
-  color: #60a5fa;
+  color: #fff;
 }
 
 .rec-confidence {
   font-size: 0.875rem;
-  color: #4ade80;
+  color: #fbbf24;
 }
 
-/* Backtesting Grid */
+/* AI Insight */
+.ai-insight {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #8b5cf6;
+}
+
+.ai-insight strong {
+  color: #a855f7;
+}
+
+/* Backtest Grid */
 .backtest-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -160,27 +200,36 @@ section h2 {
 .bt-label {
   font-size: 0.875rem;
   color: #94a3b8;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .bt-value {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #4ade80;
 }
 
-/* Stress Testing */
-.stress-item {
+/* Actions */
+.actions-section {
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background: rgba(0,0,0,0.2);
-  border-radius: 8px;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.stress-result {
-  font-weight: 600;
-  color: #f87171;
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  background: #8b5cf6;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #7c3aed;
 }
 
 /* Attribution Marker */

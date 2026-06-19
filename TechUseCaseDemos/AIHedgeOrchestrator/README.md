@@ -1,39 +1,35 @@
-# AI Hedge Orchestrator
+# Multi-Asset Hedge Optimizer
 
 ## Overview
-Multi-asset hedging strategy simulator with AI-driven hedge ratio recommendations and backtesting.
+Browser-based hands-on exercise for AI Hedging & FX Decisions (Session 7).
 
 ## Learning Objectives
-- Understand portfolio-level hedge optimization
-- Learn AI-driven hedge ratio recommendations
-- Operate a backtesting engine for hedging strategies
-- Conduct stress testing under various market scenarios
+- Evaluate AI timing effectiveness
+- Understand model-based decision making
+- Learn continuous improvement cycles
+- Practice multi-asset hedging strategies
 
 ## Features
-- **Portfolio Hedge Optimization**: Multi-asset hedging with optimal ratios
-- **AI Hedge Recommendations**: Machine learning-based hedge suggestions
-- **Backtesting Engine**: Test strategies against historical data
-- **Stress Testing**: Evaluate performance under adverse conditions
+- **Portfolio Exposure**: Multi-currency and commodity exposure inputs
+- **Hedge Ratio Optimization**: AI-recommended hedge ratios
+- **Backtesting Results**: 3-year performance metrics
+- **AI Insights**: Market condition-based recommendations
+- **Export Functionality**: Download results as JSON
 
 ## How to Run
 1. Open `index.html` in a browser
-2. Configure portfolio exposure
-3. Run hedge optimization
-4. Backtest and stress test strategies
+2. Enter portfolio exposures
+3. Select market condition
+4. Click "Optimize Hedge Ratios"
+5. Review AI recommendations
+6. Export results if needed
 
-## Hedge Ratios
-| Asset | Recommended Hedge | Rationale |
-|-------|-------------------|-----------|
-| EUR | 85% | High correlation to USD |
-| GBP | 70% | Moderate correlation |
-| JPY | 60% | Safe-haven currency |
-| Commodities | 40% | High volatility |
-
-## Backtesting Metrics
-- Sharpe Ratio
-- Maximum Drawdown
-- Win Rate
-- Average Gain/Loss
+## Market Conditions
+| Condition | Volatility | Recommended Hedge |
+|-----------|------------|-------------------|
+| Normal Markets | 10% | 75-85% |
+| High Volatility | 20% | 85-95% |
+| Market Crisis | 30% | 90-95% |
 
 ## Attribution
 This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.

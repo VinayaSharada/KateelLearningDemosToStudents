@@ -3,18 +3,39 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Treasury Transform Blueprint</title>
+  <title>Treasury Transformation Blueprint</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <!-- Attribution: vinallcontact@gmail.com -->
   <div class="container">
     <header>
-      <h1>Treasury Transform Blueprint</h1>
-      <p class="subtitle">Digital transformation roadmap builder</p>
+      <h1>Treasury Transformation Blueprint</h1>
+      <p class="subtitle">Course Synthesis & Executive Presentation - Session 8</p>
     </header>
 
     <main>
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <div class="control-row">
+          <div class="control-group">
+            <label for="scenarioSelect">Organization Size</label>
+            <select id="scenarioSelect">
+              <option value="small">Small Enterprise ($10M-$100M)</option>
+              <option value="medium">Medium Enterprise ($100M-$1B)</option>
+              <option value="large">Large Enterprise ($1B+)</option>
+              <option value="custom">Custom Scenario</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="aiToggle" checked>
+              Enable AI Insights
+            </label>
+          </div>
+        </div>
+      </section>
+
       <!-- Maturity Assessment -->
       <section class="assessment-section">
         <h2>Treasury Maturity Assessment</h2>
@@ -151,29 +172,18 @@
         </div>
       </section>
 
-      <!-- Change Management -->
-      <section class="change-section">
-        <h2>Change Management Playbook</h2>
-        <div class="change-grid">
-          <div class="change-item">
-            <div class="change-title">Stakeholder Map</div>
-            <ul>
-              <li>CFO - Sponsor & Champion</li>
-              <li>Treasury Head - Project Lead</li>
-              <li>IT Director - Technical Partner</li>
-              <li>End Users - Adoption Champions</li>
-            </ul>
-          </div>
-          <div class="change-item">
-            <div class="change-title">Communication Plan</div>
-            <ul>
-              <li>Month 1: Vision & Benefits</li>
-              <li>Month 2: Progress Updates</li>
-              <li>Month 3: Training Sessions</li>
-              <li>Ongoing: Success Metrics</li>
-            </ul>
-          </div>
+      <!-- AI Insights -->
+      <section class="ai-section">
+        <h2>AI Transformation Insights</h2>
+        <div class="ai-insight">
+          <strong>AI Recommendation:</strong> <span id="aiRecommendation">Focus Year 1 investments on data integration and automation for quickest ROI. Target 6-month payback on cash positioning improvements.</span>
         </div>
+      </section>
+
+      <!-- Actions -->
+      <section class="actions-section">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="exportBtn">Export Blueprint</button>
       </section>
     </main>
   </div>

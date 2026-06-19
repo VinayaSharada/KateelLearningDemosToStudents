@@ -1,60 +1,111 @@
-// Treasury Transform Blueprint
+// Treasury Transformation Blueprint
 // KateelLearningDemos - Attribution: vinallcontact@gmail.com
-console.log('Treasury Transform Blueprint - Powered by KateelLearningDemos');
+console.log('Treasury Transformation Blueprint - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
-// Update maturity scores
-function updateScores() {
-  const data = parseInt(document.getElementById('dataSelect').value);
-  const tech = parseInt(document.getElementById('techSelect').value);
-  const process = parseInt(document.getElementById('processSelect').value);
-  const people = parseInt(document.getElementById('peopleSelect').value);
-  const risk = parseInt(document.getElementById('riskSelect').value);
+// Organization sizes
+const orgSizes = {
+  small: { investment: 1000000, savings: 500000, name: 'Small Enterprise' },
+  medium: { investment: 2500000, savings: 1500000, name: 'Medium Enterprise' },
+  large: { investment: 5000000, savings: 3000000, name: 'Large Enterprise' }
+};
+
+// DOM Elements
+const scenarioSelect = document.getElementById('scenarioSelect');
+const aiToggle = document.getElementById('aiToggle');
+const generateBtn = document.getElementById('generateBtn');
+const resetBtn = document.getElementById('resetBtn');
+const exportBtn = document.getElementById('exportBtn');
+const aiRecommendation = document.getElementById('aiRecommendation');
+
+// Initialize
+function init() {
+  scenarioSelect.addEventListener('change', updateScenario);
+  aiToggle.addEventListener('change', updateAIInsights);
+  generateBtn.addEventListener('click', generateRoadmap);
+  resetBtn.addEventListener('click', resetValues);
+  exportBtn.addEventListener('click', exportResults);
   
-  document.getElementById('dataScore').textContent = data;
-  document.getElementById('techScore').textContent = tech;
-  document.getElementById('processScore').textContent = process;
-  document.getElementById('peopleScore').textContent = people;
-  document.getElementById('riskScore').textContent = risk;
-  
-  const total = data + tech + process + people + risk;
-  document.getElementById('overallScore').textContent = total + '/25';
-  
-  const level = Math.floor(total / 5);
-  const levelNames = ['1 - Basic', '2 - Developing', '3 - Advanced', '4 - Leading', '5 - Transformative'];
-  document.querySelector('.overall-score span:last-child').textContent = '(' + levelNames[level - 1] + ')';
+  updateScenario();
 }
 
-// Generate roadmap
-document.getElementById('generateBtn').addEventListener('click', function() {
-  updateScores();
-  alert('Roadmap generated successfully!\n\nYour treasury transformation plan is ready.\nCheck the roadmap section below for your customized plan.');
-});
+function updateScenario() {
+  const scenario = scenarioSelect.value;
+  
+  if (orgSizes[scenario]) {
+    const org = orgSizes[scenario];
+    document.getElementById('techInvestment').value = org.investment;
+    document.getElementById('annualSavings').value = org.savings;
+    document.getElementById('efficiencyGain').value = 25;
+  }
+  
+  calculateROI();
+  updateAIInsights();
+}
 
-// ROI Calculator
-function updateROI() {
-  const investment = parseFloat(document.getElementById('techInvestment').value);
-  const efficiencyGain = parseFloat(document.getElementById('efficiencyGain').value);
-  const annualSavings = parseFloat(document.getElementById('annualSavings').value);
+function calculateROI() {
+  const investment = parseFloat(document.getElementById('techInvestment').value) || 0;
+  const savings = parseFloat(document.getElementById('annualSavings').value) || 0;
+  const efficiency = parseFloat(document.getElementById('efficiencyGain').value) || 0;
   
-  document.getElementById('totalInv').textContent = '$' + (investment / 1000000).toFixed(1) + 'M';
-  document.getElementById('annSavings').textContent = '$' + (annualSavings / 1000000).toFixed(1) + 'M';
+  document.getElementById('totalInv').textContent = '$' + investment.toLocaleString();
+  document.getElementById('annSavings').textContent = '$' + savings.toLocaleString();
   
-  const paybackMonths = (investment / annualSavings) * 12;
-  document.getElementById('payback').textContent = paybackMonths.toFixed(0) + ' months';
+  const payback = investment / savings * 12;
+  document.getElementById('payback').textContent = payback.toFixed(0) + ' months';
   
-  const roi = ((annualSavings * 3 - investment) / investment) * 100;
+  const roi = savings * 3 / investment * 100;
   document.getElementById('threeYearRoi').textContent = roi.toFixed(0) + '%';
 }
 
-// Initialize
-document.querySelectorAll('select').forEach(select => {
-  select.addEventListener('change', updateScores);
-});
+function generateRoadmap() {
+  alert('Transformation Roadmap Generated!\n\n' +
+    'Year 1: Data integration, automation, basic analytics\n' +
+    'Year 2: AI forecasting, multi-currency hedging, blockchain\n' +
+    'Year 3: Real-time visibility, autonomous operations\n\n' +
+    'Roadmap has been optimized for your organization size.');
+}
 
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('input', updateROI);
-});
+function updateAIInsights() {
+  if (!aiToggle.checked) {
+    aiRecommendation.textContent = 'Enable AI Insights to see recommendations.';
+    return;
+  }
+  
+  const scenario = scenarioSelect.value;
+  const org = orgSizes[scenario] || orgSizes.medium;
+  
+  aiRecommendation.textContent = 
+    `For ${org.name}, focus Year 1 investments on data integration and automation for quickest ROI. Target 6-month payback on cash positioning improvements.`;
+}
 
-updateScores();
-updateROI();
+function resetValues() {
+  scenarioSelect.value = 'medium';
+  document.getElementById('techInvestment').value = 2500000;
+  document.getElementById('annualSavings').value = 1500000;
+  document.getElementById('efficiencyGain').value = 25;
+  calculateROI();
+}
+
+function exportResults() {
+  const data = {
+    scenario: scenarioSelect.value,
+    investment: document.getElementById('techInvestment').value,
+    savings: document.getElementById('annualSavings').value,
+    efficiency: document.getElementById('efficiencyGain').value,
+    roi: document.getElementById('threeYearRoi').textContent,
+    aiEnabled: aiToggle.checked,
+    timestamp: new Date().toISOString()
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'treasury-transform-blueprint.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', init);

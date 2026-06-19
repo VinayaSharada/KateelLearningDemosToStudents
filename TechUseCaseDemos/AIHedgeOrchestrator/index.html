@@ -3,18 +3,39 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>AI Hedge Orchestrator</title>
+  <title>Multi-Asset Hedge Optimizer</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <!-- Attribution: vinallcontact@gmail.com -->
   <div class="container">
     <header>
-      <h1>AI Hedge Orchestrator</h1>
-      <p class="subtitle">Multi-asset hedging strategy simulator</p>
+      <h1>Multi-Asset Hedge Optimizer</h1>
+      <p class="subtitle">Treasury Modernization & AI Hedging - Session 7</p>
     </header>
 
     <main>
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <div class="control-row">
+          <div class="control-group">
+            <label for="scenarioSelect">Market Condition</label>
+            <select id="scenarioSelect">
+              <option value="normal">Normal Markets</option>
+              <option value="volatile">High Volatility</option>
+              <option value="crisis">Market Crisis</option>
+              <option value="custom">Custom Scenario</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="aiToggle" checked>
+              Enable AI Insights
+            </label>
+          </div>
+        </div>
+      </section>
+
       <!-- Portfolio Exposure -->
       <section class="portfolio-section">
         <h2>Portfolio Exposure</h2>
@@ -80,6 +101,9 @@
             <div class="rec-confidence">Confidence: 72%</div>
           </div>
         </div>
+        <div class="ai-insight">
+          <strong>AI Recommendation:</strong> <span id="aiRecommendation">For normal market conditions, recommend 75-85% hedging for major currencies with options overlay for tail risk protection.</span>
+        </div>
       </section>
 
       <!-- Backtesting Results -->
@@ -105,27 +129,10 @@
         </div>
       </section>
 
-      <!-- Stress Testing -->
-      <section class="stress-section">
-        <h2>Stress Testing Scenarios</h2>
-        <div class="stress-grid">
-          <div class="stress-item">
-            <span>2008 Crisis Simulation</span>
-            <span class="stress-result">-8.5%</span>
-          </div>
-          <div class="stress-item">
-            <span>COVID Shock</span>
-            <span class="stress-result">-15.2%</span>
-          </div>
-          <div class="stress-item">
-            <span>Rate Shock (200bps)</span>
-            <span class="stress-result">-3.8%</span>
-          </div>
-          <div class="stress-item">
-            <span>Commodity Spike</span>
-            <span class="stress-result">-6.1%</span>
-          </div>
-        </div>
+      <!-- Actions -->
+      <section class="actions-section">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="exportBtn">Export Results</button>
       </section>
     </main>
   </div>
