@@ -52,10 +52,37 @@ section h2 {
   padding-bottom: 0.75rem;
 }
 
+/* Controls */
+.control-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.control-group input,
+.control-group select {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
 /* Total Holdings */
 .total-holdings {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem;
   background: rgba(0,0,0,0.2);
   border-radius: 12px;
   margin-bottom: 1.5rem;
@@ -72,6 +99,7 @@ section h2 {
   margin-top: 0.5rem;
 }
 
+/* Asset Grid */
 .asset-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -89,19 +117,13 @@ section h2 {
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #60a5fa;
   margin-bottom: 0.25rem;
 }
 
-.asset-amount {
-  color: #cbd5e1;
-  font-size: 0.875rem;
-}
-
 .asset-pct {
-  color: #60a5fa;
+  color: #94a3b8;
   font-size: 0.875rem;
-  margin-top: 0.25rem;
 }
 
 /* Allocation Controls */
@@ -135,8 +157,8 @@ section h2 {
 }
 
 .alloc-control span {
-  font-weight: 600;
-  color: #fbbf24;
+  font-size: 0.875rem;
+  color: #cbd5e1;
 }
 
 /* Yield Grid */
@@ -155,80 +177,83 @@ section h2 {
 
 .yield-card.total {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.1));
-  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .yield-label {
-  font-size: 0.875rem;
   color: #94a3b8;
-  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
 }
 
 .yield-value {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fbbf24;
+  color: #fff;
+  margin-bottom: 0.25rem;
 }
 
 .yield-card.total .yield-value {
-  color: #fff;
+  color: #fbbf24;
 }
 
 .yield-amount {
+  color: #4ade80;
   font-size: 0.875rem;
-  color: #4ade80;
-  margin-top: 0.25rem;
 }
 
-/* Risk Grid */
-.risk-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-}
-
-.risk-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background: rgba(0,0,0,0.2);
+/* AI Section */
+.ai-section {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.05));
   border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
-.risk-label {
-  color: #94a3b8;
+.ai-insight {
+  margin-bottom: 1rem;
+  color: #cbd5e1;
 }
 
-.risk-value {
-  font-weight: 600;
-  color: #fff;
-}
-
-/* Position Grid */
-.position-grid {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.position-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background: rgba(0,0,0,0.2);
-  border-radius: 8px;
-}
-
-.pos-value {
-  font-weight: 600;
-  color: #fff;
-}
-
-.pos-value.success {
-  color: #4ade80;
-}
-
-.pos-value.warning {
+.ai-insight strong {
   color: #fbbf24;
+}
+
+.ai-metrics {
+  display: flex;
+  gap: 2rem;
+}
+
+.ai-metric {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ai-metric .value {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+/* Actions */
+.actions-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  background: #f59e0b;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #d97706;
 }
 
 /* Attribution Marker */

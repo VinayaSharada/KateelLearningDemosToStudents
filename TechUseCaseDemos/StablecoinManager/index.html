@@ -3,40 +3,61 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Stablecoin Manager</title>
+  <title>Stablecoin Yield Optimizer</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <!-- Attribution: vinallcontact@gmail.com -->
   <div class="container">
     <header>
-      <h1>Stablecoin Manager</h1>
-      <p class="subtitle">Digital asset treasury management</p>
+      <h1>Stablecoin Yield Optimizer</h1>
+      <p class="subtitle">Treasury Modernization & Digital Assets - Sessions 5-6</p>
     </header>
 
     <main>
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <div class="control-row">
+          <div class="control-group">
+            <label for="scenarioSelect">Risk Profile</label>
+            <select id="scenarioSelect">
+              <option value="conservative">Conservative</option>
+              <option value="balanced">Balanced</option>
+              <option value="aggressive">Aggressive</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="aiToggle" checked>
+              Enable AI Insights
+            </label>
+          </div>
+        </div>
+      </section>
+
       <!-- Total Holdings -->
       <section class="holdings-section">
         <h2>Total Stablecoin Holdings</h2>
         <div class="total-holdings">
-          <div class="total-value">$42,500,000</div>
+          <div class="total-value" id="totalHoldings">$42,500,000</div>
           <div class="total-label">Total Value Locked (TVL)</div>
         </div>
         <div class="asset-grid">
           <div class="asset-item">
             <span class="asset-symbol">USDC</span>
-            <span class="asset-amount">$25,000,000</span>
-            <span class="asset-pct">58.8%</span>
+            <span class="asset-amount" id="usdcAmount">$25,000,000</span>
+            <span class="asset-pct" id="usdcPct">58.8%</span>
           </div>
           <div class="asset-item">
             <span class="asset-symbol">USDT</span>
-            <span class="asset-amount">$12,000,000</span>
-            <span class="asset-pct">28.2%</span>
+            <span class="asset-amount" id="usdtAmount">$12,000,000</span>
+            <span class="asset-pct" id="usdtPct">28.2%</span>
           </div>
           <div class="asset-item">
             <span class="asset-symbol">DAI</span>
-            <span class="asset-amount">$5,500,000</span>
-            <span class="asset-pct">13.0%</span>
+            <span class="asset-amount" id="daiAmount">$5,500,000</span>
+            <span class="asset-pct" id="daiPct">13.0%</span>
           </div>
         </div>
       </section>
@@ -65,75 +86,53 @@
 
       <!-- Yield Projections -->
       <section class="yield-section">
-        <h2>Yield Projections (Annual)</h2>
+        <h2>Risk-Adjusted Yield Projections (Annual)</h2>
         <div class="yield-grid">
           <div class="yield-card">
             <div class="yield-label">Aave Lending</div>
             <div class="yield-value" id="aaveYield">3.2%</div>
-            <div class="yield-amount">$1,360,000</div>
+            <div class="yield-amount" id="aaveAmount">$1,360,000</div>
           </div>
           <div class="yield-card">
             <div class="yield-label">Curve Pools</div>
             <div class="yield-value" id="curveYield">2.8%</div>
-            <div class="yield-amount">$1,190,000</div>
+            <div class="yield-amount" id="curveAmount">$1,190,000</div>
           </div>
           <div class="yield-card">
             <div class="yield-label">Convex Boost</div>
             <div class="yield-value" id="convexYield">4.5%</div>
-            <div class="yield-amount">$1,912,500</div>
+            <div class="yield-amount" id="convexAmount">$1,912,500</div>
           </div>
           <div class="yield-card total">
             <div class="yield-label">Total Projected Yield</div>
             <div class="yield-value" id="totalYield">3.6%</div>
-            <div class="yield-amount">$1,532,500</div>
+            <div class="yield-amount" id="totalYieldAmount">$1,532,500</div>
           </div>
         </div>
       </section>
 
-      <!-- Risk Metrics -->
-      <section class="risk-section">
-        <h2>Risk Metrics</h2>
-        <div class="risk-grid">
-          <div class="risk-item">
-            <span class="risk-label">Sharpe Ratio</span>
-            <span class="risk-value">1.85</span>
+      <!-- AI Insights -->
+      <section class="ai-section">
+        <h2>AI Risk Assessment</h2>
+        <div class="ai-insight">
+          <strong>AI Recommendation:</strong> <span id="aiRecommendation">Optimized portfolio shows 3.6% APY with 1.85 Sharpe ratio. Consider rebalancing quarterly.</span>
+        </div>
+        <div class="ai-metrics">
+          <div class="ai-metric">
+            <span>Risk Score:</span>
+            <span class="value">Medium (6/10)</span>
           </div>
-          <div class="risk-item">
-            <span class="risk-label">Volatility (30d)</span>
-            <span class="risk-value">1.2%</span>
-          </div>
-          <div class="risk-item">
-            <span class="risk-label">Max Drawdown</span>
-            <span class="risk-value">-2.5%</span>
-          </div>
-          <div class="risk-item">
-            <span class="risk-label">Value at Risk (95%)</span>
-            <span class="risk-value">$2,100,000</span>
+          <div class="ai-metric">
+            <span>Max Drawdown Estimate:</span>
+            <span class="value">2.5%</span>
           </div>
         </div>
       </section>
 
-      <!-- Position Summary -->
-      <section class="position-section">
-        <h2>Position Summary</h2>
-        <div class="position-grid">
-          <div class="position-item">
-            <span>On-Chain TVL</span>
-            <span class="pos-value">$26,750,000</span>
-          </div>
-          <div class="position-item">
-            <span>Off-Chain Cash</span>
-            <span class="pos-value">$15,750,000</span>
-          </div>
-          <div class="position-item">
-            <span>Allocated to Strategies</span>
-            <span class="pos-value success">$22,175,000</span>
-          </div>
-          <div class="position-item">
-            <span>Unallocated</span>
-            <span class="pos-value warning">$20,325,000</span>
-          </div>
-        </div>
+      <!-- Actions -->
+      <section class="actions-section">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="exportBtn">Export Results</button>
       </section>
     </main>
   </div>
