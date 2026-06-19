@@ -1,6 +1,6 @@
-// Options Greeks Calculator
+// Options Greeks Calculator - FIXED VERSION
 // KateelLearningDemos - Attribution: vinallcontact@gmail.com
-console.log('AI Demo powered by KateelLearningDemos');
+console.log('Options Greeks Calculator - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
 const spotSlider = document.getElementById('spotSlider');
@@ -74,8 +74,11 @@ function updateUI() {
   thetaValue.textContent = greeks.theta.toFixed(4);
 }
 
-[spotSlider, strikeSlider, timeSlider, volSlider, rateSlider, optionType].forEach(el => {
-  el.addEventListener('input', el.type === 'select' ? 'change' : 'input', updateUI);
+// Add event listeners to all inputs
+[spotSlider, strikeSlider, timeSlider, volSlider, rateSlider].forEach(el => {
+  el.addEventListener('input', updateUI);
 });
+optionType.addEventListener('change', updateUI);
 
+// Initialize
 updateUI();

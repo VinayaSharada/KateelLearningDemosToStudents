@@ -1,6 +1,6 @@
-// VaR Calculator
+// VaR Calculator - FIXED VERSION
 // KateelLearningDemos - Attribution: vinallcontact@gmail.com
-console.log('AI Demo powered by KateelLearningDemos');
+console.log('VaR Calculator - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
 const valueSlider = document.getElementById('valueSlider');
@@ -12,9 +12,8 @@ const parametricVaR = document.getElementById('parametricVaR');
 const historicalVaR = document.getElementById('historicalVaR');
 const zScore = document.getElementById('zScore');
 const esValue = document.getElementById('esValue');
-
-valueSlider.addEventListener('input', () => document.getElementById('valueValue').textContent = '$' + parseInt(valueSlider.value).toLocaleString());
-volSlider.addEventListener('input', () => document.getElementById('volValue').textContent = volSlider.value);
+const valueValue = document.getElementById('valueValue');
+const volValue = document.getElementById('volValue');
 
 // Z-scores for confidence levels
 const zScores = { '0.95': 1.645, '0.99': 2.326, '0.995': 2.576 };
@@ -41,6 +40,10 @@ function calculateVaR() {
 }
 
 function updateUI() {
+  // Update display values
+  valueValue.textContent = '$' + parseInt(valueSlider.value).toLocaleString();
+  volValue.textContent = volSlider.value;
+  
   const result = calculateVaR();
   
   parametricVaR.textContent = '$' + (result.parametric / 1000).toFixed(1) + 'k';
@@ -49,11 +52,16 @@ function updateUI() {
   esValue.textContent = '$' + (result.es / 1000).toFixed(1) + 'k';
 }
 
+// Add event listeners to all inputs
+[valueSlider, volSlider].forEach(el => {
+  el.addEventListener('input', () => {
+    updateUI();
+  });
+});
+
 [confLevel, timeHorizon].forEach(el => {
   el.addEventListener('change', updateUI);
 });
-[valueSlider, volSlider].forEach(el => {
-  el.addEventListener('input', updateUI);
-});
 
+// Initialize
 updateUI();
