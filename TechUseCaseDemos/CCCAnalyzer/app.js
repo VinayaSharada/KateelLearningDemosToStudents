@@ -1,127 +1,164 @@
 // Cash Conversion Cycle Optimizer
 // KateelLearningDemos - Attribution: vinallcontact@gmail.com
-console.log('Cash Conversion Cycle Optimizer - Powered by KateelLearningDemos');
+console.log('CCC Analyzer - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
 // Scenario definitions
 const scenarios = {
-  current: { dso: 32, dio: 45, dpo: 28, name: 'Current State' },
-  industry: { dso: 45, dio: 50, dpo: 35, name: 'Industry Benchmark' },
-  target: { dso: 25, dio: 35, dpo: 40, name: 'Target State' }
+  current: { name: 'Current State', dso: 45.6, invDays: 48.7, dpo: 36.5 },
+  industry: { name: 'Industry Benchmark', dso: 40, invDays: 45, dpo: 40 },
+  target: { name: 'Target State', dso: 35, invDays: 40, dpo: 45 }
 };
 
 // DOM Elements
 const scenarioSelect = document.getElementById('scenarioSelect');
 const aiToggle = document.getElementById('aiToggle');
-const dsoInput = document.getElementById('dsoImprovement');
-const dpoInput = document.getElementById('dpoIncrease');
-const invInput = document.getElementById('inventoryReduce');
+const totalSalesEl = document.getElementById('totalSales');
+const creditSalesEl = document.getElementById('creditSales');
+const cogsEl = document.getElementById('cogs');
+const arEl = document.getElementById('accountsReceivable');
+const apEl = document.getElementById('accountsPayable');
+const inventoryEl = document.getElementById('inventory');
+const dsoEl = document.getElementById('dso');
+const inventoryDaysEl = document.getElementById('inventoryDays');
+const dpoEl = document.getElementById('dpo');
+const cccEl = document.getElementById('ccc');
+const dsoImpEl = document.getElementById('dsoImprovement');
+const dpoIncEl = document.getElementById('dpoIncrease');
+const invRedEl = document.getElementById('inventoryReduce');
+const dsoImpVal = document.getElementById('dsoImpValue');
+const dpoIncVal = document.getElementById('dpoIncValue');
+const invRedVal = document.getElementById('invRedValue');
+const optimizedCccEl = document.getElementById('optimizedCcc');
+const cashReleaseEl = document.getElementById('cashRelease');
+const cccImpEl = document.getElementById('cccImprovement');
+const aiRecommendation = document.getElementById('aiRecommendation');
 const resetBtn = document.getElementById('resetBtn');
 const exportBtn = document.getElementById('exportBtn');
-const aiRecommendation = document.getElementById('aiRecommendation');
 
 // Initialize
 function init() {
-  scenarioSelect.addEventListener('change', handleScenarioChange);
+  const inputs = [scenarioSelect, totalSalesEl, creditSalesEl, cogsEl, arEl, apEl, inventoryEl,
+                  dsoImpEl, dpoIncEl, invRedEl];
+  inputs.forEach(el => el.addEventListener('input', updateCalculations));
+  
   aiToggle.addEventListener('change', updateAIInsights);
-  dsoInput.addEventListener('input', updateScenarioValues);
-  dpoInput.addEventListener('input', updateScenarioValues);
-  invInput.addEventListener('input', updateScenarioValues);
   resetBtn.addEventListener('click', resetValues);
   exportBtn.addEventListener('click', exportResults);
   
-  updateScenarioValues();
+  updateCalculations();
 }
 
-function handleScenarioChange() {
+function updateCalculations() {
   const scenario = scenarioSelect.value;
-  if (scenario === 'current' && scenarios.current) {
-    // Reset sliders to match current state
-    dsoInput.value = 0;
-    dpoInput.value = 0;
-    invInput.value = 0;
-    document.getElementById('dsoImpValue').textContent = '0%';
-    document.getElementById('dpoIncValue').textContent = '0%';
-    document.getElementById('invRedValue').textContent = '0%';
-  }
-  updateScenarioValues();
-}
-
-function updateScenarioValues() {
-  const dso = parseFloat(document.getElementById('dso').textContent);
-  const invDays = parseFloat(document.getElementById('inventoryDays').textContent);
-  const dpo = parseFloat(document.getElementById('dpo').textContent);
   
-  const dsoImp = parseFloat(dsoInput.value) / 100;
-  const dpoInc = parseFloat(dpoInput.value) / 100;
-  const invRed = parseFloat(invInput.value) / 100;
+  // Get base values
+  const totalSales = parseFloat(totalSalesEl.value) || 100000000;
+  const creditSales = parseFloat(creditSalesEl.value) || 80;
+  const cogs = parseFloat(cogsEl.value) || 60000000;
+  const ar = parseFloat(arEl.value) || 15000000;
+  const ap = parseFloat(apEl.value) || 10000000;
+  const inventory = parseFloat(inventoryEl.value) || 8000000;
   
-  document.getElementById('dsoImpValue').textContent = dsoInput.value + '%';
-  document.getElementById('dpoIncValue').textContent = dpoInput.value + '%';
-  document.getElementById('invRedValue').textContent = invInput.value + '%';
+  // Calculate CCC components
+  const creditSalesAmt = totalSales * creditSales / 100;
+  const dso = creditSalesAmt > 0 ? (ar / creditSalesAmt) * 365 : 0;
+  const inventoryDays = cogs > 0 ? (inventory / cogs) * 365 : 0;
+  const dpo = cogs > 0 ? (ap / cogs) * 365 : 0;
+  const ccc = dso + inventoryDays - dpo;
   
-  const optDso = dso * (1 + dsoImp);
-  const optInv = invDays * (1 + invRed);
+  // Update UI
+  dsoEl.textContent = dso.toFixed(1);
+  inventoryDaysEl.textContent = inventoryDays.toFixed(1);
+  dpoEl.textContent = dpo.toFixed(1);
+  cccEl.textContent = ccc.toFixed(1) + ' days';
+  
+  // Apply optimizations
+  const dsoImp = parseFloat(dsoImpEl.value) / 100;
+  const dpoInc = parseFloat(dpoIncEl.value) / 100;
+  const invRed = parseFloat(invRedEl.value) / 100;
+  
+  dsoImpVal.textContent = dsoImpEl.value + '%';
+  dpoIncVal.textContent = dpoIncEl.value + '%';
+  invRedVal.textContent = invRedEl.value + '%';
+  
+  const optDso = dso * (1 - dsoImp);
+  const optInv = inventoryDays * (1 - invRed);
   const optDpo = dpo * (1 + dpoInc);
-  const optimizedCcc = optDso + optInv - optDpo;
+  const optCcc = optDso + optInv - optDpo;
   
-  document.getElementById('optimizedCcc').textContent = optimizedCcc.toFixed(1) + ' days';
+  optimizedCccEl.textContent = optCcc.toFixed(1) + ' days';
   
-  // Calculate cash release
-  const totalSales = parseFloat(document.getElementById('totalSales').value) || 100000000;
-  const dailySales = totalSales / 365;
-  const cccImprovement = (dso + invDays - dpo) - optimizedCcc;
-  const cashRelease = cccImprovement * dailySales;
+  // Calculate cash release (simplified)
+  const cccImprovement = ccc - optCcc;
+  const cashRelease = (cccImprovement / 365) * (cogs / 1000000);
   
-  document.getElementById('cashRelease').textContent = '$' + (cashRelease / 1000).toFixed(0) + 'K';
+  cashReleaseEl.textContent = '$' + cashRelease.toFixed(1) + 'M';
+  cccImprovementEl.textContent = cccImprovement.toFixed(1) + ' days';
   
   updateAIInsights();
 }
 
 function updateAIInsights() {
-  if (!aiToggle.checked) {
-    aiRecommendation.textContent = 'Enable AI Insights to see recommendations.';
-    return;
-  }
+  if (!aiToggle.checked) return;
   
-  const ccc = parseFloat(document.getElementById('ccc').textContent);
-  const optimizedCcc = parseFloat(document.getElementById('optimizedCcc').textContent);
+  const ccc = parseFloat(cccEl.textContent);
+  const optCcc = parseFloat(optimizedCccEl.textContent);
+  const improvement = ccc - optCcc;
   
-  if (optimizedCcc < ccc - 5) {
-    aiRecommendation.textContent = 'Excellent improvement! Consider implementing these changes in phases to minimize operational disruption.';
-  } else if (optimizedCcc < ccc) {
-    aiRecommendation.textContent = 'Good progress. Focus on the highest impact area for maximum cash release.';
+  let recommendation = '';
+  
+  if (improvement > 10) {
+    recommendation = `Excellent! ${improvement.toFixed(1)} day CCC improvement possible. Prioritize inventory reduction.`;
+  } else if (improvement > 5) {
+    recommendation = `Good potential: ${improvement.toFixed(1)} day improvement. Focus on receivables management.`;
+  } else if (improvement > 0) {
+    recommendation = `Modest improvement: ${improvement.toFixed(1)} days. Consider supplier negotiations.`;
   } else {
-    aiRecommendation.textContent = 'Current recommendations: Prioritize collections improvement for immediate cash release.';
+    recommendation = 'No improvement in current settings. Try increasing DPO or reducing inventory.';
   }
+  
+  aiRecommendation.textContent = recommendation;
 }
 
 function resetValues() {
   scenarioSelect.value = 'current';
-  document.getElementById('totalSales').value = 100000000;
-  document.getElementById('creditSales').value = 80;
-  document.getElementById('cogs').value = 60000000;
-  document.getElementById('accountsReceivable').value = 15000000;
-  document.getElementById('accountsPayable').value = 10000000;
-  document.getElementById('inventory').value = 8000000;
-  dsoInput.value = 0;
-  dpoInput.value = 0;
-  invInput.value = 0;
-  document.getElementById('dsoImpValue').textContent = '0%';
-  document.getElementById('dpoIncValue').textContent = '0%';
-  document.getElementById('invRedValue').textContent = '0%';
-  updateScenarioValues();
+  totalSalesEl.value = 100000000;
+  creditSalesEl.value = 80;
+  cogsEl.value = 60000000;
+  arEl.value = 15000000;
+  apEl.value = 10000000;
+  inventoryEl.value = 8000000;
+  dsoImpEl.value = 0;
+  dpoIncEl.value = 0;
+  invRedEl.value = 0;
+  updateCalculations();
 }
 
 function exportResults() {
   const data = {
     scenario: scenarioSelect.value,
-    dso: document.getElementById('dso').textContent,
-    inventoryDays: document.getElementById('inventoryDays').textContent,
-    dpo: document.getElementById('dpo').textContent,
-    ccc: document.getElementById('ccc').textContent,
-    optimizedCcc: document.getElementById('optimizedCcc').textContent,
-    cashRelease: document.getElementById('cashRelease').textContent,
+    financials: {
+      totalSales: totalSalesEl.value,
+      creditSales: creditSalesEl.value,
+      cogs: cogsEl.value,
+      accountsReceivable: arEl.value,
+      accountsPayable: apEl.value,
+      inventory: inventoryEl.value
+    },
+    ccc: {
+      dso: dsoEl.textContent,
+      inventoryDays: inventoryDaysEl.textContent,
+      dpo: dpoEl.textContent,
+      ccc: cccEl.textContent
+    },
+    optimization: {
+      dsoImprovement: dsoImpEl.value,
+      dpoIncrease: dpoIncEl.value,
+      inventoryReduction: invRedEl.value,
+      optimizedCcc: optimizedCccEl.textContent,
+      cashRelease: cashReleaseEl.textContent
+    },
     aiEnabled: aiToggle.checked,
     timestamp: new Date().toISOString()
   };
@@ -130,7 +167,7 @@ function exportResults() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'ccc-analysis-results.json';
+  a.download = 'ccc-analysis.json';
   a.click();
   URL.revokeObjectURL(url);
 }
