@@ -52,8 +52,8 @@ We follow a **three-tier approach** for AI model usage:
 
 | Metric | Value |
 |--------|-------|
-| **Total Demos** | 63+ |
-| **Browser-Based Demos** | 44+ |
+| **Total Demos** | 64+ |
+||| **Browser-Based Demos** | 45+ |
 | **Python Demos** | 20+ |
 | **Courses Covered** | 7 |
 

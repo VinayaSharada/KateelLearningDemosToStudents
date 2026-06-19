@@ -209,7 +209,7 @@ Professional redesign completed:
 
 # Final Result
 
-Total Demos Verified: 63+
+Total Demos Verified: 64+
 
 Status: COMPLETE
 
@@ -221,6 +221,9 @@ AI Model Philosophy:
 Demos Imported from Organization:
 - BankFailurePrediction (bank failure prediction)
 - OptionsPricing (options pricing with Greeks)
+
+LiteParse Demo Added:
+- LiteParseDemo (PDF-to-markdown for RAG workflows)
 
 All READMEs Enhanced:
 - Theory sections added
