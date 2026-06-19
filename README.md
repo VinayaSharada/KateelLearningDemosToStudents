@@ -30,6 +30,26 @@ python classificationdemo.py
 
 ---
 
+## 🚀 Live Demos (GitHub Pages)
+
+### CFOWorkshop - Treasury Management Demos
+**Attribution: vinallcontact@gmail.com**
+
+| Demo | Session | Description |
+|------|---------|-------------|
+| [Treasury Control Tower](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/) | 1 | Real-time liquidity dashboard with forecasting |
+| [FX Hedge Simulator](/KateelLearningDemosToStudents/TechUseCaseDemos/FXHedgeSimulator/) | 2 | Interactive FX hedging strategy simulator |
+| [CCC Analyzer](/KateelLearningDemosToStudents/TechUseCaseDemos/CCCAnalyzer/) | 3 | Cash Conversion Cycle optimization tool |
+| [Collections Predictor](/KateelLearningDemosToStudents/TechUseCaseDemos/CollectionsPredictor/) | 3 | AI-powered collections prioritization |
+| [Smart Contract Treasury](/KateelLearningDemosToStudents/TechUseCaseDemos/SmartContractTreasury/) | 5-6 | Blockchain treasury operations |
+| [Stablecoin Manager](/KateelLearningDemosToStudents/TechUseCaseDemos/StablecoinManager/) | 5-6 | Digital asset treasury management |
+| [AI Hedge Orchestrator](/KateelLearningDemosToStudents/TechUseCaseDemos/AIHedgeOrchestrator/) | 7 | Multi-asset hedging with AI |
+| [Treasury Transform Blueprint](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/) | 8 | End-to-end transformation simulator |
+
+**Main Landing Page:** https://vinayasharada.github.io/KateelLearningDemosToStudents/
+
+---
+
 ## 🎯 AI Model Philosophy
 
 We follow a **three-tier approach** for AI model usage:
