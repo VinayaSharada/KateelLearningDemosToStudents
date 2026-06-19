@@ -1,4 +1,4 @@
-// Liquidity Stress Testing Simulator
+// Liquidity Stress Testing Simulator - FIXED VERSION
 // KateelLearningDemos - Attribution: vinallcontact@gmail.com
 console.log('Liquidity Stress Testing Simulator - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
@@ -129,16 +129,22 @@ function resetValues() {
 }
 
 function compareScenarios() {
+  const baseInflows = parseFloat(inflowsInput.value) || 5000000;
+  const baseOutflows = parseFloat(outflowsInput.value) || 4200000;
+  const seasonal = parseFloat(seasonalSelect.value) || 0;
+  const startingCash = 15000000;
+  
   const scenarios_data = [
-    { name: 'Normal', ending: 15000000 + 5000000 - 4200000 },
-    { name: 'Revenue Decline', ending: 15000000 + 4250000 - 4200000 },
-    { name: 'Payment Acceleration', ending: 15000000 + 5000000 - 5040000 },
-    { name: 'Emergency Outflow', ending: 15000000 + 5000000 - 6300000 }
+    { name: 'Normal', inflows: baseInflows, outflows: baseOutflows },
+    { name: 'Revenue Decline', inflows: baseInflows * 0.85 * (1 + seasonal), outflows: baseOutflows },
+    { name: 'Payment Acceleration', inflows: baseInflows * (1 + seasonal), outflows: baseOutflows * 1.20 },
+    { name: 'Emergency Outflow', inflows: baseInflows * (1 + seasonal), outflows: baseOutflows * 1.50 }
   ];
   
   let msg = '📊 Scenario Comparison:\n\n';
   scenarios_data.forEach(s => {
-    msg += `${s.name}: Ending Cash $${Math.round(s.ending/1000000)}M\n`;
+    const ending = startingCash + s.inflows - s.outflows;
+    msg += `${s.name}: Ending Cash $${Math.round(ending/1000000)}M\n`;
   });
   msg += '\n💡 AI Recommendation: Optimize receivables collection timing to improve cash position across all scenarios.';
   

@@ -1,4 +1,4 @@
-// FX Hedge Strategy Optimizer
+// FX Hedge Strategy Optimizer - FIXED VERSION
 // KateelLearningDemos - Attribution: vinallcontact@gmail.com
 console.log('FX Hedge Strategy Optimizer - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
@@ -9,6 +9,14 @@ const marketScenarios = {
   volatile: { vol: 0.15, trend: 0, name: 'High Volatility' },
   trending: { vol: 0.08, trend: 0.02, name: 'Strong Trend' },
   crisis: { vol: 0.25, trend: -0.05, name: 'Market Crisis' }
+};
+
+// Hedge instrument costs
+const instrumentCosts = {
+  forward: 0.002,
+  option: 0.015,
+  swap: 0.005,
+  natural: 0
 };
 
 // DOM Elements
@@ -37,9 +45,15 @@ function init() {
       document.querySelectorAll('.instrument-card').forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
       selectedInstrument = card.dataset.instrument;
+      updateAIInsights();
     });
   });
   document.querySelector('.instrument-card').classList.add('selected');
+  
+  // Add listeners to all inputs
+  [exposureAmountEl, timeHorizonEl, naturalHedgeEl].forEach(el => {
+    el.addEventListener('input', updateAIInsights);
+  });
   
   updateMarketConditions();
 }
@@ -56,12 +70,34 @@ function updateMarketConditions() {
   updateAIInsights();
 }
 
+function calculateHedgeImpact(hedgePercent, instrument) {
+  const exposure = parseFloat(exposureAmountEl.value) || 1000000;
+  const vol = marketScenarios[scenarioSelect.value].vol;
+  const cost = instrumentCosts[instrument] || 0;
+  
+  const hedgedAmount = exposure * hedgePercent / 100;
+  const unhedgedAmount = exposure - hedgedAmount;
+  
+  // Simplified risk calculation
+  const riskReduction = hedgedAmount * vol * 0.7;
+  const hedgingCost = hedgedAmount * cost;
+  
+  return {
+    hedgedAmount,
+    unhedgedAmount,
+    riskReduction,
+    hedgingCost
+  };
+}
+
 function updateAIInsights() {
   if (!aiToggle.checked) return;
   
   const scenario = scenarioSelect.value;
   const scenarioData = marketScenarios[scenario];
   const exposure = parseFloat(exposureAmountEl.value) || 1000000;
+  const instrument = selectedInstrument;
+  const cost = instrumentCosts[instrument] || 0;
   
   let recommendation = '';
   
@@ -73,7 +109,9 @@ function updateAIInsights() {
     recommendation = `Stable market: Forward contracts recommended. 75% hedging provides optimal cost-risk balance.`;
   }
   
-  recommendation += ` Natural hedge of ${naturalHedgeEl.value}% reduces effective exposure to $${(exposure * (1 - naturalHedgeEl.value/100) / 1000000).toFixed(2)}M.`;
+  const effectiveExposure = exposure * (1 - naturalHedgeEl.value/100);
+  recommendation += ` Natural hedge of ${naturalHedgeEl.value}% reduces effective exposure to $${(effectiveExposure/1000000).toFixed(2)}M.`;
+  recommendation += ` Selected instrument (${instrument}) cost: ${(cost*100).toFixed(2)}%.`;
   
   aiRecommendation.textContent = recommendation;
 }
@@ -84,6 +122,7 @@ function resetValues() {
   exposureAmountEl.value = 1000000;
   timeHorizonEl.value = 6;
   naturalHedgeEl.value = 30;
+  selectedInstrument = 'forward';
   updateMarketConditions();
 }
 
