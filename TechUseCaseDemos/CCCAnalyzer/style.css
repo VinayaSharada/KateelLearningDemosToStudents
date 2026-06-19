@@ -52,6 +52,34 @@ section h2 {
   padding-bottom: 0.75rem;
 }
 
+/* Controls */
+.control-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.control-group input,
+.control-group select {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -93,7 +121,6 @@ section h2 {
 
 .ccc-card.result {
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 106, 0.1));
-  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .ccc-label {
@@ -116,29 +143,6 @@ section h2 {
   font-size: 0.75rem;
   color: #94a3b8;
   margin-top: 0.5rem;
-}
-
-/* Benchmark Grid */
-.benchmark-grid {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.benchmark-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background: rgba(0,0,0,0.2);
-  border-radius: 8px;
-}
-
-.benchmark-value {
-  font-weight: 600;
-  color: #fbbf24;
-}
-
-.benchmark-item:last-child .benchmark-value {
-  color: #4ade80;
 }
 
 /* Scenario Controls */
@@ -205,7 +209,19 @@ section h2 {
   color: #4ade80;
 }
 
-/* Recommendations */
+/* AI Section */
+.ai-insight {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #10b981;
+}
+
+.ai-insight strong {
+  color: #4ade80;
+}
+
 .recommendations-list {
   display: grid;
   gap: 1rem;
@@ -227,6 +243,29 @@ section h2 {
 .rec-text {
   color: #cbd5e1;
   line-height: 1.5;
+}
+
+/* Actions */
+.actions-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  background: #10b981;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #059669;
 }
 
 /* Attribution Marker */

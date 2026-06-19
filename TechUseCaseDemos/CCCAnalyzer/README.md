@@ -1,47 +1,35 @@
-# CCC Analyzer
+# Cash Conversion Cycle Optimizer
 
 ## Overview
-Cash Conversion Cycle optimization tool for working capital management and financial analysis.
+Browser-based hands-on exercise for Working Capital Optimization (Session 3).
 
 ## Learning Objectives
-- Calculate and interpret DSO, DPO, and Inventory Days
-- Understand the Cash Conversion Cycle (CCC) and its drivers
-- Learn AI-driven working capital optimization strategies
-- Perform scenario analysis for cash release opportunities
+- Quantify working capital impact
+- Prioritize improvement initiatives
+- Balance cash release with business risk
+- Experience AI value in decision support
 
 ## Features
-- **CCC Calculator**: Compute DSO, DPO, Inventory Days, and CCC
-- **AI Recommendations**: Get actionable working capital improvement suggestions
-- **Cash Release Simulation**: Model potential cash release from optimization
-- **Industry Benchmarking**: Compare against industry standards
+- **CCC Calculator**: DSO/DPO/Inventory Days calculation
+- **Scenario Modeling**: Collections, inventory, payment improvements
+- **Cash Impact Visualization**: Annual cash release projection
+- **AI-Powered Insights**: Priority ranking and risk assessment
+- **Export Functionality**: Download results as JSON
 
 ## How to Run
 1. Open `index.html` in a browser
-2. Enter your financial data (sales, COGS, inventory)
-3. View CCC breakdown and optimization opportunities
-4. Run scenarios to project cash release
+2. Enter financial data or select a scenario
+3. Adjust optimization sliders
+4. View cash release projections
+5. Read AI recommendations
+6. Export results if needed
 
-## Key Formulas
-
-### Days Sales Outstanding (DSO)
-```
-DSO = (Accounts Receivable / Total Credit Sales) × Number of Days
-```
-
-### Days Payable Outstanding (DPO)
-```
-DPO = (Accounts Payable / Total COGS) × Number of Days
-```
-
-### Inventory Days
-```
-Inventory Days = (Average Inventory / Total COGS) × Number of Days
-```
-
-### Cash Conversion Cycle
-```
-CCC = DSO + Inventory Days - DPO
-```
+## Scenarios Included
+| Scenario | DSO | DIO | DPO | CCC |
+|----------|-----|-----|-----|-----|
+| Current State | 32 | 45 | 28 | 55 days |
+| Industry Benchmark | 45 | 50 | 35 | 60 days |
+| Target State | 25 | 35 | 40 | 40 days |
 
 ## Attribution
 This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
