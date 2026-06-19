@@ -72,6 +72,10 @@ Verification Period: 2026-06-12 to 2026-06-13
 * PASS - VoicePageIndexRAG
 * PASS - VoiceGraphRAG
 
+### LiteParse RAG Demo
+
+* PASS - LiteParseDemo - PDF-to-markdown conversion for RAG workflows
+
 ### Security & Governance
 
 * PASS - Embedded_Firmware_Exploit_Wokwi
