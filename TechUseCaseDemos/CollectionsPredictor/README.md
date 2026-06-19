@@ -1,39 +1,37 @@
 # Collections Predictor
 
 ## Overview
-AI-powered collections prioritization dashboard for accounts receivable management.
+Browser-based hands-on exercise for Working Capital Optimization (Session 3).
 
 ## Learning Objectives
-- Predict invoice-level payment probabilities using machine learning
-- Score dispute risks for accounts receivable
-- Generate next-best-action recommendations for collections
-- Measure and improve collections forecast accuracy
+- Understand how AI improves collections prioritization
+- Experience predictive scoring vs reactive aging reports
+- Learn impact of early intervention on cash flow
+- Practice next-best-action decision making
 
 ## Features
-- **Payment Prediction**: ML-based invoice payment probability scoring
-- **Dispute Risk Scoring**: Identify invoices at risk of disputes
-- **Next-Best-Action**: Optimized collections strategy recommendations
-- **Forecast Accuracy**: Track and improve collection predictions
+- **Invoice-Level Payment Prediction**: Probability of payment within 7/14 days
+- **Dispute Risk Scoring**: Risk score (0-100) for each invoice
+- **Next-Best-Action Recommendations**: Call, Email, Escalate, Legal
+- **Collections Forecast Dashboard**: Weekly cash inflow predictions
+- **AI Comparison View**: Shows collections with and without AI insights
+- **Export Functionality**: Download results as JSON
 
 ## How to Run
 1. Open `index.html` in a browser
-2. Review invoice payment predictions
-3. Prioritize collections actions
-4. Track forecast accuracy metrics
+2. Select a scenario from dropdown
+3. Review invoice predictions table
+4. Read AI recommendations
+5. Toggle AI insights on/off
+6. Export results if needed
 
-## Model Approach
-
-### Features Used
-- Days past due (DPD)
-- Invoice amount
-- Customer payment history
-- Invoice age
-- Customer credit score
-
-### Prediction Output
-- Probability of payment within 7 days
-- Probability of payment within 14 days
-- Dispute risk score (0-100)
+## Scenarios Included
+| Scenario | Recovery Rate | Accuracy |
+|----------|---------------|----------|
+| Current Collections | 87% | 87% |
+| Improved Process | 92% | 92% |
+| Aggressive Collection | 95% | 89% |
+| Custom | User-defined | Variable |
 
 ## Attribution
 This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.

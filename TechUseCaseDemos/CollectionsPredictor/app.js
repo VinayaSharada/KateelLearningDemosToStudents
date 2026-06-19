@@ -3,37 +3,89 @@
 console.log('Collections Predictor - Powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
-// Simulated ML prediction (simplified for demo)
-function predictPaymentProbability(invoice) {
-  // Simple heuristic-based prediction for demo
-  // In production, this would be a trained ML model
+// Scenario definitions
+const scenarios = {
+  current: { recovery: 87, accuracy: 87, name: 'Current Collections' },
+  improved: { recovery: 92, accuracy: 92, name: 'Improved Process' },
+  aggressive: { recovery: 95, accuracy: 89, name: 'Aggressive Collection' }
+};
+
+// DOM Elements
+const scenarioSelect = document.getElementById('scenarioSelect');
+const aiToggle = document.getElementById('aiToggle');
+const totalArEl = document.getElementById('totalAr');
+const predictedRecoveryEl = document.getElementById('predictedRecovery');
+const accuracyEl = document.getElementById('accuracy');
+const aiRecommendation = document.getElementById('aiRecommendation');
+const resetBtn = document.getElementById('resetBtn');
+const exportBtn = document.getElementById('exportBtn');
+
+// Initialize
+function init() {
+  scenarioSelect.addEventListener('change', updateScenario);
+  aiToggle.addEventListener('change', updateAIInsights);
+  resetBtn.addEventListener('click', resetValues);
+  exportBtn.addEventListener('click', exportResults);
   
-  const baseProb = 95;
-  let adjustment = 0;
-  
-  // Age factor
-  if (invoice.age > 90) adjustment -= 40;
-  else if (invoice.age > 60) adjustment -= 25;
-  else if (invoice.age > 30) adjustment -= 10;
-  
-  // Amount factor (higher amounts = slightly lower probability)
-  if (invoice.amount > 200000) adjustment -= 5;
-  
-  return Math.max(10, Math.min(95, baseProb + adjustment));
+  updateScenario();
 }
 
-function predictDisputeRisk(invoice) {
-  // Simple heuristic for dispute risk
-  let risk = 10;
+function updateScenario() {
+  const scenario = scenarioSelect.value;
+  const scenarioData = scenarios[scenario];
   
-  if (invoice.age > 60) risk += 20;
-  if (invoice.age > 90) risk += 30;
-  if (invoice.amount > 200000) risk += 15;
+  if (scenarioData) {
+    const recovery = (45200000 * scenarioData.recovery / 100);
+    totalArEl.textContent = '$' + (45200000 / 1000000).toFixed(1) + 'M';
+    predictedRecoveryEl.textContent = '$' + (recovery / 1000000).toFixed(1) + 'M';
+    accuracyEl.textContent = scenarioData.accuracy + '%';
+  }
   
-  return Math.min(100, risk);
+  updateAIInsights();
 }
 
-// Initialize demo
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Collections Predictor initialized');
-});
+function updateAIInsights() {
+  if (!aiToggle.checked) {
+    aiRecommendation.textContent = 'Enable AI Insights to see recommendations.';
+    return;
+  }
+  
+  const scenario = scenarioSelect.value;
+  const scenarioData = scenarios[scenario];
+  
+  const recommendations = {
+    current: 'Focus on INV-2024-001256 (City Council) - high amount, critical risk. Consider legal action. INV-2024-001198 (Global Solutions) needs immediate commercial call.',
+    improved: 'With improved process, recovery rate increased by 5%. Prioritize invoices over 60 days old.',
+    aggressive: 'Aggressive collection strategy shows 95% recovery. Deploy automated dunning workflows.',
+    custom: 'Custom scenario: Adjust collection tactics based on customer risk profiles.'
+  };
+  
+  aiRecommendation.textContent = recommendations[scenario] || recommendations.current;
+}
+
+function resetValues() {
+  scenarioSelect.value = 'current';
+  updateScenario();
+}
+
+function exportResults() {
+  const data = {
+    scenario: scenarioSelect.value,
+    totalAr: totalArEl.textContent,
+    predictedRecovery: predictedRecoveryEl.textContent,
+    accuracy: accuracyEl.textContent,
+    aiEnabled: aiToggle.checked,
+    timestamp: new Date().toISOString()
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'collections-predictor-results.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', init);

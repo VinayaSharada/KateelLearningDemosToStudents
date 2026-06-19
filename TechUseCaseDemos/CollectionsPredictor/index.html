@@ -7,33 +7,54 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
+  <!-- Attribution: vinallcontact@gmail.com -->
   <div class="container">
     <header>
       <h1>Collections Predictor</h1>
-      <p class="subtitle">AI-powered collections prioritization dashboard</p>
+      <p class="subtitle">Working Capital Optimization - Session 3</p>
     </header>
 
     <main>
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <div class="control-row">
+          <div class="control-group">
+            <label for="scenarioSelect">Scenario</label>
+            <select id="scenarioSelect">
+              <option value="current">Current Collections</option>
+              <option value="improved">Improved Process</option>
+              <option value="aggressive">Aggressive Collection</option>
+              <option value="custom">Custom Scenario</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="aiToggle" checked>
+              Enable AI Insights
+            </label>
+          </div>
+        </div>
+      </section>
+
       <!-- Summary Stats -->
       <section class="summary-section">
         <h2>Collections Overview</h2>
         <div class="summary-grid">
           <div class="summary-card">
             <div class="summary-label">Total AR Outstanding</div>
-            <div class="summary-value">$45.2M</div>
+            <div class="summary-value" id="totalAr">$45.2M</div>
           </div>
           <div class="summary-card">
             <div class="summary-label">Overdue Invoices</div>
-            <div class="summary-value">1,247</div>
+            <div class="summary-value" id="overdueCount">1,247</div>
           </div>
           <div class="summary-card">
             <div class="summary-label">Predicted Recovery</div>
-            <div class="summary-value success">$38.5M</div>
+            <div class="summary-value success" id="predictedRecovery">$38.5M</div>
           </div>
           <div class="summary-card">
             <div class="summary-label">Forecast Accuracy</div>
-            <div class="summary-value">87%</div>
+            <div class="summary-value" id="accuracy">87%</div>
           </div>
         </div>
       </section>
@@ -48,14 +69,14 @@
                 <th>Invoice #</th>
                 <th>Customer</th>
                 <th>Amount</th>
-                <th>Age (Days)</th>
+                <th>Age</th>
                 <th>Pay Prob (7d)</th>
                 <th>Pay Prob (14d)</th>
                 <th>Dispute Risk</th>
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="invoiceTable">
               <tr>
                 <td>INV-2024-001247</td>
                 <td>TechCorp Inc</td>
@@ -103,29 +124,43 @@
 
       <!-- Collections Forecast -->
       <section class="forecast-section">
-        <h2>Collections Forecast</h2>
+        <h2>Collections Forecast (AI-Enhanced)</h2>
         <div class="forecast-grid">
           <div class="forecast-item">
             <div class="forecast-label">Week 1</div>
-            <div class="forecast-value">$8.2M</div>
+            <div class="forecast-value" id="week1">$8.2M</div>
             <div class="forecast-prob">85% confidence</div>
           </div>
           <div class="forecast-item">
             <div class="forecast-label">Week 2</div>
-            <div class="forecast-value">$7.8M</div>
+            <div class="forecast-value" id="week2">$7.8M</div>
             <div class="forecast-prob">82% confidence</div>
           </div>
           <div class="forecast-item">
             <div class="forecast-label">Week 3</div>
-            <div class="forecast-value">$6.5M</div>
+            <div class="forecast-value" id="week3">$6.5M</div>
             <div class="forecast-prob">78% confidence</div>
           </div>
           <div class="forecast-item">
             <div class="forecast-label">Week 4</div>
-            <div class="forecast-value">$5.9M</div>
+            <div class="forecast-value" id="week4">$5.9M</div>
             <div class="forecast-prob">75% confidence</div>
           </div>
         </div>
+      </section>
+
+      <!-- AI Insights -->
+      <section class="ai-section">
+        <h2>AI Insights</h2>
+        <div class="ai-insight">
+          <strong>AI Recommendation:</strong> <span id="aiRecommendation">Focus on INV-2024-001256 (City Council) - high amount, critical risk. Consider legal action. INV-2024-001198 (Global Solutions) needs immediate commercial call.</span>
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <section class="actions-section">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="exportBtn">Export Results</button>
       </section>
     </main>
   </div>
