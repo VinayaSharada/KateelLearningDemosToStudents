@@ -1,207 +1,170 @@
 # KateelLearningDemos - Full Demo Index
 
-**Attribution: vinallcontact@gmail.com**
+**Attribution:** vinallcontact@gmail.com
 
-## 🎯 Overview
+## Navigation model
 
-This is the complete index of **94+ interactive browser-based AI/ML demos** for finance education. All demos run entirely in the browser - no cloud services, no API keys required.
+- **About Demo** pages explain the learning objective, concepts, usage steps, faculty prompt, and rating widget.
+- **Launch Demo** links open the actual interactive app separately.
+- Course pages use the same About Demo → Launch Demo flow.
 
-## 📚 Course Categories
+## 🏦 Treasury Management (8 demos)
 
-### 🏦 Treasury Management (8 demos)
-*Perfect for CFO aspirants and treasury professionals*
+Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [Treasury Control Tower](../TechUseCaseDemos/TreasuryControlTower/) | Liquidity dashboard with forecasting | Beginner |
-| [FX Hedge Simulator](../TechUseCaseDemos/FXHedgeSimulator/) | Currency hedging strategy simulator | Intermediate |
-| [CCC Analyzer](../TechUseCaseDemos/CCCAnalyzer/) | Cash Conversion Cycle optimizer | Beginner |
-| [Collections Predictor](../TechUseCaseDemos/CollectionsPredictor/) | AI collections prioritization | Intermediate |
-| [Smart Contract Treasury](../TechUseCaseDemos/SmartContractTreasury/) | Blockchain treasury ops | Advanced |
-| [Stablecoin Manager](../TechUseCaseDemos/StablecoinManager/) | Digital asset management | Intermediate |
-| [AI Hedge Orchestrator](../TechUseCaseDemos/AIHedgeOrchestrator/) | Multi-asset AI hedging | Advanced |
-| [Treasury Transform Blueprint](../TechUseCaseDemos/TreasuryTransformBlueprint/) | Modernization roadmap | All Levels |
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| AI Hedge Orchestrator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIHedgeOrchestrator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIHedgeOrchestrator/index.html) | Intermediate |
+| CCC Analyzer | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CCCAnalyzer/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CCCAnalyzer/index.html) | Beginner to Intermediate |
+| Collections Predictor | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CollectionsPredictor/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CollectionsPredictor/index.html) | Beginner to Intermediate |
+| FX Hedge Simulator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FXHedgeSimulator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FXHedgeSimulator/index.html) | Beginner to Intermediate |
+| Smart Contract Treasury | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SmartContractTreasury/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SmartContractTreasury/index.html) | Beginner to Intermediate |
+| Stablecoin Manager | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/StablecoinManager/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/StablecoinManager/index.html) | Advanced |
+| Treasury Control Tower | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/demo.html) | Beginner to Intermediate |
+| Treasury Transform Blueprint | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/index.html) | Beginner to Intermediate |
 
-### 🤖 AI/ML Workflows (41 demos)
-*Comprehensive AI/ML education for finance*
+## 🤖 AI/ML Workflows (36 demos)
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [AB Testing Framework](../TechUseCaseDemos/ABTestingFramework/) | A/B test design and analysis | All Levels |
-| [AI Cost Benefit Analyzer](../TechUseCaseDemos/AICostBenefitAnalyzer/) | ROI calculation for AI projects | All Levels |
-| [AI Data Analyzer](../TechUseCaseDemos/AIDataAnalyzer/) | Statistical analysis with AI | All Levels |
-| [AI Decision Tracker](../TechUseCaseDemos/AIDecisionTracker/) | Decision logging & analysis | All Levels |
-| [AI Feature Impact](../TechUseCaseDemos/AIFeatureImpact/) | Feature importance analysis | Intermediate |
-| [AI Product Canvas](../TechUseCaseDemos/AIProductCanvas/) | Product development framework | All Levels |
-| [AI ROI Calculator](../TechUseCaseDemos/AIROICalculator/) | Return on investment calculator | All Levels |
-| [AI Resource Planner](../TechUseCaseDemos/AIResourcePlanner/) | Staffing and capacity planning | Intermediate |
-| [AI Team Collaboration](../TechUseCaseDemos/AITeamCollaboration/) | Team workflow optimization | All Levels |
-| [AI Workflow Demo](../TechUseCaseDemos/AIWorkflowDemo/) | Process automation workflows | All Levels |
-| [Credit Scoring Demo](../TechUseCaseDemos/CreditScoringDemo/) | Credit risk modeling | Beginner |
-| [Fraud Playground](../TechUseCaseDemos/FraudPlayground/) | Anomaly detection for fraud | Intermediate |
-| [Feature Store Demo](../TechUseCaseDemos/FeatureStoreDemo/) | Feature engineering | Intermediate |
-| [Data Drift Detector](../TechUseCaseDemos/DataDriftDetector/) | Model monitoring | Intermediate |
-| [Model Version Comparator](../TechUseCaseDemos/ModelVersionComparator/) | ML model comparison | Intermediate |
-| [ML Model Registry](../TechUseCaseDemos/MLModelRegistry/) | Model lifecycle management | Intermediate |
-| [Probabilistic Decision Engine](../TechUseCaseDemos/ProbabilisticDecisionEngine/) | Uncertainty modeling | Advanced |
-| [University Knowledge Assistant](../TechUseCaseDemos/UniversityKnowledgeAssistant/) | Educational Q&A system | All Levels |
-| [CopilotKit Demo](../TechUseCaseDemos/CopilotKitDemo/) | AI assistant integration | Intermediate |
-| [Bank Failure Prediction](../TechUseCaseDemos/BankFailurePrediction/) | Systemic risk modeling | Advanced |
-| [LiteParse Demo](../TechUseCaseDemos/LiteParseDemo/) | Lightweight parsing tools | Beginner |
-| [Emotional Support Assistant](../TechUseCaseDemos/EmotionalSupportAssistant/) | Conversational AI | All Levels |
-| [Browser AI Demos](..\\🤖 Browser-AI-Demos\\Browser-AI-Product-Demos/) | Product demos with local AI | All Levels |
-| [PM Product Demos](..\\🤖 Browser-AI-Demos\\PM-Product-Demos/) | Product management demos | All Levels |
+Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.
 
-### ⚠️ Risk Management (9 demos)
-*Credit, market, and systemic risk modeling*
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| AB Testing Framework | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ABTestingFramework/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ABTestingFramework/index.html) | All Levels |
+| AI Cost Benefit Analyzer | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AICostBenefitAnalyzer/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AICostBenefitAnalyzer/index.html) | Intermediate |
+| AI Data Analyzer | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIDataAnalyzer/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIDataAnalyzer/index.html) | Intermediate |
+| AI Decision Tracker | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIDecisionTracker/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIDecisionTracker/index.html) | Intermediate |
+| AI Feature Impact | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIFeatureImpact/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIFeatureImpact/index.html) | Intermediate |
+| AI PRD Template | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIPRDTemplate/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIPRDTemplate/index.html) | Intermediate |
+| AI Performance Dashboard | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIPerformanceDashboard/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIPerformanceDashboard/index.html) | Intermediate |
+| AI Product Canvas | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIProductCanvas/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIProductCanvas/index.html) | Intermediate |
+| AI ROI Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIROICalculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIROICalculator/index.html) | Intermediate |
+| AI Resource Planner | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIResourcePlanner/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIResourcePlanner/index.html) | Intermediate |
+| AI Team Collaboration | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AITeamCollaboration/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AITeamCollaboration/index.html) | Intermediate |
+| AI Workflow | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIWorkflowDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIWorkflowDemo/index.html) | Intermediate |
+| Bank Failure Prediction | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/BankFailurePrediction/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/BankFailurePrediction/index.html) | Intermediate |
+| Copilot Kit | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CopilotKitDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CopilotKitDemo/index.html) | All Levels |
+| Data Drift Detector | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/DataDriftDetector/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/DataDriftDetector/index.html) | All Levels |
+| Emotional Support Assistant | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/EmotionalSupportAssistant/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/EmotionalSupportAssistant/index.html) | All Levels |
+| Feature Store | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FeatureStoreDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FeatureStoreDemo/index.html) | All Levels |
+| Greeks Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/GreeksCalculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/GreeksCalculator/index.html) | Intermediate |
+| ML Model Registry | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MLModelRegistry/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MLModelRegistry/index.html) | All Levels |
+| Model Version Comparator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/index.html) | All Levels |
+| Probabilistic Decision Engine | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/index.html) | All Levels |
+| Browser AI Demos — Edge AI Showcase | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/index.html) | Intermediate |
+| Local Chat Advisor | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/index.html) | All Levels |
+| Smart Ticket Tagger | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/index.html) | All Levels |
+| Privacy Notebook | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/3-privacy-notebook/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/3-privacy-notebook/index.html) | All Levels |
+| Whisper Transcriber | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/index.html) | All Levels |
+| Named Entity Tagger | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/5-entity-tagger/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/5-entity-tagger/index.html) | All Levels |
+| Semantic Search | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/6-semantic-search/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/6-semantic-search/index.html) | All Levels |
+| Opinion Quintuple Extractor | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/7-opinion-quintuple-extractor/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/7-opinion-quintuple-extractor/index.html) | All Levels |
+| SYNAPSE — Semantic Word Game | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/semantic-game/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/semantic-game/index.html) | All Levels |
+| PM Product Demos | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/index.html) | All Levels |
+| Experimentation & Metrics Simulator | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/1-experimentation-metrics-simulator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/1-experimentation-metrics-simulator/index.html) | All Levels |
+| Feature Prioritization Copilot · PM Demo 02 | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot/index.html) | All Levels |
+| Build vs Buy vs API Decision Workbench — PM Demo 03 | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/index.html) | All Levels |
+| Pricing & Unit Economics Explorer — PM Demo 04 | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/index.html) | All Levels |
+| AI Launch Gate · PM Demo 05 | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/index.html) | Intermediate |
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [Counterparty Risk Demo](../TechUseCaseDemos/CounterpartyRiskDemo/) | Counterparty exposure analysis | Intermediate |
-| [VaR Calculator](../TechUseCaseDemos/VaRCalculator/) | Value at Risk modeling | Intermediate |
-| [Risk Parity Portfolio](../TechUseCaseDemos/RiskParityPortfolio/) | Risk-balanced allocation | Advanced |
-| [QFDDemo](../TechUseCaseDemos/QFDDemo/) | Quality function deployment | Intermediate |
-| [Threat Hunter](../TechUseCaseDemos/ThreatHunter/) | Cyber risk hunting | Intermediate |
-| [SIEM Dashboard](../TechUseCaseDemos/SIEMDashboard/) | Security incident analysis | Intermediate |
-| [Contagion Model](../DomainUseCaseDemos/RiskManagement/ContagionModel/) | Systemic risk contagion | Advanced |
-| [CounterParty Risk](../DomainUseCaseDemos/RiskManagement/CounterPartyRisk/) | Counterparty analysis | Intermediate |
-| [AIRisk Calculator](../TechUseCaseDemos/AIRiskCalculator/) | AI-powered risk quantification | Advanced |
+## ⚠️ Risk Management (9 demos)
 
-### 💰 Quant Finance (11 demos)
-*Derivatives, options, and portfolio modeling*
+Credit, market, counterparty, systemic, and cyber-risk modeling demos for finance and analytics courses.
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [Black Scholes Option](../DomainUseCaseDemos/QuantFinance/BlackScholesOption/) | Option pricing model | Beginner |
-| [Bond Pricing Demo](../TechUseCaseDemos/BondPricingDemo/) | Fixed income pricing | Beginner |
-| [Greeks Calculator](../TechUseCaseDemos/GreeksCalculator/) | Greeks calculation | Intermediate |
-| [Monte Carlo Options](../TechUseCaseDemos/MonteCarloOptions/) | MC simulation for options | Intermediate |
-| [Option Pricing Demo](../TechUseCaseDemos/OptionPricingDemo/) | Black-Scholes implementation | Beginner |
-| [Options Pricing](../TechUseCaseDemos/OptionsPricing/) | Multi-option strategies | Intermediate |
-| [Portfolio Optimizer](../TechUseCaseDemos/PortfolioOptimizer/) | Markowitz optimization | Intermediate |
-| [NPV Calculator](../TechUseCaseDemos/WealthManagement/npv-calculator/) | Net present value | Beginner |
-| [Efficient Frontier](../TechUseCaseDemos/WealthManagement/efficient-frontier/) | Portfolio theory | Intermediate |
-| [Black Scholes](../TechUseCaseDemos/WealthManagement/black-scholes/) | Options pricing | Intermediate |
-| [Supply Chain Finance](../DomainUseCaseDemos/SupplyChain/SupplyChainFinance/) | Trade finance optimization | Intermediate |
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| Contagion Model | [About Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/RiskManagement/ContagionModel/about.html) | [Launch Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/RiskManagement/ContagionModel/index.html) | All Levels |
+| Counter Party Risk | [About Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/RiskManagement/CounterPartyRisk/about.html) | [Launch Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/RiskManagement/CounterPartyRisk/index.html) | Intermediate |
+| AI Risk Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIRiskCalculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIRiskCalculator/index.html) | Intermediate |
+| Counterparty Risk | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CounterpartyRiskDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CounterpartyRiskDemo/index.html) | Intermediate |
+| QFD | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/QFDDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/QFDDemo/index.html) | All Levels |
+| Risk Parity Portfolio | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RiskParityPortfolio/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RiskParityPortfolio/index.html) | Advanced |
+| SIEM Dashboard | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SIEMDashboard/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SIEMDashboard/index.html) | All Levels |
+| Threat Hunter | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ThreatHunter/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ThreatHunter/index.html) | All Levels |
+| Va R Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/VaRCalculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/VaRCalculator/index.html) | Advanced |
 
-### 🔐 Cybersecurity (9 demos)
-*Security, threat detection, and secure coding*
+## 💰 Quant Finance (10 demos)
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [IoT Aircraft Network](../CyberSecurityDemos/IoTAircraftNetwork/) | Aviation network security | Intermediate |
-| [Intrusion Detection](../CyberSecurityDemos/IoTAircraftNetwork/IntrusionDetection/) | Network intrusion detection | Intermediate |
-| [Threat Modeling Matrix](../CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/) | Threat modeling framework | Intermediate |
-| [Pen Test Simulator](../CyberSecurityDemos/IoTAircraftNetwork/PenTestSimulator/) | Penetration testing lab | Intermediate |
-| [Vuln Scanner](../CyberSecurityDemos/IoTAircraftNetwork/VulnScanner/) | Vulnerability assessment | Beginner |
-| [Network Traffic Analyzer](../CyberSecurityDemos/IoTAircraftNetwork/NetworkTrafficAnalyzer/) | Traffic analysis | Intermediate |
-| [Malware Sandbox](../TechUseCaseDemos/MalwareSandbox/) | Malware analysis environment | Advanced |
-| [Secure Code Review](../TechUseCaseDemos/SecureCodeReview/) | Code security auditing | Intermediate |
-| [Zero Trust Demo](../TechUseCaseDemos/ZeroTrustDemo/) | Zero trust architecture | Intermediate |
+Derivatives, portfolio optimization, fixed income, VaR, Greeks, and supply-chain finance models for applied finance education.
 
-### 📋 Compliance & Governance (6 demos)
-*Regulatory compliance and AI governance*
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| Black Scholes Option | [About Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/QuantFinance/BlackScholesOption/about.html) | [Launch Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/QuantFinance/BlackScholesOption/index.html) | Intermediate |
+| Supply Chain Finance | [About Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/SupplyChain/SupplyChainFinance/about.html) | [Launch Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/SupplyChain/SupplyChainFinance/index.html) | Intermediate |
+| Bond Pricing | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/BondPricingDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/BondPricingDemo/index.html) | All Levels |
+| Monte Carlo Options | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloOptions/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloOptions/index.html) | Advanced |
+| Option Pricing | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/OptionPricingDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/OptionPricingDemo/index.html) | Intermediate |
+| Options Pricing | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/OptionsPricing/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/OptionsPricing/index.html) | Intermediate |
+| Portfolio Optimizer | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/PortfolioOptimizer/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/PortfolioOptimizer/index.html) | Advanced |
+| black scholes | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/black-scholes/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/black-scholes/index.html) | All Levels |
+| efficient frontier | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/efficient-frontier/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/efficient-frontier/index.html) | All Levels |
+| npv calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/npv-calculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/npv-calculator/index.html) | All Levels |
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [Alert Triage](../DomainUseCaseDemos/Compliance/AlertTriage001/) | Alert prioritization | Intermediate |
-| [Mule Account Detection](../DomainUseCaseDemos/Compliance/MuleAccountDetection/) | Anti-money laundering | Intermediate |
-| [AI Governance Scorecard](../TechUseCaseDemos/AIGovernanceScorecard/) | AI compliance assessment | Intermediate |
-| [AI Governance Public Sector](../TechUseCaseDemos/AIGovernancePublicSector/) | Government AI governance | All Levels |
-| [AI Regulatory Tracker](../TechUseCaseDemos/AIRegulatoryTracker/) | Regulatory compliance tracking | Intermediate |
-| [Public Policy Governance](../TechUseCaseDemos/PublicPolicyGovernance/) | AI in public policy | All Levels |
+## 🔐 Cybersecurity (10 demos)
 
-### 📝 RAG & NLP (9 demos)
-*Natural language processing and document AI*
+IoT, network, threat-modeling, malware, vulnerability, and secure-code demos for responsible security learning.
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [AI Content Summarizer](../TechUseCaseDemos/AIContentSummarizer/) | Article summarization | All Levels |
-| [AI Summarizer 001](../TechUseCaseDemos/AISummarizer001/) | Document summarization | All Levels |
-| [Standard RAG](../TechUseCaseDemos/RAGSolutions/StandardRAG/) | Document QA system | Intermediate |
-| [Graph RAG](../TechUseCaseDemos/RAGSolutions/GraphRAG/) | Knowledge graph RAG | Advanced |
-| [Page Index RAG](../TechUseCaseDemos/RAGSolutions/PageIndexRAG/) | Indexed document QA | Intermediate |
-| [Voice Standard RAG](../TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/) | Voice-enabled RAG | Intermediate |
-| [Voice Graph RAG](../TechUseCaseDemos/RAGSolutions/VoiceGraphRAG/) | Voice + knowledge graph | Advanced |
-| [Voice Page Index RAG](../TechUseCaseDemos/RAGSolutions/VoicePageIndexRAG/) | Voice document QA | Intermediate |
-| [Voice Notes App](../TechUseCaseDemos/VoiceNotesApp001/) | Voice note processor | All Levels |
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| Intrusion Detection | [About Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/IntrusionDetection/about.html) | [Launch Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/IntrusionDetection/index.html) | All Levels |
+| Network Traffic Analyzer | [About Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/NetworkTrafficAnalyzer/about.html) | [Launch Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/NetworkTrafficAnalyzer/index.html) | All Levels |
+| Pen Test Simulator | [About Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/PenTestSimulator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/PenTestSimulator/index.html) | Advanced |
+| Threat Modeling Matrix | [About Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/about.html) | [Launch Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/index.html) | All Levels |
+| Vuln Scanner | [About Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/VulnScanner/about.html) | [Launch Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/VulnScanner/index.html) | All Levels |
+| Embedded Firmware Exploit Wokwi | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/Embedded_Firmware_Exploit_Wokwi/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/Embedded_Firmware_Exploit_Wokwi/index.html) | All Levels |
+| Io T Ethernet Pen Test v86 | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/IoT_Ethernet_PenTest_v86/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/IoT_Ethernet_PenTest_v86/index.html) | Advanced |
+| Malware Sandbox | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MalwareSandbox/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MalwareSandbox/index.html) | Advanced |
+| Secure Code Review | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SecureCodeReview/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SecureCodeReview/index.html) | All Levels |
+| Zero Trust | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ZeroTrustDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ZeroTrustDemo/index.html) | All Levels |
 
-### 🏦 Banking (1 demo)
-*Banking and financial services*
+## 📋 Compliance & Governance (6 demos)
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [Loan Default Predictor](../DomainUseCaseDemos/Banking/LoanDefaultPredictor/) | Credit risk prediction | Intermediate |
+AI governance, regulatory tracking, public-sector governance, alert triage, and AML pattern demos.
 
-### ⚡ Other (4 demos)
-*Miscellaneous demos*
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| Alert Triage001 | [About Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/Compliance/AlertTriage001/about.html) | [Launch Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/Compliance/AlertTriage001/index.html) | All Levels |
+| Mule Account Detection | [About Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/Compliance/MuleAccountDetection/about.html) | [Launch Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/Compliance/MuleAccountDetection/index.html) | All Levels |
+| AI Governance Public Sector | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIGovernancePublicSector/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIGovernancePublicSector/index.html) | Advanced |
+| AI Governance Scorecard | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIGovernanceScorecard/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIGovernanceScorecard/index.html) | Advanced |
+| AI Regulatory Tracker | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIRegulatoryTracker/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIRegulatoryTracker/index.html) | Intermediate |
+| Public Policy Governance | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/PublicPolicyGovernance/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/PublicPolicyGovernance/index.html) | Advanced |
 
-| Demo | Description | Level |
-|------|-------------|-------|
-| [Embedded Firmware Exploit](../TechUseCaseDemos/Embedded_Firmware_Exploit_Wokwi/) | IoT security testing | Advanced |
-| [IoT Ethernet PenTest](../TechUseCaseDemos/IoT_Ethernet_PenTest_v86/) | Network penetration testing | Intermediate |
-| [Semantic Game](../🤖 Browser-AI-Demos/Browser-AI-Product-Demos/semantic-game/) | Semantic understanding | All Levels |
-| [AIEthicsDemo](../demos/AIEthicsDemo/) | AI ethics and bias | All Levels |
+## 📝 RAG & NLP (11 demos)
 
-## 🚀 Getting Started
+Retrieval-augmented generation, document QA, summarization, voice notes, and knowledge-assistant demos.
 
-**Important:** Some demos use browser-based Small Language Models (SLMs) that require downloading model files (~400MB-1.5GB).
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| AI Content Summarizer | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIContentSummarizer/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AIContentSummarizer/index.html) | Intermediate |
+| AI Summarizer001 | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AISummarizer001/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/AISummarizer001/index.html) | Intermediate |
+| Lite Parse | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/LiteParseDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/LiteParseDemo/index.html) | All Levels |
+| Graph RAG | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/GraphRAG/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/GraphRAG/index.html) | Intermediate |
+| Page Index RAG | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/PageIndexRAG/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/PageIndexRAG/index.html) | Intermediate |
+| Standard RAG | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/StandardRAG/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/StandardRAG/index.html) | Intermediate |
+| Voice Graph RAG | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/VoiceGraphRAG/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/VoiceGraphRAG/index.html) | Intermediate |
+| Voice Page Index RAG | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/VoicePageIndexRAG/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/VoicePageIndexRAG/index.html) | Intermediate |
+| Voice Standard RAG | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/index.html) | Intermediate |
+| University Knowledge Assistant | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/UniversityKnowledgeAssistant/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/UniversityKnowledgeAssistant/index.html) | All Levels |
+| Voice Notes App001 | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/VoiceNotesApp001/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/VoiceNotesApp001/index.html) | All Levels |
 
-### ⏱️ Loading Times
-- **Standard demos:** Load instantly
-- **Browser SLM demos:** May take 1-3 minutes for model download on first load
-- **Model sizes:** Range from 400MB to 1.5GB depending on the demo
+## 🏦 Banking & Finance (3 demos)
 
-### 📋 Browser SLM Demos
-These demos use local AI models that run in your browser:
+Banking, credit, customer, fraud, and financial-services analytics demos for applied business education.
 
-| Demo | Model Size | Notes |
-|------|------------|-------|
-| Local Chat Advisor | ~400MB | Phi-2 model for conversational AI |
-| Customer Support Tagger | ~600MB | BERT-based classification |
-| Privacy Notebook | ~800MB | Document analysis |
-| Voice Transcriber | ~1.2GB | Whisper model for speech-to-text |
-| Entity Tagger | ~400MB | NER model |
-| Semantic Search | ~600MB | Embedding model |
-| Opinion Extractor | ~800MB | Sentiment analysis |
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| Loan Default Predictor | [About Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/Banking/LoanDefaultPredictor/about.html) | [Launch Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/Banking/LoanDefaultPredictor/index.html) | Beginner to Intermediate |
+| Credit Scoring | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CreditScoringDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CreditScoringDemo/index.html) | Beginner to Intermediate |
+| Fraud Playground | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FraudPlayground/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FraudPlayground/index.html) | Intermediate |
 
-### 📝 Demo Page Status
-- **Detailed Pages:** Treasury Control Tower, AI Hedge Orchestrator, FX Hedge Simulator, Credit Scoring Demo, Option Pricing Demo
-- **Placeholder Pages:** All other demos (will be enhanced in future updates)
-- Click any demo to view its page with description, features, and usage instructions
+## Getting started
 
-1. **Browse** courses above or use the [Landing Page](../index.html)
-2. **Click** any demo to launch it in your browser
-3. **Wait** for the model to download (if applicable - check the loading indicator)
-4. **Experiment** with the editable parameters
-5. **Toggle AI** on/off using the AI toggle button
-6. **Export** results for assignments or reports
+1. Start at the [Landing Page](/KateelLearningDemosToStudents/).
+2. Open an About Demo page before launching the actual demo.
+3. Toggle AI or change scenarios where available.
+4. Record one insight, one limitation, and one action recommendation.
+5. Rate the About Demo page to help improve the catalog.
 
-## 🎓 Faculty Guide
+## Attribution
 
-**KateelLearningDemos is designed for educators!** You can:
-
-- ✅ Copy any demo folder and customize for your course
-- ✅ Create course-specific pages using our template
-- ✅ Add your institution's branding and learning objectives
-- ✅ All demos include editable parameters and AI toggle
-- ✅ Export results for student assignments and grading
-
-**To create a custom course page:**
-1. Copy `courses/treasury-management.html` as a template
-2. Update demo links to point to your copies
-3. Add your institution's logo and learning outcomes
-4. Deploy via GitHub Pages or your LMS
-
-## ⭐ Star the Repo
-
-[Star on GitHub](https://github.com/VinayaSharada/KateelLearningDemosToStudents) to get updates when new demos are added!
-
-## 💬 Attribution
-
-Created by **Professor Vinaya Sathyanarayana**  
-Attribution: vinallcontact@gmail.com
-
----
-
-*Last updated: June 2026 | 94+ demos | 0 API keys required | 100% browser-based*
+Created by **Professor Vinaya Sathyanarayana**. Attribution: vinallcontact@gmail.com.

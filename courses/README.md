@@ -1,39 +1,28 @@
 # KateelLearningDemos Courses
 
-This directory contains course-specific landing pages for the KateelLearningDemos collection.
+This directory contains course-specific GitHub Pages that use a consistent About Demo → Launch Demo flow.
 
-## Available Courses
+## Available course pages
 
-### 🏦 Treasury Management
-**8 interactive demos** covering liquidity management, FX hedging, cash optimization, and digital assets.
-- Perfect for CFO aspirants and treasury professionals
-- [View Course Page](treasury-management.html)
+- [🏦 Treasury Management](courses/treasury-management.html) — Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.
+- [🤖 AI/ML Workflows](courses/ai-ml-workflows.html) — Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.
+- [⚠️ Risk Management](courses/risk-management.html) — Credit, market, counterparty, systemic, and cyber-risk modeling demos for finance and analytics courses.
+- [💰 Quant Finance](courses/quant-finance.html) — Derivatives, portfolio optimization, fixed income, VaR, Greeks, and supply-chain finance models for applied finance education.
+- [🔐 Cybersecurity](courses/cybersecurity.html) — IoT, network, threat-modeling, malware, vulnerability, and secure-code demos for responsible security learning.
+- [📋 Compliance & Governance](courses/compliance.html) — AI governance, regulatory tracking, public-sector governance, alert triage, and AML pattern demos.
+- [📝 RAG & NLP](courses/rag-nlp.html) — Retrieval-augmented generation, document QA, summarization, voice notes, and knowledge-assistant demos.
+- [🏦 Banking & Finance](courses/banking.html) — Banking, credit, customer, fraud, and financial-services analytics demos for applied business education.
 
-### 🤖 AI/ML Workflows
-**25+ demos** on classification, clustering, forecasting, RAG, and AI product management.
-- Covers machine learning fundamentals to advanced AI applications
-- [View Course Page](ai-ml-workflows.html)
+## How to use
 
-### ⚠️ Risk Management
-Demos on credit risk, market risk, counterparty risk, and systemic risk.
-
-### 💰 Quant Finance
-Option pricing, portfolio optimization, VaR, and Greeks calculation.
-
----
-
-## How to Use
-
-1. **Start at the Landing Page**: [index.html](../../index.html) for the full demo catalog
-2. **Browse by Course**: Each course page lists relevant demos
-3. **Launch Demos**: Each demo has a browser-based interface with AI toggle
+1. Start at the [Landing Page](/KateelLearningDemosToStudents/).
+2. Open a course page and read the learning outcomes.
+3. Open an About Demo page for context, theory, and faculty prompts.
+4. Launch the actual demo only when students are ready to practice.
+5. Ask students to rate the About Demo page and submit one reflection.
 
 ## Attribution
 
 **Professor Vinaya Sathyanarayana**  
 Attribution Email: vinallcontact@gmail.com  
 Three-tier AI Philosophy: Browser SLMs → Backend SLMs → External APIs
-
-## Contributing
-
-See [CONTRIBUTING.md](../../CONTRIBUTING.md) for guidelines.

@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  
-  <!-- SEO Meta Tags -->
-  <title>KateelLearningDemos - 73+ Interactive AI/ML Demos for Faculty & Students</title>
-  <meta name="description" content="The premier platform for browser-based AI/ML education. 73+ demos, zero cloud, zero API keys. Faculty can create custom courses and students learn by doing.">
-  <meta name="keywords" content="AI demos, ML demos, finance education, treasury management, faculty resources, student learning, browser-based, no cloud">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="KateelLearningDemos - Interactive AI/ML Education Platform">
-  <meta property="og:description" content="73+ browser-based AI/ML demos. Zero cloud, zero API keys. Faculty can create custom courses.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KateelLearningDemos - About-first AI/ML Learning Platform</title>
+  <meta name="description" content="A highly usable GitHub Pages learning platform for browser-based AI/ML demos. Start with About Demo pages, then launch actual interactive demos.">
+  <meta property="og:title" content="KateelLearningDemos - About-first AI/ML Learning Platform">
+  <meta property="og:description" content="Start with About Demo pages, then launch actual interactive demos. No cloud or API keys required.">
   <meta property="og:type" content="website">
-  
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -22,346 +15,240 @@
     gtag('js', new Date());
     gtag('config', 'G-V672XGCRSK');
   </script>
-  
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --primary: #3b82f6;
-      --primary-dark: #2563eb;
-      --secondary: #8b5cf6;
-      --accent: #ec4899;
-      --success: #4ade80;
-      --warning: #fbbf24;
-      --info: #60a5fa;
-      --dark: #0f172a;
-      --darker: #1e293b;
-      --card: rgba(255,255,255,0.05);
-      --border: rgba(255,255,255,0.1);
-      --text: #e2e8f0;
-      --text-muted: #94a3b8;
-      --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
-      --gradient-card: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(139,92,246,0.1) 100%);
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--gradient-hero);
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
-    
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at center, rgba(59,130,246,0.3) 0%, transparent 70%);
-      z-index: -1;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero .subtitle {
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-    }
-    .hero .quote {
-      font-size: 1.25rem;
-      font-style: italic;
-      color: var(--text);
-      max-width: 700px;
-      margin: 0 auto 1rem;
-    }
-    .hero .quote-author {
-      color: var(--primary);
-      font-weight: 600;
-    }
-    
-    /* CTA Buttons */
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--primary);
-      color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-    }
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59,130,246,0.4); }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: transparent;
-      color: var(--text);
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      border: 2px solid var(--border);
-      transition: all 0.3s ease;
-    }
-    .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
-    
-    /* Stats */
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 3rem 0; }
-    .stat-card { 
-      background: var(--gradient-card); 
-      border: 1px solid var(--border); 
-      border-radius: 16px; 
-      padding: 2rem; 
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .stat-card:hover { transform: translateY(-8px); }
-    .stat-value { font-size: 3rem; font-weight: 800; color: #fff; }
-    .stat-label { color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem; }
-    
-    /* Section Headers */
-    .section { margin: 5rem 0; }
-    .section-header { text-align: center; margin-bottom: 3rem; }
-    .section-header h2 { font-size: 2.5rem; color: #fff; font-weight: 800; margin-bottom: 1rem; }
-    .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
-    
-    /* Course Cards */
-    .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .course-card {
-      background: var(--gradient-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      position: relative;
-      overflow: hidden;
-    }
-    .course-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient-1);
-    }
-    .course-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4); }
-    .course-card h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.5rem; }
-    .course-card p { color: var(--text-muted); margin-bottom: 1rem; }
-    .course-meta { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--text-muted); }
-    
-    /* Faculty Section */
-    .faculty-section {
-      background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 3rem;
-      margin: 4rem 0;
-    }
-    .faculty-section h2 { color: #fff; margin-bottom: 1.5rem; }
-    .faculty-section ul { color: var(--text-muted); margin-left: 1.5rem; }
-    .faculty-section li { margin-bottom: 0.5rem; }
-    .faculty-section .highlight { color: var(--primary); font-weight: 600; }
-    
-    /* GitHub Banner */
-    .github-banner {
-      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-      padding: 1.5rem 2rem;
-      border-radius: 16px;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    .github-banner a { color: #fff; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; }
-    .github-banner a:hover { text-decoration: underline; }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 2rem;
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      border-top: 1px solid var(--border);
-      margin-top: 5rem;
-    }
-    footer a { color: var(--primary); text-decoration: none; }
-    
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .hero .subtitle { font-size: 1.1rem; }
-      .stat-value { font-size: 2rem; }
-      .section-header h2 { font-size: 2rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="/KateelLearningDemosToStudents/assets/site.css">
+  <script defer src="/KateelLearningDemosToStudents/assets/site.js"></script>
 </head>
 <body>
-  <div class="container">
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>KateelLearningDemos</h1>
-      <p class="subtitle">The premier platform for browser-based AI/ML education. 73+ interactive demos, zero cloud required, zero API keys needed.</p>
-      
-      <p class="quote">"Education is not the filling of a vessel, but the kindling of a flame." — Plutarch</p>
-      <p class="quote-author">— Prof. Vinaya Sathyanarayana, Academic Director</p>
-      
-      <div class="cta-buttons">
-        <a href="#courses" class="btn-primary">📚 Explore Courses</a>
-        <a href="DEMO_INDEX.md" class="btn-secondary">📋 Full Demo Index</a>
-      </div>
-    </section>
-    
-    <!-- Stats -->
-        <div class="stats">
-          <div class="stat-card"><div class="stat-value">94+</div><div class="stat-label">Interactive Demos</div></div>
-          <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">Course Categories</div></div>
-          <div class="stat-card"><div class="stat-value">100%</div><div class="stat-label">Browser-Based</div></div>
-          <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">API Keys Required</div></div>
-        </div>
-    
-    <!-- Faculty Section -->
-    <section class="faculty-section">
-      <h2>🎓 Faculty: Create Custom Courses</h2>
-      <p>KateelLearningDemos is designed for educators who want to deliver hands-on AI/ML training without infrastructure overhead.</p>
-      <ul>
-        <li><span class="highlight">✓</span> Copy any demo folder and customize for your course</li>
-        <li><span class="highlight">✓</span> Create course-specific pages using our template</li>
-        <li><span class="highlight">✓</span> Add your institution's branding and learning objectives</li>
-        <li><span class="highlight">✓</span> All demos include editable parameters and AI toggle</li>
-        <li><span class="highlight">✓</span> Export results for student assignments and grading</li>
-      </ul>
-      <p style="margin-top: 1rem;"><a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents/blob/main/CONTRIBUTING.md" style="color: var(--primary);">View Faculty Guide →</a></p>
-    </section>
-    
-    <!-- Courses Section -->
-    <section id="courses" class="section">
-      <div class="section-header">
-        <h2>Courses & Categories</h2>
-        <p>Choose from our curated collection of industry-aligned courses. Each course contains multiple interactive demos.</p>
-      </div>
-      
-      <div class="courses-grid">
-              <a class="course-card" href="courses/treasury-management.html">
-                <h3>🏦 Treasury Management</h3>
-                <p>8 demos covering liquidity, FX hedging, cash optimization, and digital assets. Perfect for CFO aspirants.</p>
-                <div class="course-meta"><span>8 demos</span><span>Beginner to Advanced</span></div>
-              </a>
-        
-              <a class="course-card" href="courses/ai-ml-workflows.html">
-                <h3>🤖 AI/ML Workflows</h3>
-                <p>41+ demos on classification, clustering, forecasting, RAG, and AI product management.</p>
-                <div class="course-meta"><span>41+ demos</span><span>All Levels</span></div>
-              </a>
-        
-              <a class="course-card" href="courses/risk-management.html">
-                <h3>⚠️ Risk Management</h3>
-                <p>Demos on credit risk, market risk, counterparty risk, and systemic risk modeling.</p>
-                <div class="course-meta"><span>10+ demos</span><span>Intermediate</span></div>
-              </a>
-        
-              <a class="course-card" href="courses/quant-finance.html">
-                <h3>💰 Quant Finance</h3>
-                <p>Option pricing, portfolio optimization, VaR, Greeks calculation, and derivatives modeling.</p>
-                <div class="course-meta"><span>11 demos</span><span>Advanced</span></div>
-              </a>
-        
-              <a class="course-card" href="courses/cybersecurity.html">
-                <h3>🔐 Cybersecurity</h3>
-                <p>Security, threat detection, secure coding, and network penetration testing.</p>
-                <div class="course-meta"><span>9 demos</span><span>Intermediate to Advanced</span></div>
-              </a>
-        
-              <a class="course-card" href="courses/compliance.html">
-                <h3>📋 Compliance & Governance</h3>
-                <p>AI governance, regulatory compliance, and risk assessment frameworks.</p>
-                <div class="course-meta"><span>6 demos</span><span>All Levels</span></div>
-              </a>
-        
-              <a class="course-card" href="courses/rag-nlp.html">
-                <h3>📝 RAG & NLP</h3>
-                <p>Natural language processing, document summarization, and voice-enabled AI.</p>
-                <div class="course-meta"><span>9 demos</span><span>All Levels</span></div>
-              </a>
-        
-              <a class="course-card" href="courses/banking.html">
-                <h3>🏦 Banking & Finance</h3>
-                <p>Loan default prediction, credit scoring, and financial analysis tools.</p>
-                <div class="course-meta"><span>1+ demo</span><span>Intermediate</span></div>
-              </a>
-            </div>
-    </section>
-    
-    <!-- GitHub Banner -->
-        <div class="github-banner">
-          <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">
-            ⭐ Star the Repo - Get Updates When New Demos Are Added
-          </a>
-        </div>
-    
-        <!-- Video Tutorials Section -->
-        <section class="faculty-section">
-          <h2>🎥 Video Tutorials</h2>
-          <p>Step-by-step video guides for faculty and students:</p>
-          <ul>
-            <li><a href="courses/treasury-management.html" style="color: var(--primary);">Treasury Management Walkthrough</a> - 8 demos, 4 hours of content</li>
-            <li><a href="courses/ai-ml-workflows.html" style="color: var(--primary);">AI/ML Fundamentals</a> - 25+ demos, comprehensive coverage</li>
-            <li><a href="courses/risk-management.html" style="color: var(--primary);">Risk Management Techniques</a> - 12 demos, real-world scenarios</li>
-          </ul>
-          <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.875rem;">All demos include built-in help sections and README documentation.</p>
-        </section>
-    
-        <!-- New Instructor Welcome -->
-        <section class="faculty-section">
-          <h2>🎓 New Instructor? Start Here</h2>
-          <ol style="color: var(--text-muted); margin-left: 1.5rem;">
-            <li style="margin-bottom: 0.5rem;">🌟 <strong>Star the repo</strong> to get updates on new demos</li>
-            <li style="margin-bottom: 0.5rem;">📚 <strong>Pick a course</strong> from the cards above</li>
-            <li style="margin-bottom: 0.5rem;">🚀 <strong>Copy demo folders</strong> to your local machine</li>
-            <li style="margin-bottom: 0.5rem;">🎨 <strong>Customize</strong> for your institution and learning objectives</li>
-            <li style="margin-bottom: 0.5rem;">📤 <strong>Share with students</strong> via GitHub Pages or your LMS</li>
-          </ol>
-          <p style="margin-top: 1rem;"><a href="courses/treasury-management.html" style="color: var(--primary);">Start with Treasury Management →</a></p>
-        </section>
-    
-        <!-- Footer -->
-    <footer>
-      <p>KateelLearningDemos by Professor Vinaya Sathyanarayana</p>
-      <p>Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a> | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">View on GitHub</a></p>
-    </footer>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="/KateelLearningDemosToStudents/">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="/KateelLearningDemosToStudents/">Landing</a>
+      <details class="nav-dropdown">
+  <summary class="nav-link">Courses</summary>
+  <div class="dropdown-content" role="menu">
+    <a class="dropdown-link" href="/KateelLearningDemosToStudents/courses/treasury-management.html"><span>🏦</span>Treasury</a>
+      <a class="dropdown-link" href="/KateelLearningDemosToStudents/courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+      <a class="dropdown-link" href="/KateelLearningDemosToStudents/courses/risk-management.html"><span>⚠️</span>Risk</a>
+      <a class="dropdown-link" href="/KateelLearningDemosToStudents/courses/quant-finance.html"><span>💰</span>Quant</a>
+      <a class="dropdown-link" href="/KateelLearningDemosToStudents/courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+      <a class="dropdown-link" href="/KateelLearningDemosToStudents/courses/compliance.html"><span>📋</span>Compliance</a>
+      <a class="dropdown-link" href="/KateelLearningDemosToStudents/courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+      <a class="dropdown-link" href="/KateelLearningDemosToStudents/courses/banking.html"><span>🏦</span>Banking</a>
   </div>
-  
-  <script>
-    function filterDemos() {
-      const input = document.getElementById('demoSearch').value.toLowerCase();
-      const cards = document.querySelectorAll('.demo-card');
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(input) ? 'block' : 'none';
-      });
-    }
-  </script>
+</details>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+  <main class="container">
+    <section class="site-hero landing-hero">
+      <p class="hero-eyebrow">Browser-based AI/ML demos for students, faculty & practitioners</p>
+      <h1>Kateel Learning Demos</h1>
+      <p class="hero-subtitle">A cleaner, about-first GitHub Pages experience: read the learning guide, launch the interactive demo, then reflect on the result. Zero cloud setup. Zero API keys. Built for classroom use.</p>
+      <div class="pill-row">
+        <span class="pill">94+ demos</span>
+        <span class="pill">8 course paths</span>
+        <span class="pill">No API keys</span>
+        <span class="pill">Attribution: vinallcontact@gmail.com</span>
+      </div>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="#courses">Explore courses</a>
+        <a class="btn btn-secondary" href="/KateelLearningDemosToStudents/DEMO_INDEX.md">Full demo index</a>
+        <a class="btn btn-soft" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">Star on GitHub</a>
+      </div>
+    </section>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-value">94+</div><div class="stat-label">Interactive demos</div></div>
+      <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">Course paths</div></div>
+      <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">API keys required</div></div>
+      <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Step learning flow</div></div>
+    </div>
+
+    <section class="section" id="flow">
+      <div class="section-header">
+        <p class="section-kicker">New navigation model</p>
+        <h2>About Demo is separate from the actual demo</h2>
+        <p>This distinction helps students understand the concept before experimenting and helps faculty assign consistent reflection work.</p>
+      </div>
+      <div class="learning-path">
+        <div><strong>1 About Demo</strong><p>Learning objectives, concepts, usage steps, faculty prompts, and rating.</p></div>
+        <div><strong>2 Launch Demo</strong><p>Open the actual interactive app in a clean environment.</p></div>
+        <div><strong>3 Reflect</strong><p>Explain insight, limitation, and action recommendation.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="section-header">
+        <p class="section-kicker">Course catalog</p>
+        <h2>Start by learning domain</h2>
+        <p>Each course page uses the same About Demo → Launch Demo flow.</p>
+      </div>
+      <div class="course-grid">
+        
+<a class="course-card" href="/KateelLearningDemosToStudents/courses/treasury-management.html">
+  <div class="course-card-top"><h3>🏦 Treasury Management</h3><span>8 demos</span></div>
+  <p>Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
+<a class="course-card" href="/KateelLearningDemosToStudents/courses/ai-ml-workflows.html">
+  <div class="course-card-top"><h3>🤖 AI/ML Workflows</h3><span>36 demos</span></div>
+  <p>Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
+<a class="course-card" href="/KateelLearningDemosToStudents/courses/risk-management.html">
+  <div class="course-card-top"><h3>⚠️ Risk Management</h3><span>9 demos</span></div>
+  <p>Credit, market, counterparty, systemic, and cyber-risk modeling demos for finance and analytics courses.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
+<a class="course-card" href="/KateelLearningDemosToStudents/courses/quant-finance.html">
+  <div class="course-card-top"><h3>💰 Quant Finance</h3><span>10 demos</span></div>
+  <p>Derivatives, portfolio optimization, fixed income, VaR, Greeks, and supply-chain finance models for applied finance education.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
+<a class="course-card" href="/KateelLearningDemosToStudents/courses/cybersecurity.html">
+  <div class="course-card-top"><h3>🔐 Cybersecurity</h3><span>10 demos</span></div>
+  <p>IoT, network, threat-modeling, malware, vulnerability, and secure-code demos for responsible security learning.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
+<a class="course-card" href="/KateelLearningDemosToStudents/courses/compliance.html">
+  <div class="course-card-top"><h3>📋 Compliance & Governance</h3><span>6 demos</span></div>
+  <p>AI governance, regulatory tracking, public-sector governance, alert triage, and AML pattern demos.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
+<a class="course-card" href="/KateelLearningDemosToStudents/courses/rag-nlp.html">
+  <div class="course-card-top"><h3>📝 RAG & NLP</h3><span>11 demos</span></div>
+  <p>Retrieval-augmented generation, document QA, summarization, voice notes, and knowledge-assistant demos.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
+<a class="course-card" href="/KateelLearningDemosToStudents/courses/banking.html">
+  <div class="course-card-top"><h3>🏦 Banking & Finance</h3><span>3 demos</span></div>
+  <p>Banking, credit, customer, fraud, and financial-services analytics demos for applied business education.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="section-header">
+        <p class="section-kicker">Featured starting points</p>
+        <h2>High-value demos for first use</h2>
+        <p>Use these when introducing the platform to a new class, workshop, or faculty cohort.</p>
+      </div>
+      <div class="demo-grid">
+        
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/ABTestingFramework/about.html">
+  <div class="demo-card-top"><h3>AB Testing Framework</h3><span class="level-badge">All Levels</span></div>
+  <p>About Demo learning guide for AB Testing Framework: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/ABTestingFramework/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AICostBenefitAnalyzer/about.html">
+  <div class="demo-card-top"><h3>AI Cost Benefit Analyzer</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Cost Benefit Analyzer: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AICostBenefitAnalyzer/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIDataAnalyzer/about.html">
+  <div class="demo-card-top"><h3>AI Data Analyzer</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Data Analyzer: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIDataAnalyzer/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIDecisionTracker/about.html">
+  <div class="demo-card-top"><h3>AI Decision Tracker</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Decision Tracker: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIDecisionTracker/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIFeatureImpact/about.html">
+  <div class="demo-card-top"><h3>AI Feature Impact</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Feature Impact: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIFeatureImpact/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIPRDTemplate/about.html">
+  <div class="demo-card-top"><h3>AI PRD Template</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI PRD Template: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIPRDTemplate/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIPerformanceDashboard/about.html">
+  <div class="demo-card-top"><h3>AI Performance Dashboard</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Performance Dashboard: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIPerformanceDashboard/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIProductCanvas/about.html">
+  <div class="demo-card-top"><h3>AI Product Canvas</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Product Canvas: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIProductCanvas/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIROICalculator/about.html">
+  <div class="demo-card-top"><h3>AI ROI Calculator</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI ROI Calculator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIROICalculator/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIResourcePlanner/about.html">
+  <div class="demo-card-top"><h3>AI Resource Planner</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Resource Planner: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIResourcePlanner/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AITeamCollaboration/about.html">
+  <div class="demo-card-top"><h3>AI Team Collaboration</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Team Collaboration: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AITeamCollaboration/index.html">Launch</a></div>
+</a>
+
+<a class="demo-card featured-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIWorkflowDemo/about.html">
+  <div class="demo-card-top"><h3>AI Workflow</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for AI Workflow: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="/KateelLearningDemosToStudents/TechUseCaseDemos/AIWorkflowDemo/index.html">Launch</a></div>
+</a>
+
+      </div>
+    </section>
+
+    <section class="section" id="faculty">
+      <div class="section-header">
+        <p class="section-kicker">Faculty quick start</p>
+        <h2>Make the demos highly used in class</h2>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Before class</h3>
+          <ol><li>Pick one course path.</li><li>Select 2-3 demos aligned to the session outcome.</li><li>Open the About Demo pages and copy the faculty prompt.</li></ol>
+        </article>
+        <article class="info-card">
+          <h3>During class</h3>
+          <ol><li>Read the objective together.</li><li>Launch the actual demo.</li><li>Ask students to toggle AI or change a scenario.</li></ol>
+        </article>
+        <article class="info-card">
+          <h3>After class</h3>
+          <ol><li>Collect one insight and one limitation.</li><li>Ask students to rate the About Demo page.</li><li>Notify usage to vinallcontact@gmail.com.</li></ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section attribution-card" id="attribution">
+      <h2>Attribution & impact tracking</h2>
+      <p>Created by <strong>Professor Vinaya Sathyanarayana</strong>. Attribution email: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a>. Google Analytics is enabled for Pages usage tracking; localStorage ratings stay local to each browser.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p><a href="/KateelLearningDemosToStudents/">KateelLearningDemos</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a> • <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">GitHub repository</a></p>
+  </footer>
 </body>
 </html>
