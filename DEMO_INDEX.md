@@ -23,7 +23,7 @@ Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury,
 | Treasury Control Tower | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/demo.html) | Beginner to Intermediate |
 | Treasury Transform Blueprint | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/index.html) | Beginner to Intermediate |
 
-## 🤖 AI/ML Workflows (36 demos)
+## 🤖 AI/ML Workflows (37 demos)
 
 Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.
 
@@ -49,6 +49,7 @@ Hands-on AI product, model, workflow, governance, and decision-support demos for
 | Greeks Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/GreeksCalculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/GreeksCalculator/index.html) | Intermediate |
 | ML Model Registry | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MLModelRegistry/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MLModelRegistry/index.html) | All Levels |
 | Model Version Comparator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/index.html) | All Levels |
+| Monte Carlo Company Valuation | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloCompanyValuation/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloCompanyValuation/index.html) | Advanced |
 | Probabilistic Decision Engine | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/index.html) | All Levels |
 | Browser AI Demos — Edge AI Showcase | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/index.html) | Intermediate |
 | Local Chat Advisor | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/index.html) | All Levels |
@@ -159,7 +160,7 @@ Banking, credit, customer, fraud, and financial-services analytics demos for app
 
 ## Getting started
 
-1. Start at the [Landing Page](/KateelLearningDemosToStudents/).
+1. Start at the [Home](/KateelLearningDemosToStudents/).
 2. Open an About Demo page before launching the actual demo.
 3. Toggle AI or change scenarios where available.
 4. Record one insight, one limitation, and one action recommendation.

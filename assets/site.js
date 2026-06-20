@@ -1,20 +1,21 @@
 /* KateelLearningDemos shared navigation, rating, and usage tracking */
 (function () {
-  const REPO_ROOT = "/KateelLearningDemosToStudents/";
-
   function ready(fn) {
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
     else fn();
   }
 
   ready(function () {
-    const path = window.location.pathname.replace(/\/$/, "");
-    document.querySelectorAll(".nav-link, .dropdown-content a").forEach(function (link) {
-      const href = link.getAttribute("href") || "";
-      if (!href.startsWith("http") && path.endsWith(href.replace(/\/$/, ""))) {
+  const path = window.location.pathname.replace(/\/$/, "");
+  document.querySelectorAll(".nav-link, .dropdown-content a").forEach(function (link) {
+    const href = link.getAttribute("href") || "";
+    if (!href.startsWith("http")) {
+      const linkPath = new URL(href, window.location.href).pathname.replace(/\/$/, "");
+      if (path.endsWith(linkPath)) {
         link.classList.add("active");
       }
-    });
+    }
+  });
 
     document.querySelectorAll(".launch-demo").forEach(function (link) {
       link.addEventListener("click", function () {

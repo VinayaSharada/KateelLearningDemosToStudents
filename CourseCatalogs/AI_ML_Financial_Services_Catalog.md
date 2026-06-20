@@ -39,8 +39,9 @@ This catalog organizes demos relevant to AI/ML applications in financial service
 
 ### Quantitative Finance
 - `TechUseCaseDemos\OptionPricingDemo` - Black-Scholes European option pricing
-- `TechUseCaseDemos\OptionsPricing` - Options pricing with Greeks (new)
+- `TechUseCaseDemos\OptionsPricing` - Options pricing with Greeks
 - `TechUseCaseDemos\MonteCarloOptions` - Monte Carlo simulation for exotic options
+- `TechUseCaseDemos\MonteCarloCompanyValuation` - Monte Carlo simulation for company valuation, five-year NPV, probability of value creation, and statistical confidence intervals
 - `TechUseCaseDemos\GreeksCalculator` - Delta, Gamma, Vega, Theta sensitivity analysis
 - `TechUseCaseDemos\BondPricingDemo` - Bond pricing with duration
 

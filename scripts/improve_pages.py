@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from html import escape
 from pathlib import Path
+import posixpath
 import re
 
 REPO_NAME = "KateelLearningDemosToStudents"
@@ -213,6 +214,495 @@ RAG_NLP_NAMES = {
     "LiteParseDemo",
 }
 BANKING_NAMES = {"LoanDefaultPredictor", "CreditScoringDemo", "FraudPlayground"}
+MULTI_COURSE_DEMOS = {
+    "TechUseCaseDemos/MonteCarloCompanyValuation": ["treasury", "ai_ml"],
+}
+
+
+TEACHER_GUIDES = {
+    "TechUseCaseDemos/ABTestingFramework": (
+        "Look for the control group, variant group, and the metric being compared.",
+        "Observe how sample size and effect size change the confidence of the conclusion.",
+        "Note that a visible lift is not enough; students should ask whether the result is statistically reliable."
+    ),
+    "TechUseCaseDemos/AICostBenefitAnalyzer": (
+        "Look for the cost categories, benefit drivers, and AI adoption assumptions.",
+        "Observe how the payback period changes when benefits are delayed or implementation costs rise.",
+        "Note that AI business cases should separate measurable savings from strategic option value."
+    ),
+    "TechUseCaseDemos/AIDataAnalyzer": (
+        "Look for the dataset fields, missing values, and the question the analysis is trying to answer.",
+        "Observe which charts or summaries change the interpretation of the data.",
+        "Note that students should state the decision supported by the analysis, not just describe the chart."
+    ),
+    "TechUseCaseDemos/AIDecisionTracker": (
+        "Look for the decision record, owner, evidence, and follow-up status.",
+        "Observe how adding assumptions or review dates improves accountability.",
+        "Note that AI-supported decisions need an audit trail for trust and governance."
+    ),
+    "TechUseCaseDemos/AIFeatureImpact": (
+        "Look for the input feature, model output, and direction of influence.",
+        "Observe which features move the prediction most and whether that makes business sense.",
+        "Note that feature importance is a discussion starter, not proof of causality."
+    ),
+    "TechUseCaseDemos/AIPRDTemplate": (
+        "Look for the problem statement, user need, success metric, and AI boundary.",
+        "Observe how the PRD changes when constraints, risks, and non-goals are added.",
+        "Note that a good AI PRD prevents vague requests from becoming unmanaged model projects."
+    ),
+    "TechUseCaseDemos/AIPerformanceDashboard": (
+        "Look for the KPI, baseline, target, and actual performance trend.",
+        "Observe how drill-downs reveal whether a KPI issue is broad or localized.",
+        "Note that dashboards should lead to action, not only monitoring."
+    ),
+    "TechUseCaseDemos/AIProductCanvas": (
+        "Look for the user, job-to-be-done, AI capability, data source, and value metric.",
+        "Observe how the canvas exposes missing pieces before building a prototype.",
+        "Note that students should challenge whether AI is the simplest way to solve the user problem."
+    ),
+    "TechUseCaseDemos/AIROICalculator": (
+        "Look for the investment cost, expected benefit, adoption rate, and time horizon.",
+        "Observe how ROI changes when benefits are conservative or adoption is slower.",
+        "Note that ROI should include change management, not only software cost."
+    ),
+    "TechUseCaseDemos/AIResourcePlanner": (
+        "Look for demand, capacity, role mix, and utilization assumptions.",
+        "Observe where bottlenecks appear when workload or timelines shift.",
+        "Note that resource plans are hypotheses; students should identify the assumption most likely to fail."
+    ),
+    "TechUseCaseDemos/AITeamCollaboration": (
+        "Look for task ownership, dependencies, communication signals, and blockers.",
+        "Observe how AI summaries or suggestions change team coordination.",
+        "Note that collaboration tools help only when humans clarify decisions and accountability."
+    ),
+    "TechUseCaseDemos/AIWorkflowDemo": (
+        "Look for the workflow trigger, AI step, human review point, and output destination.",
+        "Observe where automation saves time and where human judgment is still needed.",
+        "Note that a strong AI workflow has clear handoffs and failure handling."
+    ),
+    "TechUseCaseDemos/BankFailurePrediction": (
+        "Look for the financial indicators used to signal bank stress.",
+        "Observe how changing capital, liquidity, or asset-quality inputs shifts the risk rating.",
+        "Note that prediction scores must be interpreted with regulatory and business context."
+    ),
+    "TechUseCaseDemos/CopilotKitDemo": (
+        "Look for the prompt, retrieved context, generated response, and user feedback loop.",
+        "Observe how response quality changes with clearer instructions or better context.",
+        "Note that copilots should be evaluated on usefulness, safety, and explainability."
+    ),
+    "TechUseCaseDemos/DataDriftDetector": (
+        "Look for the reference distribution, current distribution, and drift signal.",
+        "Observe which variables drift first and whether the drift is meaningful operationally.",
+        "Note that drift does not automatically mean model failure; students should connect it to monitoring action."
+    ),
+    "TechUseCaseDemos/EmotionalSupportAssistant": (
+        "Look for user intent, sentiment cues, safety boundaries, and referral language.",
+        "Observe how the assistant responds differently to low-risk and high-risk messages.",
+        "Note that supportive AI must prioritize safety, empathy, and escalation over persuasion."
+    ),
+    "TechUseCaseDemos/FeatureStoreDemo": (
+        "Look for feature definitions, ownership, freshness, and reuse across models.",
+        "Observe how feature quality affects reproducibility and model reliability.",
+        "Note that feature stores are governance tools as much as engineering infrastructure."
+    ),
+    "TechUseCaseDemos/GreeksCalculator": (
+        "Look for delta, gamma, theta, vega, and the option position being analyzed.",
+        "Observe how price, volatility, and time changes affect option exposure.",
+        "Note that Greeks are sensitivities; students should connect each Greek to a hedging decision."
+    ),
+    "TechUseCaseDemos/MLModelRegistry": (
+        "Look for model version, dataset version, metrics, owner, and approval status.",
+        "Observe how promotion rules prevent weak or unreviewed models from reaching production.",
+        "Note that model governance depends on traceability from data to decision."
+    ),
+    "TechUseCaseDemos/ModelVersionComparator": (
+        "Look for the baseline model, challenger model, metric comparison, and segment results.",
+        "Observe whether performance gains are consistent or concentrated in a small segment.",
+        "Note that a better average metric can hide fairness, stability, or operational risks."
+    ),
+    "TechUseCaseDemos/ProbabilisticDecisionEngine": (
+        "Look for probability estimates, decision thresholds, and expected value calculations.",
+        "Observe how changing risk tolerance changes the recommended action.",
+        "Note that probabilistic thinking helps students separate uncertainty from indecision."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos": (
+        "Look for the range of local AI capabilities and the user problem each mini-demo solves.",
+        "Observe which demos run entirely in the browser and which need clearer instructions.",
+        "Note that edge AI demos are useful for teaching privacy, latency, and accessibility trade-offs."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor": (
+        "Look for the prompt, local response, and any limitations shown by the chat behavior.",
+        "Observe how response quality changes with specific versus vague prompts.",
+        "Note that local chat is a safe way to teach prompt design and AI boundaries."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger": (
+        "Look for the support ticket text, predicted category, and confidence level.",
+        "Observe how ambiguous tickets affect classification and routing.",
+        "Note that automation should reduce triage time while preserving human review for edge cases."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/3-privacy-notebook": (
+        "Look for sensitive data types, redaction behavior, and privacy risk signals.",
+        "Observe what remains visible after privacy checks are applied.",
+        "Note that privacy-preserving AI requires both detection and responsible data handling."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber": (
+        "Look for audio input, transcription output, and timing or speaker cues.",
+        "Observe how background noise or unclear speech changes transcript quality.",
+        "Note that voice AI should be evaluated for accessibility, accuracy, and consent."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/5-entity-tagger": (
+        "Look for named entities, categories, and context around each extraction.",
+        "Observe how abbreviations or ambiguous names affect entity recognition.",
+        "Note that entity extraction is useful only when students verify the business meaning."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/6-semantic-search": (
+        "Look for the query, retrieved documents, and relevance ranking.",
+        "Observe whether results match meaning or only keywords.",
+        "Note that semantic search teaches the difference between retrieval and understanding."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/7-opinion-quintuple-extractor": (
+        "Look for opinion holder, target, sentiment, aspect, and explanation.",
+        "Observe how mixed opinions are separated into structured evidence.",
+        "Note that structured sentiment analysis supports better customer or stakeholder insight."
+    ),
+    "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/semantic-game": (
+        "Look for word relationships, hints, and the path students use to reason semantically.",
+        "Observe how students explain connections that are not obvious from keywords.",
+        "Note that semantic games make abstract NLP ideas concrete and memorable."
+    ),
+    "🤖 Browser-AI-Demos/PM-Product-Demos": (
+        "Look for the product decision, evidence, stakeholder, and recommended next step.",
+        "Observe how each mini-demo turns a product question into an interactive experiment.",
+        "Note that product managers should use demos to test assumptions before committing resources."
+    ),
+    "🤖 Browser-AI-Demos/PM-Product-Demos/1-experimentation-metrics-simulator": (
+        "Look for the experiment goal, primary metric, guardrail metric, and sample size.",
+        "Observe how random variation can create false confidence in early results.",
+        "Note that experimentation discipline protects teams from overreacting to noisy data."
+    ),
+    "🤖 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot": (
+        "Look for value, effort, risk, and strategic alignment scores.",
+        "Observe how changing weights changes the prioritized roadmap.",
+        "Note that prioritization should make trade-offs explicit, not hide them behind a score."
+    ),
+    "🤖 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench": (
+        "Look for build, buy, and API options across cost, speed, control, and risk.",
+        "Observe how the best choice changes when time-to-market or compliance matters more.",
+        "Note that platform decisions should be revisited as strategy and constraints evolve."
+    ),
+    "🤖 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics": (
+        "Look for price, variable cost, contribution margin, and volume assumptions.",
+        "Observe how small changes in conversion or churn affect profitability.",
+        "Note that unit economics connects product choices to financial sustainability."
+    ),
+    "🤖 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate": (
+        "Look for readiness criteria, risk checks, owner approval, and launch blockers.",
+        "Observe how adding governance gates changes launch timing and confidence.",
+        "Note that AI launch gates should reduce harm without becoming bureaucratic theater."
+    ),
+    "DomainUseCaseDemos/Banking/LoanDefaultPredictor": (
+        "Look for borrower features, predicted default risk, and threshold setting.",
+        "Observe how risk changes with income, debt, history, or employment assumptions.",
+        "Note that credit models must be explained in terms students can connect to responsible lending."
+    ),
+    "TechUseCaseDemos/CreditScoringDemo": (
+        "Look for score drivers, risk band, and decision recommendation.",
+        "Observe how sensitive the score is to payment history and utilization changes.",
+        "Note that credit scoring should include fairness, transparency, and appeal considerations."
+    ),
+    "TechUseCaseDemos/FraudPlayground": (
+        "Look for transaction signals, anomaly score, and fraud flag.",
+        "Observe how small changes in amount, location, or frequency alter the risk signal.",
+        "Note that fraud detection balances false positives, false negatives, and customer friction."
+    ),
+    "DomainUseCaseDemos/Compliance/AlertTriage001": (
+        "Look for alert severity, evidence, owner, and required response time.",
+        "Observe how triage priority changes when evidence is weak or risk is high.",
+        "Note that alert triage should produce a documented decision, not just a label."
+    ),
+    "DomainUseCaseDemos/Compliance/MuleAccountDetection": (
+        "Look for transaction patterns, account age, counterparties, and behavioral flags.",
+        "Observe how combining weak signals can create a stronger suspicious pattern.",
+        "Note that mule detection must avoid over-reliance on any single indicator."
+    ),
+    "TechUseCaseDemos/AIGovernancePublicSector": (
+        "Look for public value, transparency, accountability, and citizen impact criteria.",
+        "Observe how governance requirements change when decisions affect public services.",
+        "Note that public-sector AI must justify both effectiveness and democratic accountability."
+    ),
+    "TechUseCaseDemos/AIGovernanceScorecard": (
+        "Look for governance dimensions, evidence, maturity level, and gaps.",
+        "Observe how low scores cluster around documentation, monitoring, or accountability.",
+        "Note that scorecards are useful only when gaps become concrete improvement actions."
+    ),
+    "TechUseCaseDemos/AIRegulatoryTracker": (
+        "Look for regulation, obligation, owner, deadline, and evidence requirement.",
+        "Observe how a new rule changes controls, documentation, and risk ownership.",
+        "Note that regulatory tracking should convert legal text into operational tasks."
+    ),
+    "TechUseCaseDemos/PublicPolicyGovernance": (
+        "Look for policy objective, stakeholder, risk, and control mechanism.",
+        "Observe how policy choices affect equity, efficiency, and implementation burden.",
+        "Note that governance analysis should include unintended consequences, not just intended outcomes."
+    ),
+    "CyberSecurityDemos/IoTAircraftNetwork/IntrusionDetection": (
+        "Look for network events, anomaly indicators, and alert classification.",
+        "Observe how normal operational patterns differ from suspicious intrusion signals.",
+        "Note that intrusion detection should lead to evidence, containment, and escalation decisions."
+    ),
+    "CyberSecurityDemos/IoTAircraftNetwork/NetworkTrafficAnalyzer": (
+        "Look for traffic volume, protocol mix, source-destination patterns, and outliers.",
+        "Observe how baseline traffic changes under stress or attack-like conditions.",
+        "Note that network analytics are strongest when students explain what is normal and why."
+    ),
+    "CyberSecurityDemos/IoTAircraftNetwork/PenTestSimulator": (
+        "Look for authorized scope, test step, finding, and remediation priority.",
+        "Observe how vulnerability severity changes with exploitability and business impact.",
+        "Note that penetration testing is a learning exercise in responsible disclosure and defense."
+    ),
+    "CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix": (
+        "Look for assets, threats, likelihood, impact, and existing controls.",
+        "Observe which risk cells move from acceptable to unacceptable after scenario changes.",
+        "Note that threat modeling is about prioritizing prevention before incidents happen."
+    ),
+    "CyberSecurityDemos/IoTAircraftNetwork/VulnScanner": (
+        "Look for scan findings, severity, affected asset, and remediation suggestion.",
+        "Observe how false positives and duplicate findings affect remediation planning.",
+        "Note that vulnerability management requires risk-based prioritization, not just a long list."
+    ),
+    "TechUseCaseDemos/Embedded_Firmware_Exploit_Wokwi": (
+        "Look for firmware behavior, input boundary, and failure mode.",
+        "Observe how constrained inputs can still create unsafe system behavior.",
+        "Note that embedded security teaching should emphasize safe lab boundaries and defensive design."
+    ),
+    "TechUseCaseDemos/IoT_Ethernet_PenTest_v86": (
+        "Look for network exposure, test vector, finding, and mitigation step.",
+        "Observe how device connectivity expands the attack surface.",
+        "Note that IoT testing should connect technical findings to operational resilience."
+    ),
+    "TechUseCaseDemos/MalwareSandbox": (
+        "Look for observed behavior, indicators, containment status, and risk rating.",
+        "Observe how behavior-based analysis differs from signature-only detection.",
+        "Note that malware analysis should be conducted only in controlled learning environments."
+    ),
+    "TechUseCaseDemos/SecureCodeReview": (
+        "Look for code pattern, vulnerability class, evidence line, and secure fix.",
+        "Observe how small code choices create larger security risks.",
+        "Note that secure code review teaches students to reason like both builders and defenders."
+    ),
+    "TechUseCaseDemos/ZeroTrustDemo": (
+        "Look for identity, device, access request, policy decision, and trust signals.",
+        "Observe how access changes when context, location, or risk level changes.",
+        "Note that zero trust is a continuous verification model, not a single product."
+    ),
+    "DomainUseCaseDemos/QuantFinance/BlackScholesOption": (
+        "Look for option type, underlying price, strike, volatility, rate, and time.",
+        "Observe how option value responds to volatility and time to expiry.",
+        "Note that Black-Scholes is a model with assumptions; students should test sensitivity before trusting the price."
+    ),
+    "DomainUseCaseDemos/SupplyChain/SupplyChainFinance": (
+        "Look for invoice timing, buyer risk, supplier risk, and financing cost.",
+        "Observe how working-capital benefits change when payment terms or discount rates shift.",
+        "Note that supply-chain finance should balance liquidity gains against counterparty and reputational risk."
+    ),
+    "TechUseCaseDemos/BondPricingDemo": (
+        "Look for coupon, maturity, yield, and present-value calculation.",
+        "Observe how price moves when market yield rises or falls.",
+        "Note that bond pricing teaches the inverse relationship between yields and prices."
+    ),
+    "TechUseCaseDemos/MonteCarloCompanyValuation": (
+        "Look for the acquisition price, five-year free-cash-flow path, terminal value, WACC, and NPV distribution.",
+        "Observe how growth volatility, margin volatility, WACC, and terminal growth widen or tighten the valuation range.",
+        "Note that a high mean valuation can still be risky; students should compare mean NPV with downside probability and P10/P90."
+    ),
+    "TechUseCaseDemos/MonteCarloOptions": (
+        "Look for simulated paths, payoff calculation, and convergence behavior.",
+        "Observe how more simulations stabilize the estimated option value.",
+        "Note that Monte Carlo is powerful, but students should question randomness, assumptions, and error."
+    ),
+    "TechUseCaseDemos/OptionPricingDemo": (
+        "Look for intrinsic value, time value, volatility input, and option price.",
+        "Observe how moneyness and time affect option valuation.",
+        "Note that option pricing should be linked to hedging and risk-management decisions."
+    ),
+    "TechUseCaseDemos/OptionsPricing": (
+        "Look for call and put values, strike, expiry, and volatility assumptions.",
+        "Observe how put-call relationships and sensitivities appear across scenarios.",
+        "Note that students should explain the business meaning of each option output."
+    ),
+    "TechUseCaseDemos/PortfolioOptimizer": (
+        "Look for expected return, risk, correlation, and portfolio weights.",
+        "Observe how the efficient frontier changes when risk tolerance changes.",
+        "Note that optimization is only as good as the assumptions behind expected return and risk."
+    ),
+    "TechUseCaseDemos/WealthManagement/black-scholes": (
+        "Look for option parameters and the model price output.",
+        "Observe how volatility and time to expiry move the option value.",
+        "Note that students should connect formula results to hedging decisions and model limits."
+    ),
+    "TechUseCaseDemos/WealthManagement/efficient-frontier": (
+        "Look for asset return, volatility, correlation, and selected portfolio point.",
+        "Observe how the frontier shifts when correlations or expected returns change.",
+        "Note that diversification is valuable only when students can explain the risk trade-off."
+    ),
+    "TechUseCaseDemos/WealthManagement/npv-calculator": (
+        "Look for cash-flow timing, discount rate, initial investment, and NPV result.",
+        "Observe how the project decision changes when discount rate or future cash flows shift.",
+        "Note that NPV is a decision aid; students should also discuss strategic and non-financial factors."
+    ),
+    "TechUseCaseDemos/AIContentSummarizer": (
+        "Look for source text, summary length, key points, and missing details.",
+        "Observe how summarization quality changes with document complexity.",
+        "Note that summaries should be checked against the source before they are reused."
+    ),
+    "TechUseCaseDemos/AISummarizer001": (
+        "Look for input text, generated summary, and highlighted themes.",
+        "Observe where the summary preserves meaning and where it over-compresses.",
+        "Note that students should compare summary usefulness against accuracy and traceability."
+    ),
+    "TechUseCaseDemos/LiteParseDemo": (
+        "Look for parsed structure, extracted fields, and parsing failures.",
+        "Observe how format variation affects extraction reliability.",
+        "Note that parsing demos teach why data quality matters before AI can help."
+    ),
+    "TechUseCaseDemos/RAGSolutions/GraphRAG": (
+        "Look for entities, relationships, graph context, and generated answer.",
+        "Observe how graph connections improve answers that need relationship reasoning.",
+        "Note that graph retrieval is strongest when students can trace evidence through linked concepts."
+    ),
+    "TechUseCaseDemos/RAGSolutions/PageIndexRAG": (
+        "Look for page references, retrieved chunks, and answer grounding.",
+        "Observe whether the answer cites the page that actually supports the claim.",
+        "Note that page-level retrieval improves auditability but still requires citation checks."
+    ),
+    "TechUseCaseDemos/RAGSolutions/StandardRAG": (
+        "Look for query, retrieved documents, generated answer, and citations.",
+        "Observe whether retrieval improves answer grounding compared with a plain prompt.",
+        "Note that RAG quality depends on retrieval relevance as much as generation quality."
+    ),
+    "TechUseCaseDemos/RAGSolutions/VoiceGraphRAG": (
+        "Look for spoken query, graph retrieval, entities, relationships, and answer.",
+        "Observe how voice input changes retrieval errors and answer clarity.",
+        "Note that voice RAG should be evaluated for transcription accuracy and evidence traceability."
+    ),
+    "TechUseCaseDemos/RAGSolutions/VoicePageIndexRAG": (
+        "Look for voice query, page references, retrieved evidence, and generated response.",
+        "Observe where speech-to-text errors affect retrieval and answer quality.",
+        "Note that voice-based RAG needs both citation checks and accessibility considerations."
+    ),
+    "TechUseCaseDemos/RAGSolutions/VoiceStandardRAG": (
+        "Look for voice query, transcript, retrieved context, and generated answer.",
+        "Observe whether the system retrieves relevant evidence after transcription.",
+        "Note that voice RAG teaches the full pipeline: speech, retrieval, generation, and verification."
+    ),
+    "TechUseCaseDemos/UniversityKnowledgeAssistant": (
+        "Look for student query, knowledge source, retrieved answer, and citation.",
+        "Observe how answer quality changes when the knowledge base is specific versus generic.",
+        "Note that knowledge assistants should help students find evidence, not replace learning."
+    ),
+    "TechUseCaseDemos/VoiceNotesApp001": (
+        "Look for spoken note, transcript, extracted action items, and summary.",
+        "Observe how background noise or unclear speech affects extraction.",
+        "Note that voice notes should be checked before actions are assigned or stored."
+    ),
+    "DomainUseCaseDemos/RiskManagement/ContagionModel": (
+        "Look for institution links, shock source, loss propagation, and systemic risk indicator.",
+        "Observe how a small shock spreads through connected balance sheets.",
+        "Note that contagion modeling teaches why network structure matters in financial stability."
+    ),
+    "DomainUseCaseDemos/RiskManagement/CounterPartyRisk": (
+        "Look for exposure, probability of default, recovery rate, and expected loss.",
+        "Observe how counterparty risk changes with exposure size and credit quality.",
+        "Note that expected loss is a starting point for collateral, limits, and monitoring decisions."
+    ),
+    "TechUseCaseDemos/AIRiskCalculator": (
+        "Look for risk drivers, AI-assisted score, confidence, and recommended control.",
+        "Observe how scenario changes affect risk severity and priority.",
+        "Note that AI risk scores should be explained with evidence and human review."
+    ),
+    "TechUseCaseDemos/CounterpartyRiskDemo": (
+        "Look for counterparty profile, exposure, credit signal, and mitigation action.",
+        "Observe how concentration and credit deterioration change risk posture.",
+        "Note that counterparty risk management depends on limits, collateral, and timely escalation."
+    ),
+    "TechUseCaseDemos/QFDDemo": (
+        "Look for customer need, importance, satisfaction, and quality-function linkage.",
+        "Observe how prioritization changes when customer importance and current satisfaction differ.",
+        "Note that QFD helps translate voice-of-customer into design and control choices."
+    ),
+    "TechUseCaseDemos/RiskParityPortfolio": (
+        "Look for asset risk contribution, allocation weights, and portfolio volatility.",
+        "Observe how risk parity differs from capital-weighted allocation.",
+        "Note that equal risk contribution is a design choice, not a guarantee of safety."
+    ),
+    "TechUseCaseDemos/SIEMDashboard": (
+        "Look for security events, severity, source, and response status.",
+        "Observe how event clustering changes analyst priorities.",
+        "Note that SIEM dashboards should support investigation, not just alert volume."
+    ),
+    "TechUseCaseDemos/ThreatHunter": (
+        "Look for hypothesis, telemetry source, indicator, and evidence trail.",
+        "Observe how a hunting query narrows from broad signals to specific activity.",
+        "Note that threat hunting is disciplined curiosity backed by evidence."
+    ),
+    "TechUseCaseDemos/VaRCalculator": (
+        "Look for portfolio returns, confidence level, time horizon, and VaR estimate.",
+        "Observe how VaR changes when volatility or confidence level increases.",
+        "Note that VaR summarizes tail risk but does not describe losses beyond the threshold."
+    ),
+    "TechUseCaseDemos/AIHedgeOrchestrator": (
+        "Look for exposure, hedge instrument, hedge ratio, cost, and residual risk.",
+        "Observe how the recommended hedge changes under FX, rate, or cash-flow scenarios.",
+        "Note that hedging is about reducing unwanted risk, not eliminating every uncertainty."
+    ),
+    "TechUseCaseDemos/CCCAnalyzer": (
+        "Look for receivables, inventory, payables, and cash conversion cycle components.",
+        "Observe which working-capital lever most improves cash tied up in operations.",
+        "Note that CCC improvements should be balanced against supplier, customer, and service impacts."
+    ),
+    "TechUseCaseDemos/CollectionsPredictor": (
+        "Look for customer risk score, payment history, amount due, and collection priority.",
+        "Observe how segmenting customers changes collection strategy.",
+        "Note that collections analytics should improve cash recovery while preserving customer relationships."
+    ),
+    "TechUseCaseDemos/FXHedgeSimulator": (
+        "Look for currency exposure, hedge choice, spot rate movement, and hedge outcome.",
+        "Observe how forwards, options, or natural hedges behave under different FX scenarios.",
+        "Note that hedge effectiveness should be judged against the original risk objective."
+    ),
+    "TechUseCaseDemos/SmartContractTreasury": (
+        "Look for treasury rule, smart-contract condition, approval flow, and transaction outcome.",
+        "Observe how automated controls reduce manual risk and where human override is needed.",
+        "Note that smart contracts are powerful controls only when rules, audits, and exceptions are clear."
+    ),
+    "TechUseCaseDemos/StablecoinManager": (
+        "Look for reserve level, redemption flow, peg pressure, and policy action.",
+        "Observe how liquidity and confidence interact during stress scenarios.",
+        "Note that stablecoin management connects treasury discipline with governance and market trust."
+    ),
+    "TechUseCaseDemos/TreasuryControlTower": (
+        "Look for cash position, forecast gap, stress scenario, and recommended action.",
+        "Observe how liquidity changes when inflows fall, outflows accelerate, or reserves are stressed.",
+        "Note that students should translate dashboard signals into a treasury decision and escalation path."
+    ),
+    "TechUseCaseDemos/TreasuryTransformBlueprint": (
+        "Look for current treasury capability, target state, roadmap step, and value driver.",
+        "Observe how maturity changes when people, process, data, and technology improve together.",
+        "Note that treasury transformation succeeds when strategy, governance, and operating rhythm align."
+    ),
+}
+
+
+def teacher_guide(demo: DemoPage) -> tuple[str, str, str]:
+    return TEACHER_GUIDES.get(demo.folder.as_posix(), (
+        "Look for the main decision, data input, and output the demo is designed to explain.",
+        "Observe how changing one assumption changes the result or recommendation.",
+        "Note the limitation students should mention before applying the result in a real decision."
+    ))
+
+
+def demo_in_course(demo: DemoPage, course_key: str) -> bool:
+    return demo.course_key == course_key or course_key in MULTI_COURSE_DEMOS.get(demo.folder.as_posix(), [])
 
 
 @dataclass(frozen=True)
@@ -246,6 +736,13 @@ class DemoPage:
 
 def repo_url(path: Path) -> str:
     return REPO_ROOT_URL + path.as_posix()
+
+
+def relative_url(from_path: Path, to_path: Path) -> str:
+    if from_path == Path("index.html") and to_path == Path("index.html"):
+        return "./"
+    rel = posixpath.relpath(to_path.as_posix(), from_path.parent.as_posix())
+    return rel if rel != "." else "./"
 
 
 def humanize(name: str) -> str:
@@ -376,13 +873,14 @@ def discover_demos() -> list[DemoPage]:
     return sorted(by_folder.values(), key=lambda d: (d.course_key, d.folder.as_posix()))
 
 
-def course_dropdown(active: str | None = None) -> str:
+def course_dropdown(active: str | None = None, from_path: Path | None = None) -> str:
+    from_path = from_path or Path("index.html")
     links = []
     for key in COURSE_ORDER:
         course = COURSES[key]
         active_class = " active" if key == active else ""
         links.append(
-            f'<a class="dropdown-link{active_class}" href="{REPO_ROOT_URL}{course["path"]}">'
+            f'<a class="dropdown-link{active_class}" href="{relative_url(from_path, Path(course["path"]))}">'
             f'<span>{course["emoji"]}</span>{course["short"]}</a>'
         )
     return f"""
@@ -395,21 +893,23 @@ def course_dropdown(active: str | None = None) -> str:
 """.strip()
 
 
-def common_nav(kind: str, course_key: str | None = None, demo: DemoPage | None = None) -> str:
+def common_nav(kind: str, course_key: str | None = None, demo: DemoPage | None = None, from_path: Path | None = None) -> str:
+    from_path = from_path or Path("index.html")
     active_course = course_key or (demo.course_key if demo else None)
-    brand = f'<a class="brand" href="{REPO_ROOT_URL}">KateelLearningDemos</a>'
-    landing = f'<a class="nav-link" href="{REPO_ROOT_URL}">Landing</a>'
+    home_url = relative_url(from_path, Path("index.html"))
+    brand = f'<a class="brand" href="{home_url}">KateelLearningDemos</a>'
+    landing = f'<a class="nav-link" href="{home_url}">Home</a>'
     github = f'<a class="nav-link" href="{GITHUB_URL}" target="_blank" rel="noopener">GitHub</a>'
-    courses = course_dropdown(active_course)
+    courses = course_dropdown(active_course, from_path)
 
     if kind == "landing":
         links = f"{landing}{courses}{github}"
     elif kind == "course":
         links = f"{landing}{courses}{github}"
     elif demo:
-        about = f'<a class="nav-link" href="{demo.about_url}">About Demo</a>'
-        course = f'<a class="nav-link" href="{demo.course_url}">{COURSES[demo.course_key]["short"]}</a>'
-        launch = f'<a class="nav-link nav-cta" href="{demo.demo_url}">Launch Demo</a>'
+        about = f'<a class="nav-link" href="{relative_url(from_path, demo.about_path)}">About Demo</a>'
+        course = f'<a class="nav-link" href="{relative_url(from_path, Path(COURSES[demo.course_key]["path"]))}">{COURSES[demo.course_key]["short"]}</a>'
+        launch = f'<a class="nav-link nav-cta" href="{relative_url(from_path, demo.demo_path)}">Launch Demo</a>'
         links = f"{landing}{courses}{about}{course}{github}{launch}"
     else:
         links = f"{landing}{courses}{github}"
@@ -428,12 +928,12 @@ def common_nav(kind: str, course_key: str | None = None, demo: DemoPage | None =
 """.strip()
 
 
-def ensure_assets(content: str) -> str:
-    css = f'  <link rel="stylesheet" href="{REPO_ROOT_URL}assets/site.css">\n'
-    js = f'  <script defer src="{REPO_ROOT_URL}assets/site.js"></script>\n'
-    if css not in content and "</head>" in content:
+def ensure_assets(content: str, from_path: Path) -> str:
+    css = f'  <link rel="stylesheet" href="{relative_url(from_path, Path("assets/site.css"))}">\n'
+    js = f'  <script defer src="{relative_url(from_path, Path("assets/site.js"))}"></script>\n'
+    if css.rstrip("\n") not in content and "</head>" in content:
         content = content.replace("</head>", css + "</head>", 1)
-    if js not in content and "</head>" in content:
+    if js.rstrip("\n") not in content and "</head>" in content:
         content = content.replace("</head>", js + "</head>", 1)
     return content
 
@@ -446,12 +946,14 @@ def replace_nav(content: str, nav: str) -> str:
     return content
 
 
-def add_demo_context_strip(content: str, demo: DemoPage) -> str:
+def add_demo_context_strip(content: str, demo: DemoPage, from_path: Path) -> str:
     if "demo-context-strip" in content:
         return content
+    _, observe, _ = teacher_guide(demo)
     strip = f'''
   <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> You are on the interactive demo. Use the <a href="{demo.about_url}">About Demo</a> page for learning objectives, theory, usage steps, and assessment prompts.
+    <strong>About vs. Demo:</strong> You are on the interactive demo. Use the <a href="{relative_url(from_path, demo.about_path)}">About Demo</a> page for learning objectives, theory, usage steps, and assessment prompts.
+    <br><strong>Teacher cue:</strong> {escape(observe)}
   </div>
 '''
     return content.replace("<div class=\"container\">", strip + "  <div class=\"container\">", 1)
@@ -460,12 +962,15 @@ def add_demo_context_strip(content: str, demo: DemoPage) -> str:
 def update_actual_demo_page(path: Path, demo: DemoPage) -> None:
     content = path.read_text(encoding="utf-8", errors="ignore")
     original = content
-    content = ensure_assets(content)
+    content = ensure_assets(content, path)
     content = replace_nav(content, common_nav("demo", demo=demo))
+    course_href = relative_url(path, Path(COURSES[demo.course_key]["path"]))
+    content = content.replace('href="../../../courses/"', f'href="{course_href}"')
+    content = content.replace("Back to Courses", "View Course Path")
     if not (path.parent / "README.md").exists():
-        content = content.replace('href="README.md"', f'href="{repo_url(Path("DEMO_INDEX.md"))}"')
+        content = content.replace('href="README.md"', f'href="{relative_url(path, Path("DEMO_INDEX.md"))}"')
         content = content.replace("Read the README.md", "Read the full demo index")
-    content = add_demo_context_strip(content, demo)
+    content = add_demo_context_strip(content, demo, path)
     if content != original:
         path.write_text(content, encoding="utf-8")
 
@@ -489,9 +994,11 @@ def rating_widget(demo: DemoPage) -> str:
 
 
 def render_about_page(demo: DemoPage) -> str:
+    path = demo.about_path
     course = COURSES[demo.course_key]
+    course_path = Path(COURSES[demo.course_key]["path"])
     readme_exists = (demo.folder / "README.md").exists()
-    readme_link = f'<a class="btn btn-secondary" href="{repo_url(demo.folder / "README.md")}">View README</a>' if readme_exists else ""
+    readme_link = f'<a class="btn btn-secondary" href="{relative_url(path, demo.folder / "README.md")}">View README</a>' if readme_exists else ""
     outcomes = [
         f"Understand the core {course['title'].lower()} concept behind {demo.title}.",
         "Identify the decision, data input, and output that matter in the activity.",
@@ -514,6 +1021,8 @@ def render_about_page(demo: DemoPage) -> str:
         "Toggle AI support on/off where available and compare what changed.",
         "Record one insight, one limitation, and one follow-up question.",
     ]
+    look_for, observe, note = teacher_guide(demo)
+    course_href = relative_url(path, Path(COURSES[demo.course_key]["path"]))
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -531,11 +1040,11 @@ def render_about_page(demo: DemoPage) -> str:
     gtag('js', new Date());
     gtag('config', '{GA_ID}');
   </script>
-  <link rel="stylesheet" href="{REPO_ROOT_URL}assets/site.css">
-  <script defer src="{REPO_ROOT_URL}assets/site.js"></script>
+  <link rel="stylesheet" href="{relative_url(path, Path("assets/site.css"))}">
+  <script defer src="{relative_url(path, Path("assets/site.js"))}"></script>
 </head>
 <body>
-{common_nav("about", demo=demo)}
+{common_nav("about", demo=demo, from_path=path)}
   <main class="container">
     <section class="site-hero page-hero">
       <p class="hero-eyebrow">{course['emoji']} {course['title']} • {escape(demo.level)} • {escape(demo.duration)}</p>
@@ -548,8 +1057,8 @@ def render_about_page(demo: DemoPage) -> str:
         <span class="pill">Attribution: {ATTRIBUTION_EMAIL}</span>
       </div>
       <div class="cta-buttons">
-        <a class="btn btn-primary launch-demo" href="{demo.demo_url}">▶ Launch actual demo</a>
-        <a class="btn btn-secondary" href="{demo.course_url}">View course path</a>
+        <a class="btn btn-primary launch-demo" href="{relative_url(path, demo.demo_path)}">▶ Launch actual demo</a>
+        <a class="btn btn-secondary" href="{relative_url(path, course_path)}">View course path</a>
         {readme_link}
       </div>
     </section>
@@ -566,6 +1075,28 @@ def render_about_page(demo: DemoPage) -> str:
       <div>
         <strong>3. Reflect</strong>
         <p>Record one insight, one limitation, and one action recommendation.</p>
+      </div>
+    </section>
+
+    <section class="section" id="observe">
+      <div class="section-header">
+        <p class="section-kicker">Teacher observation guide</p>
+        <h2>What to look for, observe, and note</h2>
+        <p>Use these prompts to turn the demo result into a guided learning conversation.</p>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>What to look for</h3>
+          <p>{escape(look_for)}</p>
+        </article>
+        <article class="info-card">
+          <h3>What to observe</h3>
+          <p>{escape(observe)}</p>
+        </article>
+        <article class="info-card">
+          <h3>What to note</h3>
+          <p>{escape(note)}</p>
+        </article>
       </div>
     </section>
 
@@ -646,7 +1177,7 @@ def render_about_page(demo: DemoPage) -> str:
     </section>
   </main>
   <footer class="site-footer">
-    <p><a href="{REPO_ROOT_URL}">KateelLearningDemos</a> • <a href="{demo.course_url}">{course['title']}</a> • Attribution: <a href="mailto:{ATTRIBUTION_EMAIL}">{ATTRIBUTION_EMAIL}</a></p>
+    <p><a href="{relative_url(path, Path("index.html"))}">KateelLearningDemos</a> • <a href="{course_href}">{course['title']}</a> • Attribution: <a href="mailto:{ATTRIBUTION_EMAIL}">{ATTRIBUTION_EMAIL}</a></p>
   </footer>
 </body>
 </html>
@@ -655,22 +1186,27 @@ def render_about_page(demo: DemoPage) -> str:
 
 def render_course_page(key: str, demos: list[DemoPage]) -> str:
     course = COURSES[key]
+    course_path = Path(course["path"])
     demo_cards = []
     for demo in demos:
+        if not demo_in_course(demo, key):
+            continue
+        look_for, observe, note = teacher_guide(demo)
         demo_cards.append(f'''
-<a class="demo-card" href="{demo.about_url}">
+<a class="demo-card" href="{relative_url(course_path, demo.about_path)}">
   <div class="demo-card-top">
     <h3>{escape(demo.title)}</h3>
     <span class="level-badge">{escape(demo.level)}</span>
   </div>
   <p>{escape(demo.description)}</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> {escape(look_for)}</p>
   <div class="demo-meta">
     <span>{escape(demo.duration)}</span>
     <span>{escape(demo.ai_mode)}</span>
   </div>
   <div class="demo-actions">
     <span class="btn-mini">Read About Demo</span>
-    <a class="btn-mini outline launch-demo" href="{demo.demo_url}">Launch Demo</a>
+    <a class="btn-mini outline launch-demo" href="{relative_url(course_path, demo.demo_path)}">Launch Demo</a>
   </div>
 </a>
 ''')
@@ -694,11 +1230,11 @@ def render_course_page(key: str, demos: list[DemoPage]) -> str:
     gtag('js', new Date());
     gtag('config', '{GA_ID}');
   </script>
-  <link rel="stylesheet" href="{REPO_ROOT_URL}assets/site.css">
-  <script defer src="{REPO_ROOT_URL}assets/site.js"></script>
+  <link rel="stylesheet" href="{relative_url(Path(course["path"]), Path("assets/site.css"))}">
+  <script defer src="{relative_url(Path(course["path"]), Path("assets/site.js"))}"></script>
 </head>
 <body>
-{common_nav("course", course_key=key)}
+{common_nav("course", course_key=key, from_path=Path(course["path"]))}
   <main class="container">
     <section class="site-hero page-hero">
       <p class="hero-eyebrow">{course['emoji']} Course path</p>
@@ -706,7 +1242,7 @@ def render_course_page(key: str, demos: list[DemoPage]) -> str:
       <p class="hero-subtitle">{escape(course['description'])}</p>
       <div class="cta-buttons">
         <a class="btn btn-primary" href="#demos">Browse demos</a>
-        <a class="btn btn-secondary" href="{REPO_ROOT_URL}">Return to landing</a>
+        <a class="btn btn-secondary" href="{relative_url(Path(course["path"]), Path("index.html"))}">Return to Home</a>
       </div>
     </section>
 
@@ -766,7 +1302,7 @@ def render_course_page(key: str, demos: list[DemoPage]) -> str:
     </section>
   </main>
   <footer class="site-footer">
-    <p><a href="{REPO_ROOT_URL}">KateelLearningDemos</a> • {course['title']} • Attribution: <a href="mailto:{ATTRIBUTION_EMAIL}">{ATTRIBUTION_EMAIL}</a></p>
+    <p><a href="{relative_url(Path(course["path"]), Path("index.html"))}">KateelLearningDemos</a> • {course['title']} • Attribution: <a href="mailto:{ATTRIBUTION_EMAIL}">{ATTRIBUTION_EMAIL}</a></p>
   </footer>
 </body>
 </html>
@@ -777,23 +1313,23 @@ def render_index(demos: list[DemoPage]) -> str:
     course_cards = []
     for key in COURSE_ORDER:
         course = COURSES[key]
-        count = sum(1 for demo in demos if demo.course_key == key)
+        count = sum(1 for demo in demos if demo_in_course(demo, key))
         course_cards.append(f'''
-<a class="course-card" href="{REPO_ROOT_URL}{course['path']}">
+<a class="course-card" href="{relative_url(Path("index.html"), Path(course["path"]))}">
   <div class="course-card-top"><h3>{course['emoji']} {course['title']}</h3><span>{count} demos</span></div>
   <p>{escape(course['description'])}</p>
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
 ''')
 
-    featured = [d for d in demos if d.course_key in {"treasury", "ai_ml", "rag_nlp", "quant"}][:12]
+    featured = [d for d in demos if demo_in_course(d, "treasury") or demo_in_course(d, "ai_ml") or demo_in_course(d, "rag_nlp") or demo_in_course(d, "quant")][:12]
     featured_cards = []
     for demo in featured:
         featured_cards.append(f'''
-<a class="demo-card featured-demo" href="{demo.about_url}">
+<a class="demo-card featured-demo" href="{relative_url(Path("index.html"), demo.about_path)}">
   <div class="demo-card-top"><h3>{escape(demo.title)}</h3><span class="level-badge">{escape(demo.level)}</span></div>
   <p>{escape(demo.description)}</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="{demo.demo_url}">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="{relative_url(Path("index.html"), demo.demo_path)}">Launch</a></div>
 </a>
 ''')
 
@@ -814,11 +1350,11 @@ def render_index(demos: list[DemoPage]) -> str:
     gtag('js', new Date());
     gtag('config', '{GA_ID}');
   </script>
-  <link rel="stylesheet" href="{REPO_ROOT_URL}assets/site.css">
-  <script defer src="{REPO_ROOT_URL}assets/site.js"></script>
+  <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/site.js"></script>
 </head>
 <body>
-{common_nav("landing")}
+{common_nav("landing", from_path=Path("index.html"))}
   <main class="container">
     <section class="site-hero landing-hero">
       <p class="hero-eyebrow">Browser-based AI/ML demos for students, faculty & practitioners</p>
@@ -832,7 +1368,7 @@ def render_index(demos: list[DemoPage]) -> str:
       </div>
       <div class="cta-buttons">
         <a class="btn btn-primary" href="#courses">Explore courses</a>
-        <a class="btn btn-secondary" href="{REPO_ROOT_URL}DEMO_INDEX.md">Full demo index</a>
+        <a class="btn btn-secondary" href="DEMO_INDEX.md">Full demo index</a>
         <a class="btn btn-soft" href="{GITHUB_URL}" target="_blank" rel="noopener">Star on GitHub</a>
       </div>
     </section>
@@ -906,7 +1442,7 @@ def render_index(demos: list[DemoPage]) -> str:
     </section>
   </main>
   <footer class="site-footer">
-    <p><a href="{REPO_ROOT_URL}">KateelLearningDemos</a> • Attribution: <a href="mailto:{ATTRIBUTION_EMAIL}">{ATTRIBUTION_EMAIL}</a> • <a href="{GITHUB_URL}">GitHub repository</a></p>
+    <p><a href="./">KateelLearningDemos</a> • Attribution: <a href="mailto:{ATTRIBUTION_EMAIL}">{ATTRIBUTION_EMAIL}</a> • <a href="{GITHUB_URL}">GitHub repository</a></p>
   </footer>
 </body>
 </html>
@@ -945,7 +1481,7 @@ def render_demo_index_md(demos: list[DemoPage]) -> str:
     lines.extend([
         "## Getting started",
         "",
-        "1. Start at the [Landing Page](/KateelLearningDemosToStudents/).",
+        "1. Start at the [Home](/KateelLearningDemosToStudents/).",
         "2. Open an About Demo page before launching the actual demo.",
         "3. Toggle AI or change scenarios where available.",
         "4. Record one insight, one limitation, and one action recommendation.",
@@ -975,7 +1511,7 @@ def render_courses_readme() -> str:
         "",
         "## How to use",
         "",
-        "1. Start at the [Landing Page](/KateelLearningDemosToStudents/).",
+        "1. Start at the [Home](/KateelLearningDemosToStudents/).",
         "2. Open a course page and read the learning outcomes.",
         "3. Open an About Demo page for context, theory, and faculty prompts.",
         "4. Launch the actual demo only when students are ready to practice.",
@@ -1463,21 +1999,22 @@ code { color: #bfdbfe; background: rgba(59, 130, 246, 0.16); padding: 0.12rem 0.
 ''', encoding="utf-8")
     Path("assets/site.js").write_text(r'''/* KateelLearningDemos shared navigation, rating, and usage tracking */
 (function () {
-  const REPO_ROOT = "/KateelLearningDemosToStudents/";
-
   function ready(fn) {
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
     else fn();
   }
 
   ready(function () {
-    const path = window.location.pathname.replace(/\/$/, "");
-    document.querySelectorAll(".nav-link, .dropdown-content a").forEach(function (link) {
-      const href = link.getAttribute("href") || "";
-      if (!href.startsWith("http") && path.endsWith(href.replace(/\/$/, ""))) {
+  const path = window.location.pathname.replace(/\/$/, "");
+  document.querySelectorAll(".nav-link, .dropdown-content a").forEach(function (link) {
+    const href = link.getAttribute("href") || "";
+    if (!href.startsWith("http")) {
+      const linkPath = new URL(href, window.location.href).pathname.replace(/\/$/, "");
+      if (path.endsWith(linkPath)) {
         link.classList.add("active");
       }
-    });
+    }
+  });
 
     document.querySelectorAll(".launch-demo").forEach(function (link) {
       link.addEventListener("click", function () {

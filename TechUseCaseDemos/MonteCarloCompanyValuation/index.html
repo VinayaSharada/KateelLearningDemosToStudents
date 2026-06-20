@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monte Carlo Company Valuation - KateelLearningDemos</title>
+  <meta name="description" content="Interactive browser-based Monte Carlo simulation for company valuation, five-year free cash flow, NPV, probability of value creation, and statistical confidence intervals." />
+  <meta property="og:title" content="Monte Carlo Company Valuation - KateelLearningDemos" />
+  <meta property="og:description" content="Simulate enterprise value and NPV under uncertainty with editable assumptions, probabilities, and statistical variants." />
+  <meta property="og:type" content="website" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V672XGCRSK');
+  </script>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <!-- Attribution: vinallcontact@gmail.com -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="./">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="./">Home</a>
+      <details class="nav-dropdown">
+  <summary class="nav-link">Courses</summary>
+  <div class="dropdown-content" role="menu">
+    <a class="dropdown-link" href="courses/treasury-management.html"><span>🏦</span>Treasury</a>
+      <a class="dropdown-link active" href="courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+      <a class="dropdown-link" href="courses/risk-management.html"><span>⚠️</span>Risk</a>
+      <a class="dropdown-link" href="courses/quant-finance.html"><span>💰</span>Quant</a>
+      <a class="dropdown-link" href="courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+      <a class="dropdown-link" href="courses/compliance.html"><span>📋</span>Compliance</a>
+      <a class="dropdown-link" href="courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+      <a class="dropdown-link" href="courses/banking.html"><span>🏦</span>Banking</a>
+  </div>
+</details>
+      <a class="nav-link" href="TechUseCaseDemos/MonteCarloCompanyValuation/about.html">About Demo</a>
+      <a class="nav-link" href="courses/ai-ml-workflows.html">AI/ML</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="TechUseCaseDemos/MonteCarloCompanyValuation/index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+
+  <div class="demo-context-strip" role="note">
+    <strong>About vs. Demo:</strong> This is the actual Monte Carlo valuation simulator. Use the <a href="about.html">About Demo</a> page for learning objectives, theory, and faculty prompts.
+    <br><strong>Teacher cue:</strong> Observe how valuation changes when growth, margin, WACC, and terminal assumptions move together under uncertainty.
+  </div>
+
+  <main class="container">
+    <section class="site-hero page-hero compact-hero">
+      <div>
+        <p class="hero-eyebrow">🤖 AI/ML in Finance • CFO Workshop • Advanced</p>
+        <h1>Monte Carlo Company Valuation</h1>
+        <p class="hero-subtitle">Simulate five-year free cash flows, enterprise value, NPV, probability of value creation, and confidence intervals for a company valuation decision.</p>
+        <div class="pill-row" aria-label="Demo attributes">
+          <span class="pill">Browser-based</span>
+          <span class="pill">No API keys</span>
+          <span class="pill">Editable assumptions</span>
+          <span class="pill">Probability + statistics</span>
+          <span class="pill">Attribution: vinallcontact@gmail.com</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-secondary" href="about.html">About Demo</a>
+        <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">AI/ML Course</a>
+        <a class="btn btn-secondary" href="../../courses/treasury-management.html">CFO Workshop</a>
+      </div>
+    </section>
+
+    <section class="learning-guide">
+      <h3>📚 Learning Guide</h3>
+      <p>Change the business assumptions, probability controls, and statistical settings. The simulator runs thousands of possible futures and shows whether the acquisition or investment creates value under uncertainty.</p>
+    </section>
+
+    <div class="control-row">
+      <label for="scenario">Scenario</label>
+      <select id="scenario">
+        <option value="base">Base case</option>
+        <option value="aggressive">Aggressive growth</option>
+        <option value="marginPressure">Margin pressure</option>
+        <option value="highRate">High-rate environment</option>
+        <option value="turnaround">Turnaround recovery</option>
+        <option value="custom">Custom assumptions</option>
+      </select>
+      <button id="resetBtn" class="btn btn-secondary small-btn" type="button">Reset defaults</button>
+    </div>
+
+    <section class="grid-two">
+      <div class="panel">
+        <h2>1. Company and valuation inputs</h2>
+        <div class="form-grid">
+          <label>Current acquisition price / initial investment (₹ crore)<input id="initialInvestment" type="number" min="0" step="1" value="500" /></label>
+          <label>Base-year revenue (₹ crore)<input id="baseRevenue" type="number" min="0" step="1" value="300" /></label>
+          <label>Mean annual revenue growth (%)<input id="growthMean" type="number" min="-30" max="80" step="0.1" value="12" /></label>
+          <label>Revenue growth volatility (%)<input id="growthVol" type="number" min="0" max="80" step="0.1" value="10" /></label>
+          <label>Mean EBITDA margin (%)<input id="ebitdaMarginMean" type="number" min="0" max="80" step="0.1" value="22" /></label>
+          <label>EBITDA margin volatility (%)<input id="ebitdaMarginVol" type="number" min="0" max="60" step="0.1" value="5" /></label>
+          <label>Tax rate (%)<input id="taxRate" type="number" min="0" max="60" step="0.1" value="25" /></label>
+          <label>Working capital as % of revenue<input id="workingCapitalPct" type="number" min="0" max="80" step="0.1" value="12" /></label>
+          <label>Capex as % of revenue<input id="capexPct" type="number" min="0" max="80" step="0.1" value="8" /></label>
+          <label>Terminal growth (%)<input id="terminalGrowth" type="number" min="-5" max="12" step="0.1" value="3.5" /></label>
+          <label>Discount rate / WACC (%)<input id="wacc" type="number" min="1" max="50" step="0.1" value="12" /></label>
+          <label>Forecast years<input id="forecastYears" type="number" min="3" max="7" step="1" value="5" /></label>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>2. Monte Carlo and probability controls</h2>
+        <div class="form-grid">
+          <label>Simulations<input id="simulations" type="number" min="100" max="100000" step="100" value="10000" /></label>
+          <label>Random seed<input id="randomSeed" type="number" min="1" max="999999" step="1" value="2026" /></label>
+          <label>Confidence interval lower percentile (%)<input id="confidenceLow" type="number" min="1" max="49" step="0.5" value="10" /></label>
+          <label>Confidence interval upper percentile (%)<input id="confidenceHigh" type="number" min="51" max="99" step="0.5" value="90" /></label>
+          <label>NPV decision threshold (₹ crore)<input id="npvThreshold" type="number" step="1" value="0" /></label>
+          <label>Enterprise value threshold (₹ crore)<input id="valuationThreshold" type="number" min="0" step="1" value="600" /></label>
+          <label>Minimum acceptable probability of positive NPV (%)<input id="minPositiveNpvProb" type="number" min="0" max="100" step="1" value="70" /></label>
+          <label class="toggle-label">
+            <span>Enable AI-style insights</span>
+            <input id="aiToggle" type="checkbox" checked />
+          </label>
+        </div>
+        <p class="helper-text">The simulator uses browser-only random sampling. No cloud model or API key is called.</p>
+      </div>
+    </section>
+
+    <section class="metrics-grid" aria-live="polite">
+      <article class="metric-card positive"><span>Mean enterprise value</span><strong id="meanEnterpriseValue">₹0 cr</strong><small id="meanEnterpriseValueSub">PV of five-year FCF + terminal value</small></article>
+      <article class="metric-card positive"><span>Mean NPV</span><strong id="meanNpv">₹0 cr</strong><small>Mean enterprise value minus acquisition price</small></article>
+      <article class="metric-card neutral"><span>P(NPV &gt; threshold)</span><strong id="probNpvPositive">0%</strong><small>Probability of value creation</small></article>
+      <article class="metric-card neutral"><span>P(Value &gt; threshold)</span><strong id="probValueAboveThreshold">0%</strong><small>Probability enterprise value exceeds target</small></article>
+      <article class="metric-card neutral"><span>Std. deviation</span><strong id="stdDeviation">₹0 cr</strong><small>NPV dispersion across simulations</small></article>
+      <article class="metric-card neutral"><span>CV ratio</span><strong id="cvRatio">0.00</strong><small>Std. deviation / mean NPV</small></article>
+    </section>
+
+    <section class="panel wide-panel">
+      <h2>3. Simulation output</h2>
+      <canvas id="distributionChart" width="900" height="320" aria-label="NPV distribution histogram"></canvas>
+      <div class="chart-legend">
+        <span><i class="swatch mean"></i> Mean NPV</span>
+        <span><i class="swatch threshold"></i> NPV threshold</span>
+        <span><i class="swatch low"></i> Lower confidence</span>
+        <span><i class="swatch high"></i> Upper confidence</span>
+      </div>
+    </section>
+
+    <section class="grid-two">
+      <div class="panel">
+        <h2>4. Statistical summary</h2>
+        <table class="data-table">
+          <tbody id="statsTable">
+            <tr><td>Mean NPV</td><td>₹0 cr</td></tr>
+            <tr><td>Median NPV</td><td>₹0 cr</td></tr>
+            <tr><td>P10 / P90 NPV</td><td>₹0 cr / ₹0 cr</td></tr>
+            <tr><td>Minimum / Maximum NPV</td><td>₹0 cr / ₹0 cr</td></tr>
+            <tr><td>Enterprise value P10 / P90</td><td>₹0 cr / ₹0 cr</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h2>5. Five-year average path</h2>
+        <table class="data-table">
+          <thead><tr><th>Year</th><th>Revenue</th><th>EBITDA</th><th>Tax</th><th>Capex</th><th>NWC investment</th><th>Free cash flow</th></tr></thead>
+          <tbody id="yearTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel wide-panel" id="aiInsightsPanel">
+      <h2>6. AI-style interpretation</h2>
+      <div id="aiInsights" class="insight-list"></div>
+    </section>
+
+    <section class="cta-buttons">
+      <button id="runBtn" class="btn btn-primary" type="button">Run simulation</button>
+      <button id="exportJsonBtn" class="btn btn-secondary" type="button">Export JSON</button>
+      <button id="exportCsvBtn" class="btn btn-secondary" type="button">Export CSV</button>
+    </section>
+
+    <section class="learning-guide attribution-note">
+      <h3>🔎 What to discuss in class</h3>
+      <p>Ask students to compare mean NPV with probability of positive NPV. A high average valuation can still hide unacceptable downside risk, while a moderate NPV can be attractive if the probability of value creation is high and downside is controlled.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="../../index.html">KateelLearningDemos</a> • Monte Carlo Company Valuation • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a> • <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">GitHub repository</a></p>
+  </footer>
+</body>
+</html>

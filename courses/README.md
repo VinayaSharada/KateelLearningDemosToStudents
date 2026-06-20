@@ -15,7 +15,7 @@ This directory contains course-specific GitHub Pages that use a consistent About
 
 ## How to use
 
-1. Start at the [Landing Page](/KateelLearningDemosToStudents/).
+1. Start at the [Home](/KateelLearningDemosToStudents/).
 2. Open a course page and read the learning outcomes.
 3. Open an About Demo page for context, theory, and faculty prompts.
 4. Launch the actual demo only when students are ready to practice.
