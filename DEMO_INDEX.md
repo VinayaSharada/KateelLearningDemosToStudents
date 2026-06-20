@@ -1,176 +1,125 @@
-# Demo Index
+# KateelLearningDemos - Full Demo Index
 
-This file is a curated index of all demos in the repository. 
+**Attribution: vinallcontact@gmail.com**
 
-## 🚀 Quick Links
-- **[Back to Landing Page](../../index.html)** - The main demo portal
-- **[Course Navigation](../../courses/)** - Browse demos by course
+## 🎯 Overview
 
----
+This is the complete index of **66+ interactive browser-based AI/ML demos** for finance education. All demos run entirely in the browser - no cloud services, no API keys required.
 
-## 🆕 Recently Added/Enhanced
+## 📚 Course Categories
 
-| Demo | Path | Description |
-|------|------|-------------|
-| AI Resource Planner | `TechUseCaseDemos/AIResourcePlanner/` | AI-powered resource allocation |
-| Data Drift Detector | `TechUseCaseDemos/DataDriftDetector/` | Monitor model degradation |
-| Model Version Comparator | `TechUseCaseDemos/ModelVersionComparator/` | Compare model versions |
-| RAG Solutions | `TechUseCaseDemos/RAGSolutions/` | Document QA systems |
+### 🏦 Treasury Management (8 demos)
+*Perfect for CFO aspirants and treasury professionals*
 
----
+| Demo | Description | Level |
+|------|-------------|-------|
+| [Treasury Control Tower](../TechUseCaseDemos/TreasuryControlTower/) | Liquidity dashboard with forecasting | Beginner |
+| [FX Hedge Simulator](../TechUseCaseDemos/FXHedgeSimulator/) | Currency hedging strategy simulator | Intermediate |
+| [CCC Analyzer](../TechUseCaseDemos/CCCAnalyzer/) | Cash Conversion Cycle optimizer | Beginner |
+| [Collections Predictor](../TechUseCaseDemos/CollectionsPredictor/) | AI collections prioritization | Intermediate |
+| [Smart Contract Treasury](../TechUseCaseDemos/SmartContractTreasury/) | Blockchain treasury ops | Advanced |
+| [Stablecoin Manager](../TechUseCaseDemos/StablecoinManager/) | Digital asset management | Intermediate |
+| [AI Hedge Orchestrator](../TechUseCaseDemos/AIHedgeOrchestrator/) | Multi-asset AI hedging | Advanced |
+| [Treasury Transform Blueprint](../TechUseCaseDemos/TreasuryTransformBlueprint/) | Modernization roadmap | All Levels |
 
-## 🏆 CFOWorkshop - Treasury Management (8 Demos)
+### 🤖 AI/ML Workflows (25+ demos)
+*Comprehensive AI/ML education for finance*
 
-| Demo | Path | Description |
-|------|------|-------------|
-| Treasury Control Tower | `TechUseCaseDemos/TreasuryControlTower/` | Liquidity dashboard |
-| FX Hedge Simulator | `TechUseCaseDemos/FXHedgeSimulator/` | FX hedging strategy |
-| CCC Analyzer | `TechUseCaseDemos/CCCAnalyzer/` | Cash Conversion Cycle |
-| Collections Predictor | `TechUseCaseDemos/CollectionsPredictor/` | AI collections prioritization |
-| Smart Contract Treasury | `TechUseCaseDemos/SmartContractTreasury/` | Blockchain treasury |
-| Stablecoin Manager | `TechUseCaseDemos/StablecoinManager/` | Digital asset management |
-| AI Hedge Orchestrator | `TechUseCaseDemos/AIHedgeOrchestrator/` | Multi-asset AI hedging |
-| Treasury Transform Blueprint | `TechUseCaseDemos/TreasuryTransformBlueprint/` | Transformation roadmap |
+| Demo | Description | Level |
+|------|-------------|-------|
+| [Classification Playground](../TechUseCaseDemos/AIClassification/) | ML classification algorithms | Beginner |
+| [Clustering Visualizer](../TechUseCaseDemos/AIClustering/) | K-means & hierarchical clustering | Beginner |
+| [Time Series Forecasting](../TechUseCaseDemos/Forecast/) | ARIMA & forecasting models | Intermediate |
+| [Standard RAG](../TechUseCaseDemos/RAGSolutions/StandardRAG/) | Document QA with RAG | Intermediate |
+| [AI Data Analyzer](../TechUseCaseDemos/AIDataAnalyzer/) | Statistical analysis with AI | All Levels |
+| [AI Cost Benefit Analyzer](../TechUseCaseDemos/AICostBenefitAnalyzer/) | ROI calculation for AI projects | All Levels |
+| [AI Governance Scorecard](../TechUseCaseDemos/AIGovernanceScorecard/) | AI compliance & risk assessment | Intermediate |
+| [AI Resource Planner](../TechUseCaseDemos/AIResourcePlanner/) | Staffing and capacity planning | Intermediate |
+| [AI Workflow Demo](../TechUseCaseDemos/AIWorkflowDemo/) | Process automation workflows | All Levels |
+| [Credit Scoring Demo](../TechUseCaseDemos/CreditScoringDemo/) | Credit risk modeling | Beginner |
+| [Counterparty Risk Demo](../TechUseCaseDemos/CounterpartyRiskDemo/) | Counterparty risk assessment | Intermediate |
+| [Fraud Playground](../TechUseCaseDemos/FraudPlayground/) | Anomaly detection for fraud | Intermediate |
+| [Model Version Comparator](../TechUseCaseDemos/ModelVersionComparator/) | ML model comparison | Intermediate |
+| [AIRisk Calculator](../TechUseCaseDemos/AIRiskCalculator/) | AI-powered risk quantification | Advanced |
+| [AIRegulatory Tracker](../TechUseCaseDemos/AIRegulatoryTracker/) | Regulatory compliance tracking | Intermediate |
+| [Public Policy Governance](../TechUseCaseDemos/PublicPolicyGovernance/) | AI in public sector | All Levels |
+| [AIPRD Template](../TechUseCaseDemos/AIPRDTemplate/) | Product requirement templates | All Levels |
+| [AITeam Collaboration](../TechUseCaseDemos/AITeamCollaboration/) | Team workflow optimization | All Levels |
+| [AI Decision Tracker](../TechUseCaseDemos/AIDecisionTracker/) | Decision logging & analysis | All Levels |
+| [AI Feature Impact](../TechUseCaseDemos/AIFeatureImpact/) | Feature importance analysis | Intermediate |
+| [Data Drift Detector](../TechUseCaseDemos/DataDriftDetector/) | Model monitoring | Intermediate |
+| [Feature Store Demo](../TechUseCaseDemos/FeatureStoreDemo/) | Feature engineering | Intermediate |
+| [ML Model Registry](../TechUseCaseDemos/MLModelRegistry/) | Model lifecycle management | Intermediate |
+| [Probabilistic Decision Engine](../TechUseCaseDemos/ProbabilisticDecisionEngine/) | Uncertainty modeling | Advanced |
+| [AI Performance Dashboard](../TechUseCaseDemos/AIPerformanceDashboard/) | ML metrics visualization | Intermediate |
 
-**[View Treasury Management Course](../../courses/treasury-management.html)**
+### ⚠️ Risk Management (12 demos)
+*Credit, market, and systemic risk modeling*
 
----
+| Demo | Description | Level |
+|------|-------------|-------|
+| [Counterparty Risk Demo](../TechUseCaseDemos/CounterpartyRiskDemo/) | Counterparty exposure analysis | Intermediate |
+| [Credit Scoring Demo](../TechUseCaseDemos/CreditScoringDemo/) | Credit risk scoring models | Beginner |
+| [Fraud Playground](../TechUseCaseDemos/FraudPlayground/) | Fraud detection algorithms | Intermediate |
+| [Bank Failure Prediction](../TechUseCaseDemos/BankFailurePrediction/) | Systemic risk modeling | Advanced |
+| [Data Drift Detector](../TechUseCaseDemos/DataDriftDetector/) | Model risk monitoring | Intermediate |
+| [AIRisk Calculator](../TechUseCaseDemos/AIRiskCalculator/) | Risk quantification | Advanced |
+| [Risk Parity Portfolio](../TechUseCaseDemos/RiskParityPortfolio/) | Portfolio risk allocation | Advanced |
+| [VaR Calculator](../TechUseCaseDemos/VaRCalculator/) | Value at Risk modeling | Intermediate |
+| [QFD Demo](../TechUseCaseDemos/QFDDemo/) | Quality function deployment | Intermediate |
+| [Threat Hunter](../TechUseCaseDemos/ThreatHunter/) | Cyber risk hunting | Intermediate |
+| [SIEM Dashboard](../TechUseCaseDemos/SIEMDashboard/) | Security incident analysis | Intermediate |
+| [AIGovernance Scorecard](../TechUseCaseDemos/AIGovernanceScorecard/) | AI risk governance | Intermediate |
 
-## 📚 Domain Use Case Demos
+### 💰 Quant Finance (10 demos)
+*Derivatives, options, and portfolio modeling*
 
-### Banking
-- `DomainUseCaseDemos/Banking/BankQ` - Queue analytics
-- `DomainUseCaseDemos/Banking/CustSeg` - Customer segmentation
-- `DomainUseCaseDemos/Banking/LiquidityMgmt` - Liquidity management
-- `DomainUseCaseDemos/Banking/MesaLiquidity` - Mesa liquidity model
-- `DomainUseCaseDemos/Banking/IntRateRisk` - Interest rate risk
-- `DomainUseCaseDemos/Banking/Marketing001` - Marketing analytics
-- `DomainUseCaseDemos/Banking/LoanDefaultPredictor` - Credit risk assessment
+| Demo | Description | Level |
+|------|-------------|-------|
+| [Option Pricing Demo](../TechUseCaseDemos/OptionPricingDemo/) | Black-Scholes option pricing | Beginner |
+| [Options Pricing](../TechUseCaseDemos/OptionsPricing/) | Multi-option strategies | Intermediate |
+| [Greeks Calculator](../TechUseCaseDemos/GreeksCalculator/) | Greeks calculation | Intermediate |
+| [Monte Carlo Options](../TechUseCaseDemos/MonteCarloOptions/) | MC simulation for options | Intermediate |
+| [Bond Pricing Demo](../TechUseCaseDemos/BondPricingDemo/) | Fixed income pricing | Beginner |
+| [Portfolio Optimizer](../TechUseCaseDemos/PortfolioOptimizer/) | Markowitz optimization | Intermediate |
+| [Risk Parity Portfolio](../TechUseCaseDemos/RiskParityPortfolio/) | Risk-balanced allocation | Advanced |
+| [Wealth Management - NPV](../TechUseCaseDemos/WealthManagement/npv-calculator/) | Net present value | Beginner |
+| [Wealth Management - Efficient Frontier](../TechUseCaseDemos/WealthManagement/efficient-frontier/) | Portfolio theory | Intermediate |
+| [Wealth Management - Black-Scholes](../TechUseCaseDemos/WealthManagement/black-scholes/) | Options pricing | Intermediate |
 
-### Credit Cards
-- `DomainUseCaseDemos/CreditCards/CCUnderWriting` - Credit card underwriting
-- `DomainUseCaseDemos/CreditCards/CCCustomerLTV` - Customer lifetime value
-- `DomainUseCaseDemos/CreditCards/CreditCardFraud` - Fraud detection
-- `DomainUseCaseDemos/CreditCards/CreditCardTxnFraud` - Transaction fraud
-- `DomainUseCaseDemos/CreditCards/CreditCardFraudOutlier001` - Outlier detection
-- `DomainUseCaseDemos/CreditCards/CreditCardFraudOutlier002` - Advanced outlier
+## 🚀 Getting Started
 
-### Insurance
-- `DomainUseCaseDemos/Insurance/ClaimFraud001` - Claim fraud pattern mining
+1. **Browse** courses above or use the [Landing Page](../index.html)
+2. **Click** any demo to launch it in your browser
+3. **Experiment** with the editable parameters
+4. **Toggle AI** on/off using the AI toggle button
+5. **Export** results for assignments or reports
 
-### Responsible AI
-- `DomainUseCaseDemos/ResponsibleAI/CreditFairness001` - Fairness and subgroup metrics
+## 🎓 Faculty Guide
 
-### Wealth Management
-- `DomainUseCaseDemos/WealthMgmt/NIFTYOpt` - Portfolio optimization
-- `DomainUseCaseDemos/WealthMgmt/PortfolioOptSynSharpeRation` - Sharpe ratio optimization
+**KateelLearningDemos is designed for educators!** You can:
 
-### Quant Finance (Advanced)
-- `DomainUseCaseDemos/QuantFinance/BlackScholesOption` - European option pricing
+- ✅ Copy any demo folder and customize for your course
+- ✅ Create course-specific pages using our template
+- ✅ Add your institution's branding and learning objectives
+- ✅ All demos include editable parameters and AI toggle
+- ✅ Export results for student assignments and grading
 
-### Risk Management (Advanced)
-- `DomainUseCaseDemos/RiskManagement/CounterPartyRisk` - CVA and credit risk
-- `DomainUseCaseDemos/RiskManagement/ContagionModel` - Systemic risk modeling
+**To create a custom course page:**
+1. Copy `courses/treasury-management.html` as a template
+2. Update demo links to point to your copies
+3. Add your institution's logo and learning outcomes
+4. Deploy via GitHub Pages or your LMS
 
-### Compliance (Advanced)
-- `DomainUseCaseDemos/Compliance/MuleAccountDetection` - AML monitoring
-- `DomainUseCaseDemos/Compliance/AlertTriage001` - Regulatory alert prioritization
+## ⭐ Star the Repo
 
-### Supply Chain (Advanced)
-- `DomainUseCaseDemos/SupplyChain/SupplyChainFinance` - Trade credit optimization
+[Star on GitHub](https://github.com/VinayaSharada/KateelLearningDemosToStudents) to get updates when new demos are added!
 
----
+## 💬 Attribution
 
-## 🤖 AI/ML Workflows (25+ Demos)
-
-### Classification
-- `TechUseCaseDemos/Classification/demo001` - Classification playground
-
-### Clustering
-- `TechUseCaseDemos/Clustering/demo001` - K-means visualization
-- `TechUseCaseDemos/Clustering/demo002` - Hierarchical clustering
-
-### Outlier Detection
-- `TechUseCaseDemos/Outlier/demo001` - Anomaly detection
-
-### Forecasting
-- `TechUseCaseDemos/Forecast/tflow001` - Time series forecasting
-- `TechUseCaseDemos/Forecast/tsdemo001` - Forecast demo
-
-### Browser AI Demos
-- `TechUseCaseDemos/VoiceNotesApp001` - Speech-to-text
-- `TechUseCaseDemos/AISummarizer001` - Transcript summarization
-- `TechUseCaseDemos/CreditScoringDemo` - Logistic regression credit scoring
-- `TechUseCaseDemos/PortfolioOptimizer` - Portfolio optimization
-- `TechUseCaseDemos/FraudPlayground` - Fraud detection playground
-- `TechUseCaseDemos/ABTestingFramework` - Statistical significance
-- `TechUseCaseDemos/AIROICalculator` - ROI estimation
-- `TechUseCaseDemos/FeatureStoreDemo` - Feature registry
-- `TechUseCaseDemos/AIProductCanvas` - Product planning tool
-
-### AI Product Management
-- `TechUseCaseDemos/AIRiskCalculator` - AI risk assessment
-- `TechUseCaseDemos/AIResourcePlanner` - Resource planning
-- `TechUseCaseDemos/AIDecisionTracker` - Decision logging
-- `TechUseCaseDemos/AIGovernanceScorecard` - Ethics assessment
-- `TechUseCaseDemos/MLModelRegistry` - Model version tracking
-- `TechUseCaseDemos/AIPerformanceDashboard` - Performance monitoring
-- `TechUseCaseDemos/DataDriftDetector` - Data drift monitoring
-- `TechUseCaseDemos/AIFeatureImpact` - Feature prioritization
-- `TechUseCaseDemos/AITeamCollaboration` - Team coordination
-- `TechUseCaseDemos/AIRegulatoryTracker` - Compliance tracking
-- `TechUseCaseDemos/AIPRDTemplate` - Requirements template
-- `TechUseCaseDemos/ModelVersionComparator` - Model comparison
-- `TechUseCaseDemos/AICostBenefitAnalyzer` - Financial modeling
-
-### Pattern Mining
-- `TechUseCaseDemos/PatternMining/demo001` - Pattern discovery
-- `TechUseCaseDemos/PatternMining/demo002` - Pattern analysis
-- `TechUseCaseDemos/PatternMining/demo003` - Advanced patterns
+Created by **Professor Vinaya Sathyanarayana**  
+Attribution: vinallcontact@gmail.com
 
 ---
 
-## 🔒 Security Demos (IoT)
-
-### Linux Network Penetration
-- `TechUseCaseDemos/IoT_Ethernet_PenTest_v86` - In-browser penetration testing
-
-### Embedded Firmware Security
-- `TechUseCaseDemos/Embedded_Firmware_Exploit_Wokwi` - Firmware exploitation
-
----
-
-## 🛒 Mini Project
-- `ecomm001` - End-to-end synthetic data, analysis, and dashboard project
-
----
-
-## 🎯 Recommended Starter Demos
-
-| Demo | Path | Why Start Here |
-|------|------|----------------|
-| Credit Card Underwriting | `DomainUseCaseDemos/CreditCards/CCUnderWriting` | Supervised learning + business decision |
-| Credit Card Fraud Detection | `DomainUseCaseDemos/CreditCards/CreditCardFraud` | Classification in BFSI |
-| Transaction Fraud | `DomainUseCaseDemos/CreditCards/CreditCardTxnFraud` | Operational monitoring |
-| Customer Segmentation | `DomainUseCaseDemos/Banking/CustSeg` | Unsupervised learning |
-| Insurance Claim Fraud | `DomainUseCaseDemos/Insurance/ClaimFraud001` | Pattern mining |
-| Wealth Management | `DomainUseCaseDemos/WealthMgmt/NIFTYOpt` | Portfolio optimization |
-| Responsible AI | `DomainUseCaseDemos/ResponsibleAI/CreditFairness001` | Fairness metrics |
-| Queue Analytics | `DomainUseCaseDemos/Banking/BankQ` | Easy analytics entry |
-| Pattern Mining | `TechUseCaseDemos/PatternMining/demo002` | Technique-first demo |
-
----
-
-## 📊 Summary Statistics
-- **Total Demos**: 73+
-- **Browser-Based**: 100%
-- **No Cloud Required**: 100%
-- **No API Keys Needed**: 100%
-- **Courses Covered**: 5+
-
----
-
-## 🤝 Contributing
-Want to add a demo? See [CONTRIBUTING.md](../../CONTRIBUTING.md)
-
-**Attribution**: vinallcontact@gmail.com
+*Last updated: June 2026 | 66+ demos | 0 API keys required | 100% browser-based*
