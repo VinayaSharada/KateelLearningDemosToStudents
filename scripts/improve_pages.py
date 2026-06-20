@@ -7,6 +7,7 @@ from html import escape
 from pathlib import Path
 import posixpath
 import re
+from urllib.parse import unquote, urlsplit
 
 REPO_NAME = "KateelLearningDemosToStudents"
 REPO_ROOT_URL = f"/{REPO_NAME}/"
@@ -959,11 +960,53 @@ def add_demo_context_strip(content: str, demo: DemoPage, from_path: Path) -> str
     return content.replace("<div class=\"container\">", strip + "  <div class=\"container\">", 1)
 
 
+def normalize_relative_links(content: str, from_path: Path) -> str:
+    root = Path(".").resolve()
+
+    def replace_ref(match: re.Match[str]) -> str:
+        prefix, ref, suffix = match.group(1), match.group(2), match.group(3)
+        if not ref or ref.startswith(("#", "mailto:", "tel:", "data:")):
+            return match.group(0)
+        if urlsplit(ref).scheme in {"http", "https"}:
+            return match.group(0)
+        if ref.startswith("{{") or ref.endswith("}}"):
+            return match.group(0)
+
+        candidates = []
+        clean_ref = ref.lstrip("/")
+        if clean_ref == REPO_NAME:
+            clean_ref = "index.html"
+        elif clean_ref.startswith(REPO_NAME + "/"):
+            clean_ref = clean_ref[len(REPO_NAME) + 1:]
+        local_target = (from_path.parent / clean_ref).resolve()
+        if local_target.exists():
+            candidates.append(local_target)
+        root_target = (root / clean_ref).resolve()
+        if root_target.exists():
+            candidates.append(root_target)
+
+        if not candidates:
+            return match.group(0)
+
+        for target in candidates:
+            try:
+                rel = Path(unquote(target.relative_to(root).as_posix()))
+            except ValueError:
+                continue
+            new_ref = relative_url(from_path, rel)
+            if new_ref != ref:
+                return f'{prefix}{new_ref}{suffix}'
+        return match.group(0)
+
+    return re.sub(r'((?:href|src)=["\'])((?:(?:\.\./|\./|/)?[^"\'<>#]+)(?:#[^"\']*)?)(["\'])', replace_ref, content)
+
+
 def update_actual_demo_page(path: Path, demo: DemoPage) -> None:
     content = path.read_text(encoding="utf-8", errors="ignore")
     original = content
     content = ensure_assets(content, path)
     content = replace_nav(content, common_nav("demo", demo=demo))
+    content = normalize_relative_links(content, path)
     course_href = relative_url(path, Path(COURSES[demo.course_key]["path"]))
     content = content.replace('href="../../../courses/"', f'href="{course_href}"')
     content = content.replace("Back to Courses", "View Course Path")
