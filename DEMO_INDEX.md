@@ -145,11 +145,32 @@ This is the complete index of **94+ interactive browser-based AI/ML demos** for 
 
 ## 🚀 Getting Started
 
+**Important:** Some demos use browser-based Small Language Models (SLMs) that require downloading model files (~400MB-1.5GB).
+
+### ⏱️ Loading Times
+- **Standard demos:** Load instantly
+- **Browser SLM demos:** May take 1-3 minutes for model download on first load
+- **Model sizes:** Range from 400MB to 1.5GB depending on the demo
+
+### 📋 Browser SLM Demos
+These demos use local AI models that run in your browser:
+
+| Demo | Model Size | Notes |
+|------|------------|-------|
+| Local Chat Advisor | ~400MB | Phi-2 model for conversational AI |
+| Customer Support Tagger | ~600MB | BERT-based classification |
+| Privacy Notebook | ~800MB | Document analysis |
+| Voice Transcriber | ~1.2GB | Whisper model for speech-to-text |
+| Entity Tagger | ~400MB | NER model |
+| Semantic Search | ~600MB | Embedding model |
+| Opinion Extractor | ~800MB | Sentiment analysis |
+
 1. **Browse** courses above or use the [Landing Page](../index.html)
 2. **Click** any demo to launch it in your browser
-3. **Experiment** with the editable parameters
-4. **Toggle AI** on/off using the AI toggle button
-5. **Export** results for assignments or reports
+3. **Wait** for the model to download (if applicable - check the loading indicator)
+4. **Experiment** with the editable parameters
+5. **Toggle AI** on/off using the AI toggle button
+6. **Export** results for assignments or reports
 
 ## 🎓 Faculty Guide
 
