@@ -165,6 +165,11 @@ These demos use local AI models that run in your browser:
 | Semantic Search | ~600MB | Embedding model |
 | Opinion Extractor | ~800MB | Sentiment analysis |
 
+### 📝 Demo Page Status
+- **Detailed Pages:** Treasury Control Tower, AI Hedge Orchestrator, FX Hedge Simulator, Credit Scoring Demo, Option Pricing Demo
+- **Placeholder Pages:** All other demos (will be enhanced in future updates)
+- Click any demo to view its page with description, features, and usage instructions
+
 1. **Browse** courses above or use the [Landing Page](../index.html)
 2. **Click** any demo to launch it in your browser
 3. **Wait** for the model to download (if applicable - check the loading indicator)
