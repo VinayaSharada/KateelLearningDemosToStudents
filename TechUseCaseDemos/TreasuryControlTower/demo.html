@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Treasury Control Tower - KateelLearningDemos</title>
+  <meta name="description" content="Browser-based liquidity stress testing simulator with AI insights. Learn treasury modernization and cash flow forecasting.">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-V672XGCRSK');</script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --primary: #3b82f6; --dark: #0f172a; --darker: #1e293b; --card: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.1); --text: #e2e8f0; --text-muted: #94a3b8; --good: #10b981; --risk: #ef4444); }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%); color: var(--text); min-height: 100vh; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .header { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100; }
+    .header a { color: var(--primary); text-decoration: none; margin-left: 1rem; font-size: 0.8rem; }
+    .hero { text-align: center; padding: 2rem 0; }
+    .hero h1 { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; }
+    .hero p { color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(59,130,246,0.2); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.875rem; margin-top: 1rem; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .kpi-value { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .kpi-label { color: var(--text-muted); font-size: 0.875rem; }
+    .good { color: var(--good); }
+    .risk { color: var(--risk); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+    .card h2 { color: #fff; margin-bottom: 1rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .form-group input, .form-group select { width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid var(--border); border-radius: 8px; color: var(--text); }
+    .btn { padding: 0.75rem 1.5rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .ai-panel { background: rgba(59,130,246,0.1); border-radius: 12px; padding: 1.5rem; margin-top: 1rem; }
+    .ai-panel h4 { color: var(--primary); margin-bottom: 0.5rem; }
+    footer { text-align: center; padding: 3rem 2rem; color: var(--text-muted); font-size: 0.875rem; }
+    footer a { color: var(--primary); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div>
+      <a href="index.html">🏠 Home</a>
+      <a href="../../../index.html">Landing</a>
+      <a href="../../../courses/treasury-management.html">Course</a>
+    </div>
+  </div>
+  
+  <div class="container">
+    <section class="hero">
+      <h1>🏢 Treasury Control Tower</h1>
+      <p>Browser-based liquidity stress testing simulator with AI-powered insights</p>
+      <span class="badge">🌐 Browser-Based | 💰 Treasury Management | ⚙️ Interactive</span>
+    </section>
+    
+    <div class="grid">
+      <div class="card">
+        <h2>📊 Current Cash Position</h2>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-value" id="startingCash">$15,000,000</div>
+            <div class="kpi-label">Starting Cash</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value" id="endingCash">$5,000,000</div>
+            <div class="kpi-label">Ending Cash</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value" id="borrowingNeed">$0</div>
+            <div class="kpi-label">Borrowing Need</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value" id="surplusCash">$0</div>
+            <div class="kpi-label">Surplus Cash</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h2>🎛️ Controls</h2>
+        <div class="form-group">
+          <label for="scenarioSelect">Stress Scenario</label>
+          <select id="scenarioSelect">
+            <option value="normal">Normal Operations</option>
+            <option value="revenueDecline">Revenue Decline (-15%)</option>
+            <option value="paymentAcceleration">Payment Acceleration</option>
+            <option value="emergencyOutflow">Emergency Outflow</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="aiToggle"> Enable AI Insights
+          </label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" onclick="resetValues()">Reset</button>
+          <button class="btn btn-secondary" onclick="compareScenarios()">Compare Scenarios</button>
+          <button class="btn btn-secondary" onclick="exportResults()">Export Results</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="aiInsight" class="ai-panel" style="display: none;">
+      <h4>🤖 AI Recommendation</h4>
+      <p id="recommendationText">Select a scenario for AI insights...</p>
+    </div>
+    
+    <footer>
+      <p>Attribution: vinallcontact@gmail.com | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">View on GitHub</a></p>
+    </footer>
+  </div>
+  
+  <script>
+    // Liquidity Stress Testing Simulator
+    const scenarios = {
+      normal: { revenue: 0, expenses: 0, timing: 0, name: 'Normal Operations' },
+      revenueDecline: { revenue: -15, expenses: 0, timing: 0, name: 'Revenue Decline (-15%)' },
+      paymentAcceleration: { revenue: 0, expenses: 0, timing: 15, name: 'Payment Acceleration' },
+      emergencyOutflow: { revenue: 0, expenses: 50, timing: 0, name: 'Emergency Outflow' }
+    };
+    
+    const scenarioSelect = document.getElementById('scenarioSelect');
+    const aiToggle = document.getElementById('aiToggle');
+    const startingCashEl = document.getElementById('startingCash');
+    const endingCashEl = document.getElementById('endingCash');
+    const borrowingNeedEl = document.getElementById('borrowingNeed');
+    const surplusCashEl = document.getElementById('surplusCash');
+    const aiInsightEl = document.getElementById('aiInsight');
+    const recommendationText = document.getElementById('recommendationText');
+    
+    function updateCalculations() {
+      const scenario = scenarioSelect.value;
+      const scenarioData = scenarios[scenario] || { revenue: 0, expenses: 0, timing: 0 };
+      
+      const baseInflows = 5000000;
+      const baseOutflows = 4200000;
+      
+      const adjustedInflows = baseInflows * (1 + scenarioData.revenue / 100);
+      const adjustedOutflows = baseOutflows * (1 + scenarioData.expenses / 100);
+      
+      const startingCash = 15000000;
+      const endingCash = startingCash + adjustedInflows - adjustedOutflows;
+      const borrowingNeed = Math.max(0, adjustedOutflows - adjustedInflows - startingCash);
+      const surplusCash = Math.max(0, endingCash - startingCash);
+      
+      startingCashEl.textContent = '$' + startingCash.toLocaleString();
+      endingCashEl.textContent = '$' + Math.round(endingCash).toLocaleString();
+      borrowingNeedEl.textContent = '$' + Math.round(borrowingNeed).toLocaleString();
+      surplusCashEl.textContent = '$' + Math.round(surplusCash).toLocaleString();
+      
+      borrowingNeedEl.className = 'kpi-value ' + (borrowingNeed > 1000000 ? 'risk' : 'good');
+      surplusCashEl.className = 'kpi-value ' + (surplusCash > 1000000 ? 'good' : '');
+      
+      updateAIInsights();
+    }
+    
+    function updateAIInsights() {
+      if (!aiToggle.checked) {
+        aiInsightEl.style.display = 'none';
+        return;
+      }
+      
+      aiInsightEl.style.display = 'block';
+      const scenario = scenarioSelect.value;
+      
+      const recommendations = {
+        normal: 'Maintain current cash management practices. Consider investing surplus cash for additional returns.',
+        revenueDecline: 'Consider accelerating receivables collection by 5-7 days and negotiating extended payment terms.',
+        paymentAcceleration: 'Evaluate early payment discounts and optimize payment timing to preserve cash.',
+        emergencyOutflow: 'Activate emergency credit facility immediately. Consider temporary measures.',
+        custom: 'Review cash flow projections. Key actions: 1) Accelerate collections, 2) Delay payments, 3) Secure credit.'
+      };
+      
+      recommendationText.textContent = recommendations[scenario] || recommendations.custom;
+    }
+    
+    function resetValues() {
+      scenarioSelect.value = 'normal';
+      updateCalculations();
+    }
+    
+    function compareScenarios() {
+      const results = [];
+      for (const [key, data] of Object.entries(scenarios)) {
+        const ending = 15000000 + (5000000 * (1 + data.revenue/100)) - (4200000 * (1 + data.expenses/100));
+        results.push(`${data.name}: $${Math.round(ending/1000000)}M`);
+      }
+      alert('📊 Scenario Comparison:\n\n' + results.join('\n') + '\n\n💡 AI Recommendation: Optimize receivables collection timing.');
+    }
+    
+    function exportResults() {
+      const data = { scenario: scenarioSelect.value, aiEnabled: aiToggle.checked, timestamp: new Date().toISOString() };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'liquidity-results.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    scenarioSelect.addEventListener('change', updateCalculations);
+    aiToggle.addEventListener('change', updateAIInsights);
+    updateCalculations();
+  </script>
+</body>
+</html>
