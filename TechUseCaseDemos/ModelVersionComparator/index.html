@@ -15,104 +15,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
-  <div class="container">
-    <header>
-      <h1>Model Version Comparator</h1>
-      <p class="subtitle">Compare AI model versions side-by-side</p>
-    </header>
-    
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <section class="input-section">
-        <h2>Model A (Baseline)</h2>
-        <div class="grid">
-          <div class="field">
-            <label for="modelAName">Model Name</label>
-            <input type="text" id="modelAName" value="churn_v1.0">
-          </div>
-          <div class="field">
-            <label for="modelAAccuracy">Accuracy</label>
-            <input type="number" id="modelAAccuracy" step="0.01" value="0.85">
-          </div>
-          <div class="field">
-            <label for="modelAPrecision">Precision</label>
-            <input type="number" id="modelAPrecision" step="0.01" value="0.82">
-          </div>
-          <div class="field">
-            <label for="modelARecall">Recall</label>
-            <input type="number" id="modelARecall" step="0.01" value="0.78">
-          </div>
-          <div class="field">
-            <label for="modelALatency">Latency (ms)</label>
-            <input type="number" id="modelALatency" value="120">
-          </div>
-          <div class="field">
-            <label for="modelAVersion">Version</label>
-            <input type="text" id="modelAVersion" value="v1.0">
-          </div>
-        </div>
-      </section>
-      
-      <section class="input-section">
-        <h2>Model B (Candidate)</h2>
-        <div class="grid">
-          <div class="field">
-            <label for="modelBName">Model Name</label>
-            <input type="text" id="modelBName" value="churn_v2.0">
-          </div>
-          <div class="field">
-            <label for="modelBAccuracy">Accuracy</label>
-            <input type="number" id="modelBAccuracy" step="0.01" value="0.87">
-          </div>
-          <div class="field">
-            <label for="modelBPrecision">Precision</label>
-            <input type="number" id="modelBPrecision" step="0.01" value="0.85">
-          </div>
-          <div class="field">
-            <label for="modelBRecall">Recall</label>
-            <input type="number" id="modelBRecall" step="0.01" value="0.80">
-          </div>
-          <div class="field">
-            <label for="modelBLatency">Latency (ms)</label>
-            <input type="number" id="modelBLatency" value="150">
-          </div>
-          <div class="field">
-            <label for="modelBVersion">Version</label>
-            <input type="text" id="modelBVersion" value="v2.0">
-          </div>
-        </div>
-      </section>
-      
-      <div class="actions">
-        <button id="compareBtn" class="btn-primary">Compare Models</button>
-      </div>
-      
-      <section id="resultsSection" class="results-section hidden">
-        <h2>Comparison Results</h2>
-        <div class="comparison-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Metric</th>
-                <th id="headerA">Model A</th>
-                <th id="headerB">Model B</th>
-                <th>Change</th>
-              </tr>
-            </thead>
-            <tbody id="resultsBody"></tbody>
-          </table>
-        </div>
-        
-        <div id="recommendation" class="recommendation hidden"></div>
-      </section>
-    </main>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

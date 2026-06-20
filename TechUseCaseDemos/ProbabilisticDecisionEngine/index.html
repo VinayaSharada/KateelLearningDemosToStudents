@@ -15,106 +15,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
-  <div class="container">
-    <header>
-      <h1>Probabilistic Decision Engine</h1>
-      <p class="subtitle">Interactive amortized inference for healthcare decisions</p>
-    </header>
-    
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <section class="intro">
-        <p><strong>Amortized Conditioning Engine (ACE)</strong> - Change assumptions and queries in real-time to see probabilistic predictions update instantly.</p>
-        <p>Demo: Healthcare treatment decision support with probabilistic inference.</p>
-      </section>
-      
-      <section class="controls-grid">
-        <div class="control-card">
-          <h3>Patient Profile</h3>
-          <div class="field">
-            <label>Age: <span id="ageValue">45</span></label>
-            <input type="range" id="ageSlider" min="18" max="80" value="45" />
-          </div>
-          <div class="field">
-            <label>Biomarker Level: <span id="biomarkerValue">0.65</span></label>
-            <input type="range" id="biomarkerSlider" min="0" max="1" step="0.05" value="0.65" />
-          </div>
-          <div class="field">
-            <label>Symptom Severity: <span id="symptomValue">Medium</span></label>
-            <select id="symptomSelect">
-              <option value="low">Low</option>
-              <option value="medium" selected>Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="control-card">
-          <h3>Treatment Options</h3>
-          <div class="field">
-            <label>
-              <input type="checkbox" id="treatmentA" checked /> Standard Treatment
-            </label>
-            <label>
-              <input type="checkbox" id="treatmentB" /> Experimental Therapy
-            </label>
-            <label>
-              <input type="checkbox" id="treatmentC" /> Combination Approach
-            </label>
-          </div>
-          <div class="field">
-            <label for="queryInput">Custom Query</label>
-            <input type="text" id="queryInput" placeholder="e.g., What if age > 60?" />
-          </div>
-        </div>
-      </section>
-      
-      <section class="results-section">
-        <h3>Probabilistic Predictions (Updated in Real-Time)</h3>
-        <div class="predictions-grid">
-          <div class="prediction-card">
-            <h4>Recovery Probability</h4>
-            <div class="probability-bar">
-              <div id="recoveryBar" class="bar-fill"></div>
-            </div>
-            <div id="recoveryValue" class="probability-value">72%</div>
-          </div>
-          <div class="prediction-card">
-            <h4>Risk Assessment</h4>
-            <div class="probability-bar">
-              <div id="riskBar" class="bar-fill risk"></div>
-            </div>
-            <div id="riskValue" class="probability-value">28%</div>
-          </div>
-          <div class="prediction-card">
-            <h4>Treatment Recommendation</h4>
-            <div id="recommendationText" class="recommendation">Standard Treatment recommended</div>
-          </div>
-        </div>
-      </section>
-      
-      <section class="explanation">
-        <h3>How Amortized Inference Works</h3>
-        <ul>
-          <li><strong>Forward Pass:</strong> Neural network predicts posterior in milliseconds</li>
-          <li><strong>Real-time Updates:</strong> Change assumptions → instant predictions</li>
-          <li><strong>Multiple Queries:</strong> Compare scenarios without retraining</li>
-          <li><strong>Applications:</strong> Healthcare, finance, robotics, active learning</li>
-        </ul>
-        <div class="papers">
-          <p><strong>Acknowledgments:</strong></p>
-          <p>This demo is based on nanoACE research from University of Helsinki, Aalto University, and ELLIS Institute Finland.</p>
-          <p>See README.md for affiliated papers and official repository: https://github.com/acerbilab/nanoACE</p>
-        </div>
-      </section>
-    </main>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

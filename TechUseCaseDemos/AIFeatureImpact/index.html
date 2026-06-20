@@ -15,46 +15,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>AI Feature Impact</h1>
-      <p class="subtitle">Prioritize features by business impact</p>
-    </header>
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <section class="input-section">
-        <h2>Add Feature</h2>
-        <form id="featureForm">
-          <div class="field">
-            <label for="name">Feature Name</label>
-            <input type="text" id="name" placeholder="e.g., Voice Search" required/>
-          </div>
-          <div class="grid">
-            <div class="field">
-              <label for="impact">Business Impact (1-10)</label>
-              <input type="range" id="impact" min="1" max="10" value="5"/>
-              <span id="impactVal">5</span>
-            </div>
-            <div class="field">
-              <label for="effort">Development Effort (1-10)</label>
-              <input type="range" id="effort" min="1" max="10" value="5"/>
-              <span id="effortVal">5</span>
-            </div>
-          </div>
-          <button type="submit">Add Feature</button>
-        </form>
-      </section>
-      <section class="results-section">
-        <h2>Feature Priority Matrix</h2>
-        <div class="matrix" id="matrix"></div>
-      </section>
-    </main>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

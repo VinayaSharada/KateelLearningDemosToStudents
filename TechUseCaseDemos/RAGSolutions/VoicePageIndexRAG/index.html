@@ -15,67 +15,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <header>
-            <h1>📚 Voice PageIndex RAG Demo</h1>
-            <p class="subtitle">Voice + Document Indexing + Precise Citations</p>
-        </header>
-
-        <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-            <div class="control-panel">
-                <button id="index-btn" class="btn-primary">📄 Index Documents</button>
-                <input type="file" id="file-input" accept=".txt" style="display: none;">
-                <button id="upload-btn" class="btn-upload">📁 Upload Docs</button>
-                <button id="mic-btn" class="btn-mic">🎤 Ask by Voice</button>
-                <button id="clear-btn" class="btn-secondary">🗑️ Clear</button>
-            </div>
-
-            <div class="status-panel">
-                <div id="stt-status" class="status-item">🎤 STT: Ready</div>
-                <div id="tts-status" class="status-item">🔊 TTS: Ready</div>
-            </div>
-
-            <div class="workspace">
-                <div class="panel">
-                    <h3>📑 Indexed Documents</h3>
-                    <div id="docs-content" class="doc-content">
-                        <p class="hint">Click "Index Documents" to load samples.</p>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>🔍 Search Results</h3>
-                    <div id="results-content" class="results-content">
-                        <p class="hint">Search results will appear here...</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="response-panel">
-                <h3>🤖 Voice Answer with Citations</h3>
-                <div id="answer" class="answer-content">
-                    <p>Ask a question by voice to get cited answers...</p>
-                </div>
-            </div>
-
-            <div class="info-panel">
-                <h3>📖 Voice PageIndex Pipeline</h3>
-                <ol>
-                    <li><strong>STT</strong>: Voice → text query</li>
-                    <li><strong>Index</strong>: Search inverted index</li>
-                    <li><strong>Cite</strong>: Return page/document references</li>
-                    <li><strong>TTS</strong>: Cited answer spoken aloud</li>
-                </ol>
-                <p><strong>Precision</strong>: Every answer includes exact source citations.</p>
-            </div>
-        </main>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
     </div>
-    <script src="app.js"></script>
-</body>
-</html>
+  </nav>

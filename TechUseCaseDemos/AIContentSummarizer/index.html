@@ -15,57 +15,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
-  <div class="container">
-    <header>
-      <h1>AI Content Summarizer</h1>
-      <p class="subtitle">Compare traditional vs AI-powered content summarization</p>
-    </header>
-    
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <section class="controls">
-        <div class="toggle-section">
-          <label>
-            <input type="checkbox" id="aiToggle" /> Enable AI Summarization
-          </label>
-        </div>
-        
-        <div id="promptSection" class="prompt-section hidden">
-          <div class="field">
-            <label for="summaryPrompt">Custom Summary Prompt</label>
-            <input type="text" id="summaryPrompt" placeholder="Summarize in 3 bullet points for a busy manager..." />
-          </div>
-        </div>
-      </section>
-      
-      <section class="content-section">
-        <div class="field">
-          <label for="contentInput">Paste Content to Summarize</label>
-          <textarea id="contentInput" rows="12">The rapid advancement of artificial intelligence has transformed numerous industries. Machine learning algorithms now power recommendation systems, autonomous vehicles, and medical diagnosis tools. While AI brings unprecedented efficiency and capability, it also raises important questions about job displacement, ethical considerations, and the need for robust governance frameworks. Organizations must balance innovation with responsibility, ensuring AI systems are developed and deployed transparently and fairly. The future of AI depends on collaborative efforts between technologists, policymakers, and society as a whole to maximize benefits while mitigating risks.</textarea>
-        </div>
-        <button id="summarizeBtn" class="btn-primary">Summarize</button>
-      </section>
-      
-      <section id="resultSection" class="result-section hidden">
-        <div class="results-container">
-          <div class="result-card">
-            <h3>Traditional Summary (Extractive)</h3>
-            <div id="traditionalResult" class="result-content"></div>
-          </div>
-          <div class="result-card ai-result">
-            <h3>AI Summary (Abstractive)</h3>
-            <div id="aiResult" class="result-content"></div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

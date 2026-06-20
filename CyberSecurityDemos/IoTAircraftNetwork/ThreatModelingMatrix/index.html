@@ -8,60 +8,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Aircraft IoT Threat Modeling Matrix</h1>
-      <p>STRIDE threat analysis for aircraft IoT systems</p>
-    </header>
-    <main>
-      <section>
-        <h2>Threat Categories</h2>
-        <div class="threat-grid" id="threatGrid"></div>
-      </section>
-      <section>
-        <h2>Add Threat</h2>
-        <form id="threatForm" class="flex flex-wrap">
-          <div class="card" style="flex: 1; min-width: 200px;">
-            <div class="field">
-              <label for="category">Category</label>
-              <select id="category">
-                <option value="Spoofing">Spoofing</option>
-                <option value="Tampering">Tampering</option>
-                <option value="Repudiation">Repudiation</option>
-                <option value="Information Disclosure">Information Disclosure</option>
-                <option value="Denial of Service">Denial of Service</option>
-                <option value="Elevation of Privilege">Elevation of Privilege</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="asset">Affected Asset</label>
-              <select id="asset">
-                <option value="Flight Controls">Flight Controls</option>
-                <option value="Engine Systems">Engine Systems</option>
-                <option value="Navigation">Navigation</option>
-                <option value="Communications">Communications</option>
-                <option value="Passenger Data">Passenger Data</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="risk">Risk Level</label>
-              <select id="risk">
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-                <option value="critical">Critical</option>
-              </select>
-            </div>
-            <button type="submit" class="btn">Add Threat</button>
-          </div>
-        </form>
-      </section>
-      <section>
-        <h2>Identified Threats</h2>
-        <div id="threatList"></div>
-      </section>
-    </main>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

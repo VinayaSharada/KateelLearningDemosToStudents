@@ -15,69 +15,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
-  <div class="container">
-    <header>
-      <h1>AI Data Analyzer</h1>
-      <p class="subtitle">Compare traditional vs AI-powered data analysis</p>
-    </header>
-    
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <section class="controls">
-        <div class="toggle-section">
-          <label>
-            <input type="checkbox" id="aiToggle" /> Enable AI Analysis
-          </label>
-        </div>
-        
-        <div id="promptSection" class="prompt-section hidden">
-          <div class="field">
-            <label for="analysisPrompt">Analysis Focus</label>
-            <select id="analysisPrompt">
-              <option value="trends">Identify trends and patterns</option>
-              <option value="anomalies">Detect anomalies and outliers</option>
-              <option value="insights">Generate business insights</option>
-              <option value="forecast">Forecast future trends</option>
-            </select>
-          </div>
-        </div>
-      </section>
-      
-      <section class="data-section">
-        <div class="field">
-          <label for="dataInput">Paste CSV Data</label>
-          <textarea id="dataInput" rows="8">date,sales,visitors,conversion
-2024-01-01,1200,5000,2.4
-2024-01-02,1350,5200,2.6
-2024-01-03,1180,4800,2.5
-2024-01-04,1420,5500,2.6
-2024-01-05,1600,6000,2.7
-2024-01-06,980,4200,2.3
-2024-01-07,1100,4500,2.4</textarea>
-        </div>
-        <button id="analyzeBtn" class="btn-primary">Analyze Data</button>
-      </section>
-      
-      <section id="resultSection" class="result-section hidden">
-        <div class="results-container">
-          <div class="result-card">
-            <h3>Traditional Analysis (Basic Stats)</h3>
-            <div id="traditionalResult" class="result-content"></div>
-          </div>
-          <div class="result-card ai-result">
-            <h3>AI Analysis (Insights)</h3>
-            <div id="aiResult" class="result-content"></div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

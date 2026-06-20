@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{{DEMO_TITLE}} - KateelLearningDemos</title>
+  <meta name="description" content="{{DEMO_DESCRIPTION}}">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V672XGCRSK');
+  </script>
+  
+  <link rel="stylesheet" href="{{STYLE_PATH}}">
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #3b82f6;
+      --secondary: #8b5cf6;
+      --dark: #0f172a;
+      --darker: #1e293b;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar a { color: var(--primary); text-decoration: none; margin-left: 1.5rem; font-size: 0.875rem; }
+    .navbar a:hover { text-decoration: underline; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .demo-header { text-align: center; margin-bottom: 2rem; }
+    .demo-header h1 { font-size: 2rem; color: #fff; margin-bottom: 0.5rem; }
+    .demo-header .meta { color: var(--text-muted); font-size: 0.875rem; }
+    .course-link { display: inline-block; background: var(--card); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 8px; margin-top: 1rem; color: var(--secondary); text-decoration: none; font-size: 0.875rem; }
+    .course-link:hover { background: var(--primary); color: #fff; }
+  </style>
+</head>
+<body>
+  <!-- Attribution: vinallcontact@gmail.com -->
+  <nav class="navbar">
+    <div style="color: var(--text); font-weight: 600;">KateelLearningDemos</div>
+    <div>
+      <a href="../">Landing</a>
+      <a href="../courses/treasury-management.html">Treasury</a>
+      <a href="../courses/ai-ml-workflows.html">AI/ML</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank">GitHub</a>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <div class="demo-header">
+      <h1>{{DEMO_TITLE}}</h1>
+      <p class="meta">{{DEMO_SUBTITLE}}</p>
+      <a href="{{COURSE_PAGE}}" class="course-link">View Course: {{COURSE_NAME}}</a>
+    </div>
+    
+    <!-- Demo Content -->
+    {{DEMO_CONTENT}}
+    
+    <!-- Footer -->
+    <div style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 4rem;">
+      <p>Attribution: vinallcontact@gmail.com | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">Star on GitHub</a></p>
+    </div>
+  </div>
+</body>
+</html>

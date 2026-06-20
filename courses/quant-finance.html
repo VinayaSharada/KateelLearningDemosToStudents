@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Quant Finance Course - KateelLearningDemos</title>
+  <meta name="description" content="10 interactive quantitative finance demos for education. Browser-based, no cloud required.">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V672XGCRSK');
+  </script>
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #3b82f6;
+      --secondary: #8b5cf6;
+      --dark: #0f172a;
+      --darker: #1e293b;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    .hero { text-align: center; padding: 3rem 2rem; }
+    .hero h1 { font-size: 2.5rem; color: #fff; margin-bottom: 1rem; }
+    .hero p { color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+    .stat-label { color: var(--text-muted); font-size: 0.875rem; }
+    .section { margin: 4rem 0; }
+    .section-header { margin-bottom: 2rem; }
+    .section-header h2 { font-size: 1.75rem; color: #fff; }
+    .demo-card { 
+      background: var(--card); 
+      border: 1px solid var(--border); 
+      border-radius: 16px; 
+      padding: 1.5rem; 
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .demo-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(59, 130, 246, 0.3); }
+    .demo-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+    .demo-card p { color: var(--text-muted); margin-bottom: 0.5rem; }
+    .demo-meta { font-size: 0.75rem; color: var(--text-muted); }
+    footer { text-align: center; padding: 3rem 2rem; color: var(--text-muted); }
+    footer a { color: var(--primary); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>💰 Quantitative Finance</h1>
+      <p>10 interactive demos covering option pricing, portfolio optimization, VaR, and Greeks calculation. Advanced mathematical finance concepts.</p>
+    </section>
+    
+    <div class="stats">
+      <div class="stat-card"><div class="stat-value">10</div><div class="stat-label">Demos</div></div>
+      <div class="stat-card"><div class="stat-value">4</div><div class="stat-label">Models</div></div>
+      <div class="stat-card"><div class="stat-value">100%</div><div class="stat-label">No Cloud</div></div>
+    </div>
+    
+    <section class="section">
+      <div class="section-header">
+        <h2>Option Pricing</h2>
+      </div>
+      
+      <a class="demo-card" href="../DomainUseCaseDemos/QuantFinance/BlackScholesOption/">
+        <h3>Black-Scholes Option Pricer</h3>
+        <p>European option pricing with Greeks calculation.</p>
+        <div class="demo-meta"><span>Advanced</span></div>
+      </a>
+    </section>
+    
+    <section class="section">
+      <div class="section-header">
+        <h2>Portfolio Optimization</h2>
+      </div>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/PortfolioOptimizer/">
+        <h3>Portfolio Optimizer</h3>
+        <p>Markowitz mean-variance optimization.</p>
+        <div class="demo-meta"><span>Intermediate</span></div>
+      </a>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/VaRCalculator/">
+        <h3>VaR Calculator</h3>
+        <p>Value at Risk calculation with multiple methods.</p>
+        <div class="demo-meta"><span>Intermediate</span></div>
+      </a>
+    </section>
+    
+    <section class="section">
+      <div class="section-header">
+        <h2>Risk Metrics</h2>
+      </div>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/GreeksCalculator/">
+        <h3>Greeks Calculator</h3>
+        <p>Option sensitivity analysis (Delta, Gamma, Vega, Theta, Rho).</p>
+        <div class="demo-meta"><span>Advanced</span></div>
+      </a>
+    </section>
+    
+    <footer>
+      <p><a href="../">← Back to Landing Page</a> | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">View on GitHub</a></p>
+      <p style="margin-top: 1rem;">Attribution: vinallcontact@gmail.com</p>
+    </footer>
+  </div>
+</body>
+</html>

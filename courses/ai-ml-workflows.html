@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>AI/ML Workflows Course - KateelLearningDemos</title>
+  <meta name="description" content="25+ interactive AI/ML demos for finance education. Browser-based, no cloud required.">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V672XGCRSK');
+  </script>
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #3b82f6;
+      --secondary: #8b5cf6;
+      --dark: #0f172a;
+      --darker: #1e293b;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    .hero { text-align: center; padding: 3rem 2rem; }
+    .hero h1 { font-size: 2.5rem; color: #fff; margin-bottom: 1rem; }
+    .hero p { color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+    .stat-label { color: var(--text-muted); font-size: 0.875rem; }
+    .section { margin: 4rem 0; }
+    .section-header { margin-bottom: 2rem; }
+    .section-header h2 { font-size: 1.75rem; color: #fff; }
+    .demo-card { 
+      background: var(--card); 
+      border: 1px solid var(--border); 
+      border-radius: 16px; 
+      padding: 1.5rem; 
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .demo-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(59, 130, 246, 0.3); }
+    .demo-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+    .demo-card p { color: var(--text-muted); margin-bottom: 0.5rem; }
+    .demo-meta { font-size: 0.75rem; color: var(--text-muted); }
+    footer { text-align: center; padding: 3rem 2rem; color: var(--text-muted); }
+    footer a { color: var(--primary); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>🤖 AI/ML Workflows</h1>
+      <p>25+ interactive browser-based demos covering classification, clustering, forecasting, RAG, and AI product management. Perfect for all skill levels.</p>
+    </section>
+    
+    <div class="stats">
+      <div class="stat-card"><div class="stat-value">25+</div><div class="stat-label">Demos</div></div>
+      <div class="stat-card"><div class="stat-value">4</div><div class="stat-label">Skill Levels</div></div>
+      <div class="stat-card"><div class="stat-value">100%</div><div class="stat-label">No Cloud</div></div>
+    </div>
+    
+    <section class="section">
+      <div class="section-header">
+        <h2>📚 Machine Learning Fundamentals</h2>
+      </div>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/Classification/demo001/">
+        <h3>Classification Playground</h3>
+        <p>Interactive classification demo with multiple algorithms and visualization.</p>
+        <div class="demo-meta"><span>Beginner</span> • <span>Updated: Jun 2024</span></div>
+      </a>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/Clustering/demo001/">
+        <h3>Clustering Visualizer</h3>
+        <p>K-means and hierarchical clustering with interactive data points.</p>
+        <div class="demo-meta"><span>Beginner</span> • <span>Updated: Jun 2024</span></div>
+      </a>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/Forecast/tflow001/">
+        <h3>Time Series Forecasting</h3>
+        <p>ARIMA and Prophet-style forecasting with editable parameters.</p>
+        <div class="demo-meta"><span>Intermediate</span> • <span>Updated: Jun 2024</span></div>
+      </a>
+    </section>
+    
+    <section class="section">
+      <div class="section-header">
+        <h2>🧠 AI Applications</h2>
+      </div>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/RAGSolutions/StandardRAG/">
+        <h3>RAG Solutions</h3>
+        <p>Retrieval-Augmented Generation for document QA and summarization.</p>
+        <div class="demo-meta"><span>Intermediate</span> • <span>Updated: Jun 2024</span></div>
+      </a>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/AIDataAnalyzer/">
+        <h3>AI Data Analyzer</h3>
+        <p>Statistical analysis with AI-powered insights and visualization.</p>
+        <div class="demo-meta"><span>All Levels</span> • <span>Updated: Jun 2024</span></div>
+      </a>
+    </section>
+    
+    <section class="section">
+      <div class="section-header">
+        <h2>🛠️ AI Product Management</h2>
+      </div>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/AIRiskCalculator/">
+        <h3>AI Risk Calculator</h3>
+        <p>Assess technical, operational, and compliance risks for AI projects.</p>
+        <div class="demo-meta"><span>Intermediate</span> • <span>Updated: Jun 2024</span></div>
+      </a>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/AIGovernanceScorecard/">
+        <h3>AI Governance Scorecard</h3>
+        <p>Assess AI ethics and compliance with automated scoring.</p>
+        <div class="demo-meta"><span>Intermediate</span> • <span>Updated: Jun 2024</span></div>
+      </a>
+      
+      <a class="demo-card" href="../TechUseCaseDemos/MLModelRegistry/">
+        <h3>ML Model Registry</h3>
+        <p>Version and track machine learning models with metadata.</p>
+        <div class="demo-meta"><span>Intermediate</span> • <span>Updated: Jun 2024</span></div>
+      </a>
+    </section>
+    
+    <footer>
+      <p><a href="../">← Back to Landing Page</a> | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">View on GitHub</a></p>
+      <p style="margin-top: 1rem;">Attribution: vinallcontact@gmail.com</p>
+    </footer>
+  </div>
+</body>
+</html>

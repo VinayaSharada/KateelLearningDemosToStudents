@@ -15,81 +15,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <header>
-            <h1>💙 Emotional Support Assistant</h1>
-            <p class="subtitle">AI companion for emotional support and loneliness</p>
-        </header>
-
-        <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-            <div class="chat-container">
-                <div id="chat-messages" class="messages">
-                    <div class="msg bot">
-                        <div class="msg-avatar">💙</div>
-                        <div class="msg-content">
-                            <p>Hello. I'm here to listen and support you. How are you feeling today?</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-area">
-                    <input type="text" id="user-input" placeholder="Share your thoughts...">
-                    <button id="send-btn" class="btn-send">Send</button>
-                    <button id="mic-btn" class="btn-mic">🎤</button>
-                </div>
-            </div>
-
-            <div class="support-panel">
-                <div class="panel-section">
-                    <h3>📊 Emotional State Tracker</h3>
-                    <div id="mood-tracker">
-                        <p>How are you feeling right now?</p>
-                        <div class="mood-buttons">
-                            <button class="mood-btn" data-mood="sad">😢 Sad</button>
-                            <button class="mood-btn" data-mood="lonely">😐 Lonely</button>
-                            <button class="mood-btn" data-mood="happy">😊 Happy</button>
-                            <button class="mood-btn" data-mood="anxious">😰 Anxious</button>
-                            <button class="mood-btn" data-mood="neutral">😑 Neutral</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel-section">
-                    <h3>🔗 Connection Graph</h3>
-                    <div id="connection-graph" class="graph-content">
-                        <p class="hint">Your connections will appear here...</p>
-                    </div>
-                </div>
-
-                <div class="panel-section">
-                    <h3>💡 Support Tips</h3>
-                    <div id="support-tips">
-                        <ul>
-                            <li>Talk regularly with someone you trust</li>
-                            <li>Try new hobbies or activities</li>
-                            <li>Join community groups or clubs</li>
-                            <li>Practice self-care daily</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-panel">
-                <h3>📖 About This Assistant</h3>
-                <p>This assistant builds a knowledge graph from your inputs to provide personalized emotional support. It remembers your feelings and asks follow-up questions to help you feel connected.</p>
-                <details>
-                    <summary>Privacy & Ethics</summary>
-                    <p>All conversations are stored locally in your browser. No data is sent to external servers. This is a demonstration tool - for real emotional support, please contact a mental health professional.</p>
-                </details>
-            </div>
-        </main>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
     </div>
-    <script src="app.js"></script>
-</body>
-</html>
+  </nav>

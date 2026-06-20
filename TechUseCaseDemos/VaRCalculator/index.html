@@ -15,103 +15,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
-  <div class="container">
-    <header>
-      <h1>Value at Risk (VaR) Calculator</h1>
-      <p class="subtitle">Estimate potential portfolio loss</p>
-    </header>
-    
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <section class="intro">
-        <p>Value at Risk (VaR) estimates the maximum potential loss at a given confidence level. This demo supports both parametric and historical simulation methods.</p>
-      </section>
-      
-      <section class="controls-grid">
-        <div class="control-card">
-          <h3>Portfolio Parameters</h3>
-          <div class="field">
-            <label>Portfolio Value: <span id="valueValue">$1,000,000</span></label>
-            <input type="range" id="valueSlider" min="100000" max="10000000" value="1000000" step="10000"/>
-          </div>
-          <div class="field">
-            <label>Volatility (σ): <span id="volValue">0.2</span> (20%)</label>
-            <input type="range" id="volSlider" min="0.05" max="0.5" value="0.2" step="0.01"/>
-          </div>
-          <div class="field">
-            <label>Confidence Level</label>
-            <select id="confLevel">
-              <option value="0.95">95%</option>
-              <option value="0.99" selected>99%</option>
-              <option value="0.995">99.5%</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="control-card">
-          <h3>Calculation Method</h3>
-          <div class="field">
-            <label>
-              <input type="radio" name="method" id="parametricMethod" checked /> Parametric (Variance-Covariance)
-            </label>
-            <label>
-              <input type="radio" name="method" id="historicalMethod" /> Historical Simulation
-            </label>
-          </div>
-          <div class="field">
-            <label>Time Horizon</label>
-            <select id="timeHorizon">
-              <option value="1">1 Day</option>
-              <option value="5" selected>5 Days (T+5)</option>
-              <option value="10">10 Days</option>
-              <option value="252">1 Year</option>
-            </select>
-          </div>
-        </div>
-      </section>
-      
-      <section class="results-section">
-        <h3>VaR Results</h3>
-        <div class="predictions-grid">
-          <div class="prediction-card">
-            <h4>VaR (Parametric)</h4>
-            <div id="parametricVaR" class="probability-value">$41,600</div>
-          </div>
-          <div class="prediction-card">
-            <h4>VaR (Historical)</h4>
-            <div id="historicalVaR" class="probability-value">$38,500</div>
-          </div>
-          <div class="prediction-card">
-            <h4>Z-Score</h4>
-            <div id="zScore" class="probability-value">2.33</div>
-          </div>
-          <div class="prediction-card">
-            <h4>Expected Shortfall</h4>
-            <div id="esValue" class="probability-value">$58,240</div>
-          </div>
-        </div>
-      </section>
-      
-      <section class="explanation">
-        <h3>VaR Interpretation</h3>
-        <ul>
-          <li><strong>Parametric:</strong> Assumes normal distribution of returns</li>
-          <li><strong>Historical:</strong> Uses actual historical returns</li>
-          <li><strong>Expected Shortfall:</strong> Average loss beyond VaR threshold</li>
-          <li><strong>Scaling:</strong> VaR scales with √T (square-root of time)</li>
-        </ul>
-        <div class="papers">
-          <p><strong>Key Insight:</strong> Higher confidence levels and longer horizons increase VaR significantly.</p>
-        </div>
-      </section>
-    </main>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

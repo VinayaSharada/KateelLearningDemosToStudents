@@ -15,70 +15,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app-container">
-    <header>
-      <h1>💳 Credit Scoring Dashboard</h1>
-      <p class="subtitle">AI-Powered Credit Decisioning Demo</p>
-    </header>
-
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <!-- Applicant Profile -->
-      <section class="profile-section">
-        <h2>Applicant Profile</h2>
-        <div class="input-grid">
-          <div class="input-group">
-            <label>Annual Income: $<span id="income-value">50000</span></label>
-            <input type="range" id="income" min="20000" max="200000" value="50000" step="1000">
-          </div>
-          <div class="input-group">
-            <label>Existing Debt: $<span id="debt-value">15000</span></label>
-            <input type="range" id="debt" min="0" max="100000" value="15000" step="500">
-          </div>
-          <div class="input-group">
-            <label>Credit History (years): <span id="history-value">5</span></label>
-            <input type="range" id="history" min="0" max="30" value="5">
-          </div>
-          <div class="input-group">
-            <label>Existing Credit Cards: <span id="cards-value">2</span></label>
-            <input type="range" id="cards" min="0" max="10" value="2">
-          </div>
-        </div>
-      </section>
-
-      <!-- Score Result -->
-      <section class="score-section">
-        <div class="score-card">
-          <div class="score-circle" id="score-circle">
-            <span class="score-value" id="score-value">350</span>
-          </div>
-          <div class="score-info">
-            <h3>Credit Score: <span id="score-display">350</span></h3>
-            <p class="decision" id="decision">Review Required</p>
-            <p class="risk-level" id="risk-level">Medium Risk</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Feature Contribution -->
-      <section class="feature-section">
-        <h2>Feature Contribution</h2>
-        <div id="feature-chart" class="feature-chart"></div>
-      </section>
-
-      <!-- Scorecard -->
-      <section class="scorecard-section">
-        <h2>Points Breakdown</h2>
-        <div id="points-breakdown" class="points-breakdown"></div>
-      </section>
-    </main>
-  </div>
-
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

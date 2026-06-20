@@ -15,69 +15,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="widget">
-        <header>
-            <h1>🧮 Black Scholes Calculator</h1>
-            <p>Options pricing model</p>
-        </header>
-        
-        <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-            <div class="form-grid">
-                <div class="input-group">
-                    <label>Spot Price (S)</label>
-                    <input type="number" id="spot" value="100" step="0.01">
-                </div>
-                <div class="input-group">
-                    <label>Strike Price (K)</label>
-                    <input type="number" id="strike" value="100" step="0.01">
-                </div>
-                <div class="input-group">
-                    <label>Time to Expiry (T)</label>
-                    <input type="number" id="time" value="0.5" step="0.01">
-                </div>
-                <div class="input-group">
-                    <label>Risk-free Rate (r)</label>
-                    <input type="number" id="rate" value="0.05" step="0.001">
-                </div>
-                <div class="input-group">
-                    <label>Volatility (σ)</label>
-                    <input type="number" id="vol" value="0.2" step="0.01">
-                </div>
-            </div>
-            
-            <button id="calculate-btn">Calculate</button>
-            
-            <div class="results">
-                <div class="result-box">
-                    <span>Call Price</span>
-                    <span class="value" id="call-price">$10.45</span>
-                </div>
-                <div class="result-box">
-                    <span>Put Price</span>
-                    <span class="value" id="put-price">$5.57</span>
-                </div>
-                <div class="result-box">
-                    <span>Delta (Call)</span>
-                    <span class="value" id="delta-call">0.68</span>
-                </div>
-                <div class="result-box">
-                    <span>Delta (Put)</span>
-                    <span class="value" id="delta-put">-0.32</span>
-                </div>
-            </div>
-        </main>
-        
-        <footer>
-            <p>Black Scholes Model | Options Pricing</p>
-        </footer>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
     </div>
-    
-    <script src="app.js"></script>
-</body>
-</html>
+  </nav>

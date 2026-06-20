@@ -15,109 +15,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- KateelLearningDemos Attribution Marker - vinallcontact@gmail.com -->
-  <div class="container">
-    <header>
-      <h1>AI Product Requirements Document</h1>
-      <p class="subtitle">Template for AI-specific product requirements</p>
-    </header>
-    
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <form id="prdForm">
-        <section class="form-section">
-          <h2>Project Info</h2>
-          <div class="grid">
-            <div class="field">
-              <label for="projectName">Project Name</label>
-              <input type="text" id="projectName" placeholder="e.g., Customer Churn Predictor">
-            </div>
-            <div class="field">
-              <label for="team">Team</label>
-              <input type="text" id="team" placeholder="e.g., Risk Analytics">
-            </div>
-          </div>
-        </section>
-        
-        <section class="form-section">
-          <h2>Data Requirements</h2>
-          <div class="field">
-            <label for="dataSources">Data Sources</label>
-            <textarea id="dataSources" placeholder="List data sources needed..."></textarea>
-          </div>
-          <div class="field">
-            <label for="dataQuality">Data Quality Requirements</label>
-            <textarea id="dataQuality" placeholder="Accuracy, completeness, freshness targets..."></textarea>
-          </div>
-          <div class="field">
-            <label for="privacy">Privacy Considerations</label>
-            <textarea id="privacy" placeholder="PII, GDPR, anonymization..."></textarea>
-          </div>
-        </section>
-        
-        <section class="form-section">
-          <h2>Model Requirements</h2>
-          <div class="grid">
-            <div class="field">
-              <label for="modelType">Model Type</label>
-              <select id="modelType">
-                <option value="">Select...</option>
-                <option value="Classification">Classification</option>
-                <option value="Regression">Regression</option>
-                <option value="NLP">NLP</option>
-                <option value="Computer Vision">Computer Vision</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="latency">Latency Target (ms)</label>
-              <input type="number" id="latency" placeholder="e.g., 100">
-            </div>
-          </div>
-          <div class="field">
-            <label for="performance">Performance Metrics</label>
-            <textarea id="performance" placeholder="e.g., Accuracy > 0.9, Precision > 0.85..."></textarea>
-          </div>
-        </section>
-        
-        <section class="form-section">
-          <h2>Ethical & Bias Considerations</h2>
-          <div class="field">
-            <label for="fairness">Fairness Requirements</label>
-            <textarea id="fairness" placeholder="Protected groups, fairness metrics..."></textarea>
-          </div>
-          <div class="field">
-            <label for="explainability">Explainability Needs</label>
-            <textarea id="explainability" placeholder="SHAP, LIME, feature importance..."></textarea>
-          </div>
-        </section>
-        
-        <section class="form-section">
-          <h2>Deployment & Monitoring</h2>
-          <div class="field">
-            <label for="deployment">Deployment Environment</label>
-            <textarea id="deployment" placeholder="Cloud, on-prem, edge, API..."></textarea>
-          </div>
-          <div class="field">
-            <label for="monitoring">Monitoring Plan</label>
-            <textarea id="monitoring" placeholder="Drift detection, performance alerts..."></textarea>
-          </div>
-        </section>
-        
-        <button type="submit" class="btn-primary">Generate PRD</button>
-      </form>
-      
-      <section id="outputSection" class="output-section hidden">
-        <h2>Generated PRD</h2>
-        <div id="prdOutput" class="prd-output"></div>
-        <button id="downloadBtn" class="btn-secondary">Download as Markdown</button>
-      </section>
-    </main>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>

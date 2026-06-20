@@ -15,72 +15,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <header>
-            <h1>🏛️ Public Policy Resource Allocation Lab</h1>
-            <p class="subtitle">AI-driven policy simulation and impact analysis</p>
-        </header>
-
-        <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-            <div class="control-panel">
-                <button id="run-simulation" class="btn-primary">▶ Run Policy Simulation</button>
-                <button id="reset-btn" class="btn-secondary">⟲ Reset</button>
-            </div>
-
-            <div class="dashboard">
-                <div class="panel">
-                    <h3>📊 Budget Allocation</h3>
-                    <div class="budget-controls">
-                        <div class="budget-item">
-                            <label>Education: <span id="edu-value">40</span>%</label>
-                            <input type="range" id="education" min="0" max="100" value="40">
-                        </div>
-                        <div class="budget-item">
-                            <label>Healthcare: <span id="health-value">30</span>%</label>
-                            <input type="range" id="healthcare" min="0" max="100" value="30">
-                        </div>
-                        <div class="budget-item">
-                            <label>Infrastructure: <span id="infra-value">20</span>%</label>
-                            <input type="range" id="infrastructure" min="0" max="100" value="20">
-                        </div>
-                        <div class="budget-item">
-                            <label>Social Services: <span id="social-value">10</span>%</label>
-                            <input type="range" id="social" min="0" max="100" value="10">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>📈 Policy Impact Results</h3>
-                    <div id="results" class="results">
-                        <p>Set budget percentages and run simulation.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lab-info">
-                <h3>Learning Objectives</h3>
-                <ul>
-                    <li>Understand trade-offs in public resource allocation</li>
-                    <li>Analyze policy impact using predictive models</li>
-                    <li>Practice ethical AI decision-making in governance</li>
-                    <li>Evaluate equity metrics across demographic groups</li>
-                </ul>
-
-                <details>
-                    <summary>📖 Scenario Details</summary>
-                    <p>You are the Chief Budget Officer for a mid-sized city with a $100M annual budget. Your task is to allocate resources across four key areas while maximizing social welfare and minimizing inequality. The simulation uses a simplified welfare function based on historical data and demographic projections.</p>
-                    <p><strong>Constraints:</strong> Total must equal 100%. Each sector has minimum funding requirements.</p>
-                </details>
-            </div>
-        </main>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
     </div>
-    <script src="app.js"></script>
-</body>
-</html>
+  </nav>

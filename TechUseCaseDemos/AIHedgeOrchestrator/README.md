@@ -3,20 +3,13 @@
 ## Overview
 Browser-based hands-on exercise for AI Hedging & FX Decisions (Session 7).
 
-## Learning Objectives
+## 🎯 Learning Objectives
 - Evaluate AI timing effectiveness
 - Understand model-based decision making
 - Learn continuous improvement cycles
 - Practice multi-asset hedging strategies
 
-## Features
-- **Portfolio Exposure**: Multi-currency and commodity exposure inputs
-- **Hedge Ratio Optimization**: AI-recommended hedge ratios
-- **Backtesting Results**: 3-year performance metrics
-- **AI Insights**: Market condition-based recommendations
-- **Export Functionality**: Download results as JSON
-
-## How to Run
+## 🚀 Quick Start
 1. Open `index.html` in a browser
 2. Enter portfolio exposures
 3. Select market condition
@@ -24,7 +17,17 @@ Browser-based hands-on exercise for AI Hedging & FX Decisions (Session 7).
 5. Review AI recommendations
 6. Export results if needed
 
-## Market Conditions
+## 📚 Related Demos
+- **Treasury Control Tower** - Liquidity forecasting
+- **FX Hedge Simulator** - Currency hedging
+- **CCC Analyzer** - Cash conversion cycle
+
+## 🏫 Course Context
+This demo is part of the **Treasury Management Course**.
+- [View Course Page](../../courses/treasury-management.html)
+- [Back to Demo Index](../../index.html)
+
+## 📊 Market Conditions
 | Condition | Volatility | Recommended Hedge |
 |-----------|------------|-------------------|
 | Normal Markets | 10% | 75-85% |

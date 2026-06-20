@@ -15,86 +15,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app-container">
-    <header>
-      <h1>🧪 A/B Testing Framework</h1>
-      <p class="subtitle">Statistical Significance Calculator</p>
-    </header>
-
-    <main>
-  <!-- Learning Guide -->
-  <section class="learning-guide" style="background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
-    <h3 style="color: #3b82f6; margin-bottom: 0.5rem;">📚 Learning Guide</h3>
-    <p style="color: #94a3b8; font-size: 0.875rem;">Interactive finance demonstration - All inputs are editable!</p>
-    <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem;">Experiment with different values to see how outputs change.</p>
-  </section>
-      <!-- Test Configuration -->
-      <section class="config-section">
-        <h2>Test Configuration</h2>
-        <div class="config-grid">
-          <div class="input-group">
-            <label>Control Conversion: <span id="control-rate">5%</span></label>
-            <input type="range" id="control-input" min="1" max="20" value="5" step="0.5">
-          </div>
-          <div class="input-group">
-            <label>Treatment Conversion: <span id="treatment-rate">6%</span></label>
-            <input type="range" id="treatment-input" min="1" max="20" value="6" step="0.5">
-          </div>
-          <div class="input-group">
-            <label>Sample Size per Variant: <span id="sample-size">10000</span></label>
-            <input type="range" id="sample-input" min="100" max="100000" value="10000" step="100">
-          </div>
-        </div>
-        <button id="calculate-btn" class="primary-btn">Calculate Significance</button>
-      </section>
-
-      <!-- Results -->
-      <section class="results-section">
-        <h2>Results</h2>
-        <div class="results-grid">
-          <div class="result-card">
-            <div class="result-value" id="p-value">0.042</div>
-            <div class="result-label">P-value</div>
-          </div>
-          <div class="result-card">
-            <div class="result-value" id="confidence">95%</div>
-            <div class="result-label">Confidence Level</div>
-          </div>
-          <div class="result-card">
-            <div class="result-value" id="lift">20%</div>
-            <div class="result-label">Relative Lift</div>
-          </div>
-          <div class="result-card">
-            <div class="result-value" id="significant">Yes</div>
-            <div class="result-label">Significant?</div>
-          </div>
-        </div>
-        <div class="conclusion" id="conclusion">Result: Statistically significant difference detected (p < 0.05)</div>
-      </section>
-
-      <!-- Power Analysis -->
-      <section class="power-section">
-        <h2>Sample Size Calculator</h2>
-        <div class="power-grid">
-          <div class="input-group">
-            <label>Minimum Detectable Effect: <span id="mde-value">10%</span></label>
-            <input type="range" id="mde-input" min="1" max="50" value="10" step="1">
-          </div>
-          <div class="input-group">
-            <label>Baseline Conversion: <span id="baseline-value">5%</span></label>
-            <input type="range" id="baseline-input" min="1" max="20" value="5" step="0.5">
-          </div>
-          <div class="calculated">
-            <div class="calc-result">
-              <span class="calc-label">Required Sample Size:</span>
-              <span class="calc-value" id="required-sample">8,000</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script src="app.js"></script>
-</body>
-</html>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+    <div style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem;">KateelLearningDemos</div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <a href="../../../index.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Landing</a>
+      <a href="../../../courses/treasury-management.html" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">Course</a>
+      <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" style="color: #3b82f6; text-decoration: none; margin-left: 1rem; font-size: 0.8rem;">GitHub</a>
+    </div>
+  </nav>
