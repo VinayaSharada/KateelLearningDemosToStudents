@@ -3,8 +3,20 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>KateelLearningDemos - Browser-Based AI/ML Demos</title>
-  <meta name="description" content="73+ browser-based AI/ML demos for finance education. Zero cloud, zero API keys. Interactive demos for students and practitioners.">
+  
+  <!-- SEO Meta Tags -->
+  <title>KateelLearningDemos - 73+ Browser-Based AI/ML Demos for Finance</title>
+  <meta name="description" content="73+ interactive browser-based AI/ML demos for finance education. Zero cloud, zero API keys. Perfect for MBA, Finance, and AI courses.">
+  <meta name="keywords" content="AI demos, ML demos, finance education, treasury management, risk analysis, portfolio optimization, browser-based, no cloud, MBA, finance course">
+  <meta name="author" content="Prof. Vinaya Sathyanarayana">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="KateelLearningDemos - Browser-Based AI/ML Demos">
+  <meta property="og:description" content="73+ interactive finance demos for education. Zero cloud, zero API keys.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/og-image.png">
+  
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
   <script>
@@ -13,6 +25,7 @@
     gtag('js', new Date());
     gtag('config', 'G-V672XGCRSK');
   </script>
+  
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -32,113 +45,115 @@
       background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
       color: var(--text);
       min-height: 100vh;
-      padding: 2rem;
     }
-    .container { max-width: 1400px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 2rem; }
-    header h1 { font-size: 2.5rem; font-weight: 700; color: #fff; }
-    header p { color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem; }
-    .header-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
-    .header-links a { color: var(--primary); text-decoration: none; }
-    .header-links a:hover { text-decoration: underline; }
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-    .stat-item { text-align: center; background: var(--card); padding: 1rem; border-radius: 8px; }
-    .stat-value { font-size: 1.75rem; font-weight: 700; color: var(--primary); }
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    header { text-align: center; padding: 3rem 0; }
+    header h1 { font-size: 3rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    header p { color: var(--text-muted); font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem; }
+    
+    .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; max-width: 600px; margin: 0 auto; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
     .stat-label { color: var(--secondary); font-size: 0.875rem; }
-    .section { margin: 2rem 0; }
-    .section-header { display: flex; align-items: center; margin-bottom: 1rem; }
-    .section-header h2 { font-size: 1.5rem; color: #fff; }
-    .section-header .count { background: var(--primary); color: #fff; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; margin-left: auto; }
-    .demos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-    .demo-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; transition: all 0.2s; }
-    .demo-card:hover { transform: translateY(-2px); border-color: var(--primary); }
-    .demo-card h3 { color: var(--primary); font-size: 1rem; margin-bottom: 0.5rem; }
-    .demo-card p { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.75rem; }
-    .demo-card a { display: inline-block; color: var(--primary); text-decoration: none; font-weight: 500; }
-    .demo-card a:hover { text-decoration: underline; }
-    .attribution { text-align: center; padding: 2rem; color: var(--secondary); font-size: 0.875rem; }
+    
+    .section { margin: 3rem 0; }
+    .section-header { display: flex; align-items: center; margin-bottom: 1.5rem; }
+    .section-header h2 { font-size: 1.75rem; color: #fff; }
+    .section-header .count { background: var(--primary); color: #fff; padding: 0.25rem 1rem; border-radius: 9999px; font-size: 0.875rem; margin-left: auto; }
+    
+    .demos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .demo-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; }
+    .demo-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2); }
+    .demo-card h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.125rem; font-weight: 600; }
+    .demo-card p { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem; }
+    .demo-card a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--primary); color: #fff; text-decoration: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; }
+    .demo-card a:hover { background: var(--primary-dark); }
+    
+    .attribution { text-align: center; padding: 2rem; color: var(--secondary); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+    .attribution a { color: var(--primary); text-decoration: none; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <h1>KateelLearningDemos</h1>
-      <p>73+ browser-based AI/ML demos for finance education. Zero cloud, zero API keys. Perfect for students, faculty, and practitioners.</p>
-      <div class="header-links">
-        <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">GitHub Repository</a>
-        <span>|</span>
-        <span>Attribution: vinallcontact@gmail.com</span>
+      <p>73+ interactive browser-based AI/ML demos for finance education. Zero cloud, zero API keys. Perfect for MBA and Finance courses.</p>
+      <div class="hero-stats">
+        <div class="stat-card"><div class="stat-value">73+</div><div class="stat-label">Browser Demos</div></div>
+        <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">CFO Workshop</div></div>
+        <div class="stat-card"><div class="stat-value">100%</div><div class="stat-label">No Cloud Required</div></div>
       </div>
     </header>
 
-    <div class="stats">
-      <div class="stat-item"><div class="stat-value">73+</div><div class="stat-label">Browser Demos</div></div>
-      <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">CFO Workshop</div></div>
-      <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">No Cloud Required</div></div>
-    </div>
-
-    <!-- CFOWorkshop Demos -->
     <section class="section">
-      <div class="section-header"><h2>🏦 CFOWorkshop - Treasury Management</h2><span class="count">8 demos</span></div>
+      <div class="section-header"><h2>🏆 Featured: CFOWorkshop Demos</h2><span class="count">8 demos</span></div>
       <div class="demos-grid">
-        <div class="demo-card"><h3>Treasury Control Tower</h3><p>Liquidity dashboard with forecasting</p><a href="TechUseCaseDemos/TreasuryControlTower/">Launch →</a></div>
-        <div class="demo-card"><h3>FX Hedge Simulator</h3><p>FX hedging strategy simulator</p><a href="TechUseCaseDemos/FXHedgeSimulator/">Launch →</a></div>
-        <div class="demo-card"><h3>CCC Analyzer</h3><p>Cash Conversion Cycle optimization</p><a href="TechUseCaseDemos/CCCAnalyzer/">Launch →</a></div>
-        <div class="demo-card"><h3>Collections Predictor</h3><p>AI-powered collections prioritization</p><a href="TechUseCaseDemos/CollectionsPredictor/">Launch →</a></div>
-        <div class="demo-card"><h3>Smart Contract Treasury</h3><p>Blockchain treasury operations</p><a href="TechUseCaseDemos/SmartContractTreasury/">Launch →</a></div>
-        <div class="demo-card"><h3>Stablecoin Manager</h3><p>Digital asset treasury management</p><a href="TechUseCaseDemos/StablecoinManager/">Launch →</a></div>
-        <div class="demo-card"><h3>AI Hedge Orchestrator</h3><p>Multi-asset AI hedging</p><a href="TechUseCaseDemos/AIHedgeOrchestrator/">Launch →</a></div>
-        <div class="demo-card"><h3>Treasury Transform Blueprint</h3><p>Transformation roadmap simulator</p><a href="TechUseCaseDemos/TreasuryTransformBlueprint/">Launch →</a></div>
+        <div class="demo-card">
+          <h3>Treasury Control Tower</h3>
+          <p>Real-time liquidity dashboard with forecasting and AI-driven insights.</p>
+          <a href="TechUseCaseDemos/TreasuryControlTower/">Launch Demo →</a>
+        </div>
+        <div class="demo-card">
+          <h3>FX Hedge Simulator</h3>
+          <p>Interactive FX hedging strategy simulator with options pricing.</p>
+          <a href="TechUseCaseDemos/FXHedgeSimulator/">Launch Demo →</a>
+        </div>
+        <div class="demo-card">
+          <h3>CCC Analyzer</h3>
+          <p>Cash Conversion Cycle optimization tool with AI recommendations.</p>
+          <a href="TechUseCaseDemos/CCCAnalyzer/">Launch Demo →</a>
+        </div>
+        <div class="demo-card">
+          <h3>Collections Predictor</h3>
+          <p>AI-powered collections prioritization with payment prediction.</p>
+          <a href="TechUseCaseDemos/CollectionsPredictor/">Launch Demo →</a>
+        </div>
+        <div class="demo-card">
+          <h3>Smart Contract Treasury</h3>
+          <p>Blockchain treasury operations with multi-sig workflows.</p>
+          <a href="TechUseCaseDemos/SmartContractTreasury/">Launch Demo →</a>
+        </div>
+        <div class="demo-card">
+          <h3>Stablecoin Manager</h3>
+          <p>Digital asset treasury management with yield optimization.</p>
+          <a href="TechUseCaseDemos/StablecoinManager/">Launch Demo →</a>
+        </div>
+        <div class="demo-card">
+          <h3>AI Hedge Orchestrator</h3>
+          <p>Multi-asset hedging strategy with AI-driven recommendations.</p>
+          <a href="TechUseCaseDemos/AIHedgeOrchestrator/">Launch Demo →</a>
+        </div>
+        <div class="demo-card">
+          <h3>Treasury Transform Blueprint</h3>
+          <p>End-to-end transformation simulator with ROI calculator.</p>
+          <a href="TechUseCaseDemos/TreasuryTransformBlueprint/">Launch Demo →</a>
+        </div>
       </div>
     </section>
 
-    <!-- Finance & Quant -->
     <section class="section">
-      <div class="section-header"><h2>📈 Finance & Quantitative Analysis</h2><span class="count">8 demos</span></div>
+      <div class="section-header"><h2>📊 All Demo Categories</h2><span class="count">73+ demos</span></div>
       <div class="demos-grid">
-        <div class="demo-card"><h3>Black-Scholes Option Pricer</h3><p>European option pricing</p><a href="DomainUseCaseDemos/QuantFinance/BlackScholesOption/">Launch →</a></div>
-        <div class="demo-card"><h3>Greeks Calculator</h3><p>Option sensitivity analysis</p><a href="TechUseCaseDemos/GreeksCalculator/">Launch →</a></div>
-        <div class="demo-card"><h3>Portfolio Optimizer</h3><p>Risk-adjusted portfolio optimization</p><a href="TechUseCaseDemos/PortfolioOptimizer/">Launch →</a></div>
-        <div class="demo-card"><h3>VaR Calculator</h3><p>Value at Risk with ES</p><a href="TechUseCaseDemos/VaRCalculator/">Launch →</a></div>
-        <div class="demo-card"><h3>Bond Pricing Demo</h3><p>Fixed income valuation</p><a href="TechUseCaseDemos/BondPricingDemo/">Launch →</a></div>
-        <div class="demo-card"><h3>Monte Carlo Options</h3><p>MC simulation pricing</p><a href="TechUseCaseDemos/MonteCarloOptions/">Launch →</a></div>
-        <div class="demo-card"><h3>Option Pricing</h3><p>Multi-model option pricing</p><a href="TechUseCaseDemos/OptionPricingDemo/">Launch →</a></div>
-        <div class="demo-card"><h3>Risk Parity Portfolio</h3><p>Equal risk contribution</p><a href="TechUseCaseDemos/RiskParityPortfolio/">Launch →</a></div>
-      </div>
-    </section>
-
-    <!-- AI Workflow Demos -->
-    <section class="section">
-      <div class="section-header"><h2>🔄 AI Workflow Demos</h2><span class="count">6 demos</span></div>
-      <div class="demos-grid">
-        <div class="demo-card"><h3>AI Content Summarizer</h3><p>Extractive/abstractive summarization</p><a href="TechUseCaseDemos/AIContentSummarizer/">Launch →</a></div>
-        <div class="demo-card"><h3>AI Data Analyzer</h3><p>Statistical analysis</p><a href="TechUseCaseDemos/AIDataAnalyzer/">Launch →</a></div>
-        <div class="demo-card"><h3>Probabilistic Decision Engine</h3><p>Amortized inference</p><a href="TechUseCaseDemos/ProbabilisticDecisionEngine/">Launch →</a></div>
-        <div class="demo-card"><h3>RAG Solutions</h3><p>Document QA systems</p><a href="TechUseCaseDemos/RAGSolutions/StandardRAG/">Launch →</a></div>
-        <div class="demo-card"><h3>AI Governance</h3><p>Governance scorecard</p><a href="TechUseCaseDemos/AIGovernanceScorecard/">Launch →</a></div>
-        <div class="demo-card"><h3>AI Resource Planner</h3><p>Resource allocation</p><a href="TechUseCaseDemos/AIResourcePlanner/">Launch →</a></div>
-      </div>
-    </section>
-
-    <!-- More Demos -->
-    <section class="section">
-      <div class="section-header"><h2>🎯 Additional Demos</h2><span class="count">15+ demos</span></div>
-      <div class="demos-grid">
-        <div class="demo-card"><h3>Fraud Playground</h3><p>Fraud detection simulation</p><a href="TechUseCaseDemos/FraudPlayground/">Launch →</a></div>
-        <div class="demo-card"><h3>Collections Predictor</h3><p>Payment prediction</p><a href="TechUseCaseDemos/CollectionsPredictor/">Launch →</a></div>
-        <div class="demo-card"><h3>Credit Scoring Demo</h3><p>Credit risk assessment</p><a href="TechUseCaseDemos/CreditScoringDemo/">Launch →</a></div>
-        <div class="demo-card"><h3>Counterparty Risk</h3><p>Counterparty risk demo</p><a href="TechUseCaseDemos/CounterpartyRiskDemo/">Launch →</a></div>
-        <div class="demo-card"><h3>CCC Analyzer</h3><p>Working capital optimization</p><a href="TechUseCaseDemos/CCCAnalyzer/">Launch →</a></div>
-        <div class="demo-card"><h3>Data Drift Detector</h3><p>Model monitoring</p><a href="TechUseCaseDemos/DataDriftDetector/">Launch →</a></div>
-        <div class="demo-card"><h3>Feature Store Demo</h3><p>Feature management</p><a href="TechUseCaseDemos/FeatureStoreDemo/">Launch →</a></div>
-        <div class="demo-card"><h3>ML Model Registry</h3><p>Model versioning</p><a href="TechUseCaseDemos/MLModelRegistry/">Launch →</a></div>
-        <div class="demo-card"><h3>Model Version Comparator</h3><p>Model comparison</p><a href="TechUseCaseDemos/ModelVersionComparator/">Launch →</a></div>
-        <div class="demo-card"><h3>AIRisk Calculator</h3><p>Risk assessment</p><a href="TechUseCaseDemos/AIRiskCalculator/">Launch →</a></div>
-        <div class="demo-card"><h3>AIROICalculator</h3><p>ROI analysis</p><a href="TechUseCaseDemos/AIROICalculator/">Launch →</a></div>
-        <div class="demo-card"><h3>Supply Chain Finance</h3><p>SCM optimization</p><a href="DomainUseCaseDemos/SupplyChain/SupplyChainFinance/">Launch →</a></div>
-        <div class="demo-card"><h3>Loan Default Predictor</h3><p>Credit risk modeling</p><a href="DomainUseCaseDemos/Banking/LoanDefaultPredictor/">Launch →</a></div>
-        <div class="demo-card"><h3>MIT License Checker</h3><p>License compliance</p><a href="TechUseCaseDemos/SecureCodeReview/">Launch →</a></div>
-        <div class="demo-card"><h3>Zero Trust Demo</h3><p>Security architecture</p><a href="TechUseCaseDemos/ZeroTrustDemo/">Launch →</a></div>
+        <div class="demo-card">
+          <h3>Finance & Quant</h3>
+          <p>Black-Scholes, Greeks, Portfolio Optimization, VaR, Bond Pricing</p>
+          <a href="TechUseCaseDemos/GreeksCalculator/">View Demos →</a>
+        </div>
+        <div class="demo-card">
+          <h3>AI/ML Workflows</h3>
+          <p>RAG, Summarization, Decision Engine, Governance</p>
+          <a href="TechUseCaseDemos/AIContentSummarizer/">View Demos →</a>
+        </div>
+        <div class="demo-card">
+          <h3>Risk Management</h3>
+          <p>Counterparty Risk, Contagion Model, Fraud Detection</p>
+          <a href="TechUseCaseDemos/AIRiskCalculator/">View Demos →</a>
+        </div>
+        <div class="demo-card">
+          <h3>Supply Chain Finance</h3>
+          <p>SCM optimization and invoice management</p>
+          <a href="DomainUseCaseDemos/SupplyChain/SupplyChainFinance/">View Demos →</a>
+        </div>
       </div>
     </section>
 
