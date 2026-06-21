@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liquidity Management - KateelLearningDemos</title>
+  <meta name="description" content="Launch hub for the Liquidity Management demo, now with Colab and local Python modes.">
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <link rel="stylesheet" href="../../../assets/demo-shell.css">
+  <script defer src="../../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../../courses/banking.html">Banking</a>
+      <a class="nav-link nav-cta" href="README.md">README</a>
+    </div>
+  </div>
+</nav>
+<div class="demo-context-strip" role="note">
+  <strong>Run modes:</strong> This demo now supports <a href="colab_demo.ipynb">Colab</a> and local Python. A browser variant is intentionally deferred so the compute-heavy simulation stays pedagogically honest.
+</div>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Banking • Colab / Local Python • 20-30 min</p>
+    <h1>Liquidity Management</h1>
+    <p class="demo-lede">Choose the run mode that fits your classroom: Colab for quick access, or local Python for full control over the generator and Monte Carlo simulation scripts.</p>
+    <div class="tag-row">
+      <span class="tag">Colab-ready notebook</span>
+      <span class="tag">Local Python workflow</span>
+      <span class="tag">Compute-heavy simulation</span>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>What this demo is about</h3>
+        <p>Students explore how inflows, outflows, volatility, and scenario assumptions change the distribution of future liquidity outcomes.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Learning objectives</h3>
+        <ul class="plain-list">
+          <li>Interpret daily net-flow variability, not just totals.</li>
+          <li>Understand why simulation produces ranges rather than one answer.</li>
+          <li>Connect liquidity distributions to treasury policy and buffer decisions.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <h2>Run Modes and Expectations</h2>
+    <div class="run-mode-grid">
+      <article class="mini-panel">
+        <h3>Colab</h3>
+        <p>Best for a classroom walkthrough with Python and charts but without local environment setup friction.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Local Python</h3>
+        <p>Best for changing the generator, simulation count, report logic, or chart behavior directly.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Wait expectation</h3>
+        <p>Monte Carlo runs can take noticeable time. That delay is part of the lesson: simulation depth has computational cost.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <h2>How to use it</h2>
+    <ol class="step-list">
+      <li>Use <span class="mono">colab_demo.ipynb</span> for the fastest classroom start.</li>
+      <li>Use <span class="mono">generate_synthetic_liquidity_data.py</span> and <span class="mono">liquidity_monte_carlo_simulation.py</span> for local Python work.</li>
+      <li>Explain to students that simulation results arrive as a distribution, not a single deterministic forecast.</li>
+    </ol>
+    <div class="callout-note warn">
+      This demo is intentionally not forced into a weak browser port yet. The Colab variant keeps the real compute path visible while avoiding local setup pain.
+    </div>
+  </section>
+</main>
+</body>
+</html>

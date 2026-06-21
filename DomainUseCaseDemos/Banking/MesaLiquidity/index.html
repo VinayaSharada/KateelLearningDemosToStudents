@@ -1,277 +1,1268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Mesa Liquidity - DEFINITIVE WORKING FIX</title>
-    <script>
-        console.log('=== DEFINING ESSENTIAL FUNCTIONS ===');
-        
-        // Define all button functions globally BEFORE anything loads
-        window.generateData = function() {
-            console.log('🚨 GENERATE DATA BUTTON CLICKED');
-            console.log('window.mesaApp available:', typeof window.mesaApp);
-            console.log('MesaLiquidityGenerator available:', typeof MesaLiquidityGenerator);
-            
-            if (!window.mesaApp && typeof MesaLiquidityGenerator !== 'undefined') {
-                console.log('Creating mesaApp instance...');
-                window.mesaApp = new MesaLiquidityGenerator();
-                console.log('✅ mesaApp created successfully');
-            }
-            
-            if (window.mesaApp && typeof window.mesaApp.generateData === 'function') {
-                console.log('🔄 Calling mesaApp.generateData()...');
-                window.mesaApp.generateData();
-                console.log('✅ generateData() completed!');
-                console.log('📊 Generated:', window.mesaApp.customers ? window.mesaApp.customers.length : 0, 'customers');
-                alert('✅ Success! Generated ' + (window.mesaApp.customers ? window.mesaApp.customers.length : 0) + ' customers');
-            } else {
-                console.log('❌ ERROR: Cannot execute generateData()');
-                alert('❌ Error: Could not generate data');
-            }
-        };
-        
-        window.runMonteCarlo = function() {
-            console.log('🚨 RUN MONTE CARLO BUTTON CLICKED');
-            
-            if (!window.mesaApp && typeof MesaLiquidityGenerator !== 'undefined') {
-                console.log('Creating mesaApp instance...');
-                window.mesaApp = new MesaLiquidityGenerator();
-                console.log('✅ mesaApp created');
-            }
-            
-            if (window.mesaApp && typeof window.mesaApp.runMonteCarlo === 'function') {
-                console.log('🔄 Calling mesaApp.runMonteCarlo()...');
-                window.mesaApp.runMonteCarlo();
-                console.log('✅ runMonteCarlo() completed!');
-                alert('✅ Run Monte Carlo completed successfully!');
-            } else {
-                console.log('❌ ERROR: Cannot execute runMonteCarlo()');
-                alert('❌ Error: Could not run Monte Carlo simulation');
-            }
-        };
-        
-        window.exportData = function() {
-            console.log('🚨 EXPORT DATA BUTTON CLICKED');
-            
-            if (!window.mesaApp && typeof MesaLiquidityGenerator !== 'undefined') {
-                console.log('Creating mesaApp instance...');
-                window.mesaApp = new MesaLiquidityGenerator();
-                console.log('✅ mesaApp created');
-            }
-            
-            if (window.mesaApp && typeof window.mesaApp.exportData === 'function') {
-                console.log('🔄 Calling mesaApp.exportData()...');
-                window.mesaApp.exportData();
-                console.log('✅ exportData() completed!');
-                alert('✅ Export completed! CSV downloaded');
-            } else {
-                console.log('❌ ERROR: Cannot execute exportData()');
-                alert('❌ Error: Could not export data');
-            }
-        };
-        
-        window.resetData = function() {
-            console.log('🚨 RESET BUTTON CLICKED');
-            location.reload();
-        };
-        
-        console.log('✅ All critical functions defined globally and ready!');
-        
-        // Add test buttons immediately for debugging
-        function addTestButtons() {
-            const testBtn = document.createElement('button');
-            testBtn.textContent = '🧪 TEST generateData()';
-            testBtn.style.cssText = 'position: fixed; top: 10px; left: 10px; background: red; color: white; padding: 10px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; z-index: 9999;';
-            testBtn.onclick = function(e) { e.stopPropagation(); generateData(); };
-            document.body.appendChild(testBtn);
-            
-            const testBtn2 = document.createElement('button');
-            testBtn2.textContent = '🧪 TEST runMonteCarlo()';
-            testBtn2.style.cssText = 'position: fixed; top: 50px; left: 10px; background: blue; color: white; padding: 10px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; z-index: 9999;';
-            testBtn2.onclick = function(e) { e.stopPropagation(); runMonteCarlo(); };
-            document.body.appendChild(testBtn2);
-        }
-        
-        // IMMEDIATE: Start loading app.js NOW - NO DELAY
-        console.log('🚀 IMMEDIATE: Loading app.js NOW...');
-        const appScript = document.createElement('script');
-        appScript.src = 'app.js';
-        appScript.onload = function() {
-            console.log('✅ app.js loaded successfully!');
-            
-            // Debug: Check if MesaLiquidityGenerator is now available
-            console.log('=== Debug: Checking Class Availability ===');
-            console.log('typeof MesaLiquidityGenerator:', typeof MesaLiquidityGenerator);
-            console.log('typeof window.MesaLiquidityGenerator:', typeof window.MesaLiquidityGenerator);
-            
-            if (typeof MesaLiquidityGenerator !== 'undefined') {
-                console.log('✅ MesaLiquidityGenerator class is now available!');
-                // Create mesaApp instance if not exists
-                if (!window.mesaApp) {
-                    window.mesaApp = new MesaLiquidityGenerator();
-                    console.log('✅ Created mesaApp instance!');
-                }
-                addTestButtons();
-            } else if (typeof window.MesaLiquidityGenerator !== 'undefined') {
-                console.log('✅ window.MesaLiquidityGenerator is now available!');
-                // Create mesaApp instance if not exists
-                if (!window.mesaApp) {
-                    window.mesaApp = new window.MesaLiquidityGenerator();
-                    console.log('✅ Created mesaApp instance!');
-                }
-                addTestButtons();
-            } else {
-                console.log('❌ CRITICAL: MesaLiquidityGenerator still not found after app.js loaded');
-                console.log('=== Missing Class Diagnosis ===');
-                console.log('The app.js file may have loaded but not contain the MesaLiquidityGenerator class');
-                console.log('Check app.js at: DomainUseCaseDemos/Banking/MesaLiquidity/app.js');
-            }
-        };
-        appScript.onerror = function() {
-            console.log('❌ FAILED to load app.js');
-            console.log('=== Loading Failure Diagnosis ===');
-            console.log('Network error occurred while trying to load app.js');
-            console.log('Check if app.js exists at: DomainUseCaseDemos/Banking/MesaLiquidity/app.js');
-            alert('❌ CRITICAL ERROR: Could not load app.js - MesaLiquidityGenerator will not be available');
-        };
-        document.head.appendChild(appScript);
-        
-        console.log('=== CRITICAL FIX APPLIED - NO DELAY ===');
-    </script>
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        button {
-            background: #3b82f6;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background: #2563eb;
-        }
-        .debug {
-            background: #1e293b;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-        .status {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-        .ok { background: #10b981; color: white; }
-        .error { background: #ef4444; color: white; }
-        h1 { color: #3b82f6; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mesa Liquidity Data Generator</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: rgba(12, 25, 43, 0.9);
+      --panel-border: rgba(141, 180, 227, 0.16);
+      --text: #ebf3ff;
+      --muted: #9ab0cd;
+      --accent: #4cc9f0;
+      --accent-2: #7ae582;
+      --accent-3: #ffb703;
+      --accent-4: #ff6b6b;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(76, 201, 240, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 183, 3, 0.16), transparent 28%),
+        linear-gradient(180deg, #0a1830 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 20px 40px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-copy,
+    .hero-side,
+    .controls,
+    .kpis,
+    .tabs-shell,
+    .story-panel,
+    .forecast-panel,
+    .ai-panel,
+    .simulation-panel {
+      padding: 22px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .hero-copy p,
+    .hero-side p,
+    .section-note,
+    .helper-text {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-metric {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-metric strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    button {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-primary {
+      color: #04111f;
+      background: linear-gradient(135deg, var(--accent), #8be9fd);
+      box-shadow: 0 10px 24px rgba(76, 201, 240, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-warning {
+      color: #231300;
+      background: linear-gradient(135deg, #ffd166, var(--accent-3));
+    }
+
+    .hero-side ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .controls,
+    .forecast-panel,
+    .ai-panel,
+    .story-panel,
+    .simulation-panel {
+      margin-bottom: 0;
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    .control-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .control-header,
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .control-label {
+      font-weight: 700;
+    }
+
+    .control-value {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-top: 12px;
+      accent-color: var(--accent);
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font: inherit;
+    }
+
+    .toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+    }
+
+    .toggle-row input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent-2);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: #04111f;
+      background: linear-gradient(135deg, #9bf6ff, #caf0f8);
+      font-weight: 700;
+    }
+
+    .status-pill.is-warning {
+      background: linear-gradient(135deg, #ffd8a8, #ffe066);
+      color: #2d1f00;
+    }
+
+    .status-pill.is-success {
+      background: linear-gradient(135deg, #a7f3d0, #7ae582);
+      color: #06210f;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 110px;
+    }
+
+    .kpi-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 10px;
+    }
+
+    .kpi-card strong {
+      font-size: clamp(1rem, 1.4vw, 1.25rem);
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tab {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      border: 1px solid transparent;
+    }
+
+    .tab.active {
+      color: var(--text);
+      background: rgba(76, 201, 240, 0.14);
+      border-color: rgba(76, 201, 240, 0.3);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .chart-card,
+    .table-shell {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chart-stage {
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chart-empty {
+      color: var(--muted);
+      text-align: center;
+      max-width: 240px;
+      line-height: 1.6;
+    }
+
+    .donut-layout {
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .donut-chart {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .donut-chart::after {
+      content: "";
+      position: absolute;
+      inset: 26px;
+      background: #081321;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .donut-center strong {
+      color: var(--text);
+      font-size: 1.7rem;
+      line-height: 1.1;
+    }
+
+    .legend {
+      display: grid;
+      gap: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .legend-item strong {
+      font-size: 0.96rem;
+    }
+
+    .legend-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex: none;
+    }
+
+    .bar-chart {
+      width: 100%;
+      display: grid;
+      gap: 14px;
+      align-self: end;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr) 70px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      background: rgba(8, 19, 33, 0.96);
+    }
+
+    .table-scroll {
+      max-height: 420px;
+      overflow: auto;
+      border-radius: 14px;
+    }
+
+    .forecast-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .forecast-stat {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .forecast-stat span {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .forecast-stat strong,
+    .story-card strong {
+      display: block;
+      font-size: clamp(0.98rem, 1.25vw, 1.15rem);
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .ai-panel {
+      border: 1px solid rgba(122, 229, 130, 0.28);
+      background: linear-gradient(135deg, rgba(122, 229, 130, 0.14), rgba(76, 201, 240, 0.08));
+    }
+
+    .ai-panel h3 {
+      margin-bottom: 8px;
+    }
+
+    .table-note {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 14px;
+    }
+
+    .story-panel {
+      background:
+        radial-gradient(circle at top right, rgba(76, 201, 240, 0.14), transparent 35%),
+        rgba(255, 255, 255, 0.03);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .story-card {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .story-card span {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+    }
+
+    .story-card strong {
+      display: block;
+      font-size: 1.12rem;
+      margin-bottom: 8px;
+    }
+
+    .simulation-panel {
+      border: 1px solid rgba(255, 209, 102, 0.2);
+      background:
+        radial-gradient(circle at top left, rgba(255, 209, 102, 0.12), transparent 30%),
+        rgba(255, 255, 255, 0.03);
+    }
+
+    .simulation-header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .simulation-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 209, 102, 0.16);
+      color: #ffe29a;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .simulation-badge.is-running {
+      background: rgba(76, 201, 240, 0.18);
+      color: #aeeeff;
+    }
+
+    .simulation-state {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .simulation-state.is-ready {
+      color: var(--text);
+      border-color: rgba(122, 229, 130, 0.25);
+      background: linear-gradient(135deg, rgba(122, 229, 130, 0.14), rgba(76, 201, 240, 0.08));
+    }
+
+    .compact-number {
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+
+    .progress-block {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .work-estimate {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .estimate-card {
+      min-width: 0;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .estimate-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+    }
+
+    .estimate-card strong {
+      display: block;
+      font-size: clamp(0.96rem, 1.1vw, 1.08rem);
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #4cc9f0, #7ae582);
+      transition: width 0.12s ease;
+    }
+
+    .distribution {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .simulation-visuals {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .visual-card {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      min-width: 0;
+    }
+
+    .visual-card h4 {
+      margin: 0 0 8px;
+      font-size: 0.96rem;
+    }
+
+    .visual-card p {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .chart-surface {
+      width: 100%;
+      min-height: 220px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)),
+        rgba(6, 16, 28, 0.85);
+      overflow: hidden;
+    }
+
+    .chart-surface svg {
+      width: 100%;
+      height: 220px;
+      display: block;
+    }
+
+    .chart-axis {
+      stroke: rgba(255, 255, 255, 0.16);
+      stroke-width: 1;
+    }
+
+    .chart-grid {
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 1;
+      stroke-dasharray: 3 6;
+    }
+
+    .chart-label {
+      fill: #9ab0cd;
+      font-size: 11px;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    .curve-fill {
+      fill: rgba(76, 201, 240, 0.16);
+    }
+
+    .curve-stroke {
+      fill: none;
+      stroke: #7ce7ff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .mean-marker {
+      stroke: #ffd166;
+      stroke-width: 2;
+      stroke-dasharray: 5 5;
+    }
+
+    .convergence-stroke {
+      fill: none;
+      stroke: #7ae582;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .convergence-fill {
+      fill: rgba(122, 229, 130, 0.12);
+    }
+
+    .histogram {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 8px;
+      align-items: end;
+      min-height: 220px;
+      margin-top: 18px;
+      padding: 16px 10px 8px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .histogram-bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: center;
+      gap: 8px;
+      min-height: 180px;
+    }
+
+    .histogram-column {
+      width: 100%;
+      border-radius: 12px 12px 4px 4px;
+      background: linear-gradient(180deg, #8be9fd, #4cc9f0 55%, #1f6fa1);
+      min-height: 10px;
+    }
+
+    .histogram-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .histogram-count {
+      color: var(--text);
+      font-size: 0.76rem;
+    }
+
+    .distribution-row {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr) 78px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .distribution-row span:last-child {
+      color: var(--muted);
+      text-align: right;
+      font-size: 0.88rem;
+    }
+
+    .distribution-track {
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .distribution-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #4cc9f0, #ffd166);
+    }
+
+    .forecast-callout {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .forecast-callout strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 1200px) {
+      .hero,
+      .main-grid,
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .simulation-visuals {
+        grid-template-columns: 1fr;
+      }
+
+      .work-estimate {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .kpis {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 18px 14px 30px;
+      }
+
+      .hero-metrics,
+      .forecast-stats,
+      .kpis,
+      .story-grid,
+      .work-estimate {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .donut-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-metrics,
+      .forecast-stats,
+      .kpis,
+      .story-grid,
+      .work-estimate {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .simulation-header,
+      .distribution-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🔴 Mesa Liquidity - DEFINITIVE WORKING FIX</h1>
-        
-        <div class="debug">
-            <h2>📊 System Status Monitor</h2>
-            <div id="systemStatus">
-                <div class="status">MesaLiquidityGenerator: <span id="mesaGeneratorStatus">Loading...</span></div>
-                <div class="status">window.mesaApp: <span id="mesaAppStatus">Loading...</span></div>
-                <div class="status">Functions Ready: <span id="functionsStatus">Loading...</span></div>
-                <div class="status">Buttons Available: <span id="buttonsStatus">Loading...</span></div>
-                <div style="padding: 15px; margin: 15px 0; background: #1e293b; border-radius: 8px; font-size: 14px;">
-                    <strong>Debug Instructions:</strong><br>
-                    1. Check browser console for app.js loading status<br>
-                    2. Look for "✅ app.js loaded successfully!" in console<br>
-                    3. If loading fails, check network connectivity<br>
-                    4. Test with the red/blue test buttons in top-left
-                </div>
+  <div class="page">
+    <section class="hero">
+      <div class="hero-copy panel">
+        <p class="eyebrow">Banking Simulation Lab</p>
+        <h1>Mesa Liquidity Data Generator</h1>
+        <p>Generate synthetic customers, accounts, transactions, and liquidity metrics entirely in your browser. No Python runtime, cloud APIs, analytics scripts, or external charting libraries are required.</p>
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <strong>100% local</strong>
+            <span class="helper-text">Runs offline from `index.html`.</span>
+          </div>
+          <div class="hero-metric">
+            <strong>Monte Carlo</strong>
+            <span class="helper-text">Liquidity forecast with local simulation.</span>
+          </div>
+          <div class="hero-metric">
+            <strong>CSV export</strong>
+            <span class="helper-text">Take generated data into class exercises.</span>
+          </div>
+        </div>
+      </div>
+      <aside class="hero-side panel">
+        <p class="eyebrow">Demo flow</p>
+        <ul>
+          <li>Choose customer and transaction volume.</li>
+          <li>Generate synthetic banking data.</li>
+          <li>Explore segments, balances, and risk metrics.</li>
+          <li>Run a 30-day liquidity forecast and export the dataset.</li>
+        </ul>
+        <div class="actions">
+          <button id="generateBtn" class="btn-primary" type="button">Generate Data</button>
+          <button id="forecastBtn" class="btn-warning" type="button">Run Monte Carlo Simulation</button>
+          <button id="exportBtn" class="btn-secondary" type="button">Export CSV</button>
+          <button id="resetBtn" class="btn-secondary" type="button">Reset</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="main-grid">
+      <div class="stack">
+        <section class="controls panel">
+          <p class="eyebrow">Controls</p>
+          <div class="control-group">
+            <div class="control-header">
+              <div class="control-label">Customers</div>
+              <div class="control-value" id="customersDisplay">1000</div>
             </div>
-        </div>
-        
-        <div class="debug">
-            <h2>🧪 Working Demo Buttons (These are the actual buttons)</h2>
-            <button onclick="generateData()">Generate Data</button>
-            <button onclick="runMonteCarlo()">Run Monte Carlo</button>
-            <button onclick="exportData()">Export CSV</button>
-            <button onclick="resetData()">Reset</button>
-        </div>
-        
-        <div class="debug">
-            <h2>📈 KPI Dashboard</h2>
-            <div id="kpiGrid">
-                <div class="ok">Customers: <span id="customersCount">0</span></div>
-                <div class="ok">Accounts: <span id="accountsCount">0</span></div>
-                <div class="ok">Transactions: <span id="transactionsCount">0</span></div>
-                <div class="ok">Total Value: <span id="totalValue">₹0</span></div>
+            <input type="range" id="numCustomers" min="100" max="5000" step="100" value="1000">
+          </div>
+          <div class="control-group">
+            <div class="control-header">
+              <div class="control-label">Transactions</div>
+              <div class="control-value" id="transactionsDisplay">10000</div>
             </div>
-        </div>
-        
-        <div class="debug">
-            <h2>🎛️ Demo Setup</h2>
-            <p><strong>Number of Customers:</strong> <span id="customersDisplay">1000</span></p>
-            <input type="range" id="numCustomers" min="100" max="5000" value="1000" style="width: 100%;">
-            
-            <p style="margin-top: 20px;"><strong>Number of Transactions:</strong> <span id="transactionsDisplay">10000</span></p>
-            <input type="range" id="numTransactions" min="1000" max="50000" value="10000" style="width: 100%;">
-            
-            <p style="margin-top: 20px;"><strong>Enable AI Insights:</strong> <input type="checkbox" id="aiToggle"></p>
-        </div>
-    </div>
-    
-    <script>
-        // Update system status continuously
-        function updateSystemStatus() {
-            const mesaGeneratorStatus = document.getElementById('mesaGeneratorStatus');
-            const mesaAppStatus = document.getElementById('mesaAppStatus');
-            const functionsStatus = document.getElementById('functionsStatus');
-            const buttonsStatus = document.getElementById('buttonsStatus');
-            
-            // Check all critical components
-            const mesaGeneratorReady = typeof MesaLiquidityGenerator !== 'undefined';
-            const mesaAppReady = typeof window.mesaApp !== 'undefined';
-            const functionsReady = typeof generateData !== 'undefined' && typeof runMonteCarlo !== 'undefined';
-            
-            mesaGeneratorStatus.textContent = mesaGeneratorReady ? '✅ AVAILABLE' : '❌ MISSING';
-            mesaAppStatus.textContent = mesaAppReady ? '✅ EXISTS' : '❌ MISSING';
-            functionsStatus.textContent = functionsReady ? '✅ FUNCTIONS READY' : '❌ SOME MISSING';
-            
-            // Show overall system status
-            const allReady = mesaGeneratorReady && mesaAppReady && functionsReady;
-            buttonsStatus.textContent = allReady ? '✅ ALL BUTTONS WORKING!' : '⏳ LOADING...';
-            
-            console.log('=== System Status Updated ===');
-            console.log('MesaLiquidityGenerator:', mesaGeneratorReady ? '✅' : '❌');
-            console.log('window.mesaApp:', mesaAppReady ? '✅' : '❌');
-            console.log('Functions:', functionsReady ? '✅' : '❌');
-            console.log('All Ready:', allReady ? '✅ YES' : '⏳ NO');
-        }
-        
-        setInterval(function() {
-            updateSystemStatus();
-        }, 1000);
-        
-        console.log('=== Demo initialization started - Immediate loading ===');
-        console.log('=== CRITICAL FIX IN EFFECT ===');
-        console.log('1. All button functions defined globally IMMEDIATELY');
-        console.log('2. app.js loading IMMEDIATELY with proper error handling');
-        console.log('3. System status monitoring continuously');
-        console.log('4. Test buttons added for instant verification');
-        
-        updateSystemStatus();
-    </script>
+            <input type="range" id="numTransactions" min="1000" max="50000" step="1000" value="10000">
+          </div>
+          <div class="control-group">
+            <div class="control-stack">
+              <div class="control-header">
+                <div class="control-label">Monte Carlo iterations</div>
+                <div class="control-value" id="iterationsDisplay">1000</div>
+              </div>
+              <input type="number" id="numIterations" min="100" max="10000" step="100" value="1000">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="control-stack">
+              <div class="control-header">
+                <div class="control-label">Teaching delay per update (seconds)</div>
+                <div class="control-value" id="delayDisplay">0.01</div>
+              </div>
+              <input type="number" id="simulationDelay" min="0" max="0.25" step="0.01" value="0.01">
+            </div>
+            <p class="helper-text">This slows each progress-update batch, not each individual iteration. It helps students watch the simulation unfold without making the run excessively long.</p>
+          </div>
+          <div class="toggle-row">
+            <label class="control-label" for="aiToggle">Enable AI-style insights</label>
+            <input type="checkbox" id="aiToggle">
+          </div>
+          <p class="helper-text">The AI toggle uses local heuristic guidance only, so the demo stays fully self-contained.</p>
+          <div class="status-pill" id="runtimeStatus">Ready for offline browser execution</div>
+        </section>
+
+        <section class="story-panel panel">
+          <p class="eyebrow">Executive Snapshot</p>
+          <h3>What this run means</h3>
+          <p class="section-note" id="storySummary">Generate a dataset to see customer mix, balance structure, and liquidity pressure points translated into a simple treasury narrative.</p>
+          <div class="story-grid">
+            <div class="story-card">
+              <span>Dominant segment</span>
+              <strong id="topSegment">Not generated</strong>
+              <p class="helper-text" id="topSegmentNote">No customer mix yet.</p>
+            </div>
+            <div class="story-card">
+              <span>Most common account type</span>
+              <strong id="topAccountType">Not generated</strong>
+              <p class="helper-text" id="topAccountNote">Generate data to compare deposit and credit-heavy books.</p>
+            </div>
+            <div class="story-card">
+              <span>Highest attention area</span>
+              <strong id="attentionArea">Awaiting simulation</strong>
+              <p class="helper-text" id="attentionNote">Monte Carlo will highlight the required liquidity buffer.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="forecast-panel panel">
+          <p class="eyebrow">Forecast</p>
+          <h3>Monte Carlo liquidity outlook</h3>
+          <p class="section-note" id="forecastNarrative">Generate a dataset first, then run the forecast to estimate 30-day liquidity outcomes.</p>
+          <div class="forecast-stats">
+            <div class="forecast-stat">
+              <span>Mean final cash</span>
+              <strong id="forecastMean" class="compact-number">Not run yet</strong>
+            </div>
+            <div class="forecast-stat">
+              <span>5% VaR</span>
+              <strong id="forecastVar5" class="compact-number">Not run yet</strong>
+            </div>
+            <div class="forecast-stat">
+              <span>Recommended buffer</span>
+              <strong id="forecastBuffer" class="compact-number">Not run yet</strong>
+            </div>
+            <div class="forecast-stat">
+              <span>Most likely value</span>
+              <strong id="forecastLikely" class="compact-number">Not run yet</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="simulation-panel panel" id="simulationPanel">
+          <div class="simulation-header">
+            <div>
+              <p class="eyebrow">Simulation Output</p>
+              <h3>Monte Carlo Simulation</h3>
+            </div>
+            <div class="simulation-badge" id="simulationBadge">Waiting for a run</div>
+          </div>
+          <div class="simulation-state" id="simulationState">Click <strong>Run Monte Carlo Simulation</strong> after generating data. The results will appear here and this panel will jump into view automatically.</div>
+          <div class="progress-block">
+            <div class="progress-meta">
+              <span id="progressLabel">No simulation running</span>
+              <span id="progressCount">0 / 0</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+          <div class="work-estimate">
+            <div class="estimate-card">
+              <span>Work formula</span>
+              <strong id="workFormula" class="compact-number">0 × 30 days</strong>
+            </div>
+            <div class="estimate-card">
+              <span>Total path steps</span>
+              <strong id="totalWork" class="compact-number">0</strong>
+            </div>
+            <div class="estimate-card">
+              <span>Elapsed time</span>
+              <strong id="elapsedTime" class="compact-number">0.00s</strong>
+            </div>
+            <div class="estimate-card">
+              <span>Current throughput</span>
+              <strong id="throughput" class="compact-number">0 iterations/s</strong>
+            </div>
+          </div>
+          <div class="distribution" id="distributionChart">
+            <div class="chart-empty">Run the simulation to see the spread of 100 forecast outcomes across worst-case, base-case, and upside bands.</div>
+          </div>
+          <div class="simulation-visuals">
+            <div class="visual-card">
+              <h4>Outcome Density</h4>
+              <p>Smoothed outcome distribution with the mean marked for quick interpretation.</p>
+              <div class="chart-surface" id="densityChart">
+                <div class="chart-empty">Run the simulation to draw the outcome distribution and identify the most likely terminal value.</div>
+              </div>
+            </div>
+            <div class="visual-card">
+              <h4>Mean Convergence</h4>
+              <p>Tracks how the running mean stabilizes as iterations accumulate.</p>
+              <div class="chart-surface" id="convergenceChart">
+                <div class="chart-empty">The convergence line will update while the simulation is running.</div>
+              </div>
+            </div>
+          </div>
+          <div class="forecast-callout">
+            <strong>Treasury interpretation</strong>
+            <p class="section-note" id="bufferNarrative">No liquidity buffer recommendation yet.</p>
+          </div>
+        </section>
+
+        <section id="aiInsight" class="ai-panel panel" style="display: none;">
+          <p class="eyebrow">AI Insights</p>
+          <h3>Liquidity coaching</h3>
+          <p id="recommendationText">Turn on AI insights to receive local recommendations.</p>
+        </section>
+      </div>
+
+      <div>
+        <section class="kpis panel">
+          <div class="kpi-card">
+            <span>Customers</span>
+            <strong id="customersCount">0</strong>
+          </div>
+          <div class="kpi-card">
+            <span>Accounts</span>
+            <strong id="accountsCount">0</strong>
+          </div>
+          <div class="kpi-card">
+            <span>Transactions</span>
+            <strong id="transactionsCount">0</strong>
+          </div>
+          <div class="kpi-card">
+            <span>Total transaction value</span>
+            <strong id="totalValue">₹0</strong>
+          </div>
+          <div class="kpi-card">
+            <span>Average daily balance</span>
+            <strong id="avgBalance">₹0</strong>
+          </div>
+          <div class="kpi-card">
+            <span>Liquidity ratio</span>
+            <strong id="liquidityRatio">0%</strong>
+          </div>
+          <div class="kpi-card">
+            <span>Transaction velocity</span>
+            <strong id="velocity">0.00</strong>
+          </div>
+        </section>
+
+        <section class="tabs-shell panel">
+          <div class="tabs">
+            <button class="tab active" data-tab="overview" type="button">Overview</button>
+            <button class="tab" data-tab="customers" type="button">Customers</button>
+            <button class="tab" data-tab="accounts" type="button">Accounts</button>
+            <button class="tab" data-tab="transactions" type="button">Transactions</button>
+            <button class="tab" data-tab="metrics" type="button">Metrics</button>
+          </div>
+
+          <div id="overview-tab" class="tab-content active">
+            <div class="overview-grid">
+              <div class="chart-card">
+                <h3>Customer segments</h3>
+                <p class="table-note">Distribution of generated customers by segment.</p>
+                <div class="chart-stage" id="segmentChart"></div>
+              </div>
+              <div class="chart-card">
+                <h3>Liquidity risk buckets</h3>
+                <p class="table-note">Accounts grouped into low, medium, and high liquidity risk.</p>
+                <div class="chart-stage" id="riskChart"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="customers-tab" class="tab-content">
+            <div class="table-shell">
+              <h3>Customers</h3>
+              <p class="table-note">Showing the first 100 generated customers.</p>
+              <div class="table-scroll">
+                <table id="customersTable">
+                  <thead>
+                    <tr>
+                      <th>Customer ID</th>
+                      <th>Name</th>
+                      <th>Segment</th>
+                      <th>Annual Income</th>
+                      <th>KYC Status</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="accounts-tab" class="tab-content">
+            <div class="table-shell">
+              <h3>Accounts</h3>
+              <p class="table-note">Showing the first 100 generated accounts.</p>
+              <div class="table-scroll">
+                <table id="accountsTable">
+                  <thead>
+                    <tr>
+                      <th>Account ID</th>
+                      <th>Type</th>
+                      <th>Currency</th>
+                      <th>Current Balance</th>
+                      <th>Available Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="transactions-tab" class="tab-content">
+            <div class="table-shell">
+              <h3>Transactions</h3>
+              <p class="table-note">Showing the first 100 generated transactions.</p>
+              <div class="table-scroll">
+                <table id="transactionsTable">
+                  <thead>
+                    <tr>
+                      <th>Transaction ID</th>
+                      <th>Type</th>
+                      <th>Amount</th>
+                      <th>Channel</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="metrics-tab" class="tab-content">
+            <div class="table-shell">
+              <h3>Liquidity metrics</h3>
+              <p class="table-note">Showing the first 100 generated account-level liquidity records.</p>
+              <div class="table-scroll">
+                <table id="metricsTable">
+                  <thead>
+                    <tr>
+                      <th>Account ID</th>
+                      <th>Liquidity Ratio</th>
+                      <th>Risk Score</th>
+                      <th>Stress Survival Days</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>

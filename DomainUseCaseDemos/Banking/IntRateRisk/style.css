@@ -1,0 +1,286 @@
+body {
+  background:
+    radial-gradient(circle at top left, rgba(14, 165, 233, 0.18), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #e6f0ff 100%);
+  color: #0f172a;
+}
+
+.site-nav,
+.demo-context-strip {
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.demo-shell {
+  max-width: 1220px;
+}
+
+.demo-hero,
+.demo-panel,
+.app-shell,
+.card,
+.chart-card,
+.metric-card,
+.table-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.demo-kicker {
+  color: #0369a1;
+}
+
+.tag,
+.status-badge {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.16);
+}
+
+.app-shell {
+  border-radius: 24px;
+  padding: 1.25rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.section-grid,
+.metric-grid,
+.chart-grid,
+.mode-grid,
+.mix-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.section-grid,
+.chart-grid {
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+}
+
+.mode-grid,
+.metric-grid {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.mix-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.card,
+.chart-card,
+.metric-card,
+.table-card {
+  border-radius: 18px;
+  padding: 1rem;
+  min-width: 0;
+}
+
+.card h3,
+.chart-card h3,
+.table-card h3 {
+  margin: 0 0 0.75rem;
+}
+
+.field-group {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field label,
+.mix-item label,
+.toggle {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.mix-item input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.field input[type="number"],
+.field select {
+  padding: 0.78rem 0.9rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+}
+
+.field input[type="range"],
+.mix-item input[type="range"] {
+  accent-color: #0284c7;
+}
+
+.mix-item {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.85rem;
+  border-radius: 14px;
+  background: rgba(14, 165, 233, 0.06);
+}
+
+.mix-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+  color: #475569;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button-row button {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.82rem 1.1rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #fff;
+}
+
+.button-secondary {
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.helper {
+  margin: 0;
+  padding: 0.8rem 0.95rem;
+  border-radius: 12px;
+  background: rgba(2, 132, 199, 0.08);
+  color: #0f172a;
+  line-height: 1.55;
+}
+
+.metric-card {
+  text-align: center;
+}
+
+.metric-label {
+  color: #475569;
+  font-size: 0.82rem;
+}
+
+.metric-value {
+  margin-top: 0.35rem;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #0f172a;
+  overflow-wrap: anywhere;
+}
+
+.metric-value.good {
+  color: #047857;
+}
+
+.metric-value.warn {
+  color: #b45309;
+}
+
+.metric-value.alert {
+  color: #b91c1c;
+}
+
+.bars,
+.histogram {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.bar-row,
+.hist-row {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.bar-meta,
+.hist-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+}
+
+.bar-track,
+.hist-track {
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.bar-fill,
+.hist-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.bar-fill {
+  background: linear-gradient(90deg, #0ea5e9, #2563eb);
+}
+
+.hist-fill {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.rate-table th,
+.rate-table td {
+  padding: 0.7rem 0.55rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  text-align: left;
+  vertical-align: top;
+}
+
+.rate-table th {
+  color: #475569;
+  font-weight: 700;
+}
+
+.insight-box {
+  border-left: 4px solid #0284c7;
+  padding: 1rem 1rem 1rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(14, 165, 233, 0.08);
+  line-height: 1.6;
+}
+
+.mode-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 920px) {
+  .section-grid,
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+}

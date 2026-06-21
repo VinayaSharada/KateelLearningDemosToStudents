@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Title - KateelLearningDemos</title>
+  <meta name="description" content="One-sentence description of the interactive demo.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="demo-template.css">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-copy panel">
+        <p class="eyebrow">Domain / Course Tag</p>
+        <h1>Demo Title</h1>
+        <p class="hero-text">One-sentence purpose: what the demo does and why the student should care.</p>
+        <div class="pill-row">
+          <span class="pill">Browser / Colab / Local</span>
+          <span class="pill">No API keys</span>
+          <span class="pill">Classroom-ready</span>
+        </div>
+      </div>
+      <aside class="hero-side panel">
+        <h2>Run Mode and Expectations</h2>
+        <p><strong>Supported mode:</strong> Browser / Colab / Local</p>
+        <p><strong>Expected startup:</strong> Starts immediately / may take time on first run / downloads a local model.</p>
+      </aside>
+    </header>
+
+    <main class="main-grid">
+      <section class="panel">
+        <p class="step-label">Before You Start</p>
+        <h2>What This Demo Is About</h2>
+        <p class="section-text">Give students a quick explanation of the business or technical problem this demo addresses.</p>
+      </section>
+
+      <section class="panel">
+        <p class="step-label">Learning Goal</p>
+        <h2>What You Should Learn</h2>
+        <p class="section-text">In this demo you will learn how changing the inputs affects the resulting recommendation, simulation, or risk metric.</p>
+      </section>
+
+      <section class="panel">
+        <p class="step-label">Step 1</p>
+        <h2>Inputs</h2>
+        <p class="section-text">Configure the scenario and enter the variables that drive the demo.</p>
+
+        <div class="field-grid">
+          <label class="field">
+            <span>Scenario</span>
+            <select>
+              <option>Baseline</option>
+              <option>Stress</option>
+              <option>Custom</option>
+            </select>
+            <small>Choose the operating environment for the demo.</small>
+          </label>
+
+          <label class="field">
+            <span>Input Variable A</span>
+            <input type="number" value="100">
+            <small>Explain what this input means and how it affects outputs.</small>
+          </label>
+
+          <label class="field">
+            <span>Input Variable B</span>
+            <input type="number" value="50">
+            <small>Explain what this input means and how it affects outputs.</small>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="step-label">Step 2</p>
+        <h2>Decision Buttons</h2>
+        <p class="section-text">Run the model, compare scenarios, export results, or reset the demo state.</p>
+
+        <div class="button-row">
+          <button class="btn-primary" type="button">Run Demo</button>
+          <button class="btn-secondary" type="button">Export</button>
+          <button class="btn-secondary" type="button">Reset</button>
+        </div>
+
+        <div class="help-card">
+          <strong>Button meanings</strong>
+          <p>`Run Demo` computes the outputs. `Export` downloads the current results. `Reset` restores the default classroom starting point.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="step-label">Step 3</p>
+        <h2>Outputs</h2>
+        <p class="section-text">Review the summary metrics, charts, and recommendations produced by the demo.</p>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <span>Output 1</span>
+            <strong>0</strong>
+            <small>Short explanation of what this output means.</small>
+          </div>
+          <div class="metric-card">
+            <span>Output 2</span>
+            <strong>0</strong>
+            <small>Short explanation of what this output means.</small>
+          </div>
+          <div class="metric-card">
+            <span>Output 3</span>
+            <strong>0</strong>
+            <small>Short explanation of what this output means.</small>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Chart / Table Area</h3>
+          <p>Place charts, distributions, tabular results, or model traces here.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="step-label">Step 4</p>
+        <h2>What To Notice</h2>
+        <p class="section-text">Use this panel to teach interpretation, not just display numbers.</p>
+
+        <ul class="notice-list">
+          <li>Compare the baseline outcome to the stressed scenario.</li>
+          <li>Observe which input has the strongest effect on the outputs.</li>
+          <li>Notice trade-offs between performance, cost, and risk.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

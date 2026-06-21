@@ -1,0 +1,198 @@
+.demo-shell {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem 0 3rem;
+}
+
+.demo-hero,
+.demo-panel,
+.mini-panel,
+.app-frame {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.demo-hero {
+  padding: 2rem;
+}
+
+.demo-kicker {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+}
+
+.demo-hero h1,
+.demo-panel h2 {
+  margin: 0;
+}
+
+.demo-lede {
+  margin: 0.9rem 0 0;
+  max-width: 70ch;
+  line-height: 1.7;
+}
+
+.tag-row,
+.button-row,
+.note-row,
+.stats-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag-row {
+  margin-top: 1.1rem;
+}
+
+.tag,
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.84rem;
+}
+
+.demo-panel {
+  padding: 1.4rem;
+}
+
+.demo-panel h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.panel-grid,
+.detail-grid,
+.steps-grid,
+.metric-grid,
+.run-mode-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.panel-grid,
+.detail-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.steps-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.metric-grid,
+.run-mode-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.mini-panel {
+  padding: 1rem;
+  min-width: 0;
+}
+
+.mini-panel h3,
+.mini-panel h4 {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+}
+
+.mini-panel p,
+.mini-panel li,
+.demo-panel li,
+.demo-panel p {
+  line-height: 1.6;
+}
+
+.plain-list,
+.step-list {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.step-list li,
+.plain-list li {
+  margin-bottom: 0.45rem;
+}
+
+.app-frame {
+  padding: 1rem;
+}
+
+.app-frame > * {
+  min-width: 0;
+}
+
+.helper-note,
+.callout-note {
+  margin-top: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(125, 211, 252, 0.1);
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  line-height: 1.6;
+}
+
+.callout-note.warn {
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.26);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.number-safe,
+.summary-value,
+.forecast-value,
+.total-value,
+.yield-value,
+.result-value,
+.wallet-value,
+.tx-amount,
+.tx-id,
+.amount {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.scroll-x,
+.table-container {
+  overflow-x: auto;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+}
+
+textarea {
+  min-height: 170px;
+}
+
+@media (max-width: 720px) {
+  .demo-hero,
+  .demo-panel,
+  .app-frame {
+    padding: 1rem;
+  }
+
+  .demo-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .results-container {
+    grid-template-columns: 1fr;
+  }
+}

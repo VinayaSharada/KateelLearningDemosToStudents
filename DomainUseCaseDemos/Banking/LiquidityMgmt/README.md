@@ -1,29 +1,44 @@
-# Liquidity Management Demo
+# Liquidity Management
 
 ## Overview
 
-This folder contains a synthetic-data-based liquidity management demo for banking and treasury learning. It helps students understand how inflows, outflows, transaction timing, and operating variability affect liquidity position and managerial decision-making.
+This demo now supports two practical modes:
 
-The demo is useful for courses covering BFSI operations, treasury analytics, risk awareness, and AI-assisted financial analysis.
+- `Colab`: notebook-based teaching and analytics
+- `Local`: script-based execution for full control
 
-## Files in This Folder
+A browser version is possible later, but the current simulation-heavy workflow is best served by Colab or local Python so students can see the real compute path clearly.
 
-- `generate_synthetic_liquidity_data.py` generates transaction-level liquidity data
-- `liquidity_monte_carlo_simulation.py` runs the main analysis and simulation workflow
-- `generate_synthetic_liquidity_data.ipynb` notebook version of data generation
-- `liquidity_monte_carlo_simulation.ipynb` notebook version of analysis
-- `requirements.txt` local dependencies
-- `setup_env.sh` environment setup helper
-- `liquidity_analysis_report.txt` sample output report
+## Files
 
-## What Students Learn
+- `index.html`: launch page with mode guidance
+- `about.html`: teaching guide
+- `colab_demo.ipynb`: Colab-ready notebook variant
+- `generate_synthetic_liquidity_data.py`: local transaction generator
+- `liquidity_monte_carlo_simulation.py`: local simulation and reporting script
+- `generate_synthetic_liquidity_data.ipynb`: existing notebook asset
+- `liquidity_monte_carlo_simulation.ipynb`: existing notebook asset
+- `requirements.txt`: local dependencies
 
-- inflow and outflow behavior in a banking context
-- cash-flow variability and stress thinking
-- scenario analysis using simulation
-- how treasury-style analytics can support decision-making
+## Recommended Mode
 
-## How To Run
+- Use `Colab` when students should run the workflow with minimal setup.
+- Use `Local` when students need to inspect or extend the scripts directly.
+
+## Colab Mode
+
+Open `colab_demo.ipynb` in Google Colab.
+
+The notebook includes:
+
+- lightweight package install
+- synthetic transaction generation
+- daily net-flow aggregation
+- Monte Carlo liquidity forecasting
+- risk metrics like mean outcome, VaR, and shortfall probability
+- classroom-friendly charts
+
+## Local Mode
 
 ### 1. Install dependencies
 
@@ -39,27 +54,22 @@ pip install -r requirements.txt
 python generate_synthetic_liquidity_data.py
 ```
 
-### 3. Run the simulation / analysis
+### 3. Run the simulation
 
 ```powershell
 python liquidity_monte_carlo_simulation.py
 ```
 
-You can also explore the notebook files for a step-by-step walkthrough.
+## What Students Learn
 
-## Course Relevance
+- how inflow and outflow timing affects liquidity
+- why volatility matters in addition to averages
+- how Monte Carlo forecasts create a distribution of outcomes
+- how treasury-style liquidity metrics support decision-making
 
-This demo is a strong companion for:
+## Suggested Extensions
 
-- financial operations analytics
-- risk and regulation discussions
-- treasury and liquidity management concepts
-- model governance conversations where decision support and assumptions matter
-
-## Suggested Student Extensions
-
-- change transaction distributions and compare the liquidity profile
-- add early warning thresholds for low-liquidity days
-- compare normal conditions with stressed market conditions
-- add a dashboard or daily monitoring summary
-- extend the model to include funding cost or regulatory limits
+- compare baseline and stressed flow distributions
+- add minimum-liquidity thresholds and alerts
+- change forecast horizon and simulation count
+- add funding-cost or buffer-policy assumptions

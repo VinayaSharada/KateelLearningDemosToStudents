@@ -12,6 +12,10 @@ const resultSection = document.getElementById('resultSection');
 const traditionalResult = document.getElementById('traditionalResult');
 const aiResult = document.getElementById('aiResult');
 
+function syncPromptVisibility() {
+  promptSection.classList.toggle('hidden', !aiToggle.checked);
+}
+
 // Parse CSV data
 function parseCSV(csvText) {
   const lines = csvText.trim().split('\n');
@@ -83,21 +87,32 @@ function getAIAnalysis(csvText, focus) {
 }
 
 analyzeBtn.addEventListener('click', function() {
-  const csv = dataInput.value;
+  const csv = dataInput.value.trim();
   const useAI = aiToggle.checked;
   const focus = analysisPrompt.value;
-  
-  // Traditional result
-  traditionalResult.innerHTML = getTraditionalAnalysis(csv);
-  
-  // AI result
-  if (useAI) {
-    aiResult.innerHTML = getAIAnalysis(csv, focus);
+
+  if (!csv) {
+    traditionalResult.innerHTML = '<p>Please paste a CSV dataset before running the analysis.</p>';
+    aiResult.innerHTML = '<p>No AI interpretation generated because there is no dataset yet.</p>';
+    resultSection.classList.remove('hidden');
+    return;
   }
-  
+
+  try {
+    traditionalResult.innerHTML = getTraditionalAnalysis(csv);
+    aiResult.innerHTML = useAI
+      ? getAIAnalysis(csv, focus)
+      : '<p>AI interpretation is turned off. Use the traditional analysis to explain the dataset manually.</p>';
+  } catch (error) {
+    traditionalResult.innerHTML = '<p>Unable to parse this CSV. Check that the first row contains column headers and later rows contain comma-separated values.</p>';
+    aiResult.innerHTML = `<p>Parsing error: ${error.message}</p>`;
+  }
+
   resultSection.classList.remove('hidden');
 });
 
 aiToggle.addEventListener('change', function() {
-  promptSection.classList.toggle('hidden', !this.checked);
+  syncPromptVisibility();
 });
+
+syncPromptVisibility();

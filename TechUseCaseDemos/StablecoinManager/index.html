@@ -1,101 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>StablecoinManager - KateelLearningDemos</title>
-  <meta name="description" content="Interactive demo for StablecoinManager.">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
-  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-V672XGCRSK');</script>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --primary: #3b82f6; --dark: #0f172a; --darker: #1e293b; --card: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.1); --text: #e2e8f0; --text-muted: #94a3b8; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%); color: var(--text); min-height: 100vh; line-height: 1.6; }
-    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-    .hero { text-align: center; padding: 3rem 2rem; }
-    .hero h1 { font-size: 2.5rem; color: #fff; margin-bottom: 1rem; }
-    .hero p { color: var(--text-muted); max-width: 700px; margin: 0 auto 2rem; }
-    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
-    .info-card h2 { color: var(--primary); margin-bottom: 1rem; }
-    .info-card ul { color: var(--text-muted); margin-left: 1.5rem; }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
-    .btn-primary { display: inline-block; background: var(--primary); color: #fff; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
-    .btn-secondary { display: inline-block; background: transparent; color: var(--text); padding: 1rem 2rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border); }
-    footer { text-align: center; padding: 3rem 2rem; color: var(--text-muted); font-size: 0.875rem; }
-    footer a { color: var(--primary); text-decoration: none; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stablecoin Manager - KateelLearningDemos</title>
+  <meta name="description" content="Browser-based stablecoin treasury allocation demo showing yield trade-offs across lending, DEX, and cash reserves.">
   <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
-  <link rel="stylesheet" href="../../assets/site.css">
-  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a class="brand" href="../..">KateelLearningDemos</a>
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
     <div class="nav-links">
-      <a class="nav-link" href="../..">Home</a>
-      <details class="nav-dropdown">
-  <summary class="nav-link">Courses</summary>
-  <div class="dropdown-content" role="menu">
-    <a class="dropdown-link active" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
-      <a class="dropdown-link" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
-      <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
-      <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
-      <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
-      <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
-      <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
-      <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
-  </div>
-</details>
+      <a class="nav-link" href="../../index.html">Home</a>
       <a class="nav-link" href="about.html">About Demo</a>
       <a class="nav-link" href="../../courses/treasury-management.html">Treasury</a>
-      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
-      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+      <a class="nav-link nav-cta" href="README.md">README</a>
     </div>
   </div>
 </nav>
-  
-  
-  <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> You are on the interactive demo. Use the <a href="about.html">About Demo</a> page for learning objectives, theory, usage steps, and assessment prompts.
-  </div>
-  <div class="container">
-    <section class="hero">
-      <h1>StablecoinManager</h1>
-      <p>Interactive demo for StablecoinManager.</p>
+<div class="demo-context-strip" role="note">
+  <strong>About vs. Demo:</strong> This page is the live simulator. Use <a href="about.html">About Demo</a> for the teaching guide.
+</div>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Digital Treasury • Browser Mode • 10-15 min</p>
+    <h1>Stablecoin Manager</h1>
+    <p class="demo-lede">Students can rebalance a stablecoin treasury across lending, DEX liquidity, and idle cash to understand the trade-off between yield, flexibility, and risk.</p>
+    <div class="tag-row">
+      <span class="tag">Runs fully in browser</span>
+      <span class="tag">Configurable allocations</span>
+      <span class="tag">Optional AI explanation</span>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>What this demo is about</h3>
+        <p>Treasury teams holding stablecoins need to optimize return without sacrificing redemption capacity or policy compliance.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Learning objectives</h3>
+        <ul class="plain-list">
+          <li>Compare conservative, balanced, and aggressive allocation profiles.</li>
+          <li>Connect asset mix to weighted portfolio yield.</li>
+          <li>Discuss why higher yield is not always the best treasury choice.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <h2>How to use the demo</h2>
+    <div class="steps-grid">
+      <article class="mini-panel">
+        <h3>Step 1</h3>
+        <p>Select a profile and decide whether to show AI commentary.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 2</h3>
+        <p>Adjust the three allocation sliders to test custom mixes.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 3</h3>
+        <p>Interpret the portfolio yield and discuss reserve readiness.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="app-frame">
+    <section>
+      <h2>Input Variables</h2>
+      <div class="control-row">
+        <div class="control-group">
+          <label for="scenarioSelect">Allocation profile</label>
+          <select id="scenarioSelect">
+            <option value="conservative">Conservative</option>
+            <option value="balanced" selected>Balanced</option>
+            <option value="aggressive">Aggressive</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="aiToggle">Enable AI commentary</label>
+          <input id="aiToggle" type="checkbox" checked>
+        </div>
+      </div>
+      <div class="helper-note">
+        The sliders below represent the share of treasury funds placed into each bucket. This simplified model assumes a fixed total treasury value.
+      </div>
     </section>
-    
-    <div class="info-card">
-      <h2>🚀 Getting Started</h2>
-      <p>This demo requires local execution. Follow these steps:</p>
-      <ul style="margin-top: 1rem;">
-        <li><strong>1.</strong> Clone the repository: <code>git clone https://github.com/VinayaSharada/KateelLearningDemosToStudents.git</code></li>
-        <li><strong>2.</strong> Navigate to this demo folder</li>
-        <li><strong>3.</strong> Read the README.md for setup instructions</li>
-        <li><strong>4.</strong> Install required dependencies</li>
-        <li><strong>5.</strong> Run the demo locally</li>
-      </ul>
-    </div>
-    
-    <div class="info-card">
-      <h2>📋 Key Features</h2>
-      <ul>
-        <li>Interactive browser-based interface</li>
-        <li>No cloud services required</li>
-        <li>Open-source and free to use</li>
-        <li>Customizable for your courses</li>
-      </ul>
-    </div>
-    
-    <div class="cta-buttons">
-      <a href="../../README.md" class="btn-primary">View README</a>
-      <a href="../../courses/treasury-management.html" class="btn-secondary">View Course Path</a>
-    </div>
-    
-    <footer>
-      <p>Attribution: vinallcontact@gmail.com | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">View on GitHub</a></p>
-    </footer>
-  </div>
+
+    <section>
+      <h2>Portfolio Base</h2>
+      <div class="total-holdings">
+        <div class="total-value number-safe">$42,500,000</div>
+        <div class="total-label">Total stablecoin treasury</div>
+      </div>
+      <div class="asset-grid">
+        <article class="asset-item">
+          <span class="asset-symbol">LEND</span>
+          <span class="asset-pct" id="lendingPctVal">60%</span>
+        </article>
+        <article class="asset-item">
+          <span class="asset-symbol">DEX</span>
+          <span class="asset-pct" id="dexPctVal">25%</span>
+        </article>
+        <article class="asset-item">
+          <span class="asset-symbol">CASH</span>
+          <span class="asset-pct" id="cashPctVal">15%</span>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Allocation Controls</h2>
+      <div class="control-row">
+        <div class="alloc-control">
+          <label for="lendingPct">Lending allocation</label>
+          <input id="lendingPct" type="range" min="0" max="100" step="5" value="60">
+          <span>Base lending yield: 3.2%</span>
+        </div>
+        <div class="alloc-control">
+          <label for="dexPct">DEX liquidity allocation</label>
+          <input id="dexPct" type="range" min="0" max="100" step="5" value="25">
+          <span>Base DEX yield: 2.8%</span>
+        </div>
+        <div class="alloc-control">
+          <label for="cashPct">Cash reserve allocation</label>
+          <input id="cashPct" type="range" min="0" max="100" step="5" value="15">
+          <span>Cash reserve yield: 0.0%</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Decision Buttons</h2>
+      <div class="actions-section">
+        <button class="btn" id="resetBtn" type="button">Reset Mix</button>
+        <button class="btn" id="exportBtn" type="button">Export Snapshot</button>
+      </div>
+      <div class="helper-note">
+        <strong>Reset Mix</strong> restores the balanced profile. <strong>Export Snapshot</strong> downloads the current allocation and yield summary.
+      </div>
+    </section>
+
+    <section>
+      <h2>Output and Explanation</h2>
+      <div class="yield-grid">
+        <article class="yield-card">
+          <div class="yield-label">Weighted portfolio yield</div>
+          <div class="yield-value number-safe" id="totalYield">2.6%</div>
+        </article>
+        <article class="yield-card total">
+          <div class="yield-label">Annual yield value</div>
+          <div class="yield-value number-safe" id="totalYieldAmount">$1,094,000</div>
+          <div class="yield-amount">Based on current allocations</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ai-section">
+      <h2>What to Notice</h2>
+      <p class="ai-insight" id="aiRecommendation">Balanced profile: good risk-adjusted returns for a treasury portfolio.</p>
+      <div class="helper-note">
+        Most likely takeaway: yield climbs when more funds move into earning assets, but redemption readiness falls if cash buffers get too thin.
+      </div>
+    </section>
+  </section>
+</main>
 </body>
 </html>

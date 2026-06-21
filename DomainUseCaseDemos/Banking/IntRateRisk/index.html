@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interest Rate Risk - KateelLearningDemos</title>
+  <meta name="description" content="Browser-based interest rate risk demo with synthetic deposit mix, shock testing, and repricing insights.">
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <link rel="stylesheet" href="../../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../../courses/banking.html">Banking</a>
+      <a class="nav-link nav-cta" href="README.md">README</a>
+    </div>
+  </div>
+</nav>
+<div class="demo-context-strip" role="note">
+  <strong>Run modes:</strong> This page is the browser variant. The same folder now also supports <a href="colab_demo.ipynb">Colab</a> and local Python.
+</div>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Banking Risk • Browser Mode • 10-15 min</p>
+    <h1>Interest Rate Risk</h1>
+    <p class="demo-lede">Explore how a synthetic banking portfolio reacts to interest-rate shocks by changing the account mix, portfolio size, and repricing assumptions directly in the browser.</p>
+    <div class="tag-row">
+      <span class="tag">Runs fully in browser</span>
+      <span class="tag">Colab notebook available</span>
+      <span class="tag">Local Python still supported</span>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>What this demo is about</h3>
+        <p>Interest-rate risk is driven by balance size, product mix, and how quickly those balances reprice when market rates move.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Learning objectives</h3>
+        <ul class="plain-list">
+          <li>Understand how account mix changes repricing exposure.</li>
+          <li>Estimate how a rate shock changes annual interest cost.</li>
+          <li>Identify which balance categories deserve management attention first.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <h2>Available Modes</h2>
+    <div class="mode-grid">
+      <article class="mini-panel">
+        <h3>Browser</h3>
+        <p>Fastest classroom mode for instant shock testing and concept explanation.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Colab</h3>
+        <p>Best for a guided notebook workflow with Python, pandas, and charts.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Local Python</h3>
+        <p>Best for editing the generators and analysis scripts directly.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="app-shell">
+    <div class="section-grid">
+      <section class="card">
+        <h2>Input Variables</h2>
+        <div class="field-group">
+          <div class="field">
+            <label for="accountCount">Synthetic accounts</label>
+            <input id="accountCount" type="number" min="200" step="100">
+          </div>
+          <div class="field">
+            <label for="portfolioCrore">Total portfolio size (INR crore)</label>
+            <input id="portfolioCrore" type="number" min="50" step="10">
+          </div>
+          <div class="field">
+            <label for="rateShock">Rate shock (basis points)</label>
+            <input id="rateShock" type="range" min="-200" max="300" step="25">
+            <span id="rateShockValue">100 bps</span>
+          </div>
+          <label class="toggle" for="aiToggle">
+            <input id="aiToggle" type="checkbox" checked>
+            <span>Enable AI-style interpretation</span>
+          </label>
+        </div>
+        <p class="helper">Step 1: set the portfolio scale and the size of the rate move you want students to test.</p>
+      </section>
+
+      <section class="card">
+        <h2>Deposit Mix</h2>
+        <div class="mix-grid">
+          <div class="mix-item">
+            <label for="mixSavings">Savings</label>
+            <input id="mixSavings" type="range" min="0" max="100" step="1">
+            <div class="mix-meta"><span>Retail deposit base</span><strong id="mixSavingsValue">18%</strong></div>
+          </div>
+          <div class="mix-item">
+            <label for="mixCurrent">Current</label>
+            <input id="mixCurrent" type="range" min="0" max="100" step="1">
+            <div class="mix-meta"><span>Operating balances</span><strong id="mixCurrentValue">22%</strong></div>
+          </div>
+          <div class="mix-item">
+            <label for="mixFixed">Fixed Deposit</label>
+            <input id="mixFixed" type="range" min="0" max="100" step="1">
+            <div class="mix-meta"><span>Higher carry sensitivity</span><strong id="mixFixedValue">45%</strong></div>
+          </div>
+          <div class="mix-item">
+            <label for="mixRecurring">Recurring Deposit</label>
+            <input id="mixRecurring" type="range" min="0" max="100" step="1">
+            <div class="mix-meta"><span>Steady contributions</span><strong id="mixRecurringValue">15%</strong></div>
+          </div>
+        </div>
+        <p class="helper">Step 2: change the account-type mix. The sliders can sum above or below 100%; the browser model normalizes them automatically. Current total: <strong id="mixTotal">100%</strong>.</p>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Decision Buttons</h2>
+      <div class="button-row">
+        <button id="buildPortfolioBtn" class="button-primary" type="button">Build Portfolio</button>
+        <button id="exportCsvBtn" class="button-secondary" type="button">Export CSV</button>
+        <button id="resetPortfolioBtn" class="button-secondary" type="button">Reset Inputs</button>
+      </div>
+      <p class="helper"><strong>Build Portfolio</strong> regenerates the synthetic balance book. <strong>Export CSV</strong> downloads the browser-generated portfolio. <strong>Reset Inputs</strong> returns the classroom baseline.</p>
+    </section>
+
+    <section class="metric-grid">
+      <article class="metric-card">
+        <div class="metric-label">Total exposure</div>
+        <div class="metric-value" id="totalExposure">₹0</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-label">Weighted average rate</div>
+        <div class="metric-value" id="weightedRate">0.00%</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-label">Current annual interest</div>
+        <div class="metric-value good" id="currentInterest">₹0</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-label">Post-shock annual interest</div>
+        <div class="metric-value warn" id="shockedInterest">₹0</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-label">Shock delta</div>
+        <div class="metric-value alert" id="deltaInterest">₹0</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-label">Largest repricing driver</div>
+        <div class="metric-value" id="largestRisk">None yet</div>
+      </article>
+    </section>
+
+    <div class="chart-grid">
+      <section class="chart-card">
+        <h3>Exposure by Account Type</h3>
+        <div id="exposureBars" class="bars"></div>
+      </section>
+      <section class="chart-card">
+        <h3>Interest Rate Distribution</h3>
+        <div id="rateHistogram" class="histogram"></div>
+      </section>
+    </div>
+
+    <section class="table-card">
+      <h3>Output and Explanations</h3>
+      <table class="rate-table">
+        <thead>
+          <tr>
+            <th>Account type</th>
+            <th>Accounts</th>
+            <th>Exposure</th>
+            <th>Avg. rate</th>
+            <th>Shock delta</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody id="accountTypeTable"></tbody>
+      </table>
+    </section>
+
+    <section class="insight-box">
+      <strong>What to notice</strong>
+      <p id="aiInsight">Build the portfolio to see which deposit category dominates repricing risk.</p>
+    </section>
+
+    <div class="mode-note">
+      <span class="status-badge" id="modeStatus">Browser variant active</span>
+      <span class="status-badge"><a href="colab_demo.ipynb">Open Colab-ready notebook</a></span>
+      <span class="status-badge"><a href="generate_synthetic_data.py">View local generator</a></span>
+    </div>
+  </section>
+</main>
+</body>
+</html>
