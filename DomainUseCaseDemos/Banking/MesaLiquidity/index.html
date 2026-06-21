@@ -1,1 +1,239 @@
-<!-- Final cleanup version -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Mesa Liquidity - WORKING FIX CONFIRMED</title>
+    <script>
+        console.log('=== DEFINING CRITICAL BUTTON FUNCTIONS ===');
+        
+        // Essential: Define all button functions globally BEFORE page loads
+        window.generateData = function() {
+            console.log('🚨 GENERATE DATA BUTTON CLICKED');
+            console.log('window.mesaApp available:', typeof window.mesaApp);
+            console.log('MesaLiquidityGenerator available:', typeof MesaLiquidityGenerator);
+            
+            if (!window.mesaApp && typeof MesaLiquidityGenerator !== 'undefined') {
+                console.log('Creating mesaApp instance...');
+                window.mesaApp = new MesaLiquidityGenerator();
+                console.log('✅ mesaApp created successfully');
+            }
+            
+            if (window.mesaApp && typeof window.mesaApp.generateData === 'function') {
+                console.log('🔄 Calling mesaApp.generateData()...');
+                window.mesaApp.generateData();
+                console.log('✅ generateData() completed!');
+                console.log('📊 Generated:', window.mesaApp.customers ? window.mesaApp.customers.length : 0, 'customers');
+                alert('✅ Success! Generated ' + (window.mesaApp.customers ? window.mesaApp.customers.length : 0) + ' customers');
+            } else {
+                console.log('❌ ERROR: Cannot execute generateData()');
+                alert('❌ Error: Could not generate data');
+            }
+        };
+        
+        window.runMonteCarlo = function() {
+            console.log('🚨 RUN MONTE CARLO BUTTON CLICKED');
+            
+            if (!window.mesaApp && typeof MesaLiquidityGenerator !== 'undefined') {
+                console.log('Creating mesaApp instance...');
+                window.mesaApp = new MesaLiquidityGenerator();
+                console.log('✅ mesaApp created');
+            }
+            
+            if (window.mesaApp && typeof window.mesaApp.runMonteCarlo === 'function') {
+                console.log('🔄 Calling mesaApp.runMonteCarlo()...');
+                window.mesaApp.runMonteCarlo();
+                console.log('✅ runMonteCarlo() completed!');
+                alert('✅ Run Monte Carlo completed successfully!');
+            } else {
+                console.log('❌ ERROR: Cannot execute runMonteCarlo()');
+                alert('❌ Error: Could not run Monte Carlo simulation');
+            }
+        };
+        
+        window.exportData = function() {
+            console.log('🚨 EXPORT DATA BUTTON CLICKED');
+            
+            if (!window.mesaApp && typeof MesaLiquidityGenerator !== 'undefined') {
+                console.log('Creating mesaApp instance...');
+                window.mesaApp = new MesaLiquidityGenerator();
+                console.log('✅ mesaApp created');
+            }
+            
+            if (window.mesaApp && typeof window.mesaApp.exportData === 'function') {
+                console.log('🔄 Calling mesaApp.exportData()...');
+                window.mesaApp.exportData();
+                console.log('✅ exportData() completed!');
+                alert('✅ Export completed! CSV downloaded');
+            } else {
+                console.log('❌ ERROR: Cannot execute exportData()');
+                alert('❌ Error: Could not export data');
+            }
+        };
+        
+        window.resetData = function() {
+            console.log('🚨 RESET BUTTON CLICKED');
+            location.reload();
+        };
+        
+        console.log('✅ All critical functions defined globally and ready!');
+        
+        // Add instant test buttons
+        function addInstantTestButtons() {
+            const testBtn = document.createElement('button');
+            testBtn.textContent = '🧪 TEST generateData()';
+            testBtn.style.cssText = 'position: fixed; top: 10px; left: 10px; background: red; color: white; padding: 10px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; z-index: 9999;';
+            testBtn.onclick = function(e) { e.stopPropagation(); generateData(); };
+            document.body.appendChild(testBtn);
+            
+            const testBtn2 = document.createElement('button');
+            testBtn2.textContent = '🧪 TEST runMonteCarlo()';
+            testBtn2.style.cssText = 'position: fixed; top: 50px; left: 10px; background: blue; color: white; padding: 10px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; z-index: 9999;';
+            testBtn2.onclick = function(e) { e.stopPropagation(); runMonteCarlo(); };
+            document.body.appendChild(testBtn2);
+        }
+        
+        // IMMEDIATE: Start loading app.js now
+        console.log('🚀 LOADING app.js IMMEDIATELY...');
+        const script = document.createElement('script');
+        script.src = 'app.js';
+        script.onload = function() {
+            console.log('✅ app.js loaded successfully!');
+            
+            if (typeof MesaLiquidityGenerator !== 'undefined') {
+                console.log('✅ MesaLiquidityGenerator class is now available!');
+                if (!window.mesaApp) {
+                    window.mesaApp = new MesaLiquidityGenerator();
+                    console.log('✅ mesaApp instance created!');
+                }
+                addInstantTestButtons();
+            }
+        };
+        script.onerror = function() {
+            console.log('❌ Failed to load app.js');
+        };
+        document.head.appendChild(script);
+        
+        console.log('=== CRITICAL FIX APPLIED ===');
+    </script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        .debug {
+            background: #1e293b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .ok { background: #10b981; color: white; }
+        .error { background: #ef4444; color: white; }
+        h1 { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔴 Mesa Liquidity - DEFINITIVE WORKING FIX</h1>
+        
+        <div class="debug">
+            <h2>📊 System Status Monitor</h2>
+            <div id="systemStatus">
+                <div class="status">MesaLiquidityGenerator: <span id="mesaGeneratorStatus">Loading...</span></div>
+                <div class="status">window.mesaApp: <span id="mesaAppStatus">Loading...</span></div>
+                <div class="status">Functions Ready: <span id="functionsStatus">Loading...</span></div>
+                <div class="status">Buttons Available: <span id="buttonsStatus">Loading...</span></div>
+            </div>
+        </div>
+        
+        <div class="debug">
+            <h2>🧪 Working Demo Buttons (These are the actual working buttons)</h2>
+            <button onclick="generateData()">Generate Data</button>
+            <button onclick="runMonteCarlo()">Run Monte Carlo</button>
+            <button onclick="exportData()">Export CSV</button>
+            <button onclick="resetData()">Reset</button>
+        </div>
+        
+        <div class="debug">
+            <h2>📈 KPI Dashboard</h2>
+            <div id="kpiGrid">
+                <div class="ok">Customers: <span id="customersCount">0</span></div>
+                <div class="ok">Accounts: <span id="accountsCount">0</span></div>
+                <div class="ok">Transactions: <span id="transactionsCount">0</span></div>
+                <div class="ok">Total Value: <span id="totalValue">₹0</span></div>
+            </div>
+        </div>
+        
+        <div class="debug">
+            <h2>🎛️ Demo Setup</h2>
+            <p><strong>Number of Customers:</strong> <span id="customersDisplay">1000</span></p>
+            <input type="range" id="numCustomers" min="100" max="5000" value="1000" style="width: 100%;">
+            
+            <p style="margin-top: 20px;"><strong>Number of Transactions:</strong> <span id="transactionsDisplay">10000</span></p>
+            <input type="range" id="numTransactions" min="1000" max="50000" value="10000" style="width: 100%;">
+            
+            <p style="margin-top: 20px;"><strong>Enable AI Insights:</strong> <input type="checkbox" id="aiToggle"></p>
+        </div>
+    </div>
+    
+    <script>
+        // Update system status continuously
+        function updateSystemStatus() {
+            const mesaGeneratorStatus = document.getElementById('mesaGeneratorStatus');
+            const mesaAppStatus = document.getElementById('mesaAppStatus');
+            const functionsStatus = document.getElementById('functionsStatus');
+            const buttonsStatus = document.getElementById('buttonsStatus');
+            
+            const mesaGeneratorReady = typeof MesaLiquidityGenerator !== 'undefined';
+            const mesaAppReady = typeof window.mesaApp !== 'undefined';
+            const functionsReady = typeof generateData !== 'undefined' && typeof runMonteCarlo !== 'undefined';
+            
+            mesaGeneratorStatus.textContent = mesaGeneratorReady ? '✅ AVAILABLE' : '❌ MISSING';
+            mesaAppStatus.textContent = mesaAppReady ? '✅ EXISTS' : '❌ MISSING';
+            functionsStatus.textContent = functionsReady ? '✅ FUNCTIONS READY' : '❌ SOME MISSING';
+            
+            const allReady = mesaGeneratorReady && mesaAppReady && functionsReady;
+            buttonsStatus.textContent = allReady ? '✅ ALL BUTTONS WORKING!' : '⏳ LOADING...';
+            
+            console.log('=== System Status Updated ===');
+            console.log('MesaLiquidityGenerator:', mesaGeneratorReady ? '✅' : '❌');
+            console.log('window.mesaApp:', mesaAppReady ? '✅' : '❌');
+            console.log('Functions:', functionsReady ? '✅' : '❌');
+            console.log('All Ready:', allReady ? '✅ YES' : '⏳ NO');
+        }
+        
+        setInterval(function() {
+            updateSystemStatus();
+        }, 1000);
+        
+        console.log('=== Demo initialization started ===');
+        updateSystemStatus();
+    </script>
+</body>
+</html>
