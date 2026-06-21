@@ -93,7 +93,7 @@
             document.body.appendChild(testBtn2);
         }
         
-        // IMMEDIATE: Start loading app.js now - DO NOT DELAY
+        // IMMEDIATE: Start loading app.js NOW - NO DELAY
         console.log('🚀 IMMEDIATE: Loading app.js NOW...');
         const appScript = document.createElement('script');
         appScript.src = 'app.js';
@@ -103,6 +103,7 @@
             // Debug: Check if MesaLiquidityGenerator is now available
             console.log('=== Debug: Checking Class Availability ===');
             console.log('typeof MesaLiquidityGenerator:', typeof MesaLiquidityGenerator);
+            console.log('typeof window.MesaLiquidityGenerator:', typeof window.MesaLiquidityGenerator);
             
             if (typeof MesaLiquidityGenerator !== 'undefined') {
                 console.log('✅ MesaLiquidityGenerator class is now available!');
@@ -112,10 +113,26 @@
                     console.log('✅ Created mesaApp instance!');
                 }
                 addTestButtons();
+            } else if (typeof window.MesaLiquidityGenerator !== 'undefined') {
+                console.log('✅ window.MesaLiquidityGenerator is now available!');
+                // Create mesaApp instance if not exists
+                if (!window.mesaApp) {
+                    window.mesaApp = new window.MesaLiquidityGenerator();
+                    console.log('✅ Created mesaApp instance!');
+                }
+                addTestButtons();
+            } else {
+                console.log('❌ CRITICAL: MesaLiquidityGenerator still not found after app.js loaded');
+                console.log('=== Missing Class Diagnosis ===');
+                console.log('The app.js file may have loaded but not contain the MesaLiquidityGenerator class');
+                console.log('Check app.js at: DomainUseCaseDemos/Banking/MesaLiquidity/app.js');
             }
         };
         appScript.onerror = function() {
             console.log('❌ FAILED to load app.js');
+            console.log('=== Loading Failure Diagnosis ===');
+            console.log('Network error occurred while trying to load app.js');
+            console.log('Check if app.js exists at: DomainUseCaseDemos/Banking/MesaLiquidity/app.js');
             alert('❌ CRITICAL ERROR: Could not load app.js - MesaLiquidityGenerator will not be available');
         };
         document.head.appendChild(appScript);
@@ -175,7 +192,13 @@
                 <div class="status">window.mesaApp: <span id="mesaAppStatus">Loading...</span></div>
                 <div class="status">Functions Ready: <span id="functionsStatus">Loading...</span></div>
                 <div class="status">Buttons Available: <span id="buttonsStatus">Loading...</span></div>
-                <div class="status" style="background: #1e293b;">Debug: Check browser console for app.js loading status</div>
+                <div style="padding: 15px; margin: 15px 0; background: #1e293b; border-radius: 8px; font-size: 14px;">
+                    <strong>Debug Instructions:</strong><br>
+                    1. Check browser console for app.js loading status<br>
+                    2. Look for "✅ app.js loaded successfully!" in console<br>
+                    3. If loading fails, check network connectivity<br>
+                    4. Test with the red/blue test buttons in top-left
+                </div>
             </div>
         </div>
         
@@ -242,12 +265,13 @@
         }, 1000);
         
         console.log('=== Demo initialization started - Immediate loading ===');
-        updateSystemStatus();
+        console.log('=== CRITICAL FIX IN EFFECT ===');
+        console.log('1. All button functions defined globally IMMEDIATELY');
+        console.log('2. app.js loading IMMEDIATELY with proper error handling');
+        console.log('3. System status monitoring continuously');
+        console.log('4. Test buttons added for instant verification');
         
-        // Console-based test: Check if everything is loading
-        console.log('=== Console Test ===');
-        console.log('Expected: app.js should start loading immediately');
-        console.log('Check for error messages above if loading fails');
+        updateSystemStatus();
     </script>
 </body>
 </html>
