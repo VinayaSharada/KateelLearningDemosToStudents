@@ -16,7 +16,9 @@
     gtag('config', 'G-V672XGCRSK');
   </script>
   <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/catalog.js"></script>
   <script defer src="assets/site.js"></script>
+  <script defer src="assets/portal.js"></script>
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -24,6 +26,9 @@
     <a class="brand" href="./">KateelLearningDemos</a>
     <div class="nav-links">
       <a class="nav-link" href="./">Home</a>
+      <a class="nav-link" href="browse/index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="Assignments/index.html" data-kld-nav="assignments">Assignments</a>
       <details class="nav-dropdown">
   <summary class="nav-link">Courses</summary>
   <div class="dropdown-content" role="menu">
@@ -45,26 +50,51 @@
     <section class="site-hero landing-hero">
       <p class="hero-eyebrow">Browser-based AI/ML demos for students, faculty & practitioners</p>
       <h1>Kateel Learning Demos</h1>
-      <p class="hero-subtitle">A cleaner, about-first GitHub Pages experience: read the learning guide, launch the interactive demo, then reflect on the result. Zero cloud setup. Zero API keys. Built for classroom use.</p>
+      <p class="hero-subtitle">A curated GitHub Pages learning platform for demos, course packs, and classroom-ready walkthroughs. Start with About, launch only when the run mode fits, and use GitHub for the deeper library.</p>
       <div class="pill-row">
-        <span class="pill">94+ demos</span>
-        <span class="pill">8 course paths</span>
+        <span class="pill"><span data-kld-curated-demos>94</span> curated demos</span>
+        <span class="pill"><span data-kld-course-packs>8</span> course packs</span>
         <span class="pill">No API keys</span>
-        <span class="pill">Attribution: vinallcontact@gmail.com</span>
+        <span class="pill"><span data-kld-run-modes>1</span> run-mode families</span>
       </div>
       <div class="cta-buttons">
-        <a class="btn btn-primary" href="#courses">Explore courses</a>
-        <a class="btn btn-secondary" href="DEMO_INDEX.md">Full demo index</a>
+        <a class="btn btn-primary" href="browse/index.html">Browse curated demos</a>
+        <a class="btn btn-secondary" href="course-packs/index.html">Open course packs</a>
         <a class="btn btn-soft" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">Star on GitHub</a>
       </div>
     </section>
 
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-value">94+</div><div class="stat-label">Interactive demos</div></div>
-      <div class="stat-card"><div class="stat-value">8</div><div class="stat-label">Course paths</div></div>
+      <div class="stat-card"><div class="stat-value" data-kld-curated-demos>94</div><div class="stat-label">Curated public demos</div></div>
+      <div class="stat-card"><div class="stat-value" data-kld-course-packs>8</div><div class="stat-label">Course packs</div></div>
       <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">API keys required</div></div>
-      <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Step learning flow</div></div>
+      <div class="stat-card"><div class="stat-value" data-kld-run-modes>1</div><div class="stat-label">Run-mode families</div></div>
     </div>
+
+    <section class="section" id="start-here">
+      <div class="section-header">
+        <p class="section-kicker">Better organization</p>
+        <h2>Choose the right entry path</h2>
+        <p>The public site is now being organized into clear surfaces so students do not have to infer structure from the raw repo.</p>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Browse Demos</h3>
+          <p>Cross-course discovery with filters for course, level, and run mode. Best when you want to find the right demo quickly.</p>
+          <div class="demo-actions"><a class="btn-mini" href="browse/index.html">Open demo catalog</a></div>
+        </article>
+        <article class="info-card">
+          <h3>Course Packs</h3>
+          <p>Teaching journeys that connect course pages, demo sequences, assignments, and supporting course-catalog materials.</p>
+          <div class="demo-actions"><a class="btn-mini" href="course-packs/index.html">Open course packs</a></div>
+        </article>
+        <article class="info-card highlight-card">
+          <h3>Repo Library</h3>
+          <p>Use GitHub for the full inventory, including local-only, partial, legacy, and supporting files that are not all public-first surfaces.</p>
+          <div class="demo-actions"><a class="btn-mini" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">Open GitHub repo</a></div>
+        </article>
+      </div>
+    </section>
 
     <section class="section" id="flow">
       <div class="section-header">
@@ -82,8 +112,8 @@
     <section class="section" id="courses">
       <div class="section-header">
         <p class="section-kicker">Course catalog</p>
-        <h2>Start by learning domain</h2>
-        <p>Each course page uses the same About Demo → Launch Demo flow.</p>
+        <h2>Course packs remain the teaching backbone</h2>
+        <p>Each course page now acts as a course pack inside the broader Pages UX: Home → Course Pack → About Demo → Launch Demo.</p>
       </div>
       <div class="course-grid">
         

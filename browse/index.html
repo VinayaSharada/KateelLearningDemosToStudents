@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse Demos - KateelLearningDemos</title>
+  <meta name="description" content="Browse the curated classroom-ready demo catalog by course, level, and run mode.">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script defer src="../assets/catalog.js"></script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/portal.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link active" href="./index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+<main class="container">
+  <section class="site-hero page-hero">
+    <p class="hero-eyebrow">Curated Demo Catalog</p>
+    <h1>Browse Demos</h1>
+    <p class="hero-subtitle">This is the canonical public catalog for the curated GitHub Pages experience. Use filters to find classroom-ready demos by course, level, and run mode.</p>
+    <div class="pill-row">
+      <span class="pill"><span data-kld-browse-demo-count>94</span> curated demos</span>
+      <span class="pill"><span data-kld-browse-course-count>8</span> course packs</span>
+      <span class="pill">About → Launch flow</span>
+      <span class="pill">Browser, Colab, Local, Multi-Mode</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Why this page exists</h3>
+        <p>Older manual indexes drifted out of sync with the real demo pages. This surface is meant to become the trusted public browsing layer.</p>
+      </article>
+      <article class="info-card">
+        <h3>How to use it</h3>
+        <p>Open the About page first for context, then launch the demo only when the run mode and expectations make sense for your class.</p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>What is included</h3>
+        <p>Only the curated GitHub Pages course-pack surface is included here. Legacy or partial repo assets can still live in GitHub without crowding student navigation.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="toolbar-card">
+      <div class="section-header left">
+        <p class="section-kicker">Filters</p>
+        <h2>Find the right demo faster</h2>
+        <p id="browseSummary">Loading curated demo catalog...</p>
+      </div>
+      <div class="filter-grid">
+        <label class="input-control">
+          <span>Search</span>
+          <input id="browseSearch" type="search" placeholder="Search by title, topic, cue, or mode">
+        </label>
+        <label class="input-control">
+          <span>Course</span>
+          <select id="browseCourse">
+            <option value="all">All course packs</option>
+          </select>
+        </label>
+        <label class="input-control">
+          <span>Level</span>
+          <select id="browseLevel">
+            <option value="all">All levels</option>
+          </select>
+        </label>
+        <label class="input-control">
+          <span>Run mode</span>
+          <select id="browseMode">
+            <option value="all">All modes</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div id="browseDemoGrid" class="demo-grid"></div>
+    <div id="browseEmpty" class="empty-state" hidden>No demos matched the current filters. Try a broader search or switch back to all run modes.</div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p><a href="../index.html">KateelLearningDemos</a> • Canonical curated demo catalog • <a href="../course-packs/index.html">Course Packs</a></p>
+</footer>
+</body>
+</html>

@@ -263,6 +263,12 @@ code { color: #bfdbfe; background: rgba(59, 130, 246, 0.16); padding: 0.12rem 0.
   margin: 0 auto 2rem;
 }
 
+.section-header.left {
+  text-align: left;
+  max-width: none;
+  margin: 0 0 1rem;
+}
+
 .section-header h2 {
   margin: 0;
   font-size: clamp(1.8rem, 4vw, 3.2rem);
@@ -442,12 +448,89 @@ code { color: #bfdbfe; background: rgba(59, 130, 246, 0.16); padding: 0.12rem 0.
   border-radius: var(--radius);
 }
 
+.toolbar-card {
+  padding: 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.input-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.input-control input,
+.input-control select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 0.9rem 1rem;
+  font: inherit;
+}
+
+.input-control input::placeholder {
+  color: #94a3b8;
+}
+
+.demo-card-rich {
+  min-height: 100%;
+}
+
+.card-eyebrow {
+  margin: 0.25rem 0 0;
+  color: #93c5fd !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.demo-badges,
+.resource-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.mode-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  background: rgba(59, 130, 246, 0.12);
+  color: #dbeafe;
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.course-pack-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 @media (max-width: 1050px) {
   .course-grid,
   .card-grid,
   .demo-grid,
   .stats-grid,
-  .learning-path {
+  .learning-path,
+  .filter-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .nav-inner { align-items: flex-start; flex-direction: column; padding: 0.8rem 0; }
@@ -462,7 +545,8 @@ code { color: #bfdbfe; background: rgba(59, 130, 246, 0.16); padding: 0.12rem 0.
   .demo-grid,
   .stats-grid,
   .learning-path,
-  .feature-grid { grid-template-columns: 1fr; }
+  .feature-grid,
+  .filter-grid { grid-template-columns: 1fr; }
   .site-hero h1 { letter-spacing: -0.05em; }
   .dropdown-content { left: 0; right: auto; }
 }

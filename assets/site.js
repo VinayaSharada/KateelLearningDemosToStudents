@@ -1,21 +1,58 @@
 /* KateelLearningDemos shared navigation, rating, and usage tracking */
 (function () {
+  function repoRoot() {
+    var script = document.currentScript;
+    if (!script || !script.src) return new URL("./", window.location.href).toString();
+    return new URL("../", script.src).toString();
+  }
+
   function ready(fn) {
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
     else fn();
   }
 
   ready(function () {
-  const path = window.location.pathname.replace(/\/$/, "");
-  document.querySelectorAll(".nav-link, .dropdown-content a").forEach(function (link) {
-    const href = link.getAttribute("href") || "";
-    if (!href.startsWith("http")) {
-      const linkPath = new URL(href, window.location.href).pathname.replace(/\/$/, "");
-      if (path.endsWith(linkPath)) {
-        link.classList.add("active");
+    var root = repoRoot();
+
+    document.querySelectorAll(".nav-links").forEach(function (container) {
+      if (!container.querySelector('[data-kld-nav="browse"]')) {
+        var browse = document.createElement("a");
+        browse.className = "nav-link";
+        browse.href = new URL("browse/index.html", root).toString();
+        browse.textContent = "Browse Demos";
+        browse.setAttribute("data-kld-nav", "browse");
+        container.appendChild(browse);
       }
-    }
-  });
+
+      if (!container.querySelector('[data-kld-nav="packs"]')) {
+        var packs = document.createElement("a");
+        packs.className = "nav-link";
+        packs.href = new URL("course-packs/index.html", root).toString();
+        packs.textContent = "Course Packs";
+        packs.setAttribute("data-kld-nav", "packs");
+        container.appendChild(packs);
+      }
+
+      if (!container.querySelector('[data-kld-nav="assignments"]')) {
+        var assignments = document.createElement("a");
+        assignments.className = "nav-link";
+        assignments.href = new URL("Assignments/index.html", root).toString();
+        assignments.textContent = "Assignments";
+        assignments.setAttribute("data-kld-nav", "assignments");
+        container.appendChild(assignments);
+      }
+    });
+
+    const path = window.location.pathname.replace(/\/$/, "");
+    document.querySelectorAll(".nav-link, .dropdown-content a").forEach(function (link) {
+      const href = link.getAttribute("href") || "";
+      if (!href.startsWith("http")) {
+        const linkPath = new URL(href, window.location.href).pathname.replace(/\/$/, "");
+        if (path.endsWith(linkPath)) {
+          link.classList.add("active");
+        }
+      }
+    });
 
     document.querySelectorAll(".launch-demo").forEach(function (link) {
       link.addEventListener("click", function () {
