@@ -1,216 +1,93 @@
-# KateelLearningDemosToStudents 🎓
+# KateelLearningDemosToStudents
 
-> **AI/ML Demos for Students, Faculty & Practitioners** | Zero API Keys | Zero Server | 100% Classroom-Ready
+Browser-based AI, machine learning, finance, risk, cybersecurity, and analytics demos for students, faculty, and practitioners. This repository powers the public [GitHub Pages site](https://vinayasharada.github.io/KateelLearningDemosToStudents/) and also includes broader course materials, assignments, and supporting assets for local or Colab-based learning where needed.
 
-[![License: Educational Use](https://img.shields.io/badge/License-Educational%20Use-yellow.svg)](https://opensource.org/licenses)
-[![Demos](https://img.shields.io/badge/Total%20Demos-63%2B-blue)](#)]
-[![Courses](https://img.shields.io/badge/Courses-7-blue)](#)]
-[![Browser-Based](https://img.shields.io/badge/Browser--Based-44%2B-green)](#)]
-[![Python](https://img.shields.io/badge/Python-20%2B-orange)](#)]
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-0f766e)](https://vinayasharada.github.io/KateelLearningDemosToStudents/)
+[![Curated demos](https://img.shields.io/badge/Curated%20Demos-94-2563eb)](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html)
+[![Course packs](https://img.shields.io/badge/Course%20Packs-8-d97706)](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html)
+[![Assignment packs](https://img.shields.io/badge/Assignment%20Packs-6-7c3aed)](https://vinayasharada.github.io/KateelLearningDemosToStudents/Assignments/index.html)
 
-**Author:** Professor Vinaya Sathyanarayana  
-**GitHub:** [@VinayaSharada](https://github.com/VinayaSharada)  
-**Contact:** [vinallcontact@gmail.com](mailto:vinallcontact@gmail.com)
+Created by **Professor Vinaya Sathyanarayana**  
+GitHub: [@VinayaSharada](https://github.com/VinayaSharada)  
+Contact: [vinallcontact@gmail.com](mailto:vinallcontact@gmail.com)
 
----
+## Start Here
 
-## 🚀 Quick Start
+- [GitHub Pages Home](https://vinayasharada.github.io/KateelLearningDemosToStudents/)
+- [Browse Demos](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html)
+- [Course Packs](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html)
+- [Assignments](https://vinayasharada.github.io/KateelLearningDemosToStudents/Assignments/index.html)
+- [GitHub Repository](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
 
-Get started in under 30 seconds:
+## What This Repository Contains
 
-```bash
-# Browser Demos - No Installation Required
-open TechUseCaseDemos/RAGSolutions/StandardRAG/index.html
+- Browser-based educational demos that run fully in the browser with no API keys or external services.
+- Course packs that organize demos into teachable sequences with learning objectives and supporting context.
+- About pages and launch pages that separate concept framing from hands-on interaction.
+- Assignment scaffolds that convert demos into graded analysis, reflection, or mini-project work.
+- Additional local and Colab-oriented materials where browser-only execution is not yet the right fit.
 
-# Python Demos
-cd TechUseCaseDemos/Classification/demo001
-pip install -r requirements.txt
-python classificationdemo.py
-```
+## Featured Public Paths
 
----
+| Surface | Best for | Link |
+|---|---|---|
+| Home | Overall orientation to the platform | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/) |
+| Browse Demos | Finding classroom-ready demos by topic, level, and run mode | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html) |
+| Course Packs | Teaching journeys for treasury, AI/ML, risk, quant, cyber, compliance, RAG/NLP, and banking | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html) |
+| Assignments | Structured assessment and reflection scaffolds | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/Assignments/index.html) |
 
-## 🚀 Live Demos (GitHub Pages)
+## Major Topics Covered
 
-### CFOWorkshop - Treasury Management Demos
-**Attribution: vinallcontact@gmail.com**
+- AI and machine learning workflows
+- Treasury management and liquidity analytics
+- Banking, fraud, lending, and customer analytics
+- Quant finance, options, VaR, and portfolio analysis
+- Cybersecurity and risk management
+- RAG, NLP, voice interfaces, and knowledge assistants
+- AI governance, compliance, and responsible AI
 
-| Demo | Session | Description |
-|------|---------|-------------|
-| [Treasury Control Tower](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/) | 1 | Real-time liquidity dashboard with forecasting |
-| [FX Hedge Simulator](/KateelLearningDemosToStudents/TechUseCaseDemos/FXHedgeSimulator/) | 2 | Interactive FX hedging strategy simulator |
-| [CCC Analyzer](/KateelLearningDemosToStudents/TechUseCaseDemos/CCCAnalyzer/) | 3 | Cash Conversion Cycle optimization tool |
-| [Collections Predictor](/KateelLearningDemosToStudents/TechUseCaseDemos/CollectionsPredictor/) | 3 | AI-powered collections prioritization |
-| [Smart Contract Treasury](/KateelLearningDemosToStudents/TechUseCaseDemos/SmartContractTreasury/) | 5-6 | Blockchain treasury operations |
-| [Stablecoin Manager](/KateelLearningDemosToStudents/TechUseCaseDemos/StablecoinManager/) | 5-6 | Digital asset treasury management |
-| [AI Hedge Orchestrator](/KateelLearningDemosToStudents/TechUseCaseDemos/AIHedgeOrchestrator/) | 7 | Multi-asset hedging with AI |
-| [Treasury Transform Blueprint](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/) | 8 | End-to-end transformation simulator |
+## Demo Run Modes
 
-**Main Landing Page:** https://vinayasharada.github.io/KateelLearningDemosToStudents/
+- `Browser`: runs directly in GitHub Pages or static hosting
+- `Colab`: best when notebook execution or larger packages are needed
+- `Local`: best when students need Python, local files, or heavier models
+- `Multi-mode`: available in more than one learning mode depending on classroom goals
 
----
+The public Pages experience prioritizes polished browser-first demos. The repo itself may contain broader supporting assets, experiments, local variants, and work-in-progress materials that are still valuable for teaching.
 
-## 🎯 AI Model Philosophy
+## Repository Structure
 
-We follow a **three-tier approach** for AI model usage:
-
-| Tier | Approach | Description | Examples |
-|------|----------|-------------|----------|
-| **🥇 1st Choice** | **Browser-based SLMs** | Models running locally in browser | SmolLM2, DistilBERT, Whisper Tiny, all-MiniLM |
-| **🥈 2nd Choice** | **Backend SLMs** | Models downloaded and run locally | Phi-3.5, Mistral, Llama.cpp models |
-| **🥉 3rd Choice** | **External LLM APIs** | Cloud APIs only when no alternative | OpenAI, Anthropic, Google (last resort) |
-
-**Why this philosophy?**
-- ✅ **Zero cloud required** for 80%+ of demos
-- ✅ **No API keys** needed for core functionality
-- ✅ **Privacy preserved** - data stays local
-- ✅ **Cost effective** - no per-token charges
-
----
-
-## 📊 Repository Overview
-
-| Metric | Value |
-|--------|-------|
-| **Total Demos** | 64+ |
-||| **Browser-Based Demos** | 45+ |
-| **Python Demos** | 20+ |
-| **Courses Covered** | 7 |
-
----
-
-## 📚 Course Catalogs
-
-| Course | Demos | Key Topics |
-|--------|-------|------------|
-| **[AI/ML Financial Services](CourseCatalogs/AI_ML_Financial_Services_Catalog.md)** | 11+ | Banking, fraud, credit, wealth management, options, VaR |
-| **[Management of AI Products](CourseCatalogs/Management_of_AI_Products_Catalog.md)** | 16+ | Product strategy, risk, governance, RAG, financial analysis |
-| **[Cyber Security](CourseCatalogs/Cyber_Security_Catalog.md)** | 7+ | IoT security, threat detection, penetration testing |
-| **[NLP & Information Extraction](CourseCatalogs/NLP/README.md)** | 16+ | Entity recognition, sentiment, RAG, voice assistants |
-| **[Data Mining](CourseCatalogs/DataMining/README.md)** | 7 | Classification, clustering, forecasting, pattern mining |
-| **[Wealth Management](CourseCatalogs/WealthManagement/README.md)** | 3+ | Portfolio theory, options pricing, NPV |
-| **[Public Policy & Governance](CourseCatalogs/PublicPolicyGovernance/README.md)** | 2 | Resource allocation, AI compliance |
-
-> **New!** AI Workflow Demos section in Management of AI Products catalog - perfect for showing AI value transformation
-
----
-
-## 🎓 Who This Is For
-
-| Audience | What You Get |
-|----------|--------------|
-| **Students** | Hands-on demos with step-by-step instructions, no cloud required |
-| **Faculty** | Classroom-ready materials, assignment scaffolds, assessment rubrics |
-| **Practitioners** | Real-world patterns, production-ready code, best practices |
-
----
-
-## 🤖 Featured Demos
-
-### 🌐 Browser-Based AI (Zero Cloud)
-
-| Demo | Model | Size | Use Case |
-|------|-------|------|----------|
-| [Local Chat Advisor](TechUseCaseDemos/Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/) | SmolLM2-135M | 135 MB | Conversational AI |
-| [Smart Ticket Tagger](TechUseCaseDemos/Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/) | DistilBERT | 140 MB | Customer support |
-| [Whisper Voice Transcriber](TechUseCaseDemos/Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/) | Whisper Tiny | 39 MB | Speech-to-text |
-| [Semantic Search Engine](TechUseCaseDemos/Browser-AI-Demos/Browser-AI-Product-Demos/6-semantic-search/) | all-MiniLM | 23 MB | Document search |
-
-### 📄 RAG Solutions (New!)
-
-|| Demo | Type | Key Feature |
-||------|------|-------------|
-|| [Standard RAG](TechUseCaseDemos/RAGSolutions/StandardRAG/) | Text-based | Document upload + QA |
-|| [Graph RAG](TechUseCaseDemos/RAGSolutions/GraphRAG/) | Graph-based | Knowledge traversal |
-|| [Voice RAG](TechUseCaseDemos/RAGSolutions/VoiceStandardRAG/) | Voice-enabled | Speak + get answers |
-|| [Emotional Support AI](TechUseCaseDemos/EmotionalSupportAssistant/) | Empathetic AI | Emotion detection |
-|| [University Knowledge Assistant](TechUseCaseDemos/UniversityKnowledgeAssistant/) | Hybrid RAG | FalkorDB + PageIndex + Voice |
-|| [LiteParse RAG](TechUseCaseDemos/LiteParseDemo/) | Document Processing | PDF-to-markdown for RAG |
-
-### 🔁 AI Workflow Demos (Most Memorable!)
-
-| Demo | Description | Theory | Learning Outcomes |
-|------|-------------|--------|-------------------|
-| [Learning Resource Recommender](TechUseCaseDemos/AIWorkflowDemo/) | Traditional vs AI recommendations | Collaborative filtering, embeddings | Compare precision/recall, understand embedding spaces |
-| [Content Summarizer](TechUseCaseDemos/AIContentSummarizer/) | Extractive vs abstractive summarization | NLP transformers, attention | Evaluate coherence vs factual accuracy |
-| [Data Analyzer](TechUseCaseDemos/AIDataAnalyzer/) | Statistical vs AI-powered analysis | Descriptive stats, anomaly detection | Interpret statistical vs narrative insights |
-| [Probabilistic Decision Engine](TechUseCaseDemos/ProbabilisticDecisionEngine/) | Amortized inference for predictions | Variational inference | Trade-offs between speed and accuracy |
-
-### 💼 Agentic AI (CopilotKit)
-
-| Demo | Description | Theory | Learning Outcomes |
-|------|-------------|--------|-------------------|
-| [CopilotKit Agent Demo](TechUseCaseDemos/CopilotKitDemo/) | Agentic workflows with streaming and tools | LLM function calling, orchestration | Build agentic applications with tool integration |
-
-### 📈 Advanced Finance Quant (New!)
-
-| Demo | Description | Theory | Learning Outcomes |
-|------|-------------|--------|-------------------|
-| [Black-Scholes Option Pricer](TechUseCaseDemos/OptionPricingDemo/) | European option pricing with Greeks | Black-Scholes-Merton calculus | Delta hedging, volatility impact |
-| [Monte Carlo Options](TechUseCaseDemos/MonteCarloOptions/) | Simulation-based exotic option pricing | Monte Carlo, risk-neutral valuation | Convergence, variance reduction |
-| [Risk Parity Portfolio](TechUseCaseDemos/RiskParityPortfolio/) | Equalize risk contribution | Risk parity theory | Optimize risk allocation |
-| [VaR Calculator](TechUseCaseDemos/VaRCalculator/) | Value at Risk with Expected Shortfall | Parametric/Historical simulation | Tail risk, regulatory capital |
-| [Greeks Calculator](TechUseCaseDemos/GreeksCalculator/) | Delta, Gamma, Vega, Theta sensitivity | Option sensitivity measures | Hedge positions, manage risk |
-| [Counterparty Risk](TechUseCaseDemos/CounterpartyRiskDemo/) | CVA/DVA calculations | Credit valuation adjustment | Counterparty risk, expected exposure |
-| [Bond Pricing](TechUseCaseDemos/BondPricingDemo/) | Bond pricing with duration | Present value of cash flows | Yield, duration, premium/discount |
-|| [Bank Failure Prediction](TechUseCaseDemos/BankFailurePrediction/) | Predict bank failures using financial ratios | Credit risk, logistic regression | Regulatory compliance, risk assessment |
-|| [Options Pricing](TechUseCaseDemos/OptionsPricing/) | Options pricing with Greeks | Black-Scholes-Merton calculus | Delta hedging, volatility impact |
-
----
-
-## 🏗️ Repository Structure
-
-```
+```text
 KateelLearningDemosToStudents/
-├── 🤖 Browser-AI-Demos/     # Zero-cloud AI apps
-├── DomainUseCaseDemos/       # Industry verticals (Finance, Banking)
-├── TechUseCaseDemos/         # Technique-first ML demos
-├── CourseCatalogs/           # Structured course materials
-├── Assignments/              # Ready-to-use assignments
-└── ecomm001/                 # E-commerce analytics pipeline
+├── DomainUseCaseDemos/
+├── TechUseCaseDemos/
+├── CyberSecurityDemos/
+├── CourseCatalogs/
+├── Assignments/
+├── courses/
+├── browse/
+└── assets/
 ```
 
----
+## Why Educators Use It
 
-## 🎯 Why Use This?
+- No cloud dependency for the core curated experience
+- No API keys for the public browser-first demos
+- Strong separation between explanation and interaction
+- Classroom-ready flows for demo, reflection, and assignment work
+- Reusable examples across finance, AI, analytics, and governance courses
 
-- ✅ **No cloud required** - Many demos run entirely in browser
-- ✅ **No API keys** - Local models only
-- ✅ **Production patterns** - Real-world best practices
-- ✅ **Active maintenance** - New demos monthly
-- ✅ **Educational focus** - Theory + hands-on learning
+## Attribution
 
----
+Please retain attribution in course materials, workshops, and derivative teaching artifacts.
 
-## 📧 Stay Connected
+> Demos and course materials adapted from **KateelLearningDemosToStudents** by Professor Vinaya Sathyanarayana.  
+> Repository: [VinayaSharada/KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
 
-**Email for course adoption:** [vinallcontact@gmail.com](mailto:vinallcontact@gmail.com)  
-**Subject format:** `[KateelLearningDemos] Usage - <Your Name/Institution>`
+## Suggested GitHub Metadata
 
----
+These are the remaining manual SEO improvements worth setting directly in GitHub repository settings:
 
-## 📄 License & Attribution
-
-**Educational Use** - Free for students, faculty, and practitioners.  
-**Attribution required** - Include citation in presentations/publications.
-
-> *Demos and course material adapted from the **KateelLearningDemosToStudents** repository*  
-> *by Professor Vinaya Sathyanarayana*  
-> *[GitHub Repository](https://github.com/VinayaSharada/KateelLearningDemosToStudents)*
-
----
-
-## ❤️ Support
-
-If you find this repository helpful, please consider:
-- ⭐ Starring the repository
-- 🍴 Forking and contributing
-- 📧 Reaching out for collaboration opportunities
-
----
-
-*Last Updated: June 2026 | Total Demos: 63+*
-
-<!-- SEO Keywords for Search Engine Discovery -->
-<!-- AI ML demos, machine learning tutorials, data science projects, NLP examples, RAG implementation, Graph RAG, browser AI, zero-shot learning, transformers.js, sentiment analysis, clustering algorithms, time series forecasting, fraud detection, IoT security labs, responsible AI, emotional AI, knowledge graph, voice assistant demo, synthetic data, classroom AI, educational ML, student projects, faculty resources, university chatbot, university assistant, FalkorDB, PageIndex, Phi-3.5, Mistral, llama.cpp, Web Speech API, PDF extraction, web scraping, university website, educational technology, AI education, machine learning education, NLP tutorials, RAG demos, voice AI, embedded AI, cybersecurity demos, finance ML, banking AI, student support AI, portfolio optimization, black scholes, npv calculator, wealth management, options pricing, capital budgeting, robo advisory, copilotkit, agentic ai, small language models, slm, browser ai, local models, amortized inference, variational inference, value at risk, greeks calculator, risk parity, monte carlo simulation, black scholes option pricing, ai workflow, ai product management, ai governance, ai risk calculator, ai roi calculator, ai product canvas, ai resource planner, ai decision tracker, ai feature impact, ai governance scorecard, ai regulatory tracker, prompt engineering, ai toggle, ai summarization, ai content analysis, probabilistic decision engine, healthcare ai, ai agent demos, streaming ai, ai tools integration, zero api key, zero cloud required, classroom ready, educational resources, professor vinaya sathyanarayana, kateel learning demos, AI workflow demos, counterparty risk, bond pricing, cva dva, black scholes merton -->
-<!-- End SEO Keywords -->
+- Repository description: `Browser-based AI, finance, risk, and analytics demos for students, faculty, and classroom teaching`
+- Website: `https://vinayasharada.github.io/KateelLearningDemosToStudents/`
+- Topics: `education`, `ai-demos`, `machine-learning`, `finance`, `treasury`, `banking`, `risk-management`, `cybersecurity`, `rag`, `nlp`, `github-pages`, `classroom`

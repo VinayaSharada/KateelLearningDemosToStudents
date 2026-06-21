@@ -1,0 +1,30 @@
+{
+  "name": "KateelLearningDemos",
+  "short_name": "KateelDemos",
+  "description": "Browser-based AI, finance, risk, and analytics learning demos for students and faculty.",
+  "start_url": "/KateelLearningDemosToStudents/",
+  "scope": "/KateelLearningDemosToStudents/",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#0f766e",
+  "categories": [
+    "education",
+    "finance",
+    "artificial intelligence",
+    "machine learning"
+  ],
+  "lang": "en",
+  "icons": [],
+  "shortcuts": [
+    {
+      "name": "Browse Demos",
+      "url": "/KateelLearningDemosToStudents/browse/index.html",
+      "description": "Browse 94 curated demos"
+    },
+    {
+      "name": "Course Packs",
+      "url": "/KateelLearningDemosToStudents/course-packs/index.html",
+      "description": "Open 8 curated course packs"
+    }
+  ]
+}

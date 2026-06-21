@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">KateelLearningDemos SEO Preview</title>
+  <desc id="desc">Browser-based AI, finance, risk, and analytics demos for students and faculty.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1030" cy="120" r="120" fill="#ffffff" opacity="0.08"/>
+  <circle cx="170" cy="540" r="150" fill="#ffffff" opacity="0.08"/>
+  <g fill="#ffffff">
+    <text x="86" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="2">KATEEL LEARNING DEMOS</text>
+    <text x="86" y="260" font-family="Georgia, Times New Roman, serif" font-size="72" font-weight="700">AI and Finance Demos</text>
+    <text x="86" y="340" font-family="Georgia, Times New Roman, serif" font-size="72" font-weight="700">Students Can Run in Browser</text>
+    <text x="86" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="34">Course packs, About-first pages, assignments, and classroom-ready walkthroughs</text>
+  </g>
+  <g transform="translate(86 486)">
+    <rect width="220" height="56" rx="28" fill="#ffffff" opacity="0.18"/>
+    <text x="28" y="37" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">94 curated demos</text>
+    <rect x="246" width="196" height="56" rx="28" fill="#ffffff" opacity="0.18"/>
+    <text x="274" y="37" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">8 course packs</text>
+    <rect x="470" width="190" height="56" rx="28" fill="#ffffff" opacity="0.18"/>
+    <text x="500" y="37" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">No API keys</text>
+  </g>
+</svg>

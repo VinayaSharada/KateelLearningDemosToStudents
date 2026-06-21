@@ -2,12 +2,19 @@ import html
 import json
 import os
 from pathlib import Path
+from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG_PATH = ROOT / "data" / "site-catalog.json"
 COURSES_DIR = ROOT / "courses"
 ASSIGNMENTS_INDEX = ROOT / "Assignments" / "index.html"
+SITE_URL = "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+REPO_URL = "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+SITE_NAME = "KateelLearningDemos"
+AUTHOR_NAME = "Professor Vinaya Sathyanarayana"
+AUTHOR_EMAIL = "vinallcontact@gmail.com"
+DEFAULT_OG_IMAGE = "assets/seo-preview.svg"
 
 
 COURSE_META = {
@@ -146,6 +153,57 @@ def href(from_file: Path, repo_rel: str) -> str:
     return Path(os.path.relpath(ROOT / repo_rel, from_file.parent)).as_posix()
 
 
+def canonical_url(repo_rel: str) -> str:
+    normalized = repo_rel.replace("\\", "/").lstrip("./")
+    if normalized in {"", "index.html"}:
+        return SITE_URL
+    return SITE_URL.rstrip("/") + "/" + quote(normalized, safe="/-_.~")
+
+
+def json_ld_script(payload: dict) -> str:
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(payload, indent=2, ensure_ascii=False)
+        + "\n</script>"
+    )
+
+
+def seo_meta_block(
+    *,
+    title: str,
+    description: str,
+    repo_rel: str,
+    page_type: str,
+    keywords: str,
+    json_ld_payloads: list[dict],
+) -> str:
+    canonical = canonical_url(repo_rel)
+    og_image = canonical_url(DEFAULT_OG_IMAGE)
+    tags = [
+        f'  <title>{esc(title)}</title>',
+        f'  <meta name="description" content="{esc(description)}">',
+        f'  <meta name="keywords" content="{esc(keywords)}">',
+        '  <meta name="robots" content="index,follow,max-image-preview:large">',
+        f'  <meta name="author" content="{esc(AUTHOR_NAME)}">',
+        '  <meta name="theme-color" content="#0f766e">',
+        f'  <link rel="canonical" href="{esc(canonical)}">',
+        '  <link rel="manifest" href="../site.webmanifest">' if repo_rel.startswith(("courses/", "Assignments/")) else '  <link rel="manifest" href="site.webmanifest">',
+        f'  <meta property="og:site_name" content="{esc(SITE_NAME)}">',
+        f'  <meta property="og:title" content="{esc(title)}">',
+        f'  <meta property="og:description" content="{esc(description)}">',
+        f'  <meta property="og:type" content="{esc(page_type)}">',
+        f'  <meta property="og:url" content="{esc(canonical)}">',
+        f'  <meta property="og:image" content="{esc(og_image)}">',
+        '  <meta property="og:image:alt" content="KateelLearningDemos educational demo library preview">',
+        '  <meta name="twitter:card" content="summary_large_image">',
+        f'  <meta name="twitter:title" content="{esc(title)}">',
+        f'  <meta name="twitter:description" content="{esc(description)}">',
+        f'  <meta name="twitter:image" content="{esc(og_image)}">',
+    ]
+    tags.extend(json_ld_script(payload) for payload in json_ld_payloads)
+    return "\n".join(tags)
+
+
 def common_nav(current_slug: str | None, base_prefix: str) -> str:
     def course_link(slug: str, label: str, icon: str) -> str:
         active = ' active' if current_slug == slug else ''
@@ -231,6 +289,66 @@ def render_course(course: dict) -> str:
     meta = COURSE_META[course["slug"]]
     page_file = ROOT / course["pagePath"]
     demo_cards = "\n".join(card_for_demo(page_file, demo) for demo in course["demos"])
+    description = course["subtitle"]
+    repo_rel = course["pagePath"]
+    course_url = canonical_url(repo_rel)
+    demo_list = [
+        {
+            "@type": "ListItem",
+            "position": index,
+            "name": demo["title"],
+            "url": canonical_url(demo["aboutPath"]),
+        }
+        for index, demo in enumerate(course["demos"], start=1)
+    ]
+    seo_block = seo_meta_block(
+        title=f'{course["title"]} Course Pack - {SITE_NAME}',
+        description=description,
+        repo_rel=repo_rel,
+        page_type="website",
+        keywords=(
+            f'{course["title"]}, {course["audience"]}, classroom demos, browser-based learning, '
+            'AI education, finance demos, GitHub Pages demos, no API key demos'
+        ),
+        json_ld_payloads=[
+            {
+                "@context": "https://schema.org",
+                "@type": "Course",
+                "name": course["title"],
+                "description": description,
+                "provider": {
+                    "@type": "Person",
+                    "name": AUTHOR_NAME,
+                    "email": AUTHOR_EMAIL,
+                    "url": REPO_URL,
+                },
+                "educationalCredentialAwarded": "Course Pack",
+                "educationalLevel": "Higher Education",
+                "teaches": meta["outcomes"],
+                "url": course_url,
+                "hasCourseInstance": {
+                    "@type": "CourseInstance",
+                    "courseMode": "Browser-based",
+                    "inLanguage": "en",
+                },
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": f'{course["title"]} demos',
+                "itemListElement": demo_list,
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": canonical_url("index.html")},
+                    {"@type": "ListItem", "position": 2, "name": "Course Packs", "item": canonical_url("course-packs/index.html")},
+                    {"@type": "ListItem", "position": 3, "name": course["title"], "item": course_url},
+                ],
+            },
+        ],
+    )
     assignment_links = (
         "".join(
             f'<a class="btn-mini outline" href="../{esc(path)}">{esc(Path(path).parent.name)}</a>'
@@ -250,8 +368,7 @@ def render_course(course: dict) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{esc(course["title"])} - KateelLearningDemos</title>
-  <meta name="description" content="{esc(course["subtitle"])}">
+{seo_block}
   <link rel="stylesheet" href="../assets/site.css">
   <script defer src="../assets/site.js"></script>
 </head>
@@ -368,10 +485,19 @@ def render_course(course: dict) -> str:
 
 def render_assignments_index(catalog: dict) -> str:
     course_lookup = {course["slug"]: course["title"] for course in catalog["courses"]}
+    assignment_items = []
     cards = []
-    for item in ASSIGNMENT_META:
+    for position, item in enumerate(ASSIGNMENT_META, start=1):
         folder = item["folder"]
-        readme = ROOT / "Assignments" / folder / "README.md"
+        readme_path = f"Assignments/{folder}/README.md"
+        assignment_items.append(
+            {
+                "@type": "ListItem",
+                "position": position,
+                "name": folder.replace("Session", "Session ").replace("_", " - "),
+                "url": canonical_url(readme_path),
+            }
+        )
         cards.append(
             f"""
 <article class="info-card course-pack-card">
@@ -388,14 +514,47 @@ def render_assignments_index(catalog: dict) -> str:
   </div>
 </article>"""
         )
+    seo_block = seo_meta_block(
+        title=f"Assignments - {SITE_NAME}",
+        description="Assignment scaffolds that connect curated demos to graded or reflective coursework.",
+        repo_rel="Assignments/index.html",
+        page_type="website",
+        keywords=(
+            "assignments, classroom assessment, learning demos, finance assignments, "
+            "AI education assignments, GitHub Pages teaching resources"
+        ),
+        json_ld_payloads=[
+            {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": "KateelLearningDemos Assignments",
+                "description": "Assignment scaffolds that connect curated demos to graded or reflective coursework.",
+                "url": canonical_url("Assignments/index.html"),
+                "isPartOf": canonical_url("index.html"),
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": "Assignment packs",
+                "itemListElement": assignment_items,
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": canonical_url("index.html")},
+                    {"@type": "ListItem", "position": 2, "name": "Assignments", "item": canonical_url("Assignments/index.html")},
+                ],
+            },
+        ],
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assignments - KateelLearningDemos</title>
-  <meta name="description" content="Assignment scaffolds that connect curated demos to graded or reflective coursework.">
+{seo_block}
   <link rel="stylesheet" href="../assets/site.css">
   <script defer src="../assets/site.js"></script>
 </head>
