@@ -1,218 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Mesa Liquidity Generator - KateelLearningDemos</title>
-  <meta name="description" content="Browser-based synthetic financial transaction data generator for liquidity management simulations. Generate customers, accounts, and transactions with realistic patterns.">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
-  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-V672XGCRSK');</script>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --primary: #3b82f6; --dark: #0f172a; --darker: #1e293b; --card: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.1); --text: #e2e8f0; --text-muted: #94a3b8; --good: #10b981; --risk: #ef4444; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%); color: var(--text); min-height: 100vh; line-height: 1.6; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-    .hero { text-align: center; padding: 2rem 0; }
-    .hero h1 { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; }
-    .hero p { color: var(--text-muted); max-width: 700px; margin: 0 auto; }
-    .badge { display: inline-block; background: rgba(59,130,246,0.2); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.875rem; margin-top: 1rem; }
-    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0; }
-    .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
-    .kpi-value { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .kpi-label { color: var(--text-muted); font-size: 0.875rem; }
-    .good { color: var(--good); }
-    .risk { color: var(--risk); }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
-    .card h2 { color: #fff; margin-bottom: 1rem; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
-    .form-group { margin-bottom: 1rem; }
-    .form-group label { display: block; color: var(--text-muted); margin-bottom: 0.5rem; }
-    .form-group input, .form-group select { width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid var(--border); border-radius: 8px; color: var(--text); }
-    .btn { padding: 0.75rem 1.5rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; margin-right: 0.5rem; margin-bottom: 0.5rem; }
-    .btn-primary { background: var(--primary); color: #fff; }
-    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
-    .btn-success { background: var(--good); color: #fff; }
-    .ai-panel { background: rgba(59,130,246,0.1); border-radius: 12px; padding: 1.5rem; margin-top: 1rem; }
-    .ai-panel h4 { color: var(--primary); margin-bottom: 0.5rem; }
-    .data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.85rem; }
-    .data-table th, .data-table td { padding: 0.5rem; border: 1px solid var(--border); text-align: left; }
-    .data-table th { background: rgba(59,130,246,0.2); color: #fff; }
-    .data-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
-    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-    .tab { padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; color: var(--text-muted); }
-    .tab.active { background: var(--primary); color: #fff; }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-    .chart-container { height: 250px; position: relative; margin: 1rem 0; }
-    footer { text-align: center; padding: 3rem 2rem; color: var(--text-muted); font-size: 0.875rem; }
-    footer a { color: var(--primary); text-decoration: none; }
-  </style>
-  <link rel="stylesheet" href="../../../assets/site.css">
-  <script defer src="../../../assets/site.js"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Mesa Liquidity - FINAL TEST</title>
+    <script>
+        console.log('=== DEFINING ESSENTIAL FUNCTIONS NOW ===');
+        
+        // IMMEDIATE: Define all functions that buttons need
+        window.generateData = function() {
+            console.log('🚨 GENERATE DATA BUTTON CLICKED');
+            console.log('window.mesaApp exists:', typeof window.mesaApp);
+            
+            if (!window.mesaApp) {
+                console.log('Creating mesaApp...');
+                if (typeof MesaLiquidityGenerator !== 'undefined') {
+                    window.mesaApp = new MesaLiquidityGenerator();
+                    console.log('✅ mesaApp created successfully');
+                } else {
+                    console.log('❌ MesaLiquidityGenerator not found');
+                    alert('Error: Could not create MesaLiquidityGenerator');
+                    return;
+                }
+            }
+            
+            console.log('Calling generateData()...');
+            window.mesaApp.generateData();
+            console.log('✅ generateData() completed!');
+            console.log('📊 Generated:', window.mesaApp.customers ? window.mesaApp.customers.length : 0, 'customers');
+            
+            // Show success
+            alert('✅ Success! Generated ' + (window.mesaApp.customers ? window.mesaApp.customers.length : 0) + ' customers and ' + (window.mesaApp.transactions ? window.mesaApp.transactions.length : 0) + ' transactions');
+        };
+        
+        window.runMonteCarlo = function() {
+            console.log('🚨 RUN MONTE CARLO BUTTON CLICKED');
+            
+            if (!window.mesaApp) {
+                console.log('Creating mesaApp...');
+                if (typeof MesaLiquidityGenerator !== 'undefined') {
+                    window.mesaApp = new MesaLiquidityGenerator();
+                    console.log('✅ mesaApp created');
+                } else {
+                    console.log('❌ MesaLiquidityGenerator not found');
+                    alert('Error: Could not create MesaLiquidityGenerator');
+                    return;
+                }
+            }
+            
+            console.log('Calling runMonteCarlo()...');
+            window.mesaApp.runMonteCarlo();
+            console.log('✅ runMonteCarlo() completed!');
+            alert('✅ Run Monte Carlo completed successfully!');
+        };
+        
+        window.exportData = function() {
+            console.log('🚨 EXPORT DATA BUTTON CLICKED');
+            
+            if (!window.mesaApp) {
+                console.log('Creating mesaApp...');
+                if (typeof MesaLiquidityGenerator !== 'undefined') {
+                    window.mesaApp = new MesaLiquidityGenerator();
+                    console.log('✅ mesaApp created');
+                } else {
+                    console.log('❌ MesaLiquidityGenerator not found');
+                    alert('Error: Could not create MesaLiquidityGenerator');
+                    return;
+                }
+            }
+            
+            console.log('Calling exportData()...');
+            window.mesaApp.exportData();
+            console.log('✅ exportData() completed!');
+            alert('✅ Export completed! CSV downloaded');
+        };
+        
+        window.resetData = function() {
+            console.log('🚨 RESET BUTTON CLICKED');
+            location.reload();
+        };
+        
+        console.log('✅ All button functions defined globally');
+        
+        // Add test buttons
+        function addQuickTestButtons() {
+            const testBtn = document.createElement('button');
+            testBtn.textContent = '🧪 TEST generateData()';
+            testBtn.style.cssText = 'position: fixed; top: 10px; left: 10px; background: red; color: white; padding: 10px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; z-index: 9999;';
+            testBtn.onclick = function(e) { e.stopPropagation(); generateData(); };
+            document.body.appendChild(testBtn);
+            
+            const testBtn2 = document.createElement('button');
+            testBtn2.textContent = '🧪 TEST runMonteCarlo()';
+            testBtn2.style.cssText = 'position: fixed; top: 50px; left: 10px; background: blue; color: white; padding: 10px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; z-index: 9999;';
+            testBtn2.onclick = function(e) { e.stopPropagation(); runMonteCarlo(); };
+            document.body.appendChild(testBtn2);
+        }
+    </script>
+    
+    <style>
+        body { font-family: Arial, sans-serif; background: #0f172a; color: white; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .debug { background: #1e293b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        button { background: #3b82f6; color: white; border: none; padding: 10px 20px; margin: 10px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #2563eb; }
+        .status { background: #333; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        h1 { color: #3b82f6; }
+    </style>
 </head>
 <body>
-<nav class="site-nav" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a class="brand" href="../..">KateelLearningDemos</a>
-    <div class="nav-links">
-      <a class="nav-link" href="../..">Home</a>
-      <details class="nav-dropdown">
-        <summary class="nav-link">Courses</summary>
-        <div class="dropdown-content" role="menu">
-          <a class="dropdown-link active" href="../../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
-          <a class="dropdown-link" href="../../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
-          <a class="dropdown-link" href="../../../courses/risk-management.html"><span>⚠️</span>Risk</a>
-          <a class="dropdown-link" href="../../../courses/quant-finance.html"><span>💰</span>Quant</a>
-          <a class="dropdown-link" href="../../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
-          <a class="dropdown-link" href="../../../courses/compliance.html"><span>📋</span>Compliance</a>
-          <a class="dropdown-link" href="../../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
-          <a class="dropdown-link" href="../../../courses/banking.html"><span>🏦</span>Banking</a>
+    <div class="container">
+        <h1>🔴 Mesa Liquidity - ULTIMATE FIX</h1>
+        
+        <div class="debug">
+            <h2>🔧 System Status</h2>
+            <div id="status" class="status">Loading system...</div>
+            <div id="debugInfo">Debug info...</div>
         </div>
-      </details>
-      <a class="nav-link" href="about.html">About Demo</a>
-      <a class="nav-link" href="../../../courses/treasury-management.html">Treasury</a>
-      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
-      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
-    </div>
-  </div>
-</nav>
-
-<div class="demo-context-strip" role="note">
-  <strong>About vs. Demo:</strong> You are on the interactive demo. Use the <a href="about.html">About Demo</a> page for learning objectives, theory, usage steps, and assessment prompts.
-</div>
-
-<div class="container">
-  <section class="hero">
-    <h1>📊 Mesa Liquidity Data Generator</h1>
-    <p>Browser-based synthetic financial transaction data generator for liquidity management simulations. Generate customers, accounts, and transactions with realistic patterns.</p>
-    <span class="badge">🌐 Browser-Based | 🏦 Banking Data | ⚙️ Interactive</span>
-  </section>
-
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-value" id="customersCount">0</div>
-      <div class="kpi-label">Customers Generated</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-value" id="accountsCount">0</div>
-      <div class="kpi-label">Accounts Generated</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-value" id="transactionsCount">0</div>
-      <div class="kpi-label">Transactions Generated</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-value" id="totalValue">₹0</div>
-      <div class="kpi-label">Total Transaction Value</div>
-    </div>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <h2>🎛️ Data Generation Controls</h2>
-      <div class="form-group">
-        <label for="numCustomers">Number of Customers</label>
-        <input type="range" id="numCustomers" min="100" max="5000" value="1000" step="100">
-        <span id="customersDisplay">1000</span>
-      </div>
-      <div class="form-group">
-        <label for="numTransactions">Number of Transactions</label>
-        <input type="range" id="numTransactions" min="1000" max="50000" value="10000" step="1000">
-        <span id="transactionsDisplay">10000</span>
-      </div>
-      <div class="form-group">
-        <label for="seed">Random Seed (optional)</label>
-        <input type="number" id="seed" value="42" min="0" max="9999">
-      </div>
-      <div class="form-group">
-        <label>
-          <input type="checkbox" id="aiToggle"> Enable AI Insights
-        </label>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" onclick="generateData()">Generate Data</button>
-        <button class="btn btn-secondary" onclick="resetData()">Reset</button>
-        <button class="btn btn-success" onclick="exportData()">Export CSV</button>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-secondary" onclick="runMonteCarlo()">Run Monte Carlo Forecast</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>📈 Liquidity Metrics</h2>
-      <div id="aiInsight" class="ai-panel" style="display: none;">
-        <h4>🤖 AI Recommendation</h4>
-        <p id="recommendationText">Generate data to see AI insights...</p>
-      </div>
-      <div class="kpi-grid" style="margin: 0;">
-        <div class="kpi-card" style="padding: 1rem;">
-          <div class="kpi-value" id="avgBalance">₹0</div>
-          <div class="kpi-label">Avg Daily Balance</div>
+        
+        <div class="debug">
+            <h2>🧪 Test Buttons (These are the actual buttons in the demo)</h2>
+            <button onclick="generateData()">Generate Data</button>
+            <button onclick="runMonteCarlo()">Run Monte Carlo</button>
+            <button onclick="exportData()">Export CSV</button>
+            <button onclick="resetData()">Reset</button>
+            <button onclick="checkFunctions()">Check Functions</button>
         </div>
-        <div class="kpi-card" style="padding: 1rem;">
-          <div class="kpi-value" id="liquidityRatio">0%</div>
-          <div class="kpi-label">Avg Liquidity Ratio</div>
+        
+        <div class="debug">
+            <h2>📊 Results</h2>
+            <div id="results">Click buttons to see results...</div>
         </div>
-        <div class="kpi-card" style="padding: 1rem;">
-          <div class="kpi-value" id="velocity">0</div>
-          <div class="kpi-label">Avg Velocity (txns/day)</div>
+        
+        <div class="debug">
+            <h2>🎛️ Demo Controls</h2>
+            <p><strong>Number of Customers:</strong> <span id="customersDisplay">1000</span></p>
+            <input type="range" id="numCustomers" min="100" max="5000" value="1000" style="width: 100%;">
+            
+            <p><strong>Number of Transactions:</strong> <span id="transactionsDisplay">10000</span></p>
+            <input type="range" id="numTransactions" min="1000" max="50000" value="10000" style="width: 100%;">
+            
+            <p><strong>Enable AI Insights:</strong> <input type="checkbox" id="aiToggle"></p>
         </div>
-      </div>
+        
+        <div class="debug">
+            <h2>📈 KPI Dashboard</h2>
+            <div id="kpiGrid">
+                <div class="status">Customers: <span id="customersCount">0</span></div>
+                <div class="status">Accounts: <span id="accountsCount">0</span></div>
+                <div class="status">Transactions: <span id="transactionsCount">0</span></div>
+                <div class="status">Total Value: <span id="totalValue">₹0</span></div>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div class="card">
-    <h2>📋 Generated Data</h2>
-    <div class="tabs">
-      <div class="tab active" data-tab="customers">Customers</div>
-      <div class="tab" data-tab="accounts">Accounts</div>
-      <div class="tab" data-tab="transactions">Transactions</div>
-      <div class="tab" data-tab="metrics">Liquidity Metrics</div>
-    </div>
-
-    <div class="tab-content active" id="customers-tab">
-      <div class="chart-container">
-        <canvas id="segmentChart"></canvas>
-      </div>
-      <table class="data-table" id="customersTable">
-        <thead><tr><th>ID</th><th>Name</th><th>Segment</th><th>Income</th><th>Status</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <div class="tab-content" id="accounts-tab">
-      <table class="data-table" id="accountsTable">
-        <thead><tr><th>Account ID</th><th>Type</th><th>Currency</th><th>Balance</th><th>Available</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <div class="tab-content" id="transactions-tab">
-      <table class="data-table" id="transactionsTable">
-        <thead><tr><th>ID</th><th>Type</th><th>Amount</th><th>Channel</th><th>Status</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <div class="tab-content" id="metrics-tab">
-      <div class="chart-container">
-        <canvas id="riskChart"></canvas>
-      </div>
-      <table class="data-table" id="metricsTable">
-        <thead><tr><th>Account ID</th><th>Liquidity Ratio</th><th>Risk Score</th><th>Survival Days</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </div>
-
-  <footer>
-    <p>Attribution: vinallcontact@gmail.com | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">View on GitHub</a></p>
-  </footer>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="app.js"></script>
+    
+    <script>
+        function checkFunctions() {
+            const status = document.getElementById('status');
+            const functions = {
+                'MesaLiquidityGenerator': typeof MesaLiquidityGenerator !== 'undefined',
+                'window.mesaApp': typeof window.mesaApp !== 'undefined',
+                'generateData': typeof generateData !== 'undefined',
+                'runMonteCarlo': typeof runMonteCarlo !== 'undefined',
+                'exportData': typeof exportData !== 'undefined',
+                'resetData': typeof resetData !== 'undefined'
+            };
+            
+            let html = '<h4>Function Status:</h4>';
+            Object.keys(functions).forEach(func => {
+                html += '<div class="status ' + (functions[func] ? 'ok' : 'error') + '">' + func + ': ' + (functions[func] ? '✅ EXISTS' : '❌ MISSING') + '</div>';
+            });
+            
+            status.innerHTML = html;
+            
+            if (functions.MesaLiquidityGenerator && functions.generateData) {
+                status.innerHTML += '<div class="status ok">✅ All critical functions available!</div>';
+            } else {
+                status.innerHTML += '<div class="status error">❌ Missing critical functions</div>';
+            }
+        }
+        
+        // Update status immediately
+        setInterval(function() {
+            checkFunctions();
+        }, 1000);
+        
+        // Debug info
+        setInterval(function() {
+            const debugInfo = document.getElementById('debugInfo');
+            debugInfo.innerHTML = `
+                <h4>Real-time Debug:</h4>
+                <div>Page loaded: ${document.readyState}</div>
+                <div>Scripts loading: ${document.querySelectorAll('script[src]').length} scripts</div>
+                <div>Functions defined: ${typeof generateData !== 'undefined' ? '✅ All' : '❌ Some missing'}</div>
+                <div>User Agent: ${navigator.userAgent.substring(0, 50)}...</div>
+            `;
+        }, 2000);
+        
+        // Load Chart.js and app.js
+        function loadScripts() {
+            console.log('Loading Chart.js...');
+            const chartScript = document.createElement('script');
+            chartScript.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+            chartScript.onload = function() {
+                console.log('✅ Chart.js loaded');
+            };
+            document.head.appendChild(chartScript);
+            
+            console.log('Loading app.js...');
+            const appScript = document.createElement('script');
+            appScript.src = 'app.js';
+            appScript.onload = function() {
+                console.log('✅ app.js loaded');
+                
+                // Initialize demo if app.js loaded successfully
+                if (typeof MesaLiquidityGenerator !== 'undefined') {
+                    console.log('Creating mesaApp instance...');
+                    window.mesaApp = new MesaLiquidityGenerator();
+                    console.log('✅ mesaApp created');
+                    
+                    // Generate initial data
+                    console.log('Generating initial data...');
+                    window.mesaApp.generateData();
+                    console.log('✅ Initial data generated');
+                }
+            };
+            appScript.onerror = function() {
+                console.log('❌ Failed to load app.js');
+            };
+            document.head.appendChild(appScript);
+        }
+        
+        // Start loading scripts
+        loadScripts();
+        
+        // Add quick test buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            addQuickTestButtons();
+        });
+        
+        console.log('=== Ultimate fix complete ===');
+    </script>
 </body>
 </html>
