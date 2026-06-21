@@ -94,8 +94,8 @@ class MesaLiquidityGenerator {
 
     for (i = 0; i < customers.length; i++) {
       segmentMultiplier = { retail: 1, sme: 2, corporate: 3, hni: 4 };
-      multiplier = segmentMultiplier[customers[i].segment] || 1;
-      numAccounts = Math.max(1, Math.min(6, Math.round(this.poisson(2 * multiplier)));
+            multiplier = segmentMultiplier[customers[i].segment] || 1;
+            numAccounts = Math.max(1, Math.min(6, Math.round(this.poisson(2 * multiplier))));
 
       for (j = 0; j < numAccounts; j++) {
         accountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];
