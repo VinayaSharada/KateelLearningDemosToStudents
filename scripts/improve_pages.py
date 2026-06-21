@@ -4,14 +4,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from html import escape
+import json
 from pathlib import Path
 import posixpath
 import re
-from urllib.parse import unquote, urlsplit
+from urllib.parse import quote, unquote, urlsplit
 
 REPO_NAME = "KateelLearningDemosToStudents"
 REPO_ROOT_URL = f"/{REPO_NAME}/"
 GITHUB_URL = "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+SITE_URL = "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+SITE_NAME = "KateelLearningDemos"
+DEFAULT_OG_IMAGE = "assets/seo-preview.svg"
 ATTRIBUTION_EMAIL = "vinallcontact@gmail.com"
 GA_ID = "G-V672XGCRSK"
 DEMO_ROOTS = [
@@ -739,6 +743,14 @@ def repo_url(path: Path) -> str:
     return REPO_ROOT_URL + path.as_posix()
 
 
+def absolute_site_url(path: Path | str) -> str:
+    raw = path.as_posix() if isinstance(path, Path) else str(path)
+    normalized = raw.replace("\\", "/").lstrip("./")
+    if normalized in {"", "index.html"}:
+        return SITE_URL
+    return SITE_URL.rstrip("/") + "/" + quote(normalized, safe="/-_.~")
+
+
 def relative_url(from_path: Path, to_path: Path) -> str:
     if from_path == Path("index.html") and to_path == Path("index.html"):
         return "./"
@@ -778,6 +790,53 @@ def description_from_html(content: str, title: str, course_key: str) -> str:
             return desc
     course_title = COURSES[course_key]["title"].lower()
     return f"About Demo learning guide for {title}: a browser-based {course_title} learning activity with no cloud or API keys required."
+
+
+def demo_keywords(demo: DemoPage, concepts: list[str]) -> str:
+    course = COURSES[demo.course_key]
+    keywords = [
+        demo.title,
+        f"{demo.title} demo",
+        f"{demo.title} about demo",
+        course["title"],
+        course["short"],
+        demo.level,
+        "browser-based demo",
+        "classroom learning",
+        "GitHub Pages demo",
+        "no API keys",
+    ]
+    keywords.extend(concepts)
+    return ", ".join(dict.fromkeys(keywords))
+
+
+def seo_description_for_demo(demo: DemoPage, concepts: list[str], look_for: str) -> str:
+    description = re.sub(r"\s+", " ", demo.description).strip()
+    generic = description.lower().startswith(f"about demo learning guide for {demo.title.lower()}:")
+    if not generic:
+        return description
+    course = COURSES[demo.course_key]
+    concept_text = ", ".join(concepts[:3]).lower()
+    focus = look_for.rstrip(".")
+    if focus.lower().startswith("look for "):
+        focus = focus[9:]
+    generic_focus = "the main decision, data input, and output the demo is designed to explain"
+    if focus.lower() == generic_focus:
+        focus_text = "the decision, input variables, outputs, and scenario trade-offs"
+    else:
+        focus_text = focus.lower()
+    return (
+        f"{demo.title} About Demo for {course['title']}: browser-based learning activity covering "
+        f"{concept_text}. Students explore {focus_text} with no cloud or API keys required."
+    )
+
+
+def json_ld_script(payload: dict) -> str:
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(payload, indent=2, ensure_ascii=False)
+        + "\n</script>"
+    )
 
 
 def infer_course(folder: Path) -> str:
@@ -1065,17 +1124,94 @@ def render_about_page(demo: DemoPage) -> str:
         "Record one insight, one limitation, and one follow-up question.",
     ]
     look_for, observe, note = teacher_guide(demo)
-    course_href = relative_url(path, Path(COURSES[demo.course_key]["path"]))
+    seo_description = seo_description_for_demo(demo, concepts, look_for)
+    keywords = demo_keywords(demo, concepts)
+    canonical = absolute_site_url(path)
+    og_image = absolute_site_url(DEFAULT_OG_IMAGE)
+    launch_url = absolute_site_url(demo.demo_path)
+    course_url = absolute_site_url(course_path)
+    readme_url = absolute_site_url(demo.folder / "README.md") if readme_exists else ""
+    structured_data = [
+        {
+            "@context": "https://schema.org",
+            "@type": "LearningResource",
+            "name": f"{demo.title} About Demo",
+            "description": seo_description,
+            "url": canonical,
+            "isAccessibleForFree": True,
+            "learningResourceType": "About Demo",
+            "educationalLevel": demo.level,
+            "timeRequired": demo.duration,
+            "teaches": outcomes,
+            "keywords": keywords,
+            "inLanguage": "en",
+            "about": concepts,
+            "educationalUse": ["instruction", "assignment", "guided practice"],
+            "provider": {
+                "@type": "Person",
+                "name": "Professor Vinaya Sathyanarayana",
+                "email": ATTRIBUTION_EMAIL,
+                "url": GITHUB_URL,
+            },
+            "isPartOf": {
+                "@type": "Course",
+                "name": course["title"],
+                "url": course_url,
+            },
+            "hasPart": [
+                {
+                    "@type": "WebPage",
+                    "name": f"{demo.title} launch demo",
+                    "url": launch_url,
+                }
+            ] + (
+                [
+                    {
+                        "@type": "CreativeWork",
+                        "name": f"{demo.title} README",
+                        "url": readme_url,
+                    }
+                ]
+                if readme_exists
+                else []
+            ),
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": absolute_site_url("index.html")},
+                {"@type": "ListItem", "position": 2, "name": "Course Packs", "item": absolute_site_url("course-packs/index.html")},
+                {"@type": "ListItem", "position": 3, "name": course["title"], "item": course_url},
+                {"@type": "ListItem", "position": 4, "name": demo.title, "item": canonical},
+            ],
+        },
+    ]
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{escape(demo.title)} - About Demo - KateelLearningDemos</title>
-  <meta name="description" content="{escape(demo.description)}">
-  <meta property="og:title" content="{escape(demo.title)} - About Demo - KateelLearningDemos">
-  <meta property="og:description" content="{escape(demo.description)}">
+  <title>{escape(demo.title)} - About Demo - {SITE_NAME}</title>
+  <meta name="description" content="{escape(seo_description)}">
+  <meta name="keywords" content="{escape(keywords)}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="{escape(canonical)}">
+  <link rel="manifest" href="{relative_url(path, Path("site.webmanifest"))}">
+  <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:title" content="{escape(demo.title)} - About Demo - {SITE_NAME}">
+  <meta property="og:description" content="{escape(seo_description)}">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="{escape(canonical)}">
+  <meta property="og:image" content="{escape(og_image)}">
+  <meta property="og:image:alt" content="{escape(demo.title)} learning demo preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{escape(demo.title)} - About Demo - {SITE_NAME}">
+  <meta name="twitter:description" content="{escape(seo_description)}">
+  <meta name="twitter:image" content="{escape(og_image)}">
+  {''.join(json_ld_script(item) for item in structured_data)}
   <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -1092,7 +1228,7 @@ def render_about_page(demo: DemoPage) -> str:
     <section class="site-hero page-hero">
       <p class="hero-eyebrow">{course['emoji']} {course['title']} • {escape(demo.level)} • {escape(demo.duration)}</p>
       <h1>{escape(demo.title)}</h1>
-      <p class="hero-subtitle">{escape(demo.description)}</p>
+      <p class="hero-subtitle">{escape(seo_description)}</p>
       <div class="pill-row" aria-label="Demo attributes">
         <span class="pill">About Demo</span>
         <span class="pill">{escape(demo.ai_mode)}</span>
@@ -1220,7 +1356,7 @@ def render_about_page(demo: DemoPage) -> str:
     </section>
   </main>
   <footer class="site-footer">
-    <p><a href="{relative_url(path, Path("index.html"))}">KateelLearningDemos</a> • <a href="{course_href}">{course['title']}</a> • Attribution: <a href="mailto:{ATTRIBUTION_EMAIL}">{ATTRIBUTION_EMAIL}</a></p>
+    <p><a href="{relative_url(path, Path("index.html"))}">KateelLearningDemos</a> • <a href="{relative_url(path, course_path)}">{course['title']}</a> • Attribution: <a href="mailto:{ATTRIBUTION_EMAIL}">{ATTRIBUTION_EMAIL}</a></p>
   </footer>
 </body>
 </html>
@@ -1571,7 +1707,9 @@ def render_courses_readme() -> str:
 
 def write_assets() -> None:
     Path("assets").mkdir(exist_ok=True)
-    Path("assets/site.css").write_text(r'''/* KateelLearningDemos shared GitHub Pages styles */
+    site_css = Path("assets/site.css")
+    if not site_css.exists():
+        site_css.write_text(r'''/* KateelLearningDemos shared GitHub Pages styles */
 :root {
   --bg-0: #070816;
   --bg-1: #0f172a;
@@ -2040,7 +2178,9 @@ code { color: #bfdbfe; background: rgba(59, 130, 246, 0.16); padding: 0.12rem 0.
   .dropdown-content { left: 0; right: auto; }
 }
 ''', encoding="utf-8")
-    Path("assets/site.js").write_text(r'''/* KateelLearningDemos shared navigation, rating, and usage tracking */
+    site_js = Path("assets/site.js")
+    if not site_js.exists():
+        site_js.write_text(r'''/* KateelLearningDemos shared navigation, rating, and usage tracking */
 (function () {
   function ready(fn) {
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
