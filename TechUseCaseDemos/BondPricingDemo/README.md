@@ -1,61 +1,76 @@
-# Bond Pricing Calculator
+# Bond Pricing
 
-## Learning Objectives
-- Understand bond pricing using present value of future cash flows
-- Learn yield to maturity (YTM) calculations
-- Explore bond duration and interest rate sensitivity
-- Compare premium/discount bonds to par bonds
+## Overview
 
-## Theory Behind This Demo
-
-### Bond Pricing
 A bond's price is the **present value** of all future cash flows discounted at the yield to maturity.
 
-**Formula:**
-```
-P = Σ C/(1+y)^t + F/(1+y)^T
-```
+## Learning Objectives
 
-Where:
-- **C**: Coupon payment per period
-- **F**: Face value (redemption at maturity)
-- **y**: Yield per period
-- **T**: Number of periods
-- **t**: Time period (1 to T)
+- Explain the main quant decision that Bond Pricing is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-### Duration (Macaulay)
-Measures **interest rate sensitivity** - the weighted average time to receive cash flows.
+## Run Modes
 
-```
-D = Σ t × PV(CF_t) / P
-```
+- Browser
 
-### Key Concepts
-- **At Par**: Price = Face when Coupon = YTM
-- **Premium**: Price > Face when Coupon > YTM
-- **Discount**: Price < Face when Coupon < YTM
-- **Duration**: Higher duration = higher interest rate risk
+## Expected Setup / Startup Time
 
-## How to Run
-1. Open `index.html` in a browser
-2. Adjust face value, coupon rate, and years to maturity
-3. Set yield to maturity and payment frequency
-4. See bond price, duration, and par/yield relationship
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-## Learning Outcomes
+## Demo Type
 
-| Concept | What You'll Understand |
-|---------|------------------------|
-| Bond Price | How coupon, yield, and time affect price |
-| Duration | Interest rate risk measurement |
-| Yield | Required return vs coupon relationship |
-| Premium/Discount | Why bonds trade above/below face value |
+- Interactive browser demo
 
-## Use Cases
-- **Fixed Income Trading**: Price bonds and calculate yields
-- **Portfolio Management**: Assess interest rate risk
-- **Risk Management**: Duration hedging strategies
-- **Valuation**: Bond investment analysis
+## Files in This Folder
+
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for coupon, maturity, yield, and present-value calculation
+- Observe how price moves when market yield rises or falls
+- Note that bond pricing teaches the inverse relationship between yields and prices
+
+## Related Demos or Course Context
+
+- Course path: [Quant Finance](../../courses/quant-finance.html)
+- Related demo: [Black Scholes Option](../../DomainUseCaseDemos/QuantFinance/BlackScholesOption/about.html)
+- Related demo: [Supply Chain Finance](../../DomainUseCaseDemos/SupplyChain/SupplyChainFinance/about.html)
+- Related demo: [Monte Carlo Options](../MonteCarloOptions/about.html)
 
 ## Attribution
-KateelLearningDemos - vinallcontact@gmail.com
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

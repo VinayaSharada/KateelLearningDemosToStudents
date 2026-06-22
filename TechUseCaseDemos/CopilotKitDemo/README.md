@@ -1,61 +1,76 @@
-# CopilotKit Agent Demo
+# Copilot Kit
 
-## Learning Objectives
-- Understand agentic AI workflows
-- Learn streaming response patterns
-- Explore tool integration for quantitative tasks
-- Practice building AI agents
+## Overview
 
-## Theory Behind This Demo
-
-### Agentic AI
 Based on **LLM function calling** and **multi-step reasoning** where AI agents can use tools and plan actions.
 
-**Key Concepts:**
-- **Streaming Responses**: Real-time token generation
-- **Tool Calling**: Function execution based on AI decisions
-- **Agent Orchestration**: Multi-step planning and execution
-- **Human-in-the-loop**: Intervention points for safety
+## Learning Objectives
 
-### CopilotKit Framework
-Provides React hooks and components for building agentic AI applications with chat interfaces.
+- Explain the main ai/ml decision that Copilot Kit is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How to Run
-1. Open `index.html` in a browser
-2. Type questions about finance/quant topics
-3. See streaming responses (demo mode)
-4. For full CopilotKit features, see the documentation
+## Run Modes
 
-## Key Features
+- Browser
 
-### CopilotKit Capabilities
-- **Streaming**: Real-time response generation
-- **Tools**: Function calling for calculations
-- **Agents**: Multi-step reasoning workflows
-- **Human-in-the-loop**: Intervention when needed
+## Expected Setup / Startup Time
 
-### For Full Functionality
-This demo shows the integration pattern. To enable full CopilotKit features:
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-```bash
-npm install @copilotkit/react-core @copilotkit/react-ui
-```
+## Demo Type
 
-Then connect to your backend with the desired LLM provider.
+- Interactive browser demo
 
-## Example Queries
-- "Calculate Black-Scholes price for S=100, K=105, T=0.5, r=0.05, σ=0.2"
-- "What's portfolio variance for 60% stocks (20% vol) and 40% bonds (5% vol)?"
-- "Explain risk parity"
+## Files in This Folder
 
-## Learning Outcomes
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-| Skill | What You'll Learn |
-|-------|-------------------|
-| Agent Design | How to structure agentic workflows |
-| Tool Integration | Connecting AI decisions to executable functions |
-| Streaming UI | Building responsive chat interfaces |
-| Quantitative Reasoning | Applying AI to finance problems |
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for the prompt, retrieved context, generated response, and user feedback loop
+- Observe how response quality changes with clearer instructions or better context
+- Note that copilots should be evaluated on usefulness, safety, and explainability
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../AIDataAnalyzer/about.html)
 
 ## Attribution
-KateelLearningDemos - vinallcontact@gmail.com
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

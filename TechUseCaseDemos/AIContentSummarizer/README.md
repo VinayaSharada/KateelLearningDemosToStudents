@@ -1,57 +1,76 @@
 # AI Content Summarizer
 
-## Learning Objectives
-- Compare extractive vs abstractive summarization
-- Understand when AI summarization adds value
-- Practice prompt engineering for content generation
-- Experience toggle between AI/no-AI modes
+## Overview
 
-## Theory Behind This Demo
-
-### Extractive Summarization
 Based on **statistical and heuristic methods** that select important sentences from the source text without generating new content.
 
-**Key Concepts:**
-- Sentence scoring using TF-IDF, TextRank
-- Sliding window approach for coherence
-- Preserves factual accuracy by copying directly
+## Learning Objectives
 
-### Abstractive Summarization
-Based on **sequence-to-sequence transformer models** that generate new text summarizing the key points.
+- Explain the main rag/nlp decision that AI Content Summarizer is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-**Key Concepts:**
-- Encoder-decoder architecture with attention
-- Autoregressive generation
-- Can capture meaning beyond exact wording
+## Run Modes
 
-## How to Run
-1. Open `index.html` in a browser
-2. Toggle "Enable AI Summarization" on/off
-3. When AI is enabled, try different custom prompts
-4. Compare traditional vs AI-generated summaries
+- Browser
 
-## Features
-- **AI Toggle**: Turn AI summarization on/off instantly
-- **Custom Prompts**: Modify summary style (bullet points, executive summary, etc.)
-- **Side-by-side comparison**: See both approaches
-- **Real-time experimentation**: Change prompts and see immediate results
+## Expected Setup / Startup Time
 
-## Prompt Examples to Try
-- "Summarize in 3 bullet points for a busy manager"
-- "Executive summary highlighting business impact"
-- "Extract technical details and implications"
-- "Key takeaways for technical team"
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-## Traditional vs AI Summarization
+## Demo Type
 
-| Aspect | Traditional | AI-Powered |
-|--------|-------------|------------|
-| Method | Extractive (copies text) | Abstractive (generates new text) |
-| Flexibility | Fixed | Prompt-controlled |
-| Personalization | None | Context-aware |
-| Quality | Basic | Nuanced |
+- Interactive browser demo
+
+## Files in This Folder
+
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for source text, summary length, key points, and missing details
+- Observe how summarization quality changes with document complexity
+- Note that summaries should be checked against the source before they are reused
+
+## Related Demos or Course Context
+
+- Course path: [RAG & NLP](../../courses/rag-nlp.html)
+- Related demo: [AI Summarizer001](../AISummarizer001/about.html)
+- Related demo: [Lite Parse](../LiteParseDemo/about.html)
+- Related demo: [Graph RAG](../RAGSolutions/GraphRAG/about.html)
 
 ## Attribution
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
 
-**Educational Use Only** - For usage guidelines, see the main repository.
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

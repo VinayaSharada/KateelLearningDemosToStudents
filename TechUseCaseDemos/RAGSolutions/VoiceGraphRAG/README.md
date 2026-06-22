@@ -1,42 +1,76 @@
-# Voice Graph RAG Demo
+# Voice Graph RAG
+
+## Overview
 
 Voice-enabled Knowledge Graph RAG with Speech-to-Text and Text-to-Speech.
 
-## Live Demo
+## Learning Objectives
 
-Open `index.html` in Chrome or Edge with microphone.
+- Explain the main rag/nlp decision that Voice Graph RAG is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## Features
+## Run Modes
 
-- **Voice Input**: Ask questions by speaking
-- **Graph Traversal**: Navigate knowledge graph relationships
-- **Structured Reasoning**: Multi-hop inference over entities
-- **Voice Output**: Answers spoken aloud
+- Browser
 
-## Usage
+## Expected Setup / Startup Time
 
-1. Click "Load Knowledge Graph"
-2. Click microphone and ask about "neural networks" or "rag"
-3. Hear the system's spoken response
-4. View the traversal path on screen
+- Starts in browser, but first load may take 10-30 seconds if heavier assets initialize.
 
-## Knowledge Graph
+## Demo Type
 
-```
-[AI] → subset → [ML]
-[AI] → uses → [Neural Networks]
-[AI] → applies_to → [NLP]
-[ML] → enhances → [RAG]
-[NLP] → uses → [Transformers]
-[RAG] → uses → [Neural Networks]
-```
+- Interactive browser demo
 
-## File Structure
+## Files in This Folder
 
-```
-VoiceGraphRAG/
-├── index.html    # Voice interface
-├── style.css     # Styling
-├── app.js        # Voice + Graph RAG logic
-└── README.md     # This file
-```
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for spoken query, graph retrieval, entities, relationships, and answer
+- Observe how voice input changes retrieval errors and answer clarity
+- Note that voice RAG should be evaluated for transcription accuracy and evidence traceability
+
+## Related Demos or Course Context
+
+- Course path: [RAG & NLP](../../../courses/rag-nlp.html)
+- Related demo: [AI Content Summarizer](../../AIContentSummarizer/about.html)
+- Related demo: [AI Summarizer001](../../AISummarizer001/about.html)
+- Related demo: [Lite Parse](../../LiteParseDemo/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

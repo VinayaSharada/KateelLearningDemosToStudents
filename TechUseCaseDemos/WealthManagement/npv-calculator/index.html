@@ -1,40 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>npv-calculator - KateelLearningDemos</title>
-  <meta name="description" content="Interactive demo for npv-calculator.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>npv calculator - KateelLearningDemos</title>
+  <meta name="description" content="npv calculator is a interactive browser demo in the Quant Finance track. It helps students explore the main decision, key inputs, and output interpretation in browser mode.">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
-  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-V672XGCRSK');</script>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --primary: #3b82f6; --dark: #0f172a; --darker: #1e293b; --card: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.1); --text: #e2e8f0; --text-muted: #94a3b8; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%); color: var(--text); min-height: 100vh; line-height: 1.6; }
-    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-    .hero { text-align: center; padding: 3rem 2rem; }
-    .hero h1 { font-size: 2.5rem; color: #fff; margin-bottom: 1rem; }
-    .hero p { color: var(--text-muted); max-width: 700px; margin: 0 auto 2rem; }
-    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
-    .info-card h2 { color: var(--primary); margin-bottom: 1rem; }
-    .info-card ul { color: var(--text-muted); margin-left: 1.5rem; }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
-    .btn-primary { display: inline-block; background: var(--primary); color: #fff; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
-    .btn-secondary { display: inline-block; background: transparent; color: var(--text); padding: 1rem 2rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border); }
-    footer { text-align: center; padding: 3rem 2rem; color: var(--text-muted); font-size: 0.875rem; }
-    footer a { color: var(--primary); text-decoration: none; }
-  </style>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V672XGCRSK');
+  </script>
   <link rel="stylesheet" href="../../../assets/site.css">
-  <script defer src="../../../assets/site.js"></script>
-  <link rel="stylesheet" href="../../../assets/site.css">
+  <link rel="stylesheet" href="../../../assets/demo-shell.css">
   <script defer src="../../../assets/site.js"></script>
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a class="brand" href="../../..">KateelLearningDemos</a>
+    <a class="brand" href="../../../index.html">KateelLearningDemos</a>
     <div class="nav-links">
-      <a class="nav-link" href="../../..">Home</a>
+      <a class="nav-link" href="../../../index.html">Home</a>
       <details class="nav-dropdown">
   <summary class="nav-link">Courses</summary>
   <div class="dropdown-content" role="menu">
@@ -55,47 +42,70 @@
     </div>
   </div>
 </nav>
-  
-  
   <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> You are on the interactive demo. Use the <a href="about.html">About Demo</a> page for learning objectives, theory, usage steps, and assessment prompts.
+    <strong>About vs. Demo:</strong> This demo folder now uses a standardized launch page. Start with <a href="about.html">About Demo</a>, then choose the run mode that fits your class.
   </div>
-  <div class="container">
-    <section class="hero">
-      <h1>npv-calculator</h1>
-      <p>Interactive demo for npv-calculator.</p>
+  <main class="container demo-shell">
+    <section class="demo-hero">
+      <p class="demo-kicker">Quant Finance • Browser • 20-30 min</p>
+      <h1>npv calculator</h1>
+      <p class="demo-lede">npv calculator is a interactive browser demo in the Quant Finance track. It helps students explore the main decision, key inputs, and output interpretation in browser mode.</p>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="about.html">Open About Demo</a>
+        <a class="btn btn-secondary" href="README.md">Read README</a>
+        <a class="btn btn-secondary" href="../../../courses/quant-finance.html">View Course Path</a>
+      </div>
     </section>
     
-    <div class="info-card">
-      <h2>🚀 Getting Started</h2>
-      <p>This demo requires local execution. Follow these steps:</p>
-      <ul style="margin-top: 1rem;">
-        <li><strong>1.</strong> Clone the repository: <code>git clone https://github.com/VinayaSharada/KateelLearningDemosToStudents.git</code></li>
-        <li><strong>2.</strong> Navigate to this demo folder</li>
-        <li><strong>3.</strong> Read the full demo index for setup instructions</li>
-        <li><strong>4.</strong> Install required dependencies</li>
-        <li><strong>5.</strong> Run the demo locally</li>
-      </ul>
+  <section class="demo-standard-guide">
+    <div class="section-header">
+      <p class="section-kicker">Standard demo guide</p>
+      <h2>Use this demo in a logical learning sequence</h2>
+      <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
     </div>
-    
-    <div class="info-card">
-      <h2>📋 Key Features</h2>
-      <ul>
-        <li>Interactive browser-based interface</li>
-        <li>No cloud services required</li>
-        <li>Open-source and free to use</li>
-        <li>Customizable for your courses</li>
-      </ul>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>What this demo is about</h3>
+        <p>npv calculator is a interactive browser demo in the Quant Finance track. It helps students explore the main decision, key inputs, and output interpretation in browser mode.</p>
+      </article>
+      <article class="info-card">
+        <h3>Learning objectives</h3>
+        <ul><li>Explain the main quant decision that npv calculator is designed to support.</li><li>Change input assumptions and predict how the output should respond before running the demo.</li><li>Interpret the result in plain language, not just as a number, chart, or AI recommendation.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Run mode and expectations</h3>
+        <ul>
+          <li>Supported modes: Browser</li>
+          <li>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 1: Inputs</h3>
+        <ul><li>Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.</li><li>Treat each input as a lever that changes the scenario, baseline, or business context behind the result.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 2: Decision buttons</h3>
+        <ul><li>Use the main run or simulate action to compute the scenario after inputs are set.</li><li>Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 3: Outputs and what to notice</h3>
+        <ul><li>Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.</li><li>Students should explain whether the output is descriptive, predictive, simulated, or recommended.</li><li>Look for cash-flow timing, discount rate, initial investment, and NPV result</li><li>Observe how the project decision changes when discount rate or future cash flows shift</li></ul>
+      </article>
     </div>
-    
-    <div class="cta-buttons">
-      <a href="../../../DEMO_INDEX.md" class="btn-primary">View README</a>
-      <a href="../../../courses/quant-finance.html" class="btn-secondary">View Course Path</a>
-    </div>
-    
-    <footer>
-      <p>Attribution: vinallcontact@gmail.com | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">View on GitHub</a></p>
-    </footer>
-  </div>
+  </section>
+
+    <section class="demo-panel">
+      <div class="panel-grid">
+        <article class="mini-panel">
+          <h3>Available run modes</h3>
+          <ul class="plain-list"><li><strong>Browser:</strong> available for this demo.</li></ul>
+        </article>
+        <article class="mini-panel">
+          <h3>How to proceed</h3>
+          <ol class="plain-list"><li>Choose the run mode that fits the class: Browser.</li><li>Review the default assumptions before changing anything.</li><li>Change one or two inputs, then use `Run the main action`.</li><li>Read the output first, then compare any supporting metrics, charts, or AI text.</li><li>Capture one insight, one limitation, and one action recommendation.</li></ol>
+        </article>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

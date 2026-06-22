@@ -2,58 +2,83 @@
 
 ## Overview
 
-This folder contains a synthetic financial transaction data generator intended for agent-based or simulation-style liquidity management exercises. It is a useful foundation when students want richer banking datasets with customers, accounts, balances, transactions, and liquidity-oriented attributes.
+Browser-first liquidity lab where students generate synthetic bank data, inspect customer and account structure, then run a Monte Carlo liquidity forecast to see how uncertainty changes funding pressure and expected buffers.
 
-The generator is especially suitable for experimentation, simulation backlogs, and future extensions using Mesa or other agent-based modeling tools.
+## Learning Objectives
+
+- Explain how customer balances, account mix, and transaction behavior feed into a bank liquidity view.
+- Generate synthetic data first, then compare the static liquidity snapshot with the Monte Carlo forecast.
+- Interpret the most likely liquidity path, risk buckets, and AI-style coaching as decision support for treasury action.
+- Discuss why simulation output is still only a model and should be checked against policy limits and stress assumptions.
+
+## Run Modes
+
+- Browser
+- Local
+
+## Expected Setup / Startup Time
+
+- Expect local setup time for Python dependencies before the first run, then faster repeat execution.
+
+## Demo Type
+
+- Multi-mode demo
 
 ## Files in This Folder
 
-- `data_generator.py` creates synthetic banking customers, accounts, and transactions for liquidity-oriented analysis (CLI/Python)
-- `index.html` browser-based interactive demo for generating and visualizing synthetic banking data
-- `about.html` learning guide with concepts, outcomes, and classroom activities
-- `app.js` client-side JavaScript for data generation and Monte Carlo simulation
-
-## What This Folder Is Best For
-
-- creating richer synthetic BFSI datasets
-- supporting future liquidity simulation work
-- classroom experiments around customer segments, balances, channels, and transaction behavior
+- `app.js`
+- `data_generator.py`
+- `index.html`
+- `README.md`
+- `requirements.txt`
 
 ## How To Run
 
-**CLI (Python):**
-```powershell
-python data_generator.py --help
-python data_generator.py --customers 1000 --transactions 10000
-```
+- Browser: open `index.html`.
+- Local: run the Python assets in this folder.
+  Install dependencies first with `pip install -r requirements.txt`.
 
-**Browser Demo:**
-- Open `index.html` directly in a modern browser
-- Adjust controls for customer count, transaction count, and seed
-- Click "Generate Data" to create synthetic banking data
-- Toggle "AI Insights" for automated risk analysis
-- Use "Run Monte Carlo Forecast" for liquidity projections
+## How To Use The Demo
 
-Start with a small dataset first, then scale up after verifying the output structure.
+1. Choose the run mode that fits the class: Browser, Local.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Generate Data`.
+4. Read Monte Carlo Simulation first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-## Suggested Uses In The Course
+## Inputs
 
-- payments and transaction flow simulations
-- liquidity and treasury case discussions
-- operational risk and monitoring exercises
-- data engineering practice before modeling
+- `Enable AI-style insights` adds classroom-friendly commentary on the generated liquidity picture and forecast output.
+- Use the generated customer, account, and transaction views as the base dataset before discussing the forecast result.
 
-## Implemented Features
+## Buttons / Actions
 
-- ✅ Browser-based interactive visualization demo (`index.html`, `app.js`)
-- ✅ AI toggle for liquidity risk insights
-- ✅ Monte Carlo simulation for cash flow forecasting
-- ✅ CSV export functionality
-- ✅ Doughnut and bar charts for segment/risk distribution
-- ✅ Tabbed interface for viewing customers, accounts, transactions, metrics
+- `Generate Data` creates the synthetic banking dataset that the later tabs and metrics depend on.
+- `Run Monte Carlo Simulation` projects many future liquidity paths so students can see uncertainty rather than a single deterministic answer.
+- `Export CSV` downloads the synthetic dataset for spreadsheet or Python follow-up work.
+- `Reset` returns the demo to a clean teaching state.
+- The `Overview`, `Customers`, `Accounts`, and `Transactions` tabs help students move from raw data to liquidity interpretation.
 
-## Suggested Next Improvements
+## Outputs
 
-- Add sample output file with schema documentation
-- Add Mesa agent-based simulation example that consumes this generated data
-- Add pytest tests for the Monte Carlo and data generation functions
+- `Liquidity metrics` summarize the current synthetic balance-sheet position before stress is introduced.
+- `Monte Carlo Simulation` shows the forecast distribution, progress, and most likely liquidity outcome under repeated simulated paths.
+- `Liquidity coaching` translates the numbers into a treasury-style explanation of buffer strength and potential pressure points.
+
+## What To Notice
+
+- Compare the current liquidity snapshot with the simulated future distribution instead of treating them as the same thing
+- Watch how the most likely value can still sit beside a wider risk range that matters for funding and escalation decisions
+- Use the customer, account, and transaction tabs to explain why the forecast behaves the way it does
+
+## Related Demos or Course Context
+
+- Course path: [Banking & Finance](../../../courses/banking.html)
+- Related demo: [Interest Rate Risk](../IntRateRisk/about.html)
+- Related demo: [Liquidity Management](../LiquidityMgmt/about.html)
+- Related demo: [Loan Default Predictor](../LoanDefaultPredictor/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

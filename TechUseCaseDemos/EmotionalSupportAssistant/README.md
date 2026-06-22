@@ -1,111 +1,76 @@
-# Emotional Support Assistant Demo
+# Emotional Support Assistant
+
+## Overview
 
 An AI companion that builds a knowledge graph from your emotional expressions and provides empathetic support for loneliness and emotional wellbeing.
 
-## Quick Start
+## Learning Objectives
 
-Open `TechUseCaseDemos/EmotionalSupportAssistant/index.html` in your browser.
+- Explain the main ai/ml decision that Emotional Support Assistant is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## What You'll Learn
+## Run Modes
 
-- **Emotion Detection**: How AI identifies emotions from text
-- **Knowledge Graph Building**: Representing emotional journeys
-- **Empathetic Response Generation**: Crafting supportive AI responses
-- **Voice Integration**: Speech-to-text and text-to-speech
-- **Personalization**: Adapting responses to individual emotional states
+- Browser
 
-## Features
+## Expected Setup / Startup Time
 
-- **Emotional Detection**: Identifies emotions from your text/voice input
-- **Knowledge Graph**: Builds a personal emotional journey map
-- **Empathetic Responses**: AI responses calibrated to your emotional state
-- **Follow-up Questions**: Asks thoughtful questions to deepen connection
-- **Voice Support**: Speak or type your feelings
-- **Local Storage**: Your emotional journey saved in browser
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-## How It Works
+## Demo Type
 
-```
-Your Message → Emotion Detection → Knowledge Graph Update
-                                     ↓
-                        Empathetic Response + Follow-up Questions
-                                     ↓
-                              Voice or Text Reply
-```
+- Interactive browser demo
 
-## Emotional Support Features
+## Files in This Folder
 
-| Emotion | Support Strategy |
-|---------|------------------|
-| Sad | Validation + Listening |
-| Lonely | Connection suggestions |
-| Anxious | Breathing guidance |
-| Happy | Celebration + gratitude |
-| Neutral | Open-ended questions |
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-## Knowledge Graph Structure
+## How To Run
 
-- **Users**: Your emotional journey
-- **Emotions**: Mood states over time
-- **Connections**: Links between emotions and events
+- Browser: open `index.html`.
 
-## How to Use in Real Life
+## How To Use The Demo
 
-### Customer Service
-- Detect customer frustration from chat
-- Route to appropriate support level
-- Provide empathetic responses
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-### Mental Health Apps
-- Track mood over time
-- Identify emotional patterns
-- Provide coping suggestions
+## Inputs
 
-### Employee Wellbeing
-- Monitor team sentiment
-- Identify burnout early
-- Provide personalized support
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-## How to Extend
+## Buttons / Actions
 
-### Add New Emotions
-1. Add emotion keywords to `detectEmotion()` function
-2. Create response templates for new emotions
-3. Update the UI mood buttons
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-### Integrate with APIs
-1. Replace local emotion detection with cloud APIs
-2. Connect to mental health service directories
-3. Add professional referral capabilities
+## Outputs
 
-### Enhance Knowledge Graph
-1. Add more node types (triggers, coping strategies)
-2. Implement relationship inference
-3. Add temporal pattern analysis
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
-## Important Notes
+## What To Notice
 
-⚠️ **This is a demonstration tool** for educational purposes. For real emotional support:
-- Contact a mental health professional
-- Reach out to trusted friends/family
-- Use crisis hotlines when needed
+- Look for user intent, sentiment cues, safety boundaries, and referral language
+- Observe how the assistant responds differently to low-risk and high-risk messages
+- Note that supportive AI must prioritize safety, empathy, and escalation over persuasion
 
-## File Structure
+## Related Demos or Course Context
 
-```
-EmotionalSupportAssistant/
-├── index.html    # Chat interface
-├── style.css     # Styling
-├── app.js        # Emotional support logic
-└── README.md     # This file
-```
+- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../AIDataAnalyzer/about.html)
 
-## Privacy
+## Attribution
 
-All conversations are stored locally in your browser. No data leaves your device.
-
-## Technical Details
-- **Frontend**: Vanilla JavaScript, no dependencies
-- **Speech**: Web Speech API (Chrome/Edge)
-- **Storage**: localStorage for emotional history
-- **Compatibility**: Modern browsers with ES6 support
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

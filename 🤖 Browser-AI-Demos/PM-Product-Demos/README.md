@@ -1,69 +1,75 @@
 # PM Product Demos
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/PM-Product-Demos/`
+## Overview
 
-Five **in-browser PM decision tools** that simulate real product management decisions — threshold tuning, feature prioritisation, build-vs-buy, pricing, and launch governance. No backend, no AI model required. Pure JavaScript running entirely in the browser.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/PM-Product-Demos/`.
 
----
+## Learning Objectives
 
-## Demos
+- Explain the main ai/ml decision that PM Product Demos is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-| # | Demo | Key Decision | Sessions |
-|---|------|-------------|---------|
-| 01 | [Experimentation & Metrics Simulator](1-experimentation-metrics-simulator/) | Confidence threshold × business cost trade-off | 10, 11, 12 |
-| 02 | [Feature Prioritization Copilot](2-feature-prioritization-copilot/) | What to build next given RICE, MoSCoW, and strategic fit | 03, 04 |
-| 03 | [Build vs Buy vs API Decision Workbench](3-build-buy-api-workbench/) | AI sourcing — in-house vs API vs platform vs partner | 03, 04, 13 |
-| 04 | [Pricing & Unit Economics Explorer](4-pricing-unit-economics/) | How to price an AI product without destroying margin | 11, 13, 15 |
-| 05 | [AI Launch Gate](5-ai-launch-gate/) | Launch now / limited beta / human-reviewed / delay | 11, 12, 15 |
+## Run Modes
 
----
+- Browser
 
-## How to Run
+## Expected Setup / Startup Time
 
-```bash
-cd "🤖 Browser-AI-Demos/PM-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/
-```
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-Or double-click **`start_demos.bat`** in this folder.
+## Demo Type
 
-Works in any modern browser — Chrome, Edge, Firefox. No WebGPU required.
+- Interactive browser demo
 
----
+## Files in This Folder
 
-## Common Design Rules
+- `index.html`
+- `README.md`
+- `start_demos.bat`
 
-Every demo includes four built-in PM reflection prompts (collapsible):
+## How To Run
 
-| Prompt | Purpose |
-|--------|---------|
-| **What PM decision is being made?** | Names the exact decision the tool supports |
-| **What data is assumed?** | Surfaces synthetic/hardcoded inputs students shouldn't over-generalise |
-| **What can go wrong if you trust this too much?** | Teaches model limitations |
-| **What would a strong PM override here?** | Teaches judgment beyond the tool |
+- Browser: open `index.html`.
 
-All demos:
-- Run from `index.html` — single file, no build step
-- No backend or server-side logic
-- Work with hardcoded scenario data in first version
-- Include a `file://` protocol warning that directs students to use HTTP
+## How To Use The Demo
 
----
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-## Demo Anchor Slides
+## Inputs
 
-For course decks, use one named "Demo Anchor" slide per session referencing these demos:
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-- **Session 10:** `Demo Anchor: Experimentation & Metrics Simulator`
-- **Session 03/04:** `Demo Anchor: Feature Prioritization Copilot`
-- **Session 13:** `Demo Anchor: Build vs Buy vs API Decision Workbench · Pricing & Unit Economics Explorer`
-- **Session 12:** `Demo Anchor: AI Launch Gate`
+## Buttons / Actions
 
----
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for the product decision, evidence, stakeholder, and recommended next step
+- Observe how each mini-demo turns a product question into an interactive experiment
+- Note that product managers should use demos to test assumptions before committing resources
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use these demos in a course or project, see [ATTRIBUTION.md](../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

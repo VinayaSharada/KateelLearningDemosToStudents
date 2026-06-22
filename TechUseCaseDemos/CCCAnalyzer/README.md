@@ -1,40 +1,76 @@
-# Cash Conversion Cycle Optimizer
+# CCC Analyzer
 
 ## Overview
+
 Browser-based hands-on exercise for Working Capital Optimization (Session 3).
 
 ## Learning Objectives
-- Quantify working capital impact
-- Prioritize improvement initiatives
-- Balance cash release with business risk
-- Experience AI value in decision support
 
-## Features
-- **CCC Calculator**: DSO/DPO/Inventory Days calculation
-- **Scenario Modeling**: Collections, inventory, payment improvements
-- **Cash Impact Visualization**: Annual cash release projection
-- **AI-Powered Insights**: Priority ranking and risk assessment
-- **Export Functionality**: Download results as JSON
+- Explain the main treasury decision that CCC Analyzer is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How to Run
-1. Open `index.html` in a browser
-2. Enter financial data or select a scenario
-3. Adjust optimization sliders
-4. View cash release projections
-5. Read AI recommendations
-6. Export results if needed
+## Run Modes
 
-## Scenarios Included
-| Scenario | DSO | DIO | DPO | CCC |
-|----------|-----|-----|-----|-----|
-| Current State | 32 | 45 | 28 | 55 days |
-| Industry Benchmark | 45 | 50 | 35 | 60 days |
-| Target State | 25 | 35 | 40 | 40 days |
+- Browser
+
+## Expected Setup / Startup Time
+
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
+
+## Demo Type
+
+- Interactive browser demo
+
+## Files in This Folder
+
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for receivables, inventory, payables, and cash conversion cycle components
+- Observe which working-capital lever most improves cash tied up in operations
+- Note that CCC improvements should be balanced against supplier, customer, and service impacts
+
+## Related Demos or Course Context
+
+- Course path: [Treasury Management](../../courses/treasury-management.html)
+- Related demo: [Monte Carlo Company Valuation](../MonteCarloCompanyValuation/about.html)
+- Related demo: [AI Hedge Orchestrator](../AIHedgeOrchestrator/about.html)
+- Related demo: [Collections Predictor](../CollectionsPredictor/about.html)
 
 ## Attribution
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
 
-**Attribution Email:** vinallcontact@gmail.com
-
----
-*Educational Use Only - For usage guidelines, see the main repository.*
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

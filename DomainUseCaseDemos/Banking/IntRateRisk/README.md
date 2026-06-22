@@ -1,89 +1,98 @@
-# Interest Rate Risk Management
+# Interest Rate Risk
 
 ## Overview
 
-This demo now supports three modes:
+Interest-rate risk lab where students build a synthetic deposit portfolio, apply a rate shock, and compare repricing cost and exposure concentration across savings, current, fixed, and recurring deposits.
 
-- `Browser`: instant classroom exploration with no Python setup
-- `Colab`: notebook-based analysis using Python and charts
-- `Local`: script-based execution for editing and extension
+## Learning Objectives
 
-The learning goal is the same across modes: help students understand how account mix, interest-rate levels, and rate shocks change annual interest cost and exposure concentration.
+- Explain the main banking decision that Interest Rate Risk is designed to support.
+- Use Synthetic accounts, Total portfolio size (INR crore) to test how different assumptions change the scenario.
+- Interpret account Type Table, ai Insight in plain language and connect them to an action or conclusion.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## Files
+## Run Modes
 
-- `index.html`: browser variant
-- `about.html`: teaching guide and mode guidance
-- `colab_demo.ipynb`: Colab-ready notebook variant
-- `generate_synthetic_data.py`: local synthetic data generator
-- `interest_rate_risk_management.py`: local analysis script
-- `generate_synthetic_data.ipynb`: existing notebook asset
-- `interest_rate_risk_management.ipynb`: existing notebook asset
-- `requirements.txt`: local Python dependencies
+- Browser
+- Colab
+- Local
 
-## Recommended Mode
+## Expected Setup / Startup Time
 
-- Use `Browser` for short classes and fast what-if testing.
-- Use `Colab` when students should see Python, pandas, and chart code.
-- Use `Local` when students need to modify the generator or analysis logic.
+- Browser mode is fastest to start. Colab and Local modes may spend extra time installing packages or opening notebooks.
 
-## Browser Mode
+## Demo Type
 
-Open `index.html`.
+- Multi-mode demo
 
-Students can:
+## Files in This Folder
 
-- choose portfolio size and account count
-- change the deposit mix
-- apply a rate shock in basis points
-- see exposure by account type
-- compare current vs post-shock annual interest cost
-- export the browser-generated synthetic portfolio as CSV
+- `app.js`
+- `colab_demo.ipynb`
+- `generate_synthetic_data.ipynb`
+- `generate_synthetic_data.py`
+- `index.html`
+- `interest_rate_risk_management.ipynb`
+- `interest_rate_risk_management.py`
+- `README.md`
+- `requirements.txt`
+- `setup_venv.bat`
+- `setup_venv.sh`
+- `style.css`
+- `syntheticdata.csv`
 
-## Colab Mode
+## How To Run
 
-Open `colab_demo.ipynb` in Google Colab.
+- Browser: open `index.html`.
+- Colab: open `colab_demo.ipynb` in Google Colab and run the cells in order.
+- Local: run the Python assets in this folder.
+  Install dependencies first with `pip install -r requirements.txt`.
 
-The notebook includes:
+## How To Use The Demo
 
-- lightweight package install
-- synthetic data generation
-- exposure-by-account-type analysis
-- weighted-rate and shock calculations
-- matplotlib charts
+1. Choose the run mode that fits the class: Browser, Colab, Local.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Build Portfolio`.
+4. Read account Type Table first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-## Local Mode
+## Inputs
 
-### 1. Install dependencies
+- `Synthetic accounts` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Total portfolio size (INR crore)` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Rate shock (basis points)` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Enable AI-style interpretation` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Savings` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Current` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Fixed Deposit` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Recurring Deposit` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
 
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-```
+## Buttons / Actions
 
-### 2. Generate synthetic data
+- `Build Portfolio` is the main action that computes, compares, or generates the next result from the current inputs.
+- `Export CSV` saves the current result so learners can document evidence or compare scenarios later.
+- `Reset Inputs` returns the demo to a known starting state so students can begin a fresh comparison.
 
-```powershell
-python generate_synthetic_data.py
-```
+## Outputs
 
-### 3. Run analysis
+- The most important outputs are the post-shock annual interest cost, the exposure mix by account type, and any AI-style interpretation of repricing pressure.
+- Students should compare current versus shocked cost rather than read either number in isolation.
 
-```powershell
-python interest_rate_risk_management.py
-```
+## What To Notice
 
-## What Students Learn
+- Look for the main decision, data input, and output the demo is designed to explain
+- Observe how changing one assumption changes the result or recommendation
+- Note the limitation students should mention before applying the result in a real decision
+- Compare the headline output with supporting views such as account Type Table, ai Insight before drawing a conclusion
 
-- how portfolio mix changes interest-rate exposure
-- why fixed deposits usually dominate repricing cost
-- how a rate shock changes annual interest payment
-- why grouped exposure and weighted-rate views both matter
+## Related Demos or Course Context
 
-## Suggested Extensions
+- Course path: [Banking & Finance](../../../courses/banking.html)
+- Related demo: [Liquidity Management](../LiquidityMgmt/about.html)
+- Related demo: [Loan Default Predictor](../LoanDefaultPredictor/about.html)
+- Related demo: [Mesa Liquidity Data Generator](../MesaLiquidity/about.html)
 
-- compare positive and negative rate shocks
-- model separate asset and liability repricing
-- add duration buckets or maturity ladders
-- introduce hedging or repricing strategies
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

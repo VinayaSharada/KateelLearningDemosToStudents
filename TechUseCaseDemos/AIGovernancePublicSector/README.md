@@ -1,71 +1,76 @@
-# AI Governance & Compliance Lab
+# AI Governance Public Sector
+
+## Overview
 
 A browser-based assessment tool for evaluating AI systems against public sector governance requirements.
 
-## Live Demo
-
-Open `index.html` in your browser to start the compliance assessment.
-
 ## Learning Objectives
 
-1. **Regulatory Awareness**: Understand key AI governance frameworks (EU AI Act, OECD Principles)
-2. **Risk Classification**: Learn to classify AI systems by risk level
-3. **Compliance Assessment**: Practice evaluating AI systems against ethical requirements
-4. **Documentation Skills**: Develop technical documentation for AI governance
+- Explain the main compliance decision that AI Governance Public Sector is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## Lab Exercises
+## Run Modes
 
-### Exercise 1: System Classification
-- Select different AI use cases from the dropdown
-- Set risk levels appropriately
-- **Question**: How does use case affect regulatory requirements?
+- Browser
 
-### Exercise 2: Compliance Gap Analysis
-- Check all requirements for a "low-risk" system
-- Note the compliance score
-- **Question**: What's the minimum compliance threshold for low-risk systems?
+## Expected Setup / Startup Time
 
-### Exercise 3: High-Risk Assessment
-- Select "Healthcare Triage System" and set to "High" risk
-- Complete only 3 requirements
-- Run assessment
-- **Question**: What are the mandatory requirements for high-risk systems?
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-### Exercise 4: Documentation Review
-- Complete all requirements for a high-risk system
-- Document your reasoning for each requirement
-- **Question**: How would you justify these requirements to stakeholders?
+## Demo Type
 
-## Regulatory Frameworks Covered
+- Interactive browser demo
 
-| Framework | Key Requirement |
-|-----------|-----------------|
-| EU AI Act | Risk-based classification |
-| USPTO Guidelines | Patent eligibility |
-| FTC Principles | Fairness, transparency |
-| OECD AI Principles | Human-centered AI |
+## Files in This Folder
 
-## File Structure
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-```
-AIGovernancePublicSector/
-├── index.html    # Assessment interface
-├── style.css     # Governance-themed styling
-├── app.js        # Assessment logic
-└── README.md     # This file
-```
+## How To Run
 
-## Educational Use
+- Browser: open `index.html`.
 
-Designed for:
-- Public Policy courses (AI governance modules)
-- Computer Science (ethics and regulation)
-- Business School (AI compliance)
-- Government training programs
-- AI ethics workshops
+## How To Use The Demo
 
-## Further Resources
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-- [EU AI Act Summary](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
-- [OECD AI Principles](https://oecd.ai/en/ai-principles)
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for public value, transparency, accountability, and citizen impact criteria
+- Observe how governance requirements change when decisions affect public services
+- Note that public-sector AI must justify both effectiveness and democratic accountability
+
+## Related Demos or Course Context
+
+- Course path: [Compliance & Governance](../../courses/compliance.html)
+- Related demo: [Alert Triage001](../../DomainUseCaseDemos/Compliance/AlertTriage001/about.html)
+- Related demo: [Mule Account Detection](../../DomainUseCaseDemos/Compliance/MuleAccountDetection/about.html)
+- Related demo: [AI Governance Scorecard](../AIGovernanceScorecard/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

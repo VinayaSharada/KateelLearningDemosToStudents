@@ -1,41 +1,76 @@
-# Quality Function Deployment (QFD) — House of Quality Demo
+# QFD
+
+## Overview
 
 Interactive demo implementing the classic **House of Quality** (HoQ) matrix for prioritizing AI features using Quality Function Deployment methodology.
 
 ## Learning Objectives
 
-- Understand the full House of Quality structure and its six rooms
-- Learn how to translate customer requirements (WHATs) into technical requirements (HOWs)
-- Explore weighted importance scoring and feature prioritization
-- Practice competitive benchmarking (Us vs Them)
-- Understand TR-TR correlation via the roof matrix
+- Explain the main risk decision that QFD is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How to Run
+## Run Modes
 
-1. Open `index.html` in any modern browser (no server required)
-2. Edit customer/technical requirements in the top panels
-3. Click relationship cells in the matrix to cycle: blank → △ Weak (1) → ○ Medium (3) → ● Strong (9)
-4. Click roof (triangle) cells to cycle correlations: blank → + → ++ → - → --
-5. Adjust importance weights and improvement directions
-6. Review auto-calculated priority scores and rankings
+- Browser
 
-## House of Quality Sections
+## Expected Setup / Startup Time
 
-| Section | Description |
-|---------|-------------|
-| **Roof** (triangle) | Technical requirement correlations (+, ++, -, --) |
-| **Left wall** | Customer requirements (WHATs) with importance weights (1-5) |
-| **Ceiling** | Technical requirements (HOWs) with improvement direction (▲▼◎) |
-| **Body** | Relationship matrix (●=9 strong, ○=3 medium, △=1 weak) |
-| **Right wall** | Competitive assessment (Us vs Them, 1-5 scale) |
-| **Basement** | Technical importance scores, relative weights, and targets |
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-## Key Concepts Demonstrated
+## Demo Type
 
-- **Customer Requirements (WHATs)**: What customers need from the AI system
-- **Technical Requirements (HOWs)**: Engineering capabilities to deliver those needs
-- **Relationship Matrix**: Strength of connection between each WHAT and HOW
-- **Weighted Scoring**: importance × relationship strength, summed per HOW
-- **Roof Correlations**: Synergies and conflicts between technical requirements
-- **Competitive Assessment**: How our solution compares to alternatives
-- **Prioritization**: Data-driven ranking of where to invest engineering effort
+- Interactive browser demo
+
+## Files in This Folder
+
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for customer need, importance, satisfaction, and quality-function linkage
+- Observe how prioritization changes when customer importance and current satisfaction differ
+- Note that QFD helps translate voice-of-customer into design and control choices
+
+## Related Demos or Course Context
+
+- Course path: [Risk Management](../../courses/risk-management.html)
+- Related demo: [Contagion Model](../../DomainUseCaseDemos/RiskManagement/ContagionModel/about.html)
+- Related demo: [Counter Party Risk](../../DomainUseCaseDemos/RiskManagement/CounterPartyRisk/about.html)
+- Related demo: [AI Risk Calculator](../AIRiskCalculator/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

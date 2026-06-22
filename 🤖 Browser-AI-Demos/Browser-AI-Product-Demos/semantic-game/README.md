@@ -1,94 +1,74 @@
 # SYNAPSE — Semantic Word Game
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/semantic-game/`
+## Overview
 
-A **Wordle-style semantic guessing game** powered by sentence embeddings running in the browser. Players guess a secret daily word; the model scores each guess by its semantic distance to the target — teaching players to think in meaning-space rather than letter-space.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/semantic-game/`.
 
----
+## Learning Objectives
 
-## What This Demo Does
+- Explain the main ai/ml decision that SYNAPSE — Semantic Word Game is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-| Feature | Detail |
-|---------|--------|
-| Model | **mixedbread-ai/mxbai-embed-xsmall-v1** — compact, fast embedding model (~40 MB) |
-| Game mechanic | Guess the secret word; each guess is scored 0–100% by cosine similarity to the target embedding |
-| Daily rotation | Target word changes each day — derived from a seeded word list using `new Date()` day-of-year index |
-| Gauge | Animated 0–100% similarity gauge that fills toward the target with each guess |
-| Hint system | Visual feedback: red (<30%), amber (30–70%), green (>70%), gold border at 95%+ |
-| Leaderboard | In-session guess history with scores listed in order |
-| Status bar | Purple diagnostic panel shows model load progress and WebGPU status |
+## Run Modes
 
----
+- Browser
 
-## Files
+## Expected Setup / Startup Time
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Complete single-file game — HTML + CSS + JavaScript |
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
----
+## Demo Type
 
-## How to Run
+- Interactive browser demo
 
-```bash
-cd "🤖 Browser-AI-Demos/Browser-AI-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/semantic-game/
-```
+## Files in This Folder
 
-Requires a **WebGPU-capable browser** (Chrome 113+, Edge 113+). The embedding model downloads ~40 MB on first run and caches in the browser.
+- `index.html`
+- `README.md`
 
----
+## How To Run
 
-## Architecture Notes
+- Browser: open `index.html`.
 
-```
-Secret word ──► feature-extraction pipeline ──► target_embedding (cached)
+## How To Use The Demo
 
-Player types a guess
-          │
-          ▼
-   feature-extraction pipeline
-   (mxbai-embed-xsmall-v1)
-          │
-          ▼
-   cosine_similarity(guess_embedding, target_embedding)
-          │
-          ▼
-   Score 0–100% ──► update gauge + history list
-```
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-The daily word is selected deterministically: `wordList[dayOfYear % wordList.length]`, so all players worldwide see the same target word on the same day.
+## Inputs
 
----
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-## Educational Value
+## Buttons / Actions
 
-This game demonstrates:
-- That word meaning can be **represented as a vector** in high-dimensional space
-- That semantically related words (e.g. "ocean" and "sea") have **high cosine similarity**
-- That **approximate guesses** can be meaningfully ranked by similarity — not just exact matches
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
----
+## Outputs
 
-## How This Connects to Other Demos
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
-- [`6-semantic-search`](../6-semantic-search/) — same embedding model, same cosine similarity scoring
-- [`1-local-chat-advisor`](../1-local-chat-advisor/) — generative complement to this embedding-based demo
+## What To Notice
 
----
+- Look for word relationships, hints, and the path students use to reason semantically
+- Observe how students explain connections that are not obvious from keywords
+- Note that semantic games make abstract NLP ideas concrete and memorable
 
-## Student Extensions
+## Related Demos or Course Context
 
-1. Add a **themed word set** (finance terms, medical vocabulary, country names) and observe how guessing strategy changes.
-2. Implement a **Give up / Reveal** button that shows the target word and its closest semantic neighbours.
-3. Add a **2D visualisation** using PCA: plot all guesses and the target in embedding space as the player guesses.
-4. Allow **multiplayer** via a shared URL parameter that encodes the target word index — compare scores with classmates.
-
----
+- Course path: [AI/ML Workflows](../../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use this demo in a course or project, see [ATTRIBUTION.md](../../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

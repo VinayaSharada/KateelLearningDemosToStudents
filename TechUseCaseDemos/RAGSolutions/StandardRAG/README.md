@@ -1,45 +1,76 @@
-# Standard RAG Demo
+# Standard RAG
+
+## Overview
 
 Browser-based demonstration of Retrieval-Augmented Generation using keyword matching and rule-based response generation.
 
-## Live Demo
+## Learning Objectives
 
-Open `index.html` in your browser.
+- Explain the main rag/nlp decision that Standard RAG is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How It Works
+## Run Modes
 
-1. **Retrieve**: Find relevant chunks from knowledge base using keyword matching
-2. **Augment**: Combine query with retrieved context
-3. **Generate**: Rule-based system produces answer from context
+- Browser
 
-## Features
+## Expected Setup / Startup Time
 
-- **Document Upload**: Add your own .txt files to the knowledge base
-- **Sample Knowledge Base**: 5 pre-loaded documents on AI/ML topics
-- **Keyword-based Retrieval**: Find relevant content by matching terms
-- **Rule-based Generation**: Answers generated from retrieved context
-- **Interactive Interface**: Simple query and response workflow
+- Starts in browser, but first load may take 10-30 seconds if heavier assets initialize.
 
-## Usage
+## Demo Type
 
-1. Click "Load Knowledge Base" for sample documents
-2. Or click "Upload Document" to add your own text files
-3. Type a question and click "Ask"
-4. View retrieved chunks and generated answer
+- Interactive browser demo
 
-## Exercises
+## Files in This Folder
 
-1. Load sample docs and ask about "machine learning"
-2. Ask about "neural networks"
-3. Ask about "transformers"
-4. Upload your own document and query it
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-## File Structure
+## How To Run
 
-```
-StandardRAG/
-├── index.html    # Main interface
-├── style.css     # Styling
-├── app.js        # RAG logic
-└── README.md     # This file
-```
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for query, retrieved documents, generated answer, and citations
+- Observe whether retrieval improves answer grounding compared with a plain prompt
+- Note that RAG quality depends on retrieval relevance as much as generation quality
+
+## Related Demos or Course Context
+
+- Course path: [RAG & NLP](../../../courses/rag-nlp.html)
+- Related demo: [AI Content Summarizer](../../AIContentSummarizer/about.html)
+- Related demo: [AI Summarizer001](../../AISummarizer001/about.html)
+- Related demo: [Lite Parse](../../LiteParseDemo/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

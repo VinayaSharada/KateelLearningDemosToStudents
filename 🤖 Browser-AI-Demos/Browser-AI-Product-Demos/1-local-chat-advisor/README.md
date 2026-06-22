@@ -1,87 +1,74 @@
-# 1 — Local Chat Advisor
+# Local Chat Advisor
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/`
+## Overview
 
-A fully **private, zero-server chat interface** that runs a small language model entirely inside the browser using WebGPU and the Transformers.js pipeline. No API keys, no data leaves the device.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/`.
 
----
+## Learning Objectives
 
-## What This Demo Does
+- Explain the main ai/ml decision that Local Chat Advisor is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-| Feature | Detail |
-|---------|--------|
-| Model | **SmolLM2-135M-Instruct** (HuggingFace) — quantised to ~100 MB, streamed from CDN on first load |
-| Inference | `text-generation` pipeline with `TextStreamer` — tokens appear word-by-word as they are generated |
-| UI | Dark chat bubble layout; user messages right-aligned, assistant responses left-aligned |
-| Status bar | Animated amber dot while loading, green on ready; progress track shows download % |
-| Context | Full conversation history fed back to the model on each turn |
+## Run Modes
 
----
+- Browser
 
-## Files
+## Expected Setup / Startup Time
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Complete single-file demo — HTML + CSS + JavaScript |
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
----
+## Demo Type
 
-## How to Run
+- Interactive browser demo
 
-Open directly in a **WebGPU-capable browser** (Chrome 113+, Edge 113+):
+## Files in This Folder
 
-```bash
-# From repo root — just open the file:
-start "🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/index.html"
-```
+- `index.html`
+- `README.md`
 
-Or serve locally (recommended for sub-resource isolation):
+## How To Run
 
-```bash
-cd "🤖 Browser-AI-Demos/Browser-AI-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/1-local-chat-advisor/
-```
+- Browser: open `index.html`.
 
-**First load:** model downloads ~100 MB from Hugging Face CDN and caches in the browser's `Cache API`. Subsequent loads are instant.
+## How To Use The Demo
 
----
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-## Architecture Notes
+## Inputs
 
-```
-User types message
-        │
-        ▼
- conversation[] array ──► model.generate(messages, { streamer })
-        │
-        ▼
- TextStreamer.on('text') ──► append tokens to assistant bubble in real time
-```
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-The `progress_callback` from the Transformers.js `pipeline()` constructor drives the status bar percentage display.
+## Buttons / Actions
 
----
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-## How This Connects to Other Demos
+## Outputs
 
-- [`2-customer-support-tagger`](../2-customer-support-tagger/) — classification instead of generation
-- [`3-privacy-notebook`](../3-privacy-notebook/) — T5-based text editing in the same privacy-first pattern
-- All demos in this collection share the same **no-server, WebGPU** philosophy
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
----
+## What To Notice
 
-## Student Extensions
+- Look for the prompt, local response, and any limitations shown by the chat behavior
+- Observe how response quality changes with specific versus vague prompts
+- Note that local chat is a safe way to teach prompt design and AI boundaries
 
-1. Swap the model ID to `Phi-3-mini-4k-instruct` and compare response quality vs speed.
-2. Add a **system prompt** input so the model can be primed as a financial advisor, tutor, or code reviewer.
-3. Implement a **Clear conversation** button that resets the history array.
-4. Add **token count** display to show how context window fills up over a long chat.
+## Related Demos or Course Context
 
----
+- Course path: [AI/ML Workflows](../../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use this demo in a course or project, see [ATTRIBUTION.md](../../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

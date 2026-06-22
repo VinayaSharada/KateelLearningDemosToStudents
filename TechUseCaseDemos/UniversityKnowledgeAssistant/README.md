@@ -1,120 +1,76 @@
-# University Knowledge Assistant Demo
+# University Knowledge Assistant
+
+## Overview
 
 A comprehensive demonstration of advanced RAG concepts combining Graph RAG, PageIndex, Local SLMs, and Voice I/O.
 
-## Live Demo
+## Learning Objectives
 
-Open `index.html` in Chrome or Edge with microphone permissions.
+- Explain the main rag/nlp decision that University Knowledge Assistant is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## Features
+## Run Modes
 
-- **PDF Ingestion**: Upload university documents or course materials
-- **Graph RAG**: Build knowledge graph of entities and relationships
-- **PageIndex**: Page-level citations with inverted index
-- **Voice I/O**: Ask questions by voice, get spoken answers
-- **Local SLM**: Ready for integration with Phi-3.5/Mistral
-- **Hybrid Retrieval**: Combines graph traversal + page indexing
+- Browser
 
-## System Architecture
+## Expected Setup / Startup Time
 
-```
-User Query (Voice/Text)
-        ↓
-    STT (Web Speech API)
-        ↓
-    Hybrid Retriever
-    ├── Graph RAG (FalkorDB)
-    └── PageIndex (PageIndex)
-        ↓
-    Local SLM (llama.cpp/Phi-3.5)
-        ↓
-    Response Generator
-        ↓
-    TTS (Web Speech API)
-```
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-## What You'll Learn
+## Demo Type
 
-1. **Document Ingestion**: PDF/text processing and chunking
-2. **Knowledge Graph**: Entity extraction and relationship mapping
-3. **PageIndex**: Inverted index with page-level references
-4. **Graph RAG**: Multi-hop reasoning over knowledge graph
-5. **Voice Pipeline**: Complete STT→RAG→TTS workflow
-6. **System Design**: Integrating multiple AI components
+- Interactive browser demo
 
-## Technical Stack
+## Files in This Folder
 
-| Component | Technology |
-|-----------|------------|
-| PDF Processing | PDF.js (simulated in demo) |
-| Knowledge Graph | FalkorDB (local) |
-| Indexing | PageIndex (PageIndex library) |
-| SLM | Phi-3.5/Mistral via llama.cpp |
-| STT/TTS | Web Speech API |
-| Frontend | Vanilla JS (no dependencies) |
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-## How to Extend
+## How To Run
 
-### Add FalkorDB Integration
-```javascript
-// Connect to FalkorDB
-const db = new FalkorDB({ host: 'localhost', port: 9292 });
+- Browser: open `index.html`.
 
-// Create graph
-await db.insertEdge('doc_1', 'mentions', 'entity_1');
-```
+## How To Use The Demo
 
-### Add PageIndex Integration
-```javascript
-// Use PageIndex library
-const indexer = new PageIndex();
-indexer.addDocument(docId, content, pages);
-const results = indexer.search(query);
-```
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-### Add Local SLM
-```javascript
-// Use llama.cpp via WebGPU
-import { LLM } from '@llama-cpp/headless';
+## Inputs
 
-const llm = new LLM({ model: 'phi-3.5-q4.gguf' });
-const response = await llm.prompt(prompt);
-```
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-## Usage
+## Buttons / Actions
 
-1. Click "Load Knowledge Base" for sample university documents
-2. Or click "Upload PDFs" to add your own documents
-3. Click microphone and ask questions like:
-   - "What programs does the university offer?"
-   - "Tell me about banking security"
-4. View answers with page citations
-5. Hear answers via text-to-speech
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-## Demo Limitations
+## Outputs
 
-This browser demo simulates:
-- FalkorDB graph operations
-- PageIndex indexing
-- Local SLM responses
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
-For production use:
-- Run FalkorDB locally: `docker run -d -p 9292:9292 falkordb/falkordb`
-- Use PageIndex Node.js library
-- Run llama.cpp with WebGPU support
+## What To Notice
 
-## File Structure
+- Look for student query, knowledge source, retrieved answer, and citation
+- Observe how answer quality changes when the knowledge base is specific versus generic
+- Note that knowledge assistants should help students find evidence, not replace learning
 
-```
-UniversityKnowledgeAssistant/
-├── index.html    # Main interface
-├── style.css     # Styling
-├── app.js        # System logic
-└── README.md     # This file
-```
+## Related Demos or Course Context
 
-## Related Demos
+- Course path: [RAG & NLP](../../courses/rag-nlp.html)
+- Related demo: [AI Content Summarizer](../AIContentSummarizer/about.html)
+- Related demo: [AI Summarizer001](../AISummarizer001/about.html)
+- Related demo: [Lite Parse](../LiteParseDemo/about.html)
 
-- [Graph RAG](../RAGSolutions/GraphRAG/) - Standalone Graph RAG
-- [Voice RAG](../RAGSolutions/VoiceStandardRAG/) - Voice-enabled RAG
-- [PageIndex RAG](../RAGSolutions/PageIndexRAG/) - Document indexing with citations
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

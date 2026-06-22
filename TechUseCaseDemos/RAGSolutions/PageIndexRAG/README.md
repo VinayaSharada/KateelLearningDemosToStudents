@@ -1,45 +1,76 @@
-# PageIndex RAG Demo
+# Page Index RAG
+
+## Overview
 
 Browser-based demonstration of document indexing with page-level retrieval for precise citations.
 
-## Live Demo
+## Learning Objectives
 
-Open `index.html` in your browser.
+- Explain the main rag/nlp decision that Page Index RAG is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How PageIndex RAG Works
+## Run Modes
 
-1. **Index**: Create inverted index mapping keywords to page references
-2. **Retrieve**: Find pages matching query keywords
-3. **Cite**: Return page numbers with results
-4. **Generate**: LLM answers with precise citations
+- Browser
 
-## Key Features
+## Expected Setup / Startup Time
 
-- **Document Upload**: Add your own .txt files to the knowledge base
-- **Precise Retrieval**: Keyword-based document search
-- **Rule-based Generation**: Answers from retrieved context
-- **Interactive Interface**: Simple query and response workflow
+- Starts in browser, but first load may take 10-30 seconds if heavier assets initialize.
 
-## Usage
+## Demo Type
 
-1. Click "Index Documents" to load sample documents
-2. Or click "Upload Document" to add your own text files
-3. Type a question and click "Search"
-4. View retrieved pages and generated answers with citations
+- Interactive browser demo
 
-## Exercises
+## Files in This Folder
 
-1. Click "Index Documents"
-2. Search for "machine learning"
-3. Search for "neural"
-4. Observe page citations in answers
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-## File Structure
+## How To Run
 
-```
-PageIndexRAG/
-├── index.html    # Main interface
-├── style.css     # Styling
-├── app.js        # Indexing logic
-└── README.md     # This file
-```
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for page references, retrieved chunks, and answer grounding
+- Observe whether the answer cites the page that actually supports the claim
+- Note that page-level retrieval improves auditability but still requires citation checks
+
+## Related Demos or Course Context
+
+- Course path: [RAG & NLP](../../../courses/rag-nlp.html)
+- Related demo: [AI Content Summarizer](../../AIContentSummarizer/about.html)
+- Related demo: [AI Summarizer001](../../AISummarizer001/about.html)
+- Related demo: [Lite Parse](../../LiteParseDemo/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

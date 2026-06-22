@@ -1,29 +1,76 @@
 # Model Version Comparator
 
-## Learning Objectives
-- Compare model versions using key performance metrics
-- Understand trade-offs between accuracy and latency
-- Learn to make data-driven deployment decisions
+## Overview
 
-## How to Run
-1. Open `index.html` in a browser
-2. Modify Model A and Model B parameters
-3. Click "Compare Models"
-4. Review the side-by-side comparison and recommendation
-
-## Metrics Compared
-- **Accuracy**: Overall correctness
-- **Precision**: True positive rate among positive predictions
-- **Recall**: True positive rate among actual positives
-- **Latency**: Response time in milliseconds
-
-## Decision Guidance
-The tool provides recommendations based on:
-- 3+ improvements: Promote to production
-- 2 improvements: Run A/B tests
-- Fewer improvements: Keep current model
-
-## Attribution
 This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
 
-**Educational Use Only** - For usage guidelines, see the main repository.
+## Learning Objectives
+
+- Explain the main ai/ml decision that Model Version Comparator is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
+
+## Run Modes
+
+- Browser
+
+## Expected Setup / Startup Time
+
+- Starts in browser, but first load may take 10-30 seconds if heavier assets initialize.
+
+## Demo Type
+
+- Interactive browser demo
+
+## Files in This Folder
+
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for the baseline model, challenger model, metric comparison, and segment results
+- Observe whether performance gains are consistent or concentrated in a small segment
+- Note that a better average metric can hide fairness, stability, or operational risks
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../AIDataAnalyzer/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

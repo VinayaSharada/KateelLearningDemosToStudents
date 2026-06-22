@@ -29,6 +29,7 @@
   <script defer src="../../assets/site.js"></script>
   <link rel="stylesheet" href="../../assets/site.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -57,11 +58,49 @@
   </div>
 </nav>
   
-  
   <div class="demo-context-strip" role="note">
     <strong>About vs. Demo:</strong> You are on the interactive demo. Use the <a href="about.html">About Demo</a> page for learning objectives, theory, usage steps, and assessment prompts.
+    <br><strong>Teacher cue:</strong> Observe how sensitive the score is to payment history and utilization changes.
   </div>
   <div class="container">
+  <section class="demo-standard-guide">
+    <div class="section-header">
+      <p class="section-kicker">Standard demo guide</p>
+      <h2>Use this demo in a logical learning sequence</h2>
+      <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>What this demo is about</h3>
+        <p>Interactive demo for understanding credit scoring models and feature engineering.</p>
+      </article>
+      <article class="info-card">
+        <h3>Learning objectives</h3>
+        <ul><li>Explain the main banking decision that Credit Scoring is designed to support.</li><li>Change input assumptions and predict how the output should respond before running the demo.</li><li>Interpret the result in plain language, not just as a number, chart, or AI recommendation.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Run mode and expectations</h3>
+        <ul>
+          <li>Supported modes: Browser</li>
+          <li>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 1: Inputs</h3>
+        <ul><li>Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.</li><li>Treat each input as a lever that changes the scenario, baseline, or business context behind the result.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 2: Decision buttons</h3>
+        <ul><li>Use the main run or simulate action to compute the scenario after inputs are set.</li><li>Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 3: Outputs and what to notice</h3>
+        <ul><li>Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.</li><li>Students should explain whether the output is descriptive, predictive, simulated, or recommended.</li><li>Look for score drivers, risk band, and decision recommendation</li><li>Observe how sensitive the score is to payment history and utilization changes</li></ul>
+      </article>
+    </div>
+  </section>
+
+
     <section class="hero">
       <h1>📊 Credit Scoring Demo</h1>
       <p>Interactive credit scoring model for loan approval decisions using machine learning. Learn how banks assess credit risk.</p>

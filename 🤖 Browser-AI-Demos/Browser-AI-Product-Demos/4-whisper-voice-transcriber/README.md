@@ -1,89 +1,74 @@
-# 4 — Whisper Voice Transcriber
+# Whisper Transcriber
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/`
+## Overview
 
-A **real-time speech-to-text demo** using OpenAI Whisper Tiny (English) running entirely in the browser via WebGPU and Transformers.js. Records microphone audio, displays a live 60-bar waveform visualiser, and transcribes the recording locally — no cloud API, no data upload.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/4-whisper-voice-transcriber/`.
 
----
+## Learning Objectives
 
-## What This Demo Does
+- Explain the main ai/ml decision that Whisper Transcriber is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-| Feature | Detail |
-|---------|--------|
-| Model | **openai/whisper-tiny.en** (~150 MB) — automatic-speech-recognition pipeline |
-| Audio capture | `MediaRecorder` API; 16 kHz PCM pipeline from raw audio chunks |
-| Waveform | 60-bar animated amplitude display updated at ~30 fps during recording |
-| Languages | Primarily English; model also handles 7 further languages with reduced accuracy |
-| Output | Transcript text appears below the recorder card after processing |
-| Status bar | Pink/purple progress gradient during model download |
+## Run Modes
 
----
+- Browser
 
-## Files
+## Expected Setup / Startup Time
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Complete single-file demo — HTML + CSS + JavaScript |
+- Starts in browser, but first load may take 10-30 seconds if heavier assets initialize.
 
----
+## Demo Type
 
-## How to Run
+- Interactive browser demo
 
-```bash
-cd "🤖 Browser-AI-Demos/Browser-AI-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/4-whisper-voice-transcriber/
-```
+## Files in This Folder
 
-**Browser requirements:**
-- Chrome 113+ or Edge 113+ (WebGPU)
-- Microphone permission granted when prompted
+- `index.html`
+- `README.md`
 
-Model downloads ~150 MB on first run and caches in the browser's `Cache API`.
+## How To Run
 
----
+- Browser: open `index.html`.
 
-## Architecture Notes
+## How To Use The Demo
 
-```
-Microphone ──► MediaRecorder (WebAudio API)
-                    │
-                    ▼
-           Raw audio chunks (Float32Array)
-                    │
-                    ▼
-           Resample to 16 kHz PCM
-                    │
-                    ▼
-   automatic-speech-recognition pipeline
-          (whisper-tiny.en)
-                    │
-                    ▼
-           Transcript text shown in UI
-```
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-The 60-bar waveform reads `AnalyserNode.getByteFrequencyData()` on each animation frame and maps it to CSS `height` on the bar elements.
+## Inputs
 
----
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-## How This Connects to Other Demos
+## Buttons / Actions
 
-- [`3-privacy-notebook`](../3-privacy-notebook/) — transcribed text can be pasted into the notebook for polishing
-- [`1-local-chat-advisor`](../1-local-chat-advisor/) — voice-to-chat pipeline possible by chaining both demos
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
----
+## Outputs
 
-## Student Extensions
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
-1. Switch to `whisper-small` for better multilingual accuracy (adds ~250 MB download).
-2. Add **real-time streaming transcription** using `chunk_length_s` parameter for long recordings.
-3. Wire the transcript output directly into the Privacy Notebook editor — build a voice-to-polished-note pipeline.
-4. Add **language detection** using the Whisper `language` token to auto-detect the spoken language.
+## What To Notice
 
----
+- Look for audio input, transcription output, and timing or speaker cues
+- Observe how background noise or unclear speech changes transcript quality
+- Note that voice AI should be evaluated for accessibility, accuracy, and consent
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use this demo in a course or project, see [ATTRIBUTION.md](../../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

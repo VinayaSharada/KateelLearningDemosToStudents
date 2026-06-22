@@ -1,94 +1,74 @@
-# 5 — Named Entity Tagger
+# Named Entity Tagger
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/5-entity-tagger/`
+## Overview
 
-A **browser-side NER (Named Entity Recognition) demo** that highlights persons, organisations, locations, and miscellaneous entities in any text you type or paste — in real time, using BERT-NER running locally via WebGPU and Transformers.js.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/5-entity-tagger/`.
 
----
+## Learning Objectives
 
-## What This Demo Does
+- Explain the main ai/ml decision that Named Entity Tagger is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-| Feature | Detail |
-|---------|--------|
-| Model | **dslim/bert-base-NER** (token-classification pipeline) — ~420 MB |
-| Entity types | **PER** (persons), **ORG** (organisations), **LOC** (locations), **MISC** (miscellaneous) |
-| Highlighting | Each entity type gets a distinct colour-coded inline span with a label tooltip |
-| Input | Editable text area; inference fires automatically after a short pause in typing |
-| Status bar | Cyan/indigo progress gradient during model download |
+## Run Modes
 
----
+- Browser
 
-## Files
+## Expected Setup / Startup Time
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Complete single-file demo — HTML + CSS + JavaScript |
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
----
+## Demo Type
 
-## How to Run
+- Interactive browser demo
 
-```bash
-cd "🤖 Browser-AI-Demos/Browser-AI-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/5-entity-tagger/
-```
+## Files in This Folder
 
-Requires a **WebGPU-capable browser** (Chrome 113+, Edge 113+). BERT-NER downloads ~420 MB on first run and caches in the browser.
+- `index.html`
+- `README.md`
 
----
+## How To Run
 
-## Architecture Notes
+- Browser: open `index.html`.
 
-```
-User types / pastes text
-          │
-   short debounce (~400ms)
-          │
-          ▼
- token-classification pipeline
-    (bert-base-NER)
-          │
-          ▼
- Token predictions grouped into word-level entities
-          │
-          ▼
- Annotated HTML spans injected into result pane
-```
+## How To Use The Demo
 
-The pipeline returns per-token predictions (B-PER, I-PER, B-ORG, etc.). The demo groups consecutive tokens with the same entity into single spans using the B- / I- prefix convention.
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
----
+## Inputs
 
-## Colour Coding
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-| Entity | Colour |
-|--------|--------|
-| PER — Person | Indigo |
-| ORG — Organisation | Cyan |
-| LOC — Location | Emerald |
-| MISC — Miscellaneous | Amber |
+## Buttons / Actions
 
----
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-## How This Connects to Other Demos
+## Outputs
 
-- [`2-customer-support-tagger`](../2-customer-support-tagger/) — text classification, same Transformers.js pipeline pattern
-- [`6-semantic-search`](../6-semantic-search/) — combine NER extraction with semantic search over results
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
----
+## What To Notice
 
-## Student Extensions
+- Look for named entities, categories, and context around each extraction
+- Observe how abbreviations or ambiguous names affect entity recognition
+- Note that entity extraction is useful only when students verify the business meaning
 
-1. Add a **filter panel** so users can toggle which entity types are highlighted.
-2. Feed NER output into a **knowledge graph** — PER linked to ORG linked to LOC.
-3. Test with financial news: does the model correctly tag company names vs. person names?
-4. Try `Jean-Baptiste/roberta-large-ner-english` for better accuracy (larger model, more download time).
+## Related Demos or Course Context
 
----
+- Course path: [AI/ML Workflows](../../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use this demo in a course or project, see [ATTRIBUTION.md](../../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

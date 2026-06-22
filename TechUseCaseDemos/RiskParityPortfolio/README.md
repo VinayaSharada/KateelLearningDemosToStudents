@@ -1,64 +1,76 @@
 # Risk Parity Portfolio
 
-## Learning Objectives
-- Understand risk parity vs equal weighting
-- Learn how to equalize risk contribution
-- Explore volatility weighting
-- Compare with traditional 60/40 portfolio
+## Overview
 
-## Theory Behind This Demo
-
-### Risk Parity
 A portfolio construction approach that **equalizes risk contribution** from each asset rather than equal weight.
 
-**Mathematical Foundation:**
-```
-Weight_i = (σ_i)^(-1) / Σ_j (σ_j)^(-1)
-```
+## Learning Objectives
 
-**Risk Contribution:**
-Each asset contributes: `Weight_i × σ_i / Portfolio_Vol`
+- Explain the main risk decision that Risk Parity Portfolio is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-### Key Concepts
-- **Risk Budgeting**: Allocating risk equally across assets
-- **Volatility Weighting**: Lower vol = higher weight
-- **Leverage**: Often requires leverage vs unlevered equal weight
+## Run Modes
 
-## How to Run
-1. Open `index.html` in a browser
-2. Adjust asset volatilities
-3. See how weights change to equalize risk
-4. Observe risk contribution per asset
+- Browser
 
-## Key Concepts
+## Expected Setup / Startup Time
 
-### Risk Parity Formula
-```
-Weight_i = (σ_i)^(-1) / Σ_j (σ_j)^(-1)
-```
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-### Risk Contribution
-Each asset contributes: `Weight_i × σ_i / Portfolio_Vol`
+## Demo Type
 
-### Why Risk Parity?
-- Equal weighting ignores volatility differences
-- Risk parity gives higher weights to lower-volatility assets
-- Often more stable than 60/40 portfolios
+- Interactive browser demo
 
-## Learning Outcomes
+## Files in This Folder
 
-| Concept | What You'll Understand |
-|---------|------------------------|
-| Risk Budgeting | How to allocate risk equally |
-| Volatility Impact | Why low-vol assets get high weights |
-| Portfolio Stability | Risk parity vs traditional allocation |
-| Leverage Needs | Why risk parity often requires leverage |
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-## Use Cases
-- **Pension Funds**: Long-term stability
-- **Insurance**: Matching asset risk profiles
-- **Multi-Asset Strategies**: Balanced portfolios
-- **Risk Management**: Understanding contribution
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for asset risk contribution, allocation weights, and portfolio volatility
+- Observe how risk parity differs from capital-weighted allocation
+- Note that equal risk contribution is a design choice, not a guarantee of safety
+
+## Related Demos or Course Context
+
+- Course path: [Risk Management](../../courses/risk-management.html)
+- Related demo: [Contagion Model](../../DomainUseCaseDemos/RiskManagement/ContagionModel/about.html)
+- Related demo: [Counter Party Risk](../../DomainUseCaseDemos/RiskManagement/CounterPartyRisk/about.html)
+- Related demo: [AI Risk Calculator](../AIRiskCalculator/about.html)
 
 ## Attribution
-KateelLearningDemos - vinallcontact@gmail.com
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

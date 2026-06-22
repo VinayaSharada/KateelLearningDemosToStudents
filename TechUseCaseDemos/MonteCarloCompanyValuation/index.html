@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="style.css" />
   <script defer src="../../assets/site.js"></script>
   <script defer src="app.js"></script>
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
 </head>
 <body>
   <!-- Attribution: vinallcontact@gmail.com -->
@@ -49,12 +50,45 @@
   </div>
 </nav>
 
-  <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> This is the actual Monte Carlo valuation simulator. Use the <a href="about.html">About Demo</a> page for learning objectives, theory, and faculty prompts.
-    <br><strong>Teacher cue:</strong> Observe how valuation changes when growth, margin, WACC, and terminal assumptions move together under uncertainty.
-  </div>
-
   <main class="container">
+  <section class="demo-standard-guide">
+    <div class="section-header">
+      <p class="section-kicker">Standard demo guide</p>
+      <h2>Use this demo in a logical learning sequence</h2>
+      <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>What this demo is about</h3>
+        <p>Browser-based Monte Carlo simulation for valuing a company over a five-year forecast horizon. Students can edit revenue growth, margin, tax, working capital, capex, terminal growth, WACC, simulation count, confidence interval, NPV threshold, and value-creation probability controls.</p>
+      </article>
+      <article class="info-card">
+        <h3>Learning objectives</h3>
+        <ul><li>Explain the main ai/ml decision that Monte Carlo Company Valuation is designed to support.</li><li>Use Scenario, Current acquisition price / initial investment (₹ crore) to test how different assumptions change the scenario.</li><li>Interpret 3. Simulation output, 4. Statistical summary in plain language and connect them to an action or conclusion.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Run mode and expectations</h3>
+        <ul>
+          <li>Supported modes: Browser</li>
+          <li>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 1: Inputs</h3>
+        <ul><li>`Scenario` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.</li><li>`Current acquisition price / initial investment (₹ crore)` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.</li><li>`Base-year revenue (₹ crore)` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.</li><li>`Mean annual revenue growth (%)` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 2: Decision buttons</h3>
+        <ul><li>`Reset defaults` returns the demo to a known starting state so students can begin a fresh comparison.</li><li>`Run simulation` is the main action that computes, compares, or generates the next result from the current inputs.</li><li>`Export JSON` saves the current result so learners can document evidence or compare scenarios later.</li><li>`Export CSV` saves the current result so learners can document evidence or compare scenarios later.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 3: Outputs and what to notice</h3>
+        <ul><li>`3. Simulation output` should be read as evidence for the decision, not just a display element. Ask what high, low, or changing values imply.</li><li>`4. Statistical summary` should be read as evidence for the decision, not just a display element. Ask what high, low, or changing values imply.</li><li>Look for the acquisition price, five-year free-cash-flow path, terminal value, WACC, and NPV distribution</li><li>Observe how growth volatility, margin volatility, WACC, and terminal growth widen or tighten the valuation range</li></ul>
+      </article>
+    </div>
+  </section>
+
+
     <section class="site-hero page-hero compact-hero">
       <div>
         <p class="hero-eyebrow">🤖 AI/ML in Finance • CFO Workshop • Advanced</p>

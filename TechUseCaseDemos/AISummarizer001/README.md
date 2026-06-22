@@ -1,89 +1,76 @@
-# AI Summarizer Demo - Transcript to Bullet Points
+# AI Summarizer001
+
+## Overview
 
 A browser-based text summarization tool that converts long transcripts or articles into concise bullet-point summaries using extractive summarization.
 
-## Features
+## Learning Objectives
 
-- 📝 **Text Input**: Paste any transcript or article
-- 🔍 **Extractive Summarization**: Uses word frequency algorithm
-- • **Bullet Point Output**: Clean, scannable key points
-- 💾 **Save Summaries**: History stored in localStorage
-- 📋 **Copy to Clipboard**: One-click copy functionality
+- Explain the main rag/nlp decision that AI Summarizer001 is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How to Run
+## Run Modes
 
-1. Open `index.html` in any modern browser
-2. Paste your text/transcript into the textarea
-3. Click "Summarize to Bullet Points"
-4. Review the key points generated
-5. Save or copy the summary as needed
+- Browser
 
-## Demo Points for Students
+## Expected Setup / Startup Time
 
-### 1. Text Processing Pipeline
-```
-Input Text → Sentence Splitting → Word Frequency → Sentence Scoring → Ranking → Output
-```
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-### 2. Extractive Summarization Algorithm
-- Counts word frequency (ignoring stopwords)
-- Scores sentences based on important word occurrences
-- Returns top N sentences as bullets
+## Demo Type
 
-### 3. Browser Storage
-```javascript
-// Save to localStorage
-localStorage.setItem('summarizedNotes', JSON.stringify(history));
+- Interactive browser demo
 
-// Retrieve from localStorage
-const history = JSON.parse(localStorage.getItem('summarizedNotes') || '[]');
-```
+## Files in This Folder
 
-## Key Code Concepts
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-```javascript
-// Word frequency analysis
-const wordFreq = {};
-words.forEach(word => {
-  if (!stopwords.has(word)) {
-    wordFreq[word] = (wordFreq[word] || 0) + 1;
-  }
-});
+## How To Run
 
-// Score sentences
-sentences.forEach(sentence => {
-  const score = sentenceWords.reduce((sum, word) => sum + (wordFreq[word] || 0), 0);
-});
-```
+- Browser: open `index.html`.
 
-## Extending This Demo
+## How To Use The Demo
 
-### Option 1: LLM Integration
-Replace the `extractKeyPoints` method with an actual LLM call:
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-```javascript
-async extractKeyPoints(text) {
-  const response = await fetch('/api/summarize', {
-    method: 'POST',
-    body: JSON.stringify({ text })
-  });
-  return response.json();
-}
-```
+## Inputs
 
-### Option 2: Different Algorithms
-- **Leadership TextRank**: Graph-based sentence ranking
-- **BERT Extractive**: Use sentence transformers
-- **TF-IDF**: Term frequency-inverse document frequency
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-## Learning Outcomes
+## Buttons / Actions
 
-- Text preprocessing and NLP basics
-- Algorithm implementation (word frequency)
-- Working with browser storage
-- Building responsive UI for AI features
-- Understanding extractive vs abstractive summarization
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-## Browser Compatibility
+## Outputs
 
-All modern browsers (Chrome, Firefox, Safari, Edge)
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for input text, generated summary, and highlighted themes
+- Observe where the summary preserves meaning and where it over-compresses
+- Note that students should compare summary usefulness against accuracy and traceability
+
+## Related Demos or Course Context
+
+- Course path: [RAG & NLP](../../courses/rag-nlp.html)
+- Related demo: [AI Content Summarizer](../AIContentSummarizer/about.html)
+- Related demo: [Lite Parse](../LiteParseDemo/about.html)
+- Related demo: [Graph RAG](../RAGSolutions/GraphRAG/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

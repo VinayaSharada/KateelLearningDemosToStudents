@@ -1,62 +1,76 @@
-# Options Greeks Calculator
+# Greeks Calculator
 
-## Learning Objectives
-- Understand the four main Greeks (Delta, Gamma, Vega, Theta)
-- Learn how to hedge option positions
-- Explore sensitivity to market factors
-- Practice risk management calculations
+## Overview
 
-## Theory Behind This Demo
-
-### Option Greeks
 Measures of **option sensitivity** to changes in underlying factors. Derived from the Black-Scholes partial derivatives.
 
-**Mathematical Foundation:**
-- **Delta**: ∂Option/∂S (price sensitivity)
-- **Gamma**: ∂²Option/∂S² (convexity)
-- **Vega**: ∂Option/∂σ (volatility sensitivity)
-- **Theta**: ∂Option/∂T (time decay)
+## Learning Objectives
 
-### Key Concepts
-- **Delta Hedging**: Maintaining neutral price exposure
-- **Convexity**: Gamma measures curvature risk
-- **Vega Risk**: Volatility exposure management
-- **Time Decay**: Theta accelerates as expiration nears
+- Explain the main ai/ml decision that Greeks Calculator is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How to Run
-1. Open `index.html` in a browser
-2. Adjust option parameters (spot, strike, time, vol, rate)
-3. Switch between call and put options
-4. Observe how Greeks change with parameters
+## Run Modes
 
-## Key Concepts
+- Browser
 
-### The Greeks
-- **Delta (Δ)**: Price change per $1 underlying move
-- **Gamma (Γ)**: Delta's rate of change
-- **Vega (ν)**: Price change per 1% vol change
-- **Theta (Θ)**: Daily time decay
+## Expected Setup / Startup Time
 
-### Hedging
-- **Delta-neutral**: Hedge with underlying or opposite delta options
-- **Gamma-hedge**: Add options with negative gamma
-- **Vega-hedge**: Adjust for volatility exposure
-- **Theta-hedge**: Short options for positive theta
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-## Learning Outcomes
+## Demo Type
 
-| Greek | What You'll Understand |
-|-------|------------------------|
-| Delta | Price sensitivity and directional risk |
-| Gamma | Convexity and acceleration risk |
-| Vega | Volatility exposure management |
-| Theta | Time decay and opportunity cost |
+- Interactive browser demo
 
-## Use Cases
-- **Market Making**: Providing liquidity
-- **Risk Management**: Position hedging
-- **Options Trading**: Strategy construction
-- **Portfolio Insurance**: Dynamic hedging
+## Files in This Folder
+
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for delta, gamma, theta, vega, and the option position being analyzed
+- Observe how price, volatility, and time changes affect option exposure
+- Note that Greeks are sensitivities; students should connect each Greek to a hedging decision
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../AIDataAnalyzer/about.html)
 
 ## Attribution
-KateelLearningDemos - vinallcontact@gmail.com
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

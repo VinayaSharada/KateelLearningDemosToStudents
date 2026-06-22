@@ -1,87 +1,74 @@
-# 3 — Privacy Notebook
+# Privacy Notebook
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/3-privacy-notebook/`
+## Overview
 
-A **local AI writing assistant** powered by T5-Small that runs entirely in the browser. Three tools — Polish, Summarise, Grammar Fix — transform selected or full notebook text without any data leaving the device. Designed for use cases where content privacy is non-negotiable.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/3-privacy-notebook/`.
 
----
+## Learning Objectives
 
-## What This Demo Does
+- Explain the main ai/ml decision that Privacy Notebook is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-| Feature | Detail |
-|---------|--------|
-| Model | **T5-Small** (text2text-generation) — ~240 MB, cached after first load |
-| Polish | Rewrites the text to be clearer and more professional |
-| Summarise | Produces a concise summary of longer passages |
-| Grammar Fix | Corrects grammar and punctuation errors |
-| UI | Split-pane notebook editor; floating tool dock at the bottom of the text area |
-| Status bar | Green progress gradient during model download; green-dot ready state |
+## Run Modes
 
----
+- Browser
 
-## Files
+## Expected Setup / Startup Time
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Complete single-file demo — HTML + CSS + JavaScript |
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
----
+## Demo Type
 
-## How to Run
+- Interactive browser demo
 
-```bash
-cd "🤖 Browser-AI-Demos/Browser-AI-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/3-privacy-notebook/
-```
+## Files in This Folder
 
-Requires a **WebGPU-capable browser** (Chrome 113+, Edge 113+). T5-Small downloads ~240 MB on first run and caches automatically.
+- `index.html`
+- `README.md`
 
----
+## How To Run
 
-## Architecture Notes
+- Browser: open `index.html`.
 
-```
-User writes text in notebook pane
-              │
-  Click "Polish" / "Summarise" / "Grammar Fix"
-              │
-              ▼
-  text2text-generation pipeline
-  (T5-Small + task prefix)
-              │
-              ▼
-  Output replaces / appends to right pane
-```
+## How To Use The Demo
 
-Each tool wraps the input text in a T5 task prefix (e.g. `"grammar: "`, `"summarize: "`) before calling `pipeline()`. The model returns a transformed version.
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
----
+## Inputs
 
-## Privacy Guarantee
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-All inference runs in the browser's GPU via WebGPU. No network requests are made after the initial model download. Text never leaves the device.
+## Buttons / Actions
 
----
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-## How This Connects to Other Demos
+## Outputs
 
-- [`1-local-chat-advisor`](../1-local-chat-advisor/) — generative chat using a similar privacy-first approach
-- [`4-whisper-voice-transcriber`](../4-whisper-voice-transcriber/) — audio-to-text that feeds into this notebook's editor
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
----
+## What To Notice
 
-## Student Extensions
+- Look for sensitive data types, redaction behavior, and privacy risk signals
+- Observe what remains visible after privacy checks are applied
+- Note that privacy-preserving AI requires both detection and responsible data handling
 
-1. Add a **Translate** tool using a MarianMT model (e.g. Helsinki-NLP/opus-mt-en-fr).
-2. Implement **auto-save** to `localStorage` so notes persist across sessions.
-3. Add a **Tone selector** (Formal / Casual / Technical) that changes the polish prompt prefix.
-4. Chain Whisper → Privacy Notebook: transcribe voice notes then auto-polish them.
+## Related Demos or Course Context
 
----
+- Course path: [AI/ML Workflows](../../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use this demo in a course or project, see [ATTRIBUTION.md](../../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

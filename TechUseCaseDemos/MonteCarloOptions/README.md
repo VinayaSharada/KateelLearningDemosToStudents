@@ -1,64 +1,76 @@
-# Monte Carlo Options Pricer
+# Monte Carlo Options
 
-## Learning Objectives
-- Understand Monte Carlo simulation for option pricing
-- Learn how random sampling prices options
-- Explore convergence with increasing paths
-- Compare with analytical Black-Scholes
+## Overview
 
-## Theory Behind This Demo
-
-### Monte Carlo Method
 Based on the **Law of Large Numbers** - as sample size increases, the sample mean converges to the expected value.
 
-**Mathematical Foundation:**
-```
-C = e^(-rT) × E[max(S_T - K, 0)]
-  ≈ e^(-rT) × (1/N) × Σ max(S_T^i - K, 0)
-```
+## Learning Objectives
 
-**Key Concepts:**
-- **Geometric Brownian Motion**: dS = μSdt + σSdW
-- **Risk-neutral valuation**: Discount at risk-free rate
-- **Variance reduction**: Antithetic variates, control variates
+- Explain the main quant decision that Monte Carlo Options is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-### Convergence Properties
-- Standard error ~ 1/√N
-- Doubling paths only improves accuracy by ~40%
-- Confidence intervals narrow with √N
+## Run Modes
 
-## How to Run
-1. Open `index.html` in a browser
-2. Adjust market parameters (spot, volatility, rate)
-3. Set simulation parameters (time, strike, paths)
-4. Watch prices converge as paths increase
+- Browser
 
-## Key Concepts
+## Expected Setup / Startup Time
 
-### Monte Carlo Method
-1. Generate random stock price paths using Geometric Brownian Motion
-2. Calculate payoffs at expiration for each path
-3. Average discounted payoffs
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-### Convergence
-- More paths = lower standard error
-- Standard error ~ 1/√N
-- Doubling paths only improves accuracy by ~40%
+## Demo Type
 
-## Learning Outcomes
+- Interactive browser demo
 
-| Concept | What You'll Understand |
-|---------|------------------------|
-| Simulation | How random sampling prices derivatives |
-| Convergence | Trade-off between accuracy and computation |
-| Variance | Why more paths don't proportionally help |
-| Exotics | When MC is preferred over analytical methods |
+## Files in This Folder
 
-## Use Cases
-- **Complex Options**: Exotic options without closed-form solutions
-- **Multi-Asset Options**: Correlation between assets
-- **American Options**: Early exercise features
-- **Credit Derivatives**: Default modeling
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for simulated paths, payoff calculation, and convergence behavior
+- Observe how more simulations stabilize the estimated option value
+- Note that Monte Carlo is powerful, but students should question randomness, assumptions, and error
+
+## Related Demos or Course Context
+
+- Course path: [Quant Finance](../../courses/quant-finance.html)
+- Related demo: [Black Scholes Option](../../DomainUseCaseDemos/QuantFinance/BlackScholesOption/about.html)
+- Related demo: [Supply Chain Finance](../../DomainUseCaseDemos/SupplyChain/SupplyChainFinance/about.html)
+- Related demo: [Bond Pricing](../BondPricingDemo/about.html)
 
 ## Attribution
-KateelLearningDemos - vinallcontact@gmail.com
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

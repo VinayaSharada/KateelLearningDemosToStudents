@@ -1,66 +1,76 @@
-# AI Workflow Demo: Learning Resource Recommender
+# AI Workflow
 
-## Learning Objectives
-- Compare traditional vs AI-enriched workflows
-- Understand how AI adds value to existing processes
-- Practice prompt engineering for resource discovery
-- Experience the difference in user satisfaction
+## Overview
 
-## Theory Behind This Demo
-
-### Traditional Search
 Based on **Boolean retrieval models** where documents are matched using exact keyword matching. Uses TF-IDF (Term Frequency-Inverse Document Frequency) for ranking.
 
-**Key Concepts:**
-- Inverted index for fast lookup
-- Cosine similarity for document ranking
-- Limited to exact term matches
+## Learning Objectives
 
-### AI-Enriched Recommendation
-Based on **embedding-based retrieval** using transformer models. Maps queries and documents into a shared semantic space.
+- Explain the main ai/ml decision that AI Workflow is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-**Key Concepts:**
-- Sentence transformers for semantic embeddings
-- Cosine similarity in embedding space
-- Contextual understanding of user intent
+## Run Modes
 
-## How to Run
-1. Open `index.html` in a browser
-2. Enter a learning query (e.g., "Explain machine learning to beginners")
-3. Try both Traditional and AI-Enriched workflows
-4. In AI mode, experiment with custom prompts
+- Browser
 
-## Workflow Comparison
+## Expected Setup / Startup Time
 
-### Traditional Workflow
-- **Input**: Keywords only
-- **Processing**: Simple string matching
-- **Ranking**: Static (relevance score)
-- **Personalization**: None
-- **Example**: Searching "ML" returns all resources with "ML" in title/tags
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-### AI-Enriched Workflow
-- **Input**: Natural language queries
-- **Processing**: Contextual understanding
-- **Ranking**: Personalized relevance
-- **Personalization**: Learning style, depth preference
-- **Prompt Experimentation**: Custom prompts modify results
+## Demo Type
 
-## Key Value Propositions
+- Interactive browser demo
 
-| Aspect | Traditional | AI-Enriched |
-|--------|-------------|-------------|
-| Query Understanding | Keywords | Natural Language |
-| Results Quality | Static | Contextual |
-| Personalization | None | Adaptive |
-| User Engagement | Limited | Interactive |
+## Files in This Folder
 
-## Prompt Examples to Try
-- "Show me interactive videos for beginners"
-- "Find advanced resources on neural networks"
-- "Recommend hands-on tutorials"
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for the workflow trigger, AI step, human review point, and output destination
+- Observe where automation saves time and where human judgment is still needed
+- Note that a strong AI workflow has clear handoffs and failure handling
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../AIDataAnalyzer/about.html)
 
 ## Attribution
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
 
-**Educational Use Only** - For usage guidelines, see the main repository.
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

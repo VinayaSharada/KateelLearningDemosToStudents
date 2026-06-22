@@ -12,19 +12,68 @@
 <body>
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a class="brand" href="../../../index.html">KateelLearningDemos</a>
+    <a class="brand" href="../../..">KateelLearningDemos</a>
     <div class="nav-links">
-      <a class="nav-link" href="../../../index.html">Home</a>
+      <a class="nav-link" href="../../..">Home</a>
+      <details class="nav-dropdown">
+  <summary class="nav-link">Courses</summary>
+  <div class="dropdown-content" role="menu">
+    <a class="dropdown-link" href="../../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
+      <a class="dropdown-link" href="../../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+      <a class="dropdown-link" href="../../../courses/risk-management.html"><span>⚠️</span>Risk</a>
+      <a class="dropdown-link" href="../../../courses/quant-finance.html"><span>💰</span>Quant</a>
+      <a class="dropdown-link" href="../../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+      <a class="dropdown-link" href="../../../courses/compliance.html"><span>📋</span>Compliance</a>
+      <a class="dropdown-link" href="../../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+      <a class="dropdown-link active" href="../../../courses/banking.html"><span>🏦</span>Banking</a>
+  </div>
+</details>
       <a class="nav-link" href="about.html">About Demo</a>
       <a class="nav-link" href="../../../courses/banking.html">Banking</a>
-      <a class="nav-link nav-cta" href="README.md">README</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
     </div>
   </div>
 </nav>
-<div class="demo-context-strip" role="note">
-  <strong>Run modes:</strong> This demo now supports <a href="colab_demo.ipynb">Colab</a> and local Python. A browser variant is intentionally deferred so the compute-heavy simulation stays pedagogically honest.
-</div>
 <main class="container demo-shell">
+  <section class="demo-standard-guide">
+    <div class="section-header">
+      <p class="section-kicker">Standard demo guide</p>
+      <h2>Use this demo in a logical learning sequence</h2>
+      <p>Browser mode is fastest to start. Colab and Local modes may spend extra time installing packages or opening notebooks.</p>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>What this demo is about</h3>
+        <p>Multi-mode liquidity management demo that helps students understand daily funding pressure, cash-position monitoring, and the difference between a quick browser walkthrough and deeper notebook or local analysis.</p>
+      </article>
+      <article class="info-card">
+        <h3>Learning objectives</h3>
+        <ul><li>Explain the main banking decision that Liquidity Management is designed to support.</li><li>Change input assumptions and predict how the output should respond before running the demo.</li><li>Interpret the result in plain language, not just as a number, chart, or AI recommendation.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Run mode and expectations</h3>
+        <ul>
+          <li>Supported modes: Browser, Colab, Local</li>
+          <li>Browser mode is fastest to start. Colab and Local modes may spend extra time installing packages or opening notebooks.</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 1: Inputs</h3>
+        <ul><li>Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.</li><li>Treat each input as a lever that changes the scenario, baseline, or business context behind the result.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 2: Decision buttons</h3>
+        <ul><li>Use the main run or simulate action to compute the scenario after inputs are set.</li><li>Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.</li></ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 3: Outputs and what to notice</h3>
+        <ul><li>Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.</li><li>Students should explain whether the output is descriptive, predictive, simulated, or recommended.</li><li>Use browser mode for fast concept-building, then move to Colab or Local when students need to inspect the calculation path in more detail</li><li>Focus on how the liquidity position changes when assumptions around inflows, outflows, or timing are stressed</li></ul>
+      </article>
+    </div>
+  </section>
+
+
   <section class="demo-hero">
     <p class="demo-kicker">Banking • Colab / Local Python • 20-30 min</p>
     <h1>Liquidity Management</h1>

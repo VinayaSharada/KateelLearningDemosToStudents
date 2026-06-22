@@ -1,62 +1,76 @@
-# VaR Calculator
+# Va R Calculator
 
-## Learning Objectives
-- Understand Value at Risk (VaR) concept
-- Compare parametric vs historical simulation methods
-- Learn Expected Shortfall (CVaR)
-- Explore time scaling of risk
+## Overview
 
-## Theory Behind This Demo
-
-### Value at Risk (VaR)
 A **statistical risk measure** that estimates the maximum potential loss at a given confidence level over a specified time horizon.
 
-**Key Concepts:**
-- **Confidence Level**: Probability that loss exceeds VaR (e.g., 95%, 99%)
-- **Time Horizon**: Period over which risk is measured (1 day, 10 days, 1 year)
-- **Parametric Method**: Assumes normal distribution of returns
-- **Historical Simulation**: Uses actual historical returns
+## Learning Objectives
 
-### Expected Shortfall (CVaR)
-Also called Conditional VaR - the **average loss beyond the VaR threshold**. A coherent risk measure that addresses VaR's limitation of not indicating severity beyond the threshold.
+- Explain the main risk decision that Va R Calculator is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-### Time Scaling
-Based on the **square-root-of-time rule**: Risk scales with √T. This assumes independent, identically distributed returns.
+## Run Modes
 
-## How to Run
-1. Open `index.html` in a browser
-2. Set portfolio value and volatility
-3. Select confidence level and time horizon
-4. Compare parametric and historical VaR
+- Browser
 
-## Key Concepts
+## Expected Setup / Startup Time
 
-### Parametric VaR
-```
-VaR = Portfolio_Value × σ × Z × √T
-```
-Where Z is the quantile of standard normal distribution.
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-### Expected Shortfall (CVaR)
-Average loss beyond the VaR threshold. Also called Conditional VaR.
+## Demo Type
 
-### Time Scaling
-Risk scales with square root of time: VaR(T) = VaR(1) × √T
+- Interactive browser demo
 
-## Learning Outcomes
+## Files in This Folder
 
-| Concept | What You'll Understand |
-|---------|------------------------|
-| VaR Interpretation | Maximum loss at given confidence level |
-| Method Comparison | When to use parametric vs historical |
-| ES Importance | Why coherent risk measures matter |
-| Time Scaling | How risk grows over time |
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-## Use Cases
-- **Banking**: Regulatory capital requirements
-- **Asset Management**: Portfolio risk limits
-- **Insurance**: Reserve calculations
-- **Risk Management**: Daily risk monitoring
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for portfolio returns, confidence level, time horizon, and VaR estimate
+- Observe how VaR changes when volatility or confidence level increases
+- Note that VaR summarizes tail risk but does not describe losses beyond the threshold
+
+## Related Demos or Course Context
+
+- Course path: [Risk Management](../../courses/risk-management.html)
+- Related demo: [Contagion Model](../../DomainUseCaseDemos/RiskManagement/ContagionModel/about.html)
+- Related demo: [Counter Party Risk](../../DomainUseCaseDemos/RiskManagement/CounterPartyRisk/about.html)
+- Related demo: [AI Risk Calculator](../AIRiskCalculator/about.html)
 
 ## Attribution
-KateelLearningDemos - vinallcontact@gmail.com
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

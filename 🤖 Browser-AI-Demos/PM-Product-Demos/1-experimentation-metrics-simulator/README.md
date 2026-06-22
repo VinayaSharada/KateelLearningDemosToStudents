@@ -1,92 +1,74 @@
-# PM Demo 01 — Experimentation & Metrics Simulator
+# Experimentation & Metrics Simulator
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/PM-Product-Demos/1-experimentation-metrics-simulator/`
+## Overview
 
-An **in-browser metrics simulator** showing how confidence thresholds, review policies, and cost assumptions drive precision, recall, review queue size, and business KPIs — all updating in real time. No AI model required.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/PM-Product-Demos/1-experimentation-metrics-simulator/`.
 
----
+## Learning Objectives
 
-## What PM Decision Is Being Made?
+- Explain the main ai/ml decision that Experimentation & Metrics Simulator is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-> Setting the confidence threshold that balances automation rate, human review burden, and business cost — for a given use case and operational capacity.
+## Run Modes
 
----
+- Browser
 
-## What This Demo Does
+## Expected Setup / Startup Time
 
-| Feature | Detail |
-|---------|--------|
-| Use cases | Fraud Detection · Support Ticket Routing · Recommendation Relevance · AI Response Approval |
-| Controls | Confidence threshold, traffic allocation, review capacity, FP/FN cost |
-| Confusion matrix | Live 2×2 matrix with TP/FP/FN/TN counts and % of total |
-| Metric cards | Precision, Recall, F1, Review Queue — traffic-light coloured |
-| Business impact | Daily cost, cost/1k decisions, use-case-specific KPI proxy |
-| Explanation | Auto-generated 2-sentence contextual explanation of current state |
-| Scenario compare | Save Snapshot A and B → side-by-side diff table |
-| Presets | Conservative / Balanced / Aggressive |
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
----
+## Demo Type
 
-## Use Cases and KPI Proxies
+- Interactive browser demo
 
-| Use Case | Population | True Events | KPI Proxy |
-|----------|-----------|-------------|-----------|
-| Fraud Detection | 1,000 txn/day | 50 frauds | Fraud Loss Avoided ($) |
-| Support Routing | 5,000 tickets/day | 2,000 routable | SLA Hit Rate (%) |
-| Recommendation | 100k impressions/day | 15k relevant | Conversion Lift (%) |
-| AI Response Approval | 10k responses/day | 8k safe | Approval Rate with Risk |
+## Files in This Folder
 
----
+- `index.html`
+- `README.md`
 
-## Key Learning Concepts
+## How To Run
 
-- **Precision vs Recall trade-off**: Lowering the threshold improves recall but increases FP volume
-- **Review queue saturation**: A threshold that produces more items than the team can review is not operationally viable, even if metrics look good
-- **Business cost asymmetry**: FP cost ≠ FN cost — the right threshold depends on which error is more expensive
-- **Offline vs online gap**: Test-set curves are modelled here; real deployments show drift and distribution shift
+- Browser: open `index.html`.
 
----
+## How To Use The Demo
 
-## PM Reflection Questions
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-| Prompt | Insight |
-|--------|---------|
-| **Decision** | Threshold setting at launch, and again after each model update |
-| **Assumed** | Curve shapes are synthetic; real ROC curves are model- and dataset-specific |
-| **Risk** | Review queue costs (agent time, tooling, burnout) are not modelled |
-| **Override** | A PM might accept higher FN rate short-term to protect reviewer capacity during team scaling |
+## Inputs
 
----
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-## Files
+## Buttons / Actions
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Complete single-file demo |
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
----
+## Outputs
 
-## How to Run
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
-```bash
-cd "🤖 Browser-AI-Demos/PM-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/1-experimentation-metrics-simulator/
-```
+## What To Notice
 
----
+- Look for the experiment goal, primary metric, guardrail metric, and sample size
+- Observe how random variation can create false confidence in early results
+- Note that experimentation discipline protects teams from overreacting to noisy data
 
-## Student Extensions
+## Related Demos or Course Context
 
-1. Add a **time series view**: simulate drift in the model's curve over 12 weeks and show how threshold needs to be re-tuned.
-2. Add a **cost-optimal threshold finder**: compute the minimum-cost threshold automatically and show it as a reference line.
-3. Add a **staffing calculator**: given queue size and handle time, compute the team headcount needed.
-4. Add a **fifth use case**: content moderation, medical diagnosis, or loan default prediction.
-
----
+- Course path: [AI/ML Workflows](../../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use this demo in a course or project, see [ATTRIBUTION.md](../../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

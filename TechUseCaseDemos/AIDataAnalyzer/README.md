@@ -1,60 +1,76 @@
 # AI Data Analyzer
 
+## Overview
+
+Hands-on data analysis demo where students paste a small CSV, inspect traditional statistical output, and compare it with an AI-style narrative focused on trends, anomalies, business insights, or forecasting.
+
 ## Learning Objectives
-- Compare basic statistics vs AI-driven insights
-- Understand how AI adds narrative to data
-- Practice prompt engineering for analysis focus
-- Experience toggle between AI/no-AI modes
 
-## Theory Behind This Demo
+- Explain the main ai/ml decision that AI Data Analyzer is designed to support.
+- Use Enable AI narrative analysis, Analysis focus to test how different assumptions change the scenario.
+- Interpret Traditional analysis in plain language and connect them to an action or conclusion.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-### Traditional Statistical Analysis
-Based on **descriptive statistics** and **inferential methods** that compute numerical summaries of data.
+## Run Modes
 
-**Key Concepts:**
-- Central tendency (mean, median, mode)
-- Dispersion (variance, standard deviation)
-- Correlation analysis
-- Hypothesis testing
+- Browser
 
-### AI-Driven Data Analysis
-Based on **large language models** trained on diverse data sources to understand context and generate insights.
+## Expected Setup / Startup Time
 
-**Key Concepts:**
-- Pattern recognition beyond statistics
-- Context-aware interpretation
-- Natural language generation of insights
-- Business context understanding
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-## How to Run
-1. Open `index.html` in a browser
-2. Toggle "Enable AI Analysis" on/off
-3. Select analysis focus from dropdown (when AI enabled)
-4. Click "Analyze Data"
-5. Compare traditional stats vs AI insights
+## Demo Type
 
-## Features
-- **AI Toggle**: Turn AI analysis on/off instantly
-- **Analysis Focus**: Choose different insight types
-- **Side-by-side comparison**: See both approaches
-- **CSV Input**: Paste your own data to analyze
+- Interactive browser demo
 
-## Analysis Focus Options
-- **Trends**: Identify patterns and trends
-- **Anomalies**: Detect outliers and issues
-- **Insights**: Generate business insights
-- **Forecast**: Predict future trends
+## Files in This Folder
 
-## Traditional vs AI Analysis
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-| Aspect | Traditional | AI-Powered |
-|--------|-------------|------------|
-| Output | Numbers (min/max/avg) | Narrative insights |
-| Depth | Statistical only | Contextual interpretation |
-| Customization | None | Prompt-driven |
-| Business Value | Raw data | Actionable insights |
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Analyze Dataset`.
+4. Read Traditional analysis first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- `Enable AI narrative analysis` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Analysis focus` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `CSV dataset` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+
+## Buttons / Actions
+
+- `Analyze Dataset` is the main action that computes, compares, or generates the next result from the current inputs.
+
+## Outputs
+
+- `Traditional analysis` is the factual baseline because it summarizes the dataset numerically before interpretation.
+- `AI interpretation` is the narrative layer that helps students discuss meaning, but it should always be validated against the traditional output.
+
+## What To Notice
+
+- The strongest classroom comparison is between what the data objectively says and what the narrative claims it means
+- Change the analysis focus and watch how the same data can produce different but not equally useful interpretations
+- Ask students which conclusion is evidence-backed and which one is a hypothesis needing validation
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Decision Tracker](../AIDecisionTracker/about.html)
 
 ## Attribution
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
 
-**Educational Use Only** - For usage guidelines, see the main repository.
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

@@ -1,53 +1,76 @@
-# Voice Notes App - Speech to Text Demo
+# Voice Notes App001
+
+## Overview
 
 A browser-based voice notes application that converts speech to text using the Web Speech API and saves transcripts to localStorage.
 
-## Features
+## Learning Objectives
 
-- 🎤 **Speech-to-Text**: Real-time transcription using browser's Web Speech API
-- 💾 **Local Storage**: Notes are saved locally in the browser
-- ⏱️ **Recording Timer**: Visual feedback during recording
-- 📱 **Responsive Design**: Works on desktop and mobile
+- Explain the main rag/nlp decision that Voice Notes App001 is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How to Run
+## Run Modes
 
-1. Open `index.html` in Chrome or Edge (Speech Recognition requires these browsers)
-2. Click the microphone button to start recording
-3. Speak naturally - your words will appear as text
-4. Notes are automatically saved when you stop recording
-5. View your saved notes in the "Saved Notes" section
+- Browser
 
-## Demo Points for Students
+## Expected Setup / Startup Time
 
-1. **Web Speech API**: `webkitSpeechRecognition` interface
-2. **Async Handling**: Continuous vs interim results
-3. **localStorage**: Persisting data in browser
-4. **State Management**: Recording vs stopped states
-5. **Timer Implementation**: Using `setInterval`
+- Starts in browser, but first load may take 10-30 seconds if heavier assets initialize.
 
-## Key Code Concepts
+## Demo Type
 
-```javascript
-// Initialize speech recognition
-const recognition = new webkitSpeechRecognition();
-recognition.continuous = true;
-recognition.interimResults = true;
+- Interactive browser demo
 
-// Handle results
-recognition.onresult = (event) => {
-  // event.results contains transcript data
-};
-```
+## Files in This Folder
 
-## Browser Compatibility
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-- Chrome 25+
-- Edge 79+
-- Safari (limited support)
+## How To Run
 
-## Learning Outcomes
+- Browser: open `index.html`.
 
-- Understanding Web Speech API capabilities
-- Working with browser storage APIs
-- Building interactive UI with real-time feedback
-- Handling media capture in browsers
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
+
+## Buttons / Actions
+
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+
+## Outputs
+
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
+
+## What To Notice
+
+- Look for spoken note, transcript, extracted action items, and summary
+- Observe how background noise or unclear speech affects extraction
+- Note that voice notes should be checked before actions are assigned or stored
+
+## Related Demos or Course Context
+
+- Course path: [RAG & NLP](../../courses/rag-nlp.html)
+- Related demo: [AI Content Summarizer](../AIContentSummarizer/about.html)
+- Related demo: [AI Summarizer001](../AISummarizer001/about.html)
+- Related demo: [Lite Parse](../LiteParseDemo/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

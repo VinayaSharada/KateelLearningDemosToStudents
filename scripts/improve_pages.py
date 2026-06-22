@@ -698,6 +698,135 @@ TEACHER_GUIDES = {
 }
 
 
+DEMO_EDITORIAL_OVERRIDES = {
+    "DomainUseCaseDemos/Banking/MesaLiquidity": {
+        "overview": "Browser-first liquidity lab where students generate synthetic bank data, inspect customer and account structure, then run a Monte Carlo liquidity forecast to see how uncertainty changes funding pressure and expected buffers.",
+        "objectives": [
+            "Explain how customer balances, account mix, and transaction behavior feed into a bank liquidity view.",
+            "Generate synthetic data first, then compare the static liquidity snapshot with the Monte Carlo forecast.",
+            "Interpret the most likely liquidity path, risk buckets, and AI-style coaching as decision support for treasury action.",
+            "Discuss why simulation output is still only a model and should be checked against policy limits and stress assumptions.",
+        ],
+        "inputs": [
+            "`Enable AI-style insights` adds classroom-friendly commentary on the generated liquidity picture and forecast output.",
+            "Use the generated customer, account, and transaction views as the base dataset before discussing the forecast result.",
+        ],
+        "buttons": [
+            "`Generate Data` creates the synthetic banking dataset that the later tabs and metrics depend on.",
+            "`Run Monte Carlo Simulation` projects many future liquidity paths so students can see uncertainty rather than a single deterministic answer.",
+            "`Export CSV` downloads the synthetic dataset for spreadsheet or Python follow-up work.",
+            "`Reset` returns the demo to a clean teaching state.",
+            "The `Overview`, `Customers`, `Accounts`, and `Transactions` tabs help students move from raw data to liquidity interpretation.",
+        ],
+        "outputs": [
+            "`Liquidity metrics` summarize the current synthetic balance-sheet position before stress is introduced.",
+            "`Monte Carlo Simulation` shows the forecast distribution, progress, and most likely liquidity outcome under repeated simulated paths.",
+            "`Liquidity coaching` translates the numbers into a treasury-style explanation of buffer strength and potential pressure points.",
+        ],
+        "notice": [
+            "Compare the current liquidity snapshot with the simulated future distribution instead of treating them as the same thing.",
+            "Watch how the most likely value can still sit beside a wider risk range that matters for funding and escalation decisions.",
+            "Use the customer, account, and transaction tabs to explain why the forecast behaves the way it does.",
+        ],
+    },
+    "TechUseCaseDemos/AIHedgeOrchestrator": {
+        "overview": "Interactive treasury orchestration demo where students compare hedge choices under changing market conditions, review AI guidance, and inspect how hedge ratios, coverage, and residual risk shift across the exposure book.",
+        "outputs": [
+            "`Hedge Recommendations` are the primary result because they connect each exposure slice to a hedge choice and ratio.",
+            "`Coverage and Decision Trace` explains how much risk is covered, what remains unhedged, and how the recommendation was reached.",
+            "`Optimization Summary` gives the top-line before students drill into the detailed exposure book and recommendation logic.",
+        ],
+        "notice": [
+            "A lower residual risk can still come with higher cost, so students should discuss trade-off rather than assume one best answer.",
+            "Compare AI guidance with the market-condition setting to see whether the recommendation becomes more conservative or more opportunistic.",
+            "Use the decision trace to explain the recommendation, not just to report the final hedge ratio.",
+        ],
+    },
+    "TechUseCaseDemos/CollectionsPredictor": {
+        "overview": "Browser-based collections prioritization demo where students test receivables scenarios, compare collection strategies, and examine how AI recommendations change outreach urgency, expected recovery, and working-capital impact.",
+        "buttons": [
+            "`Reset Scenario` restores the default collections case so learners can compare strategies from a known baseline.",
+            "`Export Result` saves the current collections recommendation and projected outcome for class discussion or follow-up analysis.",
+        ],
+        "outputs": [
+            "Read the predicted collection outcome and recommended treatment path together, because the suggested action matters as much as the score.",
+            "Look for recovery potential, urgency, and customer treatment differences across strategies or segments.",
+        ],
+    },
+    "DomainUseCaseDemos/Banking/LiquidityMgmt": {
+        "overview": "Multi-mode liquidity management demo that helps students understand daily funding pressure, cash-position monitoring, and the difference between a quick browser walkthrough and deeper notebook or local analysis.",
+        "notice": [
+            "Use browser mode for fast concept-building, then move to Colab or Local when students need to inspect the calculation path in more detail.",
+            "Focus on how the liquidity position changes when assumptions around inflows, outflows, or timing are stressed.",
+            "Ask students which metric would trigger action now versus which one is more useful for trend monitoring.",
+        ],
+    },
+    "DomainUseCaseDemos/Banking/IntRateRisk": {
+        "overview": "Interest-rate risk lab where students build a synthetic deposit portfolio, apply a rate shock, and compare repricing cost and exposure concentration across savings, current, fixed, and recurring deposits.",
+        "outputs": [
+            "The most important outputs are the post-shock annual interest cost, the exposure mix by account type, and any AI-style interpretation of repricing pressure.",
+            "Students should compare current versus shocked cost rather than read either number in isolation.",
+        ],
+    },
+    "TechUseCaseDemos/SmartContractTreasury": {
+        "overview": "Treasury controls demo showing how payment rules, wallet details, token choice, and AI monitoring interact before a transaction is approved, flagged, or blocked in a smart-contract style workflow.",
+        "buttons": [
+            "`Submit Transaction` runs the policy checks and shows whether the treasury instruction is approved, warned on, or rejected.",
+            "`Reset` returns the payment scenario to a clean baseline.",
+            "`Export Snapshot` saves the transaction state and control outcome for audit or classroom review.",
+        ],
+        "notice": [
+            "The interesting learning moment is not only whether the transaction passes, but which control caused the decision.",
+            "Use AI monitoring as an explanatory layer, not as a replacement for explicit treasury policy rules.",
+            "Discuss where human override is appropriate and where automation should stay strict.",
+        ],
+    },
+    "DomainUseCaseDemos/SupplyChain/SupplyChainFinance": {
+        "overview": "Supply chain finance teaching demo where students adjust revenue, supplier count, payment timing, and receivables assumptions to discuss cash conversion pressure and funding opportunities across the operating cycle.",
+        "outputs": [
+            "Students should read the working-capital and cash-cycle outputs as an operating-finance story, not just a set of isolated metrics.",
+            "Pay attention to how supplier and receivables timing together affect funding need and flexibility.",
+        ],
+    },
+    "TechUseCaseDemos/StablecoinManager": {
+        "overview": "Interactive stablecoin treasury demo where learners rebalance lending, DEX liquidity, and cash reserves to see how yield, redemption readiness, and peg resilience move together under different allocation profiles.",
+        "outputs": [
+            "The key outputs are reserve strength, deployment mix, and any commentary on peg stability or redemption pressure.",
+            "Students should ask whether the higher-yield allocation leaves enough liquidity for redemptions and confidence under stress.",
+        ],
+        "notice": [
+            "More deployment into lending or DEX liquidity may improve yield while weakening near-term redemption flexibility.",
+            "Use the allocation profile to compare a conservative treasury posture with a more aggressive yield-seeking posture.",
+            "Talk through the governance question: who should approve a riskier reserve mix and under what trigger?",
+        ],
+    },
+    "TechUseCaseDemos/AIDataAnalyzer": {
+        "overview": "Hands-on data analysis demo where students paste a small CSV, inspect traditional statistical output, and compare it with an AI-style narrative focused on trends, anomalies, business insights, or forecasting.",
+        "outputs": [
+            "`Traditional analysis` is the factual baseline because it summarizes the dataset numerically before interpretation.",
+            "`AI interpretation` is the narrative layer that helps students discuss meaning, but it should always be validated against the traditional output.",
+        ],
+        "notice": [
+            "The strongest classroom comparison is between what the data objectively says and what the narrative claims it means.",
+            "Change the analysis focus and watch how the same data can produce different but not equally useful interpretations.",
+            "Ask students which conclusion is evidence-backed and which one is a hypothesis needing validation.",
+        ],
+    },
+    "TechUseCaseDemos/AICostBenefitAnalyzer": {
+        "overview": "Business-case demo where students estimate implementation cost, operational savings, and value uplift to judge whether an AI initiative has an acceptable payback profile and strategic rationale.",
+        "outputs": [
+            "The important outputs are total cost, expected benefit, payback timing, and the overall business-case conclusion.",
+            "Students should compare optimistic and conservative assumptions instead of treating one ROI number as final truth.",
+        ],
+        "notice": [
+            "A positive ROI can still hide timing risk if benefits arrive much later than implementation cost.",
+            "Discuss which assumptions are operationally measurable and which are more speculative strategic upside.",
+            "Use the result to debate investment timing and governance, not just to approve or reject the idea automatically.",
+        ],
+    },
+}
+
+
 def teacher_guide(demo: DemoPage) -> tuple[str, str, str]:
     return TEACHER_GUIDES.get(demo.folder.as_posix(), (
         "Look for the main decision, data input, and output the demo is designed to explain.",
@@ -708,6 +837,428 @@ def teacher_guide(demo: DemoPage) -> tuple[str, str, str]:
 
 def demo_in_course(demo: DemoPage, course_key: str) -> bool:
     return demo.course_key == course_key or course_key in MULTI_COURSE_DEMOS.get(demo.folder.as_posix(), [])
+
+
+def clean_html_text(raw: str) -> str:
+    value = re.sub(r"<script[\s\S]*?</script>", " ", raw, flags=re.I)
+    value = re.sub(r"<style[\s\S]*?</style>", " ", value, flags=re.I)
+    value = re.sub(r"<[^>]+>", " ", value)
+    value = re.sub(r"&nbsp;", " ", value)
+    value = re.sub(r"\s+", " ", value).strip()
+    return value
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
+def unique_items(items: list[str]) -> list[str]:
+    seen: set[str] = set()
+    output: list[str] = []
+    for item in items:
+        cleaned = re.sub(r"\s+", " ", item).strip(" .:-")
+        if not cleaned:
+            continue
+        key = cleaned.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        output.append(cleaned)
+    return output
+
+
+def demo_override(demo: DemoPage, key: str):
+    return DEMO_EDITORIAL_OVERRIDES.get(demo.folder.as_posix(), {}).get(key)
+
+
+def folder_files(demo: DemoPage) -> list[Path]:
+    files = [
+        item for item in sorted(demo.folder.iterdir(), key=lambda p: (p.is_file(), p.name.lower()))
+        if item.is_file() and item.name not in {"about.html"}
+    ]
+    return files
+
+
+def infer_run_modes_for_demo(demo: DemoPage) -> list[str]:
+    files = {item.name.lower() for item in folder_files(demo)}
+    modes: list[str] = []
+    if any(name in files for name in {"index.html", "demo.html"}):
+        modes.append("Browser")
+    if any(name.endswith(".ipynb") for name in files):
+        modes.append("Colab")
+    if any(name.endswith(".py") for name in files) or "requirements.txt" in files:
+        modes.append("Local")
+    return modes or ["Browser"]
+
+
+def expected_wait_label(demo: DemoPage, run_modes: list[str]) -> str:
+    name = demo.folder_name.lower()
+    if "Browser" in run_modes and "Local" not in run_modes and "Colab" not in run_modes:
+        if any(word in name for word in ["voice", "rag", "graph", "slm", "model"]):
+            return "Starts in browser, but first load may take 10-30 seconds if heavier assets initialize."
+        return "Starts immediately in browser with no installs, no API keys, and classroom-safe defaults."
+    if "Colab" in run_modes and "Local" in run_modes:
+        return "Browser mode is fastest to start. Colab and Local modes may spend extra time installing packages or opening notebooks."
+    if "Colab" in run_modes:
+        return "Browser reading pages open instantly, while the notebook path may spend a minute or two installing packages the first time."
+    return "Expect local setup time for Python dependencies before the first run, then faster repeat execution."
+
+
+def demo_type_label(demo: DemoPage, run_modes: list[str]) -> str:
+    if len(run_modes) > 1:
+        return "Multi-mode demo"
+    if "Browser" in run_modes:
+        return "Interactive browser demo"
+    if "Colab" in run_modes:
+        return "Notebook demo"
+    return "Local script/app demo"
+
+
+def extract_existing_readme_overview(demo: DemoPage) -> str | None:
+    readme = demo.folder / "README.md"
+    if not readme.exists():
+        return None
+    text = readme.read_text(encoding="utf-8", errors="ignore")
+    lines = [line.strip() for line in text.splitlines()]
+    paragraphs: list[str] = []
+    current: list[str] = []
+    for line in lines:
+        if not line:
+            if current:
+                paragraphs.append(" ".join(current))
+                current = []
+            continue
+        if line.startswith("#") or line.startswith("##"):
+            if current:
+                paragraphs.append(" ".join(current))
+                current = []
+            continue
+        if line.startswith("- ") or re.match(r"^\d+\.", line):
+            continue
+        current.append(line)
+        if len(" ".join(current)) > 220:
+            paragraphs.append(" ".join(current))
+            current = []
+    if current:
+        paragraphs.append(" ".join(current))
+    for para in paragraphs:
+        lowered = para.lower()
+        if len(para) > 60 and "attribution" not in lowered and "how to run" not in lowered:
+            return para.rstrip(".") + "."
+    return None
+
+
+def extract_demo_ui_signals(demo: DemoPage) -> dict[str, list[str] | str]:
+    if not demo.demo_path.exists():
+        return {"inputs": [], "buttons": [], "outputs": [], "steps": []}
+    content = demo.demo_path.read_text(encoding="utf-8", errors="ignore")
+    content = re.sub(r"<section class=\"demo-standard-guide\"[\s\S]*?</section>", " ", content, flags=re.I)
+    content = re.sub(r"<div class=\"demo-context-strip\"[\s\S]*?</div>", " ", content, flags=re.I)
+    inputs: list[str] = []
+    buttons: list[str] = []
+    outputs: list[str] = []
+    steps: list[str] = []
+
+    for match in re.finditer(r"<label\b[^>]*>(.*?)</label>", content, re.I | re.S):
+        text = clean_html_text(match.group(1))
+        if text and len(text) <= 80:
+            inputs.append(text)
+    if not inputs:
+        for match in re.finditer(r"<(?:input|select|textarea)\b[^>]*(?:id|name)=[\"']([^\"']+)[\"'][^>]*>", content, re.I):
+            name = humanize(match.group(1))
+            if 1 < len(name) <= 50:
+                inputs.append(name)
+
+    for match in re.finditer(r"<button\b[^>]*>(.*?)</button>", content, re.I | re.S):
+        text = clean_html_text(match.group(1))
+        if text and len(text) <= 80:
+            buttons.append(text)
+    if not buttons:
+        for match in re.finditer(r"""(?:onclick|id)=["']([^"']*(?:run|simulate|analy[sz]e|compare|forecast|export|reset|optimi[sz]e|generate)[^"']*)["']""", content, re.I):
+            label = humanize(match.group(1))
+            if len(label) <= 80:
+                buttons.append(label)
+
+    for match in re.finditer(r"<h[23]\b[^>]*>(.*?)</h[23]>", content, re.I | re.S):
+        text = clean_html_text(match.group(1))
+        lowered = text.lower()
+        if lowered.startswith("step "):
+            steps.append(text)
+            continue
+        if any(word in lowered for word in ["result", "output", "analysis", "insight", "summary", "chart", "forecast", "simulation", "kpi", "metric"]) and not any(
+            phrase in lowered for phrase in ["what to notice", "output and explanation", "output and explanations", "decision button", "input variables"]
+        ):
+            outputs.append(text)
+        if any(word in lowered for word in ["step", "input", "decision", "action", "output", "notice"]):
+            steps.append(text)
+
+    if not outputs:
+        for match in re.finditer(r"""id=["']([^"']*(?:result|output|chart|table|summary|metric|kpi|forecast|insight)[^"']*)["']""", content, re.I):
+            label = humanize(match.group(1))
+            lowered = label.lower()
+            if len(label) <= 80 and not any(phrase in lowered for phrase in ["section", "output and explanation", "what to notice"]):
+                outputs.append(label)
+
+    return {
+        "inputs": unique_items(inputs)[:8],
+        "buttons": unique_items(buttons)[:8],
+        "outputs": unique_items(outputs)[:8],
+        "steps": unique_items(steps)[:8],
+    }
+
+
+def demo_overview(demo: DemoPage, run_modes: list[str]) -> str:
+    overridden = demo_override(demo, "overview")
+    if overridden:
+        return overridden
+    existing = extract_existing_readme_overview(demo)
+    if existing:
+        return existing
+    modes = ", ".join(run_modes)
+    return (
+        f"{demo.title} is a {demo_type_label(demo, run_modes).lower()} in the {COURSES[demo.course_key]['title']} track. "
+        f"It helps students explore the main decision, key inputs, and output interpretation in {modes.lower()} mode."
+    )
+
+
+def learning_objectives_for_demo(demo: DemoPage, ui: dict[str, list[str] | str]) -> list[str]:
+    overridden = demo_override(demo, "objectives")
+    if overridden:
+        return overridden
+    course = COURSES[demo.course_key]
+    inputs = ui["inputs"][:2] if isinstance(ui["inputs"], list) else []
+    outputs = ui["outputs"][:2] if isinstance(ui["outputs"], list) else []
+    objective_one = f"Explain the main {course['short'].lower()} decision that {demo.title} is designed to support."
+    objective_two = "Change input assumptions and predict how the output should respond before running the demo."
+    if inputs:
+        objective_two = f"Use {', '.join(inputs)} to test how different assumptions change the scenario."
+    objective_three = "Interpret the result in plain language, not just as a number, chart, or AI recommendation."
+    if outputs:
+        objective_three = f"Interpret {', '.join(outputs)} in plain language and connect them to an action or conclusion."
+    objective_four = "State one limitation, risk, or governance consideration before using the result in a real decision."
+    return [objective_one, objective_two, objective_three, objective_four]
+
+
+def input_explanations(demo: DemoPage, ui: dict[str, list[str] | str]) -> list[str]:
+    overridden = demo_override(demo, "inputs")
+    if overridden:
+        return overridden
+    inputs = ui["inputs"] if isinstance(ui["inputs"], list) else []
+    if not inputs:
+        return [
+            "Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.",
+            "Treat each input as a lever that changes the scenario, baseline, or business context behind the result.",
+        ]
+    return [
+        f"`{item}` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts."
+        for item in inputs
+    ]
+
+
+def button_explanations(demo: DemoPage, ui: dict[str, list[str] | str]) -> list[str]:
+    overridden = demo_override(demo, "buttons")
+    if overridden:
+        return overridden
+    buttons = ui["buttons"] if isinstance(ui["buttons"], list) else []
+    if not buttons:
+        return [
+            "Use the main run or simulate action to compute the scenario after inputs are set.",
+            "Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.",
+        ]
+    lines: list[str] = []
+    for button in buttons:
+        lowered = button.lower()
+        if "reset" in lowered:
+            lines.append(f"`{button}` returns the demo to a known starting state so students can begin a fresh comparison.")
+        elif "export" in lowered:
+            lines.append(f"`{button}` saves the current result so learners can document evidence or compare scenarios later.")
+        else:
+            lines.append(f"`{button}` is the main action that computes, compares, or generates the next result from the current inputs.")
+    return lines
+
+
+def output_explanations(demo: DemoPage, ui: dict[str, list[str] | str]) -> list[str]:
+    overridden = demo_override(demo, "outputs")
+    if overridden:
+        return overridden
+    outputs = ui["outputs"] if isinstance(ui["outputs"], list) else []
+    if not outputs:
+        return [
+            "Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.",
+            "Students should explain whether the output is descriptive, predictive, simulated, or recommended."
+        ]
+    return [
+        f"`{item}` should be read as evidence for the decision, not just a display element. Ask what high, low, or changing values imply."
+        for item in outputs
+    ]
+
+
+def usage_steps_for_demo(demo: DemoPage, ui: dict[str, list[str] | str], run_modes: list[str]) -> list[str]:
+    button = (ui["buttons"][0] if isinstance(ui["buttons"], list) and ui["buttons"] else "Run the main action")
+    output = (ui["outputs"][0] if isinstance(ui["outputs"], list) and ui["outputs"] else "the output")
+    steps = [
+        f"Choose the run mode that fits the class: {', '.join(run_modes)}.",
+        "Review the default assumptions before changing anything.",
+        f"Change one or two inputs, then use `{button}`.",
+        f"Read {output} first, then compare any supporting metrics, charts, or AI text.",
+        "Capture one insight, one limitation, and one action recommendation.",
+    ]
+    return steps
+
+
+def notice_points_for_demo(demo: DemoPage, ui: dict[str, list[str] | str]) -> list[str]:
+    overridden = demo_override(demo, "notice")
+    if overridden:
+        return unique_items(overridden)
+    look_for, observe, note = teacher_guide(demo)
+    points = [look_for, observe, note]
+    outputs = ui["outputs"] if isinstance(ui["outputs"], list) else []
+    if outputs:
+        points.append(f"Compare the headline output with supporting views such as {', '.join(outputs[:2])} before drawing a conclusion.")
+    return unique_items(points)
+
+
+def discussion_questions_for_demo(demo: DemoPage, ui: dict[str, list[str] | str]) -> list[str]:
+    overridden = demo_override(demo, "questions")
+    if overridden:
+        return overridden
+    button = (ui["buttons"][0] if isinstance(ui["buttons"], list) and ui["buttons"] else "main action").strip("`")
+    return [
+        f"What business or technical decision would you make differently after using {demo.title}?",
+        f"If you changed one assumption and ran `{button}`, which output moved the most and why?",
+        "What would you still want to validate with real data, policy, or expert review before acting on the result?",
+    ]
+
+
+def related_demos_for_demo(demo: DemoPage, demos: list[DemoPage]) -> list[DemoPage]:
+    same_course = [item for item in demos if item.folder != demo.folder and demo_in_course(item, demo.course_key)]
+    return same_course[:3]
+
+
+def render_launch_guide_html(demo: DemoPage) -> str:
+    ui = extract_demo_ui_signals(demo)
+    run_modes = infer_run_modes_for_demo(demo)
+    objectives = learning_objectives_for_demo(demo, ui)[:3]
+    inputs = input_explanations(demo, ui)[:4]
+    buttons = button_explanations(demo, ui)[:4]
+    outputs = output_explanations(demo, ui)[:4]
+    notice = notice_points_for_demo(demo, ui)[:3]
+    return f'''
+  <section class="demo-standard-guide">
+    <div class="section-header">
+      <p class="section-kicker">Standard demo guide</p>
+      <h2>Use this demo in a logical learning sequence</h2>
+      <p>{escape(expected_wait_label(demo, run_modes))}</p>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>What this demo is about</h3>
+        <p>{escape(demo_overview(demo, run_modes))}</p>
+      </article>
+      <article class="info-card">
+        <h3>Learning objectives</h3>
+        <ul>{''.join(f'<li>{escape(item)}</li>' for item in objectives)}</ul>
+      </article>
+      <article class="info-card">
+        <h3>Run mode and expectations</h3>
+        <ul>
+          <li>Supported modes: {escape(", ".join(run_modes))}</li>
+          <li>{escape(expected_wait_label(demo, run_modes))}</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 1: Inputs</h3>
+        <ul>{''.join(f'<li>{escape(item)}</li>' for item in inputs)}</ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 2: Decision buttons</h3>
+        <ul>{''.join(f'<li>{escape(item)}</li>' for item in buttons)}</ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 3: Outputs and what to notice</h3>
+        <ul>{''.join(f'<li>{escape(item)}</li>' for item in outputs + notice[:2])}</ul>
+      </article>
+    </div>
+  </section>
+'''
+
+
+def should_keep_standard_guide(content: str) -> bool:
+    if "app-frame" in content:
+        return False
+    strong_markers = [
+        "Input Variables",
+        "Decision Button",
+        "Output and Explanation",
+        "How to use the demo",
+        "Available Modes",
+        "Run Modes and Expectations",
+        "Step 1",
+        "Step 2",
+    ]
+    marker_hits = sum(1 for marker in strong_markers if marker in content)
+    return marker_hits < 3
+
+
+def render_noninteractive_launch_page(demo: DemoPage, path: Path) -> str:
+    course = COURSES[demo.course_key]
+    run_modes = infer_run_modes_for_demo(demo)
+    readme_link = "README.md"
+    course_link = relative_url(path, Path(course["path"]))
+    overview = demo_overview(demo, run_modes)
+    steps = usage_steps_for_demo(demo, extract_demo_ui_signals(demo), run_modes)
+    mode_lines = "".join(f"<li><strong>{escape(mode)}:</strong> available for this demo.</li>" for mode in run_modes)
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{escape(demo.title)} - KateelLearningDemos</title>
+  <meta name="description" content="{escape(overview)}">
+  <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', '{GA_ID}');
+  </script>
+  <link rel="stylesheet" href="{relative_url(path, Path("assets/site.css"))}">
+  <link rel="stylesheet" href="{relative_url(path, Path("assets/demo-shell.css"))}">
+  <script defer src="{relative_url(path, Path("assets/site.js"))}"></script>
+</head>
+<body>
+{common_nav("demo", demo=demo, from_path=path)}
+  <div class="demo-context-strip" role="note">
+    <strong>About vs. Demo:</strong> This demo folder now uses a standardized launch page. Start with <a href="{relative_url(path, demo.about_path)}">About Demo</a>, then choose the run mode that fits your class.
+  </div>
+  <main class="container demo-shell">
+    <section class="demo-hero">
+      <p class="demo-kicker">{course['title']} • {escape(', '.join(run_modes))} • {escape(demo.duration)}</p>
+      <h1>{escape(demo.title)}</h1>
+      <p class="demo-lede">{escape(overview)}</p>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="{relative_url(path, demo.about_path)}">Open About Demo</a>
+        <a class="btn btn-secondary" href="{readme_link}">Read README</a>
+        <a class="btn btn-secondary" href="{course_link}">View Course Path</a>
+      </div>
+    </section>
+    {render_launch_guide_html(demo)}
+    <section class="demo-panel">
+      <div class="panel-grid">
+        <article class="mini-panel">
+          <h3>Available run modes</h3>
+          <ul class="plain-list">{mode_lines}</ul>
+        </article>
+        <article class="mini-panel">
+          <h3>How to proceed</h3>
+          <ol class="plain-list">{''.join(f'<li>{escape(item)}</li>' for item in steps)}</ol>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+'''
 
 
 @dataclass(frozen=True)
@@ -1063,7 +1614,20 @@ def normalize_relative_links(content: str, from_path: Path) -> str:
 def update_actual_demo_page(path: Path, demo: DemoPage) -> None:
     content = path.read_text(encoding="utf-8", errors="ignore")
     original = content
+    placeholder_markers = [
+        "requires local execution",
+        "this demo folder now uses a standardized launch page",
+        "available run modes",
+    ]
+    if any(marker in content.lower() for marker in placeholder_markers) and "<button" not in content.lower() and "app-frame" not in content:
+        replacement = render_noninteractive_launch_page(demo, path)
+        if replacement != original:
+            path.write_text(replacement, encoding="utf-8")
+        return
     content = ensure_assets(content, path)
+    demo_css = f'  <link rel="stylesheet" href="{relative_url(path, Path("assets/demo-shell.css"))}">\n'
+    if demo_css.rstrip("\n") not in content and "</head>" in content:
+        content = content.replace("</head>", demo_css + "</head>", 1)
     content = replace_nav(content, common_nav("demo", demo=demo))
     content = normalize_relative_links(content, path)
     course_href = relative_url(path, Path(COURSES[demo.course_key]["path"]))
@@ -1072,7 +1636,15 @@ def update_actual_demo_page(path: Path, demo: DemoPage) -> None:
     if not (path.parent / "README.md").exists():
         content = content.replace('href="README.md"', f'href="{relative_url(path, Path("DEMO_INDEX.md"))}"')
         content = content.replace("Read the README.md", "Read the full demo index")
+    content = re.sub(r"\s*<div class=\"demo-context-strip\"[\s\S]*?</div>", "", content, count=1)
+    content = re.sub(r"\s*<section class=\"demo-standard-guide\"[\s\S]*?</section>", "", content, count=1)
     content = add_demo_context_strip(content, demo, path)
+    if "demo-standard-guide" not in content and should_keep_standard_guide(content):
+        guide = render_launch_guide_html(demo)
+        if "<main" in content:
+            content = re.sub(r"(<main\b[^>]*>)", r"\1" + guide, content, count=1)
+        elif "<div class=\"container\">" in content:
+            content = content.replace("<div class=\"container\">", "<div class=\"container\">" + guide, 1)
     if content != original:
         path.write_text(content, encoding="utf-8")
 
@@ -1099,14 +1671,11 @@ def render_about_page(demo: DemoPage) -> str:
     path = demo.about_path
     course = COURSES[demo.course_key]
     course_path = Path(COURSES[demo.course_key]["path"])
+    ui = extract_demo_ui_signals(demo)
+    run_modes = infer_run_modes_for_demo(demo)
     readme_exists = (demo.folder / "README.md").exists()
     readme_link = f'<a class="btn btn-secondary" href="{relative_url(path, demo.folder / "README.md")}">View README</a>' if readme_exists else ""
-    outcomes = [
-        f"Understand the core {course['title'].lower()} concept behind {demo.title}.",
-        "Identify the decision, data input, and output that matter in the activity.",
-        "Compare a baseline result with an AI-assisted or scenario-adjusted result.",
-        "Explain one limitation or governance consideration before using the output.",
-    ]
+    outcomes = learning_objectives_for_demo(demo, ui)
     concepts = {
         "treasury": ["Liquidity forecasting", "Scenario planning", "Working-capital trade-offs", "Treasury governance"],
         "ai_ml": ["AI workflow design", "Model-assisted decisions", "Human oversight", "Prompt and output evaluation"],
@@ -1117,12 +1686,12 @@ def render_about_page(demo: DemoPage) -> str:
         "rag_nlp": ["Retrieval", "Grounding", "Summarization", "Hallucination checks"],
         "banking": ["Credit analytics", "Customer segmentation", "Fraud signals", "Operational action"],
     }.get(demo.course_key, ["Decision support", "Scenario analysis", "Human oversight", "Evidence-based action"])
-    steps = [
-        "Read this About Demo page first and note the learning objective.",
-        "Launch the actual demo and change at least two inputs or scenarios.",
-        "Toggle AI support on/off where available and compare what changed.",
-        "Record one insight, one limitation, and one follow-up question.",
-    ]
+    steps = usage_steps_for_demo(demo, ui, run_modes)
+    inputs = input_explanations(demo, ui)
+    buttons = button_explanations(demo, ui)
+    outputs = output_explanations(demo, ui)
+    notice = notice_points_for_demo(demo, ui)
+    questions = discussion_questions_for_demo(demo, ui)
     look_for, observe, note = teacher_guide(demo)
     seo_description = seo_description_for_demo(demo, concepts, look_for)
     keywords = demo_keywords(demo, concepts)
@@ -1231,8 +1800,8 @@ def render_about_page(demo: DemoPage) -> str:
       <p class="hero-subtitle">{escape(seo_description)}</p>
       <div class="pill-row" aria-label="Demo attributes">
         <span class="pill">About Demo</span>
+        <span class="pill">{escape(', '.join(run_modes))}</span>
         <span class="pill">{escape(demo.ai_mode)}</span>
-        <span class="pill">No API keys</span>
         <span class="pill">Attribution: {ATTRIBUTION_EMAIL}</span>
       </div>
       <div class="cta-buttons">
@@ -1242,55 +1811,46 @@ def render_about_page(demo: DemoPage) -> str:
       </div>
     </section>
 
-    <section class="learning-path" aria-label="How to use this demo">
-      <div>
-        <strong>1. About Demo</strong>
-        <p>Read the learning goal, concepts, and usage steps on this page.</p>
-      </div>
-      <div>
-        <strong>2. Launch Demo</strong>
-        <p>Open the interactive app separately and experiment with inputs or scenarios.</p>
-      </div>
-      <div>
-        <strong>3. Reflect</strong>
-        <p>Record one insight, one limitation, and one action recommendation.</p>
-      </div>
-    </section>
-
-    <section class="section" id="observe">
+    <section class="section" id="about">
       <div class="section-header">
-        <p class="section-kicker">Teacher observation guide</p>
-        <h2>What to look for, observe, and note</h2>
-        <p>Use these prompts to turn the demo result into a guided learning conversation.</p>
+        <p class="section-kicker">What this demo is about</p>
+        <h2>Concept first, interaction second</h2>
+        <p>{escape(demo_overview(demo, run_modes))}</p>
       </div>
       <div class="card-grid">
         <article class="info-card">
-          <h3>What to look for</h3>
-          <p>{escape(look_for)}</p>
-        </article>
-        <article class="info-card">
-          <h3>What to observe</h3>
-          <p>{escape(observe)}</p>
-        </article>
-        <article class="info-card">
-          <h3>What to note</h3>
-          <p>{escape(note)}</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="learning">
-      <div class="section-header">
-        <p class="section-kicker">Learning design</p>
-        <h2>What students should learn</h2>
-        <p>This page is the teaching guide; the linked demo is the hands-on practice environment.</p>
-      </div>
-      <div class="card-grid">
-        <article class="info-card">
-          <h3>Learning outcomes</h3>
+          <h3>Learning objectives</h3>
           <ul>
             {''.join(f'<li>{escape(item)}</li>' for item in outcomes)}
           </ul>
+        </article>
+        <article class="info-card">
+          <h3>Run modes</h3>
+          <ul>
+            <li>Supported modes: {escape(", ".join(run_modes))}</li>
+            <li>Demo type: {escape(demo_type_label(demo, run_modes))}</li>
+            <li>Primary launch surface: <code>{escape(demo.demo_path.name)}</code></li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Before you start</h3>
+          <p>{escape(expected_wait_label(demo, run_modes))}</p>
+          <p>This helps set classroom expectations before students click into the live experience.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="context">
+      <div class="section-header">
+        <p class="section-kicker">Business or domain context</p>
+        <h2>Why this demo matters</h2>
+        <p>Students should connect the demo to a real decision, not treat it as a standalone screen.</p>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Core context</h3>
+          <p>{escape(look_for)}</p>
+          <p>{escape(observe)}</p>
         </article>
         <article class="info-card">
           <h3>Concepts covered</h3>
@@ -1298,35 +1858,62 @@ def render_about_page(demo: DemoPage) -> str:
             {''.join(f'<div class="feature"><span>●</span>{escape(item)}</div>' for item in concepts)}
           </div>
         </article>
+        <article class="info-card">
+          <h3>What students should note</h3>
+          <p>{escape(note)}</p>
+        </article>
       </div>
     </section>
 
     <section class="section" id="usage">
       <div class="section-header">
-        <p class="section-kicker">Classroom flow</p>
-        <h2>Suggested 20-minute activity</h2>
+        <p class="section-kicker">How to use the demo</p>
+        <h2>Recommended classroom flow</h2>
       </div>
       <div class="card-grid">
         <article class="info-card">
-          <h3>Before the demo</h3>
-          <ol>
-            <li>Ask students what decision the demo is supporting.</li>
-            <li>Predict what will happen when one input changes.</li>
-            <li>Clarify that AI output is support, not final authority.</li>
-          </ol>
-        </article>
-        <article class="info-card">
-          <h3>During the demo</h3>
-          <ol>
-            {''.join(f'<li>{escape(step)}</li>' for step in steps[1:])}
-          </ol>
-        </article>
-        <article class="info-card">
-          <h3>After the demo</h3>
+          <h3>List of steps</h3>
           <ul>
-            <li>Share one screenshot or exported result.</li>
-            <li>Explain the decision logic in plain language.</li>
-            <li>Rate this About Demo page to help improve the catalog.</li>
+            {''.join(f'<li>{escape(item)}</li>' for item in steps)}
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Input variables explained</h3>
+          <ul>
+            {''.join(f'<li>{escape(item)}</li>' for item in inputs)}
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Decision buttons explained</h3>
+          <ul>
+            {''.join(f'<li>{escape(item)}</li>' for item in buttons)}
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="outputs">
+      <div class="section-header">
+        <p class="section-kicker">Outputs and interpretation</p>
+        <h2>How to read the result</h2>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Outputs explained</h3>
+          <ul>
+            {''.join(f'<li>{escape(item)}</li>' for item in outputs)}
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>What to notice</h3>
+          <ul>
+            {''.join(f'<li>{escape(item)}</li>' for item in notice)}
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Discussion and reflection</h3>
+          <ul>
+            {''.join(f'<li>{escape(item)}</li>' for item in questions)}
           </ul>
         </article>
       </div>
@@ -1339,6 +1926,7 @@ def render_about_page(demo: DemoPage) -> str:
       </div>
       <div class="info-card highlight-card">
         <p>{escape(course['faculty_prompt'])}</p>
+        <p><strong>Suggested interpretation prompt:</strong> Ask learners to explain how the output changed, what assumption caused it, and what real-world check they would do next.</p>
       </div>
     </section>
 
@@ -1360,7 +1948,101 @@ def render_about_page(demo: DemoPage) -> str:
   </footer>
 </body>
 </html>
-'''
+''' 
+
+
+def render_demo_readme(demo: DemoPage, demos: list[DemoPage]) -> str:
+    ui = extract_demo_ui_signals(demo)
+    run_modes = infer_run_modes_for_demo(demo)
+    files = folder_files(demo)
+    related = related_demos_for_demo(demo, demos)
+    course = COURSES[demo.course_key]
+    steps = usage_steps_for_demo(demo, ui, run_modes)
+    inputs = input_explanations(demo, ui)
+    buttons = button_explanations(demo, ui)
+    outputs = output_explanations(demo, ui)
+    notice = notice_points_for_demo(demo, ui)
+    objectives = learning_objectives_for_demo(demo, ui)
+    how_to_run: list[str] = []
+    if "Browser" in run_modes:
+        how_to_run.append(f"- Browser: open `{demo.demo_path.name}`.")
+    if "Colab" in run_modes:
+        notebooks = [item.name for item in files if item.suffix.lower() == ".ipynb"]
+        notebook_name = notebooks[0] if notebooks else "the notebook in this folder"
+        how_to_run.append(f"- Colab: open `{notebook_name}` in Google Colab and run the cells in order.")
+    if "Local" in run_modes:
+        has_requirements = any(item.name.lower() == "requirements.txt" for item in files)
+        local_lines = ["- Local: run the Python assets in this folder."]
+        if has_requirements:
+            local_lines.append("  Install dependencies first with `pip install -r requirements.txt`.")
+        how_to_run.extend(local_lines)
+
+    lines = [
+        f"# {demo.title}",
+        "",
+        "## Overview",
+        "",
+        demo_overview(demo, run_modes),
+        "",
+        "## Learning Objectives",
+        "",
+        *[f"- {item}" for item in objectives],
+        "",
+        "## Run Modes",
+        "",
+        *[f"- {mode}" for mode in run_modes],
+        "",
+        "## Expected Setup / Startup Time",
+        "",
+        f"- {expected_wait_label(demo, run_modes)}",
+        "",
+        "## Demo Type",
+        "",
+        f"- {demo_type_label(demo, run_modes)}",
+        "",
+        "## Files in This Folder",
+        "",
+        *[f"- `{item.name}`" for item in files],
+        "",
+        "## How To Run",
+        "",
+        *how_to_run,
+        "",
+        "## How To Use The Demo",
+        "",
+        *[f"{index}. {item}" for index, item in enumerate(steps, start=1)],
+        "",
+        "## Inputs",
+        "",
+        *[f"- {item}" for item in inputs],
+        "",
+        "## Buttons / Actions",
+        "",
+        *[f"- {item}" for item in buttons],
+        "",
+        "## Outputs",
+        "",
+        *[f"- {item}" for item in outputs],
+        "",
+        "## What To Notice",
+        "",
+        *[f"- {item}" for item in notice],
+        "",
+        "## Related Demos or Course Context",
+        "",
+        f"- Course path: [{course['title']}]({relative_url(demo.folder / 'README.md', Path(course['path']))})",
+    ]
+    if related:
+        lines.extend(f"- Related demo: [{item.title}]({relative_url(demo.folder / 'README.md', item.about_path)})" for item in related)
+    lines.extend([
+        "",
+        "## Attribution",
+        "",
+        f"Created by **Professor Vinaya Sathyanarayana** as part of [{REPO_NAME}]({GITHUB_URL}).",
+        f"Attribution email: `{ATTRIBUTION_EMAIL}`",
+        "",
+    ])
+    return "\n".join(lines)
 
 
 def render_course_page(key: str, demos: list[DemoPage]) -> str:
@@ -2285,23 +2967,14 @@ def main() -> None:
     updated_pages = 0
 
     for demo in demos:
+        (demo.folder / "README.md").write_text(render_demo_readme(demo, demos), encoding="utf-8")
         demo.about_path.write_text(render_about_page(demo), encoding="utf-8")
         for candidate in sorted({demo.demo_path, demo.folder / "index.html"}):
             if candidate.exists():
                 update_actual_demo_page(candidate, demo)
                 updated_pages += 1
-
-    for key in COURSE_ORDER:
-        course_demos = [demo for demo in demos if demo.course_key == key]
-        Path(COURSES[key]["path"]).write_text(render_course_page(key, course_demos), encoding="utf-8")
-
-    Path("index.html").write_text(render_index(demos), encoding="utf-8")
-    Path("DEMO_INDEX.md").write_text(render_demo_index_md(demos), encoding="utf-8")
-    Path("courses/README.md").write_text(render_courses_readme(), encoding="utf-8")
-
-    print(f"Generated/updated {len(demos)} About Demo pages")
-    print(f"Updated {updated_pages} actual/demo-guide pages")
-    print("Updated landing page, course pages, demo index, and course README")
+    print(f"Generated/updated {len(demos)} README and About Demo pages")
+    print(f"Updated {updated_pages} launch/demo-guide pages")
 
 
 if __name__ == "__main__":

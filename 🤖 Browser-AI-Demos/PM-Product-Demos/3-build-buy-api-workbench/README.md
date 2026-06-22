@@ -1,120 +1,74 @@
-# PM Demo 03 — Build vs Buy vs API Decision Workbench
+# Build vs Buy vs API Decision Workbench — PM Demo 03
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/`
+## Overview
 
-An **in-browser sourcing decision tool** that scores Build / Buy / API / Partner options across 8 constraint dimensions. Includes a quadrant map, risk register, and auto-generated recommendation memo. No AI model required.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/`.
 
----
+## Learning Objectives
 
-## What PM Decision Is Being Made?
+- Explain the main ai/ml decision that Build vs Buy vs API Decision Workbench — PM Demo 03 is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-> Should we build this AI capability in-house, buy a platform, use an external API, or partner — given our constraints on time, budget, privacy, talent, and scale?
+## Run Modes
 
----
+- Browser
 
-## What This Demo Does
+## Expected Setup / Startup Time
 
-| Feature | Detail |
-|---------|--------|
-| Capability presets | 6 preset capabilities with pre-filled constraints |
-| Constraint sliders | 8 sliders: TTM, budget, privacy, customisation, talent, scale, reliability, lock-in |
-| Scoring | Weighted formula per option, normalised to 0–100 |
-| Option cards | Score bar, "best when" bullets, dynamic red-flag warnings |
-| Quadrant map | SVG Control vs Speed map, winner highlighted with pulsing ring |
-| Recommendation memo | Rules-based auto-generated rationale + due diligence questions |
-| Risk register | 5-dimension × 4-option table with 🟢/🟡/🔴 indicators |
-| Export | Copy memo as Markdown |
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
----
+## Demo Type
 
-## Capability Presets
+- Interactive browser demo
 
-| Capability | Pre-filled Bias |
-|-----------|----------------|
-| Text Summarization | API-friendly (commodity, low privacy, fast TTM) |
-| Fraud Detection | Build-leaning (high privacy, custom data, reliability-critical) |
-| Recommendation Engine | Build or Buy (differentiating, scale-heavy, latency-sensitive) |
-| Internal Copilot | Build-leaning (privacy-critical, org-knowledge requirement) |
-| Speech-to-Text | API-friendly (commodity, volume-driven, quality threshold) |
-| Document AI / OCR | Buy or Partner (workflow-specific, compliance-driven) |
+## Files in This Folder
 
----
+- `index.html`
+- `README.md`
 
-## Scoring Logic
+## How To Run
 
-Each option's score is computed as a signed weighted sum of slider values, normalised across the 4 options:
+- Browser: open `index.html`.
 
-| Option | Boosted by | Penalised by |
-|--------|------------|-------------|
-| **Build** | Talent, customisation, privacy, lock-in concern, budget | Tight TTM |
-| **Buy** | Reliability, budget, scale, speed | Privacy concern, lock-in worry |
-| **API** | Speed, scale, budget | Privacy sensitivity, lock-in, customisation need |
-| **Partner** | Customisation, reliability | Budget constraints, lock-in concern |
+## How To Use The Demo
 
----
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-## Red Flags Triggered
+## Inputs
 
-| Condition | Warning |
-|-----------|---------|
-| Privacy ≥ 8 + API | External API may violate compliance requirements |
-| Talent ≤ 3 + Build | In-house build will likely miss timelines |
-| TTM ≥ 8 + Build | In-house build rarely ships in weeks |
-| Scale ≥ 9 + API | API cost may exceed build cost at extreme scale |
-| Lock-in ≥ 8 + API | Single-vendor API dependency risk |
-| Budget ≤ 2 + Buy | Enterprise platform licenses may be unaffordable |
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
----
+## Buttons / Actions
 
-## Key Learning Concepts
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-- **No universally right answer** — the same capability (summarisation) can be API-right for one company and Build-right for another
-- **Privacy reframes everything** — highly sensitive data changes the scoring fundamentally
-- **Talent gaps have a half-life** — today's "no ML talent" may not be true in 12 months
-- **Lock-in is a long-term tax** — cheap to ignore short-term, expensive to fix later
+## Outputs
 
----
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
-## PM Reflection Questions
+## What To Notice
 
-| Prompt | Insight |
-|--------|---------|
-| **Decision** | Build / Buy / API / Partner for a specific AI capability |
-| **Assumed** | Slider inputs are self-assessed; real decisions need vendor POCs and build estimates |
-| **Risk** | Constraints treated as independent; real decisions have complex interdependencies |
-| **Override** | A PM might choose API despite privacy concerns if a DPA + private deployment option exists |
+- Look for build, buy, and API options across cost, speed, control, and risk
+- Observe how the best choice changes when time-to-market or compliance matters more
+- Note that platform decisions should be revisited as strategy and constraints evolve
 
----
+## Related Demos or Course Context
 
-## Files
-
-| File | Purpose |
-|------|---------|
-| `index.html` | Complete single-file demo |
-
----
-
-## How to Run
-
-```bash
-cd "🤖 Browser-AI-Demos/PM-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/3-build-buy-api-workbench/
-```
-
----
-
-## Student Extensions
-
-1. **Add "Fine-tune" as a fifth option** — sits between API and Build in the control/speed space.
-2. **Vendor comparison sub-module**: After selecting Buy or API, show a comparison matrix of 3 fictitious vendors.
-3. **Time-phased strategy**: Model a path that starts with API and transitions to Build as talent grows and volume scales.
-4. **Cost projection**: Add a 3-year TCO calculator comparing options.
-
----
+- Course path: [AI/ML Workflows](../../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use this demo in a course or project, see [ATTRIBUTION.md](../../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

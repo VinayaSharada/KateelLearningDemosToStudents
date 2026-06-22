@@ -2,74 +2,88 @@
 
 ## Overview
 
-This demo now supports two practical modes:
+Multi-mode liquidity management demo that helps students understand daily funding pressure, cash-position monitoring, and the difference between a quick browser walkthrough and deeper notebook or local analysis.
 
-- `Colab`: notebook-based teaching and analytics
-- `Local`: script-based execution for full control
+## Learning Objectives
 
-A browser version is possible later, but the current simulation-heavy workflow is best served by Colab or local Python so students can see the real compute path clearly.
+- Explain the main banking decision that Liquidity Management is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## Files
+## Run Modes
 
-- `index.html`: launch page with mode guidance
-- `about.html`: teaching guide
-- `colab_demo.ipynb`: Colab-ready notebook variant
-- `generate_synthetic_liquidity_data.py`: local transaction generator
-- `liquidity_monte_carlo_simulation.py`: local simulation and reporting script
-- `generate_synthetic_liquidity_data.ipynb`: existing notebook asset
-- `liquidity_monte_carlo_simulation.ipynb`: existing notebook asset
-- `requirements.txt`: local dependencies
+- Browser
+- Colab
+- Local
 
-## Recommended Mode
+## Expected Setup / Startup Time
 
-- Use `Colab` when students should run the workflow with minimal setup.
-- Use `Local` when students need to inspect or extend the scripts directly.
+- Browser mode is fastest to start. Colab and Local modes may spend extra time installing packages or opening notebooks.
 
-## Colab Mode
+## Demo Type
 
-Open `colab_demo.ipynb` in Google Colab.
+- Multi-mode demo
 
-The notebook includes:
+## Files in This Folder
 
-- lightweight package install
-- synthetic transaction generation
-- daily net-flow aggregation
-- Monte Carlo liquidity forecasting
-- risk metrics like mean outcome, VaR, and shortfall probability
-- classroom-friendly charts
+- `colab_demo.ipynb`
+- `generate_synthetic_liquidity_data.ipynb`
+- `generate_synthetic_liquidity_data.py`
+- `index.html`
+- `liquidity_analysis_report.txt`
+- `liquidity_monte_carlo_analysis.png`
+- `liquidity_monte_carlo_simulation.ipynb`
+- `liquidity_monte_carlo_simulation.py`
+- `README.md`
+- `requirements.txt`
+- `setup_env.sh`
+- `synthetic_liquidity_data.csv`
 
-## Local Mode
+## How To Run
 
-### 1. Install dependencies
+- Browser: open `index.html`.
+- Colab: open `colab_demo.ipynb` in Google Colab and run the cells in order.
+- Local: run the Python assets in this folder.
+  Install dependencies first with `pip install -r requirements.txt`.
 
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-```
+## How To Use The Demo
 
-### 2. Generate synthetic data
+1. Choose the run mode that fits the class: Browser, Colab, Local.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-```powershell
-python generate_synthetic_liquidity_data.py
-```
+## Inputs
 
-### 3. Run the simulation
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-```powershell
-python liquidity_monte_carlo_simulation.py
-```
+## Buttons / Actions
 
-## What Students Learn
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-- how inflow and outflow timing affects liquidity
-- why volatility matters in addition to averages
-- how Monte Carlo forecasts create a distribution of outcomes
-- how treasury-style liquidity metrics support decision-making
+## Outputs
 
-## Suggested Extensions
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
-- compare baseline and stressed flow distributions
-- add minimum-liquidity thresholds and alerts
-- change forecast horizon and simulation count
-- add funding-cost or buffer-policy assumptions
+## What To Notice
+
+- Use browser mode for fast concept-building, then move to Colab or Local when students need to inspect the calculation path in more detail
+- Focus on how the liquidity position changes when assumptions around inflows, outflows, or timing are stressed
+- Ask students which metric would trigger action now versus which one is more useful for trend monitoring
+
+## Related Demos or Course Context
+
+- Course path: [Banking & Finance](../../../courses/banking.html)
+- Related demo: [Interest Rate Risk](../IntRateRisk/about.html)
+- Related demo: [Loan Default Predictor](../LoanDefaultPredictor/about.html)
+- Related demo: [Mesa Liquidity Data Generator](../MesaLiquidity/about.html)
+
+## Attribution
+
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

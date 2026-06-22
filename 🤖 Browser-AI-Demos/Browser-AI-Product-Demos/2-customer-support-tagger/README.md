@@ -1,80 +1,74 @@
-# 2 — Customer Support Smart Ticket Tagger
+# Smart Ticket Tagger
 
-**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents)
-**Author:** Professor Vinaya Sathyanarayana
-**Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/`
+## Overview
 
-Demonstrates **dual-model NLP inference in the browser**: sentiment analysis with DistilBERT-SST-2 combined with zero-shot intent routing using DeBERTa-NLI. As an agent types a support ticket, the UI tags it in real time — no server call, no latency from a remote API.
+**Repository:** [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) **Author:** Professor Vinaya Sathyanarayana **Section:** `🤖 Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/`.
 
----
+## Learning Objectives
 
-## What This Demo Does
+- Explain the main ai/ml decision that Smart Ticket Tagger is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-| Feature | Detail |
-|---------|--------|
-| Sentiment model | **DistilBERT-SST-2** — binary positive/negative sentiment score on the ticket text |
-| Intent routing | **DeBERTa-v3-base-mnli** — zero-shot classification against custom intent labels (Billing, Technical, Cancellation, Complaint, General Inquiry, etc.) |
-| Debounce | 300 ms after last keystroke before inference fires — prevents excessive GPU usage while typing |
-| Output | Colour-coded intent badge + sentiment bar updated live below the textarea |
-| Status bar | Per-model download progress for both pipelines shown sequentially |
+## Run Modes
 
----
+- Browser
 
-## Files
+## Expected Setup / Startup Time
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Complete single-file demo — HTML + CSS + JavaScript |
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
----
+## Demo Type
 
-## How to Run
+- Interactive browser demo
 
-```bash
-cd "🤖 Browser-AI-Demos/Browser-AI-Product-Demos"
-python -m http.server 8080
-# Open http://localhost:8080/2-customer-support-tagger/
-```
+## Files in This Folder
 
-Requires a **WebGPU-capable browser** (Chrome 113+, Edge 113+). Both models download on first run (~130 MB combined) and cache in the browser.
+- `index.html`
+- `README.md`
 
----
+## How To Run
 
-## Architecture Notes
+- Browser: open `index.html`.
 
-```
-Textarea input ──► 300ms debounce
-                        │
-          ┌─────────────┴─────────────┐
-          ▼                           ▼
-   sentiment pipeline           zero-shot pipeline
-   (DistilBERT-SST-2)     (DeBERTa NLI + intent labels)
-          │                           │
-          ▼                           ▼
-   sentiment bar                intent badge
-```
+## How To Use The Demo
 
-Both pipelines are loaded in sequence at startup. The debounce ensures only one inference pair fires per burst of typing.
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
----
+## Inputs
 
-## How This Connects to Other Demos
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-- [`1-local-chat-advisor`](../1-local-chat-advisor/) — generative model, same WebGPU runtime
-- [`5-entity-tagger`](../5-entity-tagger/) — NER instead of classification, same architecture pattern
-- [`DomainUseCaseDemos/Banking/Marketing001`](../../../DomainUseCaseDemos/Banking/Marketing001/) — server-side NLP for support triage
+## Buttons / Actions
 
----
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-## Student Extensions
+## Outputs
 
-1. Add a third label set for **priority** (Low / Medium / High / Urgent) using a second zero-shot call.
-2. Build a **ticket queue table** below the input that accumulates all tagged tickets in the session.
-3. Replace the intent labels with your own business vocabulary (e.g. Insurance: Claim / Policy / Payment).
-4. Add **confidence threshold** control — show "Uncertain" if top label < 60%.
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
----
+## What To Notice
+
+- Look for the support ticket text, predicted category, and confidence level
+- Observe how ambiguous tickets affect classification and routing
+- Note that automation should reduce triage time while preserving human review for edge cases
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../../../TechUseCaseDemos/ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../../../TechUseCaseDemos/AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../../../TechUseCaseDemos/AIDataAnalyzer/about.html)
 
 ## Attribution
 
-If you use this demo in a course or project, see [ATTRIBUTION.md](../../../../ATTRIBUTION.md).
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

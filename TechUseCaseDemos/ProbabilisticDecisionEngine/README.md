@@ -1,89 +1,76 @@
 # Probabilistic Decision Engine
 
+## Overview
+
+| Application | Benefit | |-------------|---------| | **Healthcare** | Treatment recommendations with uncertainty | | **Finance** | Risk assessment with scenario analysis | | **Robotics** | Real-time decision making under uncertainty |.
+
 ## Learning Objectives
-- Understand amortized inference for probabilistic AI
-- Experience real-time probabilistic predictions
-- Learn how to change assumptions and queries dynamically
-- Explore healthcare decision support with uncertainty quantification
 
-## How to Run
-1. Open `index.html` in a browser
-2. Adjust patient profile sliders and selectors
-3. Toggle treatment options on/off
-4. Try custom queries (e.g., "What if age > 60?")
-5. Observe how predictions update instantly
+- Explain the main ai/ml decision that Probabilistic Decision Engine is designed to support.
+- Change input assumptions and predict how the output should respond before running the demo.
+- Interpret the result in plain language, not just as a number, chart, or AI recommendation.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## Key Features
+## Run Modes
 
-### Amortized Inference (ACE)
-- **Forward Pass**: Neural network predicts posterior in milliseconds
-- **Real-time Updates**: Change assumptions → instant predictions
-- **Multiple Queries**: Compare scenarios without retraining
-- **Uncertainty Quantification**: See confidence intervals
+- Browser
 
-### Interactive Controls
-- **Patient Profile**: Age, biomarker level, symptom severity
-- **Treatment Options**: Standard, Experimental, Combination
-- **Custom Queries**: Modify predictions with natural language
+## Expected Setup / Startup Time
 
-## Use Cases
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
 
-| Application | Benefit |
-|-------------|---------|
-| **Healthcare** | Treatment recommendations with uncertainty |
-| **Finance** | Risk assessment with scenario analysis |
-| **Robotics** | Real-time decision making under uncertainty |
-| **Active Learning** | Query strategies for data labeling |
+## Demo Type
 
-## How ACE Works
+- Interactive browser demo
 
-```
-Traditional Inference:
-  Simulator → MCMC/Sampling → Posterior (minutes/hours)
+## Files in This Folder
 
-Amortized Inference (ACE):
-  Neural Network → Posterior (milliseconds)
-```
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
 
-The amortized posterior network is trained once, then can make predictions instantly for any new query.
+## How To Run
 
-## Related Work
+- Browser: open `index.html`.
 
-This demo is based on the **nanoACE** library from the Helsinki/Aalto/ELLIS Institute Finland research group:
+## How To Use The Demo
 
-- **Playground**: https://acerbilab.github.io/nanoACE/
-- **GitHub**: https://github.com/acerbilab/nanoACE
-- **Paper (AISTATS 2025)**: https://acerbilab.github.io/amortized-conditioning-engine/
-- **Paper (NeurIPS 2025)**: https://huangdaolang.com/aline/
-- **Paper (ICLR 2026)**: https://conorhassan.com/projects/artnp/
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Run the main action`.
+4. Read the output first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
 
-### Key Papers
-1. Chang et al. (2025, AISTATS) - Amortized Conditioning Engine
-2. Huang et al. (2025, NeurIPS) - ALINE: Active Learning with Neural Expressivity
-3. Hassan et al. (2026, ICLR) - ARNTP: Adaptive Rejection Neural Transport
+## Inputs
 
-### Research Group
-- **Machine and Human Intelligence Group**
-- University of Helsinki & Aalto University
-- ELLIS Institute Finland
+- Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.
+- Treat each input as a lever that changes the scenario, baseline, or business context behind the result.
 
-## Acknowledgments
+## Buttons / Actions
 
-This educational demo is based on the **nanoACE** library and amortized inference research from:
+- Use the main run or simulate action to compute the scenario after inputs are set.
+- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
 
-- **Machine and Human Intelligence Group**, University of Helsinki & Aalto University
-- **ELLIS Institute Finland**
-- Key contributors: Paul Chang, Nasrulloh Loka Daolang Huang, Conor Hassan, Xinyi Wen, Yang Yang, Cen-You Li, Ulpu Remes, Ayush Bharti, Samuel Kaski
+## Outputs
 
-**Affiliated Papers:**
-1. Chang et al. (2025, AISTATS) - Amortized Conditioning Engine
-2. Huang et al. (2025, NeurIPS) - ALINE: Active Learning with Neural Expressivity
-3. Hassan et al. (2026, ICLR) - ARNTP: Adaptive Rejection Neural Transport
+- Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.
+- Students should explain whether the output is descriptive, predictive, simulated, or recommended.
 
-**Note:** This is a simplified educational implementation. For production use, please refer to the official nanoACE library: https://github.com/acerbilab/nanoACE
+## What To Notice
+
+- Look for probability estimates, decision thresholds, and expected value calculations
+- Observe how changing risk tolerance changes the recommended action
+- Note that probabilistic thinking helps students separate uncertainty from indecision
+
+## Related Demos or Course Context
+
+- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
+- Related demo: [AB Testing Framework](../ABTestingFramework/about.html)
+- Related demo: [AI Cost Benefit Analyzer](../AICostBenefitAnalyzer/about.html)
+- Related demo: [AI Data Analyzer](../AIDataAnalyzer/about.html)
 
 ## Attribution
 
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
-
-**Educational Use Only** - For usage guidelines, see the main repository.
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`

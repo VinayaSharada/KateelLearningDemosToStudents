@@ -1,42 +1,77 @@
 # Collections Predictor
 
 ## Overview
-Browser-based hands-on exercise for Working Capital Optimization (Session 3).
+
+Browser-based collections prioritization demo where students test receivables scenarios, compare collection strategies, and examine how AI recommendations change outreach urgency, expected recovery, and working-capital impact.
 
 ## Learning Objectives
-- Understand how AI improves collections prioritization
-- Experience predictive scoring vs reactive aging reports
-- Learn impact of early intervention on cash flow
-- Practice next-best-action decision making
 
-## Features
-- **Invoice-Level Payment Prediction**: Probability of payment within 7/14 days
-- **Dispute Risk Scoring**: Risk score (0-100) for each invoice
-- **Next-Best-Action Recommendations**: Call, Email, Escalate, Legal
-- **Collections Forecast Dashboard**: Weekly cash inflow predictions
-- **AI Comparison View**: Shows collections with and without AI insights
-- **Export Functionality**: Download results as JSON
+- Explain the main treasury decision that Collections Predictor is designed to support.
+- Use Collection strategy, Enable AI recommendation to test how different assumptions change the scenario.
+- Interpret Output Summary in plain language and connect them to an action or conclusion.
+- State one limitation, risk, or governance consideration before using the result in a real decision.
 
-## How to Run
-1. Open `index.html` in a browser
-2. Select a scenario from dropdown
-3. Review invoice predictions table
-4. Read AI recommendations
-5. Toggle AI insights on/off
-6. Export results if needed
+## Run Modes
 
-## Scenarios Included
-| Scenario | Recovery Rate | Accuracy |
-|----------|---------------|----------|
-| Current Collections | 87% | 87% |
-| Improved Process | 92% | 92% |
-| Aggressive Collection | 95% | 89% |
-| Custom | User-defined | Variable |
+- Browser
+
+## Expected Setup / Startup Time
+
+- Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.
+
+## Demo Type
+
+- Interactive browser demo
+
+## Files in This Folder
+
+- `app.js`
+- `index.html`
+- `README.md`
+- `style.css`
+
+## How To Run
+
+- Browser: open `index.html`.
+
+## How To Use The Demo
+
+1. Choose the run mode that fits the class: Browser.
+2. Review the default assumptions before changing anything.
+3. Change one or two inputs, then use `Reset Scenario`.
+4. Read Output Summary first, then compare any supporting metrics, charts, or AI text.
+5. Capture one insight, one limitation, and one action recommendation.
+
+## Inputs
+
+- `Collection strategy` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+- `Enable AI recommendation` changes one part of the scenario; increase or decrease it deliberately and watch how the output shifts.
+
+## Buttons / Actions
+
+- `Reset Scenario` restores the default collections case so learners can compare strategies from a known baseline.
+- `Export Result` saves the current collections recommendation and projected outcome for class discussion or follow-up analysis.
+
+## Outputs
+
+- Read the predicted collection outcome and recommended treatment path together, because the suggested action matters as much as the score.
+- Look for recovery potential, urgency, and customer treatment differences across strategies or segments.
+
+## What To Notice
+
+- Look for customer risk score, payment history, amount due, and collection priority
+- Observe how segmenting customers changes collection strategy
+- Note that collections analytics should improve cash recovery while preserving customer relationships
+- Compare the headline output with supporting views such as Output Summary before drawing a conclusion
+
+## Related Demos or Course Context
+
+- Course path: [Treasury Management](../../courses/treasury-management.html)
+- Related demo: [Monte Carlo Company Valuation](../MonteCarloCompanyValuation/about.html)
+- Related demo: [AI Hedge Orchestrator](../AIHedgeOrchestrator/about.html)
+- Related demo: [CCC Analyzer](../CCCAnalyzer/about.html)
 
 ## Attribution
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
 
-**Attribution Email:** vinallcontact@gmail.com
-
----
-*Educational Use Only - For usage guidelines, see the main repository.*
+Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
+Attribution email: `vinallcontact@gmail.com`
