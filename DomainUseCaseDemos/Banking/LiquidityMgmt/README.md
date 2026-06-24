@@ -2,7 +2,7 @@
 
 ## Overview
 
-Multi-mode liquidity management demo that helps students understand daily funding pressure, cash-position monitoring, and the difference between a quick browser walkthrough and deeper notebook or local analysis.
+Launch guide for the liquidity management teaching workflow. Students review the scenario framing in browser, then run the actual compute-heavy analysis in Colab or local Python where the Monte Carlo and reporting steps are visible.
 
 ## Learning Objectives
 
@@ -13,17 +13,16 @@ Multi-mode liquidity management demo that helps students understand daily fundin
 
 ## Run Modes
 
-- Browser
 - Colab
 - Local
 
 ## Expected Setup / Startup Time
 
-- Browser mode is fastest to start. Colab and Local modes may spend extra time installing packages or opening notebooks.
+- The browser page opens immediately, but the actual analysis runs in Colab or Local Python and may take noticeable time because the simulation is intentionally compute-heavy.
 
 ## Demo Type
 
-- Multi-mode demo
+- Launch guide for Colab and Local analysis
 
 ## Files in This Folder
 
@@ -42,14 +41,13 @@ Multi-mode liquidity management demo that helps students understand daily fundin
 
 ## How To Run
 
-- Browser: open `index.html`.
 - Colab: open `colab_demo.ipynb` in Google Colab and run the cells in order.
 - Local: run the Python assets in this folder.
   Install dependencies first with `pip install -r requirements.txt`.
 
 ## How To Use The Demo
 
-1. Choose the run mode that fits the class: Browser, Colab, Local.
+1. Choose the run mode that fits the class: Colab, Local.
 2. Review the default assumptions before changing anything.
 3. Change one or two inputs, then use `Run the main action`.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
@@ -72,7 +70,7 @@ Multi-mode liquidity management demo that helps students understand daily fundin
 
 ## What To Notice
 
-- Use browser mode for fast concept-building, then move to Colab or Local when students need to inspect the calculation path in more detail
+- Use this page to set expectations, then move students into Colab or Local for the real analysis workflow
 - Focus on how the liquidity position changes when assumptions around inflows, outflows, or timing are stressed
 - Ask students which metric would trigger action now versus which one is more useful for trend monitoring
 

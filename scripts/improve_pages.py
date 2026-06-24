@@ -731,6 +731,7 @@ DEMO_EDITORIAL_OVERRIDES = {
     },
     "TechUseCaseDemos/AIHedgeOrchestrator": {
         "overview": "Interactive treasury orchestration demo where students compare hedge choices under changing market conditions, review AI guidance, and inspect how hedge ratios, coverage, and residual risk shift across the exposure book.",
+        "skip_launch_guide": True,
         "outputs": [
             "`Hedge Recommendations` are the primary result because they connect each exposure slice to a hedge choice and ratio.",
             "`Coverage and Decision Trace` explains how much risk is covered, what remains unhedged, and how the recommendation was reached.",
@@ -754,9 +755,13 @@ DEMO_EDITORIAL_OVERRIDES = {
         ],
     },
     "DomainUseCaseDemos/Banking/LiquidityMgmt": {
-        "overview": "Multi-mode liquidity management demo that helps students understand daily funding pressure, cash-position monitoring, and the difference between a quick browser walkthrough and deeper notebook or local analysis.",
+        "overview": "Launch guide for the liquidity management teaching workflow. Students review the scenario framing in browser, then run the actual compute-heavy analysis in Colab or local Python where the Monte Carlo and reporting steps are visible.",
+        "run_modes": ["Colab", "Local"],
+        "demo_type": "Launch guide for Colab and Local analysis",
+        "expected_wait": "The browser page opens immediately, but the actual analysis runs in Colab or Local Python and may take noticeable time because the simulation is intentionally compute-heavy.",
+        "skip_launch_guide": True,
         "notice": [
-            "Use browser mode for fast concept-building, then move to Colab or Local when students need to inspect the calculation path in more detail.",
+            "Use this page to set expectations, then move students into Colab or Local for the real analysis workflow.",
             "Focus on how the liquidity position changes when assumptions around inflows, outflows, or timing are stressed.",
             "Ask students which metric would trigger action now versus which one is more useful for trend monitoring.",
         ],
@@ -880,6 +885,9 @@ def folder_files(demo: DemoPage) -> list[Path]:
 
 
 def infer_run_modes_for_demo(demo: DemoPage) -> list[str]:
+    overridden = demo_override(demo, "run_modes")
+    if overridden:
+        return list(overridden)
     files = {item.name.lower() for item in folder_files(demo)}
     modes: list[str] = []
     if any(name in files for name in {"index.html", "demo.html"}):
@@ -892,6 +900,9 @@ def infer_run_modes_for_demo(demo: DemoPage) -> list[str]:
 
 
 def expected_wait_label(demo: DemoPage, run_modes: list[str]) -> str:
+    overridden = demo_override(demo, "expected_wait")
+    if overridden:
+        return overridden
     name = demo.folder_name.lower()
     if "Browser" in run_modes and "Local" not in run_modes and "Colab" not in run_modes:
         if any(word in name for word in ["voice", "rag", "graph", "slm", "model"]):
@@ -905,6 +916,9 @@ def expected_wait_label(demo: DemoPage, run_modes: list[str]) -> str:
 
 
 def demo_type_label(demo: DemoPage, run_modes: list[str]) -> str:
+    overridden = demo_override(demo, "demo_type")
+    if overridden:
+        return overridden
     if len(run_modes) > 1:
         return "Multi-mode demo"
     if "Browser" in run_modes:
@@ -1184,6 +1198,8 @@ def render_launch_guide_html(demo: DemoPage) -> str:
 
 
 def should_keep_standard_guide(content: str) -> bool:
+    if "hero-shell" in content or "step-list" in content or "steps-grid" in content:
+        return False
     if "app-frame" in content:
         return False
     strong_markers = [
