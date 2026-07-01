@@ -99,11 +99,18 @@ def find_first(pattern: str, text: str, default: str = "") -> str:
     return clean(match.group(1)) if match else default
 
 
+def find_first_raw(pattern: str, text: str, default: str = "") -> str:
+    match = re.search(pattern, text, re.S)
+    return match.group(1) if match else default
+
+
 def find_all(pattern: str, text: str):
     return [clean(match) for match in re.findall(pattern, text, re.S)]
 
 
-def infer_mode(summary: str, surface: str) -> str:
+def infer_mode(summary: str, surface: str, explicit_mode: str = "") -> str:
+    if explicit_mode:
+        return explicit_mode
     value = f"{summary} {surface}".lower()
     if "browser slm" in value or "local ai" in value:
         return "Browser AI"
@@ -134,9 +141,11 @@ def parse_course(course_meta):
         paragraphs = re.findall(r"<p(?: class=\"[^\"]+\")?>(.*?)</p>", body, re.S)
         summary = clean(paragraphs[0]) if paragraphs else ""
         teacher_cue = find_first(r'<p class="teacher-cue">(.*?)</p>', body)
-        spans = find_all(r"<span>(.*?)</span>", find_first(r'<div class="demo-meta">(.*?)</div>', body))
-        duration = spans[0] if spans else "20-30 min"
-        surface = spans[1] if len(spans) > 1 else "Browser-based"
+        badges = find_all(r'<span class="mode-badge">(.*?)</span>', find_first_raw(r'<div class="demo-badges">(.*?)</div>', body))
+        spans = find_all(r"<span>(.*?)</span>", find_first_raw(r'<div class="demo-meta">(.*?)</div>', body))
+        explicit_mode = badges[0] if badges else ""
+        duration = badges[1] if len(badges) > 1 else "20-30 min"
+        surface = spans[0] if spans else "Browser-based"
         demo = {
             "title": find_first(r"<h3>(.*?)</h3>", body),
             "level": find_first(r'<span class="level-badge">(.*?)</span>', body, "Unspecified"),
@@ -144,12 +153,12 @@ def parse_course(course_meta):
             "teacherCue": teacher_cue,
             "duration": duration,
             "surface": surface,
-            "mode": infer_mode(summary, surface),
+            "mode": infer_mode(summary, surface, explicit_mode),
             "courseSlug": course_meta["slug"],
             "courseTitle": course_meta["title"],
             "aboutPath": str((page_path.parent / match.group("about")).resolve().relative_to(ROOT)).replace("\\", "/"),
             "launchPath": str((page_path.parent / match.group("launch")).resolve().relative_to(ROOT)).replace("\\", "/"),
-            "readiness": "Classroom Ready",
+            "readiness": badges[2] if len(badges) > 2 else "Classroom Ready",
         }
         demos.append(demo)
 

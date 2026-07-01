@@ -118,24 +118,27 @@
       var paragraphs = card.querySelectorAll("p");
       var summary = paragraphs[0] ? paragraphs[0].textContent.trim() : "";
       var teacherCue = ((card.querySelector(".teacher-cue") || {}).textContent || "").replace(/\s+/g, " ").trim();
+      var badgeSpans = Array.prototype.slice.call(card.querySelectorAll(".demo-badges .mode-badge")).map(function (el) {
+        return el.textContent.trim();
+      });
       var metaSpans = Array.prototype.slice.call(card.querySelectorAll(".demo-meta span")).map(function (el) {
         return el.textContent.trim();
       });
-      var mode = inferMode(summary + " " + metaSpans.join(" "));
+      var mode = badgeSpans[0] || inferMode(summary + " " + metaSpans.join(" "));
 
       return {
         title: title,
         level: level || "Unspecified",
         summary: summary,
         teacherCue: teacherCue,
-        duration: metaSpans[0] || "20-30 min",
-        surface: metaSpans[1] || "Browser-based",
+        duration: badgeSpans[1] || "20-30 min",
+        surface: metaSpans[0] || "Browser-based",
         mode: mode,
         courseSlug: meta.slug,
         courseTitle: meta.title,
         aboutUrl: new URL(aboutLink, pageUrl).toString(),
         launchUrl: launchLink ? new URL(launchLink, pageUrl).toString() : "",
-        readiness: "Classroom Ready"
+        readiness: badgeSpans[2] || "Classroom Ready"
       };
     });
 
