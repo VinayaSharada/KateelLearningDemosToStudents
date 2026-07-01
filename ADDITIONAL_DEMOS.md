@@ -1,8 +1,8 @@
 # Additional Demos To Add
 
 This file tracks the next additions that would most improve the repo as a super companion repo for the Financial AI / ML course.
-
 ## Recently Added
+
 - `DomainUseCaseDemos\\FinanceNLP\\ComplaintAndSentiment001`
 - `DomainUseCaseDemos\\BFSIChatbot\\ProductFAQ001`
 - `DomainUseCaseDemos\\ModelGovernance\\DriftAndThresholds001`
@@ -15,8 +15,9 @@ This file tracks the next additions that would most improve the repo as a super 
 - `TechUseCaseDemos\\StablecoinManager` - Digital Asset Treasury Management (Sessions 5-6)
 - `TechUseCaseDemos\\AIHedgeOrchestrator` - Multi-Asset Hedging with AI (Sessions 7-8)
 - `TechUseCaseDemos\\TreasuryTransformBlueprint` - Course Synthesis (Sessions 7-8)
+- `TreasuryAnalytics/Colab_Notebooks` - Complete Treasury Analytics suite with 8 Colab notebooks for CFOWorkshop Enhancement (Sessions 7-8)
 
-These additions now cover three of the earlier high-priority course gaps.
+These additions now cover three of the earlier high-priority course gaps, including comprehensive Treasury Analytics support.
 
 ## Highest Priority Remaining Additions
 

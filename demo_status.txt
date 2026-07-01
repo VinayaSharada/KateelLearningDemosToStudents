@@ -90,8 +90,8 @@ Verification Period: 2026-06-12 to 2026-06-13
 * PASS - ZeroTrustDemo - Zero Trust access control simulation
 * PASS - ThreatHunter - ML-powered threat detection
 * PASS - SecureCodeReview - Static analysis for vulnerabilities
-
 ### Finance & Quant (Advanced)
+
 * PASS - OptionPricingDemo - Black-Scholes European option pricing
 * PASS - MonteCarloOptions - Monte Carlo simulation for options
 * PASS - RiskParityPortfolio - Equalize risk contribution across assets
@@ -101,6 +101,17 @@ Verification Period: 2026-06-12 to 2026-06-13
 * PASS - BondPricingDemo - Bond pricing with duration
 * PASS - BankFailurePrediction - Predict bank failures using financial ratios (imported)
 * PASS - OptionsPricing - Options pricing with Greeks (imported)
+
+### Treasury Analytics (CFOWorkshop Enhancements)
+
+* PASS - TreasuryAnalytics/Colab_Notebooks/01_basic_setup_and_data_preprocessing.ipynb
+* PASS - TreasuryAnalytics/Colab_Notebooks/02_cash_fragmentation_analysis_fundamentals.ipynb
+* PASS - TreasuryAnalytics/Colab_Notebooks/03_predictive_analytics_and_time_series_forecasting.ipynb
+* PASS - TreasuryAnalytics/Colab_Notebooks/04_real_time_anomaly_detection_with_neural_networks.ipynb
+* PASS - TreasuryAnalytics/Colab_Notebooks/05_comprehensive_dashboard_creation_and_visualization.ipynb
+* PASS - TreasuryAnalytics/Colab_Notebooks/06_advanced_features_and_model_deployment.ipynb
+* PASS - TreasuryAnalytics/Colab_Notebooks/07_entire_practical_demo_workflow.ipynb
+* PASS - TreasuryAnalytics/Colab_Notebooks/08_colab_environment_management_and_troubleshooting.ipynb
 
 ### Treasury Management (CFOWorkshop - Complete)
 * PASS - TreasuryControlTower - Real-time liquidity dashboard with forecasting (Session 1)
