@@ -262,7 +262,7 @@ def card_for_demo(course_file: Path, demo: dict) -> str:
     cue = demo["teacherCue"].replace("Teacher cue: ", "")
     surface = demo["surface"]
     return f"""
-<a class="demo-card" href="{esc(about_href)}">
+<article class="demo-card">
   <div class="demo-card-top">
     <h3>{esc(demo["title"])}</h3>
     <span class="level-badge">{esc(demo["level"])}</span>
@@ -279,10 +279,10 @@ def card_for_demo(course_file: Path, demo: dict) -> str:
     <span>{esc(demo["courseTitle"])}</span>
   </div>
   <div class="demo-actions">
-    <span class="btn-mini">Read About Demo</span>
+    <a class="btn-mini about-demo" href="{esc(about_href)}">Read About Demo</a>
     <a class="btn-mini outline launch-demo" href="{esc(launch_href)}">Launch Demo</a>
   </div>
-</a>"""
+</article>"""
 
 
 def render_course(course: dict) -> str:

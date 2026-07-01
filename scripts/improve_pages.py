@@ -2070,7 +2070,7 @@ def render_course_page(key: str, demos: list[DemoPage]) -> str:
             continue
         look_for, observe, note = teacher_guide(demo)
         demo_cards.append(f'''
-<a class="demo-card" href="{relative_url(course_path, demo.about_path)}">
+<article class="demo-card">
   <div class="demo-card-top">
     <h3>{escape(demo.title)}</h3>
     <span class="level-badge">{escape(demo.level)}</span>
@@ -2082,10 +2082,10 @@ def render_course_page(key: str, demos: list[DemoPage]) -> str:
     <span>{escape(demo.ai_mode)}</span>
   </div>
   <div class="demo-actions">
-    <span class="btn-mini">Read About Demo</span>
+    <a class="btn-mini about-demo" href="{relative_url(course_path, demo.about_path)}">Read About Demo</a>
     <a class="btn-mini outline launch-demo" href="{relative_url(course_path, demo.demo_path)}">Launch Demo</a>
   </div>
-</a>
+</article>
 ''')
     if not demo_cards:
         demo_cards.append('<p class="empty-state">No browser demo pages are registered for this course yet.</p>')

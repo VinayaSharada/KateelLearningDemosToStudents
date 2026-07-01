@@ -83,7 +83,8 @@ COURSE_PACKS = [
 
 
 CARD_RE = re.compile(
-    r'<a class="demo-card(?: featured-demo)?" href="(?P<about>[^"]+)">(?P<body>.*?)'
+    r'<article class="demo-card(?: featured-demo)?">(?P<body>.*?)'
+    r'<a class="btn-mini about-demo" href="(?P<about>[^"]+)">Read About Demo</a>.*?'
     r'<a class="btn-mini outline launch-demo" href="(?P<launch>[^"]+)">(?:Launch Demo|Launch)</a>',
     re.S,
 )
