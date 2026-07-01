@@ -8,7 +8,7 @@
       "audience": "CFO workshops, treasury, liquidity, hedging",
       "subtitle": "Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.",
       "pagePath": "courses/treasury-management.html",
-      "registeredDemos": "13",
+      "registeredDemos": "14",
       "catalogPath": null,
       "assignments": [],
       "demos": [
@@ -50,6 +50,26 @@
           ],
           "aboutPath": "TreasuryAnalytics/about.html",
           "launchPath": "TreasuryAnalytics/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Invoice-Level Collections Prediction",
+          "level": "Intermediate",
+          "summary": "About Demo learning guide for Invoice-Level Collections Prediction: a Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.",
+          "teacherCue": "Teacher cue: Look for payment history, invoice terms, dispute status, relationship signals, and how the model changes collections priority.",
+          "duration": "35-50 min",
+          "surface": "Colab-ready notebook",
+          "mode": "Colab",
+          "courseSlug": "treasury",
+          "courseTitle": "Treasury Management",
+          "courseSlugs": [
+            "treasury"
+          ],
+          "courseTitles": [
+            "Treasury Management"
+          ],
+          "aboutPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/about.html",
+          "launchPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/index.html",
           "readiness": "Classroom Ready"
         },
         {
@@ -3096,6 +3116,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Invoice-Level Collections Prediction",
+      "level": "Intermediate",
+      "summary": "About Demo learning guide for Invoice-Level Collections Prediction: a Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.",
+      "teacherCue": "Teacher cue: Look for payment history, invoice terms, dispute status, relationship signals, and how the model changes collections priority.",
+      "duration": "35-50 min",
+      "surface": "Colab-ready notebook",
+      "mode": "Colab",
+      "courseSlug": "treasury",
+      "courseTitle": "Treasury Management",
+      "courseSlugs": [
+        "treasury"
+      ],
+      "courseTitles": [
+        "Treasury Management"
+      ],
+      "aboutPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/about.html",
+      "launchPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Io T Ethernet Pen Test v86",
       "level": "Advanced",
       "summary": "About Demo learning guide for Io T Ethernet Pen Test v86: a browser-based cybersecurity learning activity with no cloud or API keys required.",
@@ -4120,12 +4160,12 @@
   ],
   "counts": {
     "coursePacks": 8,
-    "curatedDemos": 99,
+    "curatedDemos": 100,
     "runModes": 3
   },
   "modeCounts": {
     "Browser": 95,
     "Multi-Mode": 3,
-    "Colab": 1
+    "Colab": 2
   }
 }
