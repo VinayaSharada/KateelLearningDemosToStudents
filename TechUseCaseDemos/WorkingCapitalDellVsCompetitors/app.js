@@ -48,7 +48,8 @@
     function compute(row) {
       var ccc = row.dso + row.dio - row.dpo;
       var cashTied = (row.revenue / 365) * ccc;
-      return { ccc: ccc, cashTied: cashTied };
+      var cashFreedPerDsoDay = row.revenue / 365;
+      return { ccc: ccc, cashTied: cashTied, cashFreedPerDsoDay: cashFreedPerDsoDay };
     }
 
     function number(value) {
@@ -81,6 +82,7 @@
           '<td><input data-company="' + row.company + '" data-field="dpo" type="number" min="0" step="1" value="' + row.dpo + '"></td>',
           "<td>" + number(calc.ccc) + " days</td>",
           "<td>$" + number(calc.cashTied) + "B</td>",
+          "<td>$" + number(calc.cashFreedPerDsoDay) + "B</td>",
           "</tr>"
         ].join("");
       }).join("");
@@ -95,6 +97,7 @@
 
       document.getElementById("insightList").innerHTML = [
         "<li>Dell currently ties up $" + number(dell.cashTied) + "B based on the chosen assumptions.</li>",
+        "<li>Each 1-day reduction in Dell DSO would free roughly $" + number(dell.cashFreedPerDsoDay) + "B of cash.</li>",
         "<li>The spread between the best and worst CCC is " + number(results[results.length - 1].ccc - best.ccc) + " days.</li>",
         "<li>Apple-style supplier terms can offset inventory pressure, but that advantage may not be easy to replicate.</li>"
       ].join("");
