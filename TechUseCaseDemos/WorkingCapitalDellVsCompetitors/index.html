@@ -1,12 +1,125 @@
 <!DOCTYPE html>
-<html>
-<head><title>Dell vs Competitors: Working Capital Management Analysis</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dell vs Competitors Working Capital Case - KateelLearningDemos</title>
+  <meta name="description" content="Interactive Harvard-style working capital case comparing Dell with HP, Lenovo, and Apple using cash conversion cycle metrics.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
 <body>
-<h1>Dell vs Competitors: Working Capital Management Analysis</h1>
-<p>This is an interactive demo analyzing Dell's working capital management compared to major competitors (HP, Lenovo, Apple) based on Harvard Business School case studies.</p>
-<ul>
-<li><a href=about.html>About this Demo</a></li>
-<li><a href=README.md>Documentation</a></li>
-</ul>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html">Browse Demos</a>
+      <a class="nav-link" href="../../courses/treasury-management.html">Treasury</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Treasury Management • Browser • 25-35 min</p>
+    <h1>Dell vs Competitors Working Capital Case</h1>
+    <p class="demo-lede">Compare Dell’s working-capital discipline against HP, Lenovo, and Apple using cash conversion cycle metrics and estimate how much cash is tied up or released by operating choices.</p>
+    <div class="tag-row">
+      <span class="tag">Harvard-style case framing</span>
+      <span class="tag">Editable operating assumptions</span>
+      <span class="tag">Cash conversion cycle analysis</span>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-secondary" href="about.html">Open About Demo</a>
+      <a class="btn btn-secondary" href="README.md">Read README</a>
+      <a class="btn btn-secondary" href="../../courses/treasury-management.html">View Course Path</a>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>What to look for</h3>
+        <p>Cash conversion cycle is driven by receivables, inventory, and payables policy together. The interesting question is not only who has the lowest cycle, but what trade-offs support it.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Decision question</h3>
+        <p>If a competitor wanted to match Dell’s discipline, where would the biggest release of working capital likely come from first: collections, inventory turns, or supplier terms?</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Case workspace</p>
+      <h2>Adjust the operating assumptions</h2>
+      <p>Use the base case, then change days sales outstanding, days inventory outstanding, days payables outstanding, or annual revenue to see how cash discipline changes.</p>
+    </div>
+    <div class="button-row preset-row">
+      <button type="button" class="btn btn-secondary" data-preset="base">Base Case</button>
+      <button type="button" class="btn btn-secondary" data-preset="dell_discipline">Dell Discipline</button>
+      <button type="button" class="btn btn-secondary" data-preset="supply_shock">Supply Shock</button>
+    </div>
+    <div class="table-container">
+      <table class="case-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Revenue ($B)</th>
+            <th>DSO</th>
+            <th>DIO</th>
+            <th>DPO</th>
+            <th>CCC</th>
+            <th>Cash Tied Up ($B)</th>
+          </tr>
+        </thead>
+        <tbody id="caseRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="metric-grid">
+      <article class="mini-panel">
+        <h3>Best CCC</h3>
+        <p class="result-value" id="bestCompany">-</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Dell Cash Advantage</h3>
+        <p class="result-value" id="dellAdvantage">-</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Largest Improvement Lever</h3>
+        <p class="result-value" id="bestLever">-</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Case Summary</h3>
+        <p id="caseSummary">Run the case to generate a management interpretation.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Teaching prompts</h3>
+        <ul class="plain-list">
+          <li>Ask why a negative or very low CCC can still create operational risk if it depends too heavily on supplier terms.</li>
+          <li>Compare whether the cash release comes from faster collections, inventory turns, or stretching payables.</li>
+          <li>Discuss which lever is easiest to copy and which one is hardest to sustain competitively.</li>
+        </ul>
+      </article>
+      <article class="mini-panel">
+        <h3>Interpretation notes</h3>
+        <ul class="plain-list" id="insightList"></ul>
+      </article>
+    </div>
+  </section>
+</main>
 </body>
 </html>

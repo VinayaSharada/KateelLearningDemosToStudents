@@ -156,6 +156,8 @@ def parse_course(course_meta):
             "mode": infer_mode(summary, surface, explicit_mode),
             "courseSlug": course_meta["slug"],
             "courseTitle": course_meta["title"],
+            "courseSlugs": [course_meta["slug"]],
+            "courseTitles": [course_meta["title"]],
             "aboutPath": str((page_path.parent / match.group("about")).resolve().relative_to(ROOT)).replace("\\", "/"),
             "launchPath": str((page_path.parent / match.group("launch")).resolve().relative_to(ROOT)).replace("\\", "/"),
             "readiness": badges[2] if len(badges) > 2 else "Classroom Ready",
@@ -180,8 +182,18 @@ def main():
 
     dedupe = {}
     for course in courses:
-      for demo in course["demos"]:
-          dedupe[demo["aboutPath"]] = demo
+        for demo in course["demos"]:
+            existing = dedupe.get(demo["aboutPath"])
+            if not existing:
+                dedupe[demo["aboutPath"]] = demo
+                continue
+
+            for slug in demo["courseSlugs"]:
+                if slug not in existing["courseSlugs"]:
+                    existing["courseSlugs"].append(slug)
+            for title in demo["courseTitles"]:
+                if title not in existing["courseTitles"]:
+                    existing["courseTitles"].append(title)
 
     demos = sorted(dedupe.values(), key=lambda item: item["title"].lower())
     mode_counts = {}

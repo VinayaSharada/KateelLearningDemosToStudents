@@ -136,6 +136,8 @@
         mode: mode,
         courseSlug: meta.slug,
         courseTitle: meta.title,
+        courseSlugs: [meta.slug],
+        courseTitles: [meta.title],
         aboutUrl: new URL(aboutLink, pageUrl).toString(),
         launchUrl: launchLink ? new URL(launchLink, pageUrl).toString() : "",
         readiness: badgeSpans[2] || "Classroom Ready"
@@ -179,6 +181,8 @@
             mode: demo.mode,
             courseSlug: demo.courseSlug,
             courseTitle: demo.courseTitle,
+            courseSlugs: demo.courseSlugs || [demo.courseSlug],
+            courseTitles: demo.courseTitles || [demo.courseTitle],
             aboutUrl: toAbsolute(demo.aboutPath),
             launchUrl: toAbsolute(demo.launchPath),
             readiness: demo.readiness
@@ -198,6 +202,8 @@
         mode: demo.mode,
         courseSlug: demo.courseSlug,
         courseTitle: demo.courseTitle,
+        courseSlugs: demo.courseSlugs || [demo.courseSlug],
+        courseTitles: demo.courseTitles || [demo.courseTitle],
         aboutUrl: toAbsolute(demo.aboutPath),
         launchUrl: toAbsolute(demo.launchPath),
         readiness: demo.readiness
@@ -231,7 +237,17 @@
       var dedupe = {};
       courses.forEach(function (course) {
         course.demos.forEach(function (demo) {
-          dedupe[demo.aboutUrl] = demo;
+          var existing = dedupe[demo.aboutUrl];
+          if (!existing) {
+            dedupe[demo.aboutUrl] = demo;
+            return;
+          }
+          demo.courseSlugs.forEach(function (slug) {
+            if (existing.courseSlugs.indexOf(slug) === -1) existing.courseSlugs.push(slug);
+          });
+          demo.courseTitles.forEach(function (title) {
+            if (existing.courseTitles.indexOf(title) === -1) existing.courseTitles.push(title);
+          });
         });
       });
 

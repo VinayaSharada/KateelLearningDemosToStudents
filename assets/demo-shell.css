@@ -128,6 +128,66 @@
   padding: 1rem;
 }
 
+.scenario-lab {
+  padding: 1.4rem;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.2fr) minmax(280px, 1fr);
+  gap: 1rem;
+}
+
+.lab-column {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.lab-field {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 700;
+}
+
+.lab-field span {
+  color: #cbd5e1;
+}
+
+.lab-field input,
+.lab-field textarea {
+  width: 100%;
+  padding: 0.85rem 0.95rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.42);
+  color: #f8fafc;
+}
+
+.lab-field textarea {
+  min-height: 132px;
+}
+
+.lab-score {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(125, 211, 252, 0.1);
+  border: 1px solid rgba(125, 211, 252, 0.18);
+}
+
+.lab-score strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.score-label {
+  color: #cbd5e1;
+  font-weight: 700;
+}
+
 .app-frame > * {
   min-width: 0;
 }
@@ -188,8 +248,16 @@ textarea {
     padding: 1rem;
   }
 
+  .scenario-lab {
+    padding: 1rem;
+  }
+
   .demo-hero h1 {
     font-size: 1.8rem;
+  }
+
+  .lab-grid {
+    grid-template-columns: 1fr;
   }
 
   .results-container {

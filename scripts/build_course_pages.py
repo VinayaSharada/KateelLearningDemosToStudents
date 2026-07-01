@@ -292,6 +292,7 @@ def render_course(course: dict) -> str:
     description = course["subtitle"]
     repo_rel = course["pagePath"]
     course_url = canonical_url(repo_rel)
+    run_mode_count = len({demo.get("mode", "Browser") for demo in course.get("demos", [])}) or 1
     demo_list = [
         {
             "@type": "ListItem",
@@ -393,7 +394,7 @@ def render_course(course: dict) -> str:
     <div class="stats-grid">
       <div class="stat-card"><div class="stat-value">{esc(course["registeredDemos"])}</div><div class="stat-label">Curated demos</div></div>
       <div class="stat-card"><div class="stat-value">{len(course.get("assignments", []))}</div><div class="stat-label">Linked assignments</div></div>
-      <div class="stat-card"><div class="stat-value">1</div><div class="stat-label">Run-mode families</div></div>
+      <div class="stat-card"><div class="stat-value">{run_mode_count}</div><div class="stat-label">Run-mode families</div></div>
       <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">API keys required</div></div>
     </div>
 

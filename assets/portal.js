@@ -25,12 +25,16 @@
   }
 
   function buildDemoCard(demo) {
+    var courseLabel = demo.courseTitle;
+    if (demo.courseTitles && demo.courseTitles.length > 1) {
+      courseLabel = demo.courseTitles[0] + " + " + (demo.courseTitles.length - 1) + " more";
+    }
     return [
       '<article class="demo-card demo-card-rich">',
       '<div class="demo-card-top">',
       "<div>",
       "<h3>" + escapeHtml(demo.title) + "</h3>",
-      '<p class="card-eyebrow">' + escapeHtml(demo.courseTitle) + " • " + escapeHtml(demo.mode) + "</p>",
+      '<p class="card-eyebrow">' + escapeHtml(courseLabel) + " • " + escapeHtml(demo.mode) + "</p>",
       "</div>",
       '<span class="level-badge">' + escapeHtml(demo.level) + "</span>",
       "</div>",
@@ -86,9 +90,16 @@
 
     function filtered() {
       return catalog.demos.filter(function (demo) {
-        var haystack = [demo.title, demo.summary, demo.courseTitle, demo.teacherCue, demo.mode].join(" ").toLowerCase();
+        var haystack = [
+          demo.title,
+          demo.summary,
+          demo.courseTitle,
+          (demo.courseTitles || []).join(" "),
+          demo.teacherCue,
+          demo.mode
+        ].join(" ").toLowerCase();
         if (state.search && haystack.indexOf(state.search) === -1) return false;
-        if (state.course !== "all" && demo.courseSlug !== state.course) return false;
+        if (state.course !== "all" && (demo.courseSlugs || [demo.courseSlug]).indexOf(state.course) === -1) return false;
         if (state.level !== "all" && demo.level !== state.level) return false;
         if (state.mode !== "all" && demo.mode !== state.mode) return false;
         return true;
