@@ -8,7 +8,7 @@
       "audience": "CFO workshops, treasury, liquidity, hedging",
       "subtitle": "Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.",
       "pagePath": "courses/treasury-management.html",
-      "registeredDemos": "14",
+      "registeredDemos": "15",
       "catalogPath": null,
       "assignments": [],
       "demos": [
@@ -70,6 +70,26 @@
           ],
           "aboutPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/about.html",
           "launchPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "AR Aging & Collections Prioritizer",
+          "level": "Intermediate",
+          "summary": "About Demo learning guide for AR Aging & Collections Prioritizer: a Colab-based treasury notebook reproducing the AR Aging & Collections Prioritizer Claude Skill's aging, risk-scoring, and segmentation logic.",
+          "teacherCue": "Teacher cue: Ask which accounts moved when the risk weights changed, and whether that reordering reflects genuine collections urgency or just a larger invoice amount.",
+          "duration": "30-45 min",
+          "surface": "Colab-ready notebook",
+          "mode": "Colab",
+          "courseSlug": "treasury",
+          "courseTitle": "Treasury Management",
+          "courseSlugs": [
+            "treasury"
+          ],
+          "courseTitles": [
+            "Treasury Management"
+          ],
+          "aboutPath": "TreasuryAnalytics/ARAgingCollectionsPrioritizer/about.html",
+          "launchPath": "TreasuryAnalytics/ARAgingCollectionsPrioritizer/index.html",
           "readiness": "Classroom Ready"
         },
         {
@@ -2574,6 +2594,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "AR Aging & Collections Prioritizer",
+      "level": "Intermediate",
+      "summary": "About Demo learning guide for AR Aging & Collections Prioritizer: a Colab-based treasury notebook reproducing the AR Aging & Collections Prioritizer Claude Skill's aging, risk-scoring, and segmentation logic.",
+      "teacherCue": "Teacher cue: Ask which accounts moved when the risk weights changed, and whether that reordering reflects genuine collections urgency or just a larger invoice amount.",
+      "duration": "30-45 min",
+      "surface": "Colab-ready notebook",
+      "mode": "Colab",
+      "courseSlug": "treasury",
+      "courseTitle": "Treasury Management",
+      "courseSlugs": [
+        "treasury"
+      ],
+      "courseTitles": [
+        "Treasury Management"
+      ],
+      "aboutPath": "TreasuryAnalytics/ARAgingCollectionsPrioritizer/about.html",
+      "launchPath": "TreasuryAnalytics/ARAgingCollectionsPrioritizer/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Bank Failure Prediction",
       "level": "Intermediate",
       "summary": "About Demo learning guide for Bank Failure Prediction: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
@@ -4160,12 +4200,12 @@
   ],
   "counts": {
     "coursePacks": 8,
-    "curatedDemos": 100,
+    "curatedDemos": 101,
     "runModes": 3
   },
   "modeCounts": {
     "Browser": 95,
-    "Multi-Mode": 3,
-    "Colab": 2
+    "Colab": 3,
+    "Multi-Mode": 3
   }
 }

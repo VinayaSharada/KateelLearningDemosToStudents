@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AR Aging & Collections Prioritizer - About Demo - KateelLearningDemos</title>
+  <meta name="description" content="About Demo learning guide for AR Aging & Collections Prioritizer: a Colab-based treasury notebook reproducing the Claude Skill's aging, risk-scoring, and segmentation logic.">
+  <meta name="keywords" content="AR Aging Collections Prioritizer, Treasury Management, receivables intelligence, DSO, Colab notebook, collections worklist, customer segmentation">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/TreasuryAnalytics/ARAgingCollectionsPrioritizer/about.html">
+  <link rel="manifest" href="../../site.webmanifest">
+  <meta property="og:site_name" content="KateelLearningDemos">
+  <meta property="og:title" content="AR Aging & Collections Prioritizer - About Demo - KateelLearningDemos">
+  <meta property="og:description" content="Colab-based treasury notebook reproducing the AR Aging & Collections Prioritizer Claude Skill's aging, risk-scoring, and segmentation logic.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/TreasuryAnalytics/ARAgingCollectionsPrioritizer/about.html">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <meta property="og:image:alt" content="AR Aging & Collections Prioritizer learning demo preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AR Aging & Collections Prioritizer - About Demo - KateelLearningDemos">
+  <meta name="twitter:description" content="Colab-based treasury notebook reproducing the AR Aging & Collections Prioritizer Claude Skill's aging, risk-scoring, and segmentation logic.">
+  <meta name="twitter:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "AR Aging & Collections Prioritizer About Demo",
+  "description": "Colab-based treasury notebook reproducing the AR Aging & Collections Prioritizer Claude Skill's aging, risk-scoring, and segmentation logic.",
+  "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TreasuryAnalytics/ARAgingCollectionsPrioritizer/about.html",
+  "isAccessibleForFree": true,
+  "learningResourceType": "About Demo",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "30-45 min",
+  "teaches": [
+    "Explain AR aging buckets and a DSO estimate as deterministic arithmetic, not a black-box model.",
+    "Compare a rule-based four-segment collections framework against a course slide framework.",
+    "Interpret a risk-weighted collections worklist and a CFO-facing cash-impact number.",
+    "Evaluate how changing risk weights reorders collections priority, and why that matters."
+  ],
+  "provider": {
+    "@type": "Person",
+    "name": "Professor Vinaya Sathyanarayana",
+    "email": "vinallcontact@gmail.com",
+    "url": "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Treasury Management",
+    "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/treasury-management.html"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Course Packs",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Treasury Management",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/treasury-management.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "AR Aging & Collections Prioritizer",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TreasuryAnalytics/ARAgingCollectionsPrioritizer/about.html"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script defer src="../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="../../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="../../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <a class="nav-link" href="../../courses/treasury-management.html">Treasury</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+  <main class="container">
+    <section class="site-hero page-hero">
+      <p class="hero-eyebrow">Treasury Management • Intermediate • 30-45 min</p>
+      <h1>AR Aging & Collections Prioritizer</h1>
+      <p class="hero-subtitle">Colab-based treasury notebook reproducing the AR Aging & Collections Prioritizer Claude Skill's aging, risk-scoring, and segmentation logic.</p>
+      <div class="pill-row">
+        <span class="pill">About Demo</span>
+        <span class="pill">Colab</span>
+        <span class="pill">Notebook-driven workflow</span>
+      </div>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="index.html">Launch Demo</a>
+        <a class="btn btn-secondary" href="../../courses/treasury-management.html">View course path</a>
+        <a class="btn btn-secondary" href="README.md">View README</a>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-header">
+        <p class="section-kicker">What this demo is about</p>
+        <h2>Deterministic, inspectable receivables intelligence</h2>
+        <p>This notebook makes the AR Aging & Collections Prioritizer Skill's logic visible, cell by cell: aging buckets and a DSO estimate, a weighted risk score built from days past due, amount, dispute status, payment history, and revenue contribution, and a four-segment collections strategy — all readable Python, not a hidden model.</p>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Learning objectives</h3>
+          <ul>
+            <li>Explain AR aging buckets and a DSO estimate as deterministic arithmetic, not a black-box model.</li>
+            <li>Compare a rule-based four-segment collections framework against a course slide framework.</li>
+            <li>Interpret a risk-weighted collections worklist and a CFO-facing cash-impact number.</li>
+            <li>Evaluate how changing risk weights reorders collections priority, and why that matters.</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Run mode</h3>
+          <ul>
+            <li>Supported mode: Colab</li>
+            <li>Demo type: notebook launch guide</li>
+            <li>Primary launch surface: <code>index.html</code></li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Teacher cue</h3>
+          <p>Ask which accounts moved when the risk weights changed, and whether that reordering reflects genuine collections urgency or just a larger invoice amount.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="context">
+      <div class="section-header">
+        <p class="section-kicker">Why this matters</p>
+        <h2>Segment-specific response, not a single generic dunning process, moves cash</h2>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Business context</h3>
+          <p>A treasury team needs to know not just who owes money, but which accounts need commercial escalation, which need tighter terms, and which are safe to automate — a single aging report doesn't answer that.</p>
+        </article>
+        <article class="info-card">
+          <h3>Key features</h3>
+          <div class="feature-grid">
+            <div class="feature"><span>●</span>Aging buckets and DSO estimate</div>
+            <div class="feature"><span>●</span>Weighted 0-100 risk score</div>
+            <div class="feature"><span>●</span>Four-segment collections strategy</div>
+            <div class="feature"><span>●</span>Risk-weighted worklist ranking</div>
+          </div>
+        </article>
+        <article class="info-card">
+          <h3>What students should note</h3>
+          <p>The segmentation thresholds are illustrative, not universal. The exercise is to argue about where the cutoffs should sit for a real business, not to treat the numbers as ground truth.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
