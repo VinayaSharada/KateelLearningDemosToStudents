@@ -115,3 +115,10 @@ This catalog organizes demos for managing AI products throughout their lifecycle
   - Real-time predictions with uncertainty quantification
   - Change assumptions and queries instantly
   - Healthcare decision support demonstration
+
+### Agentic UI Control
+- `TechUseCaseDemos\AIPageAgent` - In-page agent that reads a UI as text and acts on it
+  - Observe-decide-act-result loop, inspired by the [page-agent](https://github.com/alibaba/page-agent) library's text/DOM-grounding pattern (no screenshots, no vision model)
+  - Rule-based command parser stands in for an LLM call, so it runs with zero setup and no API key
+  - Human-in-the-loop guardrail toggle for destructive actions
+  - Build-vs-buy framework comparison against Stagehand, browser-use, and Nanobrowser — all three need a backend, API key, or extension install that a static classroom demo can't provide, which is itself the teaching point

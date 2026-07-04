@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Page Agent - KateelLearningDemos</title>
+  <meta name="description" content="Interactive demo of an in-page AI agent that reads a UI as text and takes actions on it, inspired by frameworks like page-agent.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../..">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../..">Home</a>
+      <details class="nav-dropdown">
+  <summary class="nav-link">Courses</summary>
+  <div class="dropdown-content" role="menu">
+    <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
+      <a class="dropdown-link active" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+      <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
+      <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
+      <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+      <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
+      <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+      <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
+  </div>
+</details>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../courses/ai-ml-workflows.html">AI/ML</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+
+  <div class="demo-context-strip" role="note">
+    <strong>About vs. Demo:</strong> You are on the interactive demo. Use the <a href="about.html">About Demo</a> page for learning objectives, framework comparisons, and discussion prompts.
+    <br><strong>Teacher cue:</strong> Watch the Agent Trace panel — it shows the same observe → decide → act loop that production browser-agent frameworks use, just without an LLM behind it.
+  </div>
+  <div class="container">
+  <header class="hero-shell">
+    <div class="hero-copy">
+      <p class="eyebrow">Agentic UI Control Lab</p>
+      <h1>AI Page Agent</h1>
+      <p class="subtitle">Type a command in plain English and watch an in-page agent read the support ticket queue as text, decide which action matches, and act on the real UI — the same "text-based DOM control, no screenshots" pattern used by frameworks like page-agent.</p>
+      <div class="hero-pills">
+        <span class="pill">Browser-only</span>
+        <span class="pill">No API keys</span>
+        <span class="pill">Rule-based agent (stands in for an LLM)</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-side-card">
+        <span>Agent state</span>
+        <strong id="agentState">Idle</strong>
+        <p id="agentStateNote">Type a command and click Run Agent.</p>
+      </div>
+      <div class="hero-side-card">
+        <span>Actions taken</span>
+        <strong id="actionsTaken">0</strong>
+        <p>Successful actions executed on the ticket queue this session.</p>
+      </div>
+      <div class="hero-side-card">
+        <span>Guardrail</span>
+        <strong id="guardrailState">On</strong>
+        <p id="guardrailNote">Destructive actions (resolve, escalate) pause for confirmation before they run.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="workflow-section">
+      <h2>Command the Agent</h2>
+      <div class="control-row">
+        <div class="control-group command-group">
+          <label for="commandInput">Tell the agent what to do</label>
+          <input type="text" id="commandInput" placeholder="e.g. Resolve ticket 101" autocomplete="off">
+        </div>
+        <div class="control-group">
+          <label for="guardrailToggle">Safety guardrail</label>
+          <div class="toggle-card">
+            <input type="checkbox" id="guardrailToggle" checked>
+            <span>Require confirmation before destructive actions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chip-row" id="exampleChips" aria-label="Example commands">
+        <button class="chip" type="button" data-command="Resolve ticket 101">Resolve ticket 101</button>
+        <button class="chip" type="button" data-command="Assign ticket 104 to Priya">Assign ticket 104 to Priya</button>
+        <button class="chip" type="button" data-command="Escalate the billing ticket">Escalate the billing ticket</button>
+        <button class="chip" type="button" data-command="Show high priority tickets">Show high priority tickets</button>
+        <button class="chip" type="button" data-command="Reassign 105 to Sam">Reassign 105 to Sam</button>
+      </div>
+
+      <div class="workflow-block">
+        <section class="actions-section actions-inline">
+          <button class="btn-optimize" id="runAgentBtn" type="button">Run Agent</button>
+          <button class="btn" id="resetBtn" type="button">Reset Demo</button>
+        </section>
+      </div>
+    </section>
+
+    <section>
+      <h2>Support Ticket Queue</h2>
+      <p class="workflow-note">These controls are real — you could click them yourself. The point of the demo is that the agent can operate them for you, reading exactly what's below as its only source of truth.</p>
+      <div class="ticket-table" id="ticketTable" role="table" aria-label="Support tickets"></div>
+    </section>
+
+    <section>
+      <h2>Agent Trace</h2>
+      <p class="workflow-note">Every run logs the same four steps a real browser-agent framework follows: observe the page as text, decide on an action, act on the DOM, and report the result.</p>
+      <div id="traceLog" class="trace-list">
+        <div class="trace-item"><strong>Ready.</strong> Run a command to see the agent's observe → decide → act → result trace here.</div>
+      </div>
+      <div id="confirmBanner" class="confirm-banner hidden">
+        <p id="confirmText"></p>
+        <div class="actions-section actions-inline">
+          <button class="btn-optimize" id="confirmActionBtn" type="button">Confirm Action</button>
+          <button class="btn" id="cancelActionBtn" type="button">Cancel</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

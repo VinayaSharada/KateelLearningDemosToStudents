@@ -324,7 +324,7 @@
       "audience": "AI product, governance, workflow design",
       "subtitle": "Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.",
       "pagePath": "courses/ai-ml-workflows.html",
-      "registeredDemos": "37",
+      "registeredDemos": "38",
       "catalogPath": "CourseCatalogs/Management_of_AI_Products_Catalog.md",
       "assignments": [],
       "demos": [
@@ -606,6 +606,26 @@
           ],
           "aboutPath": "TechUseCaseDemos/CopilotKitDemo/about.html",
           "launchPath": "TechUseCaseDemos/CopilotKitDemo/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "AI Page Agent",
+          "level": "Intermediate",
+          "summary": "About Demo learning guide for AI Page Agent: an in-page agent that reads a support ticket queue as text and acts on it, inspired by browser-agent frameworks like page-agent, Stagehand, and browser-use.",
+          "teacherCue": "Teacher cue: Watch the Agent Trace panel's observe/decide/act/result steps, and ask when a rule-based parser fails where a real LLM would succeed.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "ai-ml-workflows",
+          "courseTitle": "AI/ML Workflows",
+          "courseSlugs": [
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/AIPageAgent/about.html",
+          "launchPath": "TechUseCaseDemos/AIPageAgent/index.html",
           "readiness": "Classroom Ready"
         },
         {
@@ -2371,6 +2391,26 @@
       ],
       "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/about.html",
       "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "AI Page Agent",
+      "level": "Intermediate",
+      "summary": "About Demo learning guide for AI Page Agent: an in-page agent that reads a support ticket queue as text and acts on it, inspired by browser-agent frameworks like page-agent, Stagehand, and browser-use.",
+      "teacherCue": "Teacher cue: Watch the Agent Trace panel's observe/decide/act/result steps, and ask when a rule-based parser fails where a real LLM would succeed.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "ai-ml-workflows",
+      "courseTitle": "AI/ML Workflows",
+      "courseSlugs": [
+        "ai-ml-workflows"
+      ],
+      "courseTitles": [
+        "AI/ML Workflows"
+      ],
+      "aboutPath": "TechUseCaseDemos/AIPageAgent/about.html",
+      "launchPath": "TechUseCaseDemos/AIPageAgent/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -4200,11 +4240,11 @@
   ],
   "counts": {
     "coursePacks": 8,
-    "curatedDemos": 101,
+    "curatedDemos": 102,
     "runModes": 3
   },
   "modeCounts": {
-    "Browser": 95,
+    "Browser": 96,
     "Colab": 3,
     "Multi-Mode": 3
   }
