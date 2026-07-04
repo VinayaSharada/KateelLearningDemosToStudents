@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,166 @@
         <a class="btn btn-secondary" href="../../courses/treasury-management.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <!-- Help Section -->
+      <section class="help-section">
+        <h3>📖 How to Use This Demo</h3>
+        <div class="help-grid">
+          <div class="help-item">
+            <strong>1. Select Market Scenario:</strong> Choose market conditions (stable, volatile, crisis)
+          </div>
+          <div class="help-item">
+            <strong>2. Set Exposure:</strong> Enter EUR amount and time horizon
+          </div>
+          <div class="help-item">
+            <strong>3. Choose Hedge Instrument:</strong> Compare Forwards, Options, Swaps, Natural Hedge
+          </div>
+          <div class="help-item">
+            <strong>4. Analyze Strategies:</strong> Compare 50%, 75%, 90% hedging levels
+          </div>
+        </div>
+      </section>
+
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <h3>🎛️ Market Controls</h3>
+        <div class="control-row">
+          <div class="control-group">
+            <label for="scenarioSelect">Market Scenario</label>
+            <select id="scenarioSelect">
+              <option value="stable">Stable Market</option>
+              <option value="volatile">High Volatility</option>
+              <option value="trending">Strong Trend</option>
+              <option value="crisis">Market Crisis</option>
+              <option value="custom">Custom Scenario</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="aiToggle" checked>
+              Enable AI Insights
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- FX Exposure Calculator -->
+      <section class="panel-section">
+        <h3>💱 FX Exposure Calculator</h3>
+        <div class="exposure-grid">
+          <div class="exposure-item">
+            <label for="spotRate">Spot Rate (USD/EUR)</label>
+            <input type="number" id="spotRate" step="0.0001" value="0.92">
+          </div>
+          <div class="exposure-item">
+            <label for="exposureAmount">Exposure Amount (EUR)</label>
+            <input type="number" id="exposureAmount" value="1000000" step="100000">
+          </div>
+          <div class="exposure-item">
+            <label for="timeHorizon">Time Horizon (Months)</label>
+            <input type="number" id="timeHorizon" value="6" min="1" max="24">
+          </div>
+          <div class="exposure-item">
+            <label for="naturalHedge">Natural Hedge Available (%)</label>
+            <input type="number" id="naturalHedge" value="30" min="0" max="100">
+          </div>
+        </div>
+      </section>
+
+      <!-- Hedge Instrument Selector -->
+      <section class="panel-section">
+        <h3>🛡️ Hedge Instrument Selector</h3>
+        <div class="instrument-grid">
+          <div class="instrument-card" data-instrument="forward">
+            <h3>Forwards</h3>
+            <p>Fixed rate, known timing</p>
+            <div class="cost">Cost: 0.2%</div>
+          </div>
+          <div class="instrument-card" data-instrument="option">
+            <h3>Options</h3>
+            <p>Protection with premium cost</p>
+            <div class="cost">Cost: 1.5%</div>
+          </div>
+          <div class="instrument-card" data-instrument="swap">
+            <h3>Swaps</h3>
+            <p>Longer-term equilibrium</p>
+            <div class="cost">Cost: 0.5%</div>
+          </div>
+          <div class="instrument-card" data-instrument="natural">
+            <h3>Natural Hedge</h3>
+            <p>No cost, slower execution</p>
+            <div class="cost">Cost: 0%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Strategy Comparison -->
+      <section class="results-section">
+        <h3>📊 Strategy Comparison</h3>
+        <div class="strategy-grid">
+          <div class="strategy-card">
+            <h3>Hedge 50%</h3>
+            <div class="metric">
+              <span>P&L Volatility:</span>
+              <span class="value">±$32,500</span>
+            </div>
+            <div class="metric">
+              <span>Hedging Cost:</span>
+              <span class="value">$15,000</span>
+            </div>
+          </div>
+          <div class="strategy-card">
+            <h3>Hedge 75%</h3>
+            <div class="metric">
+              <span>P&L Volatility:</span>
+              <span class="value">±$16,250</span>
+            </div>
+            <div class="metric">
+              <span>Hedging Cost:</span>
+              <span class="value">$22,500</span>
+            </div>
+          </div>
+          <div class="strategy-card recommended">
+            <h3>Hedge 90%</h3>
+            <div class="metric">
+              <span>P&L Volatility:</span>
+              <span class="value">±$6,500</span>
+            </div>
+            <div class="metric">
+              <span>Hedging Cost:</span>
+              <span class="value">$27,000</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Insights -->
+      <section class="ai-section">
+        <h3>🤖 AI Insights</h3>
+        <div class="ai-insight">
+          <strong>AI Recommendation:</strong> <span id="aiRecommendation">Based on current market conditions, recommend 75% hedging with options for optimal risk-return balance.</span>
+        </div>
+        <div class="ai-metrics">
+          <div class="ai-metric">
+            <span>Confidence Score:</span>
+            <span class="value">87%</span>
+          </div>
+          <div class="ai-metric">
+            <span>Model Accuracy:</span>
+            <span class="value">92%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action Buttons -->
+      <section class="actions-section">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="compareBtn">Compare All Strategies</button>
+        <button class="btn" id="exportBtn">Export Results</button>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +267,6 @@
       </div>
     </section>
   </main>
+  <script src="app.js"></script>
 </body>
 </html>

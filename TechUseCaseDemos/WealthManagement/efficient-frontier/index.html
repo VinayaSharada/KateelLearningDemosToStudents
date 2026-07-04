@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../../assets/site.css">
   <link rel="stylesheet" href="../../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,35 @@
         <a class="btn btn-secondary" href="../../../courses/quant-finance.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <div class="widget">
+        <div class="controls">
+          <button id="load-btn">📊 Load Sample Assets</button>
+          <button id="calculate-btn">🔢 Calculate Portfolio</button>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="chart"></canvas>
+        </div>
+
+        <div class="results">
+          <div class="metric">
+            <span class="label">Optimal Return</span>
+            <span class="value" id="optimal-return">12.5%</span>
+          </div>
+          <div class="metric">
+            <span class="label">Minimum Risk</span>
+            <span class="value" id="min-risk">8.2%</span>
+          </div>
+          <div class="metric">
+            <span class="label">Sharpe Ratio</span>
+            <span class="value" id="sharpe">1.52</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +136,7 @@
       </div>
     </section>
   </main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

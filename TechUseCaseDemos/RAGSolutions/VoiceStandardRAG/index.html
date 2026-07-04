@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../../assets/site.css">
   <link rel="stylesheet" href="../../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,50 @@
         <a class="btn btn-secondary" href="../../../courses/rag-nlp.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <div class="control-panel">
+        <button id="load-btn" class="btn-primary">📚 Load Knowledge Base</button>
+        <button id="mic-btn" class="btn-mic">🎤 Speak Question</button>
+        <button id="clear-btn" class="btn-secondary">🗑️ Clear</button>
+      </div>
+
+      <div class="status-panel">
+        <div id="stt-status" class="status-item">🎤 STT: Ready</div>
+        <div id="tts-status" class="status-item">🔊 TTS: Ready</div>
+      </div>
+
+      <div class="workspace">
+        <div class="panel">
+          <h3>📝 Knowledge Base</h3>
+          <div id="knowledge-base" class="kb-content">
+            <p class="hint">Click "Load Knowledge Base" to populate.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>❓ Query & Response</h3>
+          <div id="query-display" class="query-content">
+            <p class="hint">Your question will appear here after speaking...</p>
+          </div>
+          <div id="response-display" class="response-content">
+            <p class="hint">System response will appear here...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <h3>📖 Voice RAG Pipeline</h3>
+        <ol>
+          <li><strong>STT</strong>: Your voice → text question</li>
+          <li><strong>Retrieve</strong>: Find relevant docs</li>
+          <li><strong>Generate</strong>: Create answer</li>
+          <li><strong>TTS</strong>: Answer → spoken response</li>
+        </ol>
+        <p><strong>Requirements</strong>: Chrome/Edge with microphone and Web Speech API</p>
+      </div>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +151,6 @@
       </div>
     </section>
   </main>
+  <script src="app.js"></script>
 </body>
 </html>

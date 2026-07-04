@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../../assets/site.css">
   <link rel="stylesheet" href="../../../assets/demo-shell.css">
   <script defer src="../../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,87 @@
         <a class="btn btn-secondary" href="../../../courses/quant-finance.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <!-- Option Parameters -->
+      <section class="params-section">
+        <h2>Option Parameters</h2>
+        <div class="params-grid">
+          <div class="param-group">
+            <label>Spot Price: $<span id="spot-val">100</span></label>
+            <input type="range" id="spot" min="10" max="500" value="100">
+          </div>
+          <div class="param-group">
+            <label>Strike Price: $<span id="strike-val">100</span></label>
+            <input type="range" id="strike" min="10" max="500" value="100">
+          </div>
+          <div class="param-group">
+            <label>Time to Expiry: <span id="time-val">1</span> year</label>
+            <input type="range" id="time" min="1" max="365" value="365" step="7">
+          </div>
+          <div class="param-group">
+            <label>Volatility: <span id="vol-val">20%</span></label>
+            <input type="range" id="vol" min="1" max="100" value="20">
+          </div>
+          <div class="param-group">
+            <label>Risk-Free Rate: <span id="rate-val">2%</span>%</label>
+            <input type="range" id="rate" min="-2" max="10" value="2" step="0.25">
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Results -->
+      <section class="results-section">
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-value" id="call-price">$10.45</div>
+            <div class="result-label">Call Price</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value" id="put-price">$5.57</div>
+            <div class="result-label">Put Price</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value" id="call-delta">0.54</div>
+            <div class="result-label">Call Delta</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value" id="put-delta">-0.46</div>
+            <div class="result-label">Put Delta</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Greeks -->
+      <section class="Greeks-section">
+        <h2>Option Greeks</h2>
+        <div class="greeks-grid">
+          <div class="greek-item">
+            <span class="greek-name">Gamma</span>
+            <span class="greek-value" id="gamma">0.018</span>
+          </div>
+          <div class="greek-item">
+            <span class="greek-name">Theta</span>
+            <span class="greek-value" id="theta">-0.034</span>
+          </div>
+          <div class="greek-item">
+            <span class="greek-name">Vega</span>
+            <span class="greek-value" id="vega">0.089</span>
+          </div>
+          <div class="greek-item">
+            <span class="greek-name">Rho (Call)</span>
+            <span class="greek-value" id="rho-call">45.2</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chart -->
+      <section class="chart-section">
+        <h2>Option Value Surface</h2>
+        <canvas id="surface-chart" width="500" height="300"></canvas>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +188,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

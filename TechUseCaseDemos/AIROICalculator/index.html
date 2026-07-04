@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,67 @@
         <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <!-- Project Inputs -->
+      <section class="inputs-section">
+        <h2>Project Details</h2>
+        <div class="inputs-grid">
+          <div class="input-group">
+            <label>Development Cost: $<span id="dev-cost-val">100K</span></label>
+            <input type="range" id="dev-cost" min="10" max="500" value="100" step="10">
+          </div>
+          <div class="input-group">
+            <label>Annual Maintenance: $<span id="maint-cost-val">20K</span></label>
+            <input type="range" id="maint-cost" min="5" max="100" value="20" step="5">
+          </div>
+          <div class="input-group">
+            <label>Annual Benefits: $<span id="benefits-val">50K</span></label>
+            <input type="range" id="benefits" min="10" max="500" value="50" step="10">
+          </div>
+          <div class="input-group">
+            <label>Project Duration: <span id="duration-val">3</span> years</label>
+            <input type="range" id="duration" min="1" max="10" value="3">
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="results-section">
+        <h2>Financial Analysis</h2>
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-value" id="total-cost">$160K</div>
+            <div class="result-label">Total Cost</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value" id="total-benefits">$150K</div>
+            <div class="result-label">Total Benefits</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value" id="net-value">-$10K</div>
+            <div class="result-label">Net Value</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value" id="payback">N/A</div>
+            <div class="result-label">Payback (years)</div>
+          </div>
+        </div>
+        <div class="recommendation" id="recommendation">Recommendation: Consider project carefully</div>
+      </section>
+
+      <!-- Breakdown -->
+      <section class="breakdown-section">
+        <h2>Year-by-Year Breakdown</h2>
+        <table id="year-table">
+          <thead>
+            <tr><th>Year</th><th>Cost</th><th>Benefit</th><th>Cumulative</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +168,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

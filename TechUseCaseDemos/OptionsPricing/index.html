@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,43 @@
         <a class="btn btn-secondary" href="../../courses/quant-finance.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <div class="content">
+        <div class="inputs">
+          <h2>Option Parameters</h2>
+          <div class="grid">
+            <div class="input-group">
+              <label>S (Spot Price)</label>
+              <input type="number" id="spot" value="100" step="0.01">
+            </div>
+            <div class="input-group">
+              <label>K (Strike Price)</label>
+              <input type="number" id="strike" value="100" step="0.01">
+            </div>
+            <div class="input-group">
+              <label>T (Time to Expiry)</label>
+              <input type="number" id="time" value="0.25" step="0.01">
+            </div>
+            <div class="input-group">
+              <label>r (Interest Rate)</label>
+              <input type="number" id="rate" value="0.05" step="0.001">
+            </div>
+            <div class="input-group">
+              <label>σ (Volatility)</label>
+              <input type="number" id="vol" value="0.2" step="0.01">
+            </div>
+          </div>
+          <button onclick="calculate()">Calculate</button>
+        </div>
+
+        <div class="results">
+          <h2>Results</h2>
+          <div id="output"></div>
+        </div>
+      </div>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +144,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

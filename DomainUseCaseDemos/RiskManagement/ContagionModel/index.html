@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../../assets/site.css">
   <link rel="stylesheet" href="../../../assets/demo-shell.css">
   <script defer src="../../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,51 @@
         <a class="btn btn-secondary" href="../../../courses/risk-management.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="controls">
+        <div class="control-group">
+          <label>Network Size: <span id="size-val">20</span></label>
+          <input type="range" id="network-size" min="5" max="50" value="20">
+        </div>
+        <div class="control-group">
+          <label>Connection Probability: <span id="prob-val">30%</span></label>
+          <input type="range" id="conn-prob" min="5" max="95" value="30">
+        </div>
+        <div class="control-group">
+          <label>Initial Defaults: <span id="default-val">2</span></label>
+          <input type="range" id="init-defaults" min="1" max="10" value="2">
+        </div>
+        <button id="run-sim" class="primary-btn">Run Simulation</button>
+      </section>
+
+      <section class="results">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="total-nodes">20</div>
+            <div class="stat-label">Total Nodes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="defaulted">2</div>
+            <div class="stat-label">Defaulted</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="contagion">0%</div>
+            <div class="stat-label">Contagion Rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="threshold">0.3</div>
+            <div class="stat-label">Threshold</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visualization">
+        <h2>Network Graph</h2>
+        <canvas id="network-canvas" width="500" height="400"></canvas>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +152,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

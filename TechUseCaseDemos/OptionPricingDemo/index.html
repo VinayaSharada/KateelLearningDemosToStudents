@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <script defer src="../../assets/site.js"></script>
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -106,7 +107,83 @@
       <p>Black-Scholes options pricing calculator with Greeks (Delta, Gamma, Theta, Vega, Rho). Master derivatives pricing and risk management.</p>
       <span class="badge">🌐 Browser-Based | 💰 Quant Finance | 📈 Intermediate</span>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="intro">
+        <p>The Black-Scholes model is the foundation of modern options pricing. This demo shows how volatility and time affect option prices.</p>
+      </section>
+
+      <section class="controls-grid">
+        <div class="control-card">
+          <h3>Option Parameters</h3>
+          <div class="field">
+            <label>Spot Price (S): <span id="spotValue">100</span></label>
+            <input type="range" id="spotSlider" min="10" max="200" value="100" step="1"/>
+          </div>
+          <div class="field">
+            <label>Strike Price (K): <span id="strikeValue">100</span></label>
+            <input type="range" id="strikeSlider" min="50" max="150" value="100" step="1"/>
+          </div>
+          <div class="field">
+            <label>Time to Expiry (T): <span id="timeValue">0.5</span> years</label>
+            <input type="range" id="timeSlider" min="0.08" max="2" value="0.5" step="0.08"/>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <h3>Market Parameters</h3>
+          <div class="field">
+            <label>Risk-free Rate (r): <span id="rateValue">0.05</span>%</label>
+            <input type="range" id="rateSlider" min="0" max="10" value="5" step="0.1"/>
+          </div>
+          <div class="field">
+            <label>Volatility (σ): <span id="volValue">0.2</span> (20%)</label>
+            <input type="range" id="volSlider" min="0.05" max="1" value="0.2" step="0.01"/>
+          </div>
+          <div class="field">
+            <label>Option Type</label>
+            <select id="optionType">
+              <option value="call">Call Option</option>
+              <option value="put">Put Option</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <h3>Pricing Results</h3>
+        <div class="predictions-grid">
+          <div class="prediction-card">
+            <h4>Call Option Price</h4>
+            <div id="callPrice" class="probability-value">$10.45</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Put Option Price</h4>
+            <div id="putPrice" class="probability-value">$5.57</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Delta</h4>
+            <div id="deltaValue" class="probability-value">0.634</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Gamma</h4>
+            <div id="gammaValue" class="probability-value">0.018</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="explanation">
+        <h3>Black-Scholes Formula</h3>
+        <p>For a European call option:</p>
+        <p style="font-family: monospace; text-align: center;">C = S·N(d₁) - K·e^(-rT)·N(d₂)</p>
+        <p style="font-family: monospace; text-align: center;">where d₁ = [ln(S/K) + (r + σ²/2)T] / (σ√T)</p>
+        <p style="font-family: monospace; text-align: center;">d₂ = d₁ - σ√T</p>
+        <div class="papers" style="margin-top: 1rem;">
+          <p><strong>Key Insight:</strong> Higher volatility = higher option premiums</p>
+        </div>
+      </section>
+    </section>
+
     <div class="card">
       <h2>🎯 Learning Objectives</h2>
       <ul>
@@ -155,5 +232,6 @@
       <p>Attribution: vinallcontact@gmail.com | <a href="https://github.com/VinayaSharada/KateelLearningDemosToStudents">View on GitHub</a></p>
     </footer>
   </div>
+<script src="app.js"></script>
 </body>
 </html>

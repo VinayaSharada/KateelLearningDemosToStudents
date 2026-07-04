@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,46 @@
         <a class="btn btn-secondary" href="../../courses/cybersecurity.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="controls">
+        <h2>Access Request</h2>
+        <div class="field">
+          <label for="userSelect">Select User</label>
+          <select id="userSelect">
+            <option value="alice">Alice (Developer)</option>
+            <option value="bob">Bob (Analyst)</option>
+            <option value="charlie">Charlie (Guest)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="resourceSelect">Select Resource</label>
+          <select id="resourceSelect">
+            <option value="database">Production Database</option>
+            <option value="api">API Gateway</option>
+            <option value="fileshare">Financial Fileshare</option>
+            <option value="admin">Admin Panel</option>
+          </select>
+        </div>
+        <button id="requestAccessBtn" class="btn-primary">Request Access</button>
+      </section>
+
+      <section id="resultSection" class="result-section hidden">
+        <h2>Access Decision</h2>
+        <div id="decisionResult" class="decision-card"></div>
+        <div id="policyDetails" class="policy-details"></div>
+      </section>
+
+      <section class="explanation">
+        <h2>Zero Trust Principles</h2>
+        <ul>
+          <li><strong>Verify Explicitly</strong>: Authenticate and authorize every request</li>
+          <li><strong>Use Least Privilege</strong>: Grant minimum necessary access</li>
+          <li><strong>Assume Breach</strong>: Operate as if the network is compromised</li>
+        </ul>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +147,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

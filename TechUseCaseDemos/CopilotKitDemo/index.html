@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,46 @@
         <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="demo-area">
+        <div class="chat-container" id="chatContainer">
+          <div class="message assistant">
+            <div class="message-content">
+              <strong>Assistant:</strong> Hello! I'm an AI agent powered by CopilotKit. I can help you with calculations, answer questions, and run tools. Try asking me something!
+            </div>
+          </div>
+        </div>
+
+        <div class="input-area">
+          <input type="text" id="queryInput" placeholder="Ask me anything..." />
+          <button id="sendBtn">Send</button>
+        </div>
+      </section>
+
+      <section class="features">
+        <h3>CopilotKit Capabilities</h3>
+        <ul>
+          <li><strong>Streaming:</strong> Real-time response generation</li>
+          <li><strong>Tools:</strong> Function calling for calculations</li>
+          <li><strong>Agents:</strong> Multi-step reasoning workflows</li>
+          <li><strong>Human-in-the-loop:</strong> Intervene when needed</li>
+        </ul>
+      </section>
+
+      <section class="explanation">
+        <h3>Try These Examples</h3>
+        <ul>
+          <li>"Calculate the Black-Scholes price for S=100, K=105, T=0.5, r=0.05, σ=0.2"</li>
+          <li>"What's the portfolio variance for 60% stocks (20% vol) and 40% bonds (5% vol)?"</li>
+          <li>"Explain risk parity and why it's better than equal weighting"</li>
+        </ul>
+        <div class="papers">
+          <p><strong>Learn More:</strong> https://github.com/copilotkit/copilotkit</p>
+        </div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +147,6 @@
       </div>
     </section>
   </main>
+<script type="module" src="app.js"></script>
 </body>
 </html>

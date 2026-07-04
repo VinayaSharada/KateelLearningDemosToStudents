@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,43 @@
         <a class="btn btn-secondary" href="../../courses/risk-management.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <!-- Editing panels -->
+      <div class="edit-panels">
+        <section class="input-section">
+          <h2>Customer Requirements (WHATs)</h2>
+          <div id="cr-list" class="items-list"></div>
+          <div class="add-item">
+            <input type="text" id="new-cr" placeholder="Add customer requirement…">
+            <button id="add-cr" class="primary-btn">+ Add</button>
+          </div>
+        </section>
+
+        <section class="input-section">
+          <h2>Technical Requirements (HOWs)</h2>
+          <div id="tr-list" class="items-list"></div>
+          <div class="add-item">
+            <input type="text" id="new-tr" placeholder="Add technical requirement…">
+            <button id="add-tr" class="primary-btn">+ Add</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- House of Quality diagram rendered by JS -->
+      <section class="hoq-section">
+        <h2>House of Quality</h2>
+        <p class="hoq-hint">Click relationship cells to cycle: blank → △ Weak (1) → ○ Medium (3) → ● Strong (9). Click roof cells to cycle correlations.</p>
+        <div id="hoq-container"></div>
+      </section>
+
+      <!-- Prioritized results -->
+      <section class="results-section">
+        <h2>Prioritized Technical Requirements</h2>
+        <div id="priority-results"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +144,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

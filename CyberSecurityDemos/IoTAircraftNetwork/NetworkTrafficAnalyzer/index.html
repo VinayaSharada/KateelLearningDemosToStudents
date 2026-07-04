@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../../assets/site.css">
   <link rel="stylesheet" href="../../../assets/demo-shell.css">
   <script defer src="../../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,39 @@
         <a class="btn btn-secondary" href="../../../courses/cybersecurity.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section>
+        <h2>Traffic Summary</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total Packets</h3>
+            <div class="value" id="totalPackets">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>CAN Bus</h3>
+            <div class="value" id="canTraffic">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>ARINC</h3>
+            <div class="value" id="arincTraffic">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>Anomalies</h3>
+            <div class="value" id="anomalies">0</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Protocol Distribution</h2>
+        <canvas id="protocolChart" height="200"></canvas>
+      </section>
+      <section>
+        <h2>Recent Traffic</h2>
+        <div id="trafficLog"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +140,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

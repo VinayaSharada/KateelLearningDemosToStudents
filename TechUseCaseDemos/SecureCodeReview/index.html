@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,36 @@
         <a class="btn btn-secondary" href="../../courses/cybersecurity.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="input-section">
+        <h2>Code Input</h2>
+        <textarea id="codeInput" placeholder="Paste your code here..."></textarea>
+        <button id="reviewBtn" class="btn-primary">Review for Security Issues</button>
+      </section>
+
+      <section id="resultsSection" class="results-section hidden">
+        <h2>Security Review Results</h2>
+
+        <div class="summary">
+          <div class="stat-card">
+            <div class="stat-value" id="totalIssues">0</div>
+            <div class="stat-label">Issues Found</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="criticalCount">0</div>
+            <div class="stat-label">Critical</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="highCount">0</div>
+            <div class="stat-label">High</div>
+          </div>
+        </div>
+
+        <div id="issuesList" class="issues-list"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +137,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

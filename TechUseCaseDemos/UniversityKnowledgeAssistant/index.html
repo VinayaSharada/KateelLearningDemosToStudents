@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,72 @@
         <a class="btn btn-secondary" href="../../courses/rag-nlp.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <div class="control-panel">
+        <button id="load-btn" class="btn-primary">📚 Load Knowledge Base</button>
+        <input type="file" id="file-input" accept=".pdf,.txt" multiple style="display: none;">
+        <button id="upload-btn" class="btn-upload">📁 Upload PDFs</button>
+        <button id="mic-btn" class="btn-mic">🎤 Voice Question</button>
+        <button id="clear-btn" class="btn-secondary">🗑️ Clear</button>
+      </div>
+
+      <div class="status-panel">
+        <div id="status" class="status-item">Ready</div>
+        <div id="mode" class="status-item">Mode: Hybrid RAG</div>
+      </div>
+
+      <div class="query-panel">
+        <input type="text" id="query-input" class="query-input" placeholder="Type a question and press Enter, or use Voice Question...">
+      </div>
+
+      <div class="workspace">
+        <div class="panel">
+          <h3>📑 Ingested Documents</h3>
+          <div id="documents" class="doc-content">
+            <p class="hint">Upload PDFs or enter URLs to begin.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>🔍 Knowledge Graph</h3>
+          <div id="graph-preview" class="graph-content">
+            <p class="hint">Graph will appear after ingestion.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="response-panel">
+        <h3>🤖 Answer</h3>
+        <div id="answer" class="answer-content">
+          <p>Ask a question to see the answer with citations...</p>
+        </div>
+        <div id="citations" class="citations-content">
+          <p class="hint">Citations will appear here...</p>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <h3>📖 System Architecture</h3>
+        <ol>
+          <li><strong>Ingestion</strong>: PDFs → Text → Chunks</li>
+          <li><strong>Indexing</strong>: PageIndex for page-level retrieval</li>
+          <li><strong>Graph Building</strong>: FalkorDB for entity relationships</li>
+          <li><strong>Query</strong>: STT → Hybrid RAG → TTS</li>
+        </ol>
+        <details>
+          <summary>Technical Stack</summary>
+          <ul>
+            <li>📄 PDF.js - PDF text extraction</li>
+            <li>🔢 PageIndex - Document indexing with citations</li>
+            <li>🔗 FalkorDB - Knowledge graph (local)</li>
+            <li>🧠 Local SLM - Phi-3.5/Mistral via llama.cpp</li>
+            <li>🎤 Web Speech API - STT/TTS</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +173,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

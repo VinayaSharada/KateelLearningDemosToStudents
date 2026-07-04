@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,36 @@
         <a class="btn btn-secondary" href="../../courses/rag-nlp.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <div class="recording-panel">
+        <button id="record-btn" class="mic-button" title="Record">
+          <span id="mic-icon">🎤</span>
+        </button>
+        <div id="timer" class="timer hidden">00:00</div>
+        <div id="status-text">Click to start recording</div>
+      </div>
+
+      <div class="transcript-panel">
+        <div class="panel-header">
+          <span>Current Transcript</span>
+          <button id="clear-btn" class="secondary-btn">Clear</button>
+        </div>
+        <div id="transcript-output" class="transcript-output">
+          Your transcription will appear here...
+        </div>
+      </div>
+
+      <div class="notes-panel">
+        <div class="panel-header">
+          <span>Saved Notes</span>
+        </div>
+        <div id="notes-list" class="notes-list">
+          <p class="empty-state">No saved notes yet. Record and save to see them here.</p>
+        </div>
+      </div>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +137,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

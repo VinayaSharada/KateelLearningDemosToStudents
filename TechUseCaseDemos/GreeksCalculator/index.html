@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,81 @@
         <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="controls-grid">
+        <div class="control-card">
+          <h3>Option Parameters</h3>
+          <div class="field">
+            <label>Spot Price (S): <span id="spotValue">100</span></label>
+            <input type="range" id="spotSlider" min="50" max="200" value="100" step="1"/>
+          </div>
+          <div class="field">
+            <label>Strike Price (K): <span id="strikeValue">100</span></label>
+            <input type="range" id="strikeSlider" min="50" max="150" value="100" step="1"/>
+          </div>
+          <div class="field">
+            <label>Time to Expiry (T): <span id="timeValue">0.5</span> years</label>
+            <input type="range" id="timeSlider" min="0.08" max="2" value="0.5" step="0.08"/>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <h3>Market Parameters</h3>
+          <div class="field">
+            <label>Volatility (σ): <span id="volValue">0.2</span> (20%)</label>
+            <input type="range" id="volSlider" min="0.05" max="0.5" value="0.2" step="0.01"/>
+          </div>
+          <div class="field">
+            <label>Risk-free Rate (r): <span id="rateValue">0.05</span>%</label>
+            <input type="range" id="rateSlider" min="0" max="10" value="5" step="0.1"/>
+          </div>
+          <div class="field">
+            <label>Option Type</label>
+            <select id="optionType">
+              <option value="call">Call</option>
+              <option value="put">Put</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <h3>Greeks</h3>
+        <div class="predictions-grid">
+          <div class="prediction-card">
+            <h4>Delta</h4>
+            <div id="deltaValue" class="probability-value">0.634</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Gamma</h4>
+            <div id="gammaValue" class="probability-value">0.018</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Vega</h4>
+            <div id="vegaValue" class="probability-value">0.042</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Theta</h4>
+            <div id="thetaValue" class="probability-value">-0.012</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="explanation">
+        <h3>Greeks Interpretation</h3>
+        <ul>
+          <li><strong>Delta:</strong> Price change per $1 underlying move</li>
+          <li><strong>Gamma:</strong> Delta's rate of change (convexity)</li>
+          <li><strong>Vega:</strong> Price change per 1% vol change</li>
+          <li><strong>Theta:</strong> Daily time decay (negative for long options)</li>
+        </ul>
+        <div class="papers">
+          <p><strong>Key Insight:</strong> Hedge ratios = 1/Greeks for delta-neutral positions.</p>
+        </div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +182,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,40 @@
         <a class="btn btn-secondary" href="../../courses/risk-management.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="upload-section">
+        <h2>Upload Log File</h2>
+        <div class="upload-area" id="uploadArea">
+          <p>Drag &amp; drop log file or click to browse</p>
+          <input type="file" id="fileInput" accept=".log,.csv,.json" style="display: none;"/>
+        </div>
+        <button id="analyzeBtn" class="btn-primary" disabled>Analyze Logs</button>
+      </section>
+
+      <section id="resultsSection" class="results-section hidden">
+        <h2>Threat Analysis Results</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="totalLogs">0</div>
+            <div class="stat-label">Logs Analyzed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="anomaliesFound">0</div>
+            <div class="stat-label">Anomalies Detected</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="riskScore">0%</div>
+            <div class="stat-label">Risk Score</div>
+          </div>
+        </div>
+
+        <h3>Detected Anomalies</h3>
+        <div id="anomaliesList" class="anomalies-list"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +141,6 @@
       </div>
     </section>
   </main>
+  <script src="app.js"></script>
 </body>
 </html>

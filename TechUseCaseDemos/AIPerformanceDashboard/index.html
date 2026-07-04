@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,35 @@
         <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="metrics-section">
+        <h2>Real-time Metrics</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <h3>Accuracy</h3>
+            <div class="value" id="accuracy">94.2%</div>
+          </div>
+          <div class="metric-card">
+            <h3>Precision</h3>
+            <div class="value" id="precision">92.8%</div>
+          </div>
+          <div class="metric-card">
+            <h3>Recall</h3>
+            <div class="value" id="recall">91.5%</div>
+          </div>
+          <div class="metric-card">
+            <h3>F1 Score</h3>
+            <div class="value" id="f1">92.1%</div>
+          </div>
+        </div>
+      </section>
+      <section class="latency-section">
+        <h2>Latency Distribution</h2>
+        <canvas id="latencyChart" height="200"></canvas>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +136,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

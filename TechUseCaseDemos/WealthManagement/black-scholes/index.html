@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../../assets/site.css">
   <link rel="stylesheet" href="../../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,55 @@
         <a class="btn btn-secondary" href="../../../courses/quant-finance.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <div class="widget">
+        <div class="form-grid">
+          <div class="input-group">
+            <label>Spot Price (S)</label>
+            <input type="number" id="spot" value="100" step="0.01">
+          </div>
+          <div class="input-group">
+            <label>Strike Price (K)</label>
+            <input type="number" id="strike" value="100" step="0.01">
+          </div>
+          <div class="input-group">
+            <label>Time to Expiry (T)</label>
+            <input type="number" id="time" value="0.5" step="0.01">
+          </div>
+          <div class="input-group">
+            <label>Risk-free Rate (r)</label>
+            <input type="number" id="rate" value="0.05" step="0.001">
+          </div>
+          <div class="input-group">
+            <label>Volatility (σ)</label>
+            <input type="number" id="vol" value="0.2" step="0.01">
+          </div>
+        </div>
+
+        <button id="calculate-btn">Calculate</button>
+
+        <div class="results">
+          <div class="result-box">
+            <span>Call Price</span>
+            <span class="value" id="call-price">$10.45</span>
+          </div>
+          <div class="result-box">
+            <span>Put Price</span>
+            <span class="value" id="put-price">$5.57</span>
+          </div>
+          <div class="result-box">
+            <span>Delta (Call)</span>
+            <span class="value" id="delta-call">0.68</span>
+          </div>
+          <div class="result-box">
+            <span>Delta (Put)</span>
+            <span class="value" id="delta-put">-0.32</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +156,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

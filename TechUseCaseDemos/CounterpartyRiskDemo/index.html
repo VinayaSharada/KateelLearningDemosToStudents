@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,78 @@
         <a class="btn btn-secondary" href="../../courses/risk-management.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="intro">
+        <p>Calculate <strong>Credit Valuation Adjustment (CVA)</strong> and <strong>Debt Valuation Adjustment (DVA)</strong> for counterparty risk exposure.</p>
+      </section>
+
+      <section class="controls-grid">
+        <div class="control-card">
+          <h3>Exposure Parameters</h3>
+          <div class="field">
+            <label>Notional Amount: <span id="notionalValue">$10M</span></label>
+            <input type="range" id="notionalSlider" min="1000000" max="100000000" value="10000000" step="1000000"/>
+          </div>
+          <div class="field">
+            <label>Exposure Factor: <span id="exposureValue">50%</span></label>
+            <input type="range" id="exposureSlider" min="0.1" max="1.0" value="0.5" step="0.05"/>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <h3>Risk Parameters</h3>
+          <div class="field">
+            <label>PD (1Y): <span id="pdValue">2.0%</span></label>
+            <input type="range" id="pdSlider" min="0.1" max="10" value="2" step="0.1"/>
+          </div>
+          <div class="field">
+            <label>LGD: <span id="lgdValue">40%</span></label>
+            <input type="range" id="lgdSlider" min="0.1" max="0.9" value="0.4" step="0.05"/>
+          </div>
+          <div class="field">
+            <label>Risk-Free Rate: <span id="rateValue">2.0%</span></label>
+            <input type="range" id="rateSlider" min="0.5" max="5" value="2" step="0.1"/>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <h3>Counterparty Risk Results</h3>
+        <div class="predictions-grid">
+          <div class="prediction-card">
+            <h4>Expected Exposure</h4>
+            <div id="eeValue" class="probability-value">$5.0M</div>
+          </div>
+          <div class="prediction-card">
+            <h4>CVA</h4>
+            <div id="cvaValue" class="probability-value">$400K</div>
+          </div>
+          <div class="prediction-card">
+            <h4>DVA</h4>
+            <div id="dvaValue" class="probability-value">$0</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Adjusted Value</h4>
+            <div id="adjustedValue" class="probability-value">$9.6M</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="explanation">
+        <h3>Key Concepts</h3>
+        <ul>
+          <li><strong>CVA:</strong> Mark-to-market adjustment for counterparty default risk</li>
+          <li><strong>DVA:</strong> Accounting adjustment for own credit risk</li>
+          <li><strong>EE:</strong> Expected Exposure = Notional × Exposure Factor</li>
+          <li><strong>LGD:</strong> Loss Given Default (recovery rate = 1 - LGD)</li>
+        </ul>
+        <div class="papers">
+          <p><strong>Formula:</strong> CVA = EE × PD × LGD</p>
+        </div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +179,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

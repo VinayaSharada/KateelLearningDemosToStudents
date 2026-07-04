@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,33 @@
         <a class="btn btn-secondary" href="../../courses/rag-nlp.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="upload-section">
+        <h2>Upload PDF Document</h2>
+        <div class="upload-area" id="uploadArea">
+          <p>📎 Drag & drop PDF here or click to browse</p>
+          <input type="file" id="fileInput" accept=".pdf" />
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <h2>Markdown Output</h2>
+        <div class="output-container">
+          <pre id="markdownOutput">Your PDF content will appear here...</pre>
+        </div>
+      </section>
+
+      <section class="query-section">
+        <h2>Ask Questions About Your Document</h2>
+        <div class="query-container">
+          <input type="text" id="questionInput" placeholder="What is this document about?" />
+          <button id="askButton">Ask</button>
+        </div>
+        <div id="answerOutput" class="answer-output"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +134,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

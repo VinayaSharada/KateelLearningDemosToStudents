@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,97 @@
         <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <form id="prdForm">
+        <section class="form-section">
+          <h2>Project Info</h2>
+          <div class="grid">
+            <div class="field">
+              <label for="projectName">Project Name</label>
+              <input type="text" id="projectName" placeholder="e.g., Customer Churn Predictor">
+            </div>
+            <div class="field">
+              <label for="team">Team</label>
+              <input type="text" id="team" placeholder="e.g., Risk Analytics">
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Data Requirements</h2>
+          <div class="field">
+            <label for="dataSources">Data Sources</label>
+            <textarea id="dataSources" placeholder="List data sources needed..."></textarea>
+          </div>
+          <div class="field">
+            <label for="dataQuality">Data Quality Requirements</label>
+            <textarea id="dataQuality" placeholder="Accuracy, completeness, freshness targets..."></textarea>
+          </div>
+          <div class="field">
+            <label for="privacy">Privacy Considerations</label>
+            <textarea id="privacy" placeholder="PII, GDPR, anonymization..."></textarea>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Model Requirements</h2>
+          <div class="grid">
+            <div class="field">
+              <label for="modelType">Model Type</label>
+              <select id="modelType">
+                <option value="">Select...</option>
+                <option value="Classification">Classification</option>
+                <option value="Regression">Regression</option>
+                <option value="NLP">NLP</option>
+                <option value="Computer Vision">Computer Vision</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="latency">Latency Target (ms)</label>
+              <input type="number" id="latency" placeholder="e.g., 100">
+            </div>
+          </div>
+          <div class="field">
+            <label for="performance">Performance Metrics</label>
+            <textarea id="performance" placeholder="e.g., Accuracy > 0.9, Precision > 0.85..."></textarea>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Ethical & Bias Considerations</h2>
+          <div class="field">
+            <label for="fairness">Fairness Requirements</label>
+            <textarea id="fairness" placeholder="Protected groups, fairness metrics..."></textarea>
+          </div>
+          <div class="field">
+            <label for="explainability">Explainability Needs</label>
+            <textarea id="explainability" placeholder="SHAP, LIME, feature importance..."></textarea>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Deployment & Monitoring</h2>
+          <div class="field">
+            <label for="deployment">Deployment Environment</label>
+            <textarea id="deployment" placeholder="Cloud, on-prem, edge, API..."></textarea>
+          </div>
+          <div class="field">
+            <label for="monitoring">Monitoring Plan</label>
+            <textarea id="monitoring" placeholder="Drift detection, performance alerts..."></textarea>
+          </div>
+        </section>
+
+        <button type="submit" class="btn-primary">Generate PRD</button>
+      </form>
+
+      <section id="outputSection" class="output-section hidden">
+        <h2>Generated PRD</h2>
+        <div id="prdOutput" class="prd-output"></div>
+        <button id="downloadBtn" class="btn-secondary">Download as Markdown</button>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +198,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

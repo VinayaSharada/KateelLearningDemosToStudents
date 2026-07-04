@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,92 @@
         <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="input-section">
+        <h2>Model A (Baseline)</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="modelAName">Model Name</label>
+            <input type="text" id="modelAName" value="churn_v1.0">
+          </div>
+          <div class="field">
+            <label for="modelAAccuracy">Accuracy</label>
+            <input type="number" id="modelAAccuracy" step="0.01" value="0.85">
+          </div>
+          <div class="field">
+            <label for="modelAPrecision">Precision</label>
+            <input type="number" id="modelAPrecision" step="0.01" value="0.82">
+          </div>
+          <div class="field">
+            <label for="modelARecall">Recall</label>
+            <input type="number" id="modelARecall" step="0.01" value="0.78">
+          </div>
+          <div class="field">
+            <label for="modelALatency">Latency (ms)</label>
+            <input type="number" id="modelALatency" value="120">
+          </div>
+          <div class="field">
+            <label for="modelAVersion">Version</label>
+            <input type="text" id="modelAVersion" value="v1.0">
+          </div>
+        </div>
+      </section>
+
+      <section class="input-section">
+        <h2>Model B (Candidate)</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="modelBName">Model Name</label>
+            <input type="text" id="modelBName" value="churn_v2.0">
+          </div>
+          <div class="field">
+            <label for="modelBAccuracy">Accuracy</label>
+            <input type="number" id="modelBAccuracy" step="0.01" value="0.87">
+          </div>
+          <div class="field">
+            <label for="modelBPrecision">Precision</label>
+            <input type="number" id="modelBPrecision" step="0.01" value="0.85">
+          </div>
+          <div class="field">
+            <label for="modelBRecall">Recall</label>
+            <input type="number" id="modelBRecall" step="0.01" value="0.80">
+          </div>
+          <div class="field">
+            <label for="modelBLatency">Latency (ms)</label>
+            <input type="number" id="modelBLatency" value="150">
+          </div>
+          <div class="field">
+            <label for="modelBVersion">Version</label>
+            <input type="text" id="modelBVersion" value="v2.0">
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="compareBtn" class="btn-primary">Compare Models</button>
+      </div>
+
+      <section id="resultsSection" class="results-section hidden">
+        <h2>Comparison Results</h2>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th id="headerA">Model A</th>
+                <th id="headerB">Model B</th>
+                <th>Change</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody"></tbody>
+          </table>
+        </div>
+
+        <div id="recommendation" class="recommendation hidden"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +193,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

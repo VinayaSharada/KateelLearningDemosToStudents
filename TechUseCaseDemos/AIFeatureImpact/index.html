@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,36 @@
         <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="input-section">
+        <h2>Add Feature</h2>
+        <form id="featureForm">
+          <div class="field">
+            <label for="name">Feature Name</label>
+            <input type="text" id="name" placeholder="e.g., Voice Search" required/>
+          </div>
+          <div class="grid">
+            <div class="field">
+              <label for="impact">Business Impact (1-10)</label>
+              <input type="range" id="impact" min="1" max="10" value="5"/>
+              <span id="impactVal">5</span>
+            </div>
+            <div class="field">
+              <label for="effort">Development Effort (1-10)</label>
+              <input type="range" id="effort" min="1" max="10" value="5"/>
+              <span id="effortVal">5</span>
+            </div>
+          </div>
+          <button type="submit">Add Feature</button>
+        </form>
+      </section>
+      <section class="results-section">
+        <h2>Feature Priority Matrix</h2>
+        <div class="matrix" id="matrix"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +137,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

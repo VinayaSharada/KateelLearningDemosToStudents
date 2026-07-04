@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,150 @@
         <a class="btn btn-secondary" href="../../courses/treasury-management.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <h3>Scenario Controls</h3>
+        <div class="control-row">
+          <div class="control-group">
+            <label for="scenarioSelect">Scenario</label>
+            <select id="scenarioSelect">
+              <option value="current">Current State</option>
+              <option value="industry">Industry Benchmark</option>
+              <option value="target">Target State</option>
+              <option value="custom">Custom Scenario</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="aiToggle" checked>
+              Enable AI Insights
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Financial Inputs -->
+      <section class="input-section">
+        <h3>Financial Data (Editable)</h3>
+        <div class="grid">
+          <div class="field">
+            <label for="totalSales">Total Sales (Annual) $</label>
+            <input type="number" id="totalSales" value="100000000" step="1000000">
+          </div>
+          <div class="field">
+            <label for="creditSales">Credit Sales (%)</label>
+            <input type="number" id="creditSales" value="80" min="0" max="100">
+          </div>
+          <div class="field">
+            <label for="cogs">Cost of Goods Sold (Annual) $</label>
+            <input type="number" id="cogs" value="60000000" step="1000000">
+          </div>
+          <div class="field">
+            <label for="accountsReceivable">Accounts Receivable $</label>
+            <input type="number" id="accountsReceivable" value="15000000" step="100000">
+          </div>
+          <div class="field">
+            <label for="accountsPayable">Accounts Payable $</label>
+            <input type="number" id="accountsPayable" value="10000000" step="100000">
+          </div>
+          <div class="field">
+            <label for="inventory">Average Inventory $</label>
+            <input type="number" id="inventory" value="8000000" step="100000">
+          </div>
+        </div>
+      </section>
+
+      <!-- CCC Calculation Results -->
+      <section class="results-section">
+        <h3>Cash Conversion Cycle Results</h3>
+        <div class="ccc-grid">
+          <div class="ccc-card">
+            <div class="ccc-label">DSO (Days Sales Outstanding)</div>
+            <div class="ccc-value" id="dso">45.6</div>
+            <div class="ccc-target">Target: &lt; 40 days</div>
+          </div>
+          <div class="ccc-card">
+            <div class="ccc-label">Inventory Days</div>
+            <div class="ccc-value" id="inventoryDays">48.7</div>
+            <div class="ccc-target">Target: &lt; 45 days</div>
+          </div>
+          <div class="ccc-card">
+            <div class="ccc-label">DPO (Days Payable Outstanding)</div>
+            <div class="ccc-value" id="dpo">36.5</div>
+            <div class="ccc-target">Target: &lt; 45 days</div>
+          </div>
+          <div class="ccc-card result">
+            <div class="ccc-label">Cash Conversion Cycle</div>
+            <div class="ccc-value" id="ccc">57.8</div>
+            <div class="ccc-target">Target: &lt; 50 days</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Optimization Scenario -->
+      <section class="scenario-section">
+        <h3>Optimization Scenario (What-If Analysis)</h3>
+        <div class="scenario-controls">
+          <div class="control-group">
+            <label for="dsoImprovement">DSO Improvement (%): <span id="dsoImpValue">0%</span></label>
+            <input type="range" id="dsoImprovement" min="-50" max="50" value="0">
+          </div>
+          <div class="control-group">
+            <label for="dpoIncrease">DPO Increase (%): <span id="dpoIncValue">0%</span></label>
+            <input type="range" id="dpoIncrease" min="-20" max="30" value="0">
+          </div>
+          <div class="control-group">
+            <label for="inventoryReduce">Inventory Reduction (%): <span id="invRedValue">0%</span></label>
+            <input type="range" id="inventoryReduce" min="-20" max="20" value="0">
+          </div>
+        </div>
+        <div class="scenario-results">
+          <div class="result-item">
+            <span>Optimized CCC:</span>
+            <span class="result-value" id="optimizedCcc">57.8 days</span>
+          </div>
+          <div class="result-item">
+            <span>Cash Release (Annual):</span>
+            <span class="result-value success" id="cashRelease">$0</span>
+          </div>
+          <div class="result-item">
+            <span>CCC Improvement:</span>
+            <span class="result-value" id="cccImprovement">0 days</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Recommendations -->
+      <section class="recommendation-section">
+        <h3>AI Recommendations</h3>
+        <div class="ai-insight">
+          <strong>AI Recommendation:</strong> <span id="aiRecommendation">Implement automated dunning to reduce DSO by 5-10 days</span>
+        </div>
+        <div class="recommendations-list">
+          <div class="rec-item">
+            <span class="rec-icon">💡</span>
+            <span class="rec-text">Implement automated dunning to reduce DSO by 5-10 days</span>
+          </div>
+          <div class="rec-item">
+            <span class="rec-icon">📦</span>
+            <span class="rec-text">Negotiate extended payment terms with suppliers (extend DPO)</span>
+          </div>
+          <div class="rec-item">
+            <span class="rec-icon">🔄</span>
+            <span class="rec-text">Adopt just-in-time inventory to reduce carrying costs</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <section class="actions-section">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="exportBtn">Export Results</button>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +251,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

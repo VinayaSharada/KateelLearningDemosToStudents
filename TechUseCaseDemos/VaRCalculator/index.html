@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,91 @@
         <a class="btn btn-secondary" href="../../courses/risk-management.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="intro">
+        <p>Value at Risk (VaR) estimates the maximum potential loss at a given confidence level. This demo supports both parametric and historical simulation methods.</p>
+      </section>
+
+      <section class="controls-grid">
+        <div class="control-card">
+          <h3>Portfolio Parameters</h3>
+          <div class="field">
+            <label>Portfolio Value: <span id="valueValue">$1,000,000</span></label>
+            <input type="range" id="valueSlider" min="100000" max="10000000" value="1000000" step="10000"/>
+          </div>
+          <div class="field">
+            <label>Volatility (σ): <span id="volValue">0.2</span> (20%)</label>
+            <input type="range" id="volSlider" min="0.05" max="0.5" value="0.2" step="0.01"/>
+          </div>
+          <div class="field">
+            <label>Confidence Level</label>
+            <select id="confLevel">
+              <option value="0.95">95%</option>
+              <option value="0.99" selected>99%</option>
+              <option value="0.995">99.5%</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <h3>Calculation Method</h3>
+          <div class="field">
+            <label>
+              <input type="radio" name="method" id="parametricMethod" checked /> Parametric (Variance-Covariance)
+            </label>
+            <label>
+              <input type="radio" name="method" id="historicalMethod" /> Historical Simulation
+            </label>
+          </div>
+          <div class="field">
+            <label>Time Horizon</label>
+            <select id="timeHorizon">
+              <option value="1">1 Day</option>
+              <option value="5" selected>5 Days (T+5)</option>
+              <option value="10">10 Days</option>
+              <option value="252">1 Year</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <h3>VaR Results</h3>
+        <div class="predictions-grid">
+          <div class="prediction-card">
+            <h4>VaR (Parametric)</h4>
+            <div id="parametricVaR" class="probability-value">$41,600</div>
+          </div>
+          <div class="prediction-card">
+            <h4>VaR (Historical)</h4>
+            <div id="historicalVaR" class="probability-value">$38,500</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Z-Score</h4>
+            <div id="zScore" class="probability-value">2.33</div>
+          </div>
+          <div class="prediction-card">
+            <h4>Expected Shortfall</h4>
+            <div id="esValue" class="probability-value">$58,240</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="explanation">
+        <h3>VaR Interpretation</h3>
+        <ul>
+          <li><strong>Parametric:</strong> Assumes normal distribution of returns</li>
+          <li><strong>Historical:</strong> Uses actual historical returns</li>
+          <li><strong>Expected Shortfall:</strong> Average loss beyond VaR threshold</li>
+          <li><strong>Scaling:</strong> VaR scales with √T (square-root of time)</li>
+        </ul>
+        <div class="papers">
+          <p><strong>Key Insight:</strong> Higher confidence levels and longer horizons increase VaR significantly.</p>
+        </div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +192,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

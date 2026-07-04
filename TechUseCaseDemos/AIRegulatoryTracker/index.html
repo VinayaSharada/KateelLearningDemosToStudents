@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,49 @@
         <a class="btn btn-secondary" href="../../courses/compliance.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section class="form-section">
+        <h2>Add Regulation</h2>
+        <form id="regForm">
+          <div class="grid">
+            <div class="field">
+              <label for="name">Regulation Name</label>
+              <input type="text" id="name" placeholder="e.g., EU AI Act" required/>
+            </div>
+            <div class="field">
+              <label for="jurisdiction">Jurisdiction</label>
+              <select id="jurisdiction">
+                <option>EU</option>
+                <option>US</option>
+                <option>UK</option>
+                <option>Global</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="field">
+              <label for="deadline">Deadline</label>
+              <input type="date" id="deadline"/>
+            </div>
+            <div class="field">
+              <label for="status">Status</label>
+              <select id="status">
+                <option>Not Started</option>
+                <option>In Progress</option>
+                <option>Compliant</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit">Add Regulation</button>
+        </form>
+      </section>
+      <section class="list-section">
+        <h2>Regulatory Requirements</h2>
+        <div id="regList"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +150,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>

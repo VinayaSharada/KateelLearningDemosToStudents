@@ -14,6 +14,7 @@
   </script>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
 </head>
 <body>
@@ -56,7 +57,70 @@
         <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <div class="chat-container">
+        <div id="chat-messages" class="messages">
+          <div class="msg bot">
+            <div class="msg-avatar">💙</div>
+            <div class="msg-content">
+              <p>Hello. I'm here to listen and support you. How are you feeling today?</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-area">
+          <input type="text" id="user-input" placeholder="Share your thoughts...">
+          <button id="send-btn" class="btn-send">Send</button>
+          <button id="mic-btn" class="btn-mic">🎤</button>
+        </div>
+      </div>
+
+      <div class="support-panel">
+        <div class="panel-section">
+          <h3>📊 Emotional State Tracker</h3>
+          <div id="mood-tracker">
+            <p>How are you feeling right now?</p>
+            <div class="mood-buttons">
+              <button class="mood-btn" data-mood="sad">😢 Sad</button>
+              <button class="mood-btn" data-mood="lonely">😐 Lonely</button>
+              <button class="mood-btn" data-mood="happy">😊 Happy</button>
+              <button class="mood-btn" data-mood="anxious">😰 Anxious</button>
+              <button class="mood-btn" data-mood="neutral">😑 Neutral</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h3>🔗 Connection Graph</h3>
+          <div id="connection-graph" class="graph-content">
+            <p class="hint">Your connections will appear here...</p>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h3>💡 Support Tips</h3>
+          <div id="support-tips">
+            <ul>
+              <li>Talk regularly with someone you trust</li>
+              <li>Try new hobbies or activities</li>
+              <li>Join community groups or clubs</li>
+              <li>Practice self-care daily</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <h3>📖 About This Assistant</h3>
+        <p>This assistant builds a knowledge graph from your inputs to provide personalized emotional support. It remembers your feelings and asks follow-up questions to help you feel connected.</p>
+        <details>
+          <summary>Privacy & Ethics</summary>
+          <p>All conversations are stored locally in your browser. No data is sent to external servers. This is a demonstration tool - for real emotional support, please contact a mental health professional.</p>
+        </details>
+      </div>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +171,6 @@
       </div>
     </section>
   </main>
+  <script src="app.js"></script>
 </body>
 </html>

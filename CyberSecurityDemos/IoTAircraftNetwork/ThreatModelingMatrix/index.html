@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../../assets/site.css">
   <link rel="stylesheet" href="../../../assets/demo-shell.css">
   <script defer src="../../../assets/site.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -56,7 +57,56 @@
         <a class="btn btn-secondary" href="../../../courses/cybersecurity.html">View Course Path</a>
       </div>
     </section>
-    
+
+    <section class="demo-widget">
+      <section>
+        <h2>Threat Categories</h2>
+        <div class="threat-grid" id="threatGrid"></div>
+      </section>
+      <section>
+        <h2>Add Threat</h2>
+        <form id="threatForm" class="flex flex-wrap">
+          <div class="card" style="flex: 1; min-width: 200px;">
+            <div class="field">
+              <label for="category">Category</label>
+              <select id="category">
+                <option value="Spoofing">Spoofing</option>
+                <option value="Tampering">Tampering</option>
+                <option value="Repudiation">Repudiation</option>
+                <option value="Information Disclosure">Information Disclosure</option>
+                <option value="Denial of Service">Denial of Service</option>
+                <option value="Elevation of Privilege">Elevation of Privilege</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="asset">Affected Asset</label>
+              <select id="asset">
+                <option value="Flight Controls">Flight Controls</option>
+                <option value="Engine Systems">Engine Systems</option>
+                <option value="Navigation">Navigation</option>
+                <option value="Communications">Communications</option>
+                <option value="Passenger Data">Passenger Data</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="risk">Risk Level</label>
+              <select id="risk">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Add Threat</button>
+          </div>
+        </form>
+      </section>
+      <section>
+        <h2>Identified Threats</h2>
+        <div id="threatList"></div>
+      </section>
+    </section>
+
   <section class="demo-standard-guide">
     <div class="section-header">
       <p class="section-kicker">Standard demo guide</p>
@@ -107,5 +157,6 @@
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>
