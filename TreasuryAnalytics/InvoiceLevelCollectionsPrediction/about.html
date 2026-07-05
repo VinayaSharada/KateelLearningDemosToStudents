@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Invoice-Level Collections Prediction - About Demo - KateelLearningDemos</title>
-  <meta name="description" content="About Demo learning guide for Invoice-Level Collections Prediction: a Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.">
-  <meta name="keywords" content="Invoice-Level Collections Prediction, Treasury Management, collections analytics, DSO, Colab notebook, invoice risk scoring">
+  <meta name="description" content="About Demo learning guide for Invoice-Level Collections Prediction: a Colab-based treasury notebook for invoice-level late-payment prediction, collections prioritization, and calendar-ready cash inflow forecasting.">
+  <meta name="keywords" content="Invoice-Level Collections Prediction, Treasury Management, collections analytics, DSO, Colab notebook, invoice risk scoring, cash flow calendar, expected payment date, bring your own data">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="author" content="Professor Vinaya Sathyanarayana">
   <meta name="theme-color" content="#0f766e">
@@ -13,31 +13,36 @@
   <link rel="manifest" href="../../site.webmanifest">
   <meta property="og:site_name" content="KateelLearningDemos">
   <meta property="og:title" content="Invoice-Level Collections Prediction - About Demo - KateelLearningDemos">
-  <meta property="og:description" content="Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.">
+  <meta property="og:description" content="Colab-based treasury notebook for invoice-level late-payment prediction, collections prioritization, and calendar-ready cash inflow forecasting.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/TreasuryAnalytics/InvoiceLevelCollectionsPrediction/about.html">
   <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
   <meta property="og:image:alt" content="Invoice-Level Collections Prediction learning demo preview">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Invoice-Level Collections Prediction - About Demo - KateelLearningDemos">
-  <meta name="twitter:description" content="Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.">
+  <meta name="twitter:description" content="Colab-based treasury notebook for invoice-level late-payment prediction, collections prioritization, and calendar-ready cash inflow forecasting.">
   <meta name="twitter:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LearningResource",
   "name": "Invoice-Level Collections Prediction About Demo",
-  "description": "Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.",
+  "description": "Colab-based treasury notebook for invoice-level late-payment prediction, collections prioritization, and calendar-ready cash inflow forecasting.",
   "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TreasuryAnalytics/InvoiceLevelCollectionsPrediction/about.html",
   "isAccessibleForFree": true,
   "learningResourceType": "About Demo",
   "educationalLevel": "Intermediate",
-  "timeRequired": "35-50 min",
+  "timeRequired": "50-75 min",
   "teaches": [
     "Explain how invoice-level features can be used to predict late-payment risk.",
     "Compare payment history, invoice terms, relationship signals, and seasonality as collections features.",
     "Interpret invoice risk scores as prioritization support rather than automatic truth.",
-    "Estimate how earlier collections can support DSO improvement and working-capital release."
+    "Estimate how earlier collections can support DSO improvement and working-capital release.",
+    "Turn a per-invoice payment-date prediction into a calendar-ready expected cash inflow feed.",
+    "Adapt a teaching notebook to run on a real ERP invoice export using a provided data template.",
+    "Compare a naive due-date cash forecast against an AI-adjusted one and quantify the difference.",
+    "Evaluate a regression model with RMSE on training vs. test data, and recognize overfitting from the gap.",
+    "Translate a measured accuracy improvement into an annual dollar value, with assumptions made explicit."
   ],
   "provider": {
     "@type": "Person",
@@ -103,9 +108,9 @@
 </nav>
   <main class="container">
     <section class="site-hero page-hero">
-      <p class="hero-eyebrow">Treasury Management • Intermediate • 35-50 min</p>
+      <p class="hero-eyebrow">Treasury Management • Intermediate • 50-75 min</p>
       <h1>Invoice-Level Collections Prediction</h1>
-      <p class="hero-subtitle">Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.</p>
+      <p class="hero-subtitle">Colab-based treasury notebook for invoice-level late-payment prediction, collections prioritization, and calendar-ready cash inflow forecasting.</p>
       <div class="pill-row">
         <span class="pill">About Demo</span>
         <span class="pill">Colab</span>
@@ -122,7 +127,7 @@
       <div class="section-header">
         <p class="section-kicker">What this demo is about</p>
         <h2>Feature-driven collections prioritization</h2>
-        <p>This notebook turns invoice-level business context into a practical treasury analytics workflow. Students see how payment history, invoice terms, disputes, customer relationship signals, regional seasonality, and invoice size can influence late-payment risk scoring.</p>
+        <p>This notebook turns invoice-level business context into a practical treasury analytics workflow. Students see how payment history, invoice terms, disputes, customer relationship signals, regional seasonality, and invoice size can influence late-payment risk scoring — and now, how a second model turns that risk into a predicted payment date, so the output can drive a real cash-forecasting calendar instead of just a ranked list.</p>
       </div>
       <div class="card-grid">
         <article class="info-card">
@@ -132,6 +137,11 @@
             <li>Compare payment history, invoice terms, relationship signals, and seasonality as collections features.</li>
             <li>Interpret invoice risk scores as prioritization support rather than automatic truth.</li>
             <li>Estimate how earlier collections can support DSO improvement and working-capital release.</li>
+            <li>Turn a per-invoice payment-date prediction into a calendar-ready expected cash inflow feed.</li>
+            <li>Adapt a teaching notebook to run on a real ERP invoice export using a provided data template.</li>
+            <li>Compare a naive due-date cash forecast against an AI-adjusted one and quantify the difference.</li>
+            <li>Evaluate a regression model with RMSE on training vs. test data, and recognize overfitting from the gap.</li>
+            <li>Translate a measured accuracy improvement into an annual dollar value, with assumptions made explicit.</li>
           </ul>
         </article>
         <article class="info-card">
@@ -144,7 +154,53 @@
         </article>
         <article class="info-card">
           <h3>Teacher cue</h3>
-          <p>Look for whether the model is identifying true collections risk, strategic delay, or simply large invoices that attract attention because of size.</p>
+          <p>Look for whether the model is identifying true collections risk, strategic delay, or simply large invoices that attract attention because of size. Then compare the two calendar charts: does the AI-adjusted version look meaningfully different from the naive due-date version, or is the model not actually changing the picture enough to justify the added complexity?</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="calendar">
+      <div class="section-header">
+        <p class="section-kicker">New in this version</p>
+        <h2>Bring your own data, and export a calendar-ready forecast</h2>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Data template</h3>
+          <p>The notebook generates a downloadable <code>invoice_data_template.csv</code> with the exact columns it expects and a few sample rows (one deliberately left with blank optional fields). Fill it with a real ERP export, upload it back in, and the same pipeline scores real invoices instead of synthetic ones.</p>
+        </article>
+        <article class="info-card">
+          <h3>Two models, not one</h3>
+          <p>A classifier predicts <em>whether</em> an invoice will be late; a regressor predicts <em>how many days</em> late or early. Only the second one can answer "when" — which is what a calendar needs.</p>
+        </article>
+        <article class="info-card">
+          <h3>Calendar exports</h3>
+          <p>Plain CSVs (per-invoice and daily-aggregate expected inflow) plus an optional Google Calendar-style import file, so the output can feed a spreadsheet, a BI tool, or a literal calendar.</p>
+        </article>
+        <article class="info-card highlight-card">
+          <h3>Without AI vs. with AI, side by side</h3>
+          <p>The calendar is built two ways from the same invoices: a naive version that assumes every invoice pays exactly on its due date, and an AI-adjusted version shifted by the regressor's prediction. Both are charted together and summarized as a near-term dollar difference, so the model's actual contribution is visible instead of assumed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="accuracy">
+      <div class="section-header">
+        <p class="section-kicker">New in this version</p>
+        <h2>Is the prediction actually accurate, and is it worth anything?</h2>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>RMSE, train vs. test</h3>
+          <p>A table compares RMSE and MAE for a naive "assume the due date" baseline against the AI regressor, on both the training set and a held-out test set. A train/test gap flags overfitting; a scatter plot of predicted vs. actual days late makes the fit visual.</p>
+        </article>
+        <article class="info-card highlight-card">
+          <h3>Economic value of the accuracy gain</h3>
+          <p>The RMSE improvement is translated into an annual dollar figure using a standard treasury framing: a tighter forecast needs a smaller cash buffer, which frees capital. The formula and its <code>COST_OF_CAPITAL_RATE</code> assumption are fully exposed — the notebook is explicit that this is a discussion number, not a boardroom-ready one.</p>
+        </article>
+        <article class="info-card">
+          <h3>Teacher cue</h3>
+          <p>Ask students to change <code>COST_OF_CAPITAL_RATE</code> and re-run — how much does the annual value estimate move, and what does that say about how much weight to put on the number itself versus the direction of the result?</p>
         </article>
       </div>
     </section>
@@ -166,6 +222,8 @@
             <div class="feature"><span>●</span>Invoice amount and terms</div>
             <div class="feature"><span>●</span>Industry and regional stress</div>
             <div class="feature"><span>●</span>Relationship and dispute signals</div>
+            <div class="feature"><span>●</span>Predicted expected payment date</div>
+            <div class="feature"><span>●</span>Daily expected cash inflow</div>
           </div>
         </article>
         <article class="info-card">

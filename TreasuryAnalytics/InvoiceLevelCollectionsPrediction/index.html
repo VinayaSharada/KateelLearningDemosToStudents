@@ -25,12 +25,15 @@
 </nav>
 <main class="container demo-shell">
   <section class="demo-hero">
-    <p class="demo-kicker">Treasury Management • Colab • 35-50 min</p>
+    <p class="demo-kicker">Treasury Management • Colab • 50-75 min</p>
     <h1>Invoice-Level Collections Prediction</h1>
-    <p class="demo-lede">Launch a Colab notebook that builds invoice-level late-payment risk features, trains a simple model, ranks collection priorities, and estimates the working-capital benefit of better collections timing.</p>
+    <p class="demo-lede">Launch a Colab notebook that builds invoice-level late-payment risk features, trains models to predict both late-payment risk and expected payment date, ranks collection priorities, and exports a calendar-ready expected cash inflow feed — shown both without AI (naive due-date forecast) and with AI (regressor-adjusted forecast) side by side. Includes a downloadable data template so you can run it on your own ERP invoice export instead of synthetic data.</p>
     <div class="tag-row">
       <span class="tag">Invoice-level feature engineering</span>
       <span class="tag">Collections prioritization</span>
+      <span class="tag">Calendar-ready cash inflow forecast</span>
+      <span class="tag">Without AI vs. with AI comparison</span>
+      <span class="tag">Bring-your-own-data template</span>
       <span class="tag">Colab-ready Python workflow</span>
     </div>
     <div class="cta-buttons">
@@ -44,7 +47,7 @@
     <div class="panel-grid">
       <article class="mini-panel">
         <h3>What this demo is about</h3>
-        <p>Students move beyond a browser simulation and inspect how payment history, invoice terms, dispute signals, channel mix, and seasonality can be turned into late-payment risk features.</p>
+        <p>Students move beyond a browser simulation and inspect how payment history, invoice terms, dispute signals, channel mix, and seasonality can be turned into late-payment risk features — and now, into a predicted payment date per invoice, rolled up into a day-by-day expected inflow calendar.</p>
       </article>
       <article class="mini-panel">
         <h3>Why Colab helps here</h3>
@@ -62,7 +65,7 @@
       </article>
       <article class="mini-panel">
         <h3>What students do</h3>
-        <p>Generate synthetic invoices, engineer risk features, train a baseline model, score invoices, and estimate cash release from better DSO discipline.</p>
+        <p>Generate synthetic invoices (or upload their own ERP export using the provided template), engineer risk features, train a late-payment classifier and a days-late regressor, score invoices, export a calendar-ready expected inflow feed, and estimate cash release from better DSO discipline.</p>
       </article>
       <article class="mini-panel">
         <h3>Wait expectation</h3>
@@ -75,9 +78,12 @@
     <h2>How to use it</h2>
     <ol class="step-list">
       <li>Open the notebook in Colab and run the setup cell.</li>
-      <li>Review the synthetic invoice data and ask which features should matter most.</li>
+      <li>Optional: download the data template, fill it with your own ERP invoice export, and upload it back in instead of using synthetic data.</li>
+      <li>Review the synthetic (or uploaded) invoice data and ask which features should matter most.</li>
       <li>Run the model section and compare predicted late-payment risk with invoice amount and customer context.</li>
       <li>Use the priority table to discuss which invoices should receive immediate collections attention.</li>
+      <li>Compare the "without AI" and "with AI" calendar charts and the near-term dollar difference between them — decide which one you'd actually trust for short-term cash planning.</li>
+      <li>Export the calendar feed as CSV (or a Google Calendar-style import file).</li>
     </ol>
     <div class="callout-note warn">
       This is a teaching notebook, not a production collections model. The point is to make feature choice, model behavior, and trade-offs visible enough for classroom critique.
