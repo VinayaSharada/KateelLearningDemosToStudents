@@ -40,7 +40,7 @@
 
   <div class="demo-context-strip" role="note">
     <strong>About vs. Demo:</strong> You are on the interactive demo. Use the <a href="about.html">About Demo</a> page for learning objectives, framework comparisons, and discussion prompts.
-    <br><strong>Teacher cue:</strong> Watch the Agent Trace panel — it shows the same observe → decide → act loop that production browser-agent frameworks use, just without an LLM behind it.
+    <br><strong>Teacher cue:</strong> Watch the Agent Trace panel — it shows the same observe → decide → act loop that production browser-agent frameworks use. Try the same command in Rule-based mode and then On-device AI mode to see the gap directly.
   </div>
   <div class="container">
   <header class="hero-shell">
@@ -51,7 +51,7 @@
       <div class="hero-pills">
         <span class="pill">Browser-only</span>
         <span class="pill">No API keys</span>
-        <span class="pill">Rule-based agent (stands in for an LLM)</span>
+        <span class="pill">Rule-based by default — optional on-device AI</span>
       </div>
     </div>
     <div class="hero-side">
@@ -59,6 +59,11 @@
         <span>Agent state</span>
         <strong id="agentState">Idle</strong>
         <p id="agentStateNote">Type a command and click Run Agent.</p>
+      </div>
+      <div class="hero-side-card">
+        <span>Interpreter</span>
+        <strong id="interpreterState">Rule-based</strong>
+        <p id="interpreterNote">Regex parser — switch to on-device AI below to try a real model.</p>
       </div>
       <div class="hero-side-card">
         <span>Actions taken</span>
@@ -86,6 +91,23 @@
           <div class="toggle-card">
             <input type="checkbox" id="guardrailToggle" checked>
             <span>Require confirmation before destructive actions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-group">
+          <label for="interpreterSelect">Command interpreter</label>
+          <select id="interpreterSelect">
+            <option value="rules" selected>Rule-based (regex, no download)</option>
+            <option value="ondevice">On-device AI (Chrome built-in or a downloaded local model)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <span class="model-status-label">On-device AI status</span>
+          <div class="model-status">
+            <span id="modelStatusText">Not loaded — select "On-device AI" above to check availability.</span>
+            <div class="mini-track"><div id="modelProgressFill" class="mini-fill" style="width:0%"></div></div>
           </div>
         </div>
       </div>

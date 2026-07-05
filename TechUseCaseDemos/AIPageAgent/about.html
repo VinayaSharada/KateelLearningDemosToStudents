@@ -37,9 +37,10 @@
     "Explain the observe-decide-act-result loop that browser-agent frameworks use to operate a UI.",
     "Compare text/DOM-based grounding (no screenshots) against vision-based agent approaches.",
     "Evaluate the build-vs-buy tradeoff between a custom in-page agent and frameworks like Stagehand, browser-use, or Nanobrowser.",
-    "Identify where a human-in-the-loop guardrail belongs when an agent can take destructive actions."
+    "Identify where a human-in-the-loop guardrail belongs when an agent can take destructive actions.",
+    "Compare a rule-based command parser against a real on-device AI model (Chrome's built-in Prompt API or WebLLM) on the same task."
   ],
-  "keywords": "AI Page Agent, AI Page Agent demo, AI Page Agent about demo, AI/ML Workflows, Management of AI Products, Intermediate, browser-based demo, classroom learning, GitHub Pages demo, no API keys, agentic UI control, page-agent, Stagehand, browser-use",
+  "keywords": "AI Page Agent, AI Page Agent demo, AI Page Agent about demo, AI/ML Workflows, Management of AI Products, Intermediate, browser-based demo, classroom learning, GitHub Pages demo, no API keys, agentic UI control, page-agent, Stagehand, browser-use, on-device AI, Chrome Prompt API, Gemini Nano, WebLLM",
   "inLanguage": "en",
   "about": [
     "Agentic UI control",
@@ -159,7 +160,7 @@
       <div class="section-header">
         <p class="section-kicker">What this demo is about</p>
         <h2>The pattern behind agentic UI control</h2>
-        <p>Type a plain-English command and an in-page agent reads a support ticket queue as text (no screenshots, no vision model), decides which action matches, and acts directly on the real DOM — the same architectural pattern used by the open-source <a href="https://github.com/alibaba/page-agent" target="_blank" rel="noopener">page-agent</a> library, just with a rule-based parser standing in for the LLM call so it runs with zero setup.</p>
+        <p>Type a plain-English command and an in-page agent reads a support ticket queue as text (no screenshots, no vision model), decides which action matches, and acts directly on the real DOM — the same architectural pattern used by the open-source <a href="https://github.com/alibaba/page-agent" target="_blank" rel="noopener">page-agent</a> library. The "Decide" step has two real, swappable interpreters: a zero-setup rule-based parser (default), and an optional on-device AI mode that calls a real local model — either Chrome's built-in Prompt API (Gemini Nano, no download) or WebLLM (a small open-weight model downloaded once and run locally via WebGPU).</p>
       </div>
       <div class="card-grid">
         <article class="info-card">
@@ -169,6 +170,7 @@
             <li>Compare text/DOM-based grounding (no screenshots) against vision-based agent approaches.</li>
             <li>Evaluate the build-vs-buy tradeoff between a custom in-page agent and frameworks like Stagehand, browser-use, or Nanobrowser.</li>
             <li>Identify where a human-in-the-loop guardrail belongs when an agent can take destructive actions.</li>
+            <li>Run the same command through a rule-based parser and a real on-device model, and explain concretely why one succeeds where the other fails.</li>
           </ul>
         </article>
         <article class="info-card">
@@ -181,9 +183,34 @@
         </article>
         <article class="info-card">
           <h3>Before you start</h3>
-          <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
-          <p>The rule-based command parser is intentionally brittle — that gap is a teaching point, not a bug.</p>
+          <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults. Rule-based mode is the default and never downloads anything.</p>
+          <p>On-device AI is opt-in: selecting it only checks for Chrome's built-in AI first (no download); if that's unavailable, it falls back to WebLLM, which downloads a small (roughly 300-500MB) model the first time over WebGPU. Nothing downloads until you explicitly choose that mode.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section" id="ondevice">
+      <div class="section-header">
+        <p class="section-kicker">Two real interpreters, same pipeline</p>
+        <h2>Rule-based parser vs. on-device AI</h2>
+        <p>Both interpreters feed the exact same guardrail, DOM-execution, and trace-logging code — only the "Decide" step changes. That's deliberate: it isolates the one variable that actually matters for this comparison.</p>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Rule-based (default)</h3>
+          <p>Regex and keyword matching against the command text. Zero setup, deterministic, and instantly reproducible — but brittle. Natural phrasings outside its fixed vocabulary (e.g. "the customer paying twice needs this fixed") return "no confident match" even though a human reading it knows exactly what to do.</p>
+        </article>
+        <article class="info-card">
+          <h3>Chrome built-in AI</h3>
+          <p>Uses Chrome's on-device Prompt API (<code>LanguageModel</code>/<code>window.ai.languageModel</code>), backed by Gemini Nano. No download managed by this page — Chrome handles that. Availability varies by Chrome version and may require enabling a flag; the demo detects this and reports status honestly rather than pretending it always works.</p>
+        </article>
+        <article class="info-card">
+          <h3>WebLLM fallback</h3>
+          <p>If Chrome's built-in AI isn't available, the demo checks for WebGPU and, if present, downloads a small model (<code>Qwen2.5-0.5B-Instruct</code>) via <a href="https://github.com/mlc-ai/web-llm" target="_blank" rel="noopener">WebLLM</a> and runs it locally. Works in any WebGPU-capable browser, not just Chrome — at the cost of a real download and slower first response.</p>
+        </article>
+      </div>
+      <div class="info-card highlight-card" style="margin-top: 16px;">
+        <p><strong>What the model actually receives:</strong> the same text-only observation list <code>observePage()</code> builds for the rule-based path, plus the user's command, wrapped in a prompt that asks for one JSON action object. The response is parsed defensively (malformed JSON, hallucinated ticket IDs, and off-schema actions all degrade to a visible "no confident match" rather than crashing or silently doing the wrong thing) and escaped before being shown in the trace log, since it's untrusted model output.</p>
       </div>
     </section>
 
@@ -235,7 +262,7 @@
         </article>
         <article class="info-card">
           <h3>What students should note</h3>
-          <p>The rule-based parser here will fail on phrasings a real LLM would handle easily. That's the honest tradeoff of zero-setup, zero-cost teaching demos versus what a production agent actually needs.</p>
+          <p>The rule-based parser will fail on phrasings a real LLM handles easily — try "the customer paying twice needs this fixed" in both modes and compare. That gap is the honest tradeoff of zero-setup, zero-cost teaching demos versus what a production agent actually needs. On-device AI narrows that gap without needing an API key, but isn't guaranteed to be available in every browser.</p>
         </article>
       </div>
     </section>
@@ -253,14 +280,16 @@
             <li>Watch the Agent Trace panel's four steps: Observe, Decide, Act, Result.</li>
             <li>Try a destructive command (resolve/escalate) with the guardrail on, then confirm or cancel it.</li>
             <li>Turn the guardrail off and re-run the same command to see it execute immediately.</li>
-            <li>Try a command the parser can't handle (e.g. "do a backflip") and discuss what a real LLM would do differently.</li>
+            <li>Try a command the rule-based parser can't handle (e.g. "the customer paying twice needs this fixed"), note the "no confident match" result, then switch the interpreter to On-device AI and try the exact same command.</li>
+            <li>Check the "On-device AI status" panel — if it says "Not supported," that's a real, honest capability check, not a bug; discuss what that means for shipping AI features to a real user base with mixed browsers.</li>
           </ul>
         </article>
         <article class="info-card">
           <h3>Controls explained</h3>
           <ul>
             <li>`Command input` is the only control a user needs — the ticket-level buttons and dropdowns still work by hand, for comparison.</li>
-            <li>`Safety guardrail` toggles whether destructive actions (resolve, escalate) pause for human confirmation.</li>
+            <li>`Command interpreter` switches the "Decide" step between the rule-based parser and on-device AI. Switching to on-device AI triggers a one-time capability check (and possibly a model download) — nothing loads until you choose it.</li>
+            <li>`Safety guardrail` toggles whether destructive actions (resolve, escalate) pause for human confirmation, regardless of which interpreter decided the action.</li>
             <li>`Run Agent` executes the observe-decide-act-result loop once per click.</li>
           </ul>
         </article>
@@ -268,7 +297,7 @@
           <h3>Buttons / actions</h3>
           <ul>
             <li>`Confirm Action` / `Cancel` only appear when the guardrail intercepts a destructive action.</li>
-            <li>`Reset Demo` restores the ticket queue, action counter, and guardrail to their starting state.</li>
+            <li>`Reset Demo` restores the ticket queue, action counter, guardrail, and interpreter to their starting state. An already-loaded on-device model stays in memory — it won't re-download.</li>
           </ul>
         </article>
       </div>
