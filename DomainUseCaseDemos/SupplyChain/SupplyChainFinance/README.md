@@ -8,7 +8,7 @@ Supply chain finance teaching demo where students adjust revenue, supplier count
 
 - Explain the main quant decision that Supply Chain Finance is designed to support.
 - Use Annual revenue, Days sales outstanding to test how different assumptions change the scenario.
-- Interpret Output and Interpretation, What outputs mean in plain language and connect them to an action or conclusion.
+- Interpret cash-flow release, annual savings, and ROI in plain language and connect them to an action or conclusion.
 - State one limitation, risk, or governance consideration before using the result in a real decision.
 
 ## Run Modes
@@ -25,6 +25,7 @@ Supply chain finance teaching demo where students adjust revenue, supplier count
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,8 +39,8 @@ Supply chain finance teaching demo where students adjust revenue, supplier count
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
-4. Read Output and Interpretation first, then compare any supporting metrics, charts, or AI text.
+3. Move the revenue, DSO, supplier count, or payment-terms sliders — results update immediately, no button needed.
+4. Read the cash-flow release and ROI first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
 ## Inputs
@@ -51,8 +52,7 @@ Supply chain finance teaching demo where students adjust revenue, supplier count
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- There are no run/reset buttons — moving any slider recalculates cash-flow release, savings, and ROI immediately.
 
 ## Outputs
 
@@ -64,7 +64,7 @@ Supply chain finance teaching demo where students adjust revenue, supplier count
 - Look for invoice timing, buyer risk, supplier risk, and financing cost
 - Observe how working-capital benefits change when payment terms or discount rates shift
 - Note that supply-chain finance should balance liquidity gains against counterparty and reputational risk
-- Compare the headline output with supporting views such as Output and Interpretation, What outputs mean before drawing a conclusion
+- Compare the headline cash-flow release figure against the discount rate, annual savings, and ROI before drawing a conclusion
 
 ## Related Demos or Course Context
 

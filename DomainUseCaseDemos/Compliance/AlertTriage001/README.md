@@ -2,7 +2,7 @@
 
 ## Overview
 
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
+Log compliance alerts by regulation, severity, and deadline, then watch them get automatically ranked in a prioritized queue.
 
 ## Learning Objectives
 
@@ -25,6 +25,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Fill in the alert name, regulation, severity, and deadline, then click `Add Alert`.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +50,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- `Add Alert` adds the new alert to the queue, which is automatically re-sorted by priority.
 
 ## Outputs
 

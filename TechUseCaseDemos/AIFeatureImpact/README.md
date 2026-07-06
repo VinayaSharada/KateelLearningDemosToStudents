@@ -25,6 +25,7 @@ AI Feature Impact is a interactive browser demo in the AI/ML Workflows track. It
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

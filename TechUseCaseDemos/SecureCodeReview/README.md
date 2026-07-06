@@ -2,7 +2,7 @@
 
 ## Overview
 
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
+Paste code into the editor and scan it for common security vulnerabilities, with findings ranked by severity (Critical/High/etc.) and listed with the specific issue.
 
 ## Learning Objectives
 
@@ -25,6 +25,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Paste code into the editor, then click `Review for Security Issues`.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +50,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- `Review for Security Issues` scans the pasted code and reveals the results section.
 
 ## Outputs
 

@@ -25,6 +25,7 @@ Browser AI Demos — Edge AI Showcase is a interactive browser demo in the AI/ML
 
 ## Files in This Folder
 
+- `about.html`
 - `index.html`
 - `README.md`
 - `start_demos.bat`

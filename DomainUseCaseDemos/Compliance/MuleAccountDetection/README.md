@@ -25,6 +25,7 @@ Mule Account Detection is a interactive browser demo in the Compliance & Governa
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

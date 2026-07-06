@@ -25,6 +25,7 @@ Contagion Model is a interactive browser demo in the Risk Management track. It h
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

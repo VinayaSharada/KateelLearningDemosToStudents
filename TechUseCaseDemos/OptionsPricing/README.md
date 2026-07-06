@@ -2,7 +2,9 @@
 
 ## Overview
 
-Developed in 1973 by Fischer Black, Myron Scholes, and Robert Merton. Based on **stochastic calculus** and **risk-neutral valuation**.
+Quick, type-in-the-numbers Black-Scholes calculator: enter spot, strike, time, rate, and volatility to get call/put price, Delta, Gamma, and Vega instantly, plus a put-call parity check that verifies the two prices are internally consistent. Developed in 1973 by Fischer Black, Myron Scholes, and Robert Merton, based on stochastic calculus and risk-neutral valuation.
+
+For live sliders, the full Greek suite (including Theta and Rho), and a payoff-at-expiry chart, see [Option Pricing — Full Sensitivity Lab](../OptionPricingDemo/about.html).
 
 ## Learning Objectives
 
@@ -25,6 +27,7 @@ Developed in 1973 by Fischer Black, Myron Scholes, and Robert Merton. Based on *
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -61,11 +64,13 @@ Developed in 1973 by Fischer Black, Myron Scholes, and Robert Merton. Based on *
 
 - Look for call and put values, strike, expiry, and volatility assumptions
 - Observe how put-call relationships and sensitivities appear across scenarios
+- Check the put-call parity row — the two sides should match almost exactly; a large gap signals an input or rounding problem, not a real arbitrage
 - Note that students should explain the business meaning of each option output
 
 ## Related Demos or Course Context
 
 - Course path: [Quant Finance](../../courses/quant-finance.html)
+- Related demo: [Option Pricing — Full Sensitivity Lab](../OptionPricingDemo/about.html) (sliders, full Greeks, and a payoff chart)
 - Related demo: [Black Scholes Option](../../DomainUseCaseDemos/QuantFinance/BlackScholesOption/about.html)
 - Related demo: [Supply Chain Finance](../../DomainUseCaseDemos/SupplyChain/SupplyChainFinance/about.html)
 - Related demo: [Bond Pricing](../BondPricingDemo/about.html)

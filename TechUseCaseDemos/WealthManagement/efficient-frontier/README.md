@@ -1,12 +1,12 @@
-# efficient frontier
+# Efficient Frontier
 
 ## Overview
 
-efficient frontier is a interactive browser demo in the Quant Finance track. It helps students explore the main decision, key inputs, and output interpretation in browser mode.
+Load sample assets or enter your own expected returns and covariances, then calculate the Efficient Frontier — the set of portfolios offering the best return for each level of risk.
 
 ## Learning Objectives
 
-- Explain the main quant decision that efficient frontier is designed to support.
+- Explain the main quant decision that Efficient Frontier is designed to support.
 - Change input assumptions and predict how the output should respond before running the demo.
 - Interpret the result in plain language, not just as a number, chart, or AI recommendation.
 - State one limitation, risk, or governance consideration before using the result in a real decision.
@@ -25,6 +25,7 @@ efficient frontier is a interactive browser demo in the Quant Finance track. It 
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ efficient frontier is a interactive browser demo in the Quant Finance track. It 
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Click `Load Sample Assets`, then `Calculate Portfolio`.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +50,7 @@ efficient frontier is a interactive browser demo in the Quant Finance track. It 
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- `Load Sample Assets` fills in example return/covariance data; `Calculate Portfolio` plots the efficient frontier from the current inputs.
 
 ## Outputs
 

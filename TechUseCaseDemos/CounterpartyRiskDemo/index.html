@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Counterparty Risk - KateelLearningDemos</title>
-  <meta name="description" content="The **mark-to-market adjustment** for counterparty default risk. It represents the expected loss from counterparty default.">
+  <meta name="description" content="Parametric bilateral CVA/DVA calculator with an Expected Exposure profile chart showing how exposure rises and decays over the life of a trade.">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -50,7 +50,7 @@
     <section class="demo-hero">
       <p class="demo-kicker">Risk Management • Browser • 30-40 min</p>
       <h1>Counterparty Risk</h1>
-      <p class="demo-lede">The **mark-to-market adjustment** for counterparty default risk. It represents the expected loss from counterparty default.</p>
+      <p class="demo-lede">Parametric bilateral CVA/DVA calculator with an Expected Exposure profile chart showing how exposure rises and decays over the life of a trade.</p>
       <div class="cta-buttons">
         <a class="btn btn-primary" href="about.html">Open About Demo</a>
         <a class="btn btn-secondary" href="README.md">Read README</a>
@@ -79,11 +79,15 @@
         <div class="control-card">
           <h3>Risk Parameters</h3>
           <div class="field">
-            <label>PD (1Y): <span id="pdValue">2.0%</span></label>
+            <label>Counterparty PD (1Y): <span id="pdValue">2.0%</span></label>
             <input type="range" id="pdSlider" min="0.1" max="10" value="2" step="0.1"/>
           </div>
           <div class="field">
-            <label>LGD: <span id="lgdValue">40%</span></label>
+            <label>Own PD (1Y, for DVA): <span id="ownPdValue">1.0%</span></label>
+            <input type="range" id="ownPdSlider" min="0.1" max="10" value="1" step="0.1"/>
+          </div>
+          <div class="field">
+            <label>LGD (both sides): <span id="lgdValue">40%</span></label>
             <input type="range" id="lgdSlider" min="0.1" max="0.9" value="0.4" step="0.05"/>
           </div>
           <div class="field">
@@ -109,22 +113,33 @@
             <div id="dvaValue" class="probability-value">$0</div>
           </div>
           <div class="prediction-card">
+            <h4>Net Bilateral CVA</h4>
+            <div id="netBilateralValue" class="probability-value">$0</div>
+          </div>
+          <div class="prediction-card">
             <h4>Adjusted Value</h4>
             <div id="adjustedValue" class="probability-value">$9.6M</div>
           </div>
         </div>
       </section>
 
+      <section class="ee-profile-section">
+        <h3>Expected Exposure Profile</h3>
+        <canvas id="eeProfileChart" width="640" height="220" style="width:100%; max-width:640px; height:220px;"></canvas>
+        <p class="chart-caption">Exposure on an uncollateralized swap-like trade typically rises as market rates diverge from the deal rate, then falls as the trade rolls toward maturity. CVA depends on this whole profile, not just a single snapshot — the flat "Expected Exposure" number above is a simplification of the shaded area under this curve.</p>
+      </section>
+
       <section class="explanation">
         <h3>Key Concepts</h3>
         <ul>
           <li><strong>CVA:</strong> Mark-to-market adjustment for counterparty default risk</li>
-          <li><strong>DVA:</strong> Accounting adjustment for own credit risk</li>
+          <li><strong>DVA:</strong> Mark-to-market benefit from the reporting entity's own default risk — computed here from Own PD, symmetric to CVA</li>
+          <li><strong>Net Bilateral CVA:</strong> CVA − DVA, the fair-value adjustment actually booked once both sides of default risk are netted</li>
           <li><strong>EE:</strong> Expected Exposure = Notional × Exposure Factor</li>
           <li><strong>LGD:</strong> Loss Given Default (recovery rate = 1 - LGD)</li>
         </ul>
         <div class="papers">
-          <p><strong>Formula:</strong> CVA = EE × PD × LGD</p>
+          <p><strong>Formula:</strong> CVA = EE × Counterparty PD × LGD; DVA = EE × Own PD × LGD; Net Bilateral CVA = CVA − DVA</p>
         </div>
       </section>
     </section>
@@ -138,7 +153,7 @@
     <div class="card-grid">
       <article class="info-card">
         <h3>What this demo is about</h3>
-        <p>The **mark-to-market adjustment** for counterparty default risk. It represents the expected loss from counterparty default.</p>
+        <p>Parametric bilateral CVA/DVA calculator with an Expected Exposure profile chart showing how exposure rises and decays over the life of a trade.</p>
       </article>
       <article class="info-card">
         <h3>Learning objectives</h3>

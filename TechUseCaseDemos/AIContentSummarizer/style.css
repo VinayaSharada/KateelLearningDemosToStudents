@@ -47,6 +47,7 @@ input[type="text"] {
 .result-card h3 { margin-bottom: 1rem; font-size: 1.125rem; }
 .result-content { font-size: 0.875rem; line-height: 1.6; color: #b1bac7; }
 .result-content ul { padding-left: 1.5rem; }
+.result-stats { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #8b949e; }
 
 .hidden { display: none; }
 

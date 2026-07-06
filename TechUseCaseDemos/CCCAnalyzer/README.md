@@ -25,6 +25,7 @@ Browser-based hands-on exercise for Working Capital Optimization (Session 3).
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ Browser-based hands-on exercise for Working Capital Optimization (Session 3).
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Adjust the receivables, inventory, or payables inputs — the cash conversion cycle recalculates immediately.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +50,8 @@ Browser-based hands-on exercise for Working Capital Optimization (Session 3).
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- Inputs recalculate the cash conversion cycle live — there is no separate run button.
+- `Reset` returns to the default figures; `Export Results` saves the current scenario.
 
 ## Outputs
 

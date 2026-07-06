@@ -25,6 +25,7 @@ Hands-on data analysis demo where students paste a small CSV, inspect traditiona
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

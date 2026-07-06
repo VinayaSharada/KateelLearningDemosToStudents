@@ -25,6 +25,7 @@ A browser-based policy simulation demonstrating AI-driven resource allocation de
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

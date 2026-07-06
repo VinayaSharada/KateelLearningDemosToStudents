@@ -2,7 +2,7 @@
 
 ## Overview
 
-Interactive stablecoin treasury demo where learners rebalance lending, DEX liquidity, and cash reserves to see how yield, redemption readiness, and peg resilience move together under different allocation profiles.
+Interactive stablecoin treasury demo where learners rebalance lending, DEX liquidity, and cash reserves and watch the weighted portfolio yield respond to the mix.
 
 ## Learning Objectives
 
@@ -25,6 +25,7 @@ Interactive stablecoin treasury demo where learners rebalance lending, DEX liqui
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ Interactive stablecoin treasury demo where learners rebalance lending, DEX liqui
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Reset Mix`.
+3. Move the lending, DEX, or cash allocation sliders — the yield recalculates immediately.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -57,8 +58,8 @@ Interactive stablecoin treasury demo where learners rebalance lending, DEX liqui
 
 ## Outputs
 
-- The key outputs are reserve strength, deployment mix, and any commentary on peg stability or redemption pressure.
-- Students should ask whether the higher-yield allocation leaves enough liquidity for redemptions and confidence under stress.
+- The key outputs are the weighted portfolio yield (%) and its annual dollar value, computed from the lending/DEX/cash allocation mix and each bucket's base yield.
+- Students should ask whether the higher-yield allocation leaves enough in the zero-yield cash reserve for redemptions and confidence under stress.
 
 ## What To Notice
 

@@ -25,6 +25,7 @@ Browser-based hands-on exercise for Course Synthesis (Session 8).
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ Browser-based hands-on exercise for Course Synthesis (Session 8).
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Set the current-state and target-state inputs, then use `Generate Roadmap`.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +50,8 @@ Browser-based hands-on exercise for Course Synthesis (Session 8).
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- `Generate Roadmap` computes the transformation plan from the current inputs.
+- Use `Reset` to return to the default figures, or `Export Blueprint` to save the current roadmap.
 
 ## Outputs
 

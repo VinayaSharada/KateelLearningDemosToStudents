@@ -25,6 +25,7 @@ Vuln Scanner is a interactive browser demo in the Cybersecurity track. It helps 
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

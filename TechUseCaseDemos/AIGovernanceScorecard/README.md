@@ -2,7 +2,15 @@
 
 ## Overview
 
-|- Fairness and Bias Mitigation |- Model Transparency/Explainability |- Privacy Protection (GDPR/CCPA) |- Safety and Security Measures |- Audit Trail and Documentation |- Model Validation and Testing |- Ongoing Monitoring Plan.
+Work through a 7-item AI governance checklist to compute an overall compliance score:
+
+- Fairness and Bias Mitigation
+- Model Transparency/Explainability
+- Privacy Protection (GDPR/CCPA)
+- Safety and Security Measures
+- Audit Trail and Documentation
+- Model Validation and Testing
+- Ongoing Monitoring Plan
 
 ## Learning Objectives
 
@@ -25,6 +33,7 @@
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

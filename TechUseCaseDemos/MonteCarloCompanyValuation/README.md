@@ -25,6 +25,7 @@ Browser-based Monte Carlo simulation for valuing a company over a five-year fore
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

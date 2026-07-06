@@ -2,7 +2,7 @@
 
 ## Overview
 
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
+A simulated Security Information and Event Management (SIEM) dashboard that surfaces security events, active alerts, and their severity so analysts can prioritize investigation over raw alert volume.
 
 ## Learning Objectives
 
@@ -25,6 +25,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Click `Refresh` to generate a new batch of simulated events and alerts.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +50,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- `Refresh` generates a new batch of simulated security events and alerts to review.
 
 ## Outputs
 

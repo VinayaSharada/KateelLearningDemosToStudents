@@ -25,6 +25,7 @@ Browser-based hands-on exercise for FX Risk & Hedging (Session 2).
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

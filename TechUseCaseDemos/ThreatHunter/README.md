@@ -2,7 +2,7 @@
 
 ## Overview
 
-This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents) by Professor Vinaya Sathyanarayana.
+Upload a log file and run a simulated threat hunt: the tool scores each entry, flags anomalies, and produces an overall risk score so students can practice narrowing broad telemetry into specific findings.
 
 ## Learning Objectives
 
@@ -25,6 +25,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Upload a `.log`, `.csv`, or `.json` file, then click `Analyze Logs`.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +50,7 @@ This demo is part of [KateelLearningDemosToStudents](https://github.com/VinayaSh
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- `Analyze Logs` becomes active once a log file is uploaded, and runs the anomaly scan.
 
 ## Outputs
 

@@ -25,6 +25,7 @@ Banks fail when their financial health deteriorates. Key indicators include:.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

@@ -25,6 +25,7 @@ AI Performance Dashboard is a interactive browser demo in the AI/ML Workflows tr
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

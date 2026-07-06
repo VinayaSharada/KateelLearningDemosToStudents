@@ -25,6 +25,7 @@ Browser-based Voice + RAG demo with Speech-to-Text (STT) and Text-to-Speech (TTS
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

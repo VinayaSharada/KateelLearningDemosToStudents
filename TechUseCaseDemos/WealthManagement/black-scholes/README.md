@@ -1,12 +1,12 @@
-# black scholes
+# Black-Scholes
 
 ## Overview
 
-black scholes is a interactive browser demo in the Quant Finance track. It helps students explore the main decision, key inputs, and output interpretation in browser mode.
+Enter spot price, strike price, time to expiry, risk-free rate, and volatility to compute Black-Scholes call and put prices along with their Deltas.
 
 ## Learning Objectives
 
-- Explain the main quant decision that black scholes is designed to support.
+- Explain the main quant decision that Black-Scholes is designed to support.
 - Change input assumptions and predict how the output should respond before running the demo.
 - Interpret the result in plain language, not just as a number, chart, or AI recommendation.
 - State one limitation, risk, or governance consideration before using the result in a real decision.
@@ -25,6 +25,7 @@ black scholes is a interactive browser demo in the Quant Finance track. It helps
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ black scholes is a interactive browser demo in the Quant Finance track. It helps
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Set the option inputs, then click `Calculate`.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +50,7 @@ black scholes is a interactive browser demo in the Quant Finance track. It helps
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- `Calculate` computes the call/put prices and Deltas from the current inputs.
 
 ## Outputs
 

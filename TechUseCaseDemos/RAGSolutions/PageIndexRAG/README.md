@@ -25,6 +25,7 @@ Browser-based demonstration of document indexing with page-level retrieval for p
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

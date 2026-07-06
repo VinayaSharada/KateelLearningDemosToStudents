@@ -25,6 +25,7 @@ Based on **LLM function calling** and **multi-step reasoning** where AI agents c
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

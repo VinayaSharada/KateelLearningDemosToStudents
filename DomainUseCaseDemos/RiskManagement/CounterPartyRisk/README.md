@@ -2,7 +2,9 @@
 
 ## Overview
 
-Demo for evaluating counterparty credit risk in derivatives transactions.
+Rating-driven CVA calculator with a collateral-mitigation view: pick a credit rating (AAA–CCC), set notional, maturity, and collateral, then use "Simulate 1-Notch Downgrade" to see exactly how much a rating transition moves net CVA at your current collateral level — the standard credit-risk-desk framing of counterparty exposure.
+
+For a parametric CVA/DVA calculator with an Expected Exposure profile chart instead of a rating table, see [Counterparty Risk (CVA/DVA)](../../../TechUseCaseDemos/CounterpartyRiskDemo/about.html).
 
 ## Learning Objectives
 
@@ -25,6 +27,7 @@ Demo for evaluating counterparty credit risk in derivatives transactions.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -61,6 +64,7 @@ Demo for evaluating counterparty credit risk in derivatives transactions.
 
 - Look for exposure, probability of default, recovery rate, and expected loss
 - Observe how counterparty risk changes with exposure size and credit quality
+- Use "Simulate 1-Notch Downgrade" to see how much rating migration alone can move CVA, holding collateral fixed
 - Note that expected loss is a starting point for collateral, limits, and monitoring decisions
 
 ## Related Demos or Course Context
@@ -68,7 +72,7 @@ Demo for evaluating counterparty credit risk in derivatives transactions.
 - Course path: [Risk Management](../../../courses/risk-management.html)
 - Related demo: [Contagion Model](../ContagionModel/about.html)
 - Related demo: [AI Risk Calculator](../../../TechUseCaseDemos/AIRiskCalculator/about.html)
-- Related demo: [Counterparty Risk](../../../TechUseCaseDemos/CounterpartyRiskDemo/about.html)
+- Related demo: [Counterparty Risk (CVA/DVA)](../../../TechUseCaseDemos/CounterpartyRiskDemo/about.html) (parametric bilateral CVA/DVA with an exposure profile chart)
 
 ## Attribution
 

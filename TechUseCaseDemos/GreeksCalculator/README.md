@@ -6,7 +6,7 @@ Measures of **option sensitivity** to changes in underlying factors. Derived fro
 
 ## Learning Objectives
 
-- Explain the main ai/ml decision that Greeks Calculator is designed to support.
+- Explain the main quant decision that Greeks Calculator is designed to support.
 - Change input assumptions and predict how the output should respond before running the demo.
 - Interpret the result in plain language, not just as a number, chart, or AI recommendation.
 - State one limitation, risk, or governance consideration before using the result in a real decision.
@@ -25,6 +25,7 @@ Measures of **option sensitivity** to changes in underlying factors. Derived fro
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -65,10 +66,10 @@ Measures of **option sensitivity** to changes in underlying factors. Derived fro
 
 ## Related Demos or Course Context
 
-- Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)
-- Related demo: [AB Testing Framework](../ABTestingFramework/about.html)
-- Related demo: [AI Cost Benefit Analyzer](../AICostBenefitAnalyzer/about.html)
-- Related demo: [AI Data Analyzer](../AIDataAnalyzer/about.html)
+- Course path: [Quant Finance](../../courses/quant-finance.html)
+- Related demo: [Black-Scholes](../WealthManagement/black-scholes/about.html)
+- Related demo: [Black Scholes Option](../../DomainUseCaseDemos/QuantFinance/BlackScholesOption/about.html)
+- Related demo: [Option Pricing](../OptionPricingDemo/about.html)
 
 ## Attribution
 

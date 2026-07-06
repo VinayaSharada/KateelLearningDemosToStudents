@@ -2,7 +2,9 @@
 
 ## Overview
 
-Based on **statistical and heuristic methods** that select important sentences from the source text without generating new content.
+Side-by-side teaching comparison: a real extractive summarizer (frequency-scored sentence selection, no model call) versus a simulated AI abstractive summary, each with a word-count and compression-ratio readout so the trade-off between the two approaches is measurable, not just visual.
+
+For a save/copy/history-focused summarization tool instead of a comparison view, see [AI Summarizer001](../AISummarizer001/about.html).
 
 ## Learning Objectives
 
@@ -25,6 +27,7 @@ Based on **statistical and heuristic methods** that select important sentences f
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -61,12 +64,13 @@ Based on **statistical and heuristic methods** that select important sentences f
 
 - Look for source text, summary length, key points, and missing details
 - Observe how summarization quality changes with document complexity
-- Note that summaries should be checked against the source before they are reused
+- Compare the compression-ratio readout on each side — a higher compression ratio isn't automatically better if it drops load-bearing details
+- Note that the "AI Summary" side is a simulated response for teaching purposes, not a live model call, and that summaries should be checked against the source before they are reused
 
 ## Related Demos or Course Context
 
 - Course path: [RAG & NLP](../../courses/rag-nlp.html)
-- Related demo: [AI Summarizer001](../AISummarizer001/about.html)
+- Related demo: [AI Summarizer001](../AISummarizer001/about.html) (save/copy/history workflow tool, not a comparison view)
 - Related demo: [Lite Parse](../LiteParseDemo/about.html)
 - Related demo: [Graph RAG](../RAGSolutions/GraphRAG/about.html)
 

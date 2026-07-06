@@ -25,6 +25,7 @@ Interactive portfolio optimization demo using mean-variance optimization (Markow
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

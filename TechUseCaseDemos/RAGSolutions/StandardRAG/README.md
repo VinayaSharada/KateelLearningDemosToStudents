@@ -25,6 +25,7 @@ Browser-based demonstration of Retrieval-Augmented Generation using keyword matc
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

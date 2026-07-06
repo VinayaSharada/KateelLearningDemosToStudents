@@ -26,6 +26,7 @@ Launch guide for the liquidity management teaching workflow. Students review the
 
 ## Files in This Folder
 
+- `about.html`
 - `colab_demo.ipynb`
 - `generate_synthetic_liquidity_data.ipynb`
 - `generate_synthetic_liquidity_data.py`

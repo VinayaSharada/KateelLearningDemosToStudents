@@ -26,6 +26,7 @@ Browser-first liquidity lab where students generate synthetic bank data, inspect
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `data_generator.py`
 - `index.html`

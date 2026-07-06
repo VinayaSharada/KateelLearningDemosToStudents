@@ -25,6 +25,7 @@ Interactive demo for understanding feature stores in ML systems.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

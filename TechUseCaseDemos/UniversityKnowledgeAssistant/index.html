@@ -112,12 +112,13 @@
         </ol>
         <details>
           <summary>Technical Stack</summary>
+          <p>This demo simulates the full pipeline entirely in browser JavaScript — no PDF parsing library, knowledge-graph database, or language model actually runs. It's built to teach the architecture, not to demonstrate production infrastructure.</p>
           <ul>
-            <li>📄 PDF.js - PDF text extraction</li>
-            <li>🔢 PageIndex - Document indexing with citations</li>
-            <li>🔗 FalkorDB - Knowledge graph (local)</li>
-            <li>🧠 Local SLM - Phi-3.5/Mistral via llama.cpp</li>
-            <li>🎤 Web Speech API - STT/TTS</li>
+            <li>📄 PDF text extraction — simulated; a production build would use PDF.js or similar</li>
+            <li>🔢 PageIndex-style document indexing — implemented as an in-memory inverted index</li>
+            <li>🔗 Knowledge graph over entities — simulated; a production build would use a graph database like FalkorDB</li>
+            <li>🧠 Local SLM reasoning — simulated with rule-based logic; a production build would run a small model such as Phi-3.5 or Mistral via llama.cpp</li>
+            <li>🎤 Web Speech API - STT/TTS (this one is real, native browser API)</li>
           </ul>
         </details>
       </div>

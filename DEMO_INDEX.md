@@ -81,7 +81,7 @@ Credit, market, counterparty, systemic, and cyber-risk modeling demos for financ
 | Risk Parity Portfolio | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RiskParityPortfolio/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/RiskParityPortfolio/index.html) | Advanced |
 | SIEM Dashboard | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SIEMDashboard/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SIEMDashboard/index.html) | All Levels |
 | Threat Hunter | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ThreatHunter/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ThreatHunter/index.html) | All Levels |
-| Va R Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/VaRCalculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/VaRCalculator/index.html) | Advanced |
+| VaR Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/VaRCalculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/VaRCalculator/index.html) | Advanced |
 
 ## 💰 Quant Finance (10 demos)
 
@@ -96,9 +96,9 @@ Derivatives, portfolio optimization, fixed income, VaR, Greeks, and supply-chain
 | Option Pricing | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/OptionPricingDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/OptionPricingDemo/index.html) | Intermediate |
 | Options Pricing | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/OptionsPricing/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/OptionsPricing/index.html) | Intermediate |
 | Portfolio Optimizer | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/PortfolioOptimizer/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/PortfolioOptimizer/index.html) | Advanced |
-| black scholes | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/black-scholes/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/black-scholes/index.html) | All Levels |
-| efficient frontier | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/efficient-frontier/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/efficient-frontier/index.html) | All Levels |
-| npv calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/npv-calculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/npv-calculator/index.html) | All Levels |
+| Black-Scholes | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/black-scholes/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/black-scholes/index.html) | All Levels |
+| Efficient Frontier | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/efficient-frontier/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/efficient-frontier/index.html) | All Levels |
+| NPV Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/npv-calculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/npv-calculator/index.html) | All Levels |
 
 ## 🔐 Cybersecurity (10 demos)
 

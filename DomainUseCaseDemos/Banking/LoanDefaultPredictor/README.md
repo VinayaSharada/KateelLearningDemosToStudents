@@ -25,6 +25,7 @@ Predictive demo for loan default probability using machine learning.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

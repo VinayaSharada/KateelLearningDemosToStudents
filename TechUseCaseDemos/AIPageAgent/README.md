@@ -26,9 +26,9 @@ An in-page agent that reads a support ticket queue as text (no screenshots, no v
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
-- `about.html`
 - `README.md`
 - `style.css`
 

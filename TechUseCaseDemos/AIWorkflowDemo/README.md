@@ -25,6 +25,7 @@ Based on **Boolean retrieval models** where documents are matched using exact ke
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

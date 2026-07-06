@@ -25,6 +25,7 @@ Voice-enabled Knowledge Graph RAG with Speech-to-Text and Text-to-Speech.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

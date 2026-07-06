@@ -2,7 +2,9 @@
 
 ## Overview
 
-A browser-based text summarization tool that converts long transcripts or articles into concise bullet-point summaries using extractive summarization.
+A browser-based text summarization tool that converts long transcripts or articles into concise bullet-point summaries using real frequency-scored extractive summarization, with copy, save, and a browsable history of past summaries stored in this browser.
+
+For a side-by-side comparison of extractive versus simulated AI abstractive summarization with compression-ratio metrics, see [AI Content Summarizer](../AIContentSummarizer/about.html).
 
 ## Learning Objectives
 
@@ -25,6 +27,7 @@ A browser-based text summarization tool that converts long transcripts or articl
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -66,7 +69,7 @@ A browser-based text summarization tool that converts long transcripts or articl
 ## Related Demos or Course Context
 
 - Course path: [RAG & NLP](../../courses/rag-nlp.html)
-- Related demo: [AI Content Summarizer](../AIContentSummarizer/about.html)
+- Related demo: [AI Content Summarizer](../AIContentSummarizer/about.html) (side-by-side extractive vs. simulated AI comparison, with compression-ratio metrics)
 - Related demo: [Lite Parse](../LiteParseDemo/about.html)
 - Related demo: [Graph RAG](../RAGSolutions/GraphRAG/about.html)
 

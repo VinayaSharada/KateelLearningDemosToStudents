@@ -25,6 +25,7 @@ Interactive treasury orchestration demo where students compare hedge choices und
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

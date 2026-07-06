@@ -25,6 +25,7 @@ Based on the **Law of Large Numbers** - as sample size increases, the sample mea
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

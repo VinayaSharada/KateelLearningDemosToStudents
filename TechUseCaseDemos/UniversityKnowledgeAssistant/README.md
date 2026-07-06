@@ -25,6 +25,7 @@ A comprehensive demonstration of advanced RAG concepts combining Graph RAG, Page
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

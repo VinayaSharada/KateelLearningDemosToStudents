@@ -25,6 +25,7 @@ Browser-based demonstration of Knowledge Graph-based Retrieval-Augmented Generat
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

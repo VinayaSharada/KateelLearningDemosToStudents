@@ -2,7 +2,13 @@
 
 ## Overview
 
-| User | Role | Clearance | Resources | |------|------|-----------|-----------| | Alice | Developer | Medium | API, Fileshare | | Bob | Analyst | Low | API | | Charlie | Guest | None | None |.
+Select a user and a resource to see how a Zero Trust policy engine evaluates identity, role, clearance, and context before granting or denying access.
+
+| User | Role | Clearance | Resources |
+|------|------|-----------|-----------|
+| Alice | Developer | Medium | API, Fileshare |
+| Bob | Analyst | Low | API |
+| Charlie | Guest | None | None |
 
 ## Learning Objectives
 
@@ -25,6 +31,7 @@
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +45,7 @@
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Run the main action`.
+3. Pick a user and a resource, then click `Request Access`.
 4. Read the output first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 
@@ -49,8 +56,7 @@
 
 ## Buttons / Actions
 
-- Use the main run or simulate action to compute the scenario after inputs are set.
-- Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.
+- `Request Access` evaluates the selected user/resource pair against the policy engine and shows a grant or deny decision.
 
 ## Outputs
 

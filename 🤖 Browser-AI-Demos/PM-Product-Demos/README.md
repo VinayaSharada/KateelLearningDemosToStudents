@@ -25,6 +25,7 @@
 
 ## Files in This Folder
 
+- `about.html`
 - `index.html`
 - `README.md`
 - `start_demos.bat`

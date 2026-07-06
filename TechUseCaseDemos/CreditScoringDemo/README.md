@@ -25,6 +25,7 @@ Interactive demo for understanding credit scoring models and feature engineering
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

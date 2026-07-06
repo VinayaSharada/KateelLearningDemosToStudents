@@ -25,6 +25,7 @@ Browser-based hands-on exercise for treasury modernization and liquidity visibil
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `demo.html`
 - `index.html`

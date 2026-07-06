@@ -2,7 +2,12 @@
 
 ## Overview
 
-|- **Model Complexity**: Higher complexity = higher technical risk |- **Data Quality**: Poor data = higher technical risk |- **Regulatory Pressure**: More regulation = higher compliance risk |- **Business Impact**: Higher impact = higher operational/compliance risk.
+Score a project's overall AI risk from four factors:
+
+- **Model Complexity** — higher complexity increases technical risk
+- **Data Quality** — poor data increases technical risk
+- **Regulatory Pressure** — more regulation increases compliance risk
+- **Business Impact** — higher impact increases operational/compliance risk
 
 ## Learning Objectives
 
@@ -25,6 +30,7 @@
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

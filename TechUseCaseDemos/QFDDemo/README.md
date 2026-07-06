@@ -25,6 +25,7 @@ Interactive demo implementing the classic **House of Quality** (HoQ) matrix for 
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

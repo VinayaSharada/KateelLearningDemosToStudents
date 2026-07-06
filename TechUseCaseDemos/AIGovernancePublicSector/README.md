@@ -25,6 +25,7 @@ A browser-based assessment tool for evaluating AI systems against public sector 
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

@@ -25,6 +25,7 @@ Data Drift Detector is a interactive browser demo in the AI/ML Workflows track. 
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

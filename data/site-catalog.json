@@ -1261,9 +1261,9 @@
           "readiness": "Classroom Ready"
         },
         {
-          "title": "Va R Calculator",
+          "title": "VaR Calculator",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Va R Calculator: a browser-based risk management learning activity with no cloud or API keys required.",
+          "summary": "About Demo learning guide for VaR Calculator: a browser-based risk management learning activity with no cloud or API keys required.",
           "teacherCue": "Teacher cue: Look for portfolio returns, confidence level, time horizon, and VaR estimate.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1435,9 +1435,9 @@
           "readiness": "Classroom Ready"
         },
         {
-          "title": "black scholes",
+          "title": "Black-Scholes",
           "level": "All Levels",
-          "summary": "About Demo learning guide for black scholes: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "About Demo learning guide for Black-Scholes: a browser-based quant finance learning activity with no cloud or API keys required.",
           "teacherCue": "Teacher cue: Look for option parameters and the model price output.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1455,9 +1455,9 @@
           "readiness": "Classroom Ready"
         },
         {
-          "title": "efficient frontier",
+          "title": "Efficient Frontier",
           "level": "All Levels",
-          "summary": "About Demo learning guide for efficient frontier: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "About Demo learning guide for Efficient Frontier: a browser-based quant finance learning activity with no cloud or API keys required.",
           "teacherCue": "Teacher cue: Look for asset return, volatility, correlation, and selected portfolio point.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1475,9 +1475,9 @@
           "readiness": "Classroom Ready"
         },
         {
-          "title": "npv calculator",
+          "title": "NPV Calculator",
           "level": "All Levels",
-          "summary": "About Demo learning guide for npv calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "About Demo learning guide for NPV Calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
           "teacherCue": "Teacher cue: Look for cash-flow timing, discount rate, initial investment, and NPV result.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -2674,9 +2674,9 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "black scholes",
+      "title": "Black-Scholes",
       "level": "All Levels",
-      "summary": "About Demo learning guide for black scholes: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "About Demo learning guide for Black-Scholes: a browser-based quant finance learning activity with no cloud or API keys required.",
       "teacherCue": "Teacher cue: Look for option parameters and the model price output.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2954,9 +2954,9 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "efficient frontier",
+      "title": "Efficient Frontier",
       "level": "All Levels",
-      "summary": "About Demo learning guide for efficient frontier: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "About Demo learning guide for Efficient Frontier: a browser-based quant finance learning activity with no cloud or API keys required.",
       "teacherCue": "Teacher cue: Look for asset return, volatility, correlation, and selected portfolio point.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3498,9 +3498,9 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "npv calculator",
+      "title": "NPV Calculator",
       "level": "All Levels",
-      "summary": "About Demo learning guide for npv calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "About Demo learning guide for NPV Calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
       "teacherCue": "Teacher cue: Look for cash-flow timing, discount rate, initial investment, and NPV result.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4078,9 +4078,9 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "Va R Calculator",
+      "title": "VaR Calculator",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Va R Calculator: a browser-based risk management learning activity with no cloud or API keys required.",
+      "summary": "About Demo learning guide for VaR Calculator: a browser-based risk management learning activity with no cloud or API keys required.",
       "teacherCue": "Teacher cue: Look for portfolio returns, confidence level, time horizon, and VaR estimate.",
       "duration": "20-30 min",
       "surface": "Browser-based",

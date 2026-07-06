@@ -25,6 +25,7 @@ Interactive demo for A/B testing with statistical significance.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

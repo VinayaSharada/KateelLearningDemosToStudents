@@ -14,13 +14,17 @@ const callPrice = document.getElementById('callPrice');
 const putPrice = document.getElementById('putPrice');
 const deltaValue = document.getElementById('deltaValue');
 const gammaValue = document.getElementById('gammaValue');
+const thetaValue = document.getElementById('thetaValue');
+const vegaValue = document.getElementById('vegaValue');
+const rhoValue = document.getElementById('rhoValue');
+const payoffCanvas = document.getElementById('payoffChart');
 
 // Update value displays
 spotSlider.addEventListener('input', () => document.getElementById('spotValue').textContent = spotSlider.value);
 strikeSlider.addEventListener('input', () => document.getElementById('strikeValue').textContent = strikeSlider.value);
 timeSlider.addEventListener('input', () => document.getElementById('timeValue').textContent = timeSlider.value);
 rateSlider.addEventListener('input', () => document.getElementById('rateValue').textContent = rateSlider.value + '%');
-volSlider.addEventListener('input', () => document.getElementById('volValue').textContent = volSlider.value + ' (20%)');
+volSlider.addEventListener('input', () => document.getElementById('volValue').textContent = volSlider.value + ' (' + Math.round(volSlider.value * 100) + '%)');
 
 // Standard normal CDF approximation
 function normCDF(x) {
@@ -37,47 +41,138 @@ function normCDF(x) {
   return 0.5 * (1.0 + sign * y);
 }
 
-// Black-Scholes calculation
-function blackScholes() {
-  const S = parseFloat(spotSlider.value);
-  const K = parseFloat(strikeSlider.value);
-  const T = parseFloat(timeSlider.value);
-  const r = parseFloat(rateSlider.value) / 100;
-  const sigma = parseFloat(volSlider.value);
-  
+// Standard normal PDF
+function normPDF(x) {
+  return Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI);
+}
+
+// Black-Scholes calculation, including the full Greek suite
+function blackScholes(S, K, T, r, sigma) {
   const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * Math.sqrt(T));
   const d2 = d1 - sigma * Math.sqrt(T);
-  
+
   const call = S * normCDF(d1) - K * Math.exp(-r * T) * normCDF(d2);
   const put = K * Math.exp(-r * T) * normCDF(-d2) - S * normCDF(-d1);
-  
+
   const deltaCall = normCDF(d1);
   const deltaPut = deltaCall - 1;
-  
-  const gamma = normCDF(d1) / (S * sigma * Math.sqrt(T));
-  
+
+  const gamma = normPDF(d1) / (S * sigma * Math.sqrt(T));
+  const vega = S * normPDF(d1) * Math.sqrt(T) / 100; // per 1% change in volatility
+
+  // Theta expressed per calendar day
+  const thetaCall = (-(S * normPDF(d1) * sigma) / (2 * Math.sqrt(T)) - r * K * Math.exp(-r * T) * normCDF(d2)) / 365;
+  const thetaPut = (-(S * normPDF(d1) * sigma) / (2 * Math.sqrt(T)) + r * K * Math.exp(-r * T) * normCDF(-d2)) / 365;
+
+  const rhoCall = K * T * Math.exp(-r * T) * normCDF(d2) / 100; // per 1% change in rate
+  const rhoPut = -K * T * Math.exp(-r * T) * normCDF(-d2) / 100;
+
   return {
     call: Math.max(0, call),
     put: Math.max(0, put),
-    deltaCall: deltaCall,
-    deltaPut: deltaPut,
-    gamma: gamma
+    deltaCall, deltaPut, gamma, vega,
+    thetaCall, thetaPut,
+    rhoCall, rhoPut
   };
 }
 
-function updateUI() {
-  const result = blackScholes();
-  
-  callPrice.textContent = '$' + result.call.toFixed(2);
-  putPrice.textContent = '$' + result.put.toFixed(2);
-  deltaValue.textContent = optionType.value === 'call' ? result.deltaCall.toFixed(3) : result.deltaPut.toFixed(3);
-  gammaValue.textContent = result.gamma.toFixed(3);
+function currentInputs() {
+  return {
+    S: parseFloat(spotSlider.value),
+    K: parseFloat(strikeSlider.value),
+    T: parseFloat(timeSlider.value),
+    r: parseFloat(rateSlider.value) / 100,
+    sigma: parseFloat(volSlider.value)
+  };
 }
 
-// Update on any change
-[spotSlider, strikeSlider, timeSlider, rateSlider, volSlider, optionType].forEach(el => {
-  el.addEventListener('input', el.type === 'select' ? 'change' : 'input', updateUI);
+function drawPayoffChart(K, S, isCall) {
+  if (!payoffCanvas || !payoffCanvas.getContext) return;
+  const ctx = payoffCanvas.getContext('2d');
+  const w = payoffCanvas.width, h = payoffCanvas.height;
+  ctx.clearRect(0, 0, w, h);
+
+  const minSpot = Math.max(1, K * 0.4);
+  const maxSpot = K * 1.6;
+  const points = 100;
+  const payoffs = [];
+  for (let i = 0; i <= points; i++) {
+    const spot = minSpot + (maxSpot - minSpot) * (i / points);
+    const payoff = isCall ? Math.max(0, spot - K) : Math.max(0, K - spot);
+    payoffs.push({ spot, payoff });
+  }
+  const maxPayoff = Math.max(...payoffs.map(p => p.payoff), 1);
+
+  const padding = 30;
+  const toX = spot => padding + ((spot - minSpot) / (maxSpot - minSpot)) * (w - 2 * padding);
+  const toY = payoff => h - padding - (payoff / maxPayoff) * (h - 2 * padding);
+
+  // axes
+  ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(padding, h - padding);
+  ctx.lineTo(w - padding, h - padding);
+  ctx.moveTo(padding, padding);
+  ctx.lineTo(padding, h - padding);
+  ctx.stroke();
+
+  // strike marker
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  ctx.moveTo(toX(K), padding);
+  ctx.lineTo(toX(K), h - padding);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // current spot marker
+  if (S >= minSpot && S <= maxSpot) {
+    ctx.strokeStyle = '#f0883e';
+    ctx.beginPath();
+    ctx.moveTo(toX(S), padding);
+    ctx.lineTo(toX(S), h - padding);
+    ctx.stroke();
+  }
+
+  // payoff line
+  ctx.strokeStyle = '#58a6ff';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  payoffs.forEach((p, i) => {
+    const x = toX(p.spot), y = toY(p.payoff);
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  ctx.fillStyle = '#8b949e';
+  ctx.font = '11px sans-serif';
+  ctx.fillText('K = ' + K.toFixed(0), toX(K) + 4, padding + 12);
+  ctx.fillText('Spot →', w - padding - 45, h - padding + 18);
+  ctx.fillText('Payoff at expiry', padding, padding - 10);
+}
+
+function updateUI() {
+  const { S, K, T, r, sigma } = currentInputs();
+  const result = blackScholes(S, K, T, r, sigma);
+  const isCall = optionType.value === 'call';
+
+  callPrice.textContent = '$' + result.call.toFixed(2);
+  putPrice.textContent = '$' + result.put.toFixed(2);
+  deltaValue.textContent = isCall ? result.deltaCall.toFixed(3) : result.deltaPut.toFixed(3);
+  gammaValue.textContent = result.gamma.toFixed(4);
+  if (thetaValue) thetaValue.textContent = (isCall ? result.thetaCall : result.thetaPut).toFixed(3);
+  if (vegaValue) vegaValue.textContent = result.vega.toFixed(3);
+  if (rhoValue) rhoValue.textContent = (isCall ? result.rhoCall : result.rhoPut).toFixed(3);
+
+  drawPayoffChart(K, S, isCall);
+}
+
+// Update on any change (sliders fire 'input', the select fires 'change')
+[spotSlider, strikeSlider, timeSlider, rateSlider, volSlider].forEach(el => {
+  el.addEventListener('input', updateUI);
 });
+optionType.addEventListener('change', updateUI);
 
 // Initialize
 updateUI();

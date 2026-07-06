@@ -25,6 +25,7 @@ Browser-based collections prioritization demo where students test receivables sc
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -38,7 +39,7 @@ Browser-based collections prioritization demo where students test receivables sc
 
 1. Choose the run mode that fits the class: Browser.
 2. Review the default assumptions before changing anything.
-3. Change one or two inputs, then use `Reset Scenario`.
+3. Change the collection strategy — the results update immediately, no button needed.
 4. Read Output Summary first, then compare any supporting metrics, charts, or AI text.
 5. Capture one insight, one limitation, and one action recommendation.
 

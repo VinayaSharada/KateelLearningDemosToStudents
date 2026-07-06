@@ -25,6 +25,7 @@ A browser-based voice notes application that converts speech to text using the W
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

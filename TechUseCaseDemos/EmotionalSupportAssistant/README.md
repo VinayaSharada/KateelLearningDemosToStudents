@@ -25,6 +25,7 @@ An AI companion that builds a knowledge graph from your emotional expressions an
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

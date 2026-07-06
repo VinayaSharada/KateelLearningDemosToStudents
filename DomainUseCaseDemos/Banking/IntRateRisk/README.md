@@ -27,6 +27,7 @@ Interest-rate risk lab where students build a synthetic deposit portfolio, apply
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `colab_demo.ipynb`
 - `generate_synthetic_data.ipynb`
@@ -80,9 +81,9 @@ Interest-rate risk lab where students build a synthetic deposit portfolio, apply
 
 ## What To Notice
 
-- Look for the main decision, data input, and output the demo is designed to explain
-- Observe how changing one assumption changes the result or recommendation
-- Note the limitation students should mention before applying the result in a real decision
+- Look for the deposit mix by account type, the size of the rate shock, and the resulting change in annual interest cost
+- Observe how concentration in one account type changes repricing exposure under a shock
+- Note that a synthetic portfolio can mask real-world concentration or behavioral risk
 - Compare the headline output with supporting views such as account Type Table, ai Insight before drawing a conclusion
 
 ## Related Demos or Course Context

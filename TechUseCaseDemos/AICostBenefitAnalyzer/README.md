@@ -25,6 +25,7 @@ Business-case demo where students estimate implementation cost, operational savi
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

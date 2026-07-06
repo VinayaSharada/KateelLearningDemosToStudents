@@ -1,4 +1,4 @@
-# Va R Calculator
+# VaR Calculator
 
 ## Overview
 
@@ -6,7 +6,7 @@ A **statistical risk measure** that estimates the maximum potential loss at a gi
 
 ## Learning Objectives
 
-- Explain the main risk decision that Va R Calculator is designed to support.
+- Explain the main risk decision that VaR Calculator is designed to support.
 - Change input assumptions and predict how the output should respond before running the demo.
 - Interpret the result in plain language, not just as a number, chart, or AI recommendation.
 - State one limitation, risk, or governance consideration before using the result in a real decision.
@@ -25,6 +25,7 @@ A **statistical risk measure** that estimates the maximum potential loss at a gi
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

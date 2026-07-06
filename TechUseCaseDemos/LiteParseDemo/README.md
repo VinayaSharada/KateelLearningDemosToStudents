@@ -2,7 +2,7 @@
 
 ## Overview
 
-LiteParse is a fast, model-free PDF parsing library that converts PDFs to markdown. It uses:.
+LiteParse is a fast, model-free PDF parsing library that converts PDFs to markdown using layout and text heuristics, without calling an LLM.
 
 ## Learning Objectives
 
@@ -25,6 +25,7 @@ LiteParse is a fast, model-free PDF parsing library that converts PDFs to markdo
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

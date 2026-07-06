@@ -22,3 +22,5 @@ button:hover { background: #357abd; }
 .output-item { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; text-align: center; }
 .output-item strong { display: block; color: #4a90d9; margin-bottom: 5px; }
 .output-item span { font-size: 24px; font-weight: bold; }
+.output-item.parity-check { grid-column: 1 / -1; text-align: left; }
+.output-item.parity-check span { font-size: 14px; font-weight: normal; color: #aaa; }

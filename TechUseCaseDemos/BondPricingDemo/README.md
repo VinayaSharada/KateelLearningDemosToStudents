@@ -4,6 +4,8 @@
 
 A bond's price is the **present value** of all future cash flows discounted at the yield to maturity.
 
+This demo calculates bond prices, yield to maturity, and duration from face value, coupon rate, years to maturity, and market yield.
+
 ## Learning Objectives
 
 - Explain the main quant decision that Bond Pricing is designed to support.
@@ -25,6 +27,7 @@ A bond's price is the **present value** of all future cash flows discounted at t
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

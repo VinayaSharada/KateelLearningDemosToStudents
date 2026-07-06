@@ -25,6 +25,7 @@ A portfolio construction approach that **equalizes risk contribution** from each
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

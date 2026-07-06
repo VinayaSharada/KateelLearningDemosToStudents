@@ -25,6 +25,7 @@ Network Traffic Analyzer is a interactive browser demo in the Cybersecurity trac
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

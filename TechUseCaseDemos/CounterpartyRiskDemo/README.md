@@ -2,7 +2,9 @@
 
 ## Overview
 
-The **mark-to-market adjustment** for counterparty default risk. It represents the expected loss from counterparty default.
+Parametric bilateral CVA/DVA calculator: set notional, exposure factor, counterparty PD, your own PD, and LGD to see CVA, a genuinely computed DVA, and the Net Bilateral CVA update live, alongside an Expected Exposure profile chart showing how exposure actually rises and decays over the life of a trade.
+
+For a rating-driven CVA view with a one-notch-downgrade scenario and collateral mitigation instead, see [Counter Party Risk](../../DomainUseCaseDemos/RiskManagement/CounterPartyRisk/about.html).
 
 ## Learning Objectives
 
@@ -25,6 +27,7 @@ The **mark-to-market adjustment** for counterparty default risk. It represents t
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
@@ -61,13 +64,15 @@ The **mark-to-market adjustment** for counterparty default risk. It represents t
 
 - Look for counterparty profile, exposure, credit signal, and mitigation action
 - Observe how concentration and credit deterioration change risk posture
+- Raise "Own PD" and watch DVA offset CVA in the Net Bilateral CVA figure — this is the accounting benefit of your own default risk, not a free lunch
+- Compare the flat Expected Exposure number to the actual profile curve — CVA calculated off a single snapshot understates or overstates risk depending on where in the trade's life that snapshot falls
 - Note that counterparty risk management depends on limits, collateral, and timely escalation
 
 ## Related Demos or Course Context
 
 - Course path: [Risk Management](../../courses/risk-management.html)
 - Related demo: [Contagion Model](../../DomainUseCaseDemos/RiskManagement/ContagionModel/about.html)
-- Related demo: [Counter Party Risk](../../DomainUseCaseDemos/RiskManagement/CounterPartyRisk/about.html)
+- Related demo: [Counter Party Risk](../../DomainUseCaseDemos/RiskManagement/CounterPartyRisk/about.html) (rating-driven CVA with a downgrade scenario and collateral mitigation)
 - Related demo: [AI Risk Calculator](../AIRiskCalculator/about.html)
 
 ## Attribution

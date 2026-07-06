@@ -25,6 +25,7 @@ Interactive AI Product Canvas for product planning and ideation.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

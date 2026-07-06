@@ -25,6 +25,7 @@ Interactive demo for European option pricing using the Black-Scholes model.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`

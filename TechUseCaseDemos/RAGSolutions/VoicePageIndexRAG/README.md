@@ -25,6 +25,7 @@ Voice-enabled document indexing with precise page-level citations.
 
 ## Files in This Folder
 
+- `about.html`
 - `app.js`
 - `index.html`
 - `README.md`
