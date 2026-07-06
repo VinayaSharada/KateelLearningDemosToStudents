@@ -14,6 +14,19 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-y: auto;
+    }
+
+    /* This demo's layout was originally designed as a standalone full-viewport
+       app (no shared site nav). Restoring it under the standard nav bar means the
+       nav is now an extra flex child above the app UI -- min-height/overflow-y
+       (instead of a hard height:100vh/overflow:hidden) let the page grow or scroll
+       instead of clipping content on short viewports. */
+    #entity-app {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
     }
 
     /* ── status bar ── */
@@ -205,3 +218,267 @@
     </div>
   </div>
 </nav>
+
+<!-- file:// protocol detection -->
+<div id="fp-warn" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9999;background:#1a0800;border-bottom:2px solid #f59e0b;padding:12px 16px;font-family:system-ui,sans-serif;font-size:13px;color:#fde68a;gap:12px;align-items:flex-start;">
+  <span style="font-size:20px;flex-shrink:0">⚠️</span>
+  <div><strong style="color:#fbbf24">Cannot run as file:// — serve over HTTP instead.</strong><br>
+  Double-click <code style="background:rgba(255,255,255,.12);padding:1px 6px;border-radius:4px">start_demos.bat</code> in the parent folder, or run <code style="background:rgba(255,255,255,.12);padding:1px 6px;border-radius:4px">python -m http.server 8080</code> there and open <a href="http://localhost:8080" style="color:#60a5fa">http://localhost:8080</a>.</div>
+  <button onclick="document.getElementById('fp-warn').style.display='none'" style="margin-left:auto;flex-shrink:0;background:transparent;border:1px solid #92400e;color:#fbbf24;border-radius:6px;padding:3px 10px;cursor:pointer;font-size:12px">✕</button>
+</div>
+<script>if(location.protocol==='file:'){var w=document.getElementById('fp-warn');w.style.display='flex';}</script>
+
+<div id="entity-app">
+<div id="status-bar">
+  <div class="dot loading" id="dot"></div>
+  <span id="status-label">⚪ Downloading BERT-NER…</span>
+  <div id="prog-wrap"><div id="prog-fill"></div></div>
+  <span id="prog-pct">0%</span>
+  <a class="back-link" href="../index.html">← Hub</a>
+</div>
+
+<div id="header">
+  <h1>🏷️ Named Entity Tagger</h1>
+  <span class="badge">Demo 05</span>
+</div>
+
+<div id="workspace">
+
+  <!-- Left: input -->
+  <div class="pane" id="input-pane">
+    <div class="pane-header">
+      <span>Input Text</span>
+      <div id="proc-spin"><div class="spin-xs"></div> Analysing…</div>
+    </div>
+    <textarea id="text-input" placeholder="Type or paste any text here…&#10;&#10;BERT will identify people, organizations, places, dates, and more — all running locally in your browser." disabled></textarea>
+    <div class="debounce-bar"><div class="debounce-fill" id="debounce-fill"></div></div>
+    <div class="sample-row">
+      <span class="sample-lbl">Samples:</span>
+      <button class="sample-btn" data-key="news">📰 News</button>
+      <button class="sample-btn" data-key="finance">📈 Finance</button>
+      <button class="sample-btn" data-key="science">🔬 Science</button>
+      <button class="sample-btn" data-key="history">🏛️ History</button>
+    </div>
+  </div>
+
+  <!-- Right: output -->
+  <div class="pane" id="output-pane">
+    <div class="pane-header"><span>Entity Highlights</span></div>
+
+    <!-- Legend -->
+    <div id="legend">
+      <div class="legend-chip"><div class="legend-dot" style="background:#a855f7"></div> Person</div>
+      <div class="legend-chip"><div class="legend-dot" style="background:#3b82f6"></div> Organization</div>
+      <div class="legend-chip"><div class="legend-dot" style="background:#10b981"></div> Location</div>
+      <div class="legend-chip"><div class="legend-dot" style="background:#f59e0b"></div> Misc</div>
+    </div>
+
+    <!-- Loading state -->
+    <div id="load-overlay">
+      <div class="spinner"></div>
+      <span>Loading BERT-NER model…</span>
+      <span style="font-size:12px">~400 MB · cached after first load</span>
+    </div>
+
+    <!-- Highlighted text output -->
+    <div id="highlight-output" style="display:none">
+      <span id="idle-msg">Start typing to see entities highlighted…</span>
+    </div>
+
+    <!-- Stats -->
+    <div id="stats-panel" style="display:none"></div>
+  </div>
+
+</div>
+</div>
+
+<script type="module">
+import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3/+esm';
+
+// ── Config ────────────────────────────────────────────────────────────────────
+const MODEL_ID = 'Xenova/bert-base-NER';
+
+// Maps raw model labels → display config
+const ENTITY_CONFIG = {
+  'PER':  { label: 'PER',  name: 'Person',       cls: 'ent-PER',  dot: '#a855f7' },
+  'ORG':  { label: 'ORG',  name: 'Organization', cls: 'ent-ORG',  dot: '#3b82f6' },
+  'LOC':  { label: 'LOC',  name: 'Location',     cls: 'ent-LOC',  dot: '#10b981' },
+  'MISC': { label: 'MISC', name: 'Misc',          cls: 'ent-MISC', dot: '#f59e0b' },
+};
+
+const SAMPLES = {
+  news: `Apple CEO Tim Cook announced on Tuesday that the company will open a new research campus in Austin, Texas next year. The facility, expected to employ over 5,000 engineers, is part of Apple's $430 billion investment in the United States. Google and Microsoft have made similar announcements in the past month.`,
+
+  finance: `Goldman Sachs reported record earnings of $12.6 billion in Q3, beating Wall Street expectations. CEO David Solomon credited strong performance in the asset management division. The Federal Reserve, chaired by Jerome Powell, is expected to raise interest rates again in December. JPMorgan Chase and Bank of America also posted gains.`,
+
+  science: `Dr. Jennifer Doudna and Dr. Emmanuelle Charpentier won the Nobel Prize in Chemistry in 2020 for developing CRISPR gene-editing technology. The research was conducted at the University of California, Berkeley and the Max Planck Institute in Berlin. The Gates Foundation has since invested over $200 million in CRISPR-based therapeutics.`,
+
+  history: `In June 1944, Allied forces led by General Dwight D. Eisenhower landed on the beaches of Normandy, France in Operation Overlord. Winston Churchill and Franklin D. Roosevelt had planned the operation at the Tehran Conference in November 1943. The Soviet Union, led by Joseph Stalin, simultaneously launched Operation Bagration on the Eastern Front.`,
+};
+
+// ── DOM ───────────────────────────────────────────────────────────────────────
+const dotEl        = document.getElementById('dot');
+const statusLabel  = document.getElementById('status-label');
+const progFill     = document.getElementById('prog-fill');
+const progPct      = document.getElementById('prog-pct');
+const textInput    = document.getElementById('text-input');
+const debounceFill = document.getElementById('debounce-fill');
+const loadOverlay  = document.getElementById('load-overlay');
+const highlightOut = document.getElementById('highlight-output');
+const idleMsg      = document.getElementById('idle-msg');
+const statsPanel   = document.getElementById('stats-panel');
+const procSpin     = document.getElementById('proc-spin');
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let ner = null;
+let debounceTimer  = null;
+let debounceAnim   = null;
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function initModel() {
+  try {
+    ner = await pipeline('token-classification', MODEL_ID, {
+      aggregation_strategy: 'simple',
+      progress_callback: ({ status, progress, file }) => {
+        const pct  = progress ?? 0;
+        const name = file ? file.split('/').pop() : '';
+        if (status === 'downloading' || status === 'progress') {
+          statusLabel.textContent = `⚪ Downloading${name ? ' — ' + name : ''}…`;
+          progFill.style.width = pct + '%';
+          progPct.textContent  = Math.round(pct) + '%';
+        } else if (status === 'loading') {
+          statusLabel.textContent = '⚪ Loading BERT-NER…';
+          progFill.style.width = '99%'; progPct.textContent = '99%';
+        }
+      }
+    });
+
+    dotEl.className = 'dot ready';
+    statusLabel.textContent = '🟢 BERT-NER Ready — start typing to detect entities';
+    progFill.style.width = '100%'; progPct.textContent = '100%';
+
+    loadOverlay.classList.add('hidden');
+    highlightOut.style.display = 'block';
+    statsPanel.style.display   = 'flex';
+    textInput.disabled = false;
+    textInput.focus();
+
+  } catch (err) {
+    dotEl.className = 'dot error';
+    statusLabel.textContent = '⚠️ Failed to load model';
+    loadOverlay.innerHTML = `<div style="color:#fca5a5;font-size:13px">⚠️ ${err.message}<br><br>Chrome 113+ / Edge required. Check console.</div>`;
+    console.error(err);
+  }
+}
+
+// ── Analyse text ──────────────────────────────────────────────────────────────
+async function analyse(text) {
+  if (!text.trim()) {
+    highlightOut.innerHTML = '<span id="idle-msg">Start typing to see entities highlighted…</span>';
+    statsPanel.innerHTML = '';
+    return;
+  }
+
+  procSpin.classList.add('visible');
+  try {
+    const entities = await ner(text);
+    renderHighlights(text, entities);
+    renderStats(entities);
+  } catch (err) {
+    highlightOut.textContent = '⚠️ ' + err.message;
+    console.error(err);
+  } finally {
+    procSpin.classList.remove('visible');
+  }
+}
+
+// ── Render highlighted text ───────────────────────────────────────────────────
+function renderHighlights(text, entities) {
+  // entities: [{entity_group, start, end, word, score}, ...]
+  const sorted = [...entities].sort((a, b) => a.start - b.start);
+  let html = '';
+  let cursor = 0;
+
+  for (const ent of sorted) {
+    if (ent.start < cursor) continue; // skip overlapping
+    const typeKey = ent.entity_group;
+    const cfg = ENTITY_CONFIG[typeKey];
+
+    // Plain text before entity
+    if (ent.start > cursor) {
+      html += escHtml(text.slice(cursor, ent.start));
+    }
+
+    const entityText = text.slice(ent.start, ent.end);
+    const pct = Math.round(ent.score * 100);
+    const clsName = cfg ? cfg.cls : 'ent-MISC';
+    const labelText = cfg ? cfg.label : typeKey;
+
+    html += `<span class="entity-span ${clsName}" title="${labelText} · ${pct}% confidence">${escHtml(entityText)}<span class="entity-label">${labelText}</span></span>`;
+    cursor = ent.end;
+  }
+
+  // Remaining text
+  if (cursor < text.length) html += escHtml(text.slice(cursor));
+
+  highlightOut.innerHTML = html || '<span style="color:#202040;font-style:italic">No entities detected.</span>';
+}
+
+// ── Render stats chips ────────────────────────────────────────────────────────
+function renderStats(entities) {
+  const counts = {};
+  for (const ent of entities) {
+    const k = ent.entity_group;
+    counts[k] = (counts[k] ?? 0) + 1;
+  }
+
+  if (Object.keys(counts).length === 0) {
+    statsPanel.innerHTML = '<span style="font-size:12px;color:#28284a">No entities found</span>';
+    return;
+  }
+
+  statsPanel.innerHTML = Object.entries(counts).map(([k, n]) => {
+    const cfg = ENTITY_CONFIG[k] ?? { name: k, dot: '#808080' };
+    return `<div class="stat-chip">
+      <div class="sc-dot" style="background:${cfg.dot}"></div>
+      <span class="sc-count">${n}</span>
+      <span class="sc-lbl">${cfg.name}${n > 1 ? 's' : ''}</span>
+    </div>`;
+  }).join('') + `<div class="stat-chip" style="margin-left:auto">
+    <span class="sc-count">${entities.length}</span>
+    <span class="sc-lbl">total</span>
+  </div>`;
+}
+
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── Debounced input ───────────────────────────────────────────────────────────
+textInput.addEventListener('input', () => {
+  clearTimeout(debounceTimer);
+  clearInterval(debounceAnim);
+  debounceFill.style.transition = 'none';
+  debounceFill.style.width = '0%';
+  requestAnimationFrame(() => {
+    debounceFill.style.transition = 'width .5s linear';
+    debounceFill.style.width = '100%';
+  });
+  debounceTimer = setTimeout(() => {
+    debounceFill.style.width = '0%';
+    analyse(textInput.value);
+  }, 500);
+});
+
+// ── Sample buttons ────────────────────────────────────────────────────────────
+document.querySelectorAll('.sample-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    textInput.value = SAMPLES[btn.dataset.key] ?? '';
+    textInput.dispatchEvent(new Event('input'));
+    textInput.focus();
+  });
+});
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+initModel();
+</script>
+</body>
+</html>
