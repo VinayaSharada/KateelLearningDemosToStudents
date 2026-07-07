@@ -1,0 +1,294 @@
+{
+  "threats": [
+    {
+      "id": "S001",
+      "category": "Spoofing",
+      "title": "Unencrypted Communication",
+      "description": "Data flows over unencrypted channels can be intercepted and spoofed.",
+      "triggers": {
+        "dataFlowProtocol": ["HTTP", "FTP", "Telnet", "SMTP", "unencrypted"],
+        "authentication": false
+      },
+      "severity": "High",
+      "cwe": ["CWE-295"],
+      "mitigation": "Use TLS 1.2+, HTTPS, or VPN for all data flows"
+    },
+    {
+      "id": "S002",
+      "category": "Spoofing",
+      "title": "Missing Authentication",
+      "description": "External entities without authentication can spoof legitimate users or systems.",
+      "triggers": {
+        "entityType": ["external_actor", "external_system"],
+        "authentication": false
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-287"],
+      "mitigation": "Implement mutual authentication, OAuth 2.0, or mTLS"
+    },
+    {
+      "id": "S003",
+      "category": "Spoofing",
+      "title": "Weak Credential Storage",
+      "description": "Credentials stored without hashing or encryption can be spoofed if leaked.",
+      "triggers": {
+        "entityType": "data_store",
+        "storesCredentials": true,
+        "encryption": false
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-256", "CWE-522"],
+      "mitigation": "Hash credentials with bcrypt/Argon2, encrypt sensitive data at rest"
+    },
+    {
+      "id": "T001",
+      "category": "Tampering",
+      "title": "Unencrypted Data in Transit",
+      "description": "Data transmitted over unencrypted channels can be modified in transit.",
+      "triggers": {
+        "dataFlowProtocol": ["HTTP", "FTP", "unencrypted"],
+        "encryption": false
+      },
+      "severity": "High",
+      "cwe": ["CWE-295"],
+      "mitigation": "Encrypt all data in transit with TLS 1.2+, use HTTPS"
+    },
+    {
+      "id": "T002",
+      "category": "Tampering",
+      "title": "No Integrity Checking",
+      "description": "Without checksums or signatures, tampering cannot be detected.",
+      "triggers": {
+        "trustBoundary": true,
+        "integrityCheck": false
+      },
+      "severity": "High",
+      "cwe": ["CWE-345"],
+      "mitigation": "Implement HMAC, digital signatures, or message authentication codes"
+    },
+    {
+      "id": "T003",
+      "category": "Tampering",
+      "title": "Unvalidated Input",
+      "description": "Processes without input validation can be exploited to tamper with data or logic.",
+      "triggers": {
+        "entityType": "process",
+        "inputValidation": false
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-20"],
+      "mitigation": "Validate and sanitize all inputs, use allowlists, perform type checking"
+    },
+    {
+      "id": "T004",
+      "category": "Tampering",
+      "title": "SQL Injection Risk",
+      "description": "Database processes receiving SQL queries without parameterization are vulnerable.",
+      "triggers": {
+        "entityType": "data_store",
+        "databaseType": ["SQL", "relational"]
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-89"],
+      "mitigation": "Use parameterized queries, prepared statements, ORM frameworks"
+    },
+    {
+      "id": "R001",
+      "category": "Repudiation",
+      "title": "Missing Audit Logging",
+      "description": "Without audit logs, users can deny their actions.",
+      "triggers": {
+        "entityType": "process",
+        "auditLogging": false
+      },
+      "severity": "Medium",
+      "cwe": ["CWE-778"],
+      "mitigation": "Implement comprehensive audit logging with timestamps and user IDs"
+    },
+    {
+      "id": "R002",
+      "category": "Repudiation",
+      "title": "Non-Repudiation Failure",
+      "description": "Without digital signatures or countersignatures, origin cannot be proven.",
+      "triggers": {
+        "dataFlowSensitive": true,
+        "digitalSignature": false
+      },
+      "severity": "Medium",
+      "cwe": ["CWE-345"],
+      "mitigation": "Use digital signatures, PKI, or blockchain-based proof of origin"
+    },
+    {
+      "id": "I001",
+      "category": "Information Disclosure",
+      "title": "Sensitive Data Exposure in Transit",
+      "description": "Sensitive data (PII, credentials, keys) transmitted unencrypted can be exposed.",
+      "triggers": {
+        "dataFlowSensitive": true,
+        "encryption": false
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-312"],
+      "mitigation": "Encrypt all sensitive data in transit and at rest, use TLS"
+    },
+    {
+      "id": "I002",
+      "category": "Information Disclosure",
+      "title": "Unencrypted Data at Rest",
+      "description": "Data stored without encryption can be accessed by unauthorized users.",
+      "triggers": {
+        "entityType": "data_store",
+        "dataFlowSensitive": true,
+        "encryption": false
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-311"],
+      "mitigation": "Encrypt sensitive data at rest using AES-256 or equivalent"
+    },
+    {
+      "id": "I003",
+      "category": "Information Disclosure",
+      "title": "Debug Information Exposure",
+      "description": "Error messages, stack traces, or debug info can leak sensitive architecture details.",
+      "triggers": {
+        "entityType": "process",
+        "debugLogging": true
+      },
+      "severity": "Medium",
+      "cwe": ["CWE-215"],
+      "mitigation": "Disable debug logging in production, sanitize error messages"
+    },
+    {
+      "id": "I004",
+      "category": "Information Disclosure",
+      "title": "Insufficient Access Control",
+      "description": "Weak or missing access controls allow unauthorized information access.",
+      "triggers": {
+        "entityType": ["process", "data_store"],
+        "accessControl": false
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-284"],
+      "mitigation": "Implement RBAC, ABAC, or policy-based access control with least privilege"
+    },
+    {
+      "id": "D001",
+      "category": "Denial of Service",
+      "title": "No Rate Limiting",
+      "description": "Services without rate limiting can be flooded with requests, causing DoS.",
+      "triggers": {
+        "entityType": ["process", "external_system"],
+        "rateLimiting": false
+      },
+      "severity": "High",
+      "cwe": ["CWE-770"],
+      "mitigation": "Implement rate limiting, throttling, and request queuing"
+    },
+    {
+      "id": "D002",
+      "category": "Denial of Service",
+      "title": "Resource Exhaustion",
+      "description": "Processes with unbounded resource allocation can be exhausted.",
+      "triggers": {
+        "entityType": "process",
+        "resourceLimits": false
+      },
+      "severity": "High",
+      "cwe": ["CWE-400"],
+      "mitigation": "Set memory/CPU/connection limits, use auto-scaling"
+    },
+    {
+      "id": "D003",
+      "category": "Denial of Service",
+      "title": "DDoS Vulnerability",
+      "description": "Systems exposed to internet without DDoS protection are vulnerable.",
+      "triggers": {
+        "trustBoundary": true,
+        "entityType": ["external_system", "process"],
+        "ddosProtection": false
+      },
+      "severity": "High",
+      "cwe": ["CWE-770"],
+      "mitigation": "Use CDN, WAF, cloud DDoS protection (AWS Shield, Cloudflare)"
+    },
+    {
+      "id": "E001",
+      "category": "Elevation of Privilege",
+      "title": "Missing Authorization Checks",
+      "description": "Processes without authorization checks allow privilege escalation.",
+      "triggers": {
+        "entityType": "process",
+        "authorization": false
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-269"],
+      "mitigation": "Implement fine-grained authorization, check permissions on every action"
+    },
+    {
+      "id": "E002",
+      "category": "Elevation of Privilege",
+      "title": "Weak Password Policy",
+      "description": "Weak password requirements enable brute force attacks and privilege escalation.",
+      "triggers": {
+        "authentication": true,
+        "passwordPolicy": false
+      },
+      "severity": "High",
+      "cwe": ["CWE-521"],
+      "mitigation": "Enforce strong password policy, MFA, rate limit login attempts"
+    },
+    {
+      "id": "E003",
+      "category": "Elevation of Privilege",
+      "title": "Insecure Deserialization",
+      "description": "Deserializing untrusted data can lead to arbitrary code execution.",
+      "triggers": {
+        "entityType": "process",
+        "deserialization": true,
+        "inputValidation": false
+      },
+      "severity": "Critical",
+      "cwe": ["CWE-502"],
+      "mitigation": "Use safe deserialization methods, validate data types, avoid pickle/eval"
+    },
+    {
+      "id": "E004",
+      "category": "Elevation of Privilege",
+      "title": "Overly Permissive Roles",
+      "description": "Users assigned overly broad roles can perform unauthorized actions.",
+      "triggers": {
+        "accessControl": true,
+        "principleOfLeastPrivilege": false
+      },
+      "severity": "High",
+      "cwe": ["CWE-269"],
+      "mitigation": "Apply principle of least privilege, use fine-grained roles"
+    }
+  ],
+
+  "riskMatrixDREAD": {
+    "Damage": { "max": 10, "label": "How much damage could occur?" },
+    "Reproducibility": { "max": 10, "label": "How easily can the threat be reproduced?" },
+    "Exploitability": { "max": 5, "label": "How easy is it to exploit?" },
+    "Affected Users": { "max": 5, "label": "How many users are affected?" },
+    "Discoverability": { "max": 5, "label": "How easy is it to discover?" }
+  },
+
+  "entityTypes": {
+    "external_actor": { "label": "External Actor", "icon": "👤", "color": "#FF6B6B" },
+    "external_system": { "label": "External System", "icon": "🔗", "color": "#FFA500" },
+    "process": { "label": "Process", "icon": "⚙️", "color": "#4ECDC4" },
+    "data_store": { "label": "Data Store", "icon": "💾", "color": "#45B7D1" },
+    "trust_boundary": { "label": "Trust Boundary", "icon": "🔒", "color": "#95E1D3" }
+  },
+
+  "protocols": [
+    "HTTP", "HTTPS", "FTP", "SFTP", "SSH", "Telnet", "SMTP", "POP3", "IMAP",
+    "DNS", "SNMP", "CoAP", "MQTT", "gRPC", "WebSocket", "unencrypted"
+  ],
+
+  "dataTypes": [
+    "Credentials", "PII", "Financial Data", "Health Records", "API Keys",
+    "JWT Tokens", "Session Data", "Logs", "Configuration", "Public Data"
+  ]
+}

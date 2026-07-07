@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STRIDE Threat Modeler - KateelLearningDemos</title>
+  <meta name="description" content="Interactive browser-based threat modeling using STRIDE methodology. Build data flow diagrams and auto-generate security threats.">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V672XGCRSK');
+  </script>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <details class="nav-dropdown">
+        <summary class="nav-link">Courses</summary>
+        <div class="dropdown-content" role="menu">
+          <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
+          <a class="dropdown-link" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+          <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
+          <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
+          <a class="dropdown-link active" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+          <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
+          <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+          <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
+        </div>
+      </details>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../courses/cybersecurity.html">Cybersecurity</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+
+<main class="demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">🔐 Cybersecurity • Browser • 30-45 min</p>
+    <h1>STRIDE Threat Modeler</h1>
+    <p class="demo-lede">Interactive browser-based threat modeling using STRIDE methodology. Design data flow diagrams and automatically identify security threats.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="about.html">Open About Demo</a>
+      <a class="btn btn-secondary" href="README.md">Read README</a>
+      <a class="btn btn-secondary" href="../../courses/cybersecurity.html">View Course Path</a>
+    </div>
+  </section>
+
+  <section class="demo-widget">
+    <!-- Left Panel: Controls -->
+    <div class="control-panel">
+      <h2 style="font-size:16px; margin-bottom:16px;">Build Your DFD</h2>
+
+      <div class="section-title">Add Entities</div>
+      <label for="entityTypeSelect">Entity Type:</label>
+      <select id="entityTypeSelect">
+        <option value="external_actor">External Actor (User)</option>
+        <option value="external_system">External System</option>
+        <option value="process">Process</option>
+        <option value="data_store">Data Store</option>
+      </select>
+      <button class="btn-action" id="addEntity">➕ Add Entity (Click Canvas)</button>
+
+      <div class="section-title">Add Data Flow</div>
+      <button class="btn-action" id="addDataFlow">🔗 Add Data Flow</button>
+
+      <div class="section-title">Entities</div>
+      <div id="entityList" style="max-height:250px; overflow-y:auto;"></div>
+
+      <div class="section-title">Data Flows</div>
+      <div id="dataFlowList" style="max-height:250px; overflow-y:auto;"></div>
+
+      <div class="section-title">Actions</div>
+      <button class="btn-action" id="analyzeThreat">🔍 Analyze Threats</button>
+      <button class="btn-action secondary" id="exportJSON">💾 Export JSON</button>
+      <button class="btn-action secondary" id="exportMarkdown">📄 Export Markdown</button>
+      <button class="btn-action danger" id="resetDFD">🗑️ Reset DFD</button>
+    </div>
+
+    <!-- Center: Canvas -->
+    <div class="canvas-wrapper">
+      <canvas id="dfdCanvas" width="600" height="700"></canvas>
+    </div>
+
+    <!-- Right Panel: Threats -->
+    <div class="threat-panel">
+      <h2 style="font-size:16px; margin-bottom:16px;">Threat Analysis</h2>
+
+      <div id="threatStats"></div>
+
+      <button class="btn-action danger" id="clearThreats" style="display:none;">Clear Results</button>
+
+      <div id="threatResults" style="margin-top:16px;">
+        <p style="text-align:center; color:#999; font-size:13px;">Click "Analyze Threats" to identify STRIDE threats in your DFD</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Flow Modal -->
+  <div id="dataFlowModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">Add Data Flow</div>
+      <label for="dataFlowFrom">From:</label>
+      <select id="dataFlowFrom"></select>
+
+      <label for="dataFlowTo">To:</label>
+      <select id="dataFlowTo"></select>
+
+      <label for="dataFlowLabel">Label:</label>
+      <input type="text" id="dataFlowLabel" placeholder="e.g., Login Credentials">
+
+      <div class="modal-buttons">
+        <button class="btn-cancel" id="dataFlowCancel">Cancel</button>
+        <button class="btn-confirm" id="dataFlowConfirm">Add Flow</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guide Section -->
+  <section class="demo-standard-guide">
+    <div class="section-header">
+      <p class="section-kicker">How to use this demo</p>
+      <h2>Build and analyze threat models</h2>
+      <p>STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) is a systematic threat modeling methodology.</p>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Step 1: Design Your DFD</h3>
+        <ul>
+          <li>Click "Add Entity" and select entity type</li>
+          <li>Click on the canvas to place entities</li>
+          <li>Configure entity security properties (authentication, encryption, validation)</li>
+          <li>Use "Add Data Flow" to connect entities and label connections</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 2: Configure Security Properties</h3>
+        <ul>
+          <li>Set protocol for each data flow (HTTP, HTTPS, SSH, etc.)</li>
+          <li>Mark data as encrypted or crossing trust boundaries</li>
+          <li>Check if data flows are sensitive (credentials, PII)</li>
+          <li>Enable entity-level controls (auth, validation, logging)</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 3: Analyze & Mitigate</h3>
+        <ul>
+          <li>Click "Analyze Threats" to auto-generate STRIDE threats</li>
+          <li>Review threats grouped by STRIDE category</li>
+          <li>Read mitigation strategies for each threat</li>
+          <li>Update your DFD and re-analyze</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>STRIDE Categories</h3>
+        <ul>
+          <li><strong>S</strong>poofing - Identity spoofing attacks</li>
+          <li><strong>T</strong>ampering - Data modification attacks</li>
+          <li><strong>R</strong>epudiation - Denial of actions</li>
+          <li><strong>I</strong>nformation Disclosure - Privacy breaches</li>
+          <li><strong>D</strong>enial of Service - Availability attacks</li>
+          <li><strong>E</strong>levation of Privilege - Unauthorized access</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Data Flow Diagram Elements</h3>
+        <ul>
+          <li><strong>External Actor:</strong> Users or systems outside your control</li>
+          <li><strong>Process:</strong> Application logic or middleware</li>
+          <li><strong>Data Store:</strong> Databases, file systems, caches</li>
+          <li><strong>Trust Boundary:</strong> Mark data flows crossing security boundaries</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Learning Outcomes</h3>
+        <ul>
+          <li>Apply STRIDE methodology systematically</li>
+          <li>Identify threat patterns from architecture</li>
+          <li>Map threats to mitigations and controls</li>
+          <li>Integrate threat modeling into design decisions</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
