@@ -575,6 +575,147 @@ body {
   font-style: italic;
 }
 
+/* ============ Step-by-Step Guide ============ */
+.guide-panel {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.guide-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--success) 100%);
+}
+
+.guide-header {
+  margin-bottom: 32px;
+}
+
+.guide-header h3 {
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.guide-header p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.step {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s;
+  opacity: 0.7;
+}
+
+.step.active {
+  border-color: var(--primary);
+  background: rgba(102, 126, 234, 0.08);
+  opacity: 1;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.step.active .step-number {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--success) 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.step-content h4 {
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.step-instruction {
+  color: var(--text-primary);
+  font-size: 13px;
+  margin-bottom: 8px;
+  padding-left: 0;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border-left: 3px solid var(--primary);
+}
+
+.step-observe {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 8px;
+  padding-left: 0;
+  background: rgba(16, 185, 129, 0.08);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border-left: 3px solid var(--success);
+}
+
+.step-why {
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding-left: 0;
+  background: rgba(245, 158, 11, 0.08);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border-left: 3px solid var(--warning);
+}
+
+@media (max-width: 1024px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============ Guide Text Highlights ============ */
+.step-instruction::before {
+  content: attr(data-emoji);
+  margin-right: 0;
+}
+
+.step-instruction {
+  font-weight: 500;
+}
+
+p.step-observe::before {
+  margin-right: 0;
+}
+
+p.step-why::before {
+  margin-right: 0;
+}
+
 /* ============ Responsive ============ */
 @media (max-width: 768px) {
   .demo-hero {

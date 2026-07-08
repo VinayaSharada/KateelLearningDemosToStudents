@@ -88,6 +88,52 @@
         <p>Understand how Bitcoin miners compete to add blocks to the blockchain through computational proof of work.</p>
       </div>
 
+      <!-- Step-by-Step Guide -->
+      <div class="guide-panel">
+        <div class="guide-header">
+          <h3>⚡ Quick Start Guide</h3>
+          <p>Follow these 4 steps to understand Bitcoin mining:</p>
+        </div>
+        <div class="steps-container">
+          <div class="step step-1 active">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Set Difficulty: Start with 2 zeros</h4>
+              <p class="step-instruction">👉 Change the "Difficulty" field to 2 (or leave at default)</p>
+              <p class="step-observe">📊 Notice: The difficulty target shows how many leading zeros the hash needs</p>
+              <p class="step-why">💡 Bitcoin adjusts this every 2 weeks to maintain 10-minute blocks</p>
+            </div>
+          </div>
+          <div class="step step-2">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Click "Start Mining" or Increment Nonce Manually</h4>
+              <p class="step-instruction">👉 Either click ⛏️ Start Mining (automated) or use the +1 button repeatedly</p>
+              <p class="step-observe">📊 Watch the Block Hash update with every nonce change. Most hashes don't start with 00</p>
+              <p class="step-why">💡 This is what miners do: try billions of nonce values per second</p>
+            </div>
+          </div>
+          <div class="step step-3">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Watch for the "Difficulty Match" Message</h4>
+              <p class="step-instruction">👉 Keep incrementing until you see ✓ Difficulty target met!</p>
+              <p class="step-observe">📊 Mining stops. The hash now starts with the required zeros (e.g., "00ab...")</p>
+              <p class="step-why">💡 This nonce value gets included in the block. An attacker would need to redo this work</p>
+            </div>
+          </div>
+          <div class="step step-4">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Increase Difficulty & Try Again</h4>
+              <p class="step-instruction">👉 Change difficulty to 3 (or higher) and reset. Mining becomes harder</p>
+              <p class="step-observe">📊 It takes many more hash attempts. Time = Cost = Security</p>
+              <p class="step-why">💡 Higher difficulty = more computation required = stronger security but slower blocks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="bitcoin-layout">
         <div class="block-editor panel">
           <h3>Bitcoin Block Editor</h3>
@@ -199,6 +245,52 @@
         <p>How Ethereum evolved from Bitcoin: from UTXO to accounts, from scripting to Turing-complete programming.</p>
       </div>
 
+      <!-- Step-by-Step Guide -->
+      <div class="guide-panel">
+        <div class="guide-header">
+          <h3>⚡ Quick Start Guide</h3>
+          <p>Follow these 4 steps to understand Ethereum's innovation:</p>
+        </div>
+        <div class="steps-container">
+          <div class="step step-1 active">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Read the Bitcoin vs Ethereum Comparison</h4>
+              <p class="step-instruction">👉 Look at the table on the left side</p>
+              <p class="step-observe">📊 Notice: Bitcoin is stateless (UTXO), Ethereum is stateful (Accounts)</p>
+              <p class="step-why">💡 Accounts let smart contracts keep persistent state—critical for DeFi (lending, derivatives)</p>
+            </div>
+          </div>
+          <div class="step step-2">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Calculate Gas Cost for a Simple Transfer</h4>
+              <p class="step-instruction">👉 Select "Simple Transfer" and leave gas price at 20 gwei, then look at Total Cost</p>
+              <p class="step-observe">📊 A simple transfer = 21,000 gas × 20 gwei = 0.00042 ETH (~$0.84 at $2000/ETH)</p>
+              <p class="step-why">💡 Gas pricing prevents spam and prices computation. Every operation has a cost</p>
+            </div>
+          </div>
+          <div class="step step-3">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Try More Complex Operations</h4>
+              <p class="step-instruction">👉 Switch to "Contract Creation" or "Uniswap Swap" and observe how cost changes</p>
+              <p class="step-observe">📊 Complex operations use 50K-150K+ gas. Cost scale shows complexity vs simplicity</p>
+              <p class="step-why">💡 Developers must optimize contracts for gas to stay economical. High gas = poor UX</p>
+            </div>
+          </div>
+          <div class="step step-4">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>See How Gas Price Spikes During Congestion</h4>
+              <p class="step-instruction">👉 Increase gas price to 100+ gwei (during network congestion it goes this high)</p>
+              <p class="step-observe">📊 The same transaction cost can jump 5-10x. A swap might cost $50+ instead of $5</p>
+              <p class="step-why">💡 This is why DeFi traders strategize around gas—affects trading decisions and profitability</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="ethereum-layout">
         <div class="panel">
           <h3>Account Model vs UTXO</h3>
@@ -307,6 +399,52 @@
       <div class="section-header">
         <h2>Smart Contracts: Solidity & EVM Execution</h2>
         <p>How smart contracts are written, compiled to bytecode, and executed on the Ethereum Virtual Machine.</p>
+      </div>
+
+      <!-- Step-by-Step Guide -->
+      <div class="guide-panel">
+        <div class="guide-header">
+          <h3>⚡ Quick Start Guide</h3>
+          <p>Follow these 4 steps to understand smart contract execution:</p>
+        </div>
+        <div class="steps-container">
+          <div class="step step-1 active">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Read the Solidity Code (Top Left)</h4>
+              <p class="step-instruction">👉 Look at the SimpleToken contract—it's an ERC-20 token</p>
+              <p class="step-observe">📊 Notice: State variables (totalSupply, balances), constructor (initialization), functions (transfer, approve)</p>
+              <p class="step-why">💡 This is the source code. Developers write Solidity. It's similar to JavaScript but for blockchain</p>
+            </div>
+          </div>
+          <div class="step step-2">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>See the Compiled Bytecode</h4>
+              <p class="step-instruction">👉 Look at the bytecode section (top right) - it's unreadable hex</p>
+              <p class="step-observe">📊 Bytecode: "6080604052..." is machine-readable form of Solidity</p>
+              <p class="step-why">💡 Solidity compiles to bytecode → EVM executes bytecode. You never run the source directly</p>
+            </div>
+          </div>
+          <div class="step step-3">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Disassemble Bytecode to EVM Opcodes</h4>
+              <p class="step-instruction">👉 Click "📖 Disassemble to Opcodes" button</p>
+              <p class="step-observe">📊 A table appears showing: PC (position), Opcode (PUSH, ADD, SLOAD, etc.), Gas cost, Description</p>
+              <p class="step-why">💡 These are the "machine instructions" the EVM understands. Each costs gas. More opcodes = more expensive</p>
+            </div>
+          </div>
+          <div class="step step-4">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Execute a Function and See State Change</h4>
+              <p class="step-instruction">👉 Select "transfer" and click "▶️ Execute"</p>
+              <p class="step-observe">📊 State Changes table shows: balances[sender] decreases, balances[to] increases</p>
+              <p class="step-why">💡 This is how DeFi works: code automatically updates state when conditions are met. No bank needed</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="contracts-layout">
@@ -429,6 +567,52 @@ contract SimpleToken {
       <div class="section-header">
         <h2>NFTs: Non-Fungible Tokens & Ownership</h2>
         <p>Understanding ERC-721 and ERC-1155 standards, token economics, and use cases.</p>
+      </div>
+
+      <!-- Step-by-Step Guide -->
+      <div class="guide-panel">
+        <div class="guide-header">
+          <h3>⚡ Quick Start Guide</h3>
+          <p>Follow these 4 steps to understand NFT economics:</p>
+        </div>
+        <div class="steps-container">
+          <div class="step step-1 active">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Compare ERC-721 vs ERC-1155 Standards</h4>
+              <p class="step-instruction">👉 Read the comparison table</p>
+              <p class="step-observe">📊 ERC-721 = One token per contract (art, collectibles). ERC-1155 = Many token types per contract (games)</p>
+              <p class="step-why">💡 Standards matter: they ensure wallets and marketplaces can trade your NFT without permission</p>
+            </div>
+          </div>
+          <div class="step step-2">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Mint an NFT (Create a Token)</h4>
+              <p class="step-instruction">👉 Enter a name, description, pick a color, then click "🎨 Mint NFT"</p>
+              <p class="step-observe">📊 Output shows: Token ID (e.g., #42), Metadata (JSON), and a colored preview image</p>
+              <p class="step-why">💡 Metadata is stored on/off-chain. The blockchain stores: owner, token ID, and pointer to metadata</p>
+            </div>
+          </div>
+          <div class="step step-3">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Calculate Resale Royalties</h4>
+              <p class="step-instruction">👉 Set a floor price (5 ETH), royalty (10%), then click "Calculate"</p>
+              <p class="step-observe">📊 Results show: Seller gets 86.75%, Creator gets ~0.5 ETH (10%), Platform takes 0.125 ETH (2.5%)</p>
+              <p class="step-why">💡 Unlike physical art (once sold, creator gets nothing), NFTs provide ongoing creator revenue</p>
+            </div>
+          </div>
+          <div class="step step-4">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Understand Financial Use Cases</h4>
+              <p class="step-instruction">👉 Think: How could NFTs be used in finance?</p>
+              <p class="step-observe">📊 Possible uses: Fractional ownership (1000 NFTs = 1 Picasso), Loan collateral, Proof of ownership</p>
+              <p class="step-why">💡 NFTs can represent anything of value. Finance applications: bonds, certificates, fractional real estate</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="nft-layout">

@@ -2,11 +2,33 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   setupTabNavigation();
+  setupStepGuides();
   setupBitcoinHandlers();
   setupEthereumHandlers();
   setupContractHandlers();
   setupNFTHandlers();
 });
+
+// ============ Step Guides ============
+function setupStepGuides() {
+  const steps = document.querySelectorAll('.step');
+
+  // Make steps clickable to mark progress
+  steps.forEach((step, index) => {
+    step.style.cursor = 'pointer';
+    step.addEventListener('click', () => {
+      // Clear active from all steps in this section
+      const siblingSteps = step.parentElement.querySelectorAll('.step');
+      siblingSteps.forEach((s, i) => {
+        if (i <= index) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+    });
+  });
+}
 
 // ============ Tab Navigation ============
 function setupTabNavigation() {
