@@ -689,26 +689,6 @@
           "readiness": "Classroom Ready"
         },
         {
-          "title": "Greeks Calculator",
-          "level": "Intermediate",
-          "summary": "About Demo learning guide for Greeks Calculator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for delta, gamma, theta, vega, and the option position being analyzed.",
-          "duration": "20-30 min",
-          "surface": "Browser-based",
-          "mode": "Browser",
-          "courseSlug": "ai-ml-workflows",
-          "courseTitle": "AI/ML Workflows",
-          "courseSlugs": [
-            "ai-ml-workflows"
-          ],
-          "courseTitles": [
-            "AI/ML Workflows"
-          ],
-          "aboutPath": "TechUseCaseDemos/GreeksCalculator/about.html",
-          "launchPath": "TechUseCaseDemos/GreeksCalculator/index.html",
-          "readiness": "Classroom Ready"
-        },
-        {
           "title": "ML Model Registry",
           "level": "All Levels",
           "summary": "About Demo learning guide for ML Model Registry: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
@@ -1087,6 +1067,26 @@
           "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/about.html",
           "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/index.html",
           "readiness": "Classroom Ready"
+        },
+        {
+          "title": "QFD",
+          "level": "All Levels",
+          "summary": "About Demo learning guide for QFD: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "teacherCue": "Teacher cue: Look for customer need, importance, satisfaction, and quality-function linkage.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "ai-ml-workflows",
+          "courseTitle": "AI/ML Workflows",
+          "courseSlugs": [
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/QFDDemo/about.html",
+          "launchPath": "TechUseCaseDemos/QFDDemo/index.html",
+          "readiness": "Classroom Ready"
         }
       ]
     },
@@ -1096,7 +1096,7 @@
       "audience": "market, counterparty, operational, cyber risk",
       "subtitle": "Credit, market, counterparty, systemic, and cyber-risk modeling demos for finance and analytics courses.",
       "pagePath": "courses/risk-management.html",
-      "registeredDemos": "9",
+      "registeredDemos": "6",
       "catalogPath": null,
       "assignments": [],
       "demos": [
@@ -1181,26 +1181,6 @@
           "readiness": "Classroom Ready"
         },
         {
-          "title": "QFD",
-          "level": "All Levels",
-          "summary": "About Demo learning guide for QFD: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for customer need, importance, satisfaction, and quality-function linkage.",
-          "duration": "20-30 min",
-          "surface": "Browser-based",
-          "mode": "Browser",
-          "courseSlug": "risk",
-          "courseTitle": "Risk Management",
-          "courseSlugs": [
-            "risk"
-          ],
-          "courseTitles": [
-            "Risk Management"
-          ],
-          "aboutPath": "TechUseCaseDemos/QFDDemo/about.html",
-          "launchPath": "TechUseCaseDemos/QFDDemo/index.html",
-          "readiness": "Classroom Ready"
-        },
-        {
           "title": "Risk Parity Portfolio",
           "level": "Advanced",
           "summary": "About Demo learning guide for Risk Parity Portfolio: a browser-based risk management learning activity with no cloud or API keys required.",
@@ -1218,46 +1198,6 @@
           ],
           "aboutPath": "TechUseCaseDemos/RiskParityPortfolio/about.html",
           "launchPath": "TechUseCaseDemos/RiskParityPortfolio/index.html",
-          "readiness": "Classroom Ready"
-        },
-        {
-          "title": "SIEM Dashboard",
-          "level": "All Levels",
-          "summary": "About Demo learning guide for SIEM Dashboard: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for security events, severity, source, and response status.",
-          "duration": "20-30 min",
-          "surface": "Browser-based",
-          "mode": "Browser",
-          "courseSlug": "risk",
-          "courseTitle": "Risk Management",
-          "courseSlugs": [
-            "risk"
-          ],
-          "courseTitles": [
-            "Risk Management"
-          ],
-          "aboutPath": "TechUseCaseDemos/SIEMDashboard/about.html",
-          "launchPath": "TechUseCaseDemos/SIEMDashboard/index.html",
-          "readiness": "Classroom Ready"
-        },
-        {
-          "title": "Threat Hunter",
-          "level": "All Levels",
-          "summary": "About Demo learning guide for Threat Hunter: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for hypothesis, telemetry source, indicator, and evidence trail.",
-          "duration": "20-30 min",
-          "surface": "Browser-based",
-          "mode": "Browser",
-          "courseSlug": "risk",
-          "courseTitle": "Risk Management",
-          "courseSlugs": [
-            "risk"
-          ],
-          "courseTitles": [
-            "Risk Management"
-          ],
-          "aboutPath": "TechUseCaseDemos/ThreatHunter/about.html",
-          "launchPath": "TechUseCaseDemos/ThreatHunter/index.html",
           "readiness": "Classroom Ready"
         },
         {
@@ -1288,7 +1228,7 @@
       "audience": "options, VaR, portfolio, valuation",
       "subtitle": "Derivatives, portfolio optimization, fixed income, VaR, Greeks, and supply-chain finance models for applied finance education.",
       "pagePath": "courses/quant-finance.html",
-      "registeredDemos": "10",
+      "registeredDemos": "11",
       "catalogPath": "CourseCatalogs/AI_ML_Financial_Services_Catalog.md",
       "assignments": [
         "Assignments/Session10_WealthManagement/README.md"
@@ -1493,6 +1433,26 @@
           "aboutPath": "TechUseCaseDemos/WealthManagement/npv-calculator/about.html",
           "launchPath": "TechUseCaseDemos/WealthManagement/npv-calculator/index.html",
           "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Greeks Calculator",
+          "level": "Intermediate",
+          "summary": "About Demo learning guide for Greeks Calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "teacherCue": "Teacher cue: Look for delta, gamma, theta, vega, and the option position being analyzed.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "quant",
+          "courseTitle": "Quant Finance",
+          "courseSlugs": [
+            "quant"
+          ],
+          "courseTitles": [
+            "Quant Finance"
+          ],
+          "aboutPath": "TechUseCaseDemos/GreeksCalculator/about.html",
+          "launchPath": "TechUseCaseDemos/GreeksCalculator/index.html",
+          "readiness": "Classroom Ready"
         }
       ]
     },
@@ -1502,7 +1462,7 @@
       "audience": "IoT, network, malware, threat modeling",
       "subtitle": "IoT, network, threat-modeling, malware, vulnerability, and secure-code demos for responsible security learning.",
       "pagePath": "courses/cybersecurity.html",
-      "registeredDemos": "10",
+      "registeredDemos": "13",
       "catalogPath": "CourseCatalogs/Cyber_Security_Catalog.md",
       "assignments": [],
       "demos": [
@@ -1704,6 +1664,66 @@
           ],
           "aboutPath": "TechUseCaseDemos/ZeroTrustDemo/about.html",
           "launchPath": "TechUseCaseDemos/ZeroTrustDemo/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "SIEM Dashboard",
+          "level": "All Levels",
+          "summary": "About Demo learning guide for SIEM Dashboard: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "teacherCue": "Teacher cue: Look for security events, severity, source, and response status.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cyber",
+          "courseTitle": "Cybersecurity",
+          "courseSlugs": [
+            "cyber"
+          ],
+          "courseTitles": [
+            "Cybersecurity"
+          ],
+          "aboutPath": "TechUseCaseDemos/SIEMDashboard/about.html",
+          "launchPath": "TechUseCaseDemos/SIEMDashboard/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Threat Hunter",
+          "level": "All Levels",
+          "summary": "About Demo learning guide for Threat Hunter: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "teacherCue": "Teacher cue: Look for hypothesis, telemetry source, indicator, and evidence trail.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cyber",
+          "courseTitle": "Cybersecurity",
+          "courseSlugs": [
+            "cyber"
+          ],
+          "courseTitles": [
+            "Cybersecurity"
+          ],
+          "aboutPath": "TechUseCaseDemos/ThreatHunter/about.html",
+          "launchPath": "TechUseCaseDemos/ThreatHunter/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "STRIDE Threat Modeler",
+          "level": "All Levels",
+          "summary": "About Demo learning guide for STRIDE Threat Modeler: a browser-based threat modeling tool with interactive DFD editor and auto-generated security threats.",
+          "teacherCue": "Teacher cue: Identify threat patterns from architecture decisions. Map threats to specific mitigations and security controls.",
+          "duration": "30-45 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cyber",
+          "courseTitle": "Cybersecurity",
+          "courseSlugs": [
+            "cyber"
+          ],
+          "courseTitles": [
+            "Cybersecurity"
+          ],
+          "aboutPath": "TechUseCaseDemos/STRIDEThreatModeler/about.html",
+          "launchPath": "TechUseCaseDemos/STRIDEThreatModeler/index.html",
           "readiness": "Classroom Ready"
         }
       ]
@@ -2081,7 +2101,7 @@
       "audience": "banking analytics, fraud, lending, customer risk",
       "subtitle": "Banking, credit, customer, fraud, and financial-services analytics demos for applied business education.",
       "pagePath": "courses/banking.html",
-      "registeredDemos": "5",
+      "registeredDemos": "6",
       "catalogPath": "COURSE_COMPANION_MAP.md",
       "assignments": [
         "Assignments/Session03_CreditRisk/README.md",
@@ -2187,6 +2207,26 @@
           ],
           "aboutPath": "TechUseCaseDemos/FraudPlayground/about.html",
           "launchPath": "TechUseCaseDemos/FraudPlayground/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Blockchain Explorer",
+          "level": "All Levels",
+          "summary": "Professional blockchain education for finance professionals. Interactive exploration of Bitcoin mining, Ethereum smart contracts, and NFT economics.",
+          "teacherCue": "Teacher cue: Mine blocks, execute smart contracts, understand DeFi economics and token standards.",
+          "duration": "90+ min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "banking",
+          "courseTitle": "Banking & Finance",
+          "courseSlugs": [
+            "banking"
+          ],
+          "courseTitles": [
+            "Banking & Finance"
+          ],
+          "aboutPath": "TechUseCaseDemos/BlockchainExplorer/about.html",
+          "launchPath": "TechUseCaseDemos/BlockchainExplorer/index.html",
           "readiness": "Classroom Ready"
         }
       ]
@@ -2674,6 +2714,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Black Scholes Option",
+      "level": "Intermediate",
+      "summary": "About Demo learning guide for Black Scholes Option: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "teacherCue": "Teacher cue: Look for option type, underlying price, strike, volatility, rate, and time.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "quant",
+      "courseTitle": "Quant Finance",
+      "courseSlugs": [
+        "quant"
+      ],
+      "courseTitles": [
+        "Quant Finance"
+      ],
+      "aboutPath": "DomainUseCaseDemos/QuantFinance/BlackScholesOption/about.html",
+      "launchPath": "DomainUseCaseDemos/QuantFinance/BlackScholesOption/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Black-Scholes",
       "level": "All Levels",
       "summary": "About Demo learning guide for Black-Scholes: a browser-based quant finance learning activity with no cloud or API keys required.",
@@ -2694,23 +2754,23 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "Black Scholes Option",
-      "level": "Intermediate",
-      "summary": "About Demo learning guide for Black Scholes Option: a browser-based quant finance learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for option type, underlying price, strike, volatility, rate, and time.",
-      "duration": "20-30 min",
+      "title": "Blockchain Explorer",
+      "level": "All Levels",
+      "summary": "Professional blockchain education for finance professionals. Interactive exploration of Bitcoin mining, Ethereum smart contracts, and NFT economics.",
+      "teacherCue": "Teacher cue: Mine blocks, execute smart contracts, understand DeFi economics and token standards.",
+      "duration": "90+ min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "quant",
-      "courseTitle": "Quant Finance",
+      "courseSlug": "banking",
+      "courseTitle": "Banking & Finance",
       "courseSlugs": [
-        "quant"
+        "banking"
       ],
       "courseTitles": [
-        "Quant Finance"
+        "Banking & Finance"
       ],
-      "aboutPath": "DomainUseCaseDemos/QuantFinance/BlackScholesOption/about.html",
-      "launchPath": "DomainUseCaseDemos/QuantFinance/BlackScholesOption/index.html",
+      "aboutPath": "TechUseCaseDemos/BlockchainExplorer/about.html",
+      "launchPath": "TechUseCaseDemos/BlockchainExplorer/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -3136,18 +3196,18 @@
     {
       "title": "Greeks Calculator",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Greeks Calculator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "About Demo learning guide for Greeks Calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
       "teacherCue": "Teacher cue: Look for delta, gamma, theta, vega, and the option position being analyzed.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "ai-ml-workflows",
-      "courseTitle": "AI/ML Workflows",
+      "courseSlug": "quant",
+      "courseTitle": "Quant Finance",
       "courseSlugs": [
-        "ai-ml-workflows"
+        "quant"
       ],
       "courseTitles": [
-        "AI/ML Workflows"
+        "Quant Finance"
       ],
       "aboutPath": "TechUseCaseDemos/GreeksCalculator/about.html",
       "launchPath": "TechUseCaseDemos/GreeksCalculator/index.html",
@@ -3740,18 +3800,18 @@
     {
       "title": "QFD",
       "level": "All Levels",
-      "summary": "About Demo learning guide for QFD: a browser-based risk management learning activity with no cloud or API keys required.",
+      "summary": "About Demo learning guide for QFD: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
       "teacherCue": "Teacher cue: Look for customer need, importance, satisfaction, and quality-function linkage.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "risk",
-      "courseTitle": "Risk Management",
+      "courseSlug": "ai-ml-workflows",
+      "courseTitle": "AI/ML Workflows",
       "courseSlugs": [
-        "risk"
+        "ai-ml-workflows"
       ],
       "courseTitles": [
-        "Risk Management"
+        "AI/ML Workflows"
       ],
       "aboutPath": "TechUseCaseDemos/QFDDemo/about.html",
       "launchPath": "TechUseCaseDemos/QFDDemo/index.html",
@@ -3820,18 +3880,18 @@
     {
       "title": "SIEM Dashboard",
       "level": "All Levels",
-      "summary": "About Demo learning guide for SIEM Dashboard: a browser-based risk management learning activity with no cloud or API keys required.",
+      "summary": "About Demo learning guide for SIEM Dashboard: a browser-based cybersecurity learning activity with no cloud or API keys required.",
       "teacherCue": "Teacher cue: Look for security events, severity, source, and response status.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "risk",
-      "courseTitle": "Risk Management",
+      "courseSlug": "cyber",
+      "courseTitle": "Cybersecurity",
       "courseSlugs": [
-        "risk"
+        "cyber"
       ],
       "courseTitles": [
-        "Risk Management"
+        "Cybersecurity"
       ],
       "aboutPath": "TechUseCaseDemos/SIEMDashboard/about.html",
       "launchPath": "TechUseCaseDemos/SIEMDashboard/index.html",
@@ -3918,6 +3978,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "STRIDE Threat Modeler",
+      "level": "All Levels",
+      "summary": "About Demo learning guide for STRIDE Threat Modeler: a browser-based threat modeling tool with interactive DFD editor and auto-generated security threats.",
+      "teacherCue": "Teacher cue: Identify threat patterns from architecture decisions. Map threats to specific mitigations and security controls.",
+      "duration": "30-45 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "cyber",
+      "courseTitle": "Cybersecurity",
+      "courseSlugs": [
+        "cyber"
+      ],
+      "courseTitles": [
+        "Cybersecurity"
+      ],
+      "aboutPath": "TechUseCaseDemos/STRIDEThreatModeler/about.html",
+      "launchPath": "TechUseCaseDemos/STRIDEThreatModeler/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Supply Chain Finance",
       "level": "Intermediate",
       "summary": "About Demo learning guide for Supply Chain Finance: a browser-based quant finance learning activity with no cloud or API keys required.",
@@ -3960,18 +4040,18 @@
     {
       "title": "Threat Hunter",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Threat Hunter: a browser-based risk management learning activity with no cloud or API keys required.",
+      "summary": "About Demo learning guide for Threat Hunter: a browser-based cybersecurity learning activity with no cloud or API keys required.",
       "teacherCue": "Teacher cue: Look for hypothesis, telemetry source, indicator, and evidence trail.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "risk",
-      "courseTitle": "Risk Management",
+      "courseSlug": "cyber",
+      "courseTitle": "Cybersecurity",
       "courseSlugs": [
-        "risk"
+        "cyber"
       ],
       "courseTitles": [
-        "Risk Management"
+        "Cybersecurity"
       ],
       "aboutPath": "TechUseCaseDemos/ThreatHunter/about.html",
       "launchPath": "TechUseCaseDemos/ThreatHunter/index.html",
@@ -4240,11 +4320,11 @@
   ],
   "counts": {
     "coursePacks": 8,
-    "curatedDemos": 102,
+    "curatedDemos": 104,
     "runModes": 3
   },
   "modeCounts": {
-    "Browser": 96,
+    "Browser": 98,
     "Colab": 3,
     "Multi-Mode": 3
   }
