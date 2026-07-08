@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blockchain Explorer - KateelLearningDemos</title>
+  <meta name="description" content="Professional blockchain explorer demonstrating Bitcoin, Ethereum, Smart Contracts, and NFTs with cryptographic fundamentals for finance professionals.">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V672XGCRSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V672XGCRSK');
+  </script>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <details class="nav-dropdown">
+        <summary class="nav-link">Courses</summary>
+        <div class="dropdown-content" role="menu">
+          <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
+          <a class="dropdown-link" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+          <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
+          <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
+          <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+          <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
+          <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+          <a class="dropdown-link active" href="../../courses/banking.html"><span>🏦</span>Banking</a>
+        </div>
+      </details>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../courses/banking.html">Banking</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+
+<main class="demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">🏦 Banking & Finance • Browser • 90+ min</p>
+    <h1>Blockchain Explorer</h1>
+    <p class="demo-lede">Professional explorer demonstrating Bitcoin, Ethereum, Smart Contracts, and NFTs. Interactive cryptographic visualizations for finance professionals.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="about.html">Open About Demo</a>
+      <a class="btn btn-secondary" href="README.md">Read README</a>
+      <a class="btn btn-secondary" href="../../courses/banking.html">View Course Path</a>
+    </div>
+  </section>
+
+  <section class="demo-widget">
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+      <button class="tab-button active" data-tab="bitcoin">
+        <span class="tab-icon">⛓️</span>
+        <span>Bitcoin</span>
+        <span class="tab-subtitle">Blocks & Mining</span>
+      </button>
+      <button class="tab-button" data-tab="ethereum">
+        <span class="tab-icon">Ξ</span>
+        <span>Ethereum</span>
+        <span class="tab-subtitle">Smart Contracts</span>
+      </button>
+      <button class="tab-button" data-tab="contracts">
+        <span class="tab-icon">📝</span>
+        <span>Contracts</span>
+        <span class="tab-subtitle">Solidity & EVM</span>
+      </button>
+      <button class="tab-button" data-tab="nft">
+        <span class="tab-icon">🎨</span>
+        <span>NFTs</span>
+        <span class="tab-subtitle">Tokens & Standards</span>
+      </button>
+    </div>
+
+    <!-- Bitcoin Section -->
+    <div class="tab-content active" id="bitcoin-tab">
+      <div class="section-header">
+        <h2>Bitcoin: Proof of Work & Block Structure</h2>
+        <p>Understand how Bitcoin miners compete to add blocks to the blockchain through computational proof of work.</p>
+      </div>
+
+      <div class="bitcoin-layout">
+        <div class="block-editor panel">
+          <h3>Bitcoin Block Editor</h3>
+          <div class="form-group">
+            <label>Block Version:</label>
+            <input type="text" id="blockVersion" value="00000004" readonly class="mono">
+          </div>
+          <div class="form-group">
+            <label>Previous Block Hash:</label>
+            <input type="text" id="prevBlockHash" value="0000000000000000000000000000000000000000000000000000000000000000" readonly class="mono">
+          </div>
+          <div class="form-group">
+            <label>Merkle Root (Transactions):</label>
+            <input type="text" id="merkleRoot" value="0000000000000000000000000000000000000000000000000000000000000000" readonly class="mono">
+          </div>
+          <div class="form-group">
+            <label>Timestamp (Unix):</label>
+            <input type="number" id="timestamp" value="1000000000" class="mono">
+          </div>
+          <div class="form-group">
+            <label>Difficulty (Leading Zeros):</label>
+            <input type="number" id="difficulty" value="2" min="1" max="6" class="mono">
+          </div>
+          <div class="form-group">
+            <label>Nonce (Mining Variable):</label>
+            <div class="nonce-controls">
+              <input type="number" id="nonce" value="0" class="mono">
+              <button id="incrementNonce" class="btn-small">+1</button>
+              <button id="decrementNonce" class="btn-small">-1</button>
+            </div>
+          </div>
+          <button id="startMining" class="btn-action">⛏️ Start Mining</button>
+          <button id="resetBlock" class="btn-action secondary">Reset Block</button>
+        </div>
+
+        <div class="hash-visualizer panel">
+          <h3>Block Hash Visualization</h3>
+          <div id="hashInput" class="code-block">
+            <div class="code-label">Block Header (hex):</div>
+            <div id="headerHex" class="mono">04000000000...000</div>
+          </div>
+
+          <div id="hashOutput" class="code-block">
+            <div class="code-label">SHA-256 Hash:</div>
+            <div id="blockHash" class="mono">0000000000...000</div>
+            <div class="hash-status" id="hashStatus">Not yet valid for this difficulty</div>
+          </div>
+
+          <div id="miningStats" style="display:none;" class="stats-panel">
+            <h4>Mining Statistics</h4>
+            <div class="stat-row">
+              <span>Hashes Computed:</span>
+              <span id="hashCount" class="mono">0</span>
+            </div>
+            <div class="stat-row">
+              <span>Time Elapsed:</span>
+              <span id="timeElapsed" class="mono">0s</span>
+            </div>
+            <div class="stat-row">
+              <span>Hash Rate:</span>
+              <span id="hashRate" class="mono">0 hashes/sec</span>
+            </div>
+            <div class="stat-row" id="difficultyMatch" style="color:green; display:none;">
+              ✓ Difficulty target met!
+            </div>
+          </div>
+        </div>
+
+        <div class="merkle-tree panel">
+          <h3>Merkle Tree (Transaction Hashing)</h3>
+          <div class="form-group">
+            <label>Add Transaction:</label>
+            <input type="text" id="newTransaction" placeholder="Transaction data">
+            <button id="addTransaction" class="btn-small">Add</button>
+          </div>
+          <div id="merkleTreeViz" class="tree-container">
+            <p class="placeholder">Add transactions to visualize merkle tree...</p>
+          </div>
+          <div id="transactions" class="tx-list"></div>
+        </div>
+      </div>
+
+      <div class="education-panel">
+        <h3>📚 Understanding Bitcoin Mining</h3>
+        <div class="concept">
+          <h4>What is Proof of Work?</h4>
+          <p>Bitcoin miners compete to solve a computational puzzle: find a nonce (number used once) such that the block header's SHA-256 hash meets a difficulty target. The difficulty target is expressed as a minimum number of leading zeros in the hash.</p>
+        </div>
+        <div class="concept">
+          <h4>Why does this matter for finance?</h4>
+          <p>PoW creates an economic barrier to attacking the network. An attacker would need to control >51% of total hash power to rewrite history, which costs billions in electricity and hardware. This trustless consensus is Bitcoin's key innovation.</p>
+        </div>
+        <div class="concept">
+          <h4>Block Structure</h4>
+          <p><strong>Version:</strong> Protocol version (currently 4)</p>
+          <p><strong>Previous Block Hash:</strong> Links to the prior block (chain immutability)</p>
+          <p><strong>Merkle Root:</strong> Hash of all transactions in this block</p>
+          <p><strong>Timestamp:</strong> When block was created (Unix format)</p>
+          <p><strong>Difficulty Target:</strong> How many leading zeros required</p>
+          <p><strong>Nonce:</strong> The value miners increment to find a valid hash</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ethereum Section -->
+    <div class="tab-content" id="ethereum-tab">
+      <div class="section-header">
+        <h2>Ethereum: State & Smart Contracts</h2>
+        <p>How Ethereum evolved from Bitcoin: from UTXO to accounts, from scripting to Turing-complete programming.</p>
+      </div>
+
+      <div class="ethereum-layout">
+        <div class="panel">
+          <h3>Account Model vs UTXO</h3>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Bitcoin (UTXO)</th>
+                <th>Ethereum (Accounts)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Transaction Model</td>
+                <td>Spend previous outputs</td>
+                <td>Transfer between balances</td>
+              </tr>
+              <tr>
+                <td>Programmability</td>
+                <td>Limited scripting</td>
+                <td>Turing-complete (EVM)</td>
+              </tr>
+              <tr>
+                <td>Smart Contracts</td>
+                <td>Minimal</td>
+                <td>Full support (Solidity)</td>
+              </tr>
+              <tr>
+                <td>State</td>
+                <td>Stateless (UTXOs)</td>
+                <td>Stateful (account balances)</td>
+              </tr>
+              <tr>
+                <td>Gas</td>
+                <td>Flat fee</td>
+                <td>Per operation (computation pricing)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <h3>Gas Cost Calculator</h3>
+          <p>Ethereum prices computation in "gas" units. Each operation costs gas, and gas is priced in gwei (0.000000001 ETH).</p>
+          <div class="form-group">
+            <label>Transaction Type:</label>
+            <select id="txType">
+              <option value="transfer">Simple Transfer</option>
+              <option value="contract-creation">Contract Creation</option>
+              <option value="token-transfer">ERC-20 Transfer</option>
+              <option value="swap">Uniswap Swap</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Gas Price (gwei):</label>
+            <input type="number" id="gasPrice" value="20" min="1" max="500">
+          </div>
+          <div id="gasCostOutput" class="code-block">
+            <div class="stat-row">
+              <span>Gas Limit:</span>
+              <span id="gasLimit" class="mono">21,000</span>
+            </div>
+            <div class="stat-row">
+              <span>Gas Price:</span>
+              <span id="gasPriceDisplay" class="mono">20 gwei</span>
+            </div>
+            <div class="stat-row highlight">
+              <span>Total Cost:</span>
+              <span id="totalCost" class="mono">0.00042 ETH ($0.00)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>State Tree (Merkle Patricia Trie)</h3>
+          <p>Ethereum stores account state in a Merkle Patricia Trie, allowing efficient proofs of account balances.</p>
+          <div id="stateTreeViz" class="tree-container">
+            <div class="state-account">
+              <div class="address">0x1234...5678</div>
+              <div class="balance">Balance: 10.5 ETH</div>
+              <div class="nonce">Nonce: 42</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="education-panel">
+        <h3>📚 Key Ethereum Concepts for Finance</h3>
+        <div class="concept">
+          <h4>Why Accounts Instead of UTXOs?</h4>
+          <p>Accounts make it easier to track balances and enable stateful smart contracts. Finance applications (lending, derivatives) need persistent state.</p>
+        </div>
+        <div class="concept">
+          <h4>Gas: Computational Pricing</h4>
+          <p>Gas prevents infinite loops and prices computation. Each EVM opcode costs a specific amount of gas. This is critical for DeFi: complex strategies cost more gas than simple transfers.</p>
+        </div>
+        <div class="concept">
+          <h4>Impact on Finance</h4>
+          <p>DeFi protocols must optimize for gas efficiency. During network congestion, gas prices spike (sometimes 10-100x), making small transactions uneconomical. This affects trading, lending, and staking decisions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Smart Contracts Section -->
+    <div class="tab-content" id="contracts-tab">
+      <div class="section-header">
+        <h2>Smart Contracts: Solidity & EVM Execution</h2>
+        <p>How smart contracts are written, compiled to bytecode, and executed on the Ethereum Virtual Machine.</p>
+      </div>
+
+      <div class="contracts-layout">
+        <div class="panel solidity-editor">
+          <h3>Solidity Source Code (Example: ERC-20 Token)</h3>
+          <pre id="solidityCode" class="code-block"><code>pragma solidity ^0.8.0;
+
+contract SimpleToken {
+    string public name = "Demo Token";
+    uint8 public decimals = 18;
+    uint256 public totalSupply = 1000000 * 10 ** 18;
+
+    mapping(address => uint256) public balances;
+    mapping(address => mapping(address => uint256)) public allowance;
+
+    constructor() {
+        balances[msg.sender] = totalSupply;
+    }
+
+    function transfer(address to, uint256 amount) public returns (bool) {
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+        balances[msg.sender] -= amount;
+        balances[to] += amount;
+        return true;
+    }
+
+    function approve(address spender, uint256 amount) public returns (bool) {
+        allowance[msg.sender][spender] = amount;
+        return true;
+    }
+}</code></pre>
+        </div>
+
+        <div class="panel bytecode-viewer">
+          <h3>Compiled EVM Bytecode</h3>
+          <p>The Solidity code above compiles to machine-readable bytecode:</p>
+          <div id="bytecodeDisplay" class="code-block mono">
+6080604052600180553480156200001657600080fd5b50620001f8806200002a6000396000f3fe...
+          </div>
+          <button id="disassembleBytecode" class="btn-action">📖 Disassemble to Opcodes</button>
+        </div>
+
+        <div class="panel opcode-viewer" id="opcodePanel" style="display:none;">
+          <h3>EVM Opcodes (Disassembled)</h3>
+          <table id="opcodeTable" class="opcode-table">
+            <thead>
+              <tr>
+                <th>PC</th>
+                <th>Opcode</th>
+                <th>Gas</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody id="opcodeBody">
+              <tr>
+                <td>00</td>
+                <td>PUSH1 0x80</td>
+                <td>3</td>
+                <td>Push 0x80 onto stack</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel execution-tracer">
+          <h3>Contract Execution Trace</h3>
+          <p>Trace the execution of a function call:</p>
+          <div class="form-group">
+            <label>Select Function:</label>
+            <select id="functionSelect">
+              <option value="constructor">constructor()</option>
+              <option value="transfer">transfer(to, amount)</option>
+              <option value="approve">approve(spender, amount)</option>
+            </select>
+          </div>
+          <button id="executeFunction" class="btn-action">▶️ Execute</button>
+          <div id="executionOutput" class="code-block" style="display:none;">
+            <h4>State Changes:</h4>
+            <table id="stateChanges" class="state-table">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Before</th>
+                  <th>After</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="education-panel">
+        <h3>📚 Smart Contract Fundamentals for Finance</h3>
+        <div class="concept">
+          <h4>What is a Smart Contract?</h4>
+          <p>A smart contract is code that runs on the blockchain. Once deployed, it's immutable—no one can change its logic. It executes automatically when conditions are met, enabling trustless finance.</p>
+        </div>
+        <div class="concept">
+          <h4>Solidity Language</h4>
+          <p>Solidity is the primary language for writing Ethereum smart contracts. It's similar to JavaScript but must be formally verified (often through audits) because contract bugs can lead to lost funds.</p>
+        </div>
+        <div class="concept">
+          <h4>EVM (Ethereum Virtual Machine)</h4>
+          <p>The EVM is the "computer" that executes bytecode. Each opcode (operation) consumes gas. Financial contracts must optimize gas efficiency to be economically viable.</p>
+        </div>
+        <div class="concept">
+          <h4>Real-World Finance Examples</h4>
+          <ul>
+            <li><strong>Uniswap:</strong> Decentralized exchange (DEX) enabling token swaps</li>
+            <li><strong>Aave:</strong> Lending protocol where users deposit assets and earn interest</li>
+            <li><strong>MakerDAO:</strong> Stablecoin protocol collateralized by crypto</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- NFTs Section -->
+    <div class="tab-content" id="nft-tab">
+      <div class="section-header">
+        <h2>NFTs: Non-Fungible Tokens & Ownership</h2>
+        <p>Understanding ERC-721 and ERC-1155 standards, token economics, and use cases.</p>
+      </div>
+
+      <div class="nft-layout">
+        <div class="panel">
+          <h3>ERC-721 vs ERC-1155</h3>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>ERC-721 (NFTs)</th>
+                <th>ERC-1155 (Semi-Fungible)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fungibility</td>
+                <td>Non-fungible (unique)</td>
+                <td>Can be both</td>
+              </tr>
+              <tr>
+                <td>Token Per Contract</td>
+                <td>One contract = many unique tokens</td>
+                <td>One contract = many types of tokens</td>
+              </tr>
+              <tr>
+                <td>Transfers</td>
+                <td>Transfer single token</td>
+                <td>Batch transfer multiple types</td>
+              </tr>
+              <tr>
+                <td>Use Cases</td>
+                <td>Art, collectibles, domain names</td>
+                <td>Gaming items, fractional ownership</td>
+              </tr>
+              <tr>
+                <td>Gas Efficiency</td>
+                <td>Less efficient</td>
+                <td>More efficient</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel nft-minter">
+          <h3>NFT Minter (Demo)</h3>
+          <p>Create a simple NFT with metadata:</p>
+          <div class="form-group">
+            <label>Token Name:</label>
+            <input type="text" id="nftName" placeholder="e.g., Bored Ape #1234">
+          </div>
+          <div class="form-group">
+            <label>Description:</label>
+            <textarea id="nftDescription" placeholder="Token description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Color (for demo art):</label>
+            <input type="color" id="nftColor" value="#ff6b6b">
+          </div>
+          <button id="mintNFT" class="btn-action">🎨 Mint NFT</button>
+          <div id="nftOutput" style="display:none;">
+            <h4>Minted NFT Metadata:</h4>
+            <div id="nftMetadata" class="code-block mono"></div>
+            <div id="nftPreview" class="nft-preview"></div>
+          </div>
+        </div>
+
+        <div class="panel nft-economics">
+          <h3>NFT Economics & Royalties</h3>
+          <div class="form-group">
+            <label>Floor Price (ETH):</label>
+            <input type="number" id="floorPrice" value="5" step="0.1" min="0">
+          </div>
+          <div class="form-group">
+            <label>Creator Royalty (%):</label>
+            <input type="number" id="royaltyPercent" value="10" min="0" max="100">
+          </div>
+          <button id="calculateRoyalties" class="btn-action">Calculate</button>
+          <div id="royaltyOutput" style="display:none;" class="stats-panel">
+            <div class="stat-row">
+              <span>Seller Receives:</span>
+              <span id="sellerAmount" class="mono">0 ETH</span>
+            </div>
+            <div class="stat-row">
+              <span>Creator Royalty:</span>
+              <span id="royaltyAmount" class="mono">0 ETH</span>
+            </div>
+            <div class="stat-row">
+              <span>Platform Fee (2.5%):</span>
+              <span id="platformFee" class="mono">0 ETH</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="education-panel">
+        <h3>📚 NFT Economics for Finance Professionals</h3>
+        <div class="concept">
+          <h4>What Makes an NFT Unique?</h4>
+          <p>An NFT is uniquely identified by a tokenId on the blockchain. The smart contract stores who owns each tokenId. Ownership is immutable and verifiable on-chain.</p>
+        </div>
+        <div class="concept">
+          <h4>Token Standards (ERC-721/ERC-1155)</h4>
+          <p>Standards ensure compatibility across platforms. An ERC-721 token can be traded on any marketplace supporting the standard, without the creator's permission.</p>
+        </div>
+        <div class="concept">
+          <h4>Royalties & Secondary Markets</h4>
+          <p>Creator royalties are typically enforced by marketplaces (not on-chain). When an NFT is resold, the creator receives a percentage. This creates ongoing revenue for digital assets.</p>
+        </div>
+        <div class="concept">
+          <h4>Financial Use Cases</h4>
+          <ul>
+            <li><strong>Fractional Ownership:</strong> Divide expensive assets (art, real estate) into many NFTs</li>
+            <li><strong>Collateral:</strong> Use NFTs as loan collateral in DeFi protocols</li>
+            <li><strong>Proof of Ownership:</strong> Represent certificates, licenses, intellectual property</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive Guide Section -->
+  <section class="demo-standard-guide">
+    <div class="section-header">
+      <p class="section-kicker">How to use this demo</p>
+      <h2>Learning path for finance professionals</h2>
+      <p>This demo is designed to build blockchain literacy from fundamentals through DeFi implications.</p>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>1. Start with Bitcoin</h3>
+        <ul>
+          <li>Understand Proof of Work and block structure</li>
+          <li>Try mining by incrementing the nonce</li>
+          <li>Observe how hash changes with small inputs (avalanche effect)</li>
+          <li>Recognize the economic security model</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>2. Study Ethereum</h3>
+        <ul>
+          <li>Compare account vs UTXO models</li>
+          <li>Calculate gas costs for real transactions</li>
+          <li>Understand how state is stored and verified</li>
+          <li>See why computation has a price (gas)</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>3. Examine Smart Contracts</h3>
+        <ul>
+          <li>Read Solidity code (don't need to write it)</li>
+          <li>Understand EVM bytecode (the "machine code")</li>
+          <li>Trace execution and see state changes</li>
+          <li>Recognize contract risks (reentrancy, overflow)</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>4. Understand NFTs</h3>
+        <ul>
+          <li>Learn ERC-721 and ERC-1155 standards</li>
+          <li>See how ownership is recorded on-chain</li>
+          <li>Analyze NFT economics and royalties</li>
+          <li>Explore financial applications (collateral, fractionalization)</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script src="crypto.js"></script>
+<script src="bitcoin.js"></script>
+<script src="ethereum.js"></script>
+<script src="contracts.js"></script>
+<script src="nft.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

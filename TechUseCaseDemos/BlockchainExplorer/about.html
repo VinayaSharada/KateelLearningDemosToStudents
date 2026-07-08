@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blockchain Explorer - About - KateelLearningDemos</title>
+  <meta name="description" content="Comprehensive blockchain education for finance professionals: Bitcoin mining, Ethereum smart contracts, and NFT economics with interactive cryptography.">
+  <meta name="keywords" content="blockchain, bitcoin, ethereum, smart contracts, NFTs, crypto, DeFi, proof of work, EVM, solidity">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script defer src="../../assets/site.js"></script>
+  <style>
+    body { background: #0f172a; color: #f1f5f9; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 24px; }
+    .site-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 32px; text-align: center; }
+    .section { margin-bottom: 40px; }
+    .section-header h2 { color: #667eea; margin-bottom: 16px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .info-card { background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 8px; }
+    .info-card h3 { color: #667eea; margin-bottom: 12px; }
+    .info-card p, .info-card li { color: #cbd5e1; font-size: 14px; line-height: 1.6; }
+    .btn { display: inline-block; padding: 10px 20px; background: #667eea; color: white; text-decoration: none; border-radius: 6px; margin-top: 20px; }
+    .highlight { background: rgba(102, 126, 234, 0.1); border-left: 4px solid #667eea; padding: 20px; margin: 20px 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <section class="site-hero">
+    <p style="margin: 0 0 16px 0;">🏦 Banking & Finance • Browser • 90+ min</p>
+    <h1 style="font-size: 32px; margin-bottom: 16px;">Blockchain Explorer</h1>
+    <p style="font-size: 16px; max-width: 600px; margin: 0 auto;">Professional blockchain education for finance professionals. Interactive exploration of Bitcoin, Ethereum, Smart Contracts, and NFTs.</p>
+    <a href="index.html" class="btn">Launch Demo</a>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>What This Demo Teaches</h2>
+      <p>Four progressive deep-dives from cryptocurrency to DeFi:</p>
+    </div>
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>⛓️ Bitcoin</h3>
+        <p>Understand proof-of-work, block structure, and cryptographic security. Mine blocks yourself.</p>
+      </div>
+      <div class="info-card">
+        <h3>Ξ Ethereum</h3>
+        <p>Learn how smart contracts evolved from Bitcoin. Explore account model, gas economics, and state.</p>
+      </div>
+      <div class="info-card">
+        <h3>📝 Smart Contracts</h3>
+        <p>Write and execute Solidity code. See how contracts compile to EVM bytecode and maintain state.</p>
+      </div>
+      <div class="info-card">
+        <h3>🎨 NFTs</h3>
+        <p>Master ERC-721 and ERC-1155 standards. Understand ownership, royalties, and fractional assets.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Why Bitcoin (Before Ethereum)</h2>
+    </div>
+    <div class="highlight">
+      <p><strong>Bitcoin's Key Insight:</strong> Use computational proof-of-work to create trustless consensus. No central authority needed.</p>
+      <p style="margin-top: 12px;"><strong>How It Works:</strong> Miners compete to find a nonce (number used once) such that the block header's SHA-256 hash meets a difficulty target. First to solve it gets to add the block.</p>
+      <p style="margin-top: 12px;"><strong>For Finance:</strong> This creates an economic barrier to attacking the network. Rewriting history would cost billions in electricity and hardware—more expensive than stealing the funds.</p>
+    </div>
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>Block Structure</h3>
+        <ul>
+          <li><strong>Version:</strong> Protocol version (currently 4)</li>
+          <li><strong>Prev Hash:</strong> Links to prior block (chain immutability)</li>
+          <li><strong>Merkle Root:</strong> Hash of all transactions</li>
+          <li><strong>Timestamp:</strong> When block created</li>
+          <li><strong>Difficulty:</strong> How many leading zeros required</li>
+          <li><strong>Nonce:</strong> The mining variable</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Mining Economics</h3>
+        <ul>
+          <li><strong>Hardware:</strong> ASICs cost $1000+ per machine</li>
+          <li><strong>Electricity:</strong> $0.01-0.10 per hash globally</li>
+          <li><strong>Reward:</strong> 6.25 BTC (~$150,000) per block</li>
+          <li><strong>Difficulty:</strong> Adjusts every 2 weeks to maintain 10-min blocks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Why Ethereum Matters</h2>
+    </div>
+    <div class="highlight">
+      <p><strong>Bitcoin's Limitation:</strong> "Move money from A to B" is all Bitcoin can really do. It's like a bank ledger.</p>
+      <p style="margin-top: 12px;"><strong>Ethereum's Innovation:</strong> Account model + Turing-complete programming. Now you can build <em>financial contracts</em>, not just transactions.</p>
+      <p style="margin-top: 12px;"><strong>For Finance:</strong> This enables DeFi. Lending protocols, decentralized exchanges, derivatives, insurance—all governed by smart contracts, no middleman.</p>
+    </div>
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>Bitcoin vs Ethereum</h3>
+        <table style="width: 100%; font-size: 12px; color: #cbd5e1;">
+          <tr><td><strong>Model</strong></td><td>UTXO</td><td>Accounts</td></tr>
+          <tr><td><strong>Smart Contracts</strong></td><td>Limited</td><td>Turing-complete</td></tr>
+          <tr><td><strong>State</strong></td><td>Stateless</td><td>Full state</td></tr>
+          <tr><td><strong>Fees</strong></td><td>Flat per byte</td><td>Gas per operation</td></tr>
+          <tr><td><strong>Use</strong></td><td>Money</td><td>Money + Apps</td></tr>
+        </table>
+      </div>
+      <div class="info-card">
+        <h3>Gas Economics</h3>
+        <ul>
+          <li>Transfer = 21,000 gas (~$0.50 at 20 gwei)</li>
+          <li>Contract deploy = 53,000+ gas</li>
+          <li>DEX swap = 150,000+ gas</li>
+          <li>During congestion: gas 10-100x higher</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Smart Contracts: Code = Law</h2>
+    </div>
+    <div class="highlight">
+      <p><strong>Smart Contract:</strong> Code that runs on the blockchain. Once deployed, it's immutable—no one can change its logic.</p>
+      <p style="margin-top: 12px;"><strong>Solidity:</strong> The primary language for Ethereum contracts. Similar to JavaScript but must be formally verified (audited) because bugs = lost funds.</p>
+      <p style="margin-top: 12px;"><strong>For Finance:</strong> Complex financial products (options, loans, derivatives) execute automatically when conditions are met. No lawyer, no bank, no delay.</p>
+    </div>
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>Real DeFi Examples</h3>
+        <ul>
+          <li><strong>Uniswap:</strong> Decentralized exchange using constant-product formula (x*y=k)</li>
+          <li><strong>Aave:</strong> Lending protocol: deposit assets, earn interest</li>
+          <li><strong>MakerDAO:</strong> Stablecoin collateralized by crypto</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Common Risks</h3>
+        <ul>
+          <li><strong>Reentrancy:</strong> Attacker calls you while you're still processing</li>
+          <li><strong>Overflow:</strong> Number exceeds max uint256, wraps to 0</li>
+          <li><strong>Front-running:</strong> Attacker sees your transaction, mines theirs first</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>NFTs: Ownership on Chain</h2>
+    </div>
+    <div class="highlight">
+      <p><strong>NFT (ERC-721):</strong> Uniquely identified token. Contract stores who owns each tokenId. Ownership is immutable and verifiable on-chain.</p>
+      <p style="margin-top: 12px;"><strong>ERC-1155:</strong> "Multi-token standard" - single contract can hold both fungible and non-fungible tokens. Better for gaming.</p>
+      <p style="margin-top: 12px;"><strong>For Finance:</strong> Fractional ownership of expensive assets (art, real estate). Use NFTs as loan collateral. Automate royalties on secondary sales.</p>
+    </div>
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>Real Collections</h3>
+        <ul>
+          <li><strong>Bored Ape:</strong> 10,000 unique apes ($50K floor)</li>
+          <li><strong>CryptoPunks:</strong> Pioneering 8-bit art NFTs</li>
+          <li><strong>Art Blocks:</strong> Generative algorithmic art</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Economics</h3>
+        <ul>
+          <li><strong>Creator Royalties:</strong> Typically 2-10% on resales</li>
+          <li><strong>Platform Fee:</strong> 2.5% (OpenSea standard)</li>
+          <li><strong>Fractional NFTs:</strong> Split expensive assets into many shares</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>How to Use This Demo</h2>
+    </div>
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>1. Bitcoin (15 min)</h3>
+        <p>Start here. Increment the nonce and watch the SHA-256 hash change. Try to find a hash that starts with 2+ zeros. This is mining.</p>
+      </div>
+      <div class="info-card">
+        <h3>2. Ethereum (15 min)</h3>
+        <p>Compare account vs UTXO models. Calculate gas costs for real transactions. See why computation has a price.</p>
+      </div>
+      <div class="info-card">
+        <h3>3. Contracts (30 min)</h3>
+        <p>Read Solidity code (ERC-20, voting, DEX). See it compile to bytecode. Execute functions and watch state change.</p>
+      </div>
+      <div class="info-card">
+        <h3>4. NFTs (20 min)</h3>
+        <p>Compare ERC-721 and ERC-1155. Mint an NFT. Calculate royalties. Understand fractional ownership.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Learning Outcomes</h2>
+    </div>
+    <p style="color: #cbd5e1; margin-bottom: 20px;">After exploring this demo, you will understand:</p>
+    <div class="card-grid">
+      <div class="info-card">
+        <h4 style="color: #667eea;">Bitcoin</h4>
+        <ul>
+          <li>How proof-of-work creates trustless consensus</li>
+          <li>Why mining is economically secure</li>
+          <li>Block structure and merkle trees</li>
+          <li>Immutability vs reversibility</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4 style="color: #667eea;">Ethereum</h4>
+        <ul>
+          <li>Account-based vs UTXO models</li>
+          <li>Smart contract fundamentals</li>
+          <li>Gas pricing and DeFi economics</li>
+          <li>State trees and merkle proofs</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4 style="color: #667eea;">Smart Contracts</h4>
+        <ul>
+          <li>Solidity syntax and semantics</li>
+          <li>EVM bytecode and opcodes</li>
+          <li>Contract execution and state</li>
+          <li>Common vulnerabilities and mitigations</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4 style="color: #667eea;">NFTs & DeFi</h4>
+        <ul>
+          <li>ERC-721 and ERC-1155 standards</li>
+          <li>Ownership recording on-chain</li>
+          <li>Creator royalties and economics</li>
+          <li>Fractional and collateralized use cases</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>For Finance Professionals</h2>
+    </div>
+    <div class="highlight">
+      <p><strong>This Demo Helps Evaluate:</strong></p>
+      <ul style="color: #cbd5e1; margin-top: 12px;">
+        <li><strong>Treasury Strategy:</strong> Should we hold Bitcoin? Why? Risks?</li>
+        <li><strong>DeFi Opportunity:</strong> How do yield farming, lending protocols, staking work?</li>
+        <li><strong>Risk Assessment:</strong> How do we audit smart contracts? What can go wrong?</li>
+        <li><strong>Regulatory:</strong> How does blockchain differ from traditional finance?</li>
+        <li><strong>Technology Due Diligence:</strong> Can we evaluate blockchain-based solutions?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Attribution</h2>
+    </div>
+    <p style="color: #cbd5e1;">
+      This demo takes inspiration from <a href="https://andersbrownworth.com/blockchain" style="color: #667eea;">Anders Brownworth's blockchain visualization</a> but significantly extends it with:
+    </p>
+    <ul style="color: #cbd5e1; margin: 16px 0 0 20px;">
+      <li>Exact Bitcoin block structure (all 6 fields)</li>
+      <li>Real SHA-256 cryptography</li>
+      <li>Ethereum account model and gas economics</li>
+      <li>Smart contracts, Solidity, and EVM bytecode</li>
+      <li>NFT standards and economics</li>
+      <li>Finance-focused design and learning path</li>
+    </ul>
+    <p style="color: #cbd5e1; margin-top: 20px;">
+      <strong>Created by:</strong> Professor Vinaya Sathyanarayana<br>
+      <strong>Attribution:</strong> vinallcontact@gmail.com
+    </p>
+  </section>
+
+  <section style="text-align: center; margin-top: 40px; padding-top: 40px; border-top: 1px solid #334155;">
+    <a href="index.html" class="btn">Launch Blockchain Explorer</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • Blockchain Explorer • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>
