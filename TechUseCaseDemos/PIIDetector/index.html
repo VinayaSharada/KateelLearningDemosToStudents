@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PII Detector - KateelLearningDemos</title>
+  <meta name="description" content="Detect personally identifiable information in text and PDFs with confidence scores and entity highlighting.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.6.0"></script>
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../..">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../..">Home</a>
+      <details class="nav-dropdown">
+        <summary class="nav-link">Courses</summary>
+        <div class="dropdown-content" role="menu">
+          <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
+          <a class="dropdown-link" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+          <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
+          <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
+          <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+          <a class="dropdown-link active" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
+          <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+          <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
+        </div>
+      </details>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../courses/compliance.html">Compliance</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Compliance & Governance • Browser Mode • 10-15 min</p>
+    <h1>PII Detector</h1>
+    <p class="demo-lede">Scan legal contracts, policies, and applications for personally identifiable information. See what data is exposed, where it's located, and how confident the detector is.</p>
+    <div class="tag-row">
+      <span class="tag">Runs in browser</span>
+      <span class="tag">Text or PDF input</span>
+      <span class="tag">Real-time detection</span>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>What this demo is about</h3>
+        <p>Compliance teams must audit documents for exposed PII before sharing with regulators or partners. This demo shows what an automated detector finds—and what it misses.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Learning objectives</h3>
+        <ul class="plain-list">
+          <li>Understand what constitutes PII and why it matters.</li>
+          <li>See detection limits: false positives, missed entities.</li>
+          <li>Learn why automated detection requires human review.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="app-frame">
+    <section class="controls">
+      <h2>Load Text</h2>
+      <div class="input-group">
+        <button id="sampleBtn" class="btn btn-secondary">📋 Load Sample</button>
+        <button id="clearBtn" class="btn btn-secondary">🗑️ Clear</button>
+      </div>
+
+      <div class="sample-selector" id="sampleSelector" style="display:none;">
+        <label>Select a sample document:</label>
+        <select id="sampleSelect">
+          <option value="loan">Loan Application Form</option>
+          <option value="contract">Employment Contract</option>
+          <option value="policy">Privacy Policy Fragment</option>
+          <option value="invoice">Invoice with Customer Data</option>
+        </select>
+        <button id="loadSampleBtn" class="btn btn-primary">Load</button>
+        <button id="cancelSampleBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+
+      <h2 style="margin-top: 2rem;">Input Text</h2>
+      <textarea id="textInput" placeholder="Paste text here, or use the Load Sample button..."></textarea>
+
+      <h2 style="margin-top: 2rem;">Upload PDF</h2>
+      <div class="file-input">
+        <input type="file" id="pdfInput" accept=".pdf" />
+        <label for="pdfInput">📄 Choose PDF (max 10 MB)</label>
+        <span id="pdfStatus" class="status-text"></span>
+      </div>
+
+      <h2 style="margin-top: 2rem;">Settings</h2>
+      <div class="settings-group">
+        <label>Confidence threshold:</label>
+        <input type="range" id="confidenceSlider" min="0" max="100" value="50" step="5">
+        <span id="confidenceValue">50%</span>
+      </div>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="showConfidence" checked> Show confidence scores</label>
+        <label><input type="checkbox" id="highlightOnly"> Highlight only (no summary)</label>
+      </div>
+
+      <button id="detectBtn" class="btn btn-primary btn-large">🔍 Detect PII</button>
+      <span id="processingStatus" class="status-text"></span>
+    </section>
+
+    <section class="results">
+      <h2>Detection Results</h2>
+
+      <div id="summaryPanel" class="summary-panel" style="display:none;">
+        <h3>Summary</h3>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-label">Total PII Found</div>
+            <div class="stat-value" id="totalCount">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Entity Types</div>
+            <div class="stat-value" id="typeCount">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Avg Confidence</div>
+            <div class="stat-value" id="avgConfidence">0%</div>
+          </div>
+        </div>
+
+        <div id="entityBreakdown" class="entity-breakdown"></div>
+      </div>
+
+      <div id="highlightedText" class="highlighted-text" style="display:none;">
+        <h3>Highlighted Text</h3>
+        <div id="textDisplay"></div>
+      </div>
+
+      <div id="entityList" class="entity-list" style="display:none;">
+        <h3>Detailed Entities</h3>
+        <div id="entityItems"></div>
+      </div>
+
+      <div id="noResults" class="no-results" style="display:none;">
+        <p>No PII detected. Input text may not contain sensitive information, or try lowering the confidence threshold.</p>
+      </div>
+    </section>
+  </section>
+
+  <section class="demo-footer">
+    <h3>How this works</h3>
+    <ul>
+      <li><strong>Text input:</strong> Paste or type any text to analyze.</li>
+      <li><strong>PDF upload:</strong> Upload a single PDF file. Text is extracted automatically.</li>
+      <li><strong>Detection:</strong> A transformer-based NER model identifies potential PII entities.</li>
+      <li><strong>Confidence:</strong> Each entity has a confidence score. Higher = more likely to be real PII.</li>
+      <li><strong>Review:</strong> Always review detected PII with human judgment. Models make mistakes.</li>
+    </ul>
+
+    <h3>Entity Types Detected</h3>
+    <div class="entity-types">
+      <span class="entity-type" data-type="PERSON">👤 Person Name</span>
+      <span class="entity-type" data-type="EMAIL">✉️ Email Address</span>
+      <span class="entity-type" data-type="PHONE">☎️ Phone Number</span>
+      <span class="entity-type" data-type="SSN">🔒 Social Security #</span>
+      <span class="entity-type" data-type="CREDIT_CARD">💳 Credit Card</span>
+      <span class="entity-type" data-type="DATE">📅 Date</span>
+      <span class="entity-type" data-type="ORG">🏢 Organization</span>
+      <span class="entity-type" data-type="LOCATION">📍 Location</span>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><a href="../..">KateelLearningDemos</a> • PII Detector • <a href="about.html">About Demo</a></p>
+</footer>
+</body>
+</html>
