@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stack Smashing Visualizer - About Demo - KateelLearningDemos</title>
+  <meta name="description" content="Educational guide to stack buffer overflow attacks, return address corruption, and why buffer bounds checking and memory protection mechanisms matter.">
+  <meta name="keywords" content="Stack smashing, buffer overflow, return address, shellcode, stack canary, ASLR, DEP/NX, cybersecurity, vulnerability, low-level attacks">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/StackSmashingVisualizer/about.html">
+  <link rel="manifest" href="../../site.webmanifest">
+  <meta property="og:site_name" content="KateelLearningDemos">
+  <meta property="og:title" content="Stack Smashing Visualizer - About Demo - KateelLearningDemos">
+  <meta property="og:description" content="Interactive visualization of stack buffer overflow attacks and return address hijacking.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/StackSmashingVisualizer/about.html">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script defer src="../../assets/site.js"></script>
+  <style>
+    .learning-content { max-width: 900px; margin: 0 auto; }
+    .section { margin: 2rem 0; }
+    .code-block { background: #f5f5f5; padding: 1rem; border-radius: 4px; border-left: 4px solid #0f766e; font-family: monospace; overflow-x: auto; margin: 1rem 0; }
+    .diagram { background: #f9f9f9; padding: 1.5rem; border-radius: 4px; border: 1px solid #ddd; margin: 1.5rem 0; }
+    .threat-level { display: inline-block; padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600; margin: 0.5rem 0; }
+    .threat-critical { background: #ffebee; color: #c62828; }
+    .key-point { background: #e8f5e9; padding: 1rem; border-left: 4px solid #4caf50; border-radius: 4px; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../..">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../..">Home</a>
+      <details class="nav-dropdown">
+        <summary class="nav-link">Courses</summary>
+        <div class="dropdown-content" role="menu">
+          <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cybersecurity</a>
+          <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
+        </div>
+      </details>
+      <a class="nav-link active" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../courses/cybersecurity.html">Cybersecurity</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <article class="learning-content">
+    <header style="margin-bottom: 2rem;">
+      <p class="demo-kicker">Cybersecurity • Stack Attacks • About Demo</p>
+      <h1>Stack Smashing Visualizer</h1>
+      <p class="demo-lede">Stack buffer overflow attacks are one of the oldest and most dangerous vulnerabilities in software. This guide explains how they work, why they're devastating, and what defenses protect against them.</p>
+      <div class="tag-row">
+        <span class="tag">Memory exploitation</span>
+        <span class="tag">Control flow hijacking</span>
+        <span class="threat-level threat-critical">Critical Vulnerability</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>What is Stack Smashing?</h2>
+      <p>Stack smashing is a technique where an attacker exploits a buffer overflow vulnerability to corrupt the stack memory, overwrite the function's return address, and redirect execution to attacker-controlled code. The attacker "smashes" through the buffer and corrupts critical control flow data.</p>
+
+      <div class="key-point">
+        <strong>Impact:</strong> An attacker gains arbitrary code execution with the privileges of the vulnerable program. This can lead to data theft, system compromise, malware installation, or complete takeover.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>The Stack Memory Layout</h2>
+      <p>Understanding the stack is critical to understanding stack smashing:</p>
+
+      <div class="diagram">
+        <pre><code>Higher Address
+     +------------------+
+     | Caller's Stack   |
+     +------------------+
+     | ... (other data) |
+     +------------------+
+     | Local Variables  | ← Buffer here (fixed size)
+     +------------------+
+     | Saved EBP        | ← Frame pointer (4 bytes)
+     +------------------+
+     | Return Address   | ← Where CPU jumps when function returns
+     +------------------+
+     | Caller's Args    |
+     +------------------+
+Lower Address</code></pre>
+      </div>
+
+      <p><strong>Key locations:</strong></p>
+      <ul>
+        <li><strong>Buffer:</strong> Local array where input is stored (e.g., <code>char buf[8];</code>)</li>
+        <li><strong>Saved EBP:</strong> The frame pointer, lets the function return cleanly</li>
+        <li><strong>Return Address:</strong> Where execution jumps after the function returns</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>How the Attack Works</h2>
+
+      <h3>Step 1: Vulnerable Code</h3>
+      <p>A vulnerable function lacks bounds checking:</p>
+      <div class="code-block">
+void vulnerable(char *input) {
+  char buf[8];
+  strcpy(buf, input);  // ❌ No bounds check!
+  // buf can only hold 8 bytes, but strcpy copies
+  // as much as input provides
+}</div>
+
+      <h3>Step 2: The Attacker Crafts Input</h3>
+      <p>The attacker provides input longer than 8 bytes, carefully designed to:</p>
+      <ol>
+        <li>Fill the buffer (8 bytes)</li>
+        <li>Overwrite saved EBP (4 bytes)</li>
+        <li>Overwrite the return address (4 bytes)</li>
+      </ol>
+
+      <h3>Step 3: Return Address Corruption</h3>
+      <p>By writing specific values to the return address, the attacker can make the CPU jump to:</p>
+      <ul>
+        <li><strong>Shellcode:</strong> Malicious code injected in the buffer itself</li>
+        <li><strong>ROP gadgets:</strong> Existing code sequences chained together</li>
+        <li><strong>System functions:</strong> Pre-existing library functions like system() or exec()</li>
+      </ul>
+
+      <h3>Step 4: Code Execution</h3>
+      <p>When the function returns, the CPU reads the corrupted return address from the stack and jumps to it. The attacker's code now executes with the program's privileges.</p>
+    </section>
+
+    <section class="section">
+      <h2>Real-World Impact</h2>
+      <p>Stack smashing has been used in:</p>
+      <ul>
+        <li><strong>Internet Worm Attacks:</strong> Morris Worm (1988) used stack smashing to propagate</li>
+        <li><strong>Security Breaches:</strong> Countless server compromises exploiting unpatched buffer overflows</li>
+        <li><strong>Privilege Escalation:</strong> Local users running vulnerable setuid binaries to gain root access</li>
+        <li><strong>Malware Delivery:</strong> Injecting shellcode to download and execute malware</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Why It's So Dangerous</h2>
+      <ul>
+        <li><strong>Universal:</strong> Affects all languages that manage memory manually (C, C++, Assembly)</li>
+        <li><strong>Silent:</strong> Many programs don't detect that they've been exploited</li>
+        <li><strong>Powerful:</strong> Gives attacker same privileges as the program</li>
+        <li><strong>Reliable:</strong> In controlled environments, can be 100% reproducible</li>
+        <li><strong>Low effort:</strong> Tools like ROP compilers automate exploitation</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Defense Mechanisms</h2>
+
+      <h3>1. Stack Canaries</h3>
+      <p>Place a "canary" value between the buffer and return address. If overflow occurs, the canary is corrupted. Before returning, check the canary. If it's been modified, abort the program.</p>
+      <p><strong>Defense against:</strong> Simple overflows that corrupt the return address</p>
+
+      <h3>2. Address Space Layout Randomization (ASLR)</h3>
+      <p>Randomize where memory regions load. The attacker doesn't know where shellcode or library functions are located, making it harder to craft a reliable return address.</p>
+      <p><strong>Defense against:</strong> Attacks that target fixed addresses</p>
+
+      <h3>3. Data Execution Prevention (DEP) / No-Execute (NX)</h3>
+      <p>Mark memory pages as "data" (no execute) or "code" (execute). Stack and heap are marked non-executable, so even if shellcode is injected, it won't run.</p>
+      <p><strong>Defense against:</strong> Direct shellcode injection</p>
+
+      <h3>4. Bounds Checking</h3>
+      <p>Use safe string functions that respect buffer sizes:</p>
+      <div class="code-block">
+// Unsafe
+strcpy(buf, input);           // ❌ No bounds
+
+// Safe
+strncpy(buf, input, 8);       // ✅ Limits to 8 bytes
+snprintf(buf, 8, "%s", input); // ✅ Bounds checked</div>
+
+      <h3>5. Control Flow Integrity (CFI)</h3>
+      <p>Enforce that control flow only jumps to legitimate locations (function entries, exception handlers). Any other jump is invalid and the program aborts.</p>
+
+      <h3>6. Languages and Runtime Protection</h3>
+      <p>Languages like Python, Java, and Go use managed memory, eliminating buffer overflows entirely. Even in C/C++, runtime libraries can detect and prevent overflows.</p>
+    </section>
+
+    <section class="section">
+      <h2>Learning Objectives</h2>
+      <p>After working with the Stack Smashing Visualizer, students should be able to:</p>
+      <ul>
+        <li>Explain the stack memory layout and the role of each section</li>
+        <li>Describe how a buffer overflow leads to return address corruption</li>
+        <li>Understand why the return address is a critical control flow target</li>
+        <li>Recognize vulnerable code patterns (unbounded strcpy, sprintf, gets)</li>
+        <li>Explain how stack canaries, ASLR, DEP, and CFI provide defense</li>
+        <li>Identify when input validation and bounds checking are necessary</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Using the Demo</h2>
+      <ol>
+        <li><strong>Set Buffer Size:</strong> Use the slider to adjust the buffer size (4-32 bytes)</li>
+        <li><strong>Enter Hex Input:</strong> Enter data as hex values (e.g., <code>41 42 43 44</code> for "ABCD")</li>
+        <li><strong>Visualize:</strong> Click "Visualize Overflow" to see the stack state</li>
+        <li><strong>Analyze Results:</strong> See which memory cells are overwritten</li>
+        <li><strong>Check for Hijacking:</strong> If return address is overwritten, the exploit panel highlights it</li>
+        <li><strong>Try Samples:</strong> Use pre-built examples to see different attack scenarios</li>
+      </ol>
+
+      <h3>Sample Attacks</h3>
+      <ul>
+        <li><strong>Small Overflow:</strong> Overwrite only part of the buffer</li>
+        <li><strong>Medium Overflow:</strong> Overwrite buffer and start corrupting saved EBP</li>
+        <li><strong>Large Overflow:</strong> Overwrite everything including return address</li>
+        <li><strong>NOP Sled:</strong> Use NOP (0x90) instructions followed by shellcode</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Discussion Questions</h2>
+      <ul>
+        <li>Why is strcpy considered dangerous in modern code?</li>
+        <li>How would a stack canary detect this overflow?</li>
+        <li>If ASLR is enabled, how does it make this attack harder?</li>
+        <li>Why is NX/DEP alone not sufficient to prevent all stack smashing attacks?</li>
+        <li>What's the relationship between this vulnerability and privilege escalation?</li>
+        <li>Why can't you just "check if the input is too long" after calling strcpy?</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Further Reading</h2>
+      <ul>
+        <li><strong>Aleph One:</strong> "Smashing the Stack for Fun and Profit" (Classic paper from Phrack Magazine, 1996)</li>
+        <li><strong>Jonathan Corbet:</strong> "A brief history of the buffer overflow" (LWN.net)</li>
+        <li><strong>OWASP:</strong> Buffer Overflow vulnerability documentation</li>
+        <li><strong>CWE-120:</strong> Buffer Copy without Checking Size of Input (CWE/SANS Top 25)</li>
+      </ul>
+    </section>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p><a href="../..">KateelLearningDemos</a> • Cybersecurity • Stack Smashing Visualizer</p>
+</footer>
+</body>
+</html>

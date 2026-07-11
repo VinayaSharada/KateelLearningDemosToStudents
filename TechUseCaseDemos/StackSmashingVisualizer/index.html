@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stack Smashing Visualizer - KateelLearningDemos</title>
+  <meta name="description" content="Interactive in-browser stack buffer overflow visualization demonstrating how stack smashing attacks corrupt the return address and hijack program control flow.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../..">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../..">Home</a>
+      <details class="nav-dropdown">
+        <summary class="nav-link">Courses</summary>
+        <div class="dropdown-content" role="menu">
+          <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cybersecurity</a>
+          <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
+          <a class="dropdown-link" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+        </div>
+      </details>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../courses/cybersecurity.html">Cybersecurity</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Cybersecurity • Stack Attacks • 15-20 min</p>
+    <h1>Stack Smashing Visualizer</h1>
+    <p class="demo-lede">Interactive visualization of how buffer overflows corrupt the stack, overwrite return addresses, and hijack program control flow. Understand the memory layout, see the attack happen in real-time, and learn why stack canaries and ASLR matter.</p>
+    <div class="tag-row">
+      <span class="tag">Memory visualization</span>
+      <span class="tag">Real-time overflow animation</span>
+      <span class="tag">Return address hijacking</span>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>What this demo is about</h3>
+        <p>Stack smashing is a classic attack where an attacker writes more data than a buffer can hold, overflowing into adjacent memory, overwriting the function's return address, and hijacking control flow.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Learning objectives</h3>
+        <ul class="plain-list">
+          <li>Understand stack memory layout (locals, saved EBP, return address)</li>
+          <li>See how buffer overflow corrupts the stack</li>
+          <li>Recognize the critical role of return addresses</li>
+          <li>Understand why input validation and buffer bounds matter</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="app-frame">
+    <div class="demo-controls">
+      <h2>Interactive Stack Simulation</h2>
+
+      <div class="control-group">
+        <label for="bufferInput">Buffer Size (bytes):</label>
+        <input id="bufferInput" type="range" min="4" max="32" value="8" class="slider">
+        <span id="bufferDisplay">8</span> bytes
+      </div>
+
+      <div class="control-group">
+        <label for="inputData">Input Data (hex):</label>
+        <input id="inputData" type="text" placeholder="41 42 43 44 ... (A B C D ...)" class="text-input">
+        <small>Enter hex values (00-FF) separated by spaces. Data will overflow into return address.</small>
+      </div>
+
+      <div class="control-group">
+        <button id="visualizeBtn" class="btn btn-primary">Visualize Overflow</button>
+        <button id="clearBtn" class="btn btn-secondary">Reset</button>
+      </div>
+
+      <div class="control-group">
+        <label>
+          <input id="slowMotion" type="checkbox">
+          Show step-by-step (slow motion)
+        </label>
+      </div>
+    </div>
+
+    <div class="demo-workspace">
+      <div class="stack-visualization">
+        <h3>Memory Layout (Stack Growing Downward)</h3>
+        <div class="memory-view">
+          <div class="memory-section">
+            <div class="section-label">Higher Address</div>
+          </div>
+
+          <div id="stackDisplay" class="stack-display">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div class="memory-section">
+            <div class="section-label">Lower Address</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="analysis-panel">
+        <h3>Attack Analysis</h3>
+        <div id="statusBox" class="status-box">
+          <p>Ready to analyze. Enter buffer size and input data above.</p>
+        </div>
+
+        <div id="detailsBox" class="details-box" style="display: none;">
+          <h4>Memory Write Details</h4>
+          <table class="details-table">
+            <thead>
+              <tr>
+                <th>Offset</th>
+                <th>Data</th>
+                <th>Location</th>
+                <th>Impact</th>
+              </tr>
+            </thead>
+            <tbody id="detailsTable">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="exploitBox" class="exploit-box" style="display: none;">
+          <h4>⚠️ Return Address Hijacked!</h4>
+          <p><strong>Original return address:</strong> <code id="origReturn">0x08048000</code></p>
+          <p><strong>Corrupted return address:</strong> <code id="newReturn">0x41414141</code></p>
+          <p class="warning-text">When this function returns, execution jumps to the attacker-controlled address, potentially running shellcode or a ROP gadget.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-box">
+      <h3>Key Insights</h3>
+      <ul>
+        <li><strong>No bounds checking:</strong> The vulnerable function never validates buffer size, allowing overflow.</li>
+        <li><strong>Contiguous stack:</strong> Local variables, saved EBP, and return address sit next to each other in memory.</li>
+        <li><strong>Return address matters:</strong> When a function returns, the CPU jumps to whatever address is on the stack.</li>
+        <li><strong>Attacker control:</strong> By carefully crafting input, an attacker can write specific values to the return address.</li>
+        <li><strong>Defense layers:</strong> Stack canaries, ASLR, DEP/NX, and bounds checking all make this attack harder.</li>
+      </ul>
+    </div>
+
+    <div class="sample-section">
+      <h3>Sample Attacks</h3>
+      <div class="sample-buttons">
+        <button class="sample-btn" data-sample="small">Small Overflow (4 bytes)</button>
+        <button class="sample-btn" data-sample="medium">Medium Overflow (16 bytes)</button>
+        <button class="sample-btn" data-sample="large">Large Overflow (24 bytes)</button>
+        <button class="sample-btn" data-sample="nopsled">With NOP Sled</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-extension">
+    <h2>Discussion Questions</h2>
+    <ul>
+      <li>Why is it critical that buffer size is known and enforced?</li>
+      <li>How would a stack canary prevent this attack?</li>
+      <li>What role does ASLR (Address Space Layout Randomization) play in defense?</li>
+      <li>Why can't an attacker just write any address they want to the return address?</li>
+      <li>How would modern exploit mitigation (DEP/NX, CFI) block stack smashing?</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><a href="../..">KateelLearningDemos</a> • Cybersecurity • Stack Smashing Visualizer</p>
+</footer>
+</body>
+</html>
