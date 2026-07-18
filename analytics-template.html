@@ -1,11 +1,6 @@
-<!-- Google Analytics 4 - Replace G-XXXXXXXXXX with your Measurement ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX', {
-    page_title: document.title,
-    page_location: window.location.href
-  });
-</script>
+<!--
+  Analytics is centralized in assets/analytics.js.
+  Run `python3 add_analytics.py` to install the correctly relative script tag on
+  every public page. Do not add a page-specific gtag snippet; it would duplicate
+  page views and bypass the shared demo-health events.
+-->

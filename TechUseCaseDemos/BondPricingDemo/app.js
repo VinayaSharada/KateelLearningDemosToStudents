@@ -26,8 +26,6 @@ function calculateBondPrice(face, coupon, ytm, years, freq) {
   
   let price = 0;
   let duration = 0;
-  let weightSum = 0;
-  
   for (let t = 1; t <= periods; t++) {
     const pv = cf / Math.pow(1 + ytmPerPeriod, t);
     price += pv;
@@ -40,7 +38,7 @@ function calculateBondPrice(face, coupon, ytm, years, freq) {
   duration += periods * facePV;
   
   // Macaulay Duration
-  duration = duration / price;
+  duration = duration / price / freq;
   
   // Check if at par
   const isAtPar = Math.abs(coupon - ytm) < 0.001;
@@ -63,7 +61,7 @@ function updateUI() {
   parValue.textContent = result.isAtPar ? 'At Par' : (coupon > ytm ? 'Premium' : 'Discount');
 }
 
-[freqSelect].addEventListener('change', updateUI);
+freqSelect.addEventListener('change', updateUI);
 [faceSlider, couponSlider, yearsSlider, ytmSlider].forEach(el => {
   el.addEventListener('input', updateUI);
 });

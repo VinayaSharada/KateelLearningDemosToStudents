@@ -315,18 +315,6 @@
       }
     });
 
-    document.querySelectorAll(".launch-demo").forEach(function (link) {
-      link.addEventListener("click", function () {
-        if (window.gtag) {
-          window.gtag("event", "launch_demo", {
-            event_category: "demo_navigation",
-            event_label: link.href,
-            transport_type: "beacon"
-          });
-        }
-      });
-    });
-
     document.querySelectorAll(".demo-rating").forEach(function (widget) {
       const demoId = widget.getAttribute("data-demo-id") || "unknown_demo";
       const key = "kld_rating_" + demoId;

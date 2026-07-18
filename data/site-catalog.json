@@ -15,8 +15,8 @@
         {
           "title": "AI Hedge Orchestrator",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Hedge Orchestrator: a browser-based treasury management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for exposure, hedge instrument, hedge ratio, cost, and residual risk.",
+          "summary": "Your multinational has \u20ac50M in revenue exposure to EUR/USD volatility. AI recommends a hedge\u2014but at what ratio and cost? Decide between full/partial hedges and learn why underhedging can destroy shareholder value faster than overhedging.",
+          "teacherCue": "Teacher cue: Emphasize the tradeoff: cheaper partial hedges leave you exposed. Why would a CFO accept residual risk? When do you fully hedge vs. layer hedges over time?",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -35,8 +35,8 @@
         {
           "title": "Treasury Analytics Notebook Hub",
           "level": "Intermediate to Advanced",
-          "summary": "About Demo learning guide for Treasury Analytics Notebook Hub: a Google Colab notebook sequence for treasury analytics, forecasting, anomaly detection, and dashboard workflows.",
-          "teacherCue": "Teacher cue: Look for notebook progression, treasury data preparation, forecast outputs, and operational interpretation.",
+          "summary": "Move from spreadsheets to analytics. Walk through a multi-week treasury forecasting workflow: data prep \u2192 anomaly detection \u2192 cash flow forecasting \u2192 dashboard insights. Learn how to catch forecast drift before it hits operations and how to automate weekly reporting that treasury teams can act on.",
+          "teacherCue": "Teacher cue: Push on this: \"Your forecast was right 20 times but wrong 2 times catastrophically. Why trust it?\" This reveals the gap between statistical accuracy and operational reliability\u2014data quality matters more than model complexity.",
           "duration": "30-120 min",
           "surface": "Colab-ready notebooks",
           "mode": "Colab",
@@ -55,8 +55,8 @@
         {
           "title": "Invoice-Level Collections Prediction",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Invoice-Level Collections Prediction: a Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.",
-          "teacherCue": "Teacher cue: Look for payment history, invoice terms, dispute status, relationship signals, and how the model changes collections priority.",
+          "summary": "Not all late invoices are the same. One customer is 60 days late but historically pays; another is 45 days late but never has. AI ranks payment risk by customer patterns, dispute likelihood, and relationship tenure\u2014not just days outstanding. See how predictive signals beat static aging rules and recover $$ faster.",
+          "teacherCue": "Teacher cue: Ask: \"Would you pursue a 120-day-late $50K invoice from a tier-1 customer who always pays eventually?\" This reveals strategic collections\u2014sometimes patience pays more than pressure.",
           "duration": "35-50 min",
           "surface": "Colab-ready notebook",
           "mode": "Colab",
@@ -75,8 +75,8 @@
         {
           "title": "AR Aging & Collections Prioritizer",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AR Aging & Collections Prioritizer: a Colab-based treasury notebook reproducing the AR Aging & Collections Prioritizer Claude Skill's aging, risk-scoring, and segmentation logic.",
-          "teacherCue": "Teacher cue: Ask which accounts moved when the risk weights changed, and whether that reordering reflects genuine collections urgency or just a larger invoice amount.",
+          "summary": "Your AR team has $10M outstanding across 500 customers. Age alone doesn't tell the story. Risk-score by customer health, payment history, and relationship tenure to focus collections effort where it matters. See how intelligent segmentation recovers more cash faster than \"call everyone 60 days late.\"",
+          "teacherCue": "Teacher cue: Change the risk weights and watch accounts reorder. Ask: \"Is the new priority order better because of genuine risk, or because of invoice size?\" This teaches the difference between statistically sound prioritization and intuitive judgment.",
           "duration": "30-45 min",
           "surface": "Colab-ready notebook",
           "mode": "Colab",
@@ -139,8 +139,8 @@
         {
           "title": "Mesa Liquidity Data Generator",
           "level": "Beginner to Intermediate",
-          "summary": "Browser-first liquidity lab where students generate synthetic bank data, inspect customer and account structure, then run a Monte Carlo liquidity forecast to see how uncertainty changes funding pressure and expected buffers.",
-          "teacherCue": "Teacher cue: Look for balance mix, liquidity path, risk buckets, and the treasury action implied by stressed buffers.",
+          "summary": "Build a bank's balance sheet: customer deposits, savings rates, withdrawal patterns. Then stress it: what if 10%, 20%, 30% of customers withdraw simultaneously? Monte Carlo shows the range of liquidity outcomes. Learn how asset-liability managers size funding buffers and when to tap contingency facilities.",
+          "teacherCue": "Teacher cue: Emphasize the behavioral assumption: \"You're assuming customers behave historically. But what if crisis sentiment changes behavior?\" This connects data science to operational reality\u2014models assume conditions stay stable when stress breaks that assumption.",
           "duration": "20-30 min",
           "surface": "Browser + Local analytics",
           "mode": "Multi-Mode",
@@ -159,8 +159,8 @@
         {
           "title": "CCC Analyzer",
           "level": "Beginner to Intermediate",
-          "summary": "About Demo learning guide for CCC Analyzer: a browser-based treasury management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for receivables, inventory, payables, and cash conversion cycle components.",
+          "summary": "You collect from customers in 45 days but must pay suppliers in 30 days. That 15-day gap ties up working capital. See how DSO, DIO, and DPO interact\u2014and why a 10-day improvement in receivables can unlock millions in cash without borrowing.",
+          "teacherCue": "Teacher cue: Push on this: \"If you improve collections by 10 days, how much cash is freed up?\" Then show the compounding effect across the quarter. Make it real with balance sheet impact.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -179,8 +179,8 @@
         {
           "title": "Dell vs Competitors Working Capital Case",
           "level": "Beginner to Intermediate",
-          "summary": "Interactive working-capital case comparing Dell, HP, Lenovo, and Apple through receivables, inventory, payables, and cash conversion cycle analysis.",
-          "teacherCue": "Teacher cue: Look for DSO, DIO, DPO, CCC, and the amount of cash released by better operating discipline.",
+          "summary": "Why does Dell unlock billions in cash faster than HP? Compare receivables, inventory, and payables cycles across the PC industry. See how Dell's direct-to-consumer model compressed CCC from 60 days to negative days\u2014generating free cash while competitors waited. Understand business model impact on treasury.",
+          "teacherCue": "Teacher cue: Ask: \"Can Apple or HP replicate Dell's CCC?\" The answer is no\u2014because CCC isn't just a metric, it's a reflection of business model, customer mix, and operational excellence. Treasury is strategy.",
           "duration": "25-35 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -199,8 +199,8 @@
         {
           "title": "Collections Predictor",
           "level": "Beginner to Intermediate",
-          "summary": "About Demo learning guide for Collections Predictor: a browser-based treasury management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for customer risk score, payment history, amount due, and collection priority.",
+          "summary": "You have 200 invoices overdue. Who pays first? AI ranks by risk, but should you chase the $500K account that's 60 days late or the $50K account that's 120 days late? Learn how payment pattern history beats invoice size in predicting cash recovery.",
+          "teacherCue": "Teacher cue: Ask: \"Why doesn't the biggest invoice always come first?\" This reveals the power of behavioral signals\u2014historical payment discipline trumps transaction size in risk assessment.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -219,8 +219,8 @@
         {
           "title": "FX Hedge Simulator",
           "level": "Beginner to Intermediate",
-          "summary": "About Demo learning guide for FX Hedge Simulator: a browser-based treasury management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for currency exposure, hedge choice, spot rate movement, and hedge outcome.",
+          "summary": "You sell \u00a51 billion annually. USD strengthens and your revenue drops \u20ac2M. Did you hedge too little, or was the cost of hedging worse? Learn why CFOs are paid to make hedging decisions under uncertainty\u2014perfect foresight doesn't exist in real markets.",
+          "teacherCue": "Teacher cue: Show both scenarios: \"What if you'd fully hedged at a 2% premium? What if you'd hedged nothing?\" This drives home that hedging trades downside insurance for opportunity cost.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -239,8 +239,8 @@
         {
           "title": "Smart Contract Treasury",
           "level": "Beginner to Intermediate",
-          "summary": "About Demo learning guide for Smart Contract Treasury: a browser-based treasury management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for treasury rule, smart-contract condition, approval flow, and transaction outcome.",
+          "summary": "Code becomes law on-chain. Define treasury rules in a smart contract\u2014e.g., \"approve wire transfers only if balance > $5M AND approval is dual-signature.\" No CFO override, no exceptions. Is this efficient or a risk? Learn when to automate treasury vs. when human judgment matters.",
+          "teacherCue": "Teacher cue: Prompt: \"If a smart contract rules fail, who's liable? Can you override it?\" This reveals the tension between decentralized governance and operational reality. Rules are immutable\u2014but should treasury ever be?",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -259,8 +259,8 @@
         {
           "title": "Stablecoin Manager",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Stablecoin Manager: a browser-based treasury management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for reserve level, redemption flow, peg pressure, and policy action.",
+          "summary": "You issue a stablecoin pegged at $1. Suddenly, $100M in redemptions arrive\u2014everyone wants their USD back. You have enough reserves, but peg pressure forces a choice: raise interest rates to attract new deposits, or hold steady and watch the peg crack? Learn collateral management and reserve mechanics of decentralized stablecoins.",
+          "teacherCue": "Teacher cue: This is modern monetary policy in real-time. Ask: \"How is this different from managing a bank run?\" Stablecoins are a treasury function for issuers\u2014liability management under duress.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -279,8 +279,8 @@
         {
           "title": "Treasury Control Tower",
           "level": "Beginner to Intermediate",
-          "summary": "Browser-based liquidity stress testing simulator with AI insights. Learn treasury modernization and cash flow forecasting.",
-          "teacherCue": "Teacher cue: Look for cash position, forecast gap, stress scenario, and recommended action.",
+          "summary": "It's Friday 5 PM. Your cash position is $2M but you're expecting a $10M outflow Monday. The AI forecasts a gap. Do you draw a credit line today (cost: facility fee), defer payments, or trust the forecast to adjust? See how AI-powered liquidity monitoring drives real-time treasury decisions.",
+          "teacherCue": "Teacher cue: Challenge the forecast: \"How confident is this AI model? What happens if it's wrong?\" This teaches false confidence\u2014AI is a tool for speed, not certainty. CFOs still own the decision.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -299,8 +299,8 @@
         {
           "title": "Treasury Transform Blueprint",
           "level": "Beginner to Intermediate",
-          "summary": "About Demo learning guide for Treasury Transform Blueprint: a browser-based treasury management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for current treasury capability, target state, roadmap step, and value driver.",
+          "summary": "Your CFO says \"we need to modernize treasury.\" Where do you start? Dashboard? Automation? API integration? Design a multi-year roadmap that prioritizes quick wins (free up cash now) while building toward future state (real-time insights, autonomous execution). Learn how transformation value compounds across initiatives.",
+          "teacherCue": "Teacher cue: Challenge sequencing: \"Why would you build a dashboard before fixing data quality?\" This reveals how treasury transformation requires sequencing\u2014you can't automate garbage data.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -331,8 +331,8 @@
         {
           "title": "AB Testing Framework",
           "level": "All Levels",
-          "summary": "About Demo learning guide for AB Testing Framework: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the control group, variant group, and the metric being compared.",
+          "summary": "Your team claims a new feature increases engagement. But did it, or did randomness fool you? Design AB tests with proper controls, sample sizes, and significance thresholds. Learn why most \"winning\" features are false positives without rigorous experimental design.",
+          "teacherCue": "Teacher cue: Ask: \"How many users do you need to see a real effect? What's the cost of a false positive vs. a false negative?\" This reveals statistical rigor and business trade-offs.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -351,8 +351,8 @@
         {
           "title": "AI Cost Benefit Analyzer",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Cost Benefit Analyzer: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the cost categories, benefit drivers, and AI adoption assumptions.",
+          "summary": "Your CFO asks: \"Why invest $2M in AI when we don't know the payoff?\" Build a business case by modeling infrastructure costs, labor savings, revenue uplift, and risk. See how hidden assumptions (adoption rates, productivity gains) drive ROI\u2014and how small changes swing the decision.",
+          "teacherCue": "Teacher cue: Challenge the assumptions: \"What if adoption is 40% instead of 80%? What if labor savings never materialize?\" This teaches sensitivity analysis and the power of assumptions in business decisions.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -371,8 +371,8 @@
         {
           "title": "AI Data Analyzer",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Data Analyzer: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the dataset fields, missing values, and the question the analysis is trying to answer.",
+          "summary": "Your dataset has 500K rows but 30% missing values. How do you proceed? Explore distributions, anomalies, and data quality. Learn the truth: garbage data in = garbage model out. Data literacy comes before modeling",
+          "teacherCue": "Teacher cue: Ask: \"Would you build a model on this dataset? Why or why not?\" This teaches healthy skepticism and the reality that data prep is 80% of the work",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -391,8 +391,8 @@
         {
           "title": "AI Decision Tracker",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Decision Tracker: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the decision record, owner, evidence, and follow-up status.",
+          "summary": "Every AI-assisted decision should have evidence. Document what you decided, why, and what changed your mind. Trace decisions over time to see which assumptions were right and which broke. Build accountability into workflows, not just dashboards.",
+          "teacherCue": "Teacher cue: Ask: \"In 6 months, could you explain why you made this decision? What evidence supported it?\" This teaches decision hygiene and the power of records.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -411,8 +411,8 @@
         {
           "title": "AI Feature Impact",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Feature Impact: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the input feature, model output, and direction of influence.",
+          "summary": "Model says \"age is your most important feature\" for loan approval. But is age causally predictive, or just correlated with something else? Learn why feature importance can mislead\u2014correlation \u2260 causation in machine learning.",
+          "teacherCue": "Teacher cue: Challenge this: \"Why does age matter? Is it causal or a proxy for credit history? What would you do about it?\" This reveals why explainability matters beyond accuracy.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -431,8 +431,8 @@
         {
           "title": "AI PRD Template",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI PRD Template: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the problem statement, user need, success metric, and AI boundary.",
+          "summary": "Great PRDs start with the problem, not the algorithm. Define success metrics, failure modes, and human oversight checkpoints BEFORE you code. See how product thinking (not just ML thinking) drives adoption and adoption drives value.",
+          "teacherCue": "Teacher cue: Ask: \"What's the actual user problem? How do you know when you've solved it?\" This forces clarity before building.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -451,8 +451,8 @@
         {
           "title": "AI Performance Dashboard",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Performance Dashboard: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the KPI, baseline, target, and actual performance trend.",
+          "summary": "Your model was 95% accurate yesterday. Today 87%. What happened? Monitor for drift, data decay, and concept shift in production. ML is not \"train and deploy\"\u2014it's continuous monitoring, retraining, and governance.",
+          "teacherCue": "Teacher cue: Ask: \"What changed? Customer behavior? Data quality? Competition? How would you know?\" This teaches production thinking.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -471,8 +471,8 @@
         {
           "title": "AI Product Canvas",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Product Canvas: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the user, job-to-be-done, AI capability, data source, and value metric.",
+          "summary": "Who uses this AI? What job are they doing? What data exists? Map user need \u2192 AI capability \u2192 data source \u2192 value metric on a one-page canvas. Stress-test whether an AI project is worth building before you invest.",
+          "teacherCue": "Teacher cue: Challenge: \"If you can't fill this canvas clearly, the project isn't ready. What's missing?\" This forces clarity on product-market fit.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -491,8 +491,8 @@
         {
           "title": "AI ROI Calculator",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI ROI Calculator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the investment cost, expected benefit, adoption rate, and time horizon.",
+          "summary": "Calculate payback period, NPV, IRR for AI initiatives. But don't forget: compare against hiring, outsourcing, and rule-based systems. \"AI is cheaper\" is often wrong\u2014context and adoption rates matter more than the algorithm.",
+          "teacherCue": "Teacher cue: Challenge: \"What's your true cost of ownership? Include maintenance, retraining, and updates over 3 years.\" This prevents hidden costs from destroying ROI.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -511,8 +511,8 @@
         {
           "title": "AI Resource Planner",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Resource Planner: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for demand, capacity, role mix, and utilization assumptions.",
+          "summary": "Building an AI team requires data scientists, engineers, PMs, and ops. Forecast capacity when multiple projects compete for limited talent. Learn the hard truth: hiring is the constraint, not compute or algorithms.",
+          "teacherCue": "Teacher cue: Ask: \"Where's your bottleneck? Usually it's people, not technology. What's your hiring plan?\" This teaches team scaling reality.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -531,8 +531,8 @@
         {
           "title": "AI Team Collaboration",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Team Collaboration: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for task ownership, dependencies, communication signals, and blockers.",
+          "summary": "Data scientist builds a model; engineer can't deploy it. Dependencies matter. Track who owns what, blockers, and cross-functional communication. Learn: technical skill \u2260 shipping ability. Collaboration is the constraint.",
+          "teacherCue": "Teacher cue: Ask: \"Why do some teams ship fast and others stall? Usually it's friction between functions, not technical difficulty.\" This teaches organizational realities.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -551,8 +551,8 @@
         {
           "title": "AI Workflow",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Workflow: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the workflow trigger, AI step, human review point, and output destination.",
+          "summary": "Your AI confidence is only 75%\u2014don't fully automate. Design workflows with human checkpoints. Where does a human review before action? Automation with oversight beats blind automation. Learn governance inside workflows.",
+          "teacherCue": "Teacher cue: Challenge: \"If your AI makes a $10M decision, do you really not want human review?\" This teaches the governance question that matters.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -571,8 +571,8 @@
         {
           "title": "Bank Failure Prediction",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Bank Failure Prediction: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the financial indicators used to signal bank stress.",
+          "summary": "Regulators need early warning of failing banks. Build a model. But if you flag a healthy bank, you cause panic. False positives and false negatives have asymmetric costs. Learn: metrics alone don't tell the full story.",
+          "teacherCue": "Teacher cue: Ask: \"What's worse: missing a failing bank or falsely flagging a healthy one?\" This reveals how business context shapes model thresholds.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -591,8 +591,8 @@
         {
           "title": "Copilot Kit",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Copilot Kit: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for the prompt, retrieved context, generated response, and user feedback loop.",
+          "summary": "Your copilot is trained on company docs. Is it accurate or hallucinating? Explore prompt engineering, retrieval grounding, confidence scoring. Learn: \"more training data\" isn't always the answer\u2014grounding and feedback loops are.",
+          "teacherCue": "Teacher cue: Ask: \"How do you know when the copilot is making things up? What's your verification process?\" This teaches grounding as a non-negotiable requirement.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -611,8 +611,8 @@
         {
           "title": "AI Page Agent",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Page Agent: an in-page agent that reads a support ticket queue as text and acts on it, inspired by browser-agent frameworks like page-agent, Stagehand, and browser-use.",
-          "teacherCue": "Teacher cue: Watch the Agent Trace panel's observe/decide/act/result steps, and ask when a rule-based parser fails where a real LLM would succeed.",
+          "summary": "An agent browses the web and takes actions autonomously: fills forms, clicks buttons, navigates. How do you verify it understood the page correctly? Challenge of autonomous agents in messy, unstructured environments. When does autonomous beat human?",
+          "teacherCue": "Teacher cue: Ask: \"How would you know if the agent made a mistake? What's your verification workflow?\" This teaches autonomous systems must be verifiable.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -631,7 +631,7 @@
         {
           "title": "Data Drift Detector",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Data Drift Detector: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Model trained 2022; still works 2025? Explore concept drift. Customer behavior changed, competition shifted. When do you retrain?",
           "teacherCue": "Teacher cue: Look for the reference distribution, current distribution, and drift signal.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -651,7 +651,7 @@
         {
           "title": "Emotional Support Assistant",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Emotional Support Assistant: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Chatbot listens, responds with empathy. But can it recognize crisis? When must it escalate to human?",
           "teacherCue": "Teacher cue: Look for user intent, sentiment cues, safety boundaries, and referral language.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -671,7 +671,7 @@
         {
           "title": "Feature Store",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Feature Store: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "100 models, each needs features. Centralize them\u2014governance, reproducibility, speed. Avoid reimplementing the same feature.",
           "teacherCue": "Teacher cue: Look for feature definitions, ownership, freshness, and reuse across models.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -691,7 +691,7 @@
         {
           "title": "ML Model Registry",
           "level": "All Levels",
-          "summary": "About Demo learning guide for ML Model Registry: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Track 100 model versions. Which is production? Which performed best? Who trained it and when?",
           "teacherCue": "Teacher cue: Look for model version, dataset version, metrics, owner, and approval status.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -711,7 +711,7 @@
         {
           "title": "Model Version Comparator",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Model Version Comparator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "V2 has 92% accuracy, V1 had 89%. But V2 is slower. Trade-offs matter\u2014accuracy vs. latency vs. cost.",
           "teacherCue": "Teacher cue: Look for the baseline model, challenger model, metric comparison, and segment results.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -751,7 +751,7 @@
         {
           "title": "Probabilistic Decision Engine",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Probabilistic Decision Engine: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Not binary decisions\u2014probability scores. Approve if confidence > 75%. Learn confidence intervals, decision thresholds, ROI curves.",
           "teacherCue": "Teacher cue: Look for probability estimates, decision thresholds, and expected value calculations.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -771,7 +771,7 @@
         {
           "title": "Browser AI Demos \u2014 Edge AI Showcase",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Browser AI Demos \u2014 Edge AI Showcase: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Run models in the browser, no server needed. See latency, accuracy, privacy trade-offs. When is edge AI better than cloud?",
           "teacherCue": "Teacher cue: Look for the range of local AI capabilities and the user problem each mini-demo solves.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -791,7 +791,7 @@
         {
           "title": "Local Chat Advisor",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Local Chat Advisor: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Chat runs locally, no data leaves device. Slower, smaller models. But privacy guaranteed. Trade-offs of local vs cloud AI.",
           "teacherCue": "Teacher cue: Look for the prompt, local response, and any limitations shown by the chat behavior.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -811,7 +811,7 @@
         {
           "title": "Smart Ticket Tagger",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Smart Ticket Tagger: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Customer support tickets flood in. Route by urgency, category, language. AI saves 40% manual triage time\u2014but needs human oversight.",
           "teacherCue": "Teacher cue: Look for the support ticket text, predicted category, and confidence level.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -831,7 +831,7 @@
         {
           "title": "Privacy Notebook",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Privacy Notebook: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Analyze data privately. Differential privacy adds noise\u2014protects individuals but costs accuracy. Find the sweet spot.",
           "teacherCue": "Teacher cue: Look for sensitive data types, redaction behavior, and privacy risk signals.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -851,7 +851,7 @@
         {
           "title": "Whisper Transcriber",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Whisper Transcriber: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Convert speech to text. Works on accents, background noise. Understand accuracy, latency, computational cost.",
           "teacherCue": "Teacher cue: Look for audio input, transcription output, and timing or speaker cues.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -871,7 +871,7 @@
         {
           "title": "Named Entity Tagger",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Named Entity Tagger: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Extract entities: names, dates, locations from text. See how context matters. \"Apple\" is company or fruit?",
           "teacherCue": "Teacher cue: Look for named entities, categories, and context around each extraction.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -891,7 +891,7 @@
         {
           "title": "Semantic Search",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Semantic Search: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Search by meaning, not keywords. \"How do I fix my laptop?\" finds articles about troubleshooting, not just \"laptop.\"",
           "teacherCue": "Teacher cue: Look for the query, retrieved documents, and relevance ranking.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -911,7 +911,7 @@
         {
           "title": "Opinion Quintuple Extractor",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Opinion Quintuple Extractor: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Extract sentiment, target, aspect, reason from reviews. \"This phone's camera is great but battery drains fast.\"",
           "teacherCue": "Teacher cue: Look for opinion holder, target, sentiment, aspect, and explanation.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -931,7 +931,7 @@
         {
           "title": "SYNAPSE \u2014 Semantic Word Game",
           "level": "All Levels",
-          "summary": "About Demo learning guide for SYNAPSE \u2014 Semantic Word Game: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Game tests your knowledge of semantic relationships. Explore word embeddings\u2014how AI understands meaning.",
           "teacherCue": "Teacher cue: Look for word relationships, hints, and the path students use to reason semantically.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -951,7 +951,7 @@
         {
           "title": "PM Product Demos",
           "level": "All Levels",
-          "summary": "About Demo learning guide for PM Product Demos: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Product management playbook: launch roadmap, feature prioritization, metrics. Build AI products, not just models.",
           "teacherCue": "Teacher cue: Look for the product decision, evidence, stakeholder, and recommended next step.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -971,7 +971,7 @@
         {
           "title": "Experimentation & Metrics Simulator",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Experimentation & Metrics Simulator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Design experiments. Define success metrics. Run A/B tests. Learn p-values, sample size, statistical significance.",
           "teacherCue": "Teacher cue: Look for the experiment goal, primary metric, guardrail metric, and sample size.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -991,7 +991,7 @@
         {
           "title": "Feature Prioritization Copilot \u00b7 PM Demo 02",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Feature Prioritization Copilot \u00b7 PM Demo 02: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "50 feature requests. Which matter most? Score by impact, effort, risk. Data-driven prioritization beats gut feel.",
           "teacherCue": "Teacher cue: Look for value, effort, risk, and strategic alignment scores.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1011,7 +1011,7 @@
         {
           "title": "Build vs Buy vs API Decision Workbench \u2014 PM Demo 03",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Build vs Buy vs API Decision Workbench \u2014 PM Demo 03: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Build AI in-house? Buy a platform? Use an API? Model TCO, time-to-market, control. Each has trade-offs.",
           "teacherCue": "Teacher cue: Look for build, buy, and API options across cost, speed, control, and risk.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1031,7 +1031,7 @@
         {
           "title": "Pricing & Unit Economics Explorer \u2014 PM Demo 04",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Pricing & Unit Economics Explorer \u2014 PM Demo 04: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "AI feature costs $5K/month to run. Charge per user or per transaction? Model margins and break-even.",
           "teacherCue": "Teacher cue: Look for price, variable cost, contribution margin, and volume assumptions.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1051,7 +1051,7 @@
         {
           "title": "AI Launch Gate \u00b7 PM Demo 05",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Launch Gate \u00b7 PM Demo 05: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Ready to ship? Check: accuracy acceptable? Governance in place? Support plan ready? Launch gates prevent disasters.",
           "teacherCue": "Teacher cue: Look for readiness criteria, risk checks, owner approval, and launch blockers.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1071,7 +1071,7 @@
         {
           "title": "QFD",
           "level": "All Levels",
-          "summary": "About Demo learning guide for QFD: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+          "summary": "Quality Function Deployment: translate customer needs to technical specs. Map requirements to outcomes. Design thinking for AI.",
           "teacherCue": "Teacher cue: Look for customer need, importance, satisfaction, and quality-function linkage.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1103,8 +1103,8 @@
         {
           "title": "Contagion Model",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Contagion Model: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for institution links, shock source, loss propagation, and systemic risk indicator.",
+          "summary": "One bank fails. Does it crash the whole system? Model how losses propagate through interconnected institutions. See where your exposure lies and what breaks first. Learn why regulators fear systemic risk.",
+          "teacherCue": "Teacher cue: Ask: \"Which institution, if it failed, would trigger the biggest cascade? Why?\" This teaches systemic thinking.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1123,8 +1123,8 @@
         {
           "title": "Counter Party Risk",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Counter Party Risk: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for exposure, probability of default, recovery rate, and expected loss.",
+          "summary": "Your bank lends to a seemingly healthy company. Their major customer just announced layoffs. How deep is your exposure? Monitor supply chain concentration and exposure triggers that predict defaults before ratings agencies do.",
+          "teacherCue": "Teacher cue: Ask: \"Which one customer could bring them down? What's your exposure there?\" This teaches forward-looking risk.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1143,8 +1143,8 @@
         {
           "title": "AI Risk Calculator",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Risk Calculator: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for risk drivers, AI-assisted score, confidence, and recommended control.",
+          "summary": "AI model says \"approve this loan.\" But can't explain why. Do you trust it? When does explainability matter more than accuracy? Learn when risk officers demand to understand the model before acting on it.",
+          "teacherCue": "Teacher cue: Challenge: \"Would you stake your job on unexplained predictions? Why or why not?\" This reveals governance boundaries.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1163,8 +1163,8 @@
         {
           "title": "Counterparty Risk",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Counterparty Risk: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for counterparty profile, exposure, credit signal, and mitigation action.",
+          "summary": "You have $500M exposure to a counterparty. Their credit rating just dropped. What do you do? Reduce exposure? Demand more collateral? Learn when concentration becomes unacceptable and how to monitor credit signals that predict defaults.",
+          "teacherCue": "Teacher cue: Ask: \"At what exposure level would you demand action? Who decides?\" This teaches risk governance.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1183,8 +1183,8 @@
         {
           "title": "Risk Parity Portfolio",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Risk Parity Portfolio: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for asset risk contribution, allocation weights, and portfolio volatility.",
+          "summary": "Stocks rally; bonds fall. Balance portfolio so each asset contributes equal risk, not equal dollars. Why equal-weight 60/40 fails. See how risk contributions compound and why diversification requires rethinking weights.",
+          "teacherCue": "Teacher cue: Ask: \"Why not just 60/40 stocks/bonds? What's the benefit of equal risk contribution?\" This teaches portfolio thinking beyond traditional allocation.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1203,8 +1203,8 @@
         {
           "title": "VaR Calculator",
           "level": "Advanced",
-          "summary": "About Demo learning guide for VaR Calculator: a browser-based risk management learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for portfolio returns, confidence level, time horizon, and VaR estimate.",
+          "summary": "How much can you lose in a bad market day? 1-in-100 scenario or 1-in-1000? Learn tail risk vs. average case. See why VaR is useful but incomplete\u2014it measures risk but not the worst-case beyond it.",
+          "teacherCue": "Teacher cue: Ask: \"Are you optimizing for expected loss or worst-case? What's your risk tolerance?\" This teaches risk appetite definition.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1237,7 +1237,7 @@
         {
           "title": "Black Scholes Option",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Black Scholes Option: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Why is a call worth more when volatility spikes? Learn Black-Scholes intuition and how inputs drive option value.",
           "teacherCue": "Teacher cue: Look for option type, underlying price, strike, volatility, rate, and time.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1257,7 +1257,7 @@
         {
           "title": "Supply Chain Finance",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Supply Chain Finance: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Buyer needs inventory financing. Supplier wants cash today. How do you structure a deal that works for both?",
           "teacherCue": "Teacher cue: Look for invoice timing, buyer risk, supplier risk, and financing cost.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1277,7 +1277,7 @@
         {
           "title": "Bond Pricing",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Bond Pricing: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Bond worth $1000 today. Rates rise 50 bps. Now worth $950. Understand duration, convexity, interest rate risk.",
           "teacherCue": "Teacher cue: Look for coupon, maturity, yield, and present-value calculation.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1297,7 +1297,7 @@
         {
           "title": "Monte Carlo Options",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Monte Carlo Options: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Stock could hit $150 or $50 in 3 months. What's option worth? Run simulations, not formulas.",
           "teacherCue": "Teacher cue: Look for simulated paths, payoff calculation, and convergence behavior.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1337,7 +1337,7 @@
         {
           "title": "Options Pricing",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Options Pricing: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Compare European vs American options, calls vs puts. Understand early exercise and optionality value.",
           "teacherCue": "Teacher cue: Look for call and put values, strike, expiry, and volatility assumptions.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1357,7 +1357,7 @@
         {
           "title": "Portfolio Optimizer",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Portfolio Optimizer: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Stock A returns 8%, Stock B returns 12%. Which do you hold? Build efficient frontier\u2014maximum return for each risk level.",
           "teacherCue": "Teacher cue: Look for expected return, risk, correlation, and portfolio weights.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1377,7 +1377,7 @@
         {
           "title": "Black-Scholes",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Black-Scholes: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Why is a call worth more when volatility spikes? Learn Black-Scholes intuition and how inputs drive option value.",
           "teacherCue": "Teacher cue: Look for option parameters and the model price output.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1397,7 +1397,7 @@
         {
           "title": "Efficient Frontier",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Efficient Frontier: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Diversification reduces risk. Build optimal portfolio\u2014weights that minimize volatility for target return.",
           "teacherCue": "Teacher cue: Look for asset return, volatility, correlation, and selected portfolio point.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1417,7 +1417,7 @@
         {
           "title": "NPV Calculator",
           "level": "All Levels",
-          "summary": "About Demo learning guide for NPV Calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Project costs $10M upfront, saves $2M/year for 10 years at 8% discount rate. Is it worth it? Calculate NPV and IRR.",
           "teacherCue": "Teacher cue: Look for cash-flow timing, discount rate, initial investment, and NPV result.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1437,7 +1437,7 @@
         {
           "title": "Greeks Calculator",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Greeks Calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
+          "summary": "Volatility changes. Delta, gamma, vega tell you exposure. Learn Greeks without calculus.",
           "teacherCue": "Teacher cue: Look for delta, gamma, theta, vega, and the option position being analyzed.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1469,7 +1469,7 @@
         {
           "title": "Intrusion Detection",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Intrusion Detection: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Network attack in progress. Spot the intrusion before damage spreads. Learn pattern detection, false positives, and alert tuning.",
           "teacherCue": "Teacher cue: Look for network events, anomaly indicators, and alert classification.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1489,7 +1489,7 @@
         {
           "title": "Network Traffic Analyzer",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Network Traffic Analyzer: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Packets flowing across your network. Identify protocols, anomalies, and data exfiltration. Analyze traffic for threats.",
           "teacherCue": "Teacher cue: Look for traffic volume, protocol mix, source-destination patterns, and outliers.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1509,7 +1509,7 @@
         {
           "title": "Pen Test Simulator",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Pen Test Simulator: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Web app has SQL injection vulnerability. Exploit it safely to prove risk before defenders patch it.",
           "teacherCue": "Teacher cue: Look for authorized scope, test step, finding, and remediation priority.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1529,7 +1529,7 @@
         {
           "title": "Threat Modeling Matrix",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Threat Modeling Matrix: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Mobile app handles user payments. Map threats: data breach, payment fraud, API compromise. Prioritize mitigations.",
           "teacherCue": "Teacher cue: Look for assets, threats, likelihood, impact, and existing controls.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1549,7 +1549,7 @@
         {
           "title": "Vuln Scanner",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Vuln Scanner: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Web server running outdated framework. Scanner finds CVEs\u2014but which are critical? Know severity, exploitability, patch urgency.",
           "teacherCue": "Teacher cue: Look for scan findings, severity, affected asset, and remediation suggestion.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1569,7 +1569,7 @@
         {
           "title": "Embedded Firmware Exploit Wokwi",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Embedded Firmware Exploit Wokwi: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Flash reads customer data unencrypted. Reverse engineer to extract secrets. Understand firmware security.",
           "teacherCue": "Teacher cue: Look for firmware behavior, input boundary, and failure mode.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1589,7 +1589,7 @@
         {
           "title": "Io T Ethernet Pen Test v86",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Io T Ethernet Pen Test v86: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Firmware has buffer overflow. Exploit it. Understand why embedded devices are often insecure.",
           "teacherCue": "Teacher cue: Look for network exposure, test vector, finding, and mitigation step.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1609,7 +1609,7 @@
         {
           "title": "Malware Sandbox",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Malware Sandbox: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Execute suspicious file safely. Watch network calls, registry edits, process spawns. Understand malware behavior.",
           "teacherCue": "Teacher cue: Look for observed behavior, indicators, containment status, and risk rating.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1629,7 +1629,7 @@
         {
           "title": "Secure Code Review",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Secure Code Review: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Code uses md5 for passwords. Hardcoded secrets in git. Review for vulns before deploy.",
           "teacherCue": "Teacher cue: Look for code pattern, vulnerability class, evidence line, and secure fix.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1649,7 +1649,7 @@
         {
           "title": "Zero Trust",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Zero Trust: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Assume breach. Verify every access, even inside the network. Learn zero trust architecture.",
           "teacherCue": "Teacher cue: Look for identity, device, access request, policy decision, and trust signals.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1669,7 +1669,7 @@
         {
           "title": "SIEM Dashboard",
           "level": "All Levels",
-          "summary": "About Demo learning guide for SIEM Dashboard: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Millions of security logs daily. Which signals matter? Learn alert fatigue vs real threats.",
           "teacherCue": "Teacher cue: Look for security events, severity, source, and response status.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1689,7 +1689,7 @@
         {
           "title": "Threat Hunter",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Threat Hunter: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+          "summary": "Suspicious process spawned from Office macro. Hunt for lateral movement. Learn indicators of compromise.",
           "teacherCue": "Teacher cue: Look for hypothesis, telemetry source, indicator, and evidence trail.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1725,6 +1725,26 @@
           "aboutPath": "TechUseCaseDemos/STRIDEThreatModeler/about.html",
           "launchPath": "TechUseCaseDemos/STRIDEThreatModeler/index.html",
           "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Stack Smashing Visualizer",
+          "level": "Intermediate",
+          "summary": "Firmware has buffer overflow. Watch stack overflow happen in real-time. Understand return address corruption, NOP sleds, and why stack canaries and ASLR matter.",
+          "teacherCue": "Teacher cue: Why is the return address a critical control flow target? What happens when it's overwritten?",
+          "duration": "15-20 min",
+          "surface": "Interactive Visualization",
+          "mode": "Browser",
+          "courseSlug": "cyber",
+          "courseTitle": "Cybersecurity",
+          "courseSlugs": [
+            "cyber"
+          ],
+          "courseTitles": [
+            "Cybersecurity"
+          ],
+          "aboutPath": "TechUseCaseDemos/StackSmashingVisualizer/about.html",
+          "launchPath": "TechUseCaseDemos/StackSmashingVisualizer/index.html",
+          "readiness": "Classroom Ready"
         }
       ]
     },
@@ -1744,7 +1764,7 @@
         {
           "title": "Alert Triage001",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Alert Triage001: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+          "summary": "1000 fraud alerts daily. 2% are real. Triage by risk\u2014which accounts need investigation first?",
           "teacherCue": "Teacher cue: Look for alert severity, evidence, owner, and required response time.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1764,7 +1784,7 @@
         {
           "title": "Mule Account Detection",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Mule Account Detection: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+          "summary": "Criminals use fake accounts to move money. Spot the mules\u2014accounts created yesterday, moved $100K, gone tomorrow.",
           "teacherCue": "Teacher cue: Look for transaction patterns, account age, counterparties, and behavioral flags.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1784,7 +1804,7 @@
         {
           "title": "AI Governance Public Sector",
           "level": "Advanced",
-          "summary": "About Demo learning guide for AI Governance Public Sector: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+          "summary": "Government AI decisions affect millions. Ensure fairness, transparency, accountability.",
           "teacherCue": "Teacher cue: Look for public value, transparency, accountability, and citizen impact criteria.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1804,7 +1824,7 @@
         {
           "title": "AI Governance Scorecard",
           "level": "Advanced",
-          "summary": "About Demo learning guide for AI Governance Scorecard: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+          "summary": "Rate AI systems on explainability, fairness, robustness. Build governance maturity model.",
           "teacherCue": "Teacher cue: Look for governance dimensions, evidence, maturity level, and gaps.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1824,7 +1844,7 @@
         {
           "title": "AI Regulatory Tracker",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Regulatory Tracker: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+          "summary": "GDPR, AI Act, state privacy laws. Which rules apply to your AI? Track compliance obligations.",
           "teacherCue": "Teacher cue: Look for regulation, obligation, owner, deadline, and evidence requirement.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1844,7 +1864,7 @@
         {
           "title": "Public Policy Governance",
           "level": "Advanced",
-          "summary": "About Demo learning guide for Public Policy Governance: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+          "summary": "Policy changes create compliance risk. Track regulation timelines, draft controls, test readiness.",
           "teacherCue": "Teacher cue: Look for policy objective, stakeholder, risk, and control mechanism.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1859,6 +1879,26 @@
           ],
           "aboutPath": "TechUseCaseDemos/PublicPolicyGovernance/about.html",
           "launchPath": "TechUseCaseDemos/PublicPolicyGovernance/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "PII Detector",
+          "level": "Intermediate",
+          "summary": "Scan documents for exposed personally identifiable information. See what an automated detector finds\u2014and what it misses. Understand why human review is always required.",
+          "teacherCue": "Teacher cue: What's the difference between true positives, false positives, and missed detections? When should you redact data without human review?",
+          "duration": "10-15 min",
+          "surface": "Browser-based \u2022 PDF & Text",
+          "mode": "Browser",
+          "courseSlug": "compliance",
+          "courseTitle": "Compliance & Governance",
+          "courseSlugs": [
+            "compliance"
+          ],
+          "courseTitles": [
+            "Compliance & Governance"
+          ],
+          "aboutPath": "TechUseCaseDemos/PIIDetector/about.html",
+          "launchPath": "TechUseCaseDemos/PIIDetector/index.html",
           "readiness": "Classroom Ready"
         }
       ]
@@ -1876,7 +1916,7 @@
         {
           "title": "AI Content Summarizer",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Content Summarizer: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "50-page report. Summarize to 2 pages. But did summary preserve key insights or oversimplify?",
           "teacherCue": "Teacher cue: Look for source text, summary length, key points, and missing details.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1896,7 +1936,7 @@
         {
           "title": "AI Summarizer001",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for AI Summarizer001: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Compare abstractive vs extractive summarization. Which loses less meaning?",
           "teacherCue": "Teacher cue: Look for input text, generated summary, and highlighted themes.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1916,7 +1956,7 @@
         {
           "title": "Lite Parse",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Lite Parse: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Extract structured data from messy PDFs\u2014invoices, contracts, resumes. NLP + human review for accuracy.",
           "teacherCue": "Teacher cue: Look for parsed structure, extracted fields, and parsing failures.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1936,7 +1976,7 @@
         {
           "title": "Graph RAG",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Graph RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Knowledge graphs organize facts as relationships. Find answers by traversing edges\u2014better for reasoning over context.",
           "teacherCue": "Teacher cue: Look for entities, relationships, graph context, and generated answer.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1956,7 +1996,7 @@
         {
           "title": "Page Index RAG",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Page Index RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Index by page or section. Fast retrieval, but loses relationships between distant passages.",
           "teacherCue": "Teacher cue: Look for page references, retrieved chunks, and answer grounding.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1976,7 +2016,7 @@
         {
           "title": "Standard RAG",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Standard RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Retrieve relevant documents, rerank, and generate answers. Baseline RAG\u2014simple, but hallucinations happen.",
           "teacherCue": "Teacher cue: Look for query, retrieved documents, generated answer, and citations.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -1996,7 +2036,7 @@
         {
           "title": "Voice Graph RAG",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Voice Graph RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Speak your question, get answers from a knowledge graph. Better reasoning than keyword search.",
           "teacherCue": "Teacher cue: Look for spoken query, graph retrieval, entities, relationships, and answer.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -2016,7 +2056,7 @@
         {
           "title": "Voice Page Index RAG",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Voice Page Index RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Speak your question, search documents by page. Voice interface, standard retrieval strategy.",
           "teacherCue": "Teacher cue: Look for voice query, page references, retrieved evidence, and generated response.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -2036,7 +2076,7 @@
         {
           "title": "Voice Standard RAG",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Voice Standard RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Ask by voice, get answers from RAG pipeline. Understand limitations when retrieval fails.",
           "teacherCue": "Teacher cue: Look for voice query, transcript, retrieved context, and generated answer.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -2056,7 +2096,7 @@
         {
           "title": "University Knowledge Assistant",
           "level": "All Levels",
-          "summary": "About Demo learning guide for University Knowledge Assistant: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "RAG system answers questions about university policies. How do you ensure accuracy, not hallucination?",
           "teacherCue": "Teacher cue: Look for student query, knowledge source, retrieved answer, and citation.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -2076,7 +2116,7 @@
         {
           "title": "Voice Notes App001",
           "level": "All Levels",
-          "summary": "About Demo learning guide for Voice Notes App001: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+          "summary": "Record voice notes, search by speaking. NLP indexes and retrieves\u2014useful for hands-free access to knowledge.",
           "teacherCue": "Teacher cue: Look for spoken note, transcript, extracted action items, and summary.",
           "duration": "20-30 min",
           "surface": "Browser-based",
@@ -2112,8 +2152,8 @@
         {
           "title": "Loan Default Predictor",
           "level": "Beginner to Intermediate",
-          "summary": "About Demo learning guide for Loan Default Predictor: a browser-based banking & finance learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for borrower features, predicted default risk, and threshold setting.",
+          "summary": "You approve 90% of loan applications, but 8% default. Tighten lending and reduce defaults to 5%, but approval rate drops to 70%. Which trade-off is better for profitability? Learn how default prediction shapes portfolio composition, capital allocation, and bank risk-taking appetite.",
+          "teacherCue": "Teacher cue: Challenge the threshold: \"Why not deny everyone? You'd have zero defaults.\" This reveals the core lending paradox: higher accuracy \u2260 higher profits. Portfolio composition matters.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -2132,8 +2172,8 @@
         {
           "title": "Interest Rate Risk",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Interest Rate Risk: a browser launch surface with Colab and local notebook support for deposit repricing and shock analysis.",
-          "teacherCue": "Teacher cue: Look for deposit mix, rate shock, post-shock cost, and repricing concentration.",
+          "summary": "The Fed raises rates 100 bps. Your deposit costs jump, but loan rates locked in 6 months ago don't move. Asset-liability gap widens and net interest margin compresses. See how deposit mix, repricing speed, and customer behavior shape your funding cost under stress\u2014and why banks hedge with derivatives.",
+          "teacherCue": "Teacher cue: Ask: \"What's the biggest risk: losing deposits or deposit costs spiking?\" This connects micro-level customer decisions (whether to leave for higher-yield accounts) to macro-level bank risk management.",
           "duration": "30-40 min",
           "surface": "Browser + Colab + Local",
           "mode": "Multi-Mode",
@@ -2152,8 +2192,8 @@
         {
           "title": "Liquidity Management",
           "level": "Beginner to Intermediate",
-          "summary": "About Demo learning guide for Liquidity Management: a Colab and local notebook launch guide for liquidity stress testing and Monte Carlo analysis.",
-          "teacherCue": "Teacher cue: Look for inflow and outflow stress, liquidity gap, Monte Carlo range, and action threshold.",
+          "summary": "In a crisis, when will you run out of cash? Stress test deposits (what if 20% flee?), forecast outflows (payments, withdrawals), and calculate buffers you need. Monte Carlo shows the range of outcomes\u2014and when to trigger contingency funding. Learn how risk officers set liquidity thresholds that prevent crises before they happen.",
+          "teacherCue": "Teacher cue: Challenge assumptions: \"What if 30% of deposits leave, not 20%? What if the Fed cuts rates faster than you expect?\" This teaches how stress tests shape real-time treasury decisions.",
           "duration": "20-30 min",
           "surface": "Colab + Local notebook workflow",
           "mode": "Multi-Mode",
@@ -2172,8 +2212,8 @@
         {
           "title": "Credit Scoring",
           "level": "Beginner to Intermediate",
-          "summary": "Interactive credit scoring model for loan approval decisions. Learn machine learning in banking.",
-          "teacherCue": "Teacher cue: Look for score drivers, risk band, and decision recommendation.",
+          "summary": "A customer's credit score drops 40 points. Should they be declined? More accurate models approve lower-risk borrowers but deny some good customers. Explore score drivers, pricing trade-offs, and Fair Lending constraints. Why transparent models win in banking\u2014not just for compliance, but for customer trust and revenue.",
+          "teacherCue": "Teacher cue: Push on explainability: \"Why does income matter more than payment history in this model? Can you defend that to regulators?\" This teaches model governance and Fair Lending awareness.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -2192,8 +2232,8 @@
         {
           "title": "Fraud Playground",
           "level": "Intermediate",
-          "summary": "About Demo learning guide for Fraud Playground: a browser-based banking & finance learning activity with no cloud or API keys required.",
-          "teacherCue": "Teacher cue: Look for transaction signals, anomaly score, and fraud flag.",
+          "summary": "Block a fraudulent transaction and you save $500. Block a legitimate one and you lose a customer. Explore transaction patterns, anomaly scoring, and threshold trade-offs\u2014the real dilemma fraud teams face every day. Learn why perfect accuracy is impossible (and expensive).",
+          "teacherCue": "Teacher cue: Ask: \"Why would you ever let a transaction through if the model says 'fraud'?\" This reveals the operational cost of false positives and drives home the real trade-off: fraud prevention vs. customer experience.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -2212,8 +2252,8 @@
         {
           "title": "Blockchain Explorer",
           "level": "All Levels",
-          "summary": "Professional blockchain education for finance professionals. Interactive exploration of Bitcoin mining, Ethereum smart contracts, and NFT economics.",
-          "teacherCue": "Teacher cue: Mine blocks, execute smart contracts, understand DeFi economics and token standards.",
+          "summary": "Why are central banks building CBDCs? How do stablecoins disrupt payments? Explore Bitcoin's settlement finality, Ethereum's smart contracts, and DeFi economics. Understand the tech your bank might build on\u2014or compete against. Learn why decentralized finance works differently (and sometimes fails).",
+          "teacherCue": "Teacher cue: Connect to bank strategy: \"If DeFi protocols do settlement in 12 seconds and your bank takes 3 days, how do you respond?\" This reveals why banks care about blockchain now, not just someday.",
           "duration": "90+ min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -2236,8 +2276,8 @@
     {
       "title": "AB Testing Framework",
       "level": "All Levels",
-      "summary": "About Demo learning guide for AB Testing Framework: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the control group, variant group, and the metric being compared.",
+      "summary": "Your team claims a new feature increases engagement. But did it, or did randomness fool you? Design AB tests with proper controls, sample sizes, and significance thresholds. Learn why most \"winning\" features are false positives without rigorous experimental design.",
+      "teacherCue": "Teacher cue: Ask: \"How many users do you need to see a real effect? What's the cost of a false positive vs. a false negative?\" This reveals statistical rigor and business trade-offs.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2256,7 +2296,7 @@
     {
       "title": "AI Content Summarizer",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Content Summarizer: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "50-page report. Summarize to 2 pages. But did summary preserve key insights or oversimplify?",
       "teacherCue": "Teacher cue: Look for source text, summary length, key points, and missing details.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2276,8 +2316,8 @@
     {
       "title": "AI Cost Benefit Analyzer",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Cost Benefit Analyzer: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the cost categories, benefit drivers, and AI adoption assumptions.",
+      "summary": "Your CFO asks: \"Why invest $2M in AI when we don't know the payoff?\" Build a business case by modeling infrastructure costs, labor savings, revenue uplift, and risk. See how hidden assumptions (adoption rates, productivity gains) drive ROI\u2014and how small changes swing the decision.",
+      "teacherCue": "Teacher cue: Challenge the assumptions: \"What if adoption is 40% instead of 80%? What if labor savings never materialize?\" This teaches sensitivity analysis and the power of assumptions in business decisions.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2296,8 +2336,8 @@
     {
       "title": "AI Data Analyzer",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Data Analyzer: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the dataset fields, missing values, and the question the analysis is trying to answer.",
+      "summary": "Your dataset has 500K rows but 30% missing values. How do you proceed? Explore distributions, anomalies, and data quality. Learn the truth: garbage data in = garbage model out. Data literacy comes before modeling",
+      "teacherCue": "Teacher cue: Ask: \"Would you build a model on this dataset? Why or why not?\" This teaches healthy skepticism and the reality that data prep is 80% of the work",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2316,8 +2356,8 @@
     {
       "title": "AI Decision Tracker",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Decision Tracker: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the decision record, owner, evidence, and follow-up status.",
+      "summary": "Every AI-assisted decision should have evidence. Document what you decided, why, and what changed your mind. Trace decisions over time to see which assumptions were right and which broke. Build accountability into workflows, not just dashboards.",
+      "teacherCue": "Teacher cue: Ask: \"In 6 months, could you explain why you made this decision? What evidence supported it?\" This teaches decision hygiene and the power of records.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2336,8 +2376,8 @@
     {
       "title": "AI Feature Impact",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Feature Impact: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the input feature, model output, and direction of influence.",
+      "summary": "Model says \"age is your most important feature\" for loan approval. But is age causally predictive, or just correlated with something else? Learn why feature importance can mislead\u2014correlation \u2260 causation in machine learning.",
+      "teacherCue": "Teacher cue: Challenge this: \"Why does age matter? Is it causal or a proxy for credit history? What would you do about it?\" This reveals why explainability matters beyond accuracy.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2356,7 +2396,7 @@
     {
       "title": "AI Governance Public Sector",
       "level": "Advanced",
-      "summary": "About Demo learning guide for AI Governance Public Sector: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+      "summary": "Government AI decisions affect millions. Ensure fairness, transparency, accountability.",
       "teacherCue": "Teacher cue: Look for public value, transparency, accountability, and citizen impact criteria.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2376,7 +2416,7 @@
     {
       "title": "AI Governance Scorecard",
       "level": "Advanced",
-      "summary": "About Demo learning guide for AI Governance Scorecard: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+      "summary": "Rate AI systems on explainability, fairness, robustness. Build governance maturity model.",
       "teacherCue": "Teacher cue: Look for governance dimensions, evidence, maturity level, and gaps.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2396,8 +2436,8 @@
     {
       "title": "AI Hedge Orchestrator",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Hedge Orchestrator: a browser-based treasury management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for exposure, hedge instrument, hedge ratio, cost, and residual risk.",
+      "summary": "Your multinational has \u20ac50M in revenue exposure to EUR/USD volatility. AI recommends a hedge\u2014but at what ratio and cost? Decide between full/partial hedges and learn why underhedging can destroy shareholder value faster than overhedging.",
+      "teacherCue": "Teacher cue: Emphasize the tradeoff: cheaper partial hedges leave you exposed. Why would a CFO accept residual risk? When do you fully hedge vs. layer hedges over time?",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2416,7 +2456,7 @@
     {
       "title": "AI Launch Gate \u00b7 PM Demo 05",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Launch Gate \u00b7 PM Demo 05: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Ready to ship? Check: accuracy acceptable? Governance in place? Support plan ready? Launch gates prevent disasters.",
       "teacherCue": "Teacher cue: Look for readiness criteria, risk checks, owner approval, and launch blockers.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2436,8 +2476,8 @@
     {
       "title": "AI Page Agent",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Page Agent: an in-page agent that reads a support ticket queue as text and acts on it, inspired by browser-agent frameworks like page-agent, Stagehand, and browser-use.",
-      "teacherCue": "Teacher cue: Watch the Agent Trace panel's observe/decide/act/result steps, and ask when a rule-based parser fails where a real LLM would succeed.",
+      "summary": "An agent browses the web and takes actions autonomously: fills forms, clicks buttons, navigates. How do you verify it understood the page correctly? Challenge of autonomous agents in messy, unstructured environments. When does autonomous beat human?",
+      "teacherCue": "Teacher cue: Ask: \"How would you know if the agent made a mistake? What's your verification workflow?\" This teaches autonomous systems must be verifiable.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2456,8 +2496,8 @@
     {
       "title": "AI Performance Dashboard",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Performance Dashboard: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the KPI, baseline, target, and actual performance trend.",
+      "summary": "Your model was 95% accurate yesterday. Today 87%. What happened? Monitor for drift, data decay, and concept shift in production. ML is not \"train and deploy\"\u2014it's continuous monitoring, retraining, and governance.",
+      "teacherCue": "Teacher cue: Ask: \"What changed? Customer behavior? Data quality? Competition? How would you know?\" This teaches production thinking.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2476,8 +2516,8 @@
     {
       "title": "AI PRD Template",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI PRD Template: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the problem statement, user need, success metric, and AI boundary.",
+      "summary": "Great PRDs start with the problem, not the algorithm. Define success metrics, failure modes, and human oversight checkpoints BEFORE you code. See how product thinking (not just ML thinking) drives adoption and adoption drives value.",
+      "teacherCue": "Teacher cue: Ask: \"What's the actual user problem? How do you know when you've solved it?\" This forces clarity before building.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2496,8 +2536,8 @@
     {
       "title": "AI Product Canvas",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Product Canvas: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the user, job-to-be-done, AI capability, data source, and value metric.",
+      "summary": "Who uses this AI? What job are they doing? What data exists? Map user need \u2192 AI capability \u2192 data source \u2192 value metric on a one-page canvas. Stress-test whether an AI project is worth building before you invest.",
+      "teacherCue": "Teacher cue: Challenge: \"If you can't fill this canvas clearly, the project isn't ready. What's missing?\" This forces clarity on product-market fit.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2516,7 +2556,7 @@
     {
       "title": "AI Regulatory Tracker",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Regulatory Tracker: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+      "summary": "GDPR, AI Act, state privacy laws. Which rules apply to your AI? Track compliance obligations.",
       "teacherCue": "Teacher cue: Look for regulation, obligation, owner, deadline, and evidence requirement.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2536,8 +2576,8 @@
     {
       "title": "AI Resource Planner",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Resource Planner: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for demand, capacity, role mix, and utilization assumptions.",
+      "summary": "Building an AI team requires data scientists, engineers, PMs, and ops. Forecast capacity when multiple projects compete for limited talent. Learn the hard truth: hiring is the constraint, not compute or algorithms.",
+      "teacherCue": "Teacher cue: Ask: \"Where's your bottleneck? Usually it's people, not technology. What's your hiring plan?\" This teaches team scaling reality.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2556,8 +2596,8 @@
     {
       "title": "AI Risk Calculator",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Risk Calculator: a browser-based risk management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for risk drivers, AI-assisted score, confidence, and recommended control.",
+      "summary": "AI model says \"approve this loan.\" But can't explain why. Do you trust it? When does explainability matter more than accuracy? Learn when risk officers demand to understand the model before acting on it.",
+      "teacherCue": "Teacher cue: Challenge: \"Would you stake your job on unexplained predictions? Why or why not?\" This reveals governance boundaries.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2576,8 +2616,8 @@
     {
       "title": "AI ROI Calculator",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI ROI Calculator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the investment cost, expected benefit, adoption rate, and time horizon.",
+      "summary": "Calculate payback period, NPV, IRR for AI initiatives. But don't forget: compare against hiring, outsourcing, and rule-based systems. \"AI is cheaper\" is often wrong\u2014context and adoption rates matter more than the algorithm.",
+      "teacherCue": "Teacher cue: Challenge: \"What's your true cost of ownership? Include maintenance, retraining, and updates over 3 years.\" This prevents hidden costs from destroying ROI.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2596,7 +2636,7 @@
     {
       "title": "AI Summarizer001",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Summarizer001: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Compare abstractive vs extractive summarization. Which loses less meaning?",
       "teacherCue": "Teacher cue: Look for input text, generated summary, and highlighted themes.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2616,8 +2656,8 @@
     {
       "title": "AI Team Collaboration",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Team Collaboration: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for task ownership, dependencies, communication signals, and blockers.",
+      "summary": "Data scientist builds a model; engineer can't deploy it. Dependencies matter. Track who owns what, blockers, and cross-functional communication. Learn: technical skill \u2260 shipping ability. Collaboration is the constraint.",
+      "teacherCue": "Teacher cue: Ask: \"Why do some teams ship fast and others stall? Usually it's friction between functions, not technical difficulty.\" This teaches organizational realities.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2636,8 +2676,8 @@
     {
       "title": "AI Workflow",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AI Workflow: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the workflow trigger, AI step, human review point, and output destination.",
+      "summary": "Your AI confidence is only 75%\u2014don't fully automate. Design workflows with human checkpoints. Where does a human review before action? Automation with oversight beats blind automation. Learn governance inside workflows.",
+      "teacherCue": "Teacher cue: Challenge: \"If your AI makes a $10M decision, do you really not want human review?\" This teaches the governance question that matters.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2656,7 +2696,7 @@
     {
       "title": "Alert Triage001",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Alert Triage001: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+      "summary": "1000 fraud alerts daily. 2% are real. Triage by risk\u2014which accounts need investigation first?",
       "teacherCue": "Teacher cue: Look for alert severity, evidence, owner, and required response time.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2676,8 +2716,8 @@
     {
       "title": "AR Aging & Collections Prioritizer",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for AR Aging & Collections Prioritizer: a Colab-based treasury notebook reproducing the AR Aging & Collections Prioritizer Claude Skill's aging, risk-scoring, and segmentation logic.",
-      "teacherCue": "Teacher cue: Ask which accounts moved when the risk weights changed, and whether that reordering reflects genuine collections urgency or just a larger invoice amount.",
+      "summary": "Your AR team has $10M outstanding across 500 customers. Age alone doesn't tell the story. Risk-score by customer health, payment history, and relationship tenure to focus collections effort where it matters. See how intelligent segmentation recovers more cash faster than \"call everyone 60 days late.\"",
+      "teacherCue": "Teacher cue: Change the risk weights and watch accounts reorder. Ask: \"Is the new priority order better because of genuine risk, or because of invoice size?\" This teaches the difference between statistically sound prioritization and intuitive judgment.",
       "duration": "30-45 min",
       "surface": "Colab-ready notebook",
       "mode": "Colab",
@@ -2696,8 +2736,8 @@
     {
       "title": "Bank Failure Prediction",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Bank Failure Prediction: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the financial indicators used to signal bank stress.",
+      "summary": "Regulators need early warning of failing banks. Build a model. But if you flag a healthy bank, you cause panic. False positives and false negatives have asymmetric costs. Learn: metrics alone don't tell the full story.",
+      "teacherCue": "Teacher cue: Ask: \"What's worse: missing a failing bank or falsely flagging a healthy one?\" This reveals how business context shapes model thresholds.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2716,7 +2756,7 @@
     {
       "title": "Black Scholes Option",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Black Scholes Option: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Why is a call worth more when volatility spikes? Learn Black-Scholes intuition and how inputs drive option value.",
       "teacherCue": "Teacher cue: Look for option type, underlying price, strike, volatility, rate, and time.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2736,7 +2776,7 @@
     {
       "title": "Black-Scholes",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Black-Scholes: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Why is a call worth more when volatility spikes? Learn Black-Scholes intuition and how inputs drive option value.",
       "teacherCue": "Teacher cue: Look for option parameters and the model price output.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2756,8 +2796,8 @@
     {
       "title": "Blockchain Explorer",
       "level": "All Levels",
-      "summary": "Professional blockchain education for finance professionals. Interactive exploration of Bitcoin mining, Ethereum smart contracts, and NFT economics.",
-      "teacherCue": "Teacher cue: Mine blocks, execute smart contracts, understand DeFi economics and token standards.",
+      "summary": "Why are central banks building CBDCs? How do stablecoins disrupt payments? Explore Bitcoin's settlement finality, Ethereum's smart contracts, and DeFi economics. Understand the tech your bank might build on\u2014or compete against. Learn why decentralized finance works differently (and sometimes fails).",
+      "teacherCue": "Teacher cue: Connect to bank strategy: \"If DeFi protocols do settlement in 12 seconds and your bank takes 3 days, how do you respond?\" This reveals why banks care about blockchain now, not just someday.",
       "duration": "90+ min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2776,7 +2816,7 @@
     {
       "title": "Bond Pricing",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Bond Pricing: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Bond worth $1000 today. Rates rise 50 bps. Now worth $950. Understand duration, convexity, interest rate risk.",
       "teacherCue": "Teacher cue: Look for coupon, maturity, yield, and present-value calculation.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2796,7 +2836,7 @@
     {
       "title": "Browser AI Demos \u2014 Edge AI Showcase",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Browser AI Demos \u2014 Edge AI Showcase: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Run models in the browser, no server needed. See latency, accuracy, privacy trade-offs. When is edge AI better than cloud?",
       "teacherCue": "Teacher cue: Look for the range of local AI capabilities and the user problem each mini-demo solves.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2816,7 +2856,7 @@
     {
       "title": "Build vs Buy vs API Decision Workbench \u2014 PM Demo 03",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Build vs Buy vs API Decision Workbench \u2014 PM Demo 03: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Build AI in-house? Buy a platform? Use an API? Model TCO, time-to-market, control. Each has trade-offs.",
       "teacherCue": "Teacher cue: Look for build, buy, and API options across cost, speed, control, and risk.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2836,8 +2876,8 @@
     {
       "title": "CCC Analyzer",
       "level": "Beginner to Intermediate",
-      "summary": "About Demo learning guide for CCC Analyzer: a browser-based treasury management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for receivables, inventory, payables, and cash conversion cycle components.",
+      "summary": "You collect from customers in 45 days but must pay suppliers in 30 days. That 15-day gap ties up working capital. See how DSO, DIO, and DPO interact\u2014and why a 10-day improvement in receivables can unlock millions in cash without borrowing.",
+      "teacherCue": "Teacher cue: Push on this: \"If you improve collections by 10 days, how much cash is freed up?\" Then show the compounding effect across the quarter. Make it real with balance sheet impact.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2856,8 +2896,8 @@
     {
       "title": "Collections Predictor",
       "level": "Beginner to Intermediate",
-      "summary": "About Demo learning guide for Collections Predictor: a browser-based treasury management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for customer risk score, payment history, amount due, and collection priority.",
+      "summary": "You have 200 invoices overdue. Who pays first? AI ranks by risk, but should you chase the $500K account that's 60 days late or the $50K account that's 120 days late? Learn how payment pattern history beats invoice size in predicting cash recovery.",
+      "teacherCue": "Teacher cue: Ask: \"Why doesn't the biggest invoice always come first?\" This reveals the power of behavioral signals\u2014historical payment discipline trumps transaction size in risk assessment.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2876,8 +2916,8 @@
     {
       "title": "Contagion Model",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Contagion Model: a browser-based risk management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for institution links, shock source, loss propagation, and systemic risk indicator.",
+      "summary": "One bank fails. Does it crash the whole system? Model how losses propagate through interconnected institutions. See where your exposure lies and what breaks first. Learn why regulators fear systemic risk.",
+      "teacherCue": "Teacher cue: Ask: \"Which institution, if it failed, would trigger the biggest cascade? Why?\" This teaches systemic thinking.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2896,8 +2936,8 @@
     {
       "title": "Copilot Kit",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Copilot Kit: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for the prompt, retrieved context, generated response, and user feedback loop.",
+      "summary": "Your copilot is trained on company docs. Is it accurate or hallucinating? Explore prompt engineering, retrieval grounding, confidence scoring. Learn: \"more training data\" isn't always the answer\u2014grounding and feedback loops are.",
+      "teacherCue": "Teacher cue: Ask: \"How do you know when the copilot is making things up? What's your verification process?\" This teaches grounding as a non-negotiable requirement.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2916,8 +2956,8 @@
     {
       "title": "Counter Party Risk",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Counter Party Risk: a browser-based risk management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for exposure, probability of default, recovery rate, and expected loss.",
+      "summary": "Your bank lends to a seemingly healthy company. Their major customer just announced layoffs. How deep is your exposure? Monitor supply chain concentration and exposure triggers that predict defaults before ratings agencies do.",
+      "teacherCue": "Teacher cue: Ask: \"Which one customer could bring them down? What's your exposure there?\" This teaches forward-looking risk.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2936,8 +2976,8 @@
     {
       "title": "Counterparty Risk",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Counterparty Risk: a browser-based risk management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for counterparty profile, exposure, credit signal, and mitigation action.",
+      "summary": "You have $500M exposure to a counterparty. Their credit rating just dropped. What do you do? Reduce exposure? Demand more collateral? Learn when concentration becomes unacceptable and how to monitor credit signals that predict defaults.",
+      "teacherCue": "Teacher cue: Ask: \"At what exposure level would you demand action? Who decides?\" This teaches risk governance.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2956,8 +2996,8 @@
     {
       "title": "Credit Scoring",
       "level": "Beginner to Intermediate",
-      "summary": "Interactive credit scoring model for loan approval decisions. Learn machine learning in banking.",
-      "teacherCue": "Teacher cue: Look for score drivers, risk band, and decision recommendation.",
+      "summary": "A customer's credit score drops 40 points. Should they be declined? More accurate models approve lower-risk borrowers but deny some good customers. Explore score drivers, pricing trade-offs, and Fair Lending constraints. Why transparent models win in banking\u2014not just for compliance, but for customer trust and revenue.",
+      "teacherCue": "Teacher cue: Push on explainability: \"Why does income matter more than payment history in this model? Can you defend that to regulators?\" This teaches model governance and Fair Lending awareness.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -2976,7 +3016,7 @@
     {
       "title": "Data Drift Detector",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Data Drift Detector: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Model trained 2022; still works 2025? Explore concept drift. Customer behavior changed, competition shifted. When do you retrain?",
       "teacherCue": "Teacher cue: Look for the reference distribution, current distribution, and drift signal.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -2996,8 +3036,8 @@
     {
       "title": "Dell vs Competitors Working Capital Case",
       "level": "Beginner to Intermediate",
-      "summary": "Interactive working-capital case comparing Dell, HP, Lenovo, and Apple through receivables, inventory, payables, and cash conversion cycle analysis.",
-      "teacherCue": "Teacher cue: Look for DSO, DIO, DPO, CCC, and the amount of cash released by better operating discipline.",
+      "summary": "Why does Dell unlock billions in cash faster than HP? Compare receivables, inventory, and payables cycles across the PC industry. See how Dell's direct-to-consumer model compressed CCC from 60 days to negative days\u2014generating free cash while competitors waited. Understand business model impact on treasury.",
+      "teacherCue": "Teacher cue: Ask: \"Can Apple or HP replicate Dell's CCC?\" The answer is no\u2014because CCC isn't just a metric, it's a reflection of business model, customer mix, and operational excellence. Treasury is strategy.",
       "duration": "25-35 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3016,7 +3056,7 @@
     {
       "title": "Efficient Frontier",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Efficient Frontier: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Diversification reduces risk. Build optimal portfolio\u2014weights that minimize volatility for target return.",
       "teacherCue": "Teacher cue: Look for asset return, volatility, correlation, and selected portfolio point.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3036,7 +3076,7 @@
     {
       "title": "Embedded Firmware Exploit Wokwi",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Embedded Firmware Exploit Wokwi: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Flash reads customer data unencrypted. Reverse engineer to extract secrets. Understand firmware security.",
       "teacherCue": "Teacher cue: Look for firmware behavior, input boundary, and failure mode.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3056,7 +3096,7 @@
     {
       "title": "Emotional Support Assistant",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Emotional Support Assistant: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Chatbot listens, responds with empathy. But can it recognize crisis? When must it escalate to human?",
       "teacherCue": "Teacher cue: Look for user intent, sentiment cues, safety boundaries, and referral language.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3076,7 +3116,7 @@
     {
       "title": "Experimentation & Metrics Simulator",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Experimentation & Metrics Simulator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Design experiments. Define success metrics. Run A/B tests. Learn p-values, sample size, statistical significance.",
       "teacherCue": "Teacher cue: Look for the experiment goal, primary metric, guardrail metric, and sample size.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3096,7 +3136,7 @@
     {
       "title": "Feature Prioritization Copilot \u00b7 PM Demo 02",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Feature Prioritization Copilot \u00b7 PM Demo 02: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "50 feature requests. Which matter most? Score by impact, effort, risk. Data-driven prioritization beats gut feel.",
       "teacherCue": "Teacher cue: Look for value, effort, risk, and strategic alignment scores.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3116,7 +3156,7 @@
     {
       "title": "Feature Store",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Feature Store: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "100 models, each needs features. Centralize them\u2014governance, reproducibility, speed. Avoid reimplementing the same feature.",
       "teacherCue": "Teacher cue: Look for feature definitions, ownership, freshness, and reuse across models.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3136,8 +3176,8 @@
     {
       "title": "Fraud Playground",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Fraud Playground: a browser-based banking & finance learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for transaction signals, anomaly score, and fraud flag.",
+      "summary": "Block a fraudulent transaction and you save $500. Block a legitimate one and you lose a customer. Explore transaction patterns, anomaly scoring, and threshold trade-offs\u2014the real dilemma fraud teams face every day. Learn why perfect accuracy is impossible (and expensive).",
+      "teacherCue": "Teacher cue: Ask: \"Why would you ever let a transaction through if the model says 'fraud'?\" This reveals the operational cost of false positives and drives home the real trade-off: fraud prevention vs. customer experience.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3156,8 +3196,8 @@
     {
       "title": "FX Hedge Simulator",
       "level": "Beginner to Intermediate",
-      "summary": "About Demo learning guide for FX Hedge Simulator: a browser-based treasury management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for currency exposure, hedge choice, spot rate movement, and hedge outcome.",
+      "summary": "You sell \u00a51 billion annually. USD strengthens and your revenue drops \u20ac2M. Did you hedge too little, or was the cost of hedging worse? Learn why CFOs are paid to make hedging decisions under uncertainty\u2014perfect foresight doesn't exist in real markets.",
+      "teacherCue": "Teacher cue: Show both scenarios: \"What if you'd fully hedged at a 2% premium? What if you'd hedged nothing?\" This drives home that hedging trades downside insurance for opportunity cost.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3176,7 +3216,7 @@
     {
       "title": "Graph RAG",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Graph RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Knowledge graphs organize facts as relationships. Find answers by traversing edges\u2014better for reasoning over context.",
       "teacherCue": "Teacher cue: Look for entities, relationships, graph context, and generated answer.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3196,7 +3236,7 @@
     {
       "title": "Greeks Calculator",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Greeks Calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Volatility changes. Delta, gamma, vega tell you exposure. Learn Greeks without calculus.",
       "teacherCue": "Teacher cue: Look for delta, gamma, theta, vega, and the option position being analyzed.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3238,7 +3278,7 @@
     {
       "title": "Intrusion Detection",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Intrusion Detection: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Network attack in progress. Spot the intrusion before damage spreads. Learn pattern detection, false positives, and alert tuning.",
       "teacherCue": "Teacher cue: Look for network events, anomaly indicators, and alert classification.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3258,8 +3298,8 @@
     {
       "title": "Invoice-Level Collections Prediction",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Invoice-Level Collections Prediction: a Colab-based treasury notebook for invoice-level late-payment prediction and collections prioritization.",
-      "teacherCue": "Teacher cue: Look for payment history, invoice terms, dispute status, relationship signals, and how the model changes collections priority.",
+      "summary": "Not all late invoices are the same. One customer is 60 days late but historically pays; another is 45 days late but never has. AI ranks payment risk by customer patterns, dispute likelihood, and relationship tenure\u2014not just days outstanding. See how predictive signals beat static aging rules and recover $$ faster.",
+      "teacherCue": "Teacher cue: Ask: \"Would you pursue a 120-day-late $50K invoice from a tier-1 customer who always pays eventually?\" This reveals strategic collections\u2014sometimes patience pays more than pressure.",
       "duration": "35-50 min",
       "surface": "Colab-ready notebook",
       "mode": "Colab",
@@ -3278,7 +3318,7 @@
     {
       "title": "Io T Ethernet Pen Test v86",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Io T Ethernet Pen Test v86: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Firmware has buffer overflow. Exploit it. Understand why embedded devices are often insecure.",
       "teacherCue": "Teacher cue: Look for network exposure, test vector, finding, and mitigation step.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3320,7 +3360,7 @@
     {
       "title": "Lite Parse",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Lite Parse: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Extract structured data from messy PDFs\u2014invoices, contracts, resumes. NLP + human review for accuracy.",
       "teacherCue": "Teacher cue: Look for parsed structure, extracted fields, and parsing failures.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3340,8 +3380,8 @@
     {
       "title": "Loan Default Predictor",
       "level": "Beginner to Intermediate",
-      "summary": "About Demo learning guide for Loan Default Predictor: a browser-based banking & finance learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for borrower features, predicted default risk, and threshold setting.",
+      "summary": "You approve 90% of loan applications, but 8% default. Tighten lending and reduce defaults to 5%, but approval rate drops to 70%. Which trade-off is better for profitability? Learn how default prediction shapes portfolio composition, capital allocation, and bank risk-taking appetite.",
+      "teacherCue": "Teacher cue: Challenge the threshold: \"Why not deny everyone? You'd have zero defaults.\" This reveals the core lending paradox: higher accuracy \u2260 higher profits. Portfolio composition matters.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3360,7 +3400,7 @@
     {
       "title": "Local Chat Advisor",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Local Chat Advisor: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Chat runs locally, no data leaves device. Slower, smaller models. But privacy guaranteed. Trade-offs of local vs cloud AI.",
       "teacherCue": "Teacher cue: Look for the prompt, local response, and any limitations shown by the chat behavior.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3380,7 +3420,7 @@
     {
       "title": "Malware Sandbox",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Malware Sandbox: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Execute suspicious file safely. Watch network calls, registry edits, process spawns. Understand malware behavior.",
       "teacherCue": "Teacher cue: Look for observed behavior, indicators, containment status, and risk rating.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3400,8 +3440,8 @@
     {
       "title": "Mesa Liquidity Data Generator",
       "level": "Beginner to Intermediate",
-      "summary": "Browser-first liquidity lab where students generate synthetic bank data, inspect customer and account structure, then run a Monte Carlo liquidity forecast to see how uncertainty changes funding pressure and expected buffers.",
-      "teacherCue": "Teacher cue: Look for balance mix, liquidity path, risk buckets, and the treasury action implied by stressed buffers.",
+      "summary": "Build a bank's balance sheet: customer deposits, savings rates, withdrawal patterns. Then stress it: what if 10%, 20%, 30% of customers withdraw simultaneously? Monte Carlo shows the range of liquidity outcomes. Learn how asset-liability managers size funding buffers and when to tap contingency facilities.",
+      "teacherCue": "Teacher cue: Emphasize the behavioral assumption: \"You're assuming customers behave historically. But what if crisis sentiment changes behavior?\" This connects data science to operational reality\u2014models assume conditions stay stable when stress breaks that assumption.",
       "duration": "20-30 min",
       "surface": "Browser + Local analytics",
       "mode": "Multi-Mode",
@@ -3420,7 +3460,7 @@
     {
       "title": "ML Model Registry",
       "level": "All Levels",
-      "summary": "About Demo learning guide for ML Model Registry: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Track 100 model versions. Which is production? Which performed best? Who trained it and when?",
       "teacherCue": "Teacher cue: Look for model version, dataset version, metrics, owner, and approval status.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3440,7 +3480,7 @@
     {
       "title": "Model Version Comparator",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Model Version Comparator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "V2 has 92% accuracy, V1 had 89%. But V2 is slower. Trade-offs matter\u2014accuracy vs. latency vs. cost.",
       "teacherCue": "Teacher cue: Look for the baseline model, challenger model, metric comparison, and segment results.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3480,7 +3520,7 @@
     {
       "title": "Monte Carlo Options",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Monte Carlo Options: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Stock could hit $150 or $50 in 3 months. What's option worth? Run simulations, not formulas.",
       "teacherCue": "Teacher cue: Look for simulated paths, payoff calculation, and convergence behavior.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3500,7 +3540,7 @@
     {
       "title": "Mule Account Detection",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Mule Account Detection: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+      "summary": "Criminals use fake accounts to move money. Spot the mules\u2014accounts created yesterday, moved $100K, gone tomorrow.",
       "teacherCue": "Teacher cue: Look for transaction patterns, account age, counterparties, and behavioral flags.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3520,7 +3560,7 @@
     {
       "title": "Named Entity Tagger",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Named Entity Tagger: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Extract entities: names, dates, locations from text. See how context matters. \"Apple\" is company or fruit?",
       "teacherCue": "Teacher cue: Look for named entities, categories, and context around each extraction.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3540,7 +3580,7 @@
     {
       "title": "Network Traffic Analyzer",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Network Traffic Analyzer: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Packets flowing across your network. Identify protocols, anomalies, and data exfiltration. Analyze traffic for threats.",
       "teacherCue": "Teacher cue: Look for traffic volume, protocol mix, source-destination patterns, and outliers.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3560,7 +3600,7 @@
     {
       "title": "NPV Calculator",
       "level": "All Levels",
-      "summary": "About Demo learning guide for NPV Calculator: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Project costs $10M upfront, saves $2M/year for 10 years at 8% discount rate. Is it worth it? Calculate NPV and IRR.",
       "teacherCue": "Teacher cue: Look for cash-flow timing, discount rate, initial investment, and NPV result.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3580,7 +3620,7 @@
     {
       "title": "Opinion Quintuple Extractor",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Opinion Quintuple Extractor: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Extract sentiment, target, aspect, reason from reviews. \"This phone's camera is great but battery drains fast.\"",
       "teacherCue": "Teacher cue: Look for opinion holder, target, sentiment, aspect, and explanation.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3620,7 +3660,7 @@
     {
       "title": "Options Pricing",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Options Pricing: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Compare European vs American options, calls vs puts. Understand early exercise and optionality value.",
       "teacherCue": "Teacher cue: Look for call and put values, strike, expiry, and volatility assumptions.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3640,7 +3680,7 @@
     {
       "title": "Page Index RAG",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Page Index RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Index by page or section. Fast retrieval, but loses relationships between distant passages.",
       "teacherCue": "Teacher cue: Look for page references, retrieved chunks, and answer grounding.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3660,7 +3700,7 @@
     {
       "title": "Pen Test Simulator",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Pen Test Simulator: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Web app has SQL injection vulnerability. Exploit it safely to prove risk before defenders patch it.",
       "teacherCue": "Teacher cue: Look for authorized scope, test step, finding, and remediation priority.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3678,9 +3718,29 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "PII Detector",
+      "level": "Intermediate",
+      "summary": "Scan documents for exposed personally identifiable information. See what an automated detector finds\u2014and what it misses. Understand why human review is always required.",
+      "teacherCue": "Teacher cue: What's the difference between true positives, false positives, and missed detections? When should you redact data without human review?",
+      "duration": "10-15 min",
+      "surface": "Browser-based \u2022 PDF & Text",
+      "mode": "Browser",
+      "courseSlug": "compliance",
+      "courseTitle": "Compliance & Governance",
+      "courseSlugs": [
+        "compliance"
+      ],
+      "courseTitles": [
+        "Compliance & Governance"
+      ],
+      "aboutPath": "TechUseCaseDemos/PIIDetector/about.html",
+      "launchPath": "TechUseCaseDemos/PIIDetector/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "PM Product Demos",
       "level": "All Levels",
-      "summary": "About Demo learning guide for PM Product Demos: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Product management playbook: launch roadmap, feature prioritization, metrics. Build AI products, not just models.",
       "teacherCue": "Teacher cue: Look for the product decision, evidence, stakeholder, and recommended next step.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3700,7 +3760,7 @@
     {
       "title": "Portfolio Optimizer",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Portfolio Optimizer: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Stock A returns 8%, Stock B returns 12%. Which do you hold? Build efficient frontier\u2014maximum return for each risk level.",
       "teacherCue": "Teacher cue: Look for expected return, risk, correlation, and portfolio weights.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3720,7 +3780,7 @@
     {
       "title": "Pricing & Unit Economics Explorer \u2014 PM Demo 04",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Pricing & Unit Economics Explorer \u2014 PM Demo 04: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "AI feature costs $5K/month to run. Charge per user or per transaction? Model margins and break-even.",
       "teacherCue": "Teacher cue: Look for price, variable cost, contribution margin, and volume assumptions.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3740,7 +3800,7 @@
     {
       "title": "Privacy Notebook",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Privacy Notebook: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Analyze data privately. Differential privacy adds noise\u2014protects individuals but costs accuracy. Find the sweet spot.",
       "teacherCue": "Teacher cue: Look for sensitive data types, redaction behavior, and privacy risk signals.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3760,7 +3820,7 @@
     {
       "title": "Probabilistic Decision Engine",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Probabilistic Decision Engine: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Not binary decisions\u2014probability scores. Approve if confidence > 75%. Learn confidence intervals, decision thresholds, ROI curves.",
       "teacherCue": "Teacher cue: Look for probability estimates, decision thresholds, and expected value calculations.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3780,7 +3840,7 @@
     {
       "title": "Public Policy Governance",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Public Policy Governance: a browser-based compliance & governance learning activity with no cloud or API keys required.",
+      "summary": "Policy changes create compliance risk. Track regulation timelines, draft controls, test readiness.",
       "teacherCue": "Teacher cue: Look for policy objective, stakeholder, risk, and control mechanism.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3800,7 +3860,7 @@
     {
       "title": "QFD",
       "level": "All Levels",
-      "summary": "About Demo learning guide for QFD: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Quality Function Deployment: translate customer needs to technical specs. Map requirements to outcomes. Design thinking for AI.",
       "teacherCue": "Teacher cue: Look for customer need, importance, satisfaction, and quality-function linkage.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3820,8 +3880,8 @@
     {
       "title": "Risk Parity Portfolio",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Risk Parity Portfolio: a browser-based risk management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for asset risk contribution, allocation weights, and portfolio volatility.",
+      "summary": "Stocks rally; bonds fall. Balance portfolio so each asset contributes equal risk, not equal dollars. Why equal-weight 60/40 fails. See how risk contributions compound and why diversification requires rethinking weights.",
+      "teacherCue": "Teacher cue: Ask: \"Why not just 60/40 stocks/bonds? What's the benefit of equal risk contribution?\" This teaches portfolio thinking beyond traditional allocation.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3840,7 +3900,7 @@
     {
       "title": "Secure Code Review",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Secure Code Review: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Code uses md5 for passwords. Hardcoded secrets in git. Review for vulns before deploy.",
       "teacherCue": "Teacher cue: Look for code pattern, vulnerability class, evidence line, and secure fix.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3860,7 +3920,7 @@
     {
       "title": "Semantic Search",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Semantic Search: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Search by meaning, not keywords. \"How do I fix my laptop?\" finds articles about troubleshooting, not just \"laptop.\"",
       "teacherCue": "Teacher cue: Look for the query, retrieved documents, and relevance ranking.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3880,7 +3940,7 @@
     {
       "title": "SIEM Dashboard",
       "level": "All Levels",
-      "summary": "About Demo learning guide for SIEM Dashboard: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Millions of security logs daily. Which signals matter? Learn alert fatigue vs real threats.",
       "teacherCue": "Teacher cue: Look for security events, severity, source, and response status.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3900,8 +3960,8 @@
     {
       "title": "Smart Contract Treasury",
       "level": "Beginner to Intermediate",
-      "summary": "About Demo learning guide for Smart Contract Treasury: a browser-based treasury management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for treasury rule, smart-contract condition, approval flow, and transaction outcome.",
+      "summary": "Code becomes law on-chain. Define treasury rules in a smart contract\u2014e.g., \"approve wire transfers only if balance > $5M AND approval is dual-signature.\" No CFO override, no exceptions. Is this efficient or a risk? Learn when to automate treasury vs. when human judgment matters.",
+      "teacherCue": "Teacher cue: Prompt: \"If a smart contract rules fail, who's liable? Can you override it?\" This reveals the tension between decentralized governance and operational reality. Rules are immutable\u2014but should treasury ever be?",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3920,7 +3980,7 @@
     {
       "title": "Smart Ticket Tagger",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Smart Ticket Tagger: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Customer support tickets flood in. Route by urgency, category, language. AI saves 40% manual triage time\u2014but needs human oversight.",
       "teacherCue": "Teacher cue: Look for the support ticket text, predicted category, and confidence level.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -3940,8 +4000,8 @@
     {
       "title": "Stablecoin Manager",
       "level": "Advanced",
-      "summary": "About Demo learning guide for Stablecoin Manager: a browser-based treasury management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for reserve level, redemption flow, peg pressure, and policy action.",
+      "summary": "You issue a stablecoin pegged at $1. Suddenly, $100M in redemptions arrive\u2014everyone wants their USD back. You have enough reserves, but peg pressure forces a choice: raise interest rates to attract new deposits, or hold steady and watch the peg crack? Learn collateral management and reserve mechanics of decentralized stablecoins.",
+      "teacherCue": "Teacher cue: This is modern monetary policy in real-time. Ask: \"How is this different from managing a bank run?\" Stablecoins are a treasury function for issuers\u2014liability management under duress.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3958,9 +4018,29 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Stack Smashing Visualizer",
+      "level": "Intermediate",
+      "summary": "Firmware has buffer overflow. Watch stack overflow happen in real-time. Understand return address corruption, NOP sleds, and why stack canaries and ASLR matter.",
+      "teacherCue": "Teacher cue: Why is the return address a critical control flow target? What happens when it's overwritten?",
+      "duration": "15-20 min",
+      "surface": "Interactive Visualization",
+      "mode": "Browser",
+      "courseSlug": "cyber",
+      "courseTitle": "Cybersecurity",
+      "courseSlugs": [
+        "cyber"
+      ],
+      "courseTitles": [
+        "Cybersecurity"
+      ],
+      "aboutPath": "TechUseCaseDemos/StackSmashingVisualizer/about.html",
+      "launchPath": "TechUseCaseDemos/StackSmashingVisualizer/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Standard RAG",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Standard RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Retrieve relevant documents, rerank, and generate answers. Baseline RAG\u2014simple, but hallucinations happen.",
       "teacherCue": "Teacher cue: Look for query, retrieved documents, generated answer, and citations.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4000,7 +4080,7 @@
     {
       "title": "Supply Chain Finance",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Supply Chain Finance: a browser-based quant finance learning activity with no cloud or API keys required.",
+      "summary": "Buyer needs inventory financing. Supplier wants cash today. How do you structure a deal that works for both?",
       "teacherCue": "Teacher cue: Look for invoice timing, buyer risk, supplier risk, and financing cost.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4020,7 +4100,7 @@
     {
       "title": "SYNAPSE \u2014 Semantic Word Game",
       "level": "All Levels",
-      "summary": "About Demo learning guide for SYNAPSE \u2014 Semantic Word Game: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Game tests your knowledge of semantic relationships. Explore word embeddings\u2014how AI understands meaning.",
       "teacherCue": "Teacher cue: Look for word relationships, hints, and the path students use to reason semantically.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4040,7 +4120,7 @@
     {
       "title": "Threat Hunter",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Threat Hunter: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Suspicious process spawned from Office macro. Hunt for lateral movement. Learn indicators of compromise.",
       "teacherCue": "Teacher cue: Look for hypothesis, telemetry source, indicator, and evidence trail.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4060,7 +4140,7 @@
     {
       "title": "Threat Modeling Matrix",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Threat Modeling Matrix: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Mobile app handles user payments. Map threats: data breach, payment fraud, API compromise. Prioritize mitigations.",
       "teacherCue": "Teacher cue: Look for assets, threats, likelihood, impact, and existing controls.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4080,8 +4160,8 @@
     {
       "title": "Treasury Analytics Notebook Hub",
       "level": "Intermediate to Advanced",
-      "summary": "About Demo learning guide for Treasury Analytics Notebook Hub: a Google Colab notebook sequence for treasury analytics, forecasting, anomaly detection, and dashboard workflows.",
-      "teacherCue": "Teacher cue: Look for notebook progression, treasury data preparation, forecast outputs, and operational interpretation.",
+      "summary": "Move from spreadsheets to analytics. Walk through a multi-week treasury forecasting workflow: data prep \u2192 anomaly detection \u2192 cash flow forecasting \u2192 dashboard insights. Learn how to catch forecast drift before it hits operations and how to automate weekly reporting that treasury teams can act on.",
+      "teacherCue": "Teacher cue: Push on this: \"Your forecast was right 20 times but wrong 2 times catastrophically. Why trust it?\" This reveals the gap between statistical accuracy and operational reliability\u2014data quality matters more than model complexity.",
       "duration": "30-120 min",
       "surface": "Colab-ready notebooks",
       "mode": "Colab",
@@ -4100,8 +4180,8 @@
     {
       "title": "Treasury Control Tower",
       "level": "Beginner to Intermediate",
-      "summary": "Browser-based liquidity stress testing simulator with AI insights. Learn treasury modernization and cash flow forecasting.",
-      "teacherCue": "Teacher cue: Look for cash position, forecast gap, stress scenario, and recommended action.",
+      "summary": "It's Friday 5 PM. Your cash position is $2M but you're expecting a $10M outflow Monday. The AI forecasts a gap. Do you draw a credit line today (cost: facility fee), defer payments, or trust the forecast to adjust? See how AI-powered liquidity monitoring drives real-time treasury decisions.",
+      "teacherCue": "Teacher cue: Challenge the forecast: \"How confident is this AI model? What happens if it's wrong?\" This teaches false confidence\u2014AI is a tool for speed, not certainty. CFOs still own the decision.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -4120,8 +4200,8 @@
     {
       "title": "Treasury Transform Blueprint",
       "level": "Beginner to Intermediate",
-      "summary": "About Demo learning guide for Treasury Transform Blueprint: a browser-based treasury management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for current treasury capability, target state, roadmap step, and value driver.",
+      "summary": "Your CFO says \"we need to modernize treasury.\" Where do you start? Dashboard? Automation? API integration? Design a multi-year roadmap that prioritizes quick wins (free up cash now) while building toward future state (real-time insights, autonomous execution). Learn how transformation value compounds across initiatives.",
+      "teacherCue": "Teacher cue: Challenge sequencing: \"Why would you build a dashboard before fixing data quality?\" This reveals how treasury transformation requires sequencing\u2014you can't automate garbage data.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -4140,7 +4220,7 @@
     {
       "title": "University Knowledge Assistant",
       "level": "All Levels",
-      "summary": "About Demo learning guide for University Knowledge Assistant: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "RAG system answers questions about university policies. How do you ensure accuracy, not hallucination?",
       "teacherCue": "Teacher cue: Look for student query, knowledge source, retrieved answer, and citation.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4160,8 +4240,8 @@
     {
       "title": "VaR Calculator",
       "level": "Advanced",
-      "summary": "About Demo learning guide for VaR Calculator: a browser-based risk management learning activity with no cloud or API keys required.",
-      "teacherCue": "Teacher cue: Look for portfolio returns, confidence level, time horizon, and VaR estimate.",
+      "summary": "How much can you lose in a bad market day? 1-in-100 scenario or 1-in-1000? Learn tail risk vs. average case. See why VaR is useful but incomplete\u2014it measures risk but not the worst-case beyond it.",
+      "teacherCue": "Teacher cue: Ask: \"Are you optimizing for expected loss or worst-case? What's your risk tolerance?\" This teaches risk appetite definition.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -4180,7 +4260,7 @@
     {
       "title": "Voice Graph RAG",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Voice Graph RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Speak your question, get answers from a knowledge graph. Better reasoning than keyword search.",
       "teacherCue": "Teacher cue: Look for spoken query, graph retrieval, entities, relationships, and answer.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4200,7 +4280,7 @@
     {
       "title": "Voice Notes App001",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Voice Notes App001: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Record voice notes, search by speaking. NLP indexes and retrieves\u2014useful for hands-free access to knowledge.",
       "teacherCue": "Teacher cue: Look for spoken note, transcript, extracted action items, and summary.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4220,7 +4300,7 @@
     {
       "title": "Voice Page Index RAG",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Voice Page Index RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Speak your question, search documents by page. Voice interface, standard retrieval strategy.",
       "teacherCue": "Teacher cue: Look for voice query, page references, retrieved evidence, and generated response.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4240,7 +4320,7 @@
     {
       "title": "Voice Standard RAG",
       "level": "Intermediate",
-      "summary": "About Demo learning guide for Voice Standard RAG: a browser-based rag & nlp learning activity with no cloud or API keys required.",
+      "summary": "Ask by voice, get answers from RAG pipeline. Understand limitations when retrieval fails.",
       "teacherCue": "Teacher cue: Look for voice query, transcript, retrieved context, and generated answer.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4260,7 +4340,7 @@
     {
       "title": "Vuln Scanner",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Vuln Scanner: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Web server running outdated framework. Scanner finds CVEs\u2014but which are critical? Know severity, exploitability, patch urgency.",
       "teacherCue": "Teacher cue: Look for scan findings, severity, affected asset, and remediation suggestion.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4280,7 +4360,7 @@
     {
       "title": "Whisper Transcriber",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Whisper Transcriber: a browser-based ai/ml workflows learning activity with no cloud or API keys required.",
+      "summary": "Convert speech to text. Works on accents, background noise. Understand accuracy, latency, computational cost.",
       "teacherCue": "Teacher cue: Look for audio input, transcription output, and timing or speaker cues.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4300,7 +4380,7 @@
     {
       "title": "Zero Trust",
       "level": "All Levels",
-      "summary": "About Demo learning guide for Zero Trust: a browser-based cybersecurity learning activity with no cloud or API keys required.",
+      "summary": "Assume breach. Verify every access, even inside the network. Learn zero trust architecture.",
       "teacherCue": "Teacher cue: Look for identity, device, access request, policy decision, and trust signals.",
       "duration": "20-30 min",
       "surface": "Browser-based",
@@ -4320,11 +4400,11 @@
   ],
   "counts": {
     "coursePacks": 8,
-    "curatedDemos": 104,
+    "curatedDemos": 106,
     "runModes": 3
   },
   "modeCounts": {
-    "Browser": 98,
+    "Browser": 100,
     "Colab": 3,
     "Multi-Mode": 3
   }

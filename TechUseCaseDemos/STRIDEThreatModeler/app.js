@@ -32,10 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function setupUI() {
-  document.getElementById('modeSelect').addEventListener('change', e => {
-    mode = e.target.value;
-  });
-
   document.getElementById('entityTypeSelect').addEventListener('change', e => {
     document.getElementById('entityTypeSelect').dataset.type = e.target.value;
   });

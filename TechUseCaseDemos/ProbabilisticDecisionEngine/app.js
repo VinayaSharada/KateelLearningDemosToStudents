@@ -86,7 +86,8 @@ function updateUI() {
 
 // Update on any change
 [ageSlider, biomarkerSlider, symptomSelect, treatmentA, treatmentB, treatmentC, queryInput].forEach(el => {
-  el.addEventListener('input', el.type === 'checkbox' ? 'change' : 'input', updateUI);
+  const eventName = el.type === 'checkbox' ? 'change' : 'input';
+  el.addEventListener(eventName, updateUI);
 });
 
 // Initialize

@@ -238,7 +238,7 @@ const CryptoModule = (() => {
   // ============ Proof of Work ============
   // Bitcoin's mining: find a nonce such that hash meets difficulty target
 
-  const proofOfWork = (data, difficulty = 4) => {
+  function* proofOfWork(data, difficulty = 4) {
     let nonce = 0;
     let target = '0'.repeat(difficulty);
     let hash;
@@ -254,7 +254,7 @@ const CryptoModule = (() => {
         yield { progress: nonce, currentHash: hash };
       }
     }
-  };
+  }
 
   // ============ Base58Check Encoding ============
   // Used for Bitcoin addresses

@@ -94,7 +94,7 @@ function updateCalculations() {
   const cashRelease = (cccImprovement / 365) * (cogs / 1000000);
   
   cashReleaseEl.textContent = '$' + cashRelease.toFixed(1) + 'M';
-  cccImprovementEl.textContent = cccImprovement.toFixed(1) + ' days';
+  cccImpEl.textContent = cccImprovement.toFixed(1) + ' days';
   
   updateAIInsights();
 }

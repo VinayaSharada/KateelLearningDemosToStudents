@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Check for broken links
-      run: |
-        echo "Checking for broken links..."
-        # Add link checking logic here
-    - name: Validate demo structure
-      run: |
-        echo "Validating demo structure..."
-        find TechUseCaseDemos -name "index.html" -o -name "README.md" | wc -l
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    - name: Verify GitHub Pages site
+      run: python scripts/verify_site.py
+    - name: Verify analytics coverage
+      run: python add_analytics.py --check

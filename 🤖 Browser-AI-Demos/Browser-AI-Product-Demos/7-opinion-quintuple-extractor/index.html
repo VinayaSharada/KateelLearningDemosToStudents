@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../../assets/analytics.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Opinion Quintuple Extractor | Browser AI Demo</title>
@@ -249,8 +251,6 @@
     ::-webkit-scrollbar-track { background:transparent; }
     ::-webkit-scrollbar-thumb { background:#1e1e38;border-radius:99px; }
   </style>
-  <link rel="stylesheet" href="../../../assets/site.css">
-  <script defer src="../../../assets/site.js"></script>
   <link rel="stylesheet" href="../../../assets/site.css">
   <script defer src="../../../assets/site.js"></script>
   <link rel="stylesheet" href="../../../assets/demo-shell.css">
@@ -646,7 +646,6 @@ window.loadPreset = function(idx) {
   switchTab('edit');
   resetPipelineUI();
 };
-loadPreset(0);
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 window.switchTab = function(tab) {
@@ -655,6 +654,7 @@ window.switchTab = function(tab) {
   document.getElementById('tab-edit-btn').classList.toggle('active', tab==='edit');
   tabHlBtn.classList.toggle('active', tab==='hl');
 };
+loadPreset(0);
 
 // ── Co-ref panel ──────────────────────────────────────────────────────────────
 window.toggleCorefPanel = function() {

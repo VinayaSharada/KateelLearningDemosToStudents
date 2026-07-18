@@ -3,9 +3,6 @@
 console.log('AI Demo powered by KateelLearningDemos');
 console.log('Attribution: vinallcontact@gmail.com');
 
-import { CopilotKit } from '@copilotkit/react-core';
-import { CopilotKitWidget } from '@copilotkit/react-ui';
-
 // Demo mode: Shows how CopilotKit would be used
 // For full functionality, connect to a backend with LLM provider
 
@@ -23,7 +20,12 @@ const sampleResponses = {
 function addMessage(role, content) {
   const msgDiv = document.createElement('div');
   msgDiv.className = `message ${role}`;
-  msgDiv.innerHTML = `<div class="message-content"><strong>${role === 'assistant' ? 'Assistant' : 'You'}:</strong> ${content}</div>`;
+  const messageContent = document.createElement('div');
+  messageContent.className = 'message-content';
+  const speaker = document.createElement('strong');
+  speaker.textContent = role === 'assistant' ? 'Assistant: ' : 'You: ';
+  messageContent.append(speaker, document.createTextNode(content));
+  msgDiv.appendChild(messageContent);
   chatContainer.appendChild(msgDiv);
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }

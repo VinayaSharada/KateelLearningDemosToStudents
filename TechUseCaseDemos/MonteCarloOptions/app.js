@@ -25,11 +25,16 @@ strikeSlider.addEventListener('input', () => document.getElementById('strikeValu
 
 // Box-Muller transform for normal random numbers
 function boxMuller() {
-  let u = Math.random(), v = Math.random();
-  let s = u * u + v * v;
-  while (s >= 1 || s == 0);
-  s = Math.sqrt(-2.0 * Math.log(s) / s);
-  return [u * s, v * s];
+  let u;
+  let v;
+  let radiusSquared;
+  do {
+    u = 2 * Math.random() - 1;
+    v = 2 * Math.random() - 1;
+    radiusSquared = u * u + v * v;
+  } while (radiusSquared >= 1 || radiusSquared === 0);
+  const scale = Math.sqrt(-2.0 * Math.log(radiusSquared) / radiusSquared);
+  return [u * scale, v * scale];
 }
 
 // Monte Carlo simulation

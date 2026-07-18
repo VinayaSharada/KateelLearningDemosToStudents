@@ -4,7 +4,8 @@ const canTrafficEl = document.getElementById('canTraffic');
 const arincTrafficEl = document.getElementById('arincTraffic');
 const anomaliesEl = document.getElementById('anomalies');
 const trafficLog = document.getElementById('trafficLog');
-const ctx = document.getElementById('protocolChart');
+const protocolChart = document.getElementById('protocolChart');
+const ctx = protocolChart.getContext('2d');
 
 let totalPackets = 0;
 let canTraffic = 0;
@@ -16,9 +17,10 @@ function drawChart() {
   const data = [canTraffic, arincTraffic, Math.floor(Math.random() * 1000), Math.floor(Math.random() * 500)];
   const colors = ['#0ea5e9', '#10b981', '#8b5cf6', '#f59e0b'];
   
-  ctx.width = ctx.width || 400;
-  const width = ctx.width;
-  const height = ctx.height || 200;
+  const displayWidth = protocolChart.clientWidth || 400;
+  if (protocolChart.width !== displayWidth) protocolChart.width = displayWidth;
+  const width = protocolChart.width;
+  const height = protocolChart.height || 200;
   const barWidth = width / labels.length - 10;
   const maxVal = Math.max(...data, 1);
   
