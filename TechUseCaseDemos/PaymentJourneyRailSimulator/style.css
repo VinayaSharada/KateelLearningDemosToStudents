@@ -1,0 +1,183 @@
+:root {
+  --bg: #071321;
+  --panel: rgba(255,255,255,0.06);
+  --panel-strong: rgba(255,255,255,0.09);
+  --border: rgba(255,255,255,0.12);
+  --text: #dbe7f5;
+  --muted: #9cb3c9;
+  --accent: #26c6da;
+  --accent-2: #f59e0b;
+  --good: #34d399;
+  --warn: #f97316;
+  --danger: #f43f5e;
+}
+
+.payments-app {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.payments-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 340px minmax(0, 1fr);
+}
+
+.payments-card,
+.payments-metric,
+.flow-step,
+.participant-chip {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.payments-card {
+  padding: 1.2rem;
+}
+
+.payments-card h2,
+.payments-card h3 {
+  margin: 0 0 0.85rem;
+  color: #fff;
+}
+
+.control-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field label {
+  font-weight: 600;
+  color: #fff;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(8, 18, 30, 0.85);
+  color: var(--text);
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.metrics-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.payments-metric {
+  padding: 1rem;
+}
+
+.payments-metric .label {
+  color: var(--muted);
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.payments-metric .value {
+  margin-top: 0.35rem;
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.payments-metric .detail {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.participant-list,
+.flow-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.participant-chip {
+  padding: 0.9rem 1rem;
+}
+
+.participant-chip strong {
+  display: block;
+  color: #fff;
+}
+
+.participant-chip span {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.flow-step {
+  padding: 1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.flow-step .phase {
+  color: var(--accent);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.flow-step .title {
+  color: #fff;
+  font-weight: 700;
+}
+
+.flow-step .explain {
+  color: var(--muted);
+}
+
+.insight-box {
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(38, 198, 218, 0.08);
+  color: var(--text);
+  border-radius: 14px;
+}
+
+.scenario-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.scenario-tag {
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: rgba(255,255,255,0.04);
+}
+
+@media (max-width: 960px) {
+  .payments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

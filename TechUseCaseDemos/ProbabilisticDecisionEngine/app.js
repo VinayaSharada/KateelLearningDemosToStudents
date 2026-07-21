@@ -50,7 +50,8 @@ function computePredictions() {
   // Custom query modification
   const query = queryInput.value.toLowerCase();
   if (query.includes('age') && query.includes('>')) {
-    const threshold = parseInt(query.match(/\d+/)?.[0] || '60');
+    const thresholdMatch = query.match(/\d+/);
+    const threshold = parseInt((thresholdMatch && thresholdMatch[0]) || '60');
     if (age > threshold) {
       recoveryProb -= 0.1;
     }

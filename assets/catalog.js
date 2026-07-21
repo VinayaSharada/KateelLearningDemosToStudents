@@ -12,6 +12,14 @@
 
   var coursePacks = [
     {
+      slug: "digital-payments",
+      title: "Digital Payments",
+      path: "courses/digital-payments.html",
+      audience: "payment rails, UPI, cards, reconciliation, CBDC, wallet operations",
+      catalogPath: "CourseCatalogs/DigitalPayments/BUILD_SPEC.md",
+      assignmentPaths: []
+    },
+    {
       slug: "treasury",
       title: "Treasury Management",
       path: "courses/treasury-management.html",

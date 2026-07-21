@@ -262,8 +262,10 @@ function updateDataFlowList() {
   const list = document.getElementById('dataFlowList');
   list.innerHTML = '';
   dfdModel.dataFlows.forEach((flow, index) => {
-    const fromName = dfdModel.entities.find(e => e.id === flow.from)?.name || 'Unknown';
-    const toName = dfdModel.entities.find(e => e.id === flow.to)?.name || 'Unknown';
+    const fromEntity = dfdModel.entities.find(e => e.id === flow.from);
+    const toEntity = dfdModel.entities.find(e => e.id === flow.to);
+    const fromName = fromEntity ? fromEntity.name : 'Unknown';
+    const toName = toEntity ? toEntity.name : 'Unknown';
     const div = document.createElement('div');
     div.className = 'dataflow-item';
     div.innerHTML = `
@@ -506,8 +508,10 @@ function exportMarkdown() {
 
   md += '\n## Data Flows\n\n';
   dfdModel.dataFlows.forEach(f => {
-    const from = dfdModel.entities.find(e => e.id === f.from)?.name;
-    const to = dfdModel.entities.find(e => e.id === f.to)?.name;
+    const fromEntity = dfdModel.entities.find(e => e.id === f.from);
+    const toEntity = dfdModel.entities.find(e => e.id === f.to);
+    const from = fromEntity ? fromEntity.name : '';
+    const to = toEntity ? toEntity.name : '';
     md += `- ${from} → ${to}: ${f.label} (${f.protocol})\n`;
   });
 

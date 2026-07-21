@@ -3,8 +3,8 @@
 Browser-based AI, machine learning, finance, risk, cybersecurity, and analytics demos for students, faculty, and practitioners. This repository powers the public [GitHub Pages site](https://vinayasharada.github.io/KateelLearningDemosToStudents/) and also includes broader course materials, assignments, and supporting assets for local or Colab-based learning where needed.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-0f766e)](https://vinayasharada.github.io/KateelLearningDemosToStudents/)
-[![Curated demos](https://img.shields.io/badge/Curated%20Demos-106-2563eb)](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html)
-[![Course packs](https://img.shields.io/badge/Course%20Packs-8-d97706)](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html)
+[![Curated demos](https://img.shields.io/badge/Curated%20Demos-112-2563eb)](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html)
+[![Course packs](https://img.shields.io/badge/Course%20Packs-9-d97706)](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html)
 [![Assignment packs](https://img.shields.io/badge/Assignment%20Packs-6-7c3aed)](https://vinayasharada.github.io/KateelLearningDemosToStudents/Assignments/index.html)
 
 Created by **Professor Vinaya Sathyanarayana**  
@@ -97,6 +97,6 @@ Please retain attribution in course materials, workshops, and derivative teachin
 
 The repository About panel should use:
 
-- Repository description: `106 curated AI/ML, finance, risk, cybersecurity, and analytics demos for students and faculty by Prof. Vinaya Sathyanarayana.`
+- Repository description: `112 curated AI/ML, finance, risk, cybersecurity, and analytics demos for students and faculty by Prof. Vinaya Sathyanarayana.`
 - Website: `https://vinayasharada.github.io/KateelLearningDemosToStudents/`
 - Topics: `education`, `ai-demos`, `machine-learning`, `finance`, `treasury`, `banking`, `risk-management`, `cybersecurity`, `rag`, `nlp`, `github-pages`, `classroom`

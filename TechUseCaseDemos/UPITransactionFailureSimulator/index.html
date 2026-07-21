@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UPI Transaction and Failure Simulator - KateelLearningDemos</title>
+  <meta name="description" content="Interactive UPI simulator for push vs collect flows, timeouts, duplicates, reversals, limits, and reconciliation exceptions.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../courses/digital-payments.html">Digital Payments</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Digital Payments • Browser • 25-35 min</p>
+    <h1>UPI Transaction and Failure Simulator</h1>
+    <p class="demo-lede">Compare push and collect transactions and expose the operational pain behind pending states, retries, reversals, fraud holds, and reconciliation ambiguity.</p>
+  </section>
+
+  <section class="upi-app">
+    <div class="upi-grid">
+      <section class="upi-card">
+        <h2>Scenario Controls</h2>
+        <div class="upi-field">
+          <label for="upiType">Transaction type</label>
+          <select id="upiType">
+            <option value="push">Push payment</option>
+            <option value="collect">Collect request</option>
+          </select>
+        </div>
+        <div class="upi-field">
+          <label for="upiAmount">Amount (INR)</label>
+          <input id="upiAmount" type="number" value="18000" min="100" step="100">
+        </div>
+        <div class="upi-field">
+          <label for="bankResponse">Beneficiary-side response</label>
+          <select id="bankResponse">
+            <option value="approve">Approve</option>
+            <option value="timeout">Timeout / pending</option>
+            <option value="reject">Reject / fail</option>
+          </select>
+        </div>
+        <div class="upi-field">
+          <label><input id="duplicateToggle" type="checkbox"> Simulate duplicate retry</label>
+          <small>Use this to show how retries create reference-matching and customer-complaint problems.</small>
+        </div>
+        <div class="upi-field">
+          <label><input id="fraudToggle" type="checkbox"> Trigger fraud review</label>
+          <small>Add a risk hold or step-up verification path.</small>
+        </div>
+        <div class="upi-field">
+          <label><input id="limitToggle" type="checkbox"> Near a policy / limit threshold</label>
+          <small>Show how approval logic changes when value or velocity is near a risk boundary.</small>
+        </div>
+        <button id="simulateUpiBtn" class="upi-button" type="button">Simulate UPI flow</button>
+      </section>
+
+      <section class="upi-card">
+        <h2>Outcome Summary</h2>
+        <div class="upi-metrics">
+          <div class="upi-metric"><div class="label">Customer-visible status</div><div class="value" id="statusValue"></div></div>
+          <div class="upi-metric"><div class="label">Settlement status</div><div class="value" id="settlementValue"></div></div>
+          <div class="upi-metric"><div class="label">Exceptions</div><div class="value" id="exceptionValue"></div></div>
+          <div class="upi-metric"><div class="label">Support load</div><div class="value" id="supportValue"></div></div>
+          <div class="upi-metric"><div class="label">Amount</div><div class="value" id="amountValue"></div></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="upi-card">
+      <h3>State Timeline</h3>
+      <div class="state-timeline" id="timeline"></div>
+    </section>
+
+    <section class="upi-card">
+      <h3>Reconciliation / Control Exceptions</h3>
+      <div class="exception-list" id="exceptions"></div>
+    </section>
+
+    <section class="outcome-box" id="outcomeBox"></section>
+  </section>
+</main>
+</body>
+</html>

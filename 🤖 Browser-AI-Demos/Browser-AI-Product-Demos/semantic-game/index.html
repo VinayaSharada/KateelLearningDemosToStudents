@@ -623,10 +623,11 @@ function log(level, msg, extras = {}) {
   const row = document.createElement('div');
   row.className = 'dline';
 
-  const lvlClass = {
+  const levelClasses = {
     INIT: 'lvl-init', DL: 'lvl-dl', OK: 'lvl-ok',
     WARN: 'lvl-warn', INFO: 'lvl-info'
-  }[level] ?? 'lvl-info';
+  };
+  const lvlClass = levelClasses[level] || 'lvl-info';
 
   let html = `<span class="d-ts">${nowMs()}</span><span class="d-lvl ${lvlClass}">${level.padEnd(6)}</span>`;
   html    += `<span class="d-msg">${msg}</span>`;
@@ -634,8 +635,8 @@ function log(level, msg, extras = {}) {
   if (extras.pct !== undefined) {
     html += `<span class="d-bar">${bar20(extras.pct)}</span>`;
     html += `<span class="d-pct">${extras.pct.toFixed(1).padStart(6)}%</span>`;
-    html += `<span class="d-size">${extras.size ?? ''}</span>`;
-    html += `<span class="d-spd">${extras.spd ?? ''}</span>`;
+    html += `<span class="d-size">${extras.size || ''}</span>`;
+    html += `<span class="d-spd">${extras.spd || ''}</span>`;
   }
 
   row.innerHTML = html;
@@ -673,7 +674,7 @@ async function initEngine() {
     embedder = await pipeline('feature-extraction', MODEL, {
       progress_callback: ({ status, file, progress, loaded, total }) => {
         const name = file ? file.split('/').pop() : '';
-        const pct  = progress ?? 0;
+        const pct  = typeof progress === 'number' ? progress : 0;
 
         if (status === 'initiate' && name) {
           const row = log('DL', `Fetching <em>${name}</em>`, { pct: 0, size: '—', spd: '' });
@@ -683,11 +684,12 @@ async function initEngine() {
           const state  = dlRows[name];
           const now    = performance.now();
           const dt     = (now - state.lastMs) / 1000;
-          const delta  = (loaded ?? 0) - state.lastLoaded;
+          const safeLoaded = typeof loaded === 'number' ? loaded : 0;
+          const delta  = safeLoaded - state.lastLoaded;
           const bps    = dt > 0 ? delta / dt : 0;
-          state.lastLoaded = loaded ?? 0;
+          state.lastLoaded = safeLoaded;
           state.lastMs     = now;
-          const sizeStr    = total ? `${fmtBytes(loaded)} / ${fmtBytes(total)}` : fmtBytes(loaded);
+          const sizeStr    = total ? `${fmtBytes(safeLoaded)} / ${fmtBytes(total)}` : fmtBytes(safeLoaded);
           updateDlRow(state.row, pct, sizeStr, fmtSpeed(bps));
 
         } else if (status === 'done' && name && dlRows[name]) {

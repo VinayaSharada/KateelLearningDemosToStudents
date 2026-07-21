@@ -1,0 +1,16 @@
+.recon-app { display:grid; gap:1.5rem; }
+.recon-grid { display:grid; gap:1.5rem; grid-template-columns:340px minmax(0,1fr); }
+.recon-panel,.recon-metric,.recon-row { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:18px; padding:1rem 1.1rem; }
+.recon-panel h2,.recon-panel h3 { color:#fff; margin:0 0 .8rem; }
+.recon-field { display:grid; gap:.45rem; margin-bottom:.8rem; }
+.recon-field label { color:#fff; font-weight:600; }
+.recon-field input { width:100%; padding:.8rem .9rem; border-radius:12px; border:1px solid rgba(255,255,255,0.12); background:rgba(8,12,20,.9); color:#dbe7f6; }
+.recon-metrics { display:grid; gap:1rem; grid-template-columns:repeat(4,minmax(0,1fr)); }
+.recon-metric .label { color:#9fb2c8; font-size:.82rem; text-transform:uppercase; }
+.recon-metric .value { color:#fff; font-size:1.2rem; font-weight:700; margin-top:.35rem; }
+.recon-table { width:100%; border-collapse:collapse; }
+.recon-table th,.recon-table td { border-bottom:1px solid rgba(255,255,255,0.08); padding:.7rem .5rem; text-align:left; color:#dbe7f6; vertical-align:top; }
+.recon-table th { color:#fff; }
+.recon-note { background:rgba(245,158,11,.1); border-left:4px solid #f59e0b; border-radius:14px; padding:1rem 1.1rem; color:#dbe7f6; }
+@media (max-width:960px){ .recon-grid{grid-template-columns:1fr}.recon-metrics{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media (max-width:640px){ .recon-metrics{grid-template-columns:1fr;} }

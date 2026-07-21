@@ -430,7 +430,7 @@ function makeProgress(label) {
   return ({ status, progress }) => {
     if (status === 'downloading' || status === 'progress') {
       statusLabel.textContent = `⚪ Downloading ${label}…`;
-      const pct = progress ?? 0;
+      const pct = typeof progress === 'number' ? progress : 0;
       progFill.style.width = pct + '%';
       progPct.textContent  = Math.round(pct) + '%';
     } else if (status === 'loading') {
@@ -530,7 +530,7 @@ async function analyse(text) {
       row.className = `dept-row${isTop ? ' active' : ''}`;
       const pct = Math.round(zscResult.scores[i] * 100);
       row.innerHTML = `
-        <div class="dept-icon">${DEPT_ICONS[lbl] ?? '📂'}</div>
+        <div class="dept-icon">${DEPT_ICONS[lbl] || '📂'}</div>
         <div class="dept-label">${lbl}${isTop ? ' <span style="font-size:10px;color:#22c55e;font-weight:800">▶ ROUTED</span>' : ''}</div>
         <div class="dept-bar-wrap"><div class="dept-bar" style="width:${pct}%"></div></div>
         <div class="dept-score">${pct}%</div>
@@ -566,7 +566,7 @@ ticketInput.addEventListener('input', () => {
 
 document.querySelectorAll('.sample-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    ticketInput.value = SAMPLES[btn.dataset.sample] ?? '';
+    ticketInput.value = SAMPLES[btn.dataset.sample] || '';
     ticketInput.dispatchEvent(new Event('input'));
     ticketInput.focus();
   });

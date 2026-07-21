@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Credit Card Transaction Fraud - KateelLearningDemos</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <link rel="stylesheet" href="../../../assets/demo-shell.css">
+  <script defer src="../../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="../../../courses/digital-payments.html">Digital Payments</a>
+      <a class="nav-link nav-cta" href="Readme.MD">Open README</a>
+    </div>
+  </div>
+</nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Digital Payments • Local Python • 30-40 min</p>
+    <h1>Credit Card Transaction Fraud</h1>
+    <p class="demo-lede">This folder is a local Python workflow rather than a browser simulation. Use the steps below to generate synthetic data, run the classifier, and discuss feature quality versus real-time fraud operations.</p>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Recommended steps</h3>
+        <ol class="plain-list">
+          <li>Read <code>Readme.MD</code> for setup expectations.</li>
+          <li>Install dependencies from <code>requirements.txt</code>.</li>
+          <li>Generate synthetic data with <code>generate_synthetic_data.py</code>.</li>
+          <li>Run <code>fraud_detection_classification.py</code>.</li>
+        </ol>
+      </article>
+      <article class="mini-panel">
+        <h3>What to notice</h3>
+        <ul class="plain-list">
+          <li>Which features are available before authorization versus after settlement or investigation.</li>
+          <li>How threshold changes alter fraud capture and false positives.</li>
+          <li>Why synthetic data helps teach logic but cannot stand in for production fraud telemetry.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="Readme.MD">Open README</a>
+      <a class="btn btn-secondary" href="fraud_detection_classification.py">View classifier</a>
+      <a class="btn btn-secondary" href="generate_synthetic_data.py">View data generator</a>
+    </div>
+  </section>
+</main>
+</body>
+</html>

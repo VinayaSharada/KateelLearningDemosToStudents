@@ -360,7 +360,8 @@ function displaySummary(detections) {
 
   const breakdownHTML = Object.entries(breakdown)
     .map(([label, count]) => {
-      const type = Object.entries(PII_PATTERNS).find(([_, p]) => p.label === label)?.[0];
+      const typeEntry = Object.entries(PII_PATTERNS).find(([_, p]) => p.label === label);
+      const type = typeEntry ? typeEntry[0] : undefined;
       const emoji = getTypeEmoji(type);
       return `<div class="breakdown-item">
         <span>${emoji} ${label}</span>

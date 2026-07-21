@@ -404,7 +404,7 @@ async function initModel() {
   try {
     t5 = await pipeline('text2text-generation', MODEL_ID, {
       progress_callback: ({ status, progress, file }) => {
-        const pct  = progress ?? 0;
+        const pct  = typeof progress === 'number' ? progress : 0;
         const name = file ? file.split('/').pop() : '';
         if (status === 'downloading' || status === 'progress') {
           statusLabel.textContent = `⚪ Downloading${name ? ' — ' + name : ''}…`;
@@ -482,7 +482,7 @@ async function runTask(taskKey) {
       early_stopping: true
     });
 
-    const generated = output[0]?.generated_text ?? '(no output)';
+    const generated = output[0] && output[0].generated_text ? output[0].generated_text : '(no output)';
     bodyEl.textContent = generated;
     bodyEl.classList.remove('cursor-blink');
 

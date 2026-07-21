@@ -18,6 +18,16 @@ DEFAULT_OG_IMAGE = "assets/seo-preview.svg"
 
 
 COURSE_META = {
+    "digital-payments": {
+        "eyebrow": "Course Pack",
+        "prompt": "Ask students to explain which payment participant, control, or settlement step drives the biggest trade-off and what policy or operational response follows.",
+        "outcomes": [
+            "Explain digital payment journeys across UPI, cards, wallets, bank transfers, and tokenized payment designs.",
+            "Compare authorization, clearing, settlement, reversals, fraud controls, and reconciliation responsibilities by payment mode.",
+            "Translate payment-system mechanics into customer-experience, liquidity, economics, and operational-risk decisions.",
+            "Distinguish payment hype from operational reality when evaluating CBDC, stablecoin, and programmable-money use cases.",
+        ],
+    },
     "treasury": {
         "eyebrow": "Course Pack",
         "prompt": "Ask students to compare two hedge or liquidity responses and justify which one better balances risk, cost, and operational realism.",
@@ -210,6 +220,7 @@ def common_nav(current_slug: str | None, base_prefix: str) -> str:
         return f'<a class="dropdown-link{active}" href="{base_prefix}courses/{slug if slug != "treasury" else "treasury-management"}.html"><span>{icon}</span>{label}</a>'
 
     slug_to_file = {
+        "digital-payments": "digital-payments.html",
         "treasury": "treasury-management.html",
         "ai-ml-workflows": "ai-ml-workflows.html",
         "risk": "risk-management.html",
@@ -224,6 +235,7 @@ def common_nav(current_slug: str | None, base_prefix: str) -> str:
         [
             f'<a class="dropdown-link{" active" if current_slug == slug else ""}" href="{base_prefix}courses/{slug_to_file[slug]}"><span>{icon}</span>{label}</a>'
             for slug, label, icon in [
+                ("digital-payments", "Payments", "💳"),
                 ("treasury", "Treasury", "🏦"),
                 ("ai-ml-workflows", "AI/ML", "🤖"),
                 ("risk", "Risk", "⚠️"),

@@ -459,7 +459,8 @@ async function runAgent() {
   );
 
   const observation = observePage();
-  appendTrace('Observe:', `read ${observation.length} actionable elements from the live page, e.g. <em>"${observation[0]?.label ?? 'none found'}"</em>.`);
+  const firstObservationLabel = observation[0] && observation[0].label ? observation[0].label : 'none found';
+  appendTrace('Observe:', `read ${observation.length} actionable elements from the live page, e.g. <em>"${firstObservationLabel}"</em>.`);
 
   const { parsed, extraNote } = await getDecision(command, observation);
 

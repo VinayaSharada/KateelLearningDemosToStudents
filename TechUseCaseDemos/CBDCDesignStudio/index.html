@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CBDC Design Studio - KateelLearningDemos</title>
+  <link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/demo-shell.css"><link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand" href="../../index.html">KateelLearningDemos</a><div class="nav-links"><a class="nav-link" href="../../index.html">Home</a><a class="nav-link" href="about.html">About Demo</a><a class="nav-link" href="../../courses/digital-payments.html">Digital Payments</a><a class="nav-link nav-cta" href="index.html">Launch Demo</a></div></div></nav>
+<main class="container demo-shell">
+  <section class="demo-hero"><p class="demo-kicker">Digital Payments • Browser • 25-35 min</p><h1>CBDC Design Studio</h1><p class="demo-lede">Configure policy and architecture choices for a CBDC and watch how inclusion, privacy, control, resilience, and bank-disintermediation risk move together.</p></section>
+  <section class="cbdc-app">
+    <div class="cbdc-grid">
+      <section class="cbdc-panel">
+        <h2>Design Controls</h2>
+        <div class="cbdc-field"><label for="cbdcScope">Scope</label><select id="cbdcScope"><option value="retail">Retail</option><option value="wholesale">Wholesale</option></select></div>
+        <div class="cbdc-field"><label for="cbdcModel">Representation</label><select id="cbdcModel"><option value="token">Token</option><option value="account">Account</option></select></div>
+        <div class="cbdc-field"><label for="cbdcArch">Architecture</label><select id="cbdcArch"><option value="direct">Direct</option><option value="hybrid">Hybrid</option><option value="intermediated">Intermediated</option></select></div>
+        <div class="cbdc-field"><label for="cbdcPrivacy">Privacy level</label><select id="cbdcPrivacy"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></div>
+        <div class="cbdc-field"><label for="cbdcLimit">Holding limit (INR)</label><input id="cbdcLimit" type="number" value="50000" min="1000" step="1000"></div>
+        <div class="cbdc-field"><label><input id="cbdcOffline" type="checkbox" checked> Offline payments</label></div>
+        <div class="cbdc-field"><label><input id="cbdcInterest" type="checkbox"> Interest-bearing</label></div>
+        <div class="cbdc-field"><label><input id="cbdcProgrammable" type="checkbox" checked> Programmability enabled</label></div>
+        <div class="cbdc-field"><label><input id="cbdcXborder" type="checkbox"> Cross-border interoperability</label></div>
+        <button id="runCbdc" class="btn btn-primary" type="button">Run design studio</button>
+      </section>
+      <section class="cbdc-panel">
+        <h2>Design Scores</h2>
+        <div class="score-grid" id="scoreGrid"></div>
+      </section>
+    </div>
+    <section class="cbdc-panel"><h3>Trade-off Summary</h3><div class="tradeoff-list" id="tradeoffList"></div></section>
+    <section class="design-note" id="designNote"></section>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Payments Course Pack - KateelLearningDemos</title>
+  <meta name="description" content="Payment rails, UPI states, card economics, settlement and reversals, operations and reconciliation, wallets, CBDC, and programmable money trade-offs.">
+  <meta name="keywords" content="Digital Payments, payment rails, UPI, cards, reconciliation, CBDC, wallet operations, classroom demos, browser-based learning, AI education, finance demos, GitHub Pages demos, no API key demos">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/digital-payments.html">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta property="og:site_name" content="KateelLearningDemos">
+  <meta property="og:title" content="Digital Payments Course Pack - KateelLearningDemos">
+  <meta property="og:description" content="Payment rails, UPI states, card economics, settlement and reversals, operations and reconciliation, wallets, CBDC, and programmable money trade-offs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/digital-payments.html">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <meta property="og:image:alt" content="KateelLearningDemos educational demo library preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digital Payments Course Pack - KateelLearningDemos">
+  <meta name="twitter:description" content="Payment rails, UPI states, card economics, settlement and reversals, operations and reconciliation, wallets, CBDC, and programmable money trade-offs.">
+  <meta name="twitter:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Digital Payments",
+  "description": "Payment rails, UPI states, card economics, settlement and reversals, operations and reconciliation, wallets, CBDC, and programmable money trade-offs.",
+  "provider": {
+    "@type": "Person",
+    "name": "Professor Vinaya Sathyanarayana",
+    "email": "vinallcontact@gmail.com",
+    "url": "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+  },
+  "educationalCredentialAwarded": "Course Pack",
+  "educationalLevel": "Higher Education",
+  "teaches": [
+    "Explain digital payment journeys across UPI, cards, wallets, bank transfers, and tokenized payment designs.",
+    "Compare authorization, clearing, settlement, reversals, fraud controls, and reconciliation responsibilities by payment mode.",
+    "Translate payment-system mechanics into customer-experience, liquidity, economics, and operational-risk decisions.",
+    "Distinguish payment hype from operational reality when evaluating CBDC, stablecoin, and programmable-money use cases."
+  ],
+  "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/digital-payments.html",
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Browser-based",
+    "inLanguage": "en"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Digital Payments demos",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Payment Journey and Rail Simulator",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/PaymentJourneyRailSimulator/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "UPI Transaction and Failure Simulator",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/UPITransactionFailureSimulator/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Card Network Economics and Settlement Simulator",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/CardNetworkEconomicsSettlementSimulator/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Payment Operations and Reconciliation Workbench",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/PaymentReconciliationWorkbench/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "CBDC Design Studio",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/CBDCDesignStudio/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Fraud Playground",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/FraudPlayground/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Credit Card Transaction Fraud",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/DomainUseCaseDemos/CreditCards/CreditCardTxnFraud/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "Mule Account Detection",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/DomainUseCaseDemos/Compliance/MuleAccountDetection/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "Pricing and Unit Economics Explorer",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/%F0%9F%A4%96%20Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "Threat Modeling Matrix",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "name": "Blockchain Explorer",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/BlockchainExplorer/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "name": "Smart Contract Treasury",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/TechUseCaseDemos/SmartContractTreasury/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "name": "Supply Chain Finance",
+      "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/DomainUseCaseDemos/SupplyChain/SupplyChainFinance/about.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Course Packs",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Digital Payments",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/digital-payments.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script defer src="../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../browse/index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <details class="nav-dropdown">
+        <summary class="nav-link">Courses</summary>
+        <div class="dropdown-content" role="menu">
+      <a class="dropdown-link active" href="../courses/digital-payments.html"><span>💳</span>Payments</a>
+      <a class="dropdown-link" href="../courses/treasury-management.html"><span>🏦</span>Treasury</a>
+      <a class="dropdown-link" href="../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+      <a class="dropdown-link" href="../courses/risk-management.html"><span>⚠️</span>Risk</a>
+      <a class="dropdown-link" href="../courses/quant-finance.html"><span>💰</span>Quant</a>
+      <a class="dropdown-link" href="../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+      <a class="dropdown-link" href="../courses/compliance.html"><span>📋</span>Compliance</a>
+      <a class="dropdown-link" href="../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+      <a class="dropdown-link" href="../courses/banking.html"><span>🏦</span>Banking</a>
+        </div>
+      </details>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+  <main class="container">
+    <section class="site-hero page-hero">
+      <p class="hero-eyebrow">Course Pack</p>
+      <h1>Digital Payments</h1>
+      <p class="hero-subtitle">Payment rails, UPI states, card economics, settlement and reversals, operations and reconciliation, wallets, CBDC, and programmable money trade-offs.</p>
+      <div class="pill-row">
+        <span class="pill">13 curated demos</span>
+        <span class="pill">About → Launch workflow</span>
+        <span class="pill">Assignments connected</span>
+      </div>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="#demos">Browse demos</a>
+        <a class="btn btn-secondary" href="../Assignments/index.html">View assignments</a>
+      </div>
+    </section>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-value">13</div><div class="stat-label">Curated demos</div></div>
+      <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">Linked assignments</div></div>
+      <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Run-mode families</div></div>
+      <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">API keys required</div></div>
+    </div>
+
+    <section class="section" id="start">
+      <div class="section-header">
+        <p class="section-kicker">Teaching flow</p>
+        <h2>Start from the pack, not the folder tree</h2>
+        <p>This course pack collects the curated public demos for this theme and links them to the right supporting course and assignment resources.</p>
+      </div>
+      <div class="learning-path">
+        <div><strong>1 Open a demo unit</strong><p>Use the About page for context, expectations, and teaching prompts.</p></div>
+        <div><strong>2 Launch when ready</strong><p>Move into the interactive demo only after the setup and run mode make sense for the class.</p></div>
+        <div><strong>3 Extend with assignments</strong><p>Use the linked assignment scaffold when you want written analysis, reflection, or grading.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="outcomes">
+      <div class="section-header">
+        <p class="section-kicker">Learning outcomes</p>
+        <h2>What this course pack builds</h2>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Core outcomes</h3>
+          <ul>
+            <li>Explain digital payment journeys across UPI, cards, wallets, bank transfers, and tokenized payment designs.</li><li>Compare authorization, clearing, settlement, reversals, fraud controls, and reconciliation responsibilities by payment mode.</li><li>Translate payment-system mechanics into customer-experience, liquidity, economics, and operational-risk decisions.</li><li>Distinguish payment hype from operational reality when evaluating CBDC, stablecoin, and programmable-money use cases.</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Audience fit</h3>
+          <p>payment rails, UPI, cards, reconciliation, CBDC, wallet operations</p>
+          <div class="demo-badges"><span class="mode-badge">Curated public pack</span><span class="mode-badge">Classroom ready</span></div>
+        </article>
+        <article class="info-card highlight-card">
+          <h3>Faculty prompt</h3>
+          <p>Ask students to explain which payment participant, control, or settlement step drives the biggest trade-off and what policy or operational response follows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="section-header">
+        <p class="section-kicker">Support resources</p>
+        <h2>Use the pack with catalogs and assignments</h2>
+        <p>Course pages, assignments, and catalog documents should reinforce each other rather than living as separate navigation systems.</p>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Course references</h3>
+          <div class="resource-row"><a class="btn-mini" href="../CourseCatalogs/DigitalPayments/BUILD_SPEC.md">Catalog / Map</a></div>
+        </article>
+        <article class="info-card">
+          <h3>Assignments</h3>
+          <div class="resource-row"><span class="btn-mini outline">Assignments coming soon</span></div>
+        </article>
+        <article class="info-card">
+          <h3>Platform path</h3>
+          <div class="resource-row">
+            <a class="btn-mini" href="../browse/index.html">Browse Demos</a>
+            <a class="btn-mini outline" href="../course-packs/index.html">All Course Packs</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="demos">
+      <div class="section-header">
+        <p class="section-kicker">Demo catalog</p>
+        <h2>Demos in this course pack</h2>
+        <p>Every card leads to an About page first, then to the launch surface. Run-mode and readiness badges are shown directly on the card.</p>
+      </div>
+      <div class="demo-grid">
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Payment Journey and Rail Simulator</h3>
+    <span class="level-badge">All Levels</span>
+  </div>
+  <p>Choose UPI, cards, wallets, NEFT, RTGS, cash, or Bitcoin and watch the message flow, participants, clearing and settlement path, time to finality, fees, liquidity implications, and failure handling change in real time. This is the course’s anchor system-map demo.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask: &quot;At which step does the customer think the payment is done, and at which step is the institution actually safe?&quot; This separates experience from operational finality.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">30-40 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../TechUseCaseDemos/PaymentJourneyRailSimulator/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../TechUseCaseDemos/PaymentJourneyRailSimulator/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>UPI Transaction and Failure Simulator</h3>
+    <span class="level-badge">Intermediate</span>
+  </div>
+  <p>Simulate payer PSP, payee PSP, NPCI switch, remitter bank, and beneficiary bank across push and collect flows. Compare timeouts, duplicates, reversals, fraud checks, limits, and reconciliation exceptions without hiding the operational state machine.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask: &quot;Why is ‘pending’ often the most dangerous state in instant payments?&quot; This reveals where customer, fraud, and reconciliation pain collide.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">25-35 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../TechUseCaseDemos/UPITransactionFailureSimulator/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../TechUseCaseDemos/UPITransactionFailureSimulator/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Card Network Economics and Settlement Simulator</h3>
+    <span class="level-badge">Intermediate</span>
+  </div>
+  <p>Follow the cardholder → merchant → acquirer → network → issuer chain and see how interchange, MDR, gateway costs, fraud loss, refunds, chargebacks, and settlement delay determine merchant margin and issuer economics.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Push on unit economics: &quot;If gross sales rise but chargebacks and fees rise faster, did the merchant really win?&quot;</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">25-35 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../TechUseCaseDemos/CardNetworkEconomicsSettlementSimulator/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../TechUseCaseDemos/CardNetworkEconomicsSettlementSimulator/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Payment Operations and Reconciliation Workbench</h3>
+    <span class="level-badge">Intermediate to Advanced</span>
+  </div>
+  <p>Work through bank, gateway, network, and merchant records with deliberate mismatches. Classify missing transactions, duplicates, fee discrepancies, pending reversals, chargeback timing, and settlement-date differences.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask: &quot;Which exception actually changes money owed, and which one only changes timing or reporting?&quot; This teaches operational materiality.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">30-40 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../TechUseCaseDemos/PaymentReconciliationWorkbench/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../TechUseCaseDemos/PaymentReconciliationWorkbench/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>CBDC Design Studio</h3>
+    <span class="level-badge">Advanced</span>
+  </div>
+  <p>Configure retail vs wholesale, token vs account, direct vs hybrid, privacy, offline support, holding limits, interest, and programmability. See how these design choices reallocate resilience, policy control, inclusion, and bank-disintermediation risk.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask: &quot;Which CBDC choice solves one policy problem by creating another operational problem?&quot; That keeps the discussion grounded.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">25-35 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../TechUseCaseDemos/CBDCDesignStudio/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../TechUseCaseDemos/CBDCDesignStudio/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Fraud Playground</h3>
+    <span class="level-badge">Intermediate</span>
+  </div>
+  <p>Use this as the course’s fraud-threshold companion lab when discussing false positives, operational loss, and customer friction in payment monitoring.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask students which fraud threshold they would choose if support costs and abandonment are as important as raw fraud loss.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">20-30 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../TechUseCaseDemos/FraudPlayground/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../TechUseCaseDemos/FraudPlayground/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Credit Card Transaction Fraud</h3>
+    <span class="level-badge">Intermediate</span>
+  </div>
+  <p>Local Python fraud-classification workflow for card transactions. Use it when you want students to move from a browser fraud intuition to a fuller feature-engineering and classification pipeline.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask: &quot;Which transaction features would travel well to real card auth data, and which are only classroom placeholders?&quot;</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Local</span>
+    <span class="mode-badge">30-40 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Local Python workflow</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../DomainUseCaseDemos/CreditCards/CreditCardTxnFraud/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../DomainUseCaseDemos/CreditCards/CreditCardTxnFraud/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Mule Account Detection</h3>
+    <span class="level-badge">Intermediate</span>
+  </div>
+  <p>Support the course’s AML and account-abuse discussions with a demo that connects suspicious flow patterns to intervention timing and false-positive burden.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask students whether faster intervention always helps, or whether it can also freeze legitimate customer activity and increase complaint load.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">20-30 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../DomainUseCaseDemos/Compliance/MuleAccountDetection/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../DomainUseCaseDemos/Compliance/MuleAccountDetection/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Pricing and Unit Economics Explorer</h3>
+    <span class="level-badge">Beginner to Intermediate</span>
+  </div>
+  <p>Use this adjacent demo to reinforce fee design, platform economics, and business-model trade-offs when comparing payment products and merchant pricing.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask what changes if the product owner optimizes growth, margin, and trust in a different order.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser AI</span>
+    <span class="mode-badge">20-30 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser AI demo</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../🤖 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../🤖 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Threat Modeling Matrix</h3>
+    <span class="level-badge">Intermediate</span>
+  </div>
+  <p>Use this to surface security-by-design questions in payment apps, PSP integrations, beneficiary management, and mobile payment journeys.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask which payment-step threat deserves prevention first and which one deserves rapid detection plus recovery instead.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">20-30 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Blockchain Explorer</h3>
+    <span class="level-badge">All Levels</span>
+  </div>
+  <p>Use this as the bridge from mainstream payment rails into crypto settlement, token movement, and the infrastructure intuition needed for stablecoins and CBDC debates.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask students which parts of blockchain settlement are actually useful for payments and which parts are just implementation detail.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">90+ min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../TechUseCaseDemos/BlockchainExplorer/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../TechUseCaseDemos/BlockchainExplorer/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Smart Contract Treasury</h3>
+    <span class="level-badge">Intermediate</span>
+  </div>
+  <p>Bring this in when the class moves from payment execution to conditional money movement, escrow logic, and programmable release conditions.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Push students to compare smart-contract logic with ordinary API-based workflow controls rather than assuming the chain is always necessary.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">20-30 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../TechUseCaseDemos/SmartContractTreasury/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../TechUseCaseDemos/SmartContractTreasury/index.html">Launch Demo</a>
+  </div>
+</article>
+
+<article class="demo-card">
+  <div class="demo-card-top">
+    <h3>Supply Chain Finance</h3>
+    <span class="level-badge">Intermediate</span>
+  </div>
+  <p>Use this when discussing business-payment ecosystems, supplier settlement timing, and embedded-finance extensions around invoice and platform flows.</p>
+  <p class="teacher-cue"><strong>Teacher cue:</strong> Ask where the payment ends and the financing product begins, and why that boundary matters operationally.</p>
+  <div class="demo-badges">
+    <span class="mode-badge">Browser</span>
+    <span class="mode-badge">20-30 min</span>
+    <span class="mode-badge">Classroom Ready</span>
+  </div>
+  <div class="demo-meta">
+    <span>Browser-based</span>
+    <span>Digital Payments</span>
+  </div>
+  <div class="demo-actions">
+    <a class="btn-mini about-demo" href="../DomainUseCaseDemos/SupplyChain/SupplyChainFinance/about.html">Read About Demo</a>
+    <a class="btn-mini outline launch-demo" href="../DomainUseCaseDemos/SupplyChain/SupplyChainFinance/index.html">Launch Demo</a>
+  </div>
+</article>
+      </div>
+    </section>
+
+    <section class="section attribution-card" id="attribution">
+      <h2>Attribution</h2>
+      <p>Created by <strong>Professor Vinaya Sathyanarayana</strong>. Attribution email: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a>. Please notify usage and retain attribution in course materials.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p><a href="../index.html">KateelLearningDemos</a> • Digital Payments • <a href="../Assignments/index.html">Assignments</a></p>
+  </footer>
+</body>
+</html>

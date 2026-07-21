@@ -58,8 +58,10 @@ class GraphRAG {
         html += '<div style="margin-top: 15px;"><strong>Relationships:</strong></div>';
         
         this.graph.edges.forEach(edge => {
-            const from = this.graph.nodes.find(n => n.id === edge.from)?.label || edge.from;
-            const to = this.graph.nodes.find(n => n.id === edge.to)?.label || edge.to;
+            const fromNode = this.graph.nodes.find(n => n.id === edge.from);
+            const toNode = this.graph.nodes.find(n => n.id === edge.to);
+            const from = fromNode ? fromNode.label : edge.from;
+            const to = toNode ? toNode.label : edge.to;
             html += `<div class="edge">${from} → ${edge.label} → ${to}</div>`;
         });
         
@@ -120,7 +122,8 @@ class GraphRAG {
         paths.forEach(p => {
             html += `<div class="edge"><strong>${p.start}</strong><br>`;
             p.connections.forEach(c => {
-                const nodeLabel = this.graph.nodes.find(n => n.id === c.node)?.label || c.node;
+                const citedNode = this.graph.nodes.find(n => n.id === c.node);
+                const nodeLabel = citedNode ? citedNode.label : c.node;
                 html += `&nbsp;→ ${c.edge}: ${nodeLabel}<br>`;
             });
             html += '</div>';

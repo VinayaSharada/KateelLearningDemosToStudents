@@ -78,8 +78,10 @@ class VoiceGraphRAG {
         html += '<div style="margin-top: 15px;"><strong>Relationships:</strong></div>';
         
         this.graph.edges.forEach(edge => {
-            const fromLabel = this.graph.nodes.find(n => n.id === edge.from)?.label || edge.from;
-            const toLabel = this.graph.nodes.find(n => n.id === edge.to)?.label || edge.to;
+            const fromNode = this.graph.nodes.find(n => n.id === edge.from);
+            const toNode = this.graph.nodes.find(n => n.id === edge.to);
+            const fromLabel = fromNode ? fromNode.label : edge.from;
+            const toLabel = toNode ? toNode.label : edge.to;
             html += `<div class="edge">${fromLabel} → ${edge.label} → ${toLabel}</div>`;
         });
         

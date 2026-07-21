@@ -396,7 +396,7 @@ async function initModel() {
     generator = await pipeline('text-generation', MODEL_ID, {
       dtype: 'q4',
       progress_callback: ({ status, file, progress }) => {
-        const pct  = progress ?? 0;
+        const pct  = typeof progress === 'number' ? progress : 0;
         const name = file ? file.split('/').pop() : '';
         if (name && name !== lastFile) { lastFile = name; }
         if (status === 'downloading' || status === 'progress') {

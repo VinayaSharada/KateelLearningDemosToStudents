@@ -435,7 +435,7 @@ async function initModel() {
   try {
     extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2', {
       progress_callback: ({ status, progress, file }) => {
-        const pct  = progress ?? 0;
+        const pct  = typeof progress === 'number' ? progress : 0;
         const name = file ? file.split('/').pop() : '';
         if (status === 'downloading' || status === 'progress') {
           statusLabel.textContent = `⚪ Downloading${name ? ' — ' + name : ''}…`;
@@ -545,7 +545,7 @@ async function search() {
     }));
 
     scored.sort((a, b) => b.semScore - a.semScore);
-    const maxSem = scored[0]?.semScore ?? 1;
+    const maxSem = scored[0] && typeof scored[0].semScore === 'number' ? scored[0].semScore : 1;
 
     scored.forEach((item, rank) => {
       const pct     = Math.round((item.semScore / maxSem) * 100);

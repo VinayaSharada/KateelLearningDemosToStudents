@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card Network Economics and Settlement Simulator - KateelLearningDemos</title>
+  <meta name="description" content="Interactive card-payments simulator for interchange, MDR, settlement delay, chargebacks, fraud loss, and merchant margin.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand" href="../../index.html">KateelLearningDemos</a><div class="nav-links"><a class="nav-link" href="../../index.html">Home</a><a class="nav-link" href="about.html">About Demo</a><a class="nav-link" href="../../courses/digital-payments.html">Digital Payments</a><a class="nav-link nav-cta" href="index.html">Launch Demo</a></div></div></nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Digital Payments • Browser • 25-35 min</p>
+    <h1>Card Network Economics and Settlement Simulator</h1>
+    <p class="demo-lede">Model cardholder, merchant, acquirer, network, and issuer economics across interchange, MDR, settlement lag, chargebacks, and fraud loss.</p>
+  </section>
+  <section class="cardecon-app">
+    <div class="cardecon-grid">
+      <section class="cardecon-panel">
+        <h2>Scenario Controls</h2>
+        <div class="cardecon-field"><label for="ticketSize">Ticket size (INR)</label><input id="ticketSize" type="number" value="6000" min="100" step="100"></div>
+        <div class="cardecon-field"><label for="grossMargin">Merchant gross margin %</label><input id="grossMargin" type="number" value="28" min="1" max="90" step="1"></div>
+        <div class="cardecon-field"><label for="interchange">Interchange %</label><input id="interchange" type="number" value="1.1" min="0" max="5" step="0.1"></div>
+        <div class="cardecon-field"><label for="mdr">Merchant discount rate %</label><input id="mdr" type="number" value="2.0" min="0" max="6" step="0.1"></div>
+        <div class="cardecon-field"><label for="gateway">Gateway / processor %</label><input id="gateway" type="number" value="0.25" min="0" max="2" step="0.05"></div>
+        <div class="cardecon-field"><label for="chargeback">Expected chargeback %</label><input id="chargeback" type="number" value="0.5" min="0" max="10" step="0.1"></div>
+        <div class="cardecon-field"><label for="fraudLoss">Expected fraud loss %</label><input id="fraudLoss" type="number" value="0.2" min="0" max="5" step="0.1"></div>
+        <div class="cardecon-field"><label for="settlementDays">Settlement delay (days)</label><input id="settlementDays" type="number" value="2" min="0" max="10" step="1"></div>
+        <button id="runCardEconomics" class="btn btn-primary" type="button">Run economics</button>
+      </section>
+      <section class="cardecon-panel">
+        <h2>Outcome Summary</h2>
+        <div class="cardecon-metrics">
+          <div class="econ-metric"><div class="label">Merchant contribution</div><div class="value" id="merchantNet"></div></div>
+          <div class="econ-metric"><div class="label">Issuer interchange</div><div class="value" id="issuerValue"></div></div>
+          <div class="econ-metric"><div class="label">Merchant discount</div><div class="value" id="mdrValue"></div></div>
+          <div class="econ-metric"><div class="label">Funding delay</div><div class="value" id="delayValue"></div><div class="detail" id="frictionValue"></div></div>
+        </div>
+      </section>
+    </div>
+    <section class="cardecon-panel"><h3>Participant Waterfall</h3><div id="participantRows"></div></section>
+    <section class="cardecon-panel"><h3>Margin Waterfall</h3><div id="waterfall"></div></section>
+    <section class="summary-box" id="summaryBox"></section>
+  </section>
+</main>
+</body>
+</html>

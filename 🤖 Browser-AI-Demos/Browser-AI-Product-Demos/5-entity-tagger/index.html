@@ -342,7 +342,7 @@ async function initModel() {
     ner = await pipeline('token-classification', MODEL_ID, {
       aggregation_strategy: 'simple',
       progress_callback: ({ status, progress, file }) => {
-        const pct  = progress ?? 0;
+        const pct  = typeof progress === 'number' ? progress : 0;
         const name = file ? file.split('/').pop() : '';
         if (status === 'downloading' || status === 'progress') {
           statusLabel.textContent = `⚪ Downloading${name ? ' — ' + name : ''}…`;
@@ -431,7 +431,7 @@ function renderStats(entities) {
   const counts = {};
   for (const ent of entities) {
     const k = ent.entity_group;
-    counts[k] = (counts[k] ?? 0) + 1;
+    counts[k] = (counts[k] || 0) + 1;
   }
 
   if (Object.keys(counts).length === 0) {
@@ -440,7 +440,7 @@ function renderStats(entities) {
   }
 
   statsPanel.innerHTML = Object.entries(counts).map(([k, n]) => {
-    const cfg = ENTITY_CONFIG[k] ?? { name: k, dot: '#808080' };
+    const cfg = ENTITY_CONFIG[k] || { name: k, dot: '#808080' };
     return `<div class="stat-chip">
       <div class="sc-dot" style="background:${cfg.dot}"></div>
       <span class="sc-count">${n}</span>
@@ -473,7 +473,7 @@ textInput.addEventListener('input', () => {
 // ── Sample buttons ────────────────────────────────────────────────────────────
 document.querySelectorAll('.sample-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    textInput.value = SAMPLES[btn.dataset.key] ?? '';
+    textInput.value = SAMPLES[btn.dataset.key] || '';
     textInput.dispatchEvent(new Event('input'));
     textInput.focus();
   });

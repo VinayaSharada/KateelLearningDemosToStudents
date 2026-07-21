@@ -1,0 +1,146 @@
+:root {
+  --upi-bg: #0d1220;
+  --upi-panel: rgba(255,255,255,0.06);
+  --upi-border: rgba(255,255,255,0.12);
+  --upi-text: #d7e4f3;
+  --upi-muted: #94a9c4;
+  --upi-accent: #7c3aed;
+  --upi-good: #22c55e;
+  --upi-warn: #f59e0b;
+  --upi-bad: #ef4444;
+}
+
+.upi-app {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.upi-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 340px minmax(0, 1fr);
+}
+
+.upi-card {
+  background: var(--upi-panel);
+  border: 1px solid var(--upi-border);
+  border-radius: 18px;
+  padding: 1.2rem;
+}
+
+.upi-card h2,
+.upi-card h3 {
+  margin: 0 0 0.85rem;
+  color: #fff;
+}
+
+.upi-field {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 0.9rem;
+}
+
+.upi-field label {
+  color: #fff;
+  font-weight: 600;
+}
+
+.upi-field input,
+.upi-field select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--upi-border);
+  background: rgba(8, 12, 22, 0.9);
+  color: var(--upi-text);
+}
+
+.upi-field small {
+  color: var(--upi-muted);
+}
+
+.upi-button {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--upi-accent), #2563eb);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.upi-metrics {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.upi-metric {
+  background: var(--upi-panel);
+  border: 1px solid var(--upi-border);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.upi-metric .label {
+  color: var(--upi-muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.upi-metric .value {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0.35rem;
+}
+
+.state-timeline,
+.exception-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.state-item,
+.exception-item {
+  background: var(--upi-panel);
+  border: 1px solid var(--upi-border);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.state-item .step {
+  color: var(--upi-accent);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.state-item .status {
+  color: #fff;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.state-item .detail,
+.exception-item .detail {
+  color: var(--upi-muted);
+  margin-top: 0.35rem;
+}
+
+.outcome-box {
+  background: rgba(124, 58, 237, 0.1);
+  border-left: 4px solid var(--upi-accent);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  color: var(--upi-text);
+}
+
+@media (max-width: 960px) {
+  .upi-grid { grid-template-columns: 1fr; }
+  .upi-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .upi-metrics { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payment Operations and Reconciliation Workbench - KateelLearningDemos</title>
+  <link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/demo-shell.css"><link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand" href="../../index.html">KateelLearningDemos</a><div class="nav-links"><a class="nav-link" href="../../index.html">Home</a><a class="nav-link" href="about.html">About Demo</a><a class="nav-link" href="../../courses/digital-payments.html">Digital Payments</a><a class="nav-link nav-cta" href="index.html">Launch Demo</a></div></div></nav>
+<main class="container demo-shell">
+  <section class="demo-hero"><p class="demo-kicker">Digital Payments • Browser • 30-40 min</p><h1>Payment Operations and Reconciliation Workbench</h1><p class="demo-lede">Turn settlement and operations mismatches into a visible exception queue across merchant, gateway, bank, and network records.</p></section>
+  <section class="recon-app">
+    <div class="recon-grid">
+      <section class="recon-panel">
+        <h2>Scenario Controls</h2>
+        <div class="recon-field"><label for="missingCount">Missing transactions</label><input id="missingCount" type="number" value="2" min="0" max="10"></div>
+        <div class="recon-field"><label for="duplicateCount">Duplicate instructions</label><input id="duplicateCount" type="number" value="1" min="0" max="10"></div>
+        <div class="recon-field"><label for="feeMismatchCount">Fee mismatches</label><input id="feeMismatchCount" type="number" value="2" min="0" max="10"></div>
+        <div class="recon-field"><label for="reversalCount">Pending reversals</label><input id="reversalCount" type="number" value="1" min="0" max="10"></div>
+        <button id="runRecon" class="btn btn-primary" type="button">Generate exception queue</button>
+      </section>
+      <section class="recon-panel">
+        <h2>Operational Summary</h2>
+        <div class="recon-metrics">
+          <div class="recon-metric"><div class="label">Total exceptions</div><div class="value" id="totalExceptions"></div></div>
+          <div class="recon-metric"><div class="label">Material exceptions</div><div class="value" id="materialExceptions"></div></div>
+          <div class="recon-metric"><div class="label">Ops load</div><div class="value" id="opsLoad"></div></div>
+          <div class="recon-metric"><div class="label">Close risk</div><div class="value" id="closureRisk"></div></div>
+        </div>
+      </section>
+    </div>
+    <section class="recon-panel">
+      <h3>Exception Queue</h3>
+      <table class="recon-table">
+        <thead><tr><th>Class</th><th>Reference</th><th>Observed mismatch</th><th>Recommended action</th></tr></thead>
+        <tbody id="exceptionTableBody"></tbody>
+      </table>
+    </section>
+    <section class="recon-note" id="reconNote"></section>
+  </section>
+</main>
+</body>
+</html>

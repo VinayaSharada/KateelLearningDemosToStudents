@@ -361,7 +361,7 @@ async function initModel() {
     transcriber = await pipeline('automatic-speech-recognition', MODEL_ID, {
       dtype: { encoder_model: 'fp32', decoder_model_merged: 'q4' },
       progress_callback: ({ status, progress, file }) => {
-        const pct  = progress ?? 0;
+        const pct  = typeof progress === 'number' ? progress : 0;
         const name = file ? file.split('/').pop() : '';
         if (status === 'downloading' || status === 'progress') {
           statusLabel.textContent = `⚪ Downloading${name ? ' — ' + name : ''}…`;
@@ -480,7 +480,8 @@ async function processAudio() {
   const t0 = performance.now();
 
   try {
-    const blob       = new Blob(audioChunks, { type: audioChunks[0]?.type ?? 'audio/webm' });
+    const audioType  = audioChunks[0] && audioChunks[0].type ? audioChunks[0].type : 'audio/webm';
+    const blob       = new Blob(audioChunks, { type: audioType });
     const arrayBuf   = await blob.arrayBuffer();
     const audioCtx   = new AudioContext({ sampleRate: 16000 });
     const decoded    = await audioCtx.decodeAudioData(arrayBuf);
@@ -502,7 +503,8 @@ async function processAudio() {
     });
 
     const elapsed = ((performance.now() - t0) / 1000).toFixed(1);
-    addTranscript(result.text?.trim() ?? '(empty)', elapsed, secondsElapsed);
+    const transcriptText = result && result.text && result.text.trim() ? result.text.trim() : '(empty)';
+    addTranscript(transcriptText, elapsed, secondsElapsed);
 
   } catch (err) {
     addError('Transcription failed: ' + err.message);

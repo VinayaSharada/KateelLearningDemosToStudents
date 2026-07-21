@@ -3,6 +3,292 @@
   "generatedFrom": "scripts/build_site_catalog.py",
   "courses": [
     {
+      "slug": "digital-payments",
+      "title": "Digital Payments",
+      "audience": "payment rails, UPI, cards, reconciliation, CBDC, wallet operations",
+      "subtitle": "Payment rails, UPI states, card economics, settlement and reversals, operations and reconciliation, wallets, CBDC, and programmable money trade-offs.",
+      "pagePath": "courses/digital-payments.html",
+      "registeredDemos": "13",
+      "catalogPath": "CourseCatalogs/DigitalPayments/BUILD_SPEC.md",
+      "assignments": [],
+      "demos": [
+        {
+          "title": "Payment Journey and Rail Simulator",
+          "level": "All Levels",
+          "summary": "Choose UPI, cards, wallets, NEFT, RTGS, cash, or Bitcoin and watch the message flow, participants, clearing and settlement path, time to finality, fees, liquidity implications, and failure handling change in real time. This is the course\u2019s anchor system-map demo.",
+          "teacherCue": "Teacher cue: Ask: \"At which step does the customer think the payment is done, and at which step is the institution actually safe?\" This separates experience from operational finality.",
+          "duration": "30-40 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments"
+          ],
+          "courseTitles": [
+            "Digital Payments"
+          ],
+          "aboutPath": "TechUseCaseDemos/PaymentJourneyRailSimulator/about.html",
+          "launchPath": "TechUseCaseDemos/PaymentJourneyRailSimulator/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "UPI Transaction and Failure Simulator",
+          "level": "Intermediate",
+          "summary": "Simulate payer PSP, payee PSP, NPCI switch, remitter bank, and beneficiary bank across push and collect flows. Compare timeouts, duplicates, reversals, fraud checks, limits, and reconciliation exceptions without hiding the operational state machine.",
+          "teacherCue": "Teacher cue: Ask: \"Why is \u2018pending\u2019 often the most dangerous state in instant payments?\" This reveals where customer, fraud, and reconciliation pain collide.",
+          "duration": "25-35 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments"
+          ],
+          "courseTitles": [
+            "Digital Payments"
+          ],
+          "aboutPath": "TechUseCaseDemos/UPITransactionFailureSimulator/about.html",
+          "launchPath": "TechUseCaseDemos/UPITransactionFailureSimulator/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Card Network Economics and Settlement Simulator",
+          "level": "Intermediate",
+          "summary": "Follow the cardholder \u2192 merchant \u2192 acquirer \u2192 network \u2192 issuer chain and see how interchange, MDR, gateway costs, fraud loss, refunds, chargebacks, and settlement delay determine merchant margin and issuer economics.",
+          "teacherCue": "Teacher cue: Push on unit economics: \"If gross sales rise but chargebacks and fees rise faster, did the merchant really win?\"",
+          "duration": "25-35 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments"
+          ],
+          "courseTitles": [
+            "Digital Payments"
+          ],
+          "aboutPath": "TechUseCaseDemos/CardNetworkEconomicsSettlementSimulator/about.html",
+          "launchPath": "TechUseCaseDemos/CardNetworkEconomicsSettlementSimulator/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Payment Operations and Reconciliation Workbench",
+          "level": "Intermediate to Advanced",
+          "summary": "Work through bank, gateway, network, and merchant records with deliberate mismatches. Classify missing transactions, duplicates, fee discrepancies, pending reversals, chargeback timing, and settlement-date differences.",
+          "teacherCue": "Teacher cue: Ask: \"Which exception actually changes money owed, and which one only changes timing or reporting?\" This teaches operational materiality.",
+          "duration": "30-40 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments"
+          ],
+          "courseTitles": [
+            "Digital Payments"
+          ],
+          "aboutPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/about.html",
+          "launchPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "CBDC Design Studio",
+          "level": "Advanced",
+          "summary": "Configure retail vs wholesale, token vs account, direct vs hybrid, privacy, offline support, holding limits, interest, and programmability. See how these design choices reallocate resilience, policy control, inclusion, and bank-disintermediation risk.",
+          "teacherCue": "Teacher cue: Ask: \"Which CBDC choice solves one policy problem by creating another operational problem?\" That keeps the discussion grounded.",
+          "duration": "25-35 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments"
+          ],
+          "courseTitles": [
+            "Digital Payments"
+          ],
+          "aboutPath": "TechUseCaseDemos/CBDCDesignStudio/about.html",
+          "launchPath": "TechUseCaseDemos/CBDCDesignStudio/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Fraud Playground",
+          "level": "Intermediate",
+          "summary": "Use this as the course\u2019s fraud-threshold companion lab when discussing false positives, operational loss, and customer friction in payment monitoring.",
+          "teacherCue": "Teacher cue: Ask students which fraud threshold they would choose if support costs and abandonment are as important as raw fraud loss.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments",
+            "banking"
+          ],
+          "courseTitles": [
+            "Digital Payments",
+            "Banking & Finance"
+          ],
+          "aboutPath": "TechUseCaseDemos/FraudPlayground/about.html",
+          "launchPath": "TechUseCaseDemos/FraudPlayground/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Credit Card Transaction Fraud",
+          "level": "Intermediate",
+          "summary": "Local Python fraud-classification workflow for card transactions. Use it when you want students to move from a browser fraud intuition to a fuller feature-engineering and classification pipeline.",
+          "teacherCue": "Teacher cue: Ask: \"Which transaction features would travel well to real card auth data, and which are only classroom placeholders?\"",
+          "duration": "30-40 min",
+          "surface": "Local Python workflow",
+          "mode": "Local",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments"
+          ],
+          "courseTitles": [
+            "Digital Payments"
+          ],
+          "aboutPath": "DomainUseCaseDemos/CreditCards/CreditCardTxnFraud/about.html",
+          "launchPath": "DomainUseCaseDemos/CreditCards/CreditCardTxnFraud/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Mule Account Detection",
+          "level": "Intermediate",
+          "summary": "Support the course\u2019s AML and account-abuse discussions with a demo that connects suspicious flow patterns to intervention timing and false-positive burden.",
+          "teacherCue": "Teacher cue: Ask students whether faster intervention always helps, or whether it can also freeze legitimate customer activity and increase complaint load.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments",
+            "compliance"
+          ],
+          "courseTitles": [
+            "Digital Payments",
+            "Compliance & Governance"
+          ],
+          "aboutPath": "DomainUseCaseDemos/Compliance/MuleAccountDetection/about.html",
+          "launchPath": "DomainUseCaseDemos/Compliance/MuleAccountDetection/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Pricing and Unit Economics Explorer",
+          "level": "Beginner to Intermediate",
+          "summary": "Use this adjacent demo to reinforce fee design, platform economics, and business-model trade-offs when comparing payment products and merchant pricing.",
+          "teacherCue": "Teacher cue: Ask what changes if the product owner optimizes growth, margin, and trust in a different order.",
+          "duration": "20-30 min",
+          "surface": "Browser AI demo",
+          "mode": "Browser AI",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments",
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "Digital Payments",
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/about.html",
+          "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Threat Modeling Matrix",
+          "level": "Intermediate",
+          "summary": "Use this to surface security-by-design questions in payment apps, PSP integrations, beneficiary management, and mobile payment journeys.",
+          "teacherCue": "Teacher cue: Ask which payment-step threat deserves prevention first and which one deserves rapid detection plus recovery instead.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments",
+            "cyber"
+          ],
+          "courseTitles": [
+            "Digital Payments",
+            "Cybersecurity"
+          ],
+          "aboutPath": "CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/about.html",
+          "launchPath": "CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Blockchain Explorer",
+          "level": "All Levels",
+          "summary": "Use this as the bridge from mainstream payment rails into crypto settlement, token movement, and the infrastructure intuition needed for stablecoins and CBDC debates.",
+          "teacherCue": "Teacher cue: Ask students which parts of blockchain settlement are actually useful for payments and which parts are just implementation detail.",
+          "duration": "90+ min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments",
+            "banking"
+          ],
+          "courseTitles": [
+            "Digital Payments",
+            "Banking & Finance"
+          ],
+          "aboutPath": "TechUseCaseDemos/BlockchainExplorer/about.html",
+          "launchPath": "TechUseCaseDemos/BlockchainExplorer/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Smart Contract Treasury",
+          "level": "Intermediate",
+          "summary": "Bring this in when the class moves from payment execution to conditional money movement, escrow logic, and programmable release conditions.",
+          "teacherCue": "Teacher cue: Push students to compare smart-contract logic with ordinary API-based workflow controls rather than assuming the chain is always necessary.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments",
+            "treasury"
+          ],
+          "courseTitles": [
+            "Digital Payments",
+            "Treasury Management"
+          ],
+          "aboutPath": "TechUseCaseDemos/SmartContractTreasury/about.html",
+          "launchPath": "TechUseCaseDemos/SmartContractTreasury/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Supply Chain Finance",
+          "level": "Intermediate",
+          "summary": "Use this when discussing business-payment ecosystems, supplier settlement timing, and embedded-finance extensions around invoice and platform flows.",
+          "teacherCue": "Teacher cue: Ask where the payment ends and the financing product begins, and why that boundary matters operationally.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "digital-payments",
+          "courseTitle": "Digital Payments",
+          "courseSlugs": [
+            "digital-payments",
+            "quant"
+          ],
+          "courseTitles": [
+            "Digital Payments",
+            "Quant Finance"
+          ],
+          "aboutPath": "DomainUseCaseDemos/SupplyChain/SupplyChainFinance/about.html",
+          "launchPath": "DomainUseCaseDemos/SupplyChain/SupplyChainFinance/index.html",
+          "readiness": "Classroom Ready"
+        }
+      ]
+    },
+    {
       "slug": "treasury",
       "title": "Treasury Management",
       "audience": "CFO workshops, treasury, liquidity, hedging",
@@ -2796,17 +3082,19 @@
     {
       "title": "Blockchain Explorer",
       "level": "All Levels",
-      "summary": "Why are central banks building CBDCs? How do stablecoins disrupt payments? Explore Bitcoin's settlement finality, Ethereum's smart contracts, and DeFi economics. Understand the tech your bank might build on\u2014or compete against. Learn why decentralized finance works differently (and sometimes fails).",
-      "teacherCue": "Teacher cue: Connect to bank strategy: \"If DeFi protocols do settlement in 12 seconds and your bank takes 3 days, how do you respond?\" This reveals why banks care about blockchain now, not just someday.",
+      "summary": "Use this as the bridge from mainstream payment rails into crypto settlement, token movement, and the infrastructure intuition needed for stablecoins and CBDC debates.",
+      "teacherCue": "Teacher cue: Ask students which parts of blockchain settlement are actually useful for payments and which parts are just implementation detail.",
       "duration": "90+ min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "banking",
-      "courseTitle": "Banking & Finance",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
       "courseSlugs": [
+        "digital-payments",
         "banking"
       ],
       "courseTitles": [
+        "Digital Payments",
         "Banking & Finance"
       ],
       "aboutPath": "TechUseCaseDemos/BlockchainExplorer/about.html",
@@ -2871,6 +3159,46 @@
       ],
       "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/about.html",
       "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "Card Network Economics and Settlement Simulator",
+      "level": "Intermediate",
+      "summary": "Follow the cardholder \u2192 merchant \u2192 acquirer \u2192 network \u2192 issuer chain and see how interchange, MDR, gateway costs, fraud loss, refunds, chargebacks, and settlement delay determine merchant margin and issuer economics.",
+      "teacherCue": "Teacher cue: Push on unit economics: \"If gross sales rise but chargebacks and fees rise faster, did the merchant really win?\"",
+      "duration": "25-35 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
+      "courseSlugs": [
+        "digital-payments"
+      ],
+      "courseTitles": [
+        "Digital Payments"
+      ],
+      "aboutPath": "TechUseCaseDemos/CardNetworkEconomicsSettlementSimulator/about.html",
+      "launchPath": "TechUseCaseDemos/CardNetworkEconomicsSettlementSimulator/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "CBDC Design Studio",
+      "level": "Advanced",
+      "summary": "Configure retail vs wholesale, token vs account, direct vs hybrid, privacy, offline support, holding limits, interest, and programmability. See how these design choices reallocate resilience, policy control, inclusion, and bank-disintermediation risk.",
+      "teacherCue": "Teacher cue: Ask: \"Which CBDC choice solves one policy problem by creating another operational problem?\" That keeps the discussion grounded.",
+      "duration": "25-35 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
+      "courseSlugs": [
+        "digital-payments"
+      ],
+      "courseTitles": [
+        "Digital Payments"
+      ],
+      "aboutPath": "TechUseCaseDemos/CBDCDesignStudio/about.html",
+      "launchPath": "TechUseCaseDemos/CBDCDesignStudio/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -2991,6 +3319,26 @@
       ],
       "aboutPath": "TechUseCaseDemos/CounterpartyRiskDemo/about.html",
       "launchPath": "TechUseCaseDemos/CounterpartyRiskDemo/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "Credit Card Transaction Fraud",
+      "level": "Intermediate",
+      "summary": "Local Python fraud-classification workflow for card transactions. Use it when you want students to move from a browser fraud intuition to a fuller feature-engineering and classification pipeline.",
+      "teacherCue": "Teacher cue: Ask: \"Which transaction features would travel well to real card auth data, and which are only classroom placeholders?\"",
+      "duration": "30-40 min",
+      "surface": "Local Python workflow",
+      "mode": "Local",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
+      "courseSlugs": [
+        "digital-payments"
+      ],
+      "courseTitles": [
+        "Digital Payments"
+      ],
+      "aboutPath": "DomainUseCaseDemos/CreditCards/CreditCardTxnFraud/about.html",
+      "launchPath": "DomainUseCaseDemos/CreditCards/CreditCardTxnFraud/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -3176,17 +3524,19 @@
     {
       "title": "Fraud Playground",
       "level": "Intermediate",
-      "summary": "Block a fraudulent transaction and you save $500. Block a legitimate one and you lose a customer. Explore transaction patterns, anomaly scoring, and threshold trade-offs\u2014the real dilemma fraud teams face every day. Learn why perfect accuracy is impossible (and expensive).",
-      "teacherCue": "Teacher cue: Ask: \"Why would you ever let a transaction through if the model says 'fraud'?\" This reveals the operational cost of false positives and drives home the real trade-off: fraud prevention vs. customer experience.",
+      "summary": "Use this as the course\u2019s fraud-threshold companion lab when discussing false positives, operational loss, and customer friction in payment monitoring.",
+      "teacherCue": "Teacher cue: Ask students which fraud threshold they would choose if support costs and abandonment are as important as raw fraud loss.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "banking",
-      "courseTitle": "Banking & Finance",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
       "courseSlugs": [
+        "digital-payments",
         "banking"
       ],
       "courseTitles": [
+        "Digital Payments",
         "Banking & Finance"
       ],
       "aboutPath": "TechUseCaseDemos/FraudPlayground/about.html",
@@ -3539,18 +3889,20 @@
     },
     {
       "title": "Mule Account Detection",
-      "level": "All Levels",
-      "summary": "Criminals use fake accounts to move money. Spot the mules\u2014accounts created yesterday, moved $100K, gone tomorrow.",
-      "teacherCue": "Teacher cue: Look for transaction patterns, account age, counterparties, and behavioral flags.",
+      "level": "Intermediate",
+      "summary": "Support the course\u2019s AML and account-abuse discussions with a demo that connects suspicious flow patterns to intervention timing and false-positive burden.",
+      "teacherCue": "Teacher cue: Ask students whether faster intervention always helps, or whether it can also freeze legitimate customer activity and increase complaint load.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "compliance",
-      "courseTitle": "Compliance & Governance",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
       "courseSlugs": [
+        "digital-payments",
         "compliance"
       ],
       "courseTitles": [
+        "Digital Payments",
         "Compliance & Governance"
       ],
       "aboutPath": "DomainUseCaseDemos/Compliance/MuleAccountDetection/about.html",
@@ -3698,6 +4050,46 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Payment Journey and Rail Simulator",
+      "level": "All Levels",
+      "summary": "Choose UPI, cards, wallets, NEFT, RTGS, cash, or Bitcoin and watch the message flow, participants, clearing and settlement path, time to finality, fees, liquidity implications, and failure handling change in real time. This is the course\u2019s anchor system-map demo.",
+      "teacherCue": "Teacher cue: Ask: \"At which step does the customer think the payment is done, and at which step is the institution actually safe?\" This separates experience from operational finality.",
+      "duration": "30-40 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
+      "courseSlugs": [
+        "digital-payments"
+      ],
+      "courseTitles": [
+        "Digital Payments"
+      ],
+      "aboutPath": "TechUseCaseDemos/PaymentJourneyRailSimulator/about.html",
+      "launchPath": "TechUseCaseDemos/PaymentJourneyRailSimulator/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "Payment Operations and Reconciliation Workbench",
+      "level": "Intermediate to Advanced",
+      "summary": "Work through bank, gateway, network, and merchant records with deliberate mismatches. Classify missing transactions, duplicates, fee discrepancies, pending reversals, chargeback timing, and settlement-date differences.",
+      "teacherCue": "Teacher cue: Ask: \"Which exception actually changes money owed, and which one only changes timing or reporting?\" This teaches operational materiality.",
+      "duration": "30-40 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
+      "courseSlugs": [
+        "digital-payments"
+      ],
+      "courseTitles": [
+        "Digital Payments"
+      ],
+      "aboutPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/about.html",
+      "launchPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Pen Test Simulator",
       "level": "Advanced",
       "summary": "Web app has SQL injection vulnerability. Exploit it safely to prove risk before defenders patch it.",
@@ -3778,19 +4170,21 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "Pricing & Unit Economics Explorer \u2014 PM Demo 04",
-      "level": "All Levels",
-      "summary": "AI feature costs $5K/month to run. Charge per user or per transaction? Model margins and break-even.",
-      "teacherCue": "Teacher cue: Look for price, variable cost, contribution margin, and volume assumptions.",
+      "title": "Pricing and Unit Economics Explorer",
+      "level": "Beginner to Intermediate",
+      "summary": "Use this adjacent demo to reinforce fee design, platform economics, and business-model trade-offs when comparing payment products and merchant pricing.",
+      "teacherCue": "Teacher cue: Ask what changes if the product owner optimizes growth, margin, and trust in a different order.",
       "duration": "20-30 min",
-      "surface": "Browser-based",
-      "mode": "Browser",
-      "courseSlug": "ai-ml-workflows",
-      "courseTitle": "AI/ML Workflows",
+      "surface": "Browser AI demo",
+      "mode": "Browser AI",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
       "courseSlugs": [
+        "digital-payments",
         "ai-ml-workflows"
       ],
       "courseTitles": [
+        "Digital Payments",
         "AI/ML Workflows"
       ],
       "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/about.html",
@@ -3959,18 +4353,20 @@
     },
     {
       "title": "Smart Contract Treasury",
-      "level": "Beginner to Intermediate",
-      "summary": "Code becomes law on-chain. Define treasury rules in a smart contract\u2014e.g., \"approve wire transfers only if balance > $5M AND approval is dual-signature.\" No CFO override, no exceptions. Is this efficient or a risk? Learn when to automate treasury vs. when human judgment matters.",
-      "teacherCue": "Teacher cue: Prompt: \"If a smart contract rules fail, who's liable? Can you override it?\" This reveals the tension between decentralized governance and operational reality. Rules are immutable\u2014but should treasury ever be?",
+      "level": "Intermediate",
+      "summary": "Bring this in when the class moves from payment execution to conditional money movement, escrow logic, and programmable release conditions.",
+      "teacherCue": "Teacher cue: Push students to compare smart-contract logic with ordinary API-based workflow controls rather than assuming the chain is always necessary.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "treasury",
-      "courseTitle": "Treasury Management",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
       "courseSlugs": [
+        "digital-payments",
         "treasury"
       ],
       "courseTitles": [
+        "Digital Payments",
         "Treasury Management"
       ],
       "aboutPath": "TechUseCaseDemos/SmartContractTreasury/about.html",
@@ -4080,17 +4476,19 @@
     {
       "title": "Supply Chain Finance",
       "level": "Intermediate",
-      "summary": "Buyer needs inventory financing. Supplier wants cash today. How do you structure a deal that works for both?",
-      "teacherCue": "Teacher cue: Look for invoice timing, buyer risk, supplier risk, and financing cost.",
+      "summary": "Use this when discussing business-payment ecosystems, supplier settlement timing, and embedded-finance extensions around invoice and platform flows.",
+      "teacherCue": "Teacher cue: Ask where the payment ends and the financing product begins, and why that boundary matters operationally.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "quant",
-      "courseTitle": "Quant Finance",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
       "courseSlugs": [
+        "digital-payments",
         "quant"
       ],
       "courseTitles": [
+        "Digital Payments",
         "Quant Finance"
       ],
       "aboutPath": "DomainUseCaseDemos/SupplyChain/SupplyChainFinance/about.html",
@@ -4139,18 +4537,20 @@
     },
     {
       "title": "Threat Modeling Matrix",
-      "level": "All Levels",
-      "summary": "Mobile app handles user payments. Map threats: data breach, payment fraud, API compromise. Prioritize mitigations.",
-      "teacherCue": "Teacher cue: Look for assets, threats, likelihood, impact, and existing controls.",
+      "level": "Intermediate",
+      "summary": "Use this to surface security-by-design questions in payment apps, PSP integrations, beneficiary management, and mobile payment journeys.",
+      "teacherCue": "Teacher cue: Ask which payment-step threat deserves prevention first and which one deserves rapid detection plus recovery instead.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "cyber",
-      "courseTitle": "Cybersecurity",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
       "courseSlugs": [
+        "digital-payments",
         "cyber"
       ],
       "courseTitles": [
+        "Digital Payments",
         "Cybersecurity"
       ],
       "aboutPath": "CyberSecurityDemos/IoTAircraftNetwork/ThreatModelingMatrix/about.html",
@@ -4235,6 +4635,26 @@
       ],
       "aboutPath": "TechUseCaseDemos/UniversityKnowledgeAssistant/about.html",
       "launchPath": "TechUseCaseDemos/UniversityKnowledgeAssistant/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "UPI Transaction and Failure Simulator",
+      "level": "Intermediate",
+      "summary": "Simulate payer PSP, payee PSP, NPCI switch, remitter bank, and beneficiary bank across push and collect flows. Compare timeouts, duplicates, reversals, fraud checks, limits, and reconciliation exceptions without hiding the operational state machine.",
+      "teacherCue": "Teacher cue: Ask: \"Why is \u2018pending\u2019 often the most dangerous state in instant payments?\" This reveals where customer, fraud, and reconciliation pain collide.",
+      "duration": "25-35 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "digital-payments",
+      "courseTitle": "Digital Payments",
+      "courseSlugs": [
+        "digital-payments"
+      ],
+      "courseTitles": [
+        "Digital Payments"
+      ],
+      "aboutPath": "TechUseCaseDemos/UPITransactionFailureSimulator/about.html",
+      "launchPath": "TechUseCaseDemos/UPITransactionFailureSimulator/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -4399,13 +4819,15 @@
     }
   ],
   "counts": {
-    "coursePacks": 8,
-    "curatedDemos": 106,
-    "runModes": 3
+    "coursePacks": 9,
+    "curatedDemos": 112,
+    "runModes": 5
   },
   "modeCounts": {
-    "Browser": 100,
+    "Browser": 104,
     "Colab": 3,
-    "Multi-Mode": 3
+    "Local": 1,
+    "Multi-Mode": 3,
+    "Browser AI": 1
   }
 }

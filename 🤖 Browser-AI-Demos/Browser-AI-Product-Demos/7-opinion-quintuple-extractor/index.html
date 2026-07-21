@@ -596,7 +596,7 @@ async function doLoadModel(modelId, showOverlay) {
       dtype: 'q4',
       progress_callback: ({ status, file, progress }) => {
         if (status === 'progress' && file) {
-          const pct   = Math.round(progress ?? 0);
+          const pct   = Math.round(typeof progress === 'number' ? progress : 0);
           const short = file.split('/').pop();
           if (short !== lastFile) lastFile = short;
           statusLabel.textContent = `↓ ${short} — ${pct}%`;
@@ -776,7 +776,8 @@ window.extractQuintuples = async function() {
   }
 
   dot.className          = 'dot ready';
-  statusLabel.textContent = `✓ ${MODEL_CATALOGUE[currentModelId]?.label || 'Model'} · pipeline complete`;
+  const currentModelMeta = MODEL_CATALOGUE[currentModelId];
+  statusLabel.textContent = `✓ ${(currentModelMeta && currentModelMeta.label) || 'Model'} · pipeline complete`;
   extractBtn.disabled    = false;
   extractBtn.textContent = '🔍  Extract Quintuples';
 };

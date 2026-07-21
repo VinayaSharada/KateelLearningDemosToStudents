@@ -193,7 +193,7 @@ const BitcoinModule = (() => {
 
     return {
       tree: tree,
-      root: hashes[0]?.hash || ''
+      root: hashes[0] ? hashes[0].hash : ''
     };
   };
 

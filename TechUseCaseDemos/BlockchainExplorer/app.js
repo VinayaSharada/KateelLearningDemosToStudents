@@ -66,7 +66,7 @@ function setupBitcoinHandlers() {
 
   let miningInProgress = false;
 
-  startMiningBtn?.addEventListener('click', () => {
+  if (startMiningBtn) startMiningBtn.addEventListener('click', () => {
     if (miningInProgress) return;
 
     miningInProgress = true;
@@ -105,7 +105,7 @@ function setupBitcoinHandlers() {
     );
   });
 
-  resetBlockBtn?.addEventListener('click', () => {
+  if (resetBlockBtn) resetBlockBtn.addEventListener('click', () => {
     BitcoinModule.stopMining();
     BitcoinModule.resetBlock();
     document.getElementById('nonce').value = '0';
@@ -117,13 +117,13 @@ function setupBitcoinHandlers() {
   });
 
   // Nonce controls
-  incrementNonceBtn?.addEventListener('click', () => {
+  if (incrementNonceBtn) incrementNonceBtn.addEventListener('click', () => {
     const nonce = parseInt(document.getElementById('nonce').value) || 0;
     document.getElementById('nonce').value = nonce + 1;
     updateBitcoinHash();
   });
 
-  decrementNonceBtn?.addEventListener('click', () => {
+  if (decrementNonceBtn) decrementNonceBtn.addEventListener('click', () => {
     const nonce = parseInt(document.getElementById('nonce').value) || 0;
     if (nonce > 0) {
       document.getElementById('nonce').value = nonce - 1;
@@ -132,16 +132,18 @@ function setupBitcoinHandlers() {
   });
 
   // Nonce input listener
-  document.getElementById('nonce')?.addEventListener('change', updateBitcoinHash);
+  const nonceInput = document.getElementById('nonce');
+  if (nonceInput) nonceInput.addEventListener('change', updateBitcoinHash);
 
   // Difficulty input listener
-  document.getElementById('difficulty')?.addEventListener('change', (e) => {
+  const difficultyInput = document.getElementById('difficulty');
+  if (difficultyInput) difficultyInput.addEventListener('change', (e) => {
     BitcoinModule.setDifficulty(parseInt(e.target.value) || 2);
     updateBitcoinHash();
   });
 
   // Add transaction
-  addTransactionBtn?.addEventListener('click', () => {
+  if (addTransactionBtn) addTransactionBtn.addEventListener('click', () => {
     const txInput = document.getElementById('newTransaction');
     const txData = txInput.value.trim();
 
@@ -212,8 +214,8 @@ function setupEthereumHandlers() {
   const gasPriceInput = document.getElementById('gasPrice');
 
   const updateGasCost = () => {
-    const txType = txTypeSelect?.value || 'transfer';
-    const gasPrice = parseInt(gasPriceInput?.value) || 20;
+    const txType = txTypeSelect ? txTypeSelect.value : 'transfer';
+    const gasPrice = gasPriceInput ? parseInt(gasPriceInput.value) || 20 : 20;
 
     const cost = EthereumModule.calculateGasCost(txType, gasPrice);
 
@@ -222,8 +224,8 @@ function setupEthereumHandlers() {
     document.getElementById('totalCost').textContent = `${cost.totalEth} ETH ($${cost.totalUSD})`;
   };
 
-  txTypeSelect?.addEventListener('change', updateGasCost);
-  gasPriceInput?.addEventListener('input', updateGasCost);
+  if (txTypeSelect) txTypeSelect.addEventListener('change', updateGasCost);
+  if (gasPriceInput) gasPriceInput.addEventListener('input', updateGasCost);
 
   // Initial calculation
   updateGasCost();
@@ -235,7 +237,7 @@ function setupContractHandlers() {
   const functionSelect = document.getElementById('functionSelect');
   const executeBtn = document.getElementById('executeFunction');
 
-  disassembleBtn?.addEventListener('click', () => {
+  if (disassembleBtn) disassembleBtn.addEventListener('click', () => {
     const bytecode = '6080604052600180553480156200001657600080fd5b50620001f8806200002a6000396000f3fe60806040';
     const instructions = ContractsModule.disassembleBytecode(bytecode);
 
@@ -258,8 +260,8 @@ function setupContractHandlers() {
     opcodePanel.style.display = 'block';
   });
 
-  executeBtn?.addEventListener('click', () => {
-    const functionName = functionSelect?.value || 'constructor';
+  if (executeBtn) executeBtn.addEventListener('click', () => {
+    const functionName = functionSelect ? functionSelect.value : 'constructor';
     const contractName = 'simpleToken';
 
     // Simulate function execution
@@ -301,7 +303,7 @@ function setupNFTHandlers() {
   const mintBtn = document.getElementById('mintNFT');
   const calculateBtn = document.getElementById('calculateRoyalties');
 
-  mintBtn?.addEventListener('click', () => {
+  if (mintBtn) mintBtn.addEventListener('click', () => {
     const name = document.getElementById('nftName').value || 'Unnamed NFT';
     const description = document.getElementById('nftDescription').value || 'A unique token';
     const color = document.getElementById('nftColor').value;
@@ -331,7 +333,7 @@ function setupNFTHandlers() {
     document.getElementById('nftOutput').style.display = 'block';
   });
 
-  calculateBtn?.addEventListener('click', () => {
+  if (calculateBtn) calculateBtn.addEventListener('click', () => {
     const floorPrice = parseFloat(document.getElementById('floorPrice').value) || 5;
     const royaltyPercent = parseInt(document.getElementById('royaltyPercent').value) || 10;
 
