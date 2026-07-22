@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P2P Process Mining Workbench - KateelLearningDemos</title>
+  <meta name="description" content="Browser-based P2P process-mining workbench for diagnosing actual flow, friction, control exceptions, and transformation choices from a fictional event log.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html">Browse Demos</a>
+      <a class="nav-link" href="../../courses/treasury-management.html">Treasury</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Treasury Management • Browser • 18-25 min</p>
+    <h1>P2P Process Mining Workbench</h1>
+    <p class="demo-lede">Diagnose how a fictional Asteron invoice actually becomes payment-ready, where time leaks, which exceptions need human judgement, and what should be eliminated, standardized, enabled, assured, or monitored before automation.</p>
+    <div class="tag-row">
+      <span class="tag">Bundled fictional event log</span>
+      <span class="tag">Actual variants vs happy path</span>
+      <span class="tag">Control exceptions</span>
+      <span class="tag">Decision board</span>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-secondary" href="about.html">Open About Demo</a>
+      <a class="btn btn-secondary" href="README.md">Read README</a>
+      <a class="btn btn-secondary" href="../../TreasuryAnalytics/P2PProcessMiningNotebook/index.html">Open Colab Companion</a>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Business decision</h3>
+        <p>Which P2P friction should be removed or standardized upstream, which stable path is ready for workflow enablement, and which exception should remain controlled and human-reviewed?</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Clear question</h3>
+        <p id="screenQuestion">How does a compliant invoice become payment-ready, and what does the happy path fail to show?</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel o2c-controls">
+    <div class="control-toolbar">
+      <div class="toolbar-group">
+        <label for="modeSelect">View mode</label>
+        <select id="modeSelect">
+          <option value="instructor">Show instructor path</option>
+          <option value="explore">Explore data</option>
+        </select>
+      </div>
+      <div class="toolbar-group">
+        <label for="entityFilter">Entity</label>
+        <select id="entityFilter"></select>
+      </div>
+      <div class="toolbar-group">
+        <label for="amountFilter">Amount band</label>
+        <select id="amountFilter">
+          <option value="all">All amounts</option>
+          <option value="lt250">Below INR 250K</option>
+          <option value="250to500">INR 250K - 500K</option>
+          <option value="gt500">Above INR 500K</option>
+        </select>
+      </div>
+      <div class="toolbar-group">
+        <label for="exceptionFilter">Exception type</label>
+        <select id="exceptionFilter"></select>
+      </div>
+      <div class="toolbar-group">
+        <label for="statusFilter">Invoice status</label>
+        <select id="statusFilter"></select>
+      </div>
+      <div class="toolbar-actions">
+        <button class="btn btn-secondary" id="resetDemo" type="button">Reset demo</button>
+      </div>
+    </div>
+    <div class="step-strip" id="stepStrip"></div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen A</p>
+      <h2>Assumed Happy Path</h2>
+      <p>Question: how should a compliant AP invoice flow if nothing unusual happens?</p>
+    </div>
+    <div class="panel-grid">
+      <article class="mini-panel wide-panel">
+        <div class="happy-path" id="happyPath"></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Assumed target SLA</h3>
+        <p class="result-value" id="targetSla">2.0 business days</p>
+        <p>The fictional target assumes a stable path from invoice receipt to payment-ready status with no manual exception handling.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen B</p>
+      <h2>Actual Process Map and Variant Reveal</h2>
+      <p>Question: what did the event log actually reveal once we stopped assuming the clean path?</p>
+    </div>
+    <div class="variant-toolbar">
+      <label for="variantCoverage">Variant coverage: <span id="variantCoverageLabel">Top 40%</span></label>
+      <input id="variantCoverage" type="range" min="10" max="100" step="10" value="40">
+    </div>
+    <div class="panel-grid">
+      <article class="mini-panel wide-panel">
+        <svg id="processSvg" class="process-svg" viewBox="0 0 1200 460" role="img" aria-label="Process map"></svg>
+      </article>
+      <article class="mini-panel">
+        <h3>Visible variant count</h3>
+        <p class="result-value" id="variantCount">-</p>
+        <ul class="plain-list" id="variantList"></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen C</p>
+      <h2>Time and Cost Friction</h2>
+      <p>Question: where does time and AP capacity leak, and is the issue touch time, queue time, or repeat handoff?</p>
+    </div>
+    <div class="metric-grid">
+      <article class="mini-panel"><h3>Average lead time</h3><p class="result-value" id="avgLeadTime">-</p></article>
+      <article class="mini-panel"><h3>Average wait time</h3><p class="result-value" id="avgWaitTime">-</p></article>
+      <article class="mini-panel"><h3>Rework rate</h3><p class="result-value" id="reworkRate">-</p></article>
+      <article class="mini-panel"><h3>STP rate</h3><p class="result-value" id="stpRate">-</p></article>
+    </div>
+    <div class="table-container">
+      <table class="case-table">
+        <thead>
+          <tr>
+            <th>Variant</th>
+            <th>Cases</th>
+            <th>Lead time</th>
+            <th>Touch time</th>
+            <th>Wait time</th>
+            <th>Handoffs</th>
+            <th>Rework loops</th>
+            <th>Illustrative rework cost</th>
+          </tr>
+        </thead>
+        <tbody id="frictionRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen D</p>
+      <h2>Compliance and Control Exceptions</h2>
+      <p>Question: which cases now require controller, AP lead, or process-owner attention because the workflow crossed a control boundary?</p>
+    </div>
+    <div class="table-container">
+      <table class="case-table">
+        <thead>
+          <tr>
+            <th>Case ID</th>
+            <th>Amount</th>
+            <th>Breach</th>
+            <th>Age</th>
+            <th>Current owner</th>
+            <th>Evidence status</th>
+            <th>Escalation</th>
+          </tr>
+        </thead>
+        <tbody id="exceptionRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen E</p>
+      <h2>Transformation Decision Board</h2>
+      <p>Question: what should we eliminate, standardize, enable, assure, or redesign before anyone chooses a tool?</p>
+    </div>
+    <div class="decision-layout">
+      <div class="decision-list" id="decisionList"></div>
+      <article class="mini-panel decision-detail">
+        <h3 id="decisionTitle">Select an intervention</h3>
+        <p id="decisionNarrative">Choose one insight to see the expected metric, owner, dependency, and 30-day proof point.</p>
+        <div class="decision-meta">
+          <div><span>Expected metric</span><strong id="decisionMetric">-</strong></div>
+          <div><span>Control owner</span><strong id="decisionOwner">-</strong></div>
+          <div><span>Dependency</span><strong id="decisionDependency">-</strong></div>
+          <div><span>30-day proof point</span><strong id="decisionProof">-</strong></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen F</p>
+      <h2>Monitoring and Action Flow</h2>
+      <p>Question: how will we know the change holds after launch, and what should trigger action before the process drifts again?</p>
+    </div>
+    <div class="card-grid" id="monitoringGrid"></div>
+  </section>
+
+  <section class="demo-panel" id="explorePanel" hidden>
+    <div class="section-header left">
+      <p class="section-kicker">Explore data</p>
+      <h2>Bundled AP Event Log Sample</h2>
+      <p>Fictional only. The event log can reveal behaviour but does not prove root cause or replace policy and accounting judgement.</p>
+    </div>
+    <div class="table-container">
+      <table class="case-table">
+        <thead>
+          <tr>
+            <th>Case</th>
+            <th>Activity</th>
+            <th>Timestamp</th>
+            <th>Owner</th>
+            <th>Detail</th>
+            <th>Amount</th>
+            <th>Entity</th>
+          </tr>
+        </thead>
+        <tbody id="dataRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Glossary</h3>
+        <ul class="plain-list">
+          <li><strong>Case:</strong> one procure-to-pay instance.</li>
+          <li><strong>Variant:</strong> one unique ordered activity sequence across cases.</li>
+          <li><strong>Wait time:</strong> elapsed time between events, less illustrative touch-time assumptions.</li>
+          <li><strong>Conformance:</strong> whether the executed path respected the intended control and process logic.</li>
+        </ul>
+      </article>
+      <article class="mini-panel">
+        <h3>Fictional disclaimer</h3>
+        <p>All data, customers, entities, targets, SLA assumptions, and cost figures are fictional and illustrative. Event-log analysis reveals behaviour patterns, not audited root cause.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Companion notebook</h3>
+        <p>Use the Colab companion for cell-by-cell metric traceability, instructor walkthrough, and faculty-side adaptation of the same fictional event log.</p>
+        <p><a href="../../TreasuryAnalytics/P2PProcessMiningNotebook/index.html">Open the Colab notebook page</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Self-service reuse</p>
+      <h2>What you can build on from here</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>What you can enhance on your own</h3>
+        <p>Add more entities, terms, cost assumptions, or side-by-side future-state scenarios once the base event-log logic is clear.</p>
+      </article>
+      <article class="info-card">
+        <h3>How to adapt this demo to your use case</h3>
+        <p>Replace the fictional P2P event log with sanitized events, then revalidate the metric definitions, control triggers, and management actions with your own domain owners.</p>
+      </article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

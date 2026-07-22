@@ -294,7 +294,7 @@
       "audience": "CFO workshops, treasury, liquidity, hedging",
       "subtitle": "Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.",
       "pagePath": "courses/treasury-management.html",
-      "registeredDemos": "15",
+      "registeredDemos": "19",
       "catalogPath": null,
       "assignments": [],
       "demos": [
@@ -376,6 +376,86 @@
           ],
           "aboutPath": "TreasuryAnalytics/ARAgingCollectionsPrioritizer/about.html",
           "launchPath": "TreasuryAnalytics/ARAgingCollectionsPrioritizer/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "O2C Process Mining Workbench",
+          "level": "Intermediate",
+          "summary": "Most finance teams can describe the designed order-to-cash flow, but cash gets delayed by the path that work actually takes. Start from a clean happy path, then reveal credit holds, delivery disputes, short payments, unapplied cash, and a control breach from a fictional event log. Use the output to decide what to eliminate, standardize, enable, retain as human judgement, and monitor.",
+          "teacherCue": "Teacher cue: Ask: \"Which O2C delay is a workflow problem, which is an upstream discipline problem, and which must remain controlled?\" This helps students separate process redesign from automation enthusiasm.",
+          "duration": "20-30 min",
+          "surface": "Browser-based process-mining workbench",
+          "mode": "Browser",
+          "courseSlug": "treasury",
+          "courseTitle": "Treasury Management",
+          "courseSlugs": [
+            "treasury"
+          ],
+          "courseTitles": [
+            "Treasury Management"
+          ],
+          "aboutPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/about.html",
+          "launchPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "O2C Process Mining Notebook",
+          "level": "Intermediate",
+          "summary": "Use the Colab companion when you want students to inspect how variant counts, lead time, wait time, rework, first-pass yield, straight-through processing, and control exceptions are calculated from the event log. It uses the same fictional Asteron O2C data as the browser workbench and includes step-by-step explanations after each code block.",
+          "teacherCue": "Teacher cue: Push on the assumptions behind touch time and exception rules. The teaching value here is not the code itself; it is the transparency of the logic behind the finance conclusion.",
+          "duration": "35-50 min",
+          "surface": "Colab-ready notebook",
+          "mode": "Colab",
+          "courseSlug": "treasury",
+          "courseTitle": "Treasury Management",
+          "courseSlugs": [
+            "treasury"
+          ],
+          "courseTitles": [
+            "Treasury Management"
+          ],
+          "aboutPath": "TreasuryAnalytics/O2CProcessMiningNotebook/about.html",
+          "launchPath": "TreasuryAnalytics/O2CProcessMiningNotebook/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "P2P Process Mining Workbench",
+          "level": "Intermediate",
+          "summary": "Most teams can describe the designed invoice-to-payment-ready flow, but supplier delay and AP friction are driven by the path work actually takes. Start from a clean AP happy path, then reveal missing PO, missing GRN, duplicate review, approval delays, and a control breach from a fictional event log. Use the output to decide what to eliminate, standardize, enable, retain as human judgement, and monitor.",
+          "teacherCue": "Teacher cue: Ask: \"Which AP delay is a workflow problem, which is an upstream discipline problem, and which must remain controlled?\" This helps students separate process redesign from automation enthusiasm.",
+          "duration": "20-30 min",
+          "surface": "Browser-based process-mining workbench",
+          "mode": "Browser",
+          "courseSlug": "treasury",
+          "courseTitle": "Treasury Management",
+          "courseSlugs": [
+            "treasury"
+          ],
+          "courseTitles": [
+            "Treasury Management"
+          ],
+          "aboutPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/about.html",
+          "launchPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "P2P Process Mining Notebook",
+          "level": "Intermediate",
+          "summary": "Use the Colab companion when you want students to inspect how variant counts, lead time, wait time, rework, first-pass yield, straight-through processing, and control exceptions are calculated from the AP event log. It uses the same fictional Asteron P2P data as the browser workbench and includes step-by-step explanations after each code block.",
+          "teacherCue": "Teacher cue: Push on the assumptions behind touch time and exception rules. The teaching value here is not the code itself; it is the transparency of the logic behind the finance conclusion.",
+          "duration": "35-50 min",
+          "surface": "Colab-ready notebook",
+          "mode": "Colab",
+          "courseSlug": "treasury",
+          "courseTitle": "Treasury Management",
+          "courseSlugs": [
+            "treasury"
+          ],
+          "courseTitles": [
+            "Treasury Management"
+          ],
+          "aboutPath": "TreasuryAnalytics/P2PProcessMiningNotebook/about.html",
+          "launchPath": "TreasuryAnalytics/P2PProcessMiningNotebook/index.html",
           "readiness": "Classroom Ready"
         },
         {
@@ -3970,6 +4050,46 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "O2C Process Mining Notebook",
+      "level": "Intermediate",
+      "summary": "Use the Colab companion when you want students to inspect how variant counts, lead time, wait time, rework, first-pass yield, straight-through processing, and control exceptions are calculated from the event log. It uses the same fictional Asteron O2C data as the browser workbench and includes step-by-step explanations after each code block.",
+      "teacherCue": "Teacher cue: Push on the assumptions behind touch time and exception rules. The teaching value here is not the code itself; it is the transparency of the logic behind the finance conclusion.",
+      "duration": "35-50 min",
+      "surface": "Colab-ready notebook",
+      "mode": "Colab",
+      "courseSlug": "treasury",
+      "courseTitle": "Treasury Management",
+      "courseSlugs": [
+        "treasury"
+      ],
+      "courseTitles": [
+        "Treasury Management"
+      ],
+      "aboutPath": "TreasuryAnalytics/O2CProcessMiningNotebook/about.html",
+      "launchPath": "TreasuryAnalytics/O2CProcessMiningNotebook/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "O2C Process Mining Workbench",
+      "level": "Intermediate",
+      "summary": "Most finance teams can describe the designed order-to-cash flow, but cash gets delayed by the path that work actually takes. Start from a clean happy path, then reveal credit holds, delivery disputes, short payments, unapplied cash, and a control breach from a fictional event log. Use the output to decide what to eliminate, standardize, enable, retain as human judgement, and monitor.",
+      "teacherCue": "Teacher cue: Ask: \"Which O2C delay is a workflow problem, which is an upstream discipline problem, and which must remain controlled?\" This helps students separate process redesign from automation enthusiasm.",
+      "duration": "20-30 min",
+      "surface": "Browser-based process-mining workbench",
+      "mode": "Browser",
+      "courseSlug": "treasury",
+      "courseTitle": "Treasury Management",
+      "courseSlugs": [
+        "treasury"
+      ],
+      "courseTitles": [
+        "Treasury Management"
+      ],
+      "aboutPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/about.html",
+      "launchPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Opinion Quintuple Extractor",
       "level": "All Levels",
       "summary": "Extract sentiment, target, aspect, reason from reviews. \"This phone's camera is great but battery drains fast.\"",
@@ -4027,6 +4147,46 @@
       ],
       "aboutPath": "TechUseCaseDemos/OptionsPricing/about.html",
       "launchPath": "TechUseCaseDemos/OptionsPricing/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "P2P Process Mining Notebook",
+      "level": "Intermediate",
+      "summary": "Use the Colab companion when you want students to inspect how variant counts, lead time, wait time, rework, first-pass yield, straight-through processing, and control exceptions are calculated from the AP event log. It uses the same fictional Asteron P2P data as the browser workbench and includes step-by-step explanations after each code block.",
+      "teacherCue": "Teacher cue: Push on the assumptions behind touch time and exception rules. The teaching value here is not the code itself; it is the transparency of the logic behind the finance conclusion.",
+      "duration": "35-50 min",
+      "surface": "Colab-ready notebook",
+      "mode": "Colab",
+      "courseSlug": "treasury",
+      "courseTitle": "Treasury Management",
+      "courseSlugs": [
+        "treasury"
+      ],
+      "courseTitles": [
+        "Treasury Management"
+      ],
+      "aboutPath": "TreasuryAnalytics/P2PProcessMiningNotebook/about.html",
+      "launchPath": "TreasuryAnalytics/P2PProcessMiningNotebook/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "P2P Process Mining Workbench",
+      "level": "Intermediate",
+      "summary": "Most teams can describe the designed invoice-to-payment-ready flow, but supplier delay and AP friction are driven by the path work actually takes. Start from a clean AP happy path, then reveal missing PO, missing GRN, duplicate review, approval delays, and a control breach from a fictional event log. Use the output to decide what to eliminate, standardize, enable, retain as human judgement, and monitor.",
+      "teacherCue": "Teacher cue: Ask: \"Which AP delay is a workflow problem, which is an upstream discipline problem, and which must remain controlled?\" This helps students separate process redesign from automation enthusiasm.",
+      "duration": "20-30 min",
+      "surface": "Browser-based process-mining workbench",
+      "mode": "Browser",
+      "courseSlug": "treasury",
+      "courseTitle": "Treasury Management",
+      "courseSlugs": [
+        "treasury"
+      ],
+      "courseTitles": [
+        "Treasury Management"
+      ],
+      "aboutPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/about.html",
+      "launchPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -4820,12 +4980,12 @@
   ],
   "counts": {
     "coursePacks": 9,
-    "curatedDemos": 112,
+    "curatedDemos": 116,
     "runModes": 5
   },
   "modeCounts": {
-    "Browser": 104,
-    "Colab": 3,
+    "Browser": 106,
+    "Colab": 5,
     "Local": 1,
     "Multi-Mode": 3,
     "Browser AI": 1

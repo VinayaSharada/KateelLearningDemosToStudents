@@ -1,0 +1,571 @@
+case_id,activity,timestamp,owner,detail,amount_inr,entity,po_present,grn_present,exception_type,invoice_status
+AP-2001,Invoice received,2026-06-01T15:00:00,AP intake,Invoice received from Zenith Services,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2001,Three-way match,2026-06-01T22:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2001,Approval requested,2026-06-02T04:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2001,Approved,2026-06-02T14:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2001,Payment ready,2026-06-02T22:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2002,Invoice received,2026-06-01T18:00:00,AP intake,Invoice received from BluePeak Systems,95000,Asteron India,Yes,Yes,None,Open
+AP-2002,Three-way match,2026-06-02T01:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2002,Approval requested,2026-06-02T07:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2002,Approved,2026-06-02T17:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2002,Payment ready,2026-06-03T01:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2003,Invoice received,2026-06-01T21:00:00,AP intake,Invoice received from Nova Components,265000,Asteron UK,Yes,Yes,None,Open
+AP-2003,Three-way match,2026-06-02T04:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2003,Approval requested,2026-06-02T10:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2003,Approved,2026-06-02T20:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2003,Payment ready,2026-06-03T04:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2004,Invoice received,2026-06-02T00:00:00,AP intake,Invoice received from Harbor Logistics,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2004,Three-way match,2026-06-02T07:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2004,Approval requested,2026-06-02T13:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2004,Approved,2026-06-02T23:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2004,Payment ready,2026-06-03T07:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2005,Invoice received,2026-06-02T03:00:00,AP intake,Invoice received from Maple Industrial,95000,Asteron India,Yes,Yes,None,Open
+AP-2005,Three-way match,2026-06-02T10:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2005,Approval requested,2026-06-02T16:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2005,Approved,2026-06-03T02:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2005,Payment ready,2026-06-03T10:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2006,Invoice received,2026-06-02T06:00:00,AP intake,Invoice received from Zenith Services,265000,Asteron UK,Yes,Yes,None,Open
+AP-2006,Three-way match,2026-06-02T13:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2006,Approval requested,2026-06-02T19:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2006,Approved,2026-06-03T05:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2006,Payment ready,2026-06-03T13:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2007,Invoice received,2026-06-02T09:00:00,AP intake,Invoice received from BluePeak Systems,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2007,Three-way match,2026-06-02T16:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2007,Approval requested,2026-06-02T22:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2007,Approved,2026-06-03T08:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2007,Payment ready,2026-06-03T16:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2008,Invoice received,2026-06-02T12:00:00,AP intake,Invoice received from Nova Components,95000,Asteron India,Yes,Yes,None,Open
+AP-2008,Three-way match,2026-06-02T19:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2008,Approval requested,2026-06-03T01:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2008,Approved,2026-06-03T11:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2008,Payment ready,2026-06-03T19:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2009,Invoice received,2026-06-02T15:00:00,AP intake,Invoice received from Harbor Logistics,265000,Asteron UK,Yes,Yes,None,Open
+AP-2009,Three-way match,2026-06-02T22:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2009,Approval requested,2026-06-03T04:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2009,Approved,2026-06-03T14:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2009,Payment ready,2026-06-03T22:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2010,Invoice received,2026-06-02T18:00:00,AP intake,Invoice received from Maple Industrial,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2010,Three-way match,2026-06-03T01:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2010,Approval requested,2026-06-03T07:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2010,Approved,2026-06-03T17:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2010,Payment ready,2026-06-04T01:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2011,Invoice received,2026-06-02T21:00:00,AP intake,Invoice received from Zenith Services,95000,Asteron India,Yes,Yes,None,Open
+AP-2011,Three-way match,2026-06-03T04:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2011,Approval requested,2026-06-03T10:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2011,Approved,2026-06-03T20:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2011,Payment ready,2026-06-04T04:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2012,Invoice received,2026-06-03T00:00:00,AP intake,Invoice received from BluePeak Systems,265000,Asteron UK,Yes,Yes,None,Open
+AP-2012,Three-way match,2026-06-03T07:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2012,Approval requested,2026-06-03T13:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2012,Approved,2026-06-03T23:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2012,Payment ready,2026-06-04T07:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2013,Invoice received,2026-06-03T03:00:00,AP intake,Invoice received from Nova Components,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2013,Three-way match,2026-06-03T10:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2013,Approval requested,2026-06-03T16:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2013,Approved,2026-06-04T02:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2013,Payment ready,2026-06-04T10:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2014,Invoice received,2026-06-03T06:00:00,AP intake,Invoice received from Harbor Logistics,95000,Asteron India,Yes,Yes,None,Open
+AP-2014,Three-way match,2026-06-03T13:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2014,Approval requested,2026-06-03T19:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2014,Approved,2026-06-04T05:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2014,Payment ready,2026-06-04T13:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2015,Invoice received,2026-06-03T09:00:00,AP intake,Invoice received from Maple Industrial,265000,Asteron UK,Yes,Yes,None,Open
+AP-2015,Three-way match,2026-06-03T16:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2015,Approval requested,2026-06-03T22:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2015,Approved,2026-06-04T08:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2015,Payment ready,2026-06-04T16:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2016,Invoice received,2026-06-03T12:00:00,AP intake,Invoice received from Zenith Services,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2016,Three-way match,2026-06-03T19:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2016,Approval requested,2026-06-04T01:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2016,Approved,2026-06-04T11:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2016,Payment ready,2026-06-04T19:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2017,Invoice received,2026-06-03T15:00:00,AP intake,Invoice received from BluePeak Systems,95000,Asteron India,Yes,Yes,None,Open
+AP-2017,Three-way match,2026-06-03T22:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2017,Approval requested,2026-06-04T04:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2017,Approved,2026-06-04T14:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2017,Payment ready,2026-06-04T22:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2018,Invoice received,2026-06-03T18:00:00,AP intake,Invoice received from Nova Components,265000,Asteron UK,Yes,Yes,None,Open
+AP-2018,Three-way match,2026-06-04T01:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2018,Approval requested,2026-06-04T07:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2018,Approved,2026-06-04T17:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2018,Payment ready,2026-06-05T01:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2019,Invoice received,2026-06-03T21:00:00,AP intake,Invoice received from Harbor Logistics,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2019,Three-way match,2026-06-04T04:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2019,Approval requested,2026-06-04T10:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2019,Approved,2026-06-04T20:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2019,Payment ready,2026-06-05T04:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2020,Invoice received,2026-06-04T00:00:00,AP intake,Invoice received from Maple Industrial,95000,Asteron India,Yes,Yes,None,Open
+AP-2020,Three-way match,2026-06-04T07:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2020,Approval requested,2026-06-04T13:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2020,Approved,2026-06-04T23:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2020,Payment ready,2026-06-05T07:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2021,Invoice received,2026-06-04T03:00:00,AP intake,Invoice received from Zenith Services,265000,Asteron UK,Yes,Yes,None,Open
+AP-2021,Three-way match,2026-06-04T10:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2021,Approval requested,2026-06-04T16:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2021,Approved,2026-06-05T02:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2021,Payment ready,2026-06-05T10:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2022,Invoice received,2026-06-04T06:00:00,AP intake,Invoice received from BluePeak Systems,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2022,Three-way match,2026-06-04T13:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2022,Approval requested,2026-06-04T19:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2022,Approved,2026-06-05T05:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2022,Payment ready,2026-06-05T13:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2023,Invoice received,2026-06-04T09:00:00,AP intake,Invoice received from Nova Components,95000,Asteron India,Yes,Yes,None,Open
+AP-2023,Three-way match,2026-06-04T16:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2023,Approval requested,2026-06-04T22:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2023,Approved,2026-06-05T08:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2023,Payment ready,2026-06-05T16:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2024,Invoice received,2026-06-04T12:00:00,AP intake,Invoice received from Harbor Logistics,265000,Asteron UK,Yes,Yes,None,Open
+AP-2024,Three-way match,2026-06-04T19:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2024,Approval requested,2026-06-05T01:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2024,Approved,2026-06-05T11:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2024,Payment ready,2026-06-05T19:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2025,Invoice received,2026-06-04T15:00:00,AP intake,Invoice received from Maple Industrial,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2025,Three-way match,2026-06-04T22:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2025,Approval requested,2026-06-05T04:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2025,Approved,2026-06-05T14:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2025,Payment ready,2026-06-05T22:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2026,Invoice received,2026-06-04T18:00:00,AP intake,Invoice received from Zenith Services,95000,Asteron India,Yes,Yes,None,Open
+AP-2026,Three-way match,2026-06-05T01:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2026,Approval requested,2026-06-05T07:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2026,Approved,2026-06-05T17:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2026,Payment ready,2026-06-06T01:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2027,Invoice received,2026-06-04T21:00:00,AP intake,Invoice received from BluePeak Systems,265000,Asteron UK,Yes,Yes,None,Open
+AP-2027,Three-way match,2026-06-05T04:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2027,Approval requested,2026-06-05T10:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2027,Approved,2026-06-05T20:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2027,Payment ready,2026-06-06T04:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2028,Invoice received,2026-06-05T00:00:00,AP intake,Invoice received from Nova Components,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2028,Three-way match,2026-06-05T07:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2028,Approval requested,2026-06-05T13:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2028,Approved,2026-06-05T23:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2028,Payment ready,2026-06-06T07:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2029,Invoice received,2026-06-05T03:00:00,AP intake,Invoice received from Harbor Logistics,95000,Asteron India,Yes,Yes,None,Open
+AP-2029,Three-way match,2026-06-05T10:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2029,Approval requested,2026-06-05T16:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2029,Approved,2026-06-06T02:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2029,Payment ready,2026-06-06T10:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2030,Invoice received,2026-06-05T06:00:00,AP intake,Invoice received from Maple Industrial,265000,Asteron UK,Yes,Yes,None,Open
+AP-2030,Three-way match,2026-06-05T13:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2030,Approval requested,2026-06-05T19:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2030,Approved,2026-06-06T05:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2030,Payment ready,2026-06-06T13:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2031,Invoice received,2026-06-05T09:00:00,AP intake,Invoice received from Zenith Services,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2031,Three-way match,2026-06-05T16:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2031,Approval requested,2026-06-05T22:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2031,Approved,2026-06-06T08:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2031,Payment ready,2026-06-06T16:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2032,Invoice received,2026-06-05T12:00:00,AP intake,Invoice received from BluePeak Systems,95000,Asteron India,Yes,Yes,None,Open
+AP-2032,Three-way match,2026-06-05T19:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2032,Approval requested,2026-06-06T01:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2032,Approved,2026-06-06T11:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2032,Payment ready,2026-06-06T19:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2033,Invoice received,2026-06-05T15:00:00,AP intake,Invoice received from Nova Components,265000,Asteron UK,Yes,Yes,None,Open
+AP-2033,Three-way match,2026-06-05T22:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2033,Approval requested,2026-06-06T04:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2033,Approved,2026-06-06T14:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2033,Payment ready,2026-06-06T22:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2034,Invoice received,2026-06-05T18:00:00,AP intake,Invoice received from Harbor Logistics,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2034,Three-way match,2026-06-06T01:00:00,AP analyst,PO and GRN matched on first pass,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2034,Approval requested,2026-06-06T07:00:00,Workflow,Approval routed automatically,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2034,Approved,2026-06-06T17:00:00,Budget owner,Approved within policy SLA,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2034,Payment ready,2026-06-07T01:00:00,AP controller,Scheduled for payment run,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2035,Invoice received,2026-06-05T21:00:00,AP intake,Invoice received from Maple Industrial,95000,Asteron India,Yes,Yes,None,Open
+AP-2035,Three-way match,2026-06-06T04:00:00,AP analyst,PO and GRN matched on first pass,95000,Asteron India,Yes,Yes,None,Open
+AP-2035,Approval requested,2026-06-06T10:00:00,Workflow,Approval routed automatically,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2035,Approved,2026-06-06T20:00:00,Budget owner,Approved within policy SLA,95000,Asteron India,Yes,Yes,None,Approved
+AP-2035,Payment ready,2026-06-07T04:00:00,AP controller,Scheduled for payment run,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2036,Invoice received,2026-06-06T00:00:00,AP intake,Invoice received from Zenith Services,265000,Asteron UK,Yes,Yes,None,Open
+AP-2036,Three-way match,2026-06-06T07:00:00,AP analyst,PO and GRN matched on first pass,265000,Asteron UK,Yes,Yes,None,Open
+AP-2036,Approval requested,2026-06-06T13:00:00,Workflow,Approval routed automatically,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2036,Approved,2026-06-06T23:00:00,Budget owner,Approved within policy SLA,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2036,Payment ready,2026-06-07T07:00:00,AP controller,Scheduled for payment run,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2037,Invoice received,2026-06-06T03:00:00,AP intake,Invoice received from Harbor Logistics,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2037,PO missing review,2026-06-06T09:00:00,AP analyst,Invoice missing PO reference,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2037,PO exception routed,2026-06-07T01:00:00,Procurement,Buyer asked to create or validate PO,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2037,PO confirmed,2026-06-07T19:00:00,Procurement,Backdated PO validated for exception policy,560000,Asteron GCC,Yes,Yes,Missing PO,Exception
+AP-2037,Three-way match,2026-06-08T03:00:00,AP analyst,PO now available and matched,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2037,Approval requested,2026-06-08T09:00:00,Workflow,Approval started after PO resolution,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2037,Approved,2026-06-08T20:00:00,Budget owner,Approved after PO remediation,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2037,Payment ready,2026-06-09T05:00:00,AP controller,Returned to normal payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2038,Invoice received,2026-06-06T06:00:00,AP intake,Invoice received from Maple Industrial,95000,Asteron India,Yes,Yes,None,Open
+AP-2038,PO missing review,2026-06-06T12:00:00,AP analyst,Invoice missing PO reference,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2038,PO exception routed,2026-06-07T04:00:00,Procurement,Buyer asked to create or validate PO,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2038,PO confirmed,2026-06-07T22:00:00,Procurement,Backdated PO validated for exception policy,95000,Asteron India,Yes,Yes,Missing PO,Exception
+AP-2038,Three-way match,2026-06-08T06:00:00,AP analyst,PO now available and matched,95000,Asteron India,Yes,Yes,None,Open
+AP-2038,Approval requested,2026-06-08T12:00:00,Workflow,Approval started after PO resolution,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2038,Approved,2026-06-08T23:00:00,Budget owner,Approved after PO remediation,95000,Asteron India,Yes,Yes,None,Approved
+AP-2038,Payment ready,2026-06-09T08:00:00,AP controller,Returned to normal payment queue,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2039,Invoice received,2026-06-06T09:00:00,AP intake,Invoice received from Zenith Services,265000,Asteron UK,Yes,Yes,None,Open
+AP-2039,PO missing review,2026-06-06T15:00:00,AP analyst,Invoice missing PO reference,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2039,PO exception routed,2026-06-07T07:00:00,Procurement,Buyer asked to create or validate PO,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2039,PO confirmed,2026-06-08T01:00:00,Procurement,Backdated PO validated for exception policy,265000,Asteron UK,Yes,Yes,Missing PO,Exception
+AP-2039,Three-way match,2026-06-08T09:00:00,AP analyst,PO now available and matched,265000,Asteron UK,Yes,Yes,None,Open
+AP-2039,Approval requested,2026-06-08T15:00:00,Workflow,Approval started after PO resolution,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2039,Approved,2026-06-09T02:00:00,Budget owner,Approved after PO remediation,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2039,Payment ready,2026-06-09T11:00:00,AP controller,Returned to normal payment queue,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2040,Invoice received,2026-06-06T12:00:00,AP intake,Invoice received from BluePeak Systems,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2040,PO missing review,2026-06-06T18:00:00,AP analyst,Invoice missing PO reference,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2040,PO exception routed,2026-06-07T10:00:00,Procurement,Buyer asked to create or validate PO,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2040,PO confirmed,2026-06-08T04:00:00,Procurement,Backdated PO validated for exception policy,560000,Asteron GCC,Yes,Yes,Missing PO,Exception
+AP-2040,Three-way match,2026-06-08T12:00:00,AP analyst,PO now available and matched,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2040,Approval requested,2026-06-08T18:00:00,Workflow,Approval started after PO resolution,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2040,Approved,2026-06-09T05:00:00,Budget owner,Approved after PO remediation,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2040,Payment ready,2026-06-09T14:00:00,AP controller,Returned to normal payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2041,Invoice received,2026-06-06T15:00:00,AP intake,Invoice received from Nova Components,95000,Asteron India,Yes,Yes,None,Open
+AP-2041,PO missing review,2026-06-06T21:00:00,AP analyst,Invoice missing PO reference,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2041,PO exception routed,2026-06-07T13:00:00,Procurement,Buyer asked to create or validate PO,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2041,PO confirmed,2026-06-08T07:00:00,Procurement,Backdated PO validated for exception policy,95000,Asteron India,Yes,Yes,Missing PO,Exception
+AP-2041,Three-way match,2026-06-08T15:00:00,AP analyst,PO now available and matched,95000,Asteron India,Yes,Yes,None,Open
+AP-2041,Approval requested,2026-06-08T21:00:00,Workflow,Approval started after PO resolution,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2041,Approved,2026-06-09T08:00:00,Budget owner,Approved after PO remediation,95000,Asteron India,Yes,Yes,None,Approved
+AP-2041,Payment ready,2026-06-09T17:00:00,AP controller,Returned to normal payment queue,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2042,Invoice received,2026-06-06T18:00:00,AP intake,Invoice received from Harbor Logistics,265000,Asteron UK,Yes,Yes,None,Open
+AP-2042,PO missing review,2026-06-07T00:00:00,AP analyst,Invoice missing PO reference,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2042,PO exception routed,2026-06-07T16:00:00,Procurement,Buyer asked to create or validate PO,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2042,PO confirmed,2026-06-08T10:00:00,Procurement,Backdated PO validated for exception policy,265000,Asteron UK,Yes,Yes,Missing PO,Exception
+AP-2042,Three-way match,2026-06-08T18:00:00,AP analyst,PO now available and matched,265000,Asteron UK,Yes,Yes,None,Open
+AP-2042,Approval requested,2026-06-09T00:00:00,Workflow,Approval started after PO resolution,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2042,Approved,2026-06-09T11:00:00,Budget owner,Approved after PO remediation,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2042,Payment ready,2026-06-09T20:00:00,AP controller,Returned to normal payment queue,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2043,Invoice received,2026-06-06T21:00:00,AP intake,Invoice received from Maple Industrial,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2043,PO missing review,2026-06-07T03:00:00,AP analyst,Invoice missing PO reference,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2043,PO exception routed,2026-06-07T19:00:00,Procurement,Buyer asked to create or validate PO,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2043,PO confirmed,2026-06-08T13:00:00,Procurement,Backdated PO validated for exception policy,560000,Asteron GCC,Yes,Yes,Missing PO,Exception
+AP-2043,Three-way match,2026-06-08T21:00:00,AP analyst,PO now available and matched,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2043,Approval requested,2026-06-09T03:00:00,Workflow,Approval started after PO resolution,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2043,Approved,2026-06-09T14:00:00,Budget owner,Approved after PO remediation,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2043,Payment ready,2026-06-09T23:00:00,AP controller,Returned to normal payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2044,Invoice received,2026-06-07T00:00:00,AP intake,Invoice received from Zenith Services,95000,Asteron India,Yes,Yes,None,Open
+AP-2044,PO missing review,2026-06-07T06:00:00,AP analyst,Invoice missing PO reference,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2044,PO exception routed,2026-06-07T22:00:00,Procurement,Buyer asked to create or validate PO,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2044,PO confirmed,2026-06-08T16:00:00,Procurement,Backdated PO validated for exception policy,95000,Asteron India,Yes,Yes,Missing PO,Exception
+AP-2044,Three-way match,2026-06-09T00:00:00,AP analyst,PO now available and matched,95000,Asteron India,Yes,Yes,None,Open
+AP-2044,Approval requested,2026-06-09T06:00:00,Workflow,Approval started after PO resolution,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2044,Approved,2026-06-09T17:00:00,Budget owner,Approved after PO remediation,95000,Asteron India,Yes,Yes,None,Approved
+AP-2044,Payment ready,2026-06-10T02:00:00,AP controller,Returned to normal payment queue,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2045,Invoice received,2026-06-07T03:00:00,AP intake,Invoice received from BluePeak Systems,265000,Asteron UK,Yes,Yes,None,Open
+AP-2045,PO missing review,2026-06-07T09:00:00,AP analyst,Invoice missing PO reference,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2045,PO exception routed,2026-06-08T01:00:00,Procurement,Buyer asked to create or validate PO,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2045,PO confirmed,2026-06-08T19:00:00,Procurement,Backdated PO validated for exception policy,265000,Asteron UK,Yes,Yes,Missing PO,Exception
+AP-2045,Three-way match,2026-06-09T03:00:00,AP analyst,PO now available and matched,265000,Asteron UK,Yes,Yes,None,Open
+AP-2045,Approval requested,2026-06-09T09:00:00,Workflow,Approval started after PO resolution,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2045,Approved,2026-06-09T20:00:00,Budget owner,Approved after PO remediation,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2045,Payment ready,2026-06-10T05:00:00,AP controller,Returned to normal payment queue,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2046,Invoice received,2026-06-07T06:00:00,AP intake,Invoice received from Nova Components,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2046,PO missing review,2026-06-07T12:00:00,AP analyst,Invoice missing PO reference,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2046,PO exception routed,2026-06-08T04:00:00,Procurement,Buyer asked to create or validate PO,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2046,PO confirmed,2026-06-08T22:00:00,Procurement,Backdated PO validated for exception policy,560000,Asteron GCC,Yes,Yes,Missing PO,Exception
+AP-2046,Three-way match,2026-06-09T06:00:00,AP analyst,PO now available and matched,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2046,Approval requested,2026-06-09T12:00:00,Workflow,Approval started after PO resolution,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2046,Approved,2026-06-09T23:00:00,Budget owner,Approved after PO remediation,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2046,Payment ready,2026-06-10T08:00:00,AP controller,Returned to normal payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2047,Invoice received,2026-06-07T09:00:00,AP intake,Invoice received from Harbor Logistics,95000,Asteron India,Yes,Yes,None,Open
+AP-2047,PO missing review,2026-06-07T15:00:00,AP analyst,Invoice missing PO reference,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2047,PO exception routed,2026-06-08T07:00:00,Procurement,Buyer asked to create or validate PO,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2047,PO confirmed,2026-06-09T01:00:00,Procurement,Backdated PO validated for exception policy,95000,Asteron India,Yes,Yes,Missing PO,Exception
+AP-2047,Three-way match,2026-06-09T09:00:00,AP analyst,PO now available and matched,95000,Asteron India,Yes,Yes,None,Open
+AP-2047,Approval requested,2026-06-09T15:00:00,Workflow,Approval started after PO resolution,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2047,Approved,2026-06-10T02:00:00,Budget owner,Approved after PO remediation,95000,Asteron India,Yes,Yes,None,Approved
+AP-2047,Payment ready,2026-06-10T11:00:00,AP controller,Returned to normal payment queue,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2048,Invoice received,2026-06-07T12:00:00,AP intake,Invoice received from Maple Industrial,265000,Asteron UK,Yes,Yes,None,Open
+AP-2048,PO missing review,2026-06-07T18:00:00,AP analyst,Invoice missing PO reference,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2048,PO exception routed,2026-06-08T10:00:00,Procurement,Buyer asked to create or validate PO,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2048,PO confirmed,2026-06-09T04:00:00,Procurement,Backdated PO validated for exception policy,265000,Asteron UK,Yes,Yes,Missing PO,Exception
+AP-2048,Three-way match,2026-06-09T12:00:00,AP analyst,PO now available and matched,265000,Asteron UK,Yes,Yes,None,Open
+AP-2048,Approval requested,2026-06-09T18:00:00,Workflow,Approval started after PO resolution,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2048,Approved,2026-06-10T05:00:00,Budget owner,Approved after PO remediation,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2048,Payment ready,2026-06-10T14:00:00,AP controller,Returned to normal payment queue,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2049,Invoice received,2026-06-07T15:00:00,AP intake,Invoice received from Zenith Services,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2049,PO missing review,2026-06-07T21:00:00,AP analyst,Invoice missing PO reference,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2049,PO exception routed,2026-06-08T13:00:00,Procurement,Buyer asked to create or validate PO,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2049,PO confirmed,2026-06-09T07:00:00,Procurement,Backdated PO validated for exception policy,560000,Asteron GCC,Yes,Yes,Missing PO,Exception
+AP-2049,Three-way match,2026-06-09T15:00:00,AP analyst,PO now available and matched,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2049,Approval requested,2026-06-09T21:00:00,Workflow,Approval started after PO resolution,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2049,Approved,2026-06-10T08:00:00,Budget owner,Approved after PO remediation,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2049,Payment ready,2026-06-10T17:00:00,AP controller,Returned to normal payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2050,Invoice received,2026-06-07T18:00:00,AP intake,Invoice received from BluePeak Systems,95000,Asteron India,Yes,Yes,None,Open
+AP-2050,PO missing review,2026-06-08T00:00:00,AP analyst,Invoice missing PO reference,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2050,PO exception routed,2026-06-08T16:00:00,Procurement,Buyer asked to create or validate PO,95000,Asteron India,No,Yes,Missing PO,Exception
+AP-2050,PO confirmed,2026-06-09T10:00:00,Procurement,Backdated PO validated for exception policy,95000,Asteron India,Yes,Yes,Missing PO,Exception
+AP-2050,Three-way match,2026-06-09T18:00:00,AP analyst,PO now available and matched,95000,Asteron India,Yes,Yes,None,Open
+AP-2050,Approval requested,2026-06-10T00:00:00,Workflow,Approval started after PO resolution,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2050,Approved,2026-06-10T11:00:00,Budget owner,Approved after PO remediation,95000,Asteron India,Yes,Yes,None,Approved
+AP-2050,Payment ready,2026-06-10T20:00:00,AP controller,Returned to normal payment queue,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2051,Invoice received,2026-06-07T21:00:00,AP intake,Invoice received from Nova Components,265000,Asteron UK,Yes,Yes,None,Open
+AP-2051,PO missing review,2026-06-08T03:00:00,AP analyst,Invoice missing PO reference,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2051,PO exception routed,2026-06-08T19:00:00,Procurement,Buyer asked to create or validate PO,265000,Asteron UK,No,Yes,Missing PO,Exception
+AP-2051,PO confirmed,2026-06-09T13:00:00,Procurement,Backdated PO validated for exception policy,265000,Asteron UK,Yes,Yes,Missing PO,Exception
+AP-2051,Three-way match,2026-06-09T21:00:00,AP analyst,PO now available and matched,265000,Asteron UK,Yes,Yes,None,Open
+AP-2051,Approval requested,2026-06-10T03:00:00,Workflow,Approval started after PO resolution,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2051,Approved,2026-06-10T14:00:00,Budget owner,Approved after PO remediation,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2051,Payment ready,2026-06-10T23:00:00,AP controller,Returned to normal payment queue,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2052,Invoice received,2026-06-08T00:00:00,AP intake,Invoice received from Harbor Logistics,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2052,PO missing review,2026-06-08T06:00:00,AP analyst,Invoice missing PO reference,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2052,PO exception routed,2026-06-08T22:00:00,Procurement,Buyer asked to create or validate PO,560000,Asteron GCC,No,Yes,Missing PO,Exception
+AP-2052,PO confirmed,2026-06-09T16:00:00,Procurement,Backdated PO validated for exception policy,560000,Asteron GCC,Yes,Yes,Missing PO,Exception
+AP-2052,Three-way match,2026-06-10T00:00:00,AP analyst,PO now available and matched,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2052,Approval requested,2026-06-10T06:00:00,Workflow,Approval started after PO resolution,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2052,Approved,2026-06-10T17:00:00,Budget owner,Approved after PO remediation,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2052,Payment ready,2026-06-11T02:00:00,AP controller,Returned to normal payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2053,Invoice received,2026-06-08T03:00:00,AP intake,Invoice received from BluePeak Systems,265000,Asteron UK,Yes,Yes,None,Open
+AP-2053,Three-way match,2026-06-08T09:00:00,AP analyst,PO found but GRN missing,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2053,GRN chase,2026-06-09T05:00:00,Operations,Receiving team asked to post GRN,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2053,GRN posted,2026-06-10T03:00:00,Operations,Goods receipt posted after follow-up,265000,Asteron UK,Yes,Yes,Missing GRN,Exception
+AP-2053,Approval requested,2026-06-10T09:00:00,Workflow,Approval triggered once GRN available,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2053,Approved,2026-06-10T21:00:00,Budget owner,Approved after receiving evidence,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2053,Payment ready,2026-06-11T05:00:00,AP controller,Released for payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2054,Invoice received,2026-06-08T06:00:00,AP intake,Invoice received from Nova Components,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2054,Three-way match,2026-06-08T12:00:00,AP analyst,PO found but GRN missing,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2054,GRN chase,2026-06-09T08:00:00,Operations,Receiving team asked to post GRN,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2054,GRN posted,2026-06-10T06:00:00,Operations,Goods receipt posted after follow-up,560000,Asteron GCC,Yes,Yes,Missing GRN,Exception
+AP-2054,Approval requested,2026-06-10T12:00:00,Workflow,Approval triggered once GRN available,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2054,Approved,2026-06-11T00:00:00,Budget owner,Approved after receiving evidence,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2054,Payment ready,2026-06-11T08:00:00,AP controller,Released for payment,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2055,Invoice received,2026-06-08T09:00:00,AP intake,Invoice received from Harbor Logistics,95000,Asteron India,Yes,Yes,None,Open
+AP-2055,Three-way match,2026-06-08T15:00:00,AP analyst,PO found but GRN missing,95000,Asteron India,Yes,No,Missing GRN,Exception
+AP-2055,GRN chase,2026-06-09T11:00:00,Operations,Receiving team asked to post GRN,95000,Asteron India,Yes,No,Missing GRN,Exception
+AP-2055,GRN posted,2026-06-10T09:00:00,Operations,Goods receipt posted after follow-up,95000,Asteron India,Yes,Yes,Missing GRN,Exception
+AP-2055,Approval requested,2026-06-10T15:00:00,Workflow,Approval triggered once GRN available,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2055,Approved,2026-06-11T03:00:00,Budget owner,Approved after receiving evidence,95000,Asteron India,Yes,Yes,None,Approved
+AP-2055,Payment ready,2026-06-11T11:00:00,AP controller,Released for payment,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2056,Invoice received,2026-06-08T12:00:00,AP intake,Invoice received from Maple Industrial,265000,Asteron UK,Yes,Yes,None,Open
+AP-2056,Three-way match,2026-06-08T18:00:00,AP analyst,PO found but GRN missing,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2056,GRN chase,2026-06-09T14:00:00,Operations,Receiving team asked to post GRN,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2056,GRN posted,2026-06-10T12:00:00,Operations,Goods receipt posted after follow-up,265000,Asteron UK,Yes,Yes,Missing GRN,Exception
+AP-2056,Approval requested,2026-06-10T18:00:00,Workflow,Approval triggered once GRN available,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2056,Approved,2026-06-11T06:00:00,Budget owner,Approved after receiving evidence,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2056,Payment ready,2026-06-11T14:00:00,AP controller,Released for payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2057,Invoice received,2026-06-08T15:00:00,AP intake,Invoice received from Zenith Services,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2057,Three-way match,2026-06-08T21:00:00,AP analyst,PO found but GRN missing,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2057,GRN chase,2026-06-09T17:00:00,Operations,Receiving team asked to post GRN,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2057,GRN posted,2026-06-10T15:00:00,Operations,Goods receipt posted after follow-up,560000,Asteron GCC,Yes,Yes,Missing GRN,Exception
+AP-2057,Approval requested,2026-06-10T21:00:00,Workflow,Approval triggered once GRN available,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2057,Approved,2026-06-11T09:00:00,Budget owner,Approved after receiving evidence,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2057,Payment ready,2026-06-11T17:00:00,AP controller,Released for payment,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2058,Invoice received,2026-06-08T18:00:00,AP intake,Invoice received from BluePeak Systems,95000,Asteron India,Yes,Yes,None,Open
+AP-2058,Three-way match,2026-06-09T00:00:00,AP analyst,PO found but GRN missing,95000,Asteron India,Yes,No,Missing GRN,Exception
+AP-2058,GRN chase,2026-06-09T20:00:00,Operations,Receiving team asked to post GRN,95000,Asteron India,Yes,No,Missing GRN,Exception
+AP-2058,GRN posted,2026-06-10T18:00:00,Operations,Goods receipt posted after follow-up,95000,Asteron India,Yes,Yes,Missing GRN,Exception
+AP-2058,Approval requested,2026-06-11T00:00:00,Workflow,Approval triggered once GRN available,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2058,Approved,2026-06-11T12:00:00,Budget owner,Approved after receiving evidence,95000,Asteron India,Yes,Yes,None,Approved
+AP-2058,Payment ready,2026-06-11T20:00:00,AP controller,Released for payment,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2059,Invoice received,2026-06-08T21:00:00,AP intake,Invoice received from Nova Components,265000,Asteron UK,Yes,Yes,None,Open
+AP-2059,Three-way match,2026-06-09T03:00:00,AP analyst,PO found but GRN missing,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2059,GRN chase,2026-06-09T23:00:00,Operations,Receiving team asked to post GRN,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2059,GRN posted,2026-06-10T21:00:00,Operations,Goods receipt posted after follow-up,265000,Asteron UK,Yes,Yes,Missing GRN,Exception
+AP-2059,Approval requested,2026-06-11T03:00:00,Workflow,Approval triggered once GRN available,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2059,Approved,2026-06-11T15:00:00,Budget owner,Approved after receiving evidence,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2059,Payment ready,2026-06-11T23:00:00,AP controller,Released for payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2060,Invoice received,2026-06-09T00:00:00,AP intake,Invoice received from Harbor Logistics,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2060,Three-way match,2026-06-09T06:00:00,AP analyst,PO found but GRN missing,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2060,GRN chase,2026-06-10T02:00:00,Operations,Receiving team asked to post GRN,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2060,GRN posted,2026-06-11T00:00:00,Operations,Goods receipt posted after follow-up,560000,Asteron GCC,Yes,Yes,Missing GRN,Exception
+AP-2060,Approval requested,2026-06-11T06:00:00,Workflow,Approval triggered once GRN available,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2060,Approved,2026-06-11T18:00:00,Budget owner,Approved after receiving evidence,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2060,Payment ready,2026-06-12T02:00:00,AP controller,Released for payment,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2061,Invoice received,2026-06-09T03:00:00,AP intake,Invoice received from Maple Industrial,95000,Asteron India,Yes,Yes,None,Open
+AP-2061,Three-way match,2026-06-09T09:00:00,AP analyst,PO found but GRN missing,95000,Asteron India,Yes,No,Missing GRN,Exception
+AP-2061,GRN chase,2026-06-10T05:00:00,Operations,Receiving team asked to post GRN,95000,Asteron India,Yes,No,Missing GRN,Exception
+AP-2061,GRN posted,2026-06-11T03:00:00,Operations,Goods receipt posted after follow-up,95000,Asteron India,Yes,Yes,Missing GRN,Exception
+AP-2061,Approval requested,2026-06-11T09:00:00,Workflow,Approval triggered once GRN available,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2061,Approved,2026-06-11T21:00:00,Budget owner,Approved after receiving evidence,95000,Asteron India,Yes,Yes,None,Approved
+AP-2061,Payment ready,2026-06-12T05:00:00,AP controller,Released for payment,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2062,Invoice received,2026-06-09T06:00:00,AP intake,Invoice received from Zenith Services,265000,Asteron UK,Yes,Yes,None,Open
+AP-2062,Three-way match,2026-06-09T12:00:00,AP analyst,PO found but GRN missing,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2062,GRN chase,2026-06-10T08:00:00,Operations,Receiving team asked to post GRN,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2062,GRN posted,2026-06-11T06:00:00,Operations,Goods receipt posted after follow-up,265000,Asteron UK,Yes,Yes,Missing GRN,Exception
+AP-2062,Approval requested,2026-06-11T12:00:00,Workflow,Approval triggered once GRN available,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2062,Approved,2026-06-12T00:00:00,Budget owner,Approved after receiving evidence,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2062,Payment ready,2026-06-12T08:00:00,AP controller,Released for payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2063,Invoice received,2026-06-09T09:00:00,AP intake,Invoice received from BluePeak Systems,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2063,Three-way match,2026-06-09T15:00:00,AP analyst,PO found but GRN missing,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2063,GRN chase,2026-06-10T11:00:00,Operations,Receiving team asked to post GRN,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2063,GRN posted,2026-06-11T09:00:00,Operations,Goods receipt posted after follow-up,560000,Asteron GCC,Yes,Yes,Missing GRN,Exception
+AP-2063,Approval requested,2026-06-11T15:00:00,Workflow,Approval triggered once GRN available,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2063,Approved,2026-06-12T03:00:00,Budget owner,Approved after receiving evidence,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2063,Payment ready,2026-06-12T11:00:00,AP controller,Released for payment,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2064,Invoice received,2026-06-09T12:00:00,AP intake,Invoice received from Nova Components,95000,Asteron India,Yes,Yes,None,Open
+AP-2064,Three-way match,2026-06-09T18:00:00,AP analyst,PO found but GRN missing,95000,Asteron India,Yes,No,Missing GRN,Exception
+AP-2064,GRN chase,2026-06-10T14:00:00,Operations,Receiving team asked to post GRN,95000,Asteron India,Yes,No,Missing GRN,Exception
+AP-2064,GRN posted,2026-06-11T12:00:00,Operations,Goods receipt posted after follow-up,95000,Asteron India,Yes,Yes,Missing GRN,Exception
+AP-2064,Approval requested,2026-06-11T18:00:00,Workflow,Approval triggered once GRN available,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2064,Approved,2026-06-12T06:00:00,Budget owner,Approved after receiving evidence,95000,Asteron India,Yes,Yes,None,Approved
+AP-2064,Payment ready,2026-06-12T14:00:00,AP controller,Released for payment,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2065,Invoice received,2026-06-09T15:00:00,AP intake,Invoice received from Harbor Logistics,265000,Asteron UK,Yes,Yes,None,Open
+AP-2065,Three-way match,2026-06-09T21:00:00,AP analyst,PO found but GRN missing,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2065,GRN chase,2026-06-10T17:00:00,Operations,Receiving team asked to post GRN,265000,Asteron UK,Yes,No,Missing GRN,Exception
+AP-2065,GRN posted,2026-06-11T15:00:00,Operations,Goods receipt posted after follow-up,265000,Asteron UK,Yes,Yes,Missing GRN,Exception
+AP-2065,Approval requested,2026-06-11T21:00:00,Workflow,Approval triggered once GRN available,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2065,Approved,2026-06-12T09:00:00,Budget owner,Approved after receiving evidence,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2065,Payment ready,2026-06-12T17:00:00,AP controller,Released for payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2066,Invoice received,2026-06-09T18:00:00,AP intake,Invoice received from Maple Industrial,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2066,Three-way match,2026-06-10T00:00:00,AP analyst,PO found but GRN missing,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2066,GRN chase,2026-06-10T20:00:00,Operations,Receiving team asked to post GRN,560000,Asteron GCC,Yes,No,Missing GRN,Exception
+AP-2066,GRN posted,2026-06-11T18:00:00,Operations,Goods receipt posted after follow-up,560000,Asteron GCC,Yes,Yes,Missing GRN,Exception
+AP-2066,Approval requested,2026-06-12T00:00:00,Workflow,Approval triggered once GRN available,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2066,Approved,2026-06-12T12:00:00,Budget owner,Approved after receiving evidence,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2066,Payment ready,2026-06-12T20:00:00,AP controller,Released for payment,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2067,Invoice received,2026-06-09T21:00:00,AP intake,Invoice received from Harbor Logistics,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2067,Duplicate review,2026-06-10T02:00:00,AP analyst,Possible duplicate invoice detected,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2067,Duplicate review reopened,2026-06-10T20:00:00,Controller,Supporting evidence inconclusive on first pass,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2067,Duplicate cleared,2026-06-11T10:00:00,Controller,Confirmed invoice is valid single claim,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2067,Three-way match,2026-06-11T17:00:00,AP analyst,Match completed after duplicate clearance,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2067,Approval requested,2026-06-11T23:00:00,Workflow,Approval requested post-review,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2067,Approved,2026-06-12T08:00:00,Budget owner,Approved after duplicate clearance,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2067,Payment ready,2026-06-12T16:00:00,AP controller,Returned to payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2068,Invoice received,2026-06-10T00:00:00,AP intake,Invoice received from Maple Industrial,95000,Asteron India,Yes,Yes,None,Open
+AP-2068,Duplicate review,2026-06-10T05:00:00,AP analyst,Possible duplicate invoice detected,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2068,Duplicate review reopened,2026-06-10T23:00:00,Controller,Supporting evidence inconclusive on first pass,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2068,Duplicate cleared,2026-06-11T13:00:00,Controller,Confirmed invoice is valid single claim,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2068,Three-way match,2026-06-11T20:00:00,AP analyst,Match completed after duplicate clearance,95000,Asteron India,Yes,Yes,None,Open
+AP-2068,Approval requested,2026-06-12T02:00:00,Workflow,Approval requested post-review,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2068,Approved,2026-06-12T11:00:00,Budget owner,Approved after duplicate clearance,95000,Asteron India,Yes,Yes,None,Approved
+AP-2068,Payment ready,2026-06-12T19:00:00,AP controller,Returned to payment queue,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2069,Invoice received,2026-06-10T03:00:00,AP intake,Invoice received from Zenith Services,265000,Asteron UK,Yes,Yes,None,Open
+AP-2069,Duplicate review,2026-06-10T08:00:00,AP analyst,Possible duplicate invoice detected,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2069,Duplicate review reopened,2026-06-11T02:00:00,Controller,Supporting evidence inconclusive on first pass,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2069,Duplicate cleared,2026-06-11T16:00:00,Controller,Confirmed invoice is valid single claim,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2069,Three-way match,2026-06-11T23:00:00,AP analyst,Match completed after duplicate clearance,265000,Asteron UK,Yes,Yes,None,Open
+AP-2069,Approval requested,2026-06-12T05:00:00,Workflow,Approval requested post-review,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2069,Approved,2026-06-12T14:00:00,Budget owner,Approved after duplicate clearance,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2069,Payment ready,2026-06-12T22:00:00,AP controller,Returned to payment queue,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2070,Invoice received,2026-06-10T06:00:00,AP intake,Invoice received from BluePeak Systems,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2070,Duplicate review,2026-06-10T11:00:00,AP analyst,Possible duplicate invoice detected,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2070,Duplicate review reopened,2026-06-11T05:00:00,Controller,Supporting evidence inconclusive on first pass,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2070,Duplicate cleared,2026-06-11T19:00:00,Controller,Confirmed invoice is valid single claim,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2070,Three-way match,2026-06-12T02:00:00,AP analyst,Match completed after duplicate clearance,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2070,Approval requested,2026-06-12T08:00:00,Workflow,Approval requested post-review,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2070,Approved,2026-06-12T17:00:00,Budget owner,Approved after duplicate clearance,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2070,Payment ready,2026-06-13T01:00:00,AP controller,Returned to payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2071,Invoice received,2026-06-10T09:00:00,AP intake,Invoice received from Nova Components,95000,Asteron India,Yes,Yes,None,Open
+AP-2071,Duplicate review,2026-06-10T14:00:00,AP analyst,Possible duplicate invoice detected,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2071,Duplicate review reopened,2026-06-11T08:00:00,Controller,Supporting evidence inconclusive on first pass,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2071,Duplicate cleared,2026-06-11T22:00:00,Controller,Confirmed invoice is valid single claim,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2071,Three-way match,2026-06-12T05:00:00,AP analyst,Match completed after duplicate clearance,95000,Asteron India,Yes,Yes,None,Open
+AP-2071,Approval requested,2026-06-12T11:00:00,Workflow,Approval requested post-review,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2071,Approved,2026-06-12T20:00:00,Budget owner,Approved after duplicate clearance,95000,Asteron India,Yes,Yes,None,Approved
+AP-2071,Payment ready,2026-06-13T04:00:00,AP controller,Returned to payment queue,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2072,Invoice received,2026-06-10T12:00:00,AP intake,Invoice received from Harbor Logistics,265000,Asteron UK,Yes,Yes,None,Open
+AP-2072,Duplicate review,2026-06-10T17:00:00,AP analyst,Possible duplicate invoice detected,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2072,Duplicate review reopened,2026-06-11T11:00:00,Controller,Supporting evidence inconclusive on first pass,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2072,Duplicate cleared,2026-06-12T01:00:00,Controller,Confirmed invoice is valid single claim,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2072,Three-way match,2026-06-12T08:00:00,AP analyst,Match completed after duplicate clearance,265000,Asteron UK,Yes,Yes,None,Open
+AP-2072,Approval requested,2026-06-12T14:00:00,Workflow,Approval requested post-review,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2072,Approved,2026-06-12T23:00:00,Budget owner,Approved after duplicate clearance,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2072,Payment ready,2026-06-13T07:00:00,AP controller,Returned to payment queue,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2073,Invoice received,2026-06-10T15:00:00,AP intake,Invoice received from Maple Industrial,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2073,Duplicate review,2026-06-10T20:00:00,AP analyst,Possible duplicate invoice detected,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2073,Duplicate review reopened,2026-06-11T14:00:00,Controller,Supporting evidence inconclusive on first pass,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2073,Duplicate cleared,2026-06-12T04:00:00,Controller,Confirmed invoice is valid single claim,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2073,Three-way match,2026-06-12T11:00:00,AP analyst,Match completed after duplicate clearance,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2073,Approval requested,2026-06-12T17:00:00,Workflow,Approval requested post-review,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2073,Approved,2026-06-13T02:00:00,Budget owner,Approved after duplicate clearance,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2073,Payment ready,2026-06-13T10:00:00,AP controller,Returned to payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2074,Invoice received,2026-06-10T18:00:00,AP intake,Invoice received from Zenith Services,95000,Asteron India,Yes,Yes,None,Open
+AP-2074,Duplicate review,2026-06-10T23:00:00,AP analyst,Possible duplicate invoice detected,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2074,Duplicate review reopened,2026-06-11T17:00:00,Controller,Supporting evidence inconclusive on first pass,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2074,Duplicate cleared,2026-06-12T07:00:00,Controller,Confirmed invoice is valid single claim,95000,Asteron India,Yes,Yes,Duplicate review,Exception
+AP-2074,Three-way match,2026-06-12T14:00:00,AP analyst,Match completed after duplicate clearance,95000,Asteron India,Yes,Yes,None,Open
+AP-2074,Approval requested,2026-06-12T20:00:00,Workflow,Approval requested post-review,95000,Asteron India,Yes,Yes,None,Pending approval
+AP-2074,Approved,2026-06-13T05:00:00,Budget owner,Approved after duplicate clearance,95000,Asteron India,Yes,Yes,None,Approved
+AP-2074,Payment ready,2026-06-13T13:00:00,AP controller,Returned to payment queue,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2075,Invoice received,2026-06-10T21:00:00,AP intake,Invoice received from BluePeak Systems,265000,Asteron UK,Yes,Yes,None,Open
+AP-2075,Duplicate review,2026-06-11T02:00:00,AP analyst,Possible duplicate invoice detected,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2075,Duplicate review reopened,2026-06-11T20:00:00,Controller,Supporting evidence inconclusive on first pass,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2075,Duplicate cleared,2026-06-12T10:00:00,Controller,Confirmed invoice is valid single claim,265000,Asteron UK,Yes,Yes,Duplicate review,Exception
+AP-2075,Three-way match,2026-06-12T17:00:00,AP analyst,Match completed after duplicate clearance,265000,Asteron UK,Yes,Yes,None,Open
+AP-2075,Approval requested,2026-06-12T23:00:00,Workflow,Approval requested post-review,265000,Asteron UK,Yes,Yes,None,Pending approval
+AP-2075,Approved,2026-06-13T08:00:00,Budget owner,Approved after duplicate clearance,265000,Asteron UK,Yes,Yes,None,Approved
+AP-2075,Payment ready,2026-06-13T16:00:00,AP controller,Returned to payment queue,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2076,Invoice received,2026-06-11T00:00:00,AP intake,Invoice received from Nova Components,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2076,Duplicate review,2026-06-11T05:00:00,AP analyst,Possible duplicate invoice detected,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2076,Duplicate review reopened,2026-06-11T23:00:00,Controller,Supporting evidence inconclusive on first pass,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2076,Duplicate cleared,2026-06-12T13:00:00,Controller,Confirmed invoice is valid single claim,560000,Asteron GCC,Yes,Yes,Duplicate review,Exception
+AP-2076,Three-way match,2026-06-12T20:00:00,AP analyst,Match completed after duplicate clearance,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2076,Approval requested,2026-06-13T02:00:00,Workflow,Approval requested post-review,560000,Asteron GCC,Yes,Yes,None,Pending approval
+AP-2076,Approved,2026-06-13T11:00:00,Budget owner,Approved after duplicate clearance,560000,Asteron GCC,Yes,Yes,None,Approved
+AP-2076,Payment ready,2026-06-13T19:00:00,AP controller,Returned to payment queue,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2077,Invoice received,2026-06-11T03:00:00,AP intake,Invoice received from Harbor Logistics,265000,Asteron UK,Yes,Yes,None,Open
+AP-2077,Three-way match,2026-06-11T10:00:00,AP analyst,Invoice matched without exception,265000,Asteron UK,Yes,Yes,None,Open
+AP-2077,Approval requested,2026-06-11T15:00:00,Workflow,Approval routed to budget owner,265000,Asteron UK,Yes,Yes,Approval delay,Pending approval
+AP-2077,Approval escalated,2026-06-12T21:00:00,Workflow,Reminder and escalation sent after SLA breach,265000,Asteron UK,Yes,Yes,Approval delay,Pending approval
+AP-2077,Approved,2026-06-13T11:00:00,Budget owner,Approved after escalation,265000,Asteron UK,Yes,Yes,Approval delay,Approved
+AP-2077,Payment ready,2026-06-13T19:00:00,AP controller,Ready for scheduled payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2078,Invoice received,2026-06-11T06:00:00,AP intake,Invoice received from Maple Industrial,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2078,Three-way match,2026-06-11T13:00:00,AP analyst,Invoice matched without exception,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2078,Approval requested,2026-06-11T18:00:00,Workflow,Approval routed to budget owner,560000,Asteron GCC,Yes,Yes,Approval delay,Pending approval
+AP-2078,Approval escalated,2026-06-13T00:00:00,Workflow,Reminder and escalation sent after SLA breach,560000,Asteron GCC,Yes,Yes,Approval delay,Pending approval
+AP-2078,Approved,2026-06-13T14:00:00,Budget owner,Approved after escalation,560000,Asteron GCC,Yes,Yes,Approval delay,Approved
+AP-2078,Payment ready,2026-06-13T22:00:00,AP controller,Ready for scheduled payment,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2079,Invoice received,2026-06-11T09:00:00,AP intake,Invoice received from Zenith Services,95000,Asteron India,Yes,Yes,None,Open
+AP-2079,Three-way match,2026-06-11T16:00:00,AP analyst,Invoice matched without exception,95000,Asteron India,Yes,Yes,None,Open
+AP-2079,Approval requested,2026-06-11T21:00:00,Workflow,Approval routed to budget owner,95000,Asteron India,Yes,Yes,Approval delay,Pending approval
+AP-2079,Approval escalated,2026-06-13T03:00:00,Workflow,Reminder and escalation sent after SLA breach,95000,Asteron India,Yes,Yes,Approval delay,Pending approval
+AP-2079,Approved,2026-06-13T17:00:00,Budget owner,Approved after escalation,95000,Asteron India,Yes,Yes,Approval delay,Approved
+AP-2079,Payment ready,2026-06-14T01:00:00,AP controller,Ready for scheduled payment,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2080,Invoice received,2026-06-11T12:00:00,AP intake,Invoice received from BluePeak Systems,265000,Asteron UK,Yes,Yes,None,Open
+AP-2080,Three-way match,2026-06-11T19:00:00,AP analyst,Invoice matched without exception,265000,Asteron UK,Yes,Yes,None,Open
+AP-2080,Approval requested,2026-06-12T00:00:00,Workflow,Approval routed to budget owner,265000,Asteron UK,Yes,Yes,Approval delay,Pending approval
+AP-2080,Approval escalated,2026-06-13T06:00:00,Workflow,Reminder and escalation sent after SLA breach,265000,Asteron UK,Yes,Yes,Approval delay,Pending approval
+AP-2080,Approved,2026-06-13T20:00:00,Budget owner,Approved after escalation,265000,Asteron UK,Yes,Yes,Approval delay,Approved
+AP-2080,Payment ready,2026-06-14T04:00:00,AP controller,Ready for scheduled payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2081,Invoice received,2026-06-11T15:00:00,AP intake,Invoice received from Nova Components,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2081,Three-way match,2026-06-11T22:00:00,AP analyst,Invoice matched without exception,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2081,Approval requested,2026-06-12T03:00:00,Workflow,Approval routed to budget owner,560000,Asteron GCC,Yes,Yes,Approval delay,Pending approval
+AP-2081,Approval escalated,2026-06-13T09:00:00,Workflow,Reminder and escalation sent after SLA breach,560000,Asteron GCC,Yes,Yes,Approval delay,Pending approval
+AP-2081,Approved,2026-06-13T23:00:00,Budget owner,Approved after escalation,560000,Asteron GCC,Yes,Yes,Approval delay,Approved
+AP-2081,Payment ready,2026-06-14T07:00:00,AP controller,Ready for scheduled payment,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2082,Invoice received,2026-06-11T18:00:00,AP intake,Invoice received from Harbor Logistics,95000,Asteron India,Yes,Yes,None,Open
+AP-2082,Three-way match,2026-06-12T01:00:00,AP analyst,Invoice matched without exception,95000,Asteron India,Yes,Yes,None,Open
+AP-2082,Approval requested,2026-06-12T06:00:00,Workflow,Approval routed to budget owner,95000,Asteron India,Yes,Yes,Approval delay,Pending approval
+AP-2082,Approval escalated,2026-06-13T12:00:00,Workflow,Reminder and escalation sent after SLA breach,95000,Asteron India,Yes,Yes,Approval delay,Pending approval
+AP-2082,Approved,2026-06-14T02:00:00,Budget owner,Approved after escalation,95000,Asteron India,Yes,Yes,Approval delay,Approved
+AP-2082,Payment ready,2026-06-14T10:00:00,AP controller,Ready for scheduled payment,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2083,Invoice received,2026-06-11T21:00:00,AP intake,Invoice received from Maple Industrial,265000,Asteron UK,Yes,Yes,None,Open
+AP-2083,Three-way match,2026-06-12T04:00:00,AP analyst,Invoice matched without exception,265000,Asteron UK,Yes,Yes,None,Open
+AP-2083,Approval requested,2026-06-12T09:00:00,Workflow,Approval routed to budget owner,265000,Asteron UK,Yes,Yes,Approval delay,Pending approval
+AP-2083,Approval escalated,2026-06-13T15:00:00,Workflow,Reminder and escalation sent after SLA breach,265000,Asteron UK,Yes,Yes,Approval delay,Pending approval
+AP-2083,Approved,2026-06-14T05:00:00,Budget owner,Approved after escalation,265000,Asteron UK,Yes,Yes,Approval delay,Approved
+AP-2083,Payment ready,2026-06-14T13:00:00,AP controller,Ready for scheduled payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2084,Invoice received,2026-06-12T00:00:00,AP intake,Invoice received from Zenith Services,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2084,Three-way match,2026-06-12T07:00:00,AP analyst,Invoice matched without exception,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2084,Approval requested,2026-06-12T12:00:00,Workflow,Approval routed to budget owner,560000,Asteron GCC,Yes,Yes,Approval delay,Pending approval
+AP-2084,Approval escalated,2026-06-13T18:00:00,Workflow,Reminder and escalation sent after SLA breach,560000,Asteron GCC,Yes,Yes,Approval delay,Pending approval
+AP-2084,Approved,2026-06-14T08:00:00,Budget owner,Approved after escalation,560000,Asteron GCC,Yes,Yes,Approval delay,Approved
+AP-2084,Payment ready,2026-06-14T16:00:00,AP controller,Ready for scheduled payment,560000,Asteron GCC,Yes,Yes,None,Payment ready
+AP-2085,Invoice received,2026-06-12T03:00:00,AP intake,Invoice received from BluePeak Systems,95000,Asteron India,Yes,Yes,None,Open
+AP-2085,Three-way match,2026-06-12T10:00:00,AP analyst,Invoice matched without exception,95000,Asteron India,Yes,Yes,None,Open
+AP-2085,Approval requested,2026-06-12T15:00:00,Workflow,Approval routed to budget owner,95000,Asteron India,Yes,Yes,Approval delay,Pending approval
+AP-2085,Approval escalated,2026-06-13T21:00:00,Workflow,Reminder and escalation sent after SLA breach,95000,Asteron India,Yes,Yes,Approval delay,Pending approval
+AP-2085,Approved,2026-06-14T11:00:00,Budget owner,Approved after escalation,95000,Asteron India,Yes,Yes,Approval delay,Approved
+AP-2085,Payment ready,2026-06-14T19:00:00,AP controller,Ready for scheduled payment,95000,Asteron India,Yes,Yes,None,Payment ready
+AP-2086,Invoice received,2026-06-12T06:00:00,AP intake,Invoice received from Nova Components,265000,Asteron UK,Yes,Yes,None,Open
+AP-2086,Three-way match,2026-06-12T13:00:00,AP analyst,Invoice matched without exception,265000,Asteron UK,Yes,Yes,None,Open
+AP-2086,Approval requested,2026-06-12T18:00:00,Workflow,Approval routed to budget owner,265000,Asteron UK,Yes,Yes,Approval delay,Pending approval
+AP-2086,Approval escalated,2026-06-14T00:00:00,Workflow,Reminder and escalation sent after SLA breach,265000,Asteron UK,Yes,Yes,Approval delay,Pending approval
+AP-2086,Approved,2026-06-14T14:00:00,Budget owner,Approved after escalation,265000,Asteron UK,Yes,Yes,Approval delay,Approved
+AP-2086,Payment ready,2026-06-14T22:00:00,AP controller,Ready for scheduled payment,265000,Asteron UK,Yes,Yes,None,Payment ready
+AP-2087,Invoice received,2026-06-12T09:00:00,AP intake,Invoice received from Harbor Logistics,95000,Asteron India,Yes,Yes,None,Open
+AP-2087,Three-way match,2026-06-12T16:00:00,AP analyst,Match completed but evidence pack incomplete,95000,Asteron India,Yes,Yes,Control violation,Exception
+AP-2087,Approval requested,2026-06-12T20:00:00,Workflow,Approval routed with missing attachment evidence,95000,Asteron India,Yes,Yes,Control violation,Pending approval
+AP-2087,Approved,2026-06-13T02:00:00,Budget owner,Approved before evidence completion,95000,Asteron India,Yes,Yes,Control violation,Approved
+AP-2087,Payment ready,2026-06-13T07:00:00,AP controller,Moved to payment-ready state before evidence complete,95000,Asteron India,Yes,Yes,Control violation,Payment ready
+AP-2087,Evidence completed,2026-06-13T17:00:00,Internal controls,Required evidence uploaded after the fact,95000,Asteron India,Yes,Yes,Control violation,Payment ready
+AP-2088,Invoice received,2026-06-12T12:00:00,AP intake,Invoice received from Maple Industrial,265000,Asteron UK,Yes,Yes,None,Open
+AP-2088,Three-way match,2026-06-12T19:00:00,AP analyst,Match completed but evidence pack incomplete,265000,Asteron UK,Yes,Yes,Control violation,Exception
+AP-2088,Approval requested,2026-06-12T23:00:00,Workflow,Approval routed with missing attachment evidence,265000,Asteron UK,Yes,Yes,Control violation,Pending approval
+AP-2088,Approved,2026-06-13T05:00:00,Budget owner,Approved before evidence completion,265000,Asteron UK,Yes,Yes,Control violation,Approved
+AP-2088,Payment ready,2026-06-13T10:00:00,AP controller,Moved to payment-ready state before evidence complete,265000,Asteron UK,Yes,Yes,Control violation,Payment ready
+AP-2088,Evidence completed,2026-06-13T20:00:00,Internal controls,Required evidence uploaded after the fact,265000,Asteron UK,Yes,Yes,Control violation,Payment ready
+AP-2089,Invoice received,2026-06-12T15:00:00,AP intake,Invoice received from Zenith Services,560000,Asteron GCC,Yes,Yes,None,Open
+AP-2089,Three-way match,2026-06-12T22:00:00,AP analyst,Match completed but evidence pack incomplete,560000,Asteron GCC,Yes,Yes,Control violation,Exception
+AP-2089,Approval requested,2026-06-13T02:00:00,Workflow,Approval routed with missing attachment evidence,560000,Asteron GCC,Yes,Yes,Control violation,Pending approval
+AP-2089,Approved,2026-06-13T08:00:00,Budget owner,Approved before evidence completion,560000,Asteron GCC,Yes,Yes,Control violation,Approved
+AP-2089,Payment ready,2026-06-13T13:00:00,AP controller,Moved to payment-ready state before evidence complete,560000,Asteron GCC,Yes,Yes,Control violation,Payment ready
+AP-2089,Evidence completed,2026-06-13T23:00:00,Internal controls,Required evidence uploaded after the fact,560000,Asteron GCC,Yes,Yes,Control violation,Payment ready
+AP-2090,Invoice received,2026-06-12T18:00:00,AP intake,Invoice received from BluePeak Systems,95000,Asteron India,Yes,Yes,None,Open
+AP-2090,Three-way match,2026-06-13T01:00:00,AP analyst,Match completed but evidence pack incomplete,95000,Asteron India,Yes,Yes,Control violation,Exception
+AP-2090,Approval requested,2026-06-13T05:00:00,Workflow,Approval routed with missing attachment evidence,95000,Asteron India,Yes,Yes,Control violation,Pending approval
+AP-2090,Approved,2026-06-13T11:00:00,Budget owner,Approved before evidence completion,95000,Asteron India,Yes,Yes,Control violation,Approved
+AP-2090,Payment ready,2026-06-13T16:00:00,AP controller,Moved to payment-ready state before evidence complete,95000,Asteron India,Yes,Yes,Control violation,Payment ready
+AP-2090,Evidence completed,2026-06-14T02:00:00,Internal controls,Required evidence uploaded after the fact,95000,Asteron India,Yes,Yes,Control violation,Payment ready

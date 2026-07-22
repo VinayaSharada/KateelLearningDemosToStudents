@@ -47,9 +47,79 @@
       "fallbackAsset": "assets/invoice-prediction-completed-run.md"
     },
     {
+      "demoId": "o2c-process-mining-workbench",
+      "title": "O2C Process Mining Workbench",
+      "sequence": 3,
+      "required": true,
+      "durationMinutes": 30,
+      "engineType": "process-mining",
+      "runModes": [
+        "browser"
+      ],
+      "aboutPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/about.html",
+      "launchPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/index.html",
+      "learningObjective": "Diagnose how receivables actually flow before selecting workflow, RPA, or AI interventions.",
+      "participantTask": "Compare the happy path with actual O2C variants and classify each issue as eliminate, standardize, enable, assure, or monitor.",
+      "deliverable": "O2C process-friction note with action choices and control-owner implications",
+      "fallbackAsset": "assets/o2c-process-mining-fallback.md"
+    },
+    {
+      "demoId": "o2c-process-mining-notebook",
+      "title": "O2C Process Mining Notebook",
+      "sequence": 4,
+      "required": false,
+      "durationMinutes": 45,
+      "engineType": "process-mining",
+      "runModes": [
+        "colab",
+        "local"
+      ],
+      "aboutPath": "TreasuryAnalytics/O2CProcessMiningNotebook/about.html",
+      "launchPath": "TreasuryAnalytics/O2CProcessMiningNotebook/index.html",
+      "learningObjective": "Make the event-log calculations transparent so participants can inspect assumptions behind O2C process-mining metrics.",
+      "participantTask": "Run the notebook, inspect the variant and exception calculations, and test how different assumptions change the finance conclusion.",
+      "deliverable": "Annotated notebook observations and a metric-assumption challenge note",
+      "fallbackAsset": "assets/o2c-process-mining-notebook-fallback.md"
+    },
+    {
+      "demoId": "p2p-process-mining-workbench",
+      "title": "P2P Process Mining Workbench",
+      "sequence": 5,
+      "required": true,
+      "durationMinutes": 30,
+      "engineType": "process-mining",
+      "runModes": [
+        "browser"
+      ],
+      "aboutPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/about.html",
+      "launchPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/index.html",
+      "learningObjective": "Diagnose how AP and P2P work actually flows before selecting workflow, RPA, or AI interventions.",
+      "participantTask": "Compare the AP happy path with actual variants and classify each issue as eliminate, standardize, enable, assure, or monitor.",
+      "deliverable": "P2P process-friction note with action choices and control-owner implications",
+      "fallbackAsset": "assets/p2p-process-mining-fallback.md"
+    },
+    {
+      "demoId": "p2p-process-mining-notebook",
+      "title": "P2P Process Mining Notebook",
+      "sequence": 6,
+      "required": false,
+      "durationMinutes": 45,
+      "engineType": "process-mining",
+      "runModes": [
+        "colab",
+        "local"
+      ],
+      "aboutPath": "TreasuryAnalytics/P2PProcessMiningNotebook/about.html",
+      "launchPath": "TreasuryAnalytics/P2PProcessMiningNotebook/index.html",
+      "learningObjective": "Make the AP event-log calculations transparent so participants can inspect assumptions behind process-mining metrics.",
+      "participantTask": "Run the notebook, inspect the variant and exception calculations, and test how different assumptions change the finance conclusion.",
+      "deliverable": "Annotated notebook observations and a metric-assumption challenge note",
+      "fallbackAsset": "assets/p2p-process-mining-notebook-fallback.md"
+    },
+    {
       "demoId": "ar-aging-collections-prioritizer",
       "title": "AR Aging and Collections Prioritizer",
-      "sequence": 3,
+      "sequence": 7,
       "required": true,
       "durationMinutes": 35,
       "engineType": "rule-based",
@@ -66,7 +136,7 @@
     {
       "demoId": "dell-working-capital-case",
       "title": "Dell vs Competitors Working Capital Case",
-      "sequence": 4,
+      "sequence": 8,
       "required": true,
       "durationMinutes": 25,
       "engineType": "simulation",
@@ -83,7 +153,7 @@
     {
       "demoId": "liquidity-management",
       "title": "Liquidity Management",
-      "sequence": 5,
+      "sequence": 9,
       "required": false,
       "durationMinutes": 30,
       "engineType": "simulation",

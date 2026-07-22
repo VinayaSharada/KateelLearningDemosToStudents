@@ -1,0 +1,652 @@
+case_id,activity,timestamp,owner,detail,amount_inr,entity,credit_ok,delivery_confirmed,dispute_flag,exception_type,invoice_status
+O2C-1001,Order received,2026-06-01T17:00:00,Order desk,Order booked for Nimbus Retail,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1001,Credit approved,2026-06-02T04:00:00,Credit control,Credit limit available,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1001,Goods delivered,2026-06-03T02:00:00,Operations,Proof of delivery matched,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1001,Invoice issued,2026-06-03T13:00:00,Billing,Invoice sent on first pass,740000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1001,Payment received,2026-06-05T08:00:00,Treasury,Customer paid in line with terms,740000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1001,Cash applied,2026-06-05T13:00:00,Cash application,Straight-through cash application,740000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1002,Order received,2026-06-01T21:00:00,Order desk,Order booked for Quanta Foods,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1002,Credit approved,2026-06-02T08:00:00,Credit control,Credit limit available,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1002,Goods delivered,2026-06-03T10:00:00,Operations,Proof of delivery matched,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1002,Invoice issued,2026-06-03T19:00:00,Billing,Invoice sent on first pass,740000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1002,Payment received,2026-06-06T01:00:00,Treasury,Customer paid in line with terms,740000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1002,Cash applied,2026-06-06T08:00:00,Cash application,Straight-through cash application,740000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1003,Order received,2026-06-02T01:00:00,Order desk,Order booked for Nimbus Retail,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1003,Credit approved,2026-06-02T08:00:00,Credit control,Credit limit available,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1003,Goods delivered,2026-06-03T05:00:00,Operations,Proof of delivery matched,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1003,Invoice issued,2026-06-03T21:00:00,Billing,Invoice sent on first pass,185000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1003,Payment received,2026-06-06T04:00:00,Treasury,Customer paid in line with terms,185000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1003,Cash applied,2026-06-06T08:00:00,Cash application,Straight-through cash application,185000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1004,Order received,2026-06-02T05:00:00,Order desk,Order booked for Quanta Foods,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1004,Credit approved,2026-06-02T16:00:00,Credit control,Credit limit available,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1004,Goods delivered,2026-06-03T18:00:00,Operations,Proof of delivery matched,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1004,Invoice issued,2026-06-04T08:00:00,Billing,Invoice sent on first pass,575000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1004,Payment received,2026-06-06T03:00:00,Treasury,Customer paid in line with terms,575000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1004,Cash applied,2026-06-06T10:00:00,Cash application,Straight-through cash application,575000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1005,Order received,2026-06-02T09:00:00,Order desk,Order booked for Nimbus Retail,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1005,Credit approved,2026-06-02T16:00:00,Credit control,Credit limit available,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1005,Goods delivered,2026-06-03T16:00:00,Operations,Proof of delivery matched,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1005,Invoice issued,2026-06-04T05:00:00,Billing,Invoice sent on first pass,575000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1005,Payment received,2026-06-06T01:00:00,Treasury,Customer paid in line with terms,575000,Asteron South,Yes,Yes,No,None,Paid
+O2C-1005,Cash applied,2026-06-06T06:00:00,Cash application,Straight-through cash application,575000,Asteron South,Yes,Yes,No,None,Cash applied
+O2C-1006,Order received,2026-06-02T13:00:00,Order desk,Order booked for Nimbus Retail,245000,Asteron South,Yes,Yes,No,None,Open
+O2C-1006,Credit approved,2026-06-02T19:00:00,Credit control,Credit limit available,245000,Asteron South,Yes,Yes,No,None,Open
+O2C-1006,Goods delivered,2026-06-03T19:00:00,Operations,Proof of delivery matched,245000,Asteron South,Yes,Yes,No,None,Open
+O2C-1006,Invoice issued,2026-06-04T04:00:00,Billing,Invoice sent on first pass,245000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1006,Payment received,2026-06-06T03:00:00,Treasury,Customer paid in line with terms,245000,Asteron South,Yes,Yes,No,None,Paid
+O2C-1006,Cash applied,2026-06-06T09:00:00,Cash application,Straight-through cash application,245000,Asteron South,Yes,Yes,No,None,Cash applied
+O2C-1007,Order received,2026-06-02T17:00:00,Order desk,Order booked for Nimbus Retail,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1007,Credit approved,2026-06-03T04:00:00,Credit control,Credit limit available,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1007,Goods delivered,2026-06-04T05:00:00,Operations,Proof of delivery matched,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1007,Invoice issued,2026-06-04T21:00:00,Billing,Invoice sent on first pass,575000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1007,Payment received,2026-06-06T12:00:00,Treasury,Customer paid in line with terms,575000,Asteron South,Yes,Yes,No,None,Paid
+O2C-1007,Cash applied,2026-06-06T19:00:00,Cash application,Straight-through cash application,575000,Asteron South,Yes,Yes,No,None,Cash applied
+O2C-1008,Order received,2026-06-02T21:00:00,Order desk,Order booked for UrbanGrid,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1008,Credit approved,2026-06-03T08:00:00,Credit control,Credit limit available,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1008,Goods delivered,2026-06-04T11:00:00,Operations,Proof of delivery matched,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1008,Invoice issued,2026-06-05T00:00:00,Billing,Invoice sent on first pass,185000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1008,Payment received,2026-06-07T06:00:00,Treasury,Customer paid in line with terms,185000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1008,Cash applied,2026-06-07T11:00:00,Cash application,Straight-through cash application,185000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1009,Order received,2026-06-03T01:00:00,Order desk,Order booked for Nimbus Retail,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1009,Credit approved,2026-06-03T12:00:00,Credit control,Credit limit available,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1009,Goods delivered,2026-06-04T09:00:00,Operations,Proof of delivery matched,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1009,Invoice issued,2026-06-04T21:00:00,Billing,Invoice sent on first pass,740000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1009,Payment received,2026-06-06T11:00:00,Treasury,Customer paid in line with terms,740000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1009,Cash applied,2026-06-06T16:00:00,Cash application,Straight-through cash application,740000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1010,Order received,2026-06-03T05:00:00,Order desk,Order booked for Vantage Auto,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1010,Credit approved,2026-06-03T13:00:00,Credit control,Credit limit available,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1010,Goods delivered,2026-06-04T14:00:00,Operations,Proof of delivery matched,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1010,Invoice issued,2026-06-05T03:00:00,Billing,Invoice sent on first pass,960000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1010,Payment received,2026-06-06T20:00:00,Treasury,Customer paid in line with terms,960000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1010,Cash applied,2026-06-07T02:00:00,Cash application,Straight-through cash application,960000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1011,Order received,2026-06-03T09:00:00,Order desk,Order booked for Quanta Foods,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1011,Credit approved,2026-06-03T17:00:00,Credit control,Credit limit available,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1011,Goods delivered,2026-06-04T21:00:00,Operations,Proof of delivery matched,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1011,Invoice issued,2026-06-05T06:00:00,Billing,Invoice sent on first pass,320000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1011,Payment received,2026-06-07T13:00:00,Treasury,Customer paid in line with terms,320000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1011,Cash applied,2026-06-07T18:00:00,Cash application,Straight-through cash application,320000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1012,Order received,2026-06-03T13:00:00,Order desk,Order booked for Cobalt Health,575000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1012,Credit approved,2026-06-03T20:00:00,Credit control,Credit limit available,575000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1012,Goods delivered,2026-06-04T21:00:00,Operations,Proof of delivery matched,575000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1012,Invoice issued,2026-06-05T11:00:00,Billing,Invoice sent on first pass,575000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1012,Payment received,2026-06-07T07:00:00,Treasury,Customer paid in line with terms,575000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1012,Cash applied,2026-06-07T15:00:00,Cash application,Straight-through cash application,575000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1013,Order received,2026-06-03T17:00:00,Order desk,Order booked for UrbanGrid,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1013,Credit approved,2026-06-03T23:00:00,Credit control,Credit limit available,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1013,Goods delivered,2026-06-04T20:00:00,Operations,Proof of delivery matched,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1013,Invoice issued,2026-06-05T04:00:00,Billing,Invoice sent on first pass,245000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1013,Payment received,2026-06-07T02:00:00,Treasury,Customer paid in line with terms,245000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1013,Cash applied,2026-06-07T09:00:00,Cash application,Straight-through cash application,245000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1014,Order received,2026-06-03T21:00:00,Order desk,Order booked for Cobalt Health,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1014,Credit approved,2026-06-04T07:00:00,Credit control,Credit limit available,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1014,Goods delivered,2026-06-05T06:00:00,Operations,Proof of delivery matched,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1014,Invoice issued,2026-06-05T17:00:00,Billing,Invoice sent on first pass,320000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1014,Payment received,2026-06-08T01:00:00,Treasury,Customer paid in line with terms,320000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1014,Cash applied,2026-06-08T08:00:00,Cash application,Straight-through cash application,320000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1015,Order received,2026-06-04T01:00:00,Order desk,Order booked for Vantage Auto,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1015,Credit approved,2026-06-04T08:00:00,Credit control,Credit limit available,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1015,Goods delivered,2026-06-05T06:00:00,Operations,Proof of delivery matched,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1015,Invoice issued,2026-06-05T16:00:00,Billing,Invoice sent on first pass,410000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1015,Payment received,2026-06-07T11:00:00,Treasury,Customer paid in line with terms,410000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1015,Cash applied,2026-06-07T19:00:00,Cash application,Straight-through cash application,410000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1016,Order received,2026-06-04T05:00:00,Order desk,Order booked for Quanta Foods,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1016,Credit approved,2026-06-04T15:00:00,Credit control,Credit limit available,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1016,Goods delivered,2026-06-05T15:00:00,Operations,Proof of delivery matched,575000,Asteron South,Yes,Yes,No,None,Open
+O2C-1016,Invoice issued,2026-06-06T05:00:00,Billing,Invoice sent on first pass,575000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1016,Payment received,2026-06-08T04:00:00,Treasury,Customer paid in line with terms,575000,Asteron South,Yes,Yes,No,None,Paid
+O2C-1016,Cash applied,2026-06-08T09:00:00,Cash application,Straight-through cash application,575000,Asteron South,Yes,Yes,No,None,Cash applied
+O2C-1017,Order received,2026-06-04T09:00:00,Order desk,Order booked for Vantage Auto,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1017,Credit approved,2026-06-04T15:00:00,Credit control,Credit limit available,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1017,Goods delivered,2026-06-05T09:00:00,Operations,Proof of delivery matched,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1017,Invoice issued,2026-06-05T18:00:00,Billing,Invoice sent on first pass,245000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1017,Payment received,2026-06-07T10:00:00,Treasury,Customer paid in line with terms,245000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1017,Cash applied,2026-06-07T15:00:00,Cash application,Straight-through cash application,245000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1018,Order received,2026-06-04T13:00:00,Order desk,Order booked for Vantage Auto,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1018,Credit approved,2026-06-04T23:00:00,Credit control,Credit limit available,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1018,Goods delivered,2026-06-05T18:00:00,Operations,Proof of delivery matched,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1018,Invoice issued,2026-06-06T08:00:00,Billing,Invoice sent on first pass,960000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1018,Payment received,2026-06-08T08:00:00,Treasury,Customer paid in line with terms,960000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1018,Cash applied,2026-06-08T16:00:00,Cash application,Straight-through cash application,960000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1019,Order received,2026-06-04T17:00:00,Order desk,Order booked for UrbanGrid,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1019,Credit approved,2026-06-05T03:00:00,Credit control,Credit limit available,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1019,Goods delivered,2026-06-05T21:00:00,Operations,Proof of delivery matched,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1019,Invoice issued,2026-06-06T06:00:00,Billing,Invoice sent on first pass,410000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1019,Payment received,2026-06-08T11:00:00,Treasury,Customer paid in line with terms,410000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1019,Cash applied,2026-06-08T17:00:00,Cash application,Straight-through cash application,410000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1020,Order received,2026-06-04T21:00:00,Order desk,Order booked for UrbanGrid,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1020,Credit approved,2026-06-05T03:00:00,Credit control,Credit limit available,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1020,Goods delivered,2026-06-06T01:00:00,Operations,Proof of delivery matched,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1020,Invoice issued,2026-06-06T15:00:00,Billing,Invoice sent on first pass,960000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1020,Payment received,2026-06-08T08:00:00,Treasury,Customer paid in line with terms,960000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1020,Cash applied,2026-06-08T15:00:00,Cash application,Straight-through cash application,960000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1021,Order received,2026-06-05T01:00:00,Order desk,Order booked for Quanta Foods,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1021,Credit approved,2026-06-05T09:00:00,Credit control,Credit limit available,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1021,Goods delivered,2026-06-06T11:00:00,Operations,Proof of delivery matched,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1021,Invoice issued,2026-06-06T21:00:00,Billing,Invoice sent on first pass,185000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1021,Payment received,2026-06-09T01:00:00,Treasury,Customer paid in line with terms,185000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1021,Cash applied,2026-06-09T05:00:00,Cash application,Straight-through cash application,185000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1022,Order received,2026-06-05T05:00:00,Order desk,Order booked for UrbanGrid,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1022,Credit approved,2026-06-05T16:00:00,Credit control,Credit limit available,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1022,Goods delivered,2026-06-06T18:00:00,Operations,Proof of delivery matched,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1022,Invoice issued,2026-06-07T05:00:00,Billing,Invoice sent on first pass,960000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1022,Payment received,2026-06-08T21:00:00,Treasury,Customer paid in line with terms,960000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1022,Cash applied,2026-06-09T03:00:00,Cash application,Straight-through cash application,960000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1023,Order received,2026-06-05T09:00:00,Order desk,Order booked for Helio Stores,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1023,Credit approved,2026-06-05T19:00:00,Credit control,Credit limit available,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1023,Goods delivered,2026-06-06T13:00:00,Operations,Proof of delivery matched,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1023,Invoice issued,2026-06-07T02:00:00,Billing,Invoice sent on first pass,960000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1023,Payment received,2026-06-09T05:00:00,Treasury,Customer paid in line with terms,960000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1023,Cash applied,2026-06-09T09:00:00,Cash application,Straight-through cash application,960000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1024,Order received,2026-06-05T13:00:00,Order desk,Order booked for UrbanGrid,185000,Asteron South,Yes,Yes,No,None,Open
+O2C-1024,Credit approved,2026-06-05T20:00:00,Credit control,Credit limit available,185000,Asteron South,Yes,Yes,No,None,Open
+O2C-1024,Goods delivered,2026-06-06T14:00:00,Operations,Proof of delivery matched,185000,Asteron South,Yes,Yes,No,None,Open
+O2C-1024,Invoice issued,2026-06-07T01:00:00,Billing,Invoice sent on first pass,185000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1024,Payment received,2026-06-09T07:00:00,Treasury,Customer paid in line with terms,185000,Asteron South,Yes,Yes,No,None,Paid
+O2C-1024,Cash applied,2026-06-09T11:00:00,Cash application,Straight-through cash application,185000,Asteron South,Yes,Yes,No,None,Cash applied
+O2C-1025,Order received,2026-06-05T17:00:00,Order desk,Order booked for Vantage Auto,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1025,Credit approved,2026-06-05T23:00:00,Credit control,Credit limit available,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1025,Goods delivered,2026-06-07T01:00:00,Operations,Proof of delivery matched,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1025,Invoice issued,2026-06-07T11:00:00,Billing,Invoice sent on first pass,185000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1025,Payment received,2026-06-09T03:00:00,Treasury,Customer paid in line with terms,185000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1025,Cash applied,2026-06-09T10:00:00,Cash application,Straight-through cash application,185000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1026,Order received,2026-06-05T21:00:00,Order desk,Order booked for UrbanGrid,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1026,Credit approved,2026-06-06T07:00:00,Credit control,Credit limit available,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1026,Goods delivered,2026-06-07T10:00:00,Operations,Proof of delivery matched,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1026,Invoice issued,2026-06-08T00:00:00,Billing,Invoice sent on first pass,575000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1026,Payment received,2026-06-09T18:00:00,Treasury,Customer paid in line with terms,575000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1026,Cash applied,2026-06-10T02:00:00,Cash application,Straight-through cash application,575000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1027,Order received,2026-06-06T01:00:00,Order desk,Order booked for Quanta Foods,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1027,Credit approved,2026-06-06T08:00:00,Credit control,Credit limit available,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1027,Goods delivered,2026-06-07T06:00:00,Operations,Proof of delivery matched,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1027,Invoice issued,2026-06-07T20:00:00,Billing,Invoice sent on first pass,960000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1027,Payment received,2026-06-10T04:00:00,Treasury,Customer paid in line with terms,960000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1027,Cash applied,2026-06-10T10:00:00,Cash application,Straight-through cash application,960000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1028,Order received,2026-06-06T05:00:00,Order desk,Order booked for Vantage Auto,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1028,Credit approved,2026-06-06T11:00:00,Credit control,Credit limit available,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1028,Goods delivered,2026-06-07T08:00:00,Operations,Proof of delivery matched,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1028,Invoice issued,2026-06-07T19:00:00,Billing,Invoice sent on first pass,410000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1028,Payment received,2026-06-09T09:00:00,Treasury,Customer paid in line with terms,410000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1028,Cash applied,2026-06-09T15:00:00,Cash application,Straight-through cash application,410000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1029,Order received,2026-06-06T09:00:00,Order desk,Order booked for Helio Stores,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1029,Credit approved,2026-06-06T16:00:00,Credit control,Credit limit available,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1029,Goods delivered,2026-06-07T19:00:00,Operations,Proof of delivery matched,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1029,Invoice issued,2026-06-08T06:00:00,Billing,Invoice sent on first pass,185000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1029,Payment received,2026-06-09T18:00:00,Treasury,Customer paid in line with terms,185000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1029,Cash applied,2026-06-09T22:00:00,Cash application,Straight-through cash application,185000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1030,Order received,2026-06-06T13:00:00,Order desk,Order booked for Nimbus Retail,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1030,Credit approved,2026-06-06T20:00:00,Credit control,Credit limit available,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1030,Goods delivered,2026-06-07T15:00:00,Operations,Proof of delivery matched,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1030,Invoice issued,2026-06-07T23:00:00,Billing,Invoice sent on first pass,740000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1030,Payment received,2026-06-09T21:00:00,Treasury,Customer paid in line with terms,740000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1030,Cash applied,2026-06-10T01:00:00,Cash application,Straight-through cash application,740000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1031,Order received,2026-06-06T17:00:00,Order desk,Order booked for UrbanGrid,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1031,Credit approved,2026-06-07T04:00:00,Credit control,Credit limit available,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1031,Goods delivered,2026-06-08T05:00:00,Operations,Proof of delivery matched,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1031,Invoice issued,2026-06-08T16:00:00,Billing,Invoice sent on first pass,575000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1031,Payment received,2026-06-10T21:00:00,Treasury,Customer paid in line with terms,575000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1031,Cash applied,2026-06-11T02:00:00,Cash application,Straight-through cash application,575000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1032,Order received,2026-06-06T21:00:00,Order desk,Order booked for Helio Stores,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1032,Credit approved,2026-06-07T06:00:00,Credit control,Credit limit available,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1032,Goods delivered,2026-06-08T03:00:00,Operations,Proof of delivery matched,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1032,Invoice issued,2026-06-08T18:00:00,Billing,Invoice sent on first pass,740000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1032,Payment received,2026-06-10T19:00:00,Treasury,Customer paid in line with terms,740000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1032,Cash applied,2026-06-11T00:00:00,Cash application,Straight-through cash application,740000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1033,Order received,2026-06-07T01:00:00,Order desk,Order booked for Quanta Foods,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1033,Credit approved,2026-06-07T10:00:00,Credit control,Credit limit available,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1033,Goods delivered,2026-06-08T09:00:00,Operations,Proof of delivery matched,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1033,Invoice issued,2026-06-08T23:00:00,Billing,Invoice sent on first pass,185000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1033,Payment received,2026-06-11T00:00:00,Treasury,Customer paid in line with terms,185000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1033,Cash applied,2026-06-11T07:00:00,Cash application,Straight-through cash application,185000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1034,Order received,2026-06-07T05:00:00,Order desk,Order booked for Nimbus Retail,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1034,Credit approved,2026-06-07T16:00:00,Credit control,Credit limit available,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1034,Goods delivered,2026-06-08T20:00:00,Operations,Proof of delivery matched,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1034,Invoice issued,2026-06-09T05:00:00,Billing,Invoice sent on first pass,960000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1034,Payment received,2026-06-10T18:00:00,Treasury,Customer paid in line with terms,960000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1034,Cash applied,2026-06-11T01:00:00,Cash application,Straight-through cash application,960000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1035,Order received,2026-06-07T09:00:00,Order desk,Order booked for Nimbus Retail,740000,Asteron South,Yes,Yes,No,None,Open
+O2C-1035,Credit approved,2026-06-07T16:00:00,Credit control,Credit limit available,740000,Asteron South,Yes,Yes,No,None,Open
+O2C-1035,Goods delivered,2026-06-08T13:00:00,Operations,Proof of delivery matched,740000,Asteron South,Yes,Yes,No,None,Open
+O2C-1035,Invoice issued,2026-06-09T00:00:00,Billing,Invoice sent on first pass,740000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1035,Payment received,2026-06-11T05:00:00,Treasury,Customer paid in line with terms,740000,Asteron South,Yes,Yes,No,None,Paid
+O2C-1035,Cash applied,2026-06-11T12:00:00,Cash application,Straight-through cash application,740000,Asteron South,Yes,Yes,No,None,Cash applied
+O2C-1036,Order received,2026-06-07T13:00:00,Order desk,Order booked for Cobalt Health,245000,Asteron South,Yes,Yes,No,None,Open
+O2C-1036,Credit approved,2026-06-07T21:00:00,Credit control,Credit limit available,245000,Asteron South,Yes,Yes,No,None,Open
+O2C-1036,Goods delivered,2026-06-08T22:00:00,Operations,Proof of delivery matched,245000,Asteron South,Yes,Yes,No,None,Open
+O2C-1036,Invoice issued,2026-06-09T09:00:00,Billing,Invoice sent on first pass,245000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1036,Payment received,2026-06-10T23:00:00,Treasury,Customer paid in line with terms,245000,Asteron South,Yes,Yes,No,None,Paid
+O2C-1036,Cash applied,2026-06-11T06:00:00,Cash application,Straight-through cash application,245000,Asteron South,Yes,Yes,No,None,Cash applied
+O2C-1037,Order received,2026-06-07T17:00:00,Order desk,Order booked for Nimbus Retail,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1037,Credit approved,2026-06-07T23:00:00,Credit control,Credit limit available,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1037,Goods delivered,2026-06-09T03:00:00,Operations,Proof of delivery matched,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1037,Invoice issued,2026-06-09T19:00:00,Billing,Invoice sent on first pass,960000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1037,Payment received,2026-06-11T07:00:00,Treasury,Customer paid in line with terms,960000,Asteron Export,Yes,Yes,No,None,Paid
+O2C-1037,Cash applied,2026-06-11T11:00:00,Cash application,Straight-through cash application,960000,Asteron Export,Yes,Yes,No,None,Cash applied
+O2C-1038,Order received,2026-06-07T21:00:00,Order desk,Order booked for Cobalt Health,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1038,Credit approved,2026-06-08T06:00:00,Credit control,Credit limit available,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1038,Goods delivered,2026-06-09T07:00:00,Operations,Proof of delivery matched,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1038,Invoice issued,2026-06-09T22:00:00,Billing,Invoice sent on first pass,960000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1038,Payment received,2026-06-11T16:00:00,Treasury,Customer paid in line with terms,960000,Asteron India,Yes,Yes,No,None,Paid
+O2C-1038,Cash applied,2026-06-11T23:00:00,Cash application,Straight-through cash application,960000,Asteron India,Yes,Yes,No,None,Cash applied
+O2C-1039,Order received,2026-06-08T01:00:00,Order desk,Order booked for Vantage Auto,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1039,Credit review,2026-06-08T07:00:00,Credit control,Order blocked by stale credit evidence,185000,Asteron India,No,Yes,No,Credit hold,Credit hold
+O2C-1039,Credit review,2026-06-09T23:00:00,Credit control,Second review after customer clarification,185000,Asteron India,No,Yes,No,Credit hold,Credit hold
+O2C-1039,Credit evidence completed,2026-06-10T17:00:00,Controller,Evidence pack completed by controller,185000,Asteron India,Yes,Yes,No,Credit hold,Credit hold
+O2C-1039,Credit approved,2026-06-11T08:00:00,Credit control,Hold released after documentation,185000,Asteron India,Yes,Yes,No,Credit hold,Open
+O2C-1039,Goods delivered,2026-06-12T08:00:00,Operations,Delivery completed after hold release,185000,Asteron India,Yes,Yes,No,Credit hold,Open
+O2C-1039,Invoice issued,2026-06-13T00:00:00,Billing,Invoice issued after release,185000,Asteron India,Yes,Yes,No,Credit hold,Invoiced
+O2C-1039,Payment received,2026-06-15T18:00:00,Treasury,Customer paid after delayed release,185000,Asteron India,Yes,Yes,No,Credit hold,Paid
+O2C-1039,Cash applied,2026-06-16T05:00:00,Cash application,Cash applied after delayed cycle,185000,Asteron India,Yes,Yes,No,Credit hold,Cash applied
+O2C-1040,Order received,2026-06-08T05:00:00,Order desk,Order booked for Quanta Foods,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1040,Credit review,2026-06-08T16:00:00,Credit control,Order blocked by stale credit evidence,960000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1040,Credit review,2026-06-10T11:00:00,Credit control,Second review after customer clarification,960000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1040,Credit evidence completed,2026-06-11T03:00:00,Controller,Evidence pack completed by controller,960000,Asteron Export,Yes,Yes,No,Credit hold,Credit hold
+O2C-1040,Credit approved,2026-06-11T14:00:00,Credit control,Hold released after documentation,960000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1040,Goods delivered,2026-06-12T14:00:00,Operations,Delivery completed after hold release,960000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1040,Invoice issued,2026-06-13T03:00:00,Billing,Invoice issued after release,960000,Asteron Export,Yes,Yes,No,Credit hold,Invoiced
+O2C-1040,Payment received,2026-06-15T00:00:00,Treasury,Customer paid after delayed release,960000,Asteron Export,Yes,Yes,No,Credit hold,Paid
+O2C-1040,Cash applied,2026-06-15T10:00:00,Cash application,Cash applied after delayed cycle,960000,Asteron Export,Yes,Yes,No,Credit hold,Cash applied
+O2C-1041,Order received,2026-06-08T09:00:00,Order desk,Order booked for Nimbus Retail,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1041,Credit review,2026-06-08T20:00:00,Credit control,Order blocked by stale credit evidence,740000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1041,Credit review,2026-06-10T10:00:00,Credit control,Second review after customer clarification,740000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1041,Credit evidence completed,2026-06-11T00:00:00,Controller,Evidence pack completed by controller,740000,Asteron Export,Yes,Yes,No,Credit hold,Credit hold
+O2C-1041,Credit approved,2026-06-11T08:00:00,Credit control,Hold released after documentation,740000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1041,Goods delivered,2026-06-12T13:00:00,Operations,Delivery completed after hold release,740000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1041,Invoice issued,2026-06-13T06:00:00,Billing,Invoice issued after release,740000,Asteron Export,Yes,Yes,No,Credit hold,Invoiced
+O2C-1041,Payment received,2026-06-15T18:00:00,Treasury,Customer paid after delayed release,740000,Asteron Export,Yes,Yes,No,Credit hold,Paid
+O2C-1041,Cash applied,2026-06-16T06:00:00,Cash application,Cash applied after delayed cycle,740000,Asteron Export,Yes,Yes,No,Credit hold,Cash applied
+O2C-1042,Order received,2026-06-08T13:00:00,Order desk,Order booked for Nimbus Retail,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1042,Credit review,2026-06-08T23:00:00,Credit control,Order blocked by stale credit evidence,575000,Asteron India,No,Yes,No,Credit hold,Credit hold
+O2C-1042,Credit review,2026-06-10T05:00:00,Credit control,Second review after customer clarification,575000,Asteron India,No,Yes,No,Credit hold,Credit hold
+O2C-1042,Credit evidence completed,2026-06-10T21:00:00,Controller,Evidence pack completed by controller,575000,Asteron India,Yes,Yes,No,Credit hold,Credit hold
+O2C-1042,Credit approved,2026-06-11T06:00:00,Credit control,Hold released after documentation,575000,Asteron India,Yes,Yes,No,Credit hold,Open
+O2C-1042,Goods delivered,2026-06-12T11:00:00,Operations,Delivery completed after hold release,575000,Asteron India,Yes,Yes,No,Credit hold,Open
+O2C-1042,Invoice issued,2026-06-12T22:00:00,Billing,Invoice issued after release,575000,Asteron India,Yes,Yes,No,Credit hold,Invoiced
+O2C-1042,Payment received,2026-06-15T15:00:00,Treasury,Customer paid after delayed release,575000,Asteron India,Yes,Yes,No,Credit hold,Paid
+O2C-1042,Cash applied,2026-06-16T03:00:00,Cash application,Cash applied after delayed cycle,575000,Asteron India,Yes,Yes,No,Credit hold,Cash applied
+O2C-1043,Order received,2026-06-08T17:00:00,Order desk,Order booked for Nimbus Retail,245000,Asteron South,Yes,Yes,No,None,Open
+O2C-1043,Credit review,2026-06-09T03:00:00,Credit control,Order blocked by stale credit evidence,245000,Asteron South,No,Yes,No,Credit hold,Credit hold
+O2C-1043,Credit review,2026-06-10T14:00:00,Credit control,Second review after customer clarification,245000,Asteron South,No,Yes,No,Credit hold,Credit hold
+O2C-1043,Credit evidence completed,2026-06-11T13:00:00,Controller,Evidence pack completed by controller,245000,Asteron South,Yes,Yes,No,Credit hold,Credit hold
+O2C-1043,Credit approved,2026-06-11T21:00:00,Credit control,Hold released after documentation,245000,Asteron South,Yes,Yes,No,Credit hold,Open
+O2C-1043,Goods delivered,2026-06-13T02:00:00,Operations,Delivery completed after hold release,245000,Asteron South,Yes,Yes,No,Credit hold,Open
+O2C-1043,Invoice issued,2026-06-13T13:00:00,Billing,Invoice issued after release,245000,Asteron South,Yes,Yes,No,Credit hold,Invoiced
+O2C-1043,Payment received,2026-06-15T22:00:00,Treasury,Customer paid after delayed release,245000,Asteron South,Yes,Yes,No,Credit hold,Paid
+O2C-1043,Cash applied,2026-06-16T09:00:00,Cash application,Cash applied after delayed cycle,245000,Asteron South,Yes,Yes,No,Credit hold,Cash applied
+O2C-1044,Order received,2026-06-08T21:00:00,Order desk,Order booked for Helio Stores,575000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1044,Credit review,2026-06-09T05:00:00,Credit control,Order blocked by stale credit evidence,575000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1044,Credit review,2026-06-10T17:00:00,Credit control,Second review after customer clarification,575000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1044,Credit evidence completed,2026-06-11T10:00:00,Controller,Evidence pack completed by controller,575000,Asteron Export,Yes,Yes,No,Credit hold,Credit hold
+O2C-1044,Credit approved,2026-06-11T23:00:00,Credit control,Hold released after documentation,575000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1044,Goods delivered,2026-06-12T22:00:00,Operations,Delivery completed after hold release,575000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1044,Invoice issued,2026-06-13T12:00:00,Billing,Invoice issued after release,575000,Asteron Export,Yes,Yes,No,Credit hold,Invoiced
+O2C-1044,Payment received,2026-06-15T20:00:00,Treasury,Customer paid after delayed release,575000,Asteron Export,Yes,Yes,No,Credit hold,Paid
+O2C-1044,Cash applied,2026-06-16T03:00:00,Cash application,Cash applied after delayed cycle,575000,Asteron Export,Yes,Yes,No,Credit hold,Cash applied
+O2C-1045,Order received,2026-06-09T01:00:00,Order desk,Order booked for UrbanGrid,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1045,Credit review,2026-06-09T10:00:00,Credit control,Order blocked by stale credit evidence,740000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1045,Credit review,2026-06-11T00:00:00,Credit control,Second review after customer clarification,740000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1045,Credit evidence completed,2026-06-11T15:00:00,Controller,Evidence pack completed by controller,740000,Asteron Export,Yes,Yes,No,Credit hold,Credit hold
+O2C-1045,Credit approved,2026-06-11T23:00:00,Credit control,Hold released after documentation,740000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1045,Goods delivered,2026-06-13T02:00:00,Operations,Delivery completed after hold release,740000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1045,Invoice issued,2026-06-13T13:00:00,Billing,Invoice issued after release,740000,Asteron Export,Yes,Yes,No,Credit hold,Invoiced
+O2C-1045,Payment received,2026-06-15T11:00:00,Treasury,Customer paid after delayed release,740000,Asteron Export,Yes,Yes,No,Credit hold,Paid
+O2C-1045,Cash applied,2026-06-15T21:00:00,Cash application,Cash applied after delayed cycle,740000,Asteron Export,Yes,Yes,No,Credit hold,Cash applied
+O2C-1046,Order received,2026-06-09T05:00:00,Order desk,Order booked for UrbanGrid,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1046,Credit review,2026-06-09T12:00:00,Credit control,Order blocked by stale credit evidence,245000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1046,Credit review,2026-06-11T03:00:00,Credit control,Second review after customer clarification,245000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1046,Credit evidence completed,2026-06-11T18:00:00,Controller,Evidence pack completed by controller,245000,Asteron Export,Yes,Yes,No,Credit hold,Credit hold
+O2C-1046,Credit approved,2026-06-12T05:00:00,Credit control,Hold released after documentation,245000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1046,Goods delivered,2026-06-13T06:00:00,Operations,Delivery completed after hold release,245000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1046,Invoice issued,2026-06-13T20:00:00,Billing,Invoice issued after release,245000,Asteron Export,Yes,Yes,No,Credit hold,Invoiced
+O2C-1046,Payment received,2026-06-15T21:00:00,Treasury,Customer paid after delayed release,245000,Asteron Export,Yes,Yes,No,Credit hold,Paid
+O2C-1046,Cash applied,2026-06-16T06:00:00,Cash application,Cash applied after delayed cycle,245000,Asteron Export,Yes,Yes,No,Credit hold,Cash applied
+O2C-1047,Order received,2026-06-09T09:00:00,Order desk,Order booked for Quanta Foods,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1047,Credit review,2026-06-09T17:00:00,Credit control,Order blocked by stale credit evidence,960000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1047,Credit review,2026-06-11T13:00:00,Credit control,Second review after customer clarification,960000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1047,Credit evidence completed,2026-06-12T03:00:00,Controller,Evidence pack completed by controller,960000,Asteron Export,Yes,Yes,No,Credit hold,Credit hold
+O2C-1047,Credit approved,2026-06-12T19:00:00,Credit control,Hold released after documentation,960000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1047,Goods delivered,2026-06-13T19:00:00,Operations,Delivery completed after hold release,960000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1047,Invoice issued,2026-06-14T06:00:00,Billing,Invoice issued after release,960000,Asteron Export,Yes,Yes,No,Credit hold,Invoiced
+O2C-1047,Payment received,2026-06-16T06:00:00,Treasury,Customer paid after delayed release,960000,Asteron Export,Yes,Yes,No,Credit hold,Paid
+O2C-1047,Cash applied,2026-06-16T14:00:00,Cash application,Cash applied after delayed cycle,960000,Asteron Export,Yes,Yes,No,Credit hold,Cash applied
+O2C-1048,Order received,2026-06-09T13:00:00,Order desk,Order booked for Quanta Foods,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1048,Credit review,2026-06-09T23:00:00,Credit control,Order blocked by stale credit evidence,185000,Asteron India,No,Yes,No,Credit hold,Credit hold
+O2C-1048,Credit review,2026-06-11T07:00:00,Credit control,Second review after customer clarification,185000,Asteron India,No,Yes,No,Credit hold,Credit hold
+O2C-1048,Credit evidence completed,2026-06-12T01:00:00,Controller,Evidence pack completed by controller,185000,Asteron India,Yes,Yes,No,Credit hold,Credit hold
+O2C-1048,Credit approved,2026-06-12T13:00:00,Credit control,Hold released after documentation,185000,Asteron India,Yes,Yes,No,Credit hold,Open
+O2C-1048,Goods delivered,2026-06-13T18:00:00,Operations,Delivery completed after hold release,185000,Asteron India,Yes,Yes,No,Credit hold,Open
+O2C-1048,Invoice issued,2026-06-14T07:00:00,Billing,Invoice issued after release,185000,Asteron India,Yes,Yes,No,Credit hold,Invoiced
+O2C-1048,Payment received,2026-06-17T01:00:00,Treasury,Customer paid after delayed release,185000,Asteron India,Yes,Yes,No,Credit hold,Paid
+O2C-1048,Cash applied,2026-06-17T09:00:00,Cash application,Cash applied after delayed cycle,185000,Asteron India,Yes,Yes,No,Credit hold,Cash applied
+O2C-1049,Order received,2026-06-09T17:00:00,Order desk,Order booked for Quanta Foods,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1049,Credit review,2026-06-10T01:00:00,Credit control,Order blocked by stale credit evidence,245000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1049,Credit review,2026-06-11T21:00:00,Credit control,Second review after customer clarification,245000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1049,Credit evidence completed,2026-06-12T18:00:00,Controller,Evidence pack completed by controller,245000,Asteron Export,Yes,Yes,No,Credit hold,Credit hold
+O2C-1049,Credit approved,2026-06-13T06:00:00,Credit control,Hold released after documentation,245000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1049,Goods delivered,2026-06-14T02:00:00,Operations,Delivery completed after hold release,245000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1049,Invoice issued,2026-06-14T13:00:00,Billing,Invoice issued after release,245000,Asteron Export,Yes,Yes,No,Credit hold,Invoiced
+O2C-1049,Payment received,2026-06-17T05:00:00,Treasury,Customer paid after delayed release,245000,Asteron Export,Yes,Yes,No,Credit hold,Paid
+O2C-1049,Cash applied,2026-06-17T14:00:00,Cash application,Cash applied after delayed cycle,245000,Asteron Export,Yes,Yes,No,Credit hold,Cash applied
+O2C-1050,Order received,2026-06-09T21:00:00,Order desk,Order booked for Nimbus Retail,960000,Asteron South,Yes,Yes,No,None,Open
+O2C-1050,Credit review,2026-06-10T03:00:00,Credit control,Order blocked by stale credit evidence,960000,Asteron South,No,Yes,No,Credit hold,Credit hold
+O2C-1050,Credit review,2026-06-11T17:00:00,Credit control,Second review after customer clarification,960000,Asteron South,No,Yes,No,Credit hold,Credit hold
+O2C-1050,Credit evidence completed,2026-06-12T09:00:00,Controller,Evidence pack completed by controller,960000,Asteron South,Yes,Yes,No,Credit hold,Credit hold
+O2C-1050,Credit approved,2026-06-12T21:00:00,Credit control,Hold released after documentation,960000,Asteron South,Yes,Yes,No,Credit hold,Open
+O2C-1050,Goods delivered,2026-06-13T19:00:00,Operations,Delivery completed after hold release,960000,Asteron South,Yes,Yes,No,Credit hold,Open
+O2C-1050,Invoice issued,2026-06-14T12:00:00,Billing,Invoice issued after release,960000,Asteron South,Yes,Yes,No,Credit hold,Invoiced
+O2C-1050,Payment received,2026-06-17T01:00:00,Treasury,Customer paid after delayed release,960000,Asteron South,Yes,Yes,No,Credit hold,Paid
+O2C-1050,Cash applied,2026-06-17T12:00:00,Cash application,Cash applied after delayed cycle,960000,Asteron South,Yes,Yes,No,Credit hold,Cash applied
+O2C-1051,Order received,2026-06-10T01:00:00,Order desk,Order booked for Nimbus Retail,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1051,Credit review,2026-06-10T07:00:00,Credit control,Order blocked by stale credit evidence,410000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1051,Credit review,2026-06-11T13:00:00,Credit control,Second review after customer clarification,410000,Asteron Export,No,Yes,No,Credit hold,Credit hold
+O2C-1051,Credit evidence completed,2026-06-12T05:00:00,Controller,Evidence pack completed by controller,410000,Asteron Export,Yes,Yes,No,Credit hold,Credit hold
+O2C-1051,Credit approved,2026-06-12T21:00:00,Credit control,Hold released after documentation,410000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1051,Goods delivered,2026-06-13T17:00:00,Operations,Delivery completed after hold release,410000,Asteron Export,Yes,Yes,No,Credit hold,Open
+O2C-1051,Invoice issued,2026-06-14T08:00:00,Billing,Invoice issued after release,410000,Asteron Export,Yes,Yes,No,Credit hold,Invoiced
+O2C-1051,Payment received,2026-06-16T22:00:00,Treasury,Customer paid after delayed release,410000,Asteron Export,Yes,Yes,No,Credit hold,Paid
+O2C-1051,Cash applied,2026-06-17T08:00:00,Cash application,Cash applied after delayed cycle,410000,Asteron Export,Yes,Yes,No,Credit hold,Cash applied
+O2C-1052,Order received,2026-06-10T05:00:00,Order desk,Order booked for Cobalt Health,245000,Asteron South,Yes,Yes,No,None,Open
+O2C-1052,Credit review,2026-06-10T11:00:00,Credit control,Order blocked by stale credit evidence,245000,Asteron South,No,Yes,No,Credit hold,Credit hold
+O2C-1052,Credit review,2026-06-12T00:00:00,Credit control,Second review after customer clarification,245000,Asteron South,No,Yes,No,Credit hold,Credit hold
+O2C-1052,Credit evidence completed,2026-06-12T19:00:00,Controller,Evidence pack completed by controller,245000,Asteron South,Yes,Yes,No,Credit hold,Credit hold
+O2C-1052,Credit approved,2026-06-13T03:00:00,Credit control,Hold released after documentation,245000,Asteron South,Yes,Yes,No,Credit hold,Open
+O2C-1052,Goods delivered,2026-06-14T04:00:00,Operations,Delivery completed after hold release,245000,Asteron South,Yes,Yes,No,Credit hold,Open
+O2C-1052,Invoice issued,2026-06-14T17:00:00,Billing,Invoice issued after release,245000,Asteron South,Yes,Yes,No,Credit hold,Invoiced
+O2C-1052,Payment received,2026-06-17T10:00:00,Treasury,Customer paid after delayed release,245000,Asteron South,Yes,Yes,No,Credit hold,Paid
+O2C-1052,Cash applied,2026-06-17T17:00:00,Cash application,Cash applied after delayed cycle,245000,Asteron South,Yes,Yes,No,Credit hold,Cash applied
+O2C-1053,Order received,2026-06-10T09:00:00,Order desk,Order booked for UrbanGrid,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1053,Credit review,2026-06-10T19:00:00,Credit control,Order blocked by stale credit evidence,740000,Asteron India,No,Yes,No,Credit hold,Credit hold
+O2C-1053,Credit review,2026-06-12T12:00:00,Credit control,Second review after customer clarification,740000,Asteron India,No,Yes,No,Credit hold,Credit hold
+O2C-1053,Credit evidence completed,2026-06-13T11:00:00,Controller,Evidence pack completed by controller,740000,Asteron India,Yes,Yes,No,Credit hold,Credit hold
+O2C-1053,Credit approved,2026-06-13T21:00:00,Credit control,Hold released after documentation,740000,Asteron India,Yes,Yes,No,Credit hold,Open
+O2C-1053,Goods delivered,2026-06-14T20:00:00,Operations,Delivery completed after hold release,740000,Asteron India,Yes,Yes,No,Credit hold,Open
+O2C-1053,Invoice issued,2026-06-15T08:00:00,Billing,Invoice issued after release,740000,Asteron India,Yes,Yes,No,Credit hold,Invoiced
+O2C-1053,Payment received,2026-06-17T09:00:00,Treasury,Customer paid after delayed release,740000,Asteron India,Yes,Yes,No,Credit hold,Paid
+O2C-1053,Cash applied,2026-06-17T18:00:00,Cash application,Cash applied after delayed cycle,740000,Asteron India,Yes,Yes,No,Credit hold,Cash applied
+O2C-1054,Order received,2026-06-10T13:00:00,Order desk,Order booked for Quanta Foods,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1054,Credit approved,2026-06-10T21:00:00,Credit control,Credit okay,185000,Asteron India,Yes,Yes,No,None,Open
+O2C-1054,Goods delivered,2026-06-12T01:00:00,Operations,Initial delivery posted,185000,Asteron India,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1054,Delivery dispute logged,2026-06-13T00:00:00,Customer service,Customer disputed quantity or damage,185000,Asteron India,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1054,Delivery dispute resolved,2026-06-14T18:00:00,Operations,Operations corrected POD and replacement logic,185000,Asteron India,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1054,Invoice issued,2026-06-15T06:00:00,Billing,Initial invoice after dispute resolution,185000,Asteron India,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1054,Payment received,2026-06-17T01:00:00,Treasury,Customer paid after dispute closure,185000,Asteron India,Yes,Yes,No,Delivery dispute,Paid
+O2C-1054,Cash applied,2026-06-17T09:00:00,Cash application,Cash applied after operations fix,185000,Asteron India,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1055,Order received,2026-06-10T17:00:00,Order desk,Order booked for Vantage Auto,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1055,Credit approved,2026-06-11T00:00:00,Credit control,Credit okay,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1055,Goods delivered,2026-06-12T01:00:00,Operations,Initial delivery posted,960000,Asteron India,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1055,Delivery dispute logged,2026-06-13T07:00:00,Customer service,Customer disputed quantity or damage,960000,Asteron India,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1055,Delivery dispute resolved,2026-06-15T04:00:00,Operations,Operations corrected POD and replacement logic,960000,Asteron India,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1055,Invoice issued,2026-06-15T18:00:00,Billing,Initial invoice after dispute resolution,960000,Asteron India,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1055,Payment received,2026-06-17T17:00:00,Treasury,Customer paid after dispute closure,960000,Asteron India,Yes,Yes,No,Delivery dispute,Paid
+O2C-1055,Cash applied,2026-06-17T23:00:00,Cash application,Cash applied after operations fix,960000,Asteron India,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1056,Order received,2026-06-10T21:00:00,Order desk,Order booked for Cobalt Health,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1056,Credit approved,2026-06-11T06:00:00,Credit control,Credit okay,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1056,Goods delivered,2026-06-12T09:00:00,Operations,Initial delivery posted,185000,Asteron Export,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1056,Delivery dispute logged,2026-06-13T09:00:00,Customer service,Customer disputed quantity or damage,185000,Asteron Export,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1056,Delivery dispute resolved,2026-06-14T21:00:00,Operations,Operations corrected POD and replacement logic,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1056,Invoice issued,2026-06-15T11:00:00,Billing,Initial invoice after dispute resolution,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1056,Invoice reissued,2026-06-15T19:00:00,Billing,Invoice corrected after quantity alignment,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Reissued
+O2C-1056,Payment received,2026-06-18T03:00:00,Treasury,Customer paid after dispute closure,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Paid
+O2C-1056,Cash applied,2026-06-18T11:00:00,Cash application,Cash applied after operations fix,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1057,Order received,2026-06-11T01:00:00,Order desk,Order booked for UrbanGrid,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1057,Credit approved,2026-06-11T07:00:00,Credit control,Credit okay,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1057,Goods delivered,2026-06-12T06:00:00,Operations,Initial delivery posted,740000,Asteron Export,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1057,Delivery dispute logged,2026-06-13T06:00:00,Customer service,Customer disputed quantity or damage,740000,Asteron Export,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1057,Delivery dispute resolved,2026-06-14T21:00:00,Operations,Operations corrected POD and replacement logic,740000,Asteron Export,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1057,Invoice issued,2026-06-15T16:00:00,Billing,Initial invoice after dispute resolution,740000,Asteron Export,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1057,Payment received,2026-06-17T16:00:00,Treasury,Customer paid after dispute closure,740000,Asteron Export,Yes,Yes,No,Delivery dispute,Paid
+O2C-1057,Cash applied,2026-06-17T21:00:00,Cash application,Cash applied after operations fix,740000,Asteron Export,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1058,Order received,2026-06-11T05:00:00,Order desk,Order booked for Vantage Auto,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1058,Credit approved,2026-06-11T13:00:00,Credit control,Credit okay,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1058,Goods delivered,2026-06-12T16:00:00,Operations,Initial delivery posted,185000,Asteron Export,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1058,Delivery dispute logged,2026-06-13T21:00:00,Customer service,Customer disputed quantity or damage,185000,Asteron Export,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1058,Delivery dispute resolved,2026-06-16T02:00:00,Operations,Operations corrected POD and replacement logic,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1058,Invoice issued,2026-06-16T20:00:00,Billing,Initial invoice after dispute resolution,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1058,Invoice reissued,2026-06-17T04:00:00,Billing,Invoice corrected after quantity alignment,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Reissued
+O2C-1058,Payment received,2026-06-19T14:00:00,Treasury,Customer paid after dispute closure,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Paid
+O2C-1058,Cash applied,2026-06-19T20:00:00,Cash application,Cash applied after operations fix,185000,Asteron Export,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1059,Order received,2026-06-11T09:00:00,Order desk,Order booked for Quanta Foods,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1059,Credit approved,2026-06-11T18:00:00,Credit control,Credit okay,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1059,Goods delivered,2026-06-12T16:00:00,Operations,Initial delivery posted,320000,Asteron India,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1059,Delivery dispute logged,2026-06-14T00:00:00,Customer service,Customer disputed quantity or damage,320000,Asteron India,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1059,Delivery dispute resolved,2026-06-16T03:00:00,Operations,Operations corrected POD and replacement logic,320000,Asteron India,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1059,Invoice issued,2026-06-16T23:00:00,Billing,Initial invoice after dispute resolution,320000,Asteron India,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1059,Payment received,2026-06-19T14:00:00,Treasury,Customer paid after dispute closure,320000,Asteron India,Yes,Yes,No,Delivery dispute,Paid
+O2C-1059,Cash applied,2026-06-20T00:00:00,Cash application,Cash applied after operations fix,320000,Asteron India,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1060,Order received,2026-06-11T13:00:00,Order desk,Order booked for UrbanGrid,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1060,Credit approved,2026-06-11T22:00:00,Credit control,Credit okay,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1060,Goods delivered,2026-06-12T21:00:00,Operations,Initial delivery posted,740000,Asteron India,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1060,Delivery dispute logged,2026-06-13T23:00:00,Customer service,Customer disputed quantity or damage,740000,Asteron India,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1060,Delivery dispute resolved,2026-06-16T04:00:00,Operations,Operations corrected POD and replacement logic,740000,Asteron India,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1060,Invoice issued,2026-06-16T19:00:00,Billing,Initial invoice after dispute resolution,740000,Asteron India,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1060,Payment received,2026-06-18T14:00:00,Treasury,Customer paid after dispute closure,740000,Asteron India,Yes,Yes,No,Delivery dispute,Paid
+O2C-1060,Cash applied,2026-06-19T00:00:00,Cash application,Cash applied after operations fix,740000,Asteron India,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1061,Order received,2026-06-11T17:00:00,Order desk,Order booked for UrbanGrid,320000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1061,Credit approved,2026-06-12T04:00:00,Credit control,Credit okay,320000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1061,Goods delivered,2026-06-13T08:00:00,Operations,Initial delivery posted,320000,Asteron Export,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1061,Delivery dispute logged,2026-06-14T10:00:00,Customer service,Customer disputed quantity or damage,320000,Asteron Export,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1061,Delivery dispute resolved,2026-06-16T08:00:00,Operations,Operations corrected POD and replacement logic,320000,Asteron Export,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1061,Invoice issued,2026-06-16T22:00:00,Billing,Initial invoice after dispute resolution,320000,Asteron Export,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1061,Payment received,2026-06-18T20:00:00,Treasury,Customer paid after dispute closure,320000,Asteron Export,Yes,Yes,No,Delivery dispute,Paid
+O2C-1061,Cash applied,2026-06-19T04:00:00,Cash application,Cash applied after operations fix,320000,Asteron Export,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1062,Order received,2026-06-11T21:00:00,Order desk,Order booked for Quanta Foods,740000,Asteron South,Yes,Yes,No,None,Open
+O2C-1062,Credit approved,2026-06-12T08:00:00,Credit control,Credit okay,740000,Asteron South,Yes,Yes,No,None,Open
+O2C-1062,Goods delivered,2026-06-13T08:00:00,Operations,Initial delivery posted,740000,Asteron South,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1062,Delivery dispute logged,2026-06-14T18:00:00,Customer service,Customer disputed quantity or damage,740000,Asteron South,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1062,Delivery dispute resolved,2026-06-16T13:00:00,Operations,Operations corrected POD and replacement logic,740000,Asteron South,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1062,Invoice issued,2026-06-17T05:00:00,Billing,Initial invoice after dispute resolution,740000,Asteron South,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1062,Payment received,2026-06-18T21:00:00,Treasury,Customer paid after dispute closure,740000,Asteron South,Yes,Yes,No,Delivery dispute,Paid
+O2C-1062,Cash applied,2026-06-19T04:00:00,Cash application,Cash applied after operations fix,740000,Asteron South,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1063,Order received,2026-06-12T01:00:00,Order desk,Order booked for Vantage Auto,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1063,Credit approved,2026-06-12T11:00:00,Credit control,Credit okay,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1063,Goods delivered,2026-06-13T18:00:00,Operations,Initial delivery posted,320000,Asteron India,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1063,Delivery dispute logged,2026-06-14T20:00:00,Customer service,Customer disputed quantity or damage,320000,Asteron India,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1063,Delivery dispute resolved,2026-06-16T20:00:00,Operations,Operations corrected POD and replacement logic,320000,Asteron India,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1063,Invoice issued,2026-06-17T13:00:00,Billing,Initial invoice after dispute resolution,320000,Asteron India,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1063,Invoice reissued,2026-06-17T21:00:00,Billing,Invoice corrected after quantity alignment,320000,Asteron India,Yes,Yes,No,Delivery dispute,Reissued
+O2C-1063,Payment received,2026-06-19T19:00:00,Treasury,Customer paid after dispute closure,320000,Asteron India,Yes,Yes,No,Delivery dispute,Paid
+O2C-1063,Cash applied,2026-06-20T04:00:00,Cash application,Cash applied after operations fix,320000,Asteron India,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1064,Order received,2026-06-12T05:00:00,Order desk,Order booked for Cobalt Health,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1064,Credit approved,2026-06-12T16:00:00,Credit control,Credit okay,410000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1064,Goods delivered,2026-06-13T15:00:00,Operations,Initial delivery posted,410000,Asteron Export,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1064,Delivery dispute logged,2026-06-14T16:00:00,Customer service,Customer disputed quantity or damage,410000,Asteron Export,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1064,Delivery dispute resolved,2026-06-16T18:00:00,Operations,Operations corrected POD and replacement logic,410000,Asteron Export,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1064,Invoice issued,2026-06-17T14:00:00,Billing,Initial invoice after dispute resolution,410000,Asteron Export,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1064,Payment received,2026-06-19T16:00:00,Treasury,Customer paid after dispute closure,410000,Asteron Export,Yes,Yes,No,Delivery dispute,Paid
+O2C-1064,Cash applied,2026-06-19T21:00:00,Cash application,Cash applied after operations fix,410000,Asteron Export,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1065,Order received,2026-06-12T09:00:00,Order desk,Order booked for Quanta Foods,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1065,Credit approved,2026-06-12T17:00:00,Credit control,Credit okay,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1065,Goods delivered,2026-06-13T18:00:00,Operations,Initial delivery posted,960000,Asteron India,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1065,Delivery dispute logged,2026-06-14T16:00:00,Customer service,Customer disputed quantity or damage,960000,Asteron India,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1065,Delivery dispute resolved,2026-06-16T06:00:00,Operations,Operations corrected POD and replacement logic,960000,Asteron India,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1065,Invoice issued,2026-06-16T16:00:00,Billing,Initial invoice after dispute resolution,960000,Asteron India,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1065,Invoice reissued,2026-06-17T00:00:00,Billing,Invoice corrected after quantity alignment,960000,Asteron India,Yes,Yes,No,Delivery dispute,Reissued
+O2C-1065,Payment received,2026-06-19T07:00:00,Treasury,Customer paid after dispute closure,960000,Asteron India,Yes,Yes,No,Delivery dispute,Paid
+O2C-1065,Cash applied,2026-06-19T16:00:00,Cash application,Cash applied after operations fix,960000,Asteron India,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1066,Order received,2026-06-12T13:00:00,Order desk,Order booked for Vantage Auto,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1066,Credit approved,2026-06-12T22:00:00,Credit control,Credit okay,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1066,Goods delivered,2026-06-14T06:00:00,Operations,Initial delivery posted,960000,Asteron India,Yes,No,Yes,Delivery dispute,Delivered with dispute
+O2C-1066,Delivery dispute logged,2026-06-15T16:00:00,Customer service,Customer disputed quantity or damage,960000,Asteron India,Yes,No,Yes,Delivery dispute,Dispute
+O2C-1066,Delivery dispute resolved,2026-06-17T08:00:00,Operations,Operations corrected POD and replacement logic,960000,Asteron India,Yes,Yes,No,Delivery dispute,Resolved
+O2C-1066,Invoice issued,2026-06-18T00:00:00,Billing,Initial invoice after dispute resolution,960000,Asteron India,Yes,Yes,No,Delivery dispute,Invoiced
+O2C-1066,Payment received,2026-06-19T23:00:00,Treasury,Customer paid after dispute closure,960000,Asteron India,Yes,Yes,No,Delivery dispute,Paid
+O2C-1066,Cash applied,2026-06-20T05:00:00,Cash application,Cash applied after operations fix,960000,Asteron India,Yes,Yes,No,Delivery dispute,Cash applied
+O2C-1067,Order received,2026-06-12T17:00:00,Order desk,Order booked for Nimbus Retail,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1067,Credit approved,2026-06-12T23:00:00,Credit control,Credit okay,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1067,Goods delivered,2026-06-13T23:00:00,Operations,Delivery confirmed,740000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1067,Invoice issued,2026-06-14T08:00:00,Billing,Invoice sent,740000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1067,Payment received,2026-06-16T11:00:00,Treasury,Customer short-paid 61796 against invoice,740000,Asteron Export,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1067,Short payment review,2026-06-17T21:00:00,Collections,Collections and sales reviewed deduction reason,740000,Asteron Export,Yes,Yes,Yes,Short payment,Under review
+O2C-1067,Deduction approved,2026-06-19T01:00:00,Controller,Controller approved settlement logic,740000,Asteron Export,Yes,Yes,No,Short payment,Resolved
+O2C-1067,Cash applied,2026-06-19T09:00:00,Cash application,Residual amount cleared after review,740000,Asteron Export,Yes,Yes,No,Short payment,Cash applied
+O2C-1068,Order received,2026-06-12T21:00:00,Order desk,Order booked for Nimbus Retail,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1068,Credit approved,2026-06-13T06:00:00,Credit control,Credit okay,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1068,Goods delivered,2026-06-14T02:00:00,Operations,Delivery confirmed,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1068,Invoice issued,2026-06-14T16:00:00,Billing,Invoice sent,575000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1068,Payment received,2026-06-17T04:00:00,Treasury,Customer short-paid 57438 against invoice,575000,Asteron India,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1068,Short payment review,2026-06-18T15:00:00,Collections,Collections and sales reviewed deduction reason,575000,Asteron India,Yes,Yes,Yes,Short payment,Under review
+O2C-1068,Deduction approved,2026-06-19T15:00:00,Controller,Controller approved settlement logic,575000,Asteron India,Yes,Yes,No,Short payment,Resolved
+O2C-1068,Cash applied,2026-06-20T06:00:00,Cash application,Residual amount cleared after review,575000,Asteron India,Yes,Yes,No,Short payment,Cash applied
+O2C-1069,Order received,2026-06-13T01:00:00,Order desk,Order booked for Helio Stores,575000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1069,Credit approved,2026-06-13T10:00:00,Credit control,Credit okay,575000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1069,Goods delivered,2026-06-14T12:00:00,Operations,Delivery confirmed,575000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1069,Invoice issued,2026-06-14T23:00:00,Billing,Invoice sent,575000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1069,Payment received,2026-06-17T02:00:00,Treasury,Customer short-paid 52188 against invoice,575000,Asteron Export,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1069,Short payment review,2026-06-18T11:00:00,Collections,Collections and sales reviewed deduction reason,575000,Asteron Export,Yes,Yes,Yes,Short payment,Under review
+O2C-1069,Deduction approved,2026-06-19T15:00:00,Controller,Controller approved settlement logic,575000,Asteron Export,Yes,Yes,No,Short payment,Resolved
+O2C-1069,Cash applied,2026-06-20T03:00:00,Cash application,Residual amount cleared after review,575000,Asteron Export,Yes,Yes,No,Short payment,Cash applied
+O2C-1070,Order received,2026-06-13T05:00:00,Order desk,Order booked for Quanta Foods,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1070,Credit approved,2026-06-13T13:00:00,Credit control,Credit okay,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1070,Goods delivered,2026-06-14T15:00:00,Operations,Delivery confirmed,960000,Asteron India,Yes,Yes,No,None,Open
+O2C-1070,Invoice issued,2026-06-15T02:00:00,Billing,Invoice sent,960000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1070,Payment received,2026-06-17T07:00:00,Treasury,Customer short-paid 141167 against invoice,960000,Asteron India,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1070,Short payment review,2026-06-18T03:00:00,Collections,Collections and sales reviewed deduction reason,960000,Asteron India,Yes,Yes,Yes,Short payment,Under review
+O2C-1070,Deduction approved,2026-06-19T02:00:00,Controller,Controller approved settlement logic,960000,Asteron India,Yes,Yes,No,Short payment,Resolved
+O2C-1070,Cash applied,2026-06-19T13:00:00,Cash application,Residual amount cleared after review,960000,Asteron India,Yes,Yes,No,Short payment,Cash applied
+O2C-1071,Order received,2026-06-13T09:00:00,Order desk,Order booked for UrbanGrid,320000,Asteron South,Yes,Yes,No,None,Open
+O2C-1071,Credit approved,2026-06-13T19:00:00,Credit control,Credit okay,320000,Asteron South,Yes,Yes,No,None,Open
+O2C-1071,Goods delivered,2026-06-14T14:00:00,Operations,Delivery confirmed,320000,Asteron South,Yes,Yes,No,None,Open
+O2C-1071,Invoice issued,2026-06-14T23:00:00,Billing,Invoice sent,320000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1071,Payment received,2026-06-17T01:00:00,Treasury,Customer short-paid 48720 against invoice,320000,Asteron South,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1071,Short payment review,2026-06-17T23:00:00,Collections,Collections and sales reviewed deduction reason,320000,Asteron South,Yes,Yes,Yes,Short payment,Under review
+O2C-1071,Deduction approved,2026-06-18T19:00:00,Controller,Controller approved settlement logic,320000,Asteron South,Yes,Yes,No,Short payment,Resolved
+O2C-1071,Cash applied,2026-06-19T04:00:00,Cash application,Residual amount cleared after review,320000,Asteron South,Yes,Yes,No,Short payment,Cash applied
+O2C-1072,Order received,2026-06-13T13:00:00,Order desk,Order booked for UrbanGrid,410000,Asteron South,Yes,Yes,No,None,Open
+O2C-1072,Credit approved,2026-06-13T23:00:00,Credit control,Credit okay,410000,Asteron South,Yes,Yes,No,None,Open
+O2C-1072,Goods delivered,2026-06-15T00:00:00,Operations,Delivery confirmed,410000,Asteron South,Yes,Yes,No,None,Open
+O2C-1072,Invoice issued,2026-06-15T11:00:00,Billing,Invoice sent,410000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1072,Payment received,2026-06-17T10:00:00,Treasury,Customer short-paid 63624 against invoice,410000,Asteron South,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1072,Short payment review,2026-06-18T17:00:00,Collections,Collections and sales reviewed deduction reason,410000,Asteron South,Yes,Yes,Yes,Short payment,Under review
+O2C-1072,Deduction approved,2026-06-19T19:00:00,Controller,Controller approved settlement logic,410000,Asteron South,Yes,Yes,No,Short payment,Resolved
+O2C-1072,Cash applied,2026-06-20T03:00:00,Cash application,Residual amount cleared after review,410000,Asteron South,Yes,Yes,No,Short payment,Cash applied
+O2C-1073,Order received,2026-06-13T17:00:00,Order desk,Order booked for Vantage Auto,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1073,Credit approved,2026-06-14T02:00:00,Credit control,Credit okay,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1073,Goods delivered,2026-06-14T20:00:00,Operations,Delivery confirmed,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1073,Invoice issued,2026-06-15T06:00:00,Billing,Invoice sent,960000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1073,Payment received,2026-06-17T13:00:00,Treasury,Customer short-paid 86000 against invoice,960000,Asteron Export,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1073,Short payment review,2026-06-18T20:00:00,Collections,Collections and sales reviewed deduction reason,960000,Asteron Export,Yes,Yes,Yes,Short payment,Under review
+O2C-1073,Deduction approved,2026-06-20T03:00:00,Controller,Controller approved settlement logic,960000,Asteron Export,Yes,Yes,No,Short payment,Resolved
+O2C-1073,Cash applied,2026-06-20T19:00:00,Cash application,Residual amount cleared after review,960000,Asteron Export,Yes,Yes,No,Short payment,Cash applied
+O2C-1074,Order received,2026-06-13T21:00:00,Order desk,Order booked for Cobalt Health,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1074,Credit approved,2026-06-14T06:00:00,Credit control,Credit okay,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1074,Goods delivered,2026-06-15T03:00:00,Operations,Delivery confirmed,960000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1074,Invoice issued,2026-06-15T13:00:00,Billing,Invoice sent,960000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1074,Payment received,2026-06-18T00:00:00,Treasury,Customer short-paid 116855 against invoice,960000,Asteron Export,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1074,Short payment review,2026-06-19T06:00:00,Collections,Collections and sales reviewed deduction reason,960000,Asteron Export,Yes,Yes,Yes,Short payment,Under review
+O2C-1074,Deduction approved,2026-06-20T06:00:00,Controller,Controller approved settlement logic,960000,Asteron Export,Yes,Yes,No,Short payment,Resolved
+O2C-1074,Cash applied,2026-06-20T20:00:00,Cash application,Residual amount cleared after review,960000,Asteron Export,Yes,Yes,No,Short payment,Cash applied
+O2C-1075,Order received,2026-06-14T01:00:00,Order desk,Order booked for Vantage Auto,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1075,Credit approved,2026-06-14T08:00:00,Credit control,Credit okay,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1075,Goods delivered,2026-06-15T11:00:00,Operations,Delivery confirmed,740000,Asteron India,Yes,Yes,No,None,Open
+O2C-1075,Invoice issued,2026-06-15T23:00:00,Billing,Invoice sent,740000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1075,Payment received,2026-06-17T21:00:00,Treasury,Customer short-paid 52665 against invoice,740000,Asteron India,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1075,Short payment review,2026-06-19T09:00:00,Collections,Collections and sales reviewed deduction reason,740000,Asteron India,Yes,Yes,Yes,Short payment,Under review
+O2C-1075,Deduction approved,2026-06-20T17:00:00,Controller,Controller approved settlement logic,740000,Asteron India,Yes,Yes,No,Short payment,Resolved
+O2C-1075,Cash applied,2026-06-21T01:00:00,Cash application,Residual amount cleared after review,740000,Asteron India,Yes,Yes,No,Short payment,Cash applied
+O2C-1076,Order received,2026-06-14T05:00:00,Order desk,Order booked for Vantage Auto,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1076,Credit approved,2026-06-14T12:00:00,Credit control,Credit okay,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1076,Goods delivered,2026-06-15T13:00:00,Operations,Delivery confirmed,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1076,Invoice issued,2026-06-15T22:00:00,Billing,Invoice sent,185000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1076,Payment received,2026-06-17T21:00:00,Treasury,Customer short-paid 27525 against invoice,185000,Asteron Export,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1076,Short payment review,2026-06-19T01:00:00,Collections,Collections and sales reviewed deduction reason,185000,Asteron Export,Yes,Yes,Yes,Short payment,Under review
+O2C-1076,Deduction approved,2026-06-19T21:00:00,Controller,Controller approved settlement logic,185000,Asteron Export,Yes,Yes,No,Short payment,Resolved
+O2C-1076,Cash applied,2026-06-20T12:00:00,Cash application,Residual amount cleared after review,185000,Asteron Export,Yes,Yes,No,Short payment,Cash applied
+O2C-1077,Order received,2026-06-14T09:00:00,Order desk,Order booked for Vantage Auto,320000,Asteron South,Yes,Yes,No,None,Open
+O2C-1077,Credit approved,2026-06-14T17:00:00,Credit control,Credit okay,320000,Asteron South,Yes,Yes,No,None,Open
+O2C-1077,Goods delivered,2026-06-15T17:00:00,Operations,Delivery confirmed,320000,Asteron South,Yes,Yes,No,None,Open
+O2C-1077,Invoice issued,2026-06-16T03:00:00,Billing,Invoice sent,320000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1077,Payment received,2026-06-18T03:00:00,Treasury,Customer short-paid 39541 against invoice,320000,Asteron South,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1077,Short payment review,2026-06-19T14:00:00,Collections,Collections and sales reviewed deduction reason,320000,Asteron South,Yes,Yes,Yes,Short payment,Under review
+O2C-1077,Deduction approved,2026-06-20T05:00:00,Controller,Controller approved settlement logic,320000,Asteron South,Yes,Yes,No,Short payment,Resolved
+O2C-1077,Cash applied,2026-06-20T18:00:00,Cash application,Residual amount cleared after review,320000,Asteron South,Yes,Yes,No,Short payment,Cash applied
+O2C-1078,Order received,2026-06-14T13:00:00,Order desk,Order booked for Nimbus Retail,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1078,Credit approved,2026-06-15T00:00:00,Credit control,Credit okay,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1078,Goods delivered,2026-06-15T18:00:00,Operations,Delivery confirmed,245000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1078,Invoice issued,2026-06-16T08:00:00,Billing,Invoice sent,245000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1078,Payment received,2026-06-18T06:00:00,Treasury,Customer short-paid 16182 against invoice,245000,Asteron Export,Yes,Yes,Yes,Short payment,Partial payment
+O2C-1078,Short payment review,2026-06-19T06:00:00,Collections,Collections and sales reviewed deduction reason,245000,Asteron Export,Yes,Yes,Yes,Short payment,Under review
+O2C-1078,Deduction approved,2026-06-19T20:00:00,Controller,Controller approved settlement logic,245000,Asteron Export,Yes,Yes,No,Short payment,Resolved
+O2C-1078,Cash applied,2026-06-20T06:00:00,Cash application,Residual amount cleared after review,245000,Asteron Export,Yes,Yes,No,Short payment,Cash applied
+O2C-1079,Order received,2026-06-14T17:00:00,Order desk,Order booked for Vantage Auto,245000,Asteron India,Yes,Yes,No,None,Open
+O2C-1079,Credit approved,2026-06-15T04:00:00,Credit control,Credit okay,245000,Asteron India,Yes,Yes,No,None,Open
+O2C-1079,Goods delivered,2026-06-16T01:00:00,Operations,Delivery confirmed,245000,Asteron India,Yes,Yes,No,None,Open
+O2C-1079,Invoice issued,2026-06-16T12:00:00,Billing,Invoice sent,245000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1079,Payment received,2026-06-18T10:00:00,Treasury,Remittance missing or incomplete,245000,Asteron India,Yes,Yes,No,Unapplied cash,Unapplied cash
+O2C-1079,Remittance chased,2026-06-19T15:00:00,Collections,Collections requested remittance advice,245000,Asteron India,Yes,Yes,No,Unapplied cash,Awaiting remittance
+O2C-1079,Cash applied,2026-06-20T13:00:00,Cash application,Cash applied after remittance clarification,245000,Asteron India,Yes,Yes,No,Unapplied cash,Cash applied
+O2C-1080,Order received,2026-06-14T21:00:00,Order desk,Order booked for Cobalt Health,960000,Asteron South,Yes,Yes,No,None,Open
+O2C-1080,Credit approved,2026-06-15T07:00:00,Credit control,Credit okay,960000,Asteron South,Yes,Yes,No,None,Open
+O2C-1080,Goods delivered,2026-06-16T04:00:00,Operations,Delivery confirmed,960000,Asteron South,Yes,Yes,No,None,Open
+O2C-1080,Invoice issued,2026-06-16T17:00:00,Billing,Invoice sent,960000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1080,Payment received,2026-06-18T14:00:00,Treasury,Remittance missing or incomplete,960000,Asteron South,Yes,Yes,No,Unapplied cash,Unapplied cash
+O2C-1080,Remittance chased,2026-06-19T16:00:00,Collections,Collections requested remittance advice,960000,Asteron South,Yes,Yes,No,Unapplied cash,Awaiting remittance
+O2C-1080,Cash applied,2026-06-20T09:00:00,Cash application,Cash applied after remittance clarification,960000,Asteron South,Yes,Yes,No,Unapplied cash,Cash applied
+O2C-1081,Order received,2026-06-15T01:00:00,Order desk,Order booked for UrbanGrid,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1081,Credit approved,2026-06-15T11:00:00,Credit control,Credit okay,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1081,Goods delivered,2026-06-16T13:00:00,Operations,Delivery confirmed,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1081,Invoice issued,2026-06-16T23:00:00,Billing,Invoice sent,575000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1081,Payment received,2026-06-18T21:00:00,Treasury,Remittance missing or incomplete,575000,Asteron India,Yes,Yes,No,Unapplied cash,Unapplied cash
+O2C-1081,Remittance chased,2026-06-19T20:00:00,Collections,Collections requested remittance advice,575000,Asteron India,Yes,Yes,No,Unapplied cash,Awaiting remittance
+O2C-1081,Cash applied,2026-06-20T17:00:00,Cash application,Cash applied after remittance clarification,575000,Asteron India,Yes,Yes,No,Unapplied cash,Cash applied
+O2C-1082,Order received,2026-06-15T05:00:00,Order desk,Order booked for UrbanGrid,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1082,Credit approved,2026-06-15T16:00:00,Credit control,Credit okay,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1082,Goods delivered,2026-06-16T13:00:00,Operations,Delivery confirmed,185000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1082,Invoice issued,2026-06-17T02:00:00,Billing,Invoice sent,185000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1082,Payment received,2026-06-19T12:00:00,Treasury,Remittance missing or incomplete,185000,Asteron Export,Yes,Yes,No,Unapplied cash,Unapplied cash
+O2C-1082,Remittance chased,2026-06-20T22:00:00,Collections,Collections requested remittance advice,185000,Asteron Export,Yes,Yes,No,Unapplied cash,Awaiting remittance
+O2C-1082,Cash applied,2026-06-21T13:00:00,Cash application,Cash applied after remittance clarification,185000,Asteron Export,Yes,Yes,No,Unapplied cash,Cash applied
+O2C-1083,Order received,2026-06-15T09:00:00,Order desk,Order booked for Vantage Auto,320000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1083,Credit approved,2026-06-15T20:00:00,Credit control,Credit okay,320000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1083,Goods delivered,2026-06-16T21:00:00,Operations,Delivery confirmed,320000,Asteron Export,Yes,Yes,No,None,Open
+O2C-1083,Invoice issued,2026-06-17T04:00:00,Billing,Invoice sent,320000,Asteron Export,Yes,Yes,No,None,Invoiced
+O2C-1083,Payment received,2026-06-19T12:00:00,Treasury,Remittance missing or incomplete,320000,Asteron Export,Yes,Yes,No,Unapplied cash,Unapplied cash
+O2C-1083,Remittance chased,2026-06-20T20:00:00,Collections,Collections requested remittance advice,320000,Asteron Export,Yes,Yes,No,Unapplied cash,Awaiting remittance
+O2C-1083,Cash applied,2026-06-21T20:00:00,Cash application,Cash applied after remittance clarification,320000,Asteron Export,Yes,Yes,No,Unapplied cash,Cash applied
+O2C-1084,Order received,2026-06-15T13:00:00,Order desk,Order booked for Vantage Auto,185000,Asteron South,Yes,Yes,No,None,Open
+O2C-1084,Credit approved,2026-06-15T19:00:00,Credit control,Credit okay,185000,Asteron South,Yes,Yes,No,None,Open
+O2C-1084,Goods delivered,2026-06-16T21:00:00,Operations,Delivery confirmed,185000,Asteron South,Yes,Yes,No,None,Open
+O2C-1084,Invoice issued,2026-06-17T06:00:00,Billing,Invoice sent,185000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1084,Payment received,2026-06-19T12:00:00,Treasury,Remittance missing or incomplete,185000,Asteron South,Yes,Yes,No,Unapplied cash,Unapplied cash
+O2C-1084,Remittance chased,2026-06-20T21:00:00,Collections,Collections requested remittance advice,185000,Asteron South,Yes,Yes,No,Unapplied cash,Awaiting remittance
+O2C-1084,Cash applied,2026-06-21T15:00:00,Cash application,Cash applied after remittance clarification,185000,Asteron South,Yes,Yes,No,Unapplied cash,Cash applied
+O2C-1085,Order received,2026-06-15T17:00:00,Order desk,Order booked for Quanta Foods,410000,Asteron India,Yes,Yes,No,None,Open
+O2C-1085,Credit approved,2026-06-16T03:00:00,Credit control,Credit okay,410000,Asteron India,Yes,Yes,No,None,Open
+O2C-1085,Goods delivered,2026-06-17T03:00:00,Operations,Delivery confirmed,410000,Asteron India,Yes,Yes,No,None,Open
+O2C-1085,Invoice issued,2026-06-17T14:00:00,Billing,Invoice sent,410000,Asteron India,Yes,Yes,No,None,Invoiced
+O2C-1085,Payment received,2026-06-19T23:00:00,Treasury,Remittance missing or incomplete,410000,Asteron India,Yes,Yes,No,Unapplied cash,Unapplied cash
+O2C-1085,Remittance chased,2026-06-21T09:00:00,Collections,Collections requested remittance advice,410000,Asteron India,Yes,Yes,No,Unapplied cash,Awaiting remittance
+O2C-1085,Cash applied,2026-06-22T14:00:00,Cash application,Cash applied after remittance clarification,410000,Asteron India,Yes,Yes,No,Unapplied cash,Cash applied
+O2C-1086,Order received,2026-06-15T21:00:00,Order desk,Order booked for Quanta Foods,410000,Asteron South,Yes,Yes,No,None,Open
+O2C-1086,Credit approved,2026-06-16T07:00:00,Credit control,Credit okay,410000,Asteron South,Yes,Yes,No,None,Open
+O2C-1086,Goods delivered,2026-06-17T07:00:00,Operations,Delivery confirmed,410000,Asteron South,Yes,Yes,No,None,Open
+O2C-1086,Invoice issued,2026-06-17T16:00:00,Billing,Invoice sent,410000,Asteron South,Yes,Yes,No,None,Invoiced
+O2C-1086,Payment received,2026-06-19T15:00:00,Treasury,Remittance missing or incomplete,410000,Asteron South,Yes,Yes,No,Unapplied cash,Unapplied cash
+O2C-1086,Remittance chased,2026-06-21T02:00:00,Collections,Collections requested remittance advice,410000,Asteron South,Yes,Yes,No,Unapplied cash,Awaiting remittance
+O2C-1086,Cash applied,2026-06-21T18:00:00,Cash application,Cash applied after remittance clarification,410000,Asteron South,Yes,Yes,No,Unapplied cash,Cash applied
+O2C-1087,Order received,2026-06-16T01:00:00,Order desk,Order booked for Cobalt Health,320000,Asteron South,Yes,Yes,No,None,Open
+O2C-1087,Credit review,2026-06-16T10:00:00,Credit control,High-value order bypassed standard evidence pack,320000,Asteron South,No,Yes,No,Control violation,Credit hold
+O2C-1087,Goods delivered,2026-06-17T00:00:00,Operations,Operations fulfilled before approval evidence completed,320000,Asteron South,No,Yes,No,Control violation,Open
+O2C-1087,Invoice issued,2026-06-17T10:00:00,Billing,Invoice issued while approval trail incomplete,320000,Asteron South,No,Yes,No,Control violation,Invoiced
+O2C-1087,Payment received,2026-06-19T02:00:00,Treasury,Customer paid quickly despite control gap,320000,Asteron South,No,Yes,No,Control violation,Paid
+O2C-1087,Cash applied,2026-06-19T04:00:00,Cash application,Cash applied before approval evidence completed,320000,Asteron South,No,Yes,No,Control violation,Cash applied
+O2C-1087,Credit evidence completed,2026-06-20T00:00:00,Controller,Controller completed evidence after the fact,320000,Asteron South,Yes,Yes,No,Control violation,Closed with breach
+O2C-1088,Order received,2026-06-16T05:00:00,Order desk,Order booked for Vantage Auto,320000,Asteron India,Yes,Yes,No,None,Open
+O2C-1088,Credit review,2026-06-16T13:00:00,Credit control,High-value order bypassed standard evidence pack,320000,Asteron India,No,Yes,No,Control violation,Credit hold
+O2C-1088,Goods delivered,2026-06-17T00:00:00,Operations,Operations fulfilled before approval evidence completed,320000,Asteron India,No,Yes,No,Control violation,Open
+O2C-1088,Invoice issued,2026-06-17T09:00:00,Billing,Invoice issued while approval trail incomplete,320000,Asteron India,No,Yes,No,Control violation,Invoiced
+O2C-1088,Payment received,2026-06-18T18:00:00,Treasury,Customer paid quickly despite control gap,320000,Asteron India,No,Yes,No,Control violation,Paid
+O2C-1088,Cash applied,2026-06-18T20:00:00,Cash application,Cash applied before approval evidence completed,320000,Asteron India,No,Yes,No,Control violation,Cash applied
+O2C-1088,Credit evidence completed,2026-06-19T15:00:00,Controller,Controller completed evidence after the fact,320000,Asteron India,Yes,Yes,No,Control violation,Closed with breach
+O2C-1089,Order received,2026-06-16T09:00:00,Order desk,Order booked for UrbanGrid,960000,Asteron South,Yes,Yes,No,None,Open
+O2C-1089,Credit review,2026-06-16T17:00:00,Credit control,High-value order bypassed standard evidence pack,960000,Asteron South,No,Yes,No,Control violation,Credit hold
+O2C-1089,Goods delivered,2026-06-17T07:00:00,Operations,Operations fulfilled before approval evidence completed,960000,Asteron South,No,Yes,No,Control violation,Open
+O2C-1089,Invoice issued,2026-06-17T15:00:00,Billing,Invoice issued while approval trail incomplete,960000,Asteron South,No,Yes,No,Control violation,Invoiced
+O2C-1089,Payment received,2026-06-19T05:00:00,Treasury,Customer paid quickly despite control gap,960000,Asteron South,No,Yes,No,Control violation,Paid
+O2C-1089,Cash applied,2026-06-19T07:00:00,Cash application,Cash applied before approval evidence completed,960000,Asteron South,No,Yes,No,Control violation,Cash applied
+O2C-1089,Credit evidence completed,2026-06-19T21:00:00,Controller,Controller completed evidence after the fact,960000,Asteron South,Yes,Yes,No,Control violation,Closed with breach
+O2C-1090,Order received,2026-06-16T13:00:00,Order desk,Order booked for Nimbus Retail,575000,Asteron India,Yes,Yes,No,None,Open
+O2C-1090,Credit review,2026-06-16T20:00:00,Credit control,High-value order bypassed standard evidence pack,575000,Asteron India,No,Yes,No,Control violation,Credit hold
+O2C-1090,Goods delivered,2026-06-17T11:00:00,Operations,Operations fulfilled before approval evidence completed,575000,Asteron India,No,Yes,No,Control violation,Open
+O2C-1090,Invoice issued,2026-06-17T20:00:00,Billing,Invoice issued while approval trail incomplete,575000,Asteron India,No,Yes,No,Control violation,Invoiced
+O2C-1090,Payment received,2026-06-19T09:00:00,Treasury,Customer paid quickly despite control gap,575000,Asteron India,No,Yes,No,Control violation,Paid
+O2C-1090,Cash applied,2026-06-19T11:00:00,Cash application,Cash applied before approval evidence completed,575000,Asteron India,No,Yes,No,Control violation,Cash applied
+O2C-1090,Credit evidence completed,2026-06-20T09:00:00,Controller,Controller completed evidence after the fact,575000,Asteron India,Yes,Yes,No,Control violation,Closed with breach

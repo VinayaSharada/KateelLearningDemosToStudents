@@ -11,6 +11,10 @@ Suggested files for the first pass:
 
 - `treasury-control-tower-fallback.md`
 - `invoice-prediction-completed-run.md`
+- `o2c-process-mining-fallback.md`
+- `o2c-process-mining-notebook-fallback.md`
+- `p2p-process-mining-fallback.md`
+- `p2p-process-mining-notebook-fallback.md`
 - `ar-aging-prioritizer-fallback.md`
 - `dell-working-capital-fallback.md`
 - `liquidity-management-fallback.md`
