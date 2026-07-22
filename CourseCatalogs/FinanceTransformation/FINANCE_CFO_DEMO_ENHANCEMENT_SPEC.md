@@ -1,5 +1,9 @@
 # Finance CFO Demo Enhancement Spec
 
+This document should be read alongside the neutral demo-library baseline in [CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md](/mnt/c/Users/vsathya/todel/gitrepos/KateelLearningDemosToStudents/CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md).
+
+The finance/CFO requirements here are an audience-specific overlay, not a replacement for course-neutral demo design.
+
 ## Purpose
 This spec defines a reusable enhancement program for turning selected AI, treasury, and workflow demos into **CFO-facing finance transformation demos**.
 

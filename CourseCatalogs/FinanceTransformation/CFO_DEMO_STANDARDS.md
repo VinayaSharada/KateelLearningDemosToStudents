@@ -4,11 +4,30 @@
 
 These standards define what makes a demo **CFO-ready** in `KateelLearningDemosToStudents`.
 
+They should be read as a role-specific overlay on top of the neutral library-wide standard in [CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md](/mnt/c/Users/vsathya/todel/gitrepos/KateelLearningDemosToStudents/CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md).
+
 They apply to:
 
 - upgraded existing demos
 - newly created finance-transformation demos
 - treasury, reconciliation, governance, workflow, and AI-support demos intended for finance audiences
+
+## Relationship to the library standard
+
+The demo library serves multiple audiences. Not every demo is primarily for CFOs.
+
+Use the library-wide standard for:
+
+- course neutrality
+- reusable metadata
+- self-service structure
+- general usability and validation expectations
+
+Use this document for:
+
+- CFO-specific decision framing
+- finance controls and approval expectations
+- governance boundaries for finance-facing use
 
 ## Core principle
 

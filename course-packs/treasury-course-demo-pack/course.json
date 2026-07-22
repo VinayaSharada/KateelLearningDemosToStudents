@@ -19,7 +19,8 @@
     "participantGuide": "course-packs/treasury-course-demo-pack/participant-guide.md",
     "instructorGuide": "course-packs/treasury-course-demo-pack/instructor-guide.md",
     "corePack": "course-packs/treasury-course-demo-pack/demo-pack.json",
-    "extensionPack": "course-packs/treasury-course-demo-pack/extension-pack.json"
+    "extensionPack": "course-packs/treasury-course-demo-pack/extension-pack.json",
+    "standards": "CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md"
   },
   "metadataPolicy": {
     "demoMetadataAuthority": "central-demo-metadata",

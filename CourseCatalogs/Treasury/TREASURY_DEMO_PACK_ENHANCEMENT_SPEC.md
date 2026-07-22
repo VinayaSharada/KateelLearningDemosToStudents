@@ -5,6 +5,8 @@ This spec replaces the earlier `Module 5 Pack` framing with a reusable `Treasury
 
 The goal is to improve treasury teaching assets in `KateelLearningDemosToStudents` without rewriting the repository. A demo should be implemented once, described consistently, and reused across multiple course packs through thin pack definitions.
 
+The repository-wide baseline for demo structure, self-service guidance, and course neutrality now lives in [CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md](/mnt/c/Users/vsathya/todel/gitrepos/KateelLearningDemosToStudents/CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md). Treasury-specific enhancement work should follow that baseline rather than invent a separate treasury-only standard.
+
 ## Enhancement objective
 Turn `KateelLearningDemosToStudents` into a reusable, course-neutral demo library where:
 

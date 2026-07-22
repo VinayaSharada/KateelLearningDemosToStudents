@@ -11,6 +11,7 @@
     "participantGuide": "course-packs/finance-cfo-demo-pack/participant-guide.md",
     "instructorGuide": "course-packs/finance-cfo-demo-pack/instructor-guide.md",
     "corePack": "course-packs/finance-cfo-demo-pack/demo-pack.json",
-    "standards": "CourseCatalogs/FinanceTransformation/CFO_DEMO_STANDARDS.md"
+    "standards": "CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md",
+    "audienceOverlay": "CourseCatalogs/FinanceTransformation/CFO_DEMO_STANDARDS.md"
   }
 }
