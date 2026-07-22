@@ -68,6 +68,20 @@ Business-case demo where students estimate implementation cost, operational savi
 - Discuss which assumptions are operationally measurable and which are more speculative strategic upside
 - Use the result to debate investment timing and governance, not just to approve or reject the idea automatically
 
+## What you can enhance on your own
+
+- Add adoption curves, control-remediation cost, confidence ranges, and scenario bands instead of a single-point business case.
+- Add side-by-side optimistic, base, and conservative cases with exportable assumptions.
+- Add benefit categories that separate labor savings, revenue uplift, control improvement, and risk reduction.
+- Add explicit owner and approval fields so the calculator becomes a reusable investment-decision record.
+
+## How to adapt this demo to your use case
+
+- Replace the sample volumes, costs, and efficiency assumptions with measures your team can actually validate.
+- Decide which benefits are measurable within a budget cycle and which remain strategic or exploratory.
+- Keep the calculator as a discussion tool until finance, product, and operations owners agree on the benefit logic.
+- Use the same demo across AI/ML, transformation, CFO, and classroom settings by changing the case framing rather than the core math.
+
 ## Related Demos or Course Context
 
 - Course path: [AI/ML Workflows](../../courses/ai-ml-workflows.html)

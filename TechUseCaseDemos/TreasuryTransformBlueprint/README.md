@@ -64,6 +64,20 @@ Browser-based hands-on exercise for Course Synthesis (Session 8).
 - Observe how maturity changes when people, process, data, and technology improve together
 - Note that treasury transformation succeeds when strategy, governance, and operating rhythm align
 
+## What you can enhance on your own
+
+- Add dependencies, investment capacity, people resistance, and control-risk scoring to the roadmap.
+- Add side-by-side blueprint options for conservative, balanced, and aggressive transformation pacing.
+- Add exportable roadmap packs with owner, milestone, value, and governance notes.
+- Add stakeholder views for CFO, treasury, CIO, and transformation-office priorities.
+
+## How to adapt this demo to your use case
+
+- Replace the sample maturity levels and roadmap steps with the capabilities and bottlenecks relevant to your organization.
+- Decide which transformation targets are strategic aspirations versus realistic 12- to 36-month commitments.
+- Keep the roadmap as a facilitation tool until owners, budgets, and change-management constraints are validated.
+- Use the same blueprint across treasury, finance transformation, executive education, and classroom settings by changing the facilitation narrative rather than the maturity engine.
+
 ## Related Demos or Course Context
 
 - Course path: [Treasury Management](../../courses/treasury-management.html)

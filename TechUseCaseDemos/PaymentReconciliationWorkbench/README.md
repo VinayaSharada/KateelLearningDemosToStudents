@@ -26,3 +26,17 @@ The demo is designed around one finance question:
 - `instructor-guide.md`
 - `participant-task.md`
 - `expected-answer.md`
+
+## What you can enhance on your own
+
+- Add more exception classes such as FX differences, tax mismatches, cut-off errors, or gateway-fee disputes.
+- Add file-level views that show how bank, gateway, network, and merchant records diverge before the summarized queue is produced.
+- Add exportable reconciliation packs with ownership, SLA, and approval notes for workshop or internal use.
+- Add alternative materiality and close-policy presets for different organization sizes or control environments.
+
+## How to adapt this demo to your use case
+
+- Replace the illustrative thresholds, owner roles, and closure criteria with the governance standards used in your finance organization.
+- Decide which exceptions truly block close in your environment and which can be monitored after release.
+- Use the workbench with CFO, controller, payments-operations, internal-audit, or faculty audiences by changing the decision prompt rather than the queue structure.
+- Keep the demo output advisory until finance owners confirm the evidence path, escalation rights, and approval rules.

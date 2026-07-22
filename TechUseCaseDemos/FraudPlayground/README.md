@@ -64,6 +64,20 @@ Interactive demo for fraud detection using anomaly detection techniques.
 - Observe how small changes in amount, location, or frequency alter the risk signal
 - Note that fraud detection balances false positives, false negatives, and customer friction
 
+## What you can enhance on your own
+
+- Add more fraud features such as merchant category, device reputation, velocity windows, or customer history.
+- Add explicit confusion-matrix outputs and threshold trade-off views for fraud versus customer friction.
+- Add investigator workflow elements such as owner, alert queue, or escalation state.
+- Export the scenario, threshold choice, and operating interpretation for class or internal review.
+
+## How to adapt this demo to your use case
+
+- Replace the sample transaction assumptions with the fraud patterns, channels, and review thresholds relevant to your environment.
+- Revalidate whether the demo should emphasize model accuracy, analyst workload, customer experience, or fraud-loss prevention.
+- Keep the output advisory until fraud, risk, and operations owners agree on the action thresholds.
+- Use the same demo across banking, payments, risk, and classroom settings by changing the business question rather than the anomaly engine.
+
 ## Related Demos or Course Context
 
 - Course path: [Banking & Finance](../../courses/banking.html)

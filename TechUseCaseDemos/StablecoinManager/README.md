@@ -67,6 +67,20 @@ Interactive stablecoin treasury demo where learners rebalance lending, DEX liqui
 - Use the allocation profile to compare a conservative treasury posture with a more aggressive yield-seeking posture
 - Talk through the governance question: who should approve a riskier reserve mix and under what trigger?
 
+## What you can enhance on your own
+
+- Add stress scenarios for depeg risk, redemption surge, counterparty concentration, or protocol failure.
+- Add a policy minimum for cash reserves and a visible breach warning when the mix becomes too aggressive.
+- Add side-by-side profiles for regulated reserve management versus yield-seeking treasury behavior.
+- Export the allocation, yield, and reserve-readiness view for workshop or committee discussion.
+
+## How to adapt this demo to your use case
+
+- Replace the sample stablecoin buckets and yields with the reserve instruments or protocols relevant to your context.
+- Revalidate who can approve a change in reserve mix and what triggers a forced rebalance.
+- Keep the demo focused on treasury trade-offs rather than treating the displayed yield as an investable recommendation.
+- Use the same simulator in treasury, risk, digital-assets, or classroom settings by changing the decision lens around the shared allocation logic.
+
 ## Related Demos or Course Context
 
 - Course path: [Treasury Management](../../courses/treasury-management.html)

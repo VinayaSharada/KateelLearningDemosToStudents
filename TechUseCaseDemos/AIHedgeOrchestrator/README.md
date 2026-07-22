@@ -66,6 +66,20 @@ Interactive treasury orchestration demo where students compare hedge choices und
 - Compare AI guidance with the market-condition setting to see whether the recommendation becomes more conservative or more opportunistic
 - Use the decision trace to explain the recommendation, not just to report the final hedge ratio
 
+## What you can enhance on your own
+
+- Add more exposure classes, hedge instruments, and cost assumptions for a fuller treasury book.
+- Add side-by-side comparison of policy-driven hedging versus AI-guided hedging.
+- Add approval thresholds, governance notes, and exportable hedge-decision records.
+- Add stress scenarios for liquidity pressure, basis risk, or hedge-accounting constraints.
+
+## How to adapt this demo to your use case
+
+- Replace the sample exposures and market regimes with the currencies, commodities, and policy limits relevant to your organization.
+- Decide whether the main objective is lower residual risk, lower hedge cost, smoother earnings, or higher policy compliance.
+- Keep the AI narrative advisory until treasury owners confirm the strategy, limits, and accounting implications.
+- Use the same orchestrator across treasury, risk, FP&A, and classroom settings by changing the decision lens around the shared hedge engine.
+
 ## Related Demos or Course Context
 
 - Course path: [Treasury Management](../../courses/treasury-management.html)

@@ -146,6 +146,20 @@ Potential additions (not in MVP):
 - Multi-signature wallet simulation
 - Staking and validator economics
 
+## What you can enhance on your own
+
+- Add more finance-specific pathways such as stablecoins, staking economics, tokenized deposits, or multi-signature treasury control.
+- Add curated teaching tracks so a user can follow only Bitcoin, only smart contracts, or only tokenization.
+- Add exportable snapshots from the gas, royalty, or mining exercises for discussion and assessment.
+- Add clearer governance overlays for what is educational simulation versus production due diligence.
+
+## How to adapt this demo to your use case
+
+- Choose only the sections relevant to your audience instead of forcing every learner through the entire blockchain stack.
+- Replace or supplement the examples with the protocols, token standards, or risk questions that matter in your organization or course.
+- Keep the explorer as a transparent learning surface, not a substitute for legal, security, or investment advice.
+- Use the same demo across banking, treasury, fintech, public-policy, and technology-due-diligence contexts by changing the facilitation path around the shared engine.
+
 ## License & Attribution
 
 Created by **Professor Vinaya Sathyanarayana** as part of KateelLearningDemosToStudents.

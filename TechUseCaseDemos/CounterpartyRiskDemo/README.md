@@ -68,6 +68,20 @@ For a rating-driven CVA view with a one-notch-downgrade scenario and collateral 
 - Compare the flat Expected Exposure number to the actual profile curve — CVA calculated off a single snapshot understates or overstates risk depending on where in the trade's life that snapshot falls
 - Note that counterparty risk management depends on limits, collateral, and timely escalation
 
+## What you can enhance on your own
+
+- Add collateral, netting, wrong-way risk, and concentration overlays on top of the base CVA/DVA view.
+- Add side-by-side scenarios for downgraded counterparties, collateral disputes, or stressed PD assumptions.
+- Add exportable exposure and adjustment summaries for committee or class discussion.
+- Add clearer separation between accounting adjustment, economic exposure, and risk-limit usage.
+
+## How to adapt this demo to your use case
+
+- Replace the sample PD, LGD, and exposure assumptions with the market, counterparty, and product conditions relevant to your environment.
+- Decide whether the discussion should emphasize pricing adjustment, limit management, accounting impact, or escalation policy.
+- Keep the calculator educational until risk owners confirm model assumptions, legal netting treatment, and collateral mechanics.
+- Use the same demo across risk, treasury, banking, quant, and classroom settings by changing the decision question rather than the core CVA engine.
+
 ## Related Demos or Course Context
 
 - Course path: [Risk Management](../../courses/risk-management.html)

@@ -57,3 +57,17 @@ Use this demo after the browser-based `Collections Predictor` when you want stud
 - Download the template and map your own sanitized ERP invoice export into the required columns.
 - Re-run the notebook on your own data and compare baseline due-date inflows with predicted-date inflows.
 - Use the exported action queue, daily inflow files, and run summary as starter artifacts for your own treasury process.
+
+## What you can enhance on your own
+
+- Add more invoice features such as customer tier, promised payment date, region, or dispute category if you can justify them.
+- Compare additional forecast horizons or add your own concentration-date alerts.
+- Add a notebook-side workflow that hands the exported action queue to a downstream automation or review process.
+- Expand the model card with your own governance fields, error thresholds, and approval rules.
+
+## How to adapt this demo to your use case
+
+- Use the generated `invoice_data_template.csv` to map your ERP export before changing any model code.
+- Keep training and scoring separate: scoring your own open invoices does not mean you have built a production-ready model.
+- Revalidate feature definitions, action labels, and approval points with treasury, collections, and data owners before operational use.
+- Treat the cash-value estimate as assumption-driven until you confirm the cost-of-capital, buffer logic, and forecast-accuracy baseline in your context.

@@ -64,6 +64,20 @@ Browser-based hands-on exercise for FX Risk & Hedging (Session 2).
 - Observe how forwards, options, or natural hedges behave under different FX scenarios
 - Note that hedge effectiveness should be judged against the original risk objective
 
+## What you can enhance on your own
+
+- Add more currencies, time buckets, and hedge instruments such as layered forwards or collars.
+- Add explicit cost-versus-protection charts and side-by-side strategy exports.
+- Add policy limits, hedge-accounting notes, and liquidity implications for each instrument.
+- Add scenario modes for tariff shock, commodity-linked FX, or emerging-market stress.
+
+## How to adapt this demo to your use case
+
+- Replace the sample FX exposure and market assumptions with your own currencies, tenors, and policy constraints.
+- Decide whether your organization optimizes for earnings stability, budget certainty, cash-flow protection, or downside insurance.
+- Keep the simulator educational until treasury owners confirm the instrument suitability, accounting treatment, and liquidity impact.
+- Use the same demo across treasury, risk, FP&A, and faculty contexts by changing the teaching question rather than the hedge engine.
+
 ## Related Demos or Course Context
 
 - Course path: [Treasury Management](../../courses/treasury-management.html)

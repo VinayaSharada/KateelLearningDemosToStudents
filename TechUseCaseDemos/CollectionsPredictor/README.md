@@ -65,6 +65,20 @@ Browser-based collections prioritization demo where students test receivables sc
 - Note that collections analytics should improve cash recovery while preserving customer relationships
 - Compare the headline output with supporting views such as Output Summary before drawing a conclusion
 
+## What you can enhance on your own
+
+- Replace the headline scenario comparison with a larger inspectable invoice queue and visible priority drivers.
+- Add editable scoring weights for overdue days, dispute status, payment history, and relationship importance.
+- Add overrides for disputed invoices, strategic customers, and analyst capacity constraints.
+- Export a fuller collections work queue with owner, treatment path, and escalation timing.
+
+## How to adapt this demo to your use case
+
+- Map your own sanitized receivables extract into invoice-level fields before changing strategy assumptions.
+- Revalidate the scoring weights with collections, sales, and customer-success stakeholders so the queue reflects real trade-offs.
+- Separate probability of payment, expected recovery, and treatment recommendation in your local version if different teams own those decisions.
+- Use the browser demo as transparent rule-based prioritization unless you later connect it to a real trained model.
+
 ## Related Demos or Course Context
 
 - Course path: [Treasury Management](../../courses/treasury-management.html)

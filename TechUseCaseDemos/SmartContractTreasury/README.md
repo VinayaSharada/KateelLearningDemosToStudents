@@ -67,6 +67,20 @@ Treasury controls demo showing how payment rules, wallet details, token choice, 
 - Use AI monitoring as an explanatory layer, not as a replacement for explicit treasury policy rules
 - Discuss where human override is appropriate and where automation should stay strict
 
+## What you can enhance on your own
+
+- Add policy thresholds by token, counterparty, jurisdiction, or payment purpose.
+- Add richer approval states such as dual approval, emergency override, and post-facto review.
+- Add an exportable decision record with owner, evidence, rule triggered, and approval path.
+- Add wallet-risk or smart-contract-risk signals before allowing treasury execution.
+
+## How to adapt this demo to your use case
+
+- Replace the sample wallet, token, and approval assumptions with your own treasury-policy structure.
+- Decide which decisions can be automated and which must remain human-approved before using the demo operationally.
+- Use the same demo across treasury, digital-assets, controls, and classroom contexts by changing the governance prompt rather than the core approval workflow.
+- Keep the AI layer explanatory unless you later connect it to a validated monitoring or sanctions engine.
+
 ## Related Demos or Course Context
 
 - Course path: [Treasury Management](../../courses/treasury-management.html)

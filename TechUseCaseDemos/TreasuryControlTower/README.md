@@ -66,6 +66,20 @@ Browser-based hands-on exercise for treasury modernization and liquidity visibil
 - Note that students should translate dashboard signals into a treasury decision and escalation path
 - Compare the headline output with supporting views such as ai Insight before drawing a conclusion
 
+## What you can enhance on your own
+
+- Add editable inputs for opening cash, credit-facility limits, borrowing rate, and minimum liquidity buffer.
+- Add side-by-side baseline versus stress comparison with a visible intervention date.
+- Export a daily cash projection and a short treasury decision record, not just a snapshot.
+- Relabel any narrative layer as `rule-based guidance` unless the logic becomes genuinely predictive.
+
+## How to adapt this demo to your use case
+
+- Replace the sample liquidity assumptions with your own weekly or daily cash-planning structure.
+- Revalidate which stress scenarios matter most in your context: delayed collections, accelerated supplier payments, tax outflows, or emergency spending.
+- Keep the demo output advisory until treasury owners confirm the assumptions, facility constraints, and escalation rules.
+- If you adopt this in a course, keep the core demo unchanged and move course-specific framing into the assignment or facilitator guide.
+
 ## Related Demos or Course Context
 
 - Course path: [Treasury Management](../../courses/treasury-management.html)

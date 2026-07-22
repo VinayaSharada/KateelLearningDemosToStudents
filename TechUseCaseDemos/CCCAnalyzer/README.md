@@ -64,6 +64,20 @@ Browser-based hands-on exercise for Working Capital Optimization (Session 3).
 - Observe which working-capital lever most improves cash tied up in operations
 - Note that CCC improvements should be balanced against supplier, customer, and service impacts
 
+## What you can enhance on your own
+
+- Add explicit lever-by-lever cash-release math for DSO, DIO, and DPO instead of only showing the combined change.
+- Add INR, lakh, and crore display modes alongside generic currency output.
+- Add commercial constraints such as stock-out risk, supplier stress, and customer-service impact.
+- Add scenario challenges such as "use only two levers" or "protect strategic suppliers."
+
+## How to adapt this demo to your use case
+
+- Map the formulas to your own balance-sheet and sales figures before discussing target improvements.
+- Confirm whether payables improvement should be modeled with purchases or COGS in your environment, and disclose the approximation.
+- Treat the cash-release number as a discussion starter until operations, procurement, and sales owners validate feasibility.
+- Keep the shared demo reusable and move institution-specific cases into course notes or facilitation prompts.
+
 ## Related Demos or Course Context
 
 - Course path: [Treasury Management](../../courses/treasury-management.html)
