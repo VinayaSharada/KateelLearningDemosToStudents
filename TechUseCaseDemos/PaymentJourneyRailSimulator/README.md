@@ -25,3 +25,7 @@ Open `index.html` in a browser or via GitHub Pages.
 - Revalidate what "finality" means in your context: customer-visible success, scheme settlement, bank funding, or legal recoverability.
 - Use the simulator to support treasury, payments, product, risk, or faculty discussion without changing the core rail logic.
 - Keep course-specific sequencing outside the demo so the same simulator remains reusable across multiple learning paths.
+
+## Business decision
+
+Use this demo to make the central decision in Payment Journey and Rail Simulator explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

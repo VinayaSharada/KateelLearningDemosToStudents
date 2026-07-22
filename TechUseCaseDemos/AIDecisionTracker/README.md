@@ -29,3 +29,7 @@ The demo is designed around one finance question:
 - Decide what evidence is required before a decision record becomes approval-ready.
 - Keep the tracker as a record-quality tool until human approvers confirm the decision and escalation path.
 - Use the same demo across finance governance, AI/ML, transformation, and classroom settings by changing the initiative case around the shared decision-record structure.
+
+## Business decision
+
+Use this demo to make the central decision in AI Decision Tracker explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

@@ -29,3 +29,7 @@ The demo is designed around one finance question:
 - Decide which benefits are measurable in-year and which remain strategic or directional.
 - Keep the output advisory until finance and business owners agree on the business-case logic and approval thresholds.
 - Use the same demo across CFO, finance transformation, AI/ML, and classroom settings by changing the use case around the shared ROI engine.
+
+## Business decision
+
+Use this demo to make the central decision in AI ROI Calculator explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

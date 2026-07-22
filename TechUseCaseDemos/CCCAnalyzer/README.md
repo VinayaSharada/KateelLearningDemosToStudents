@@ -89,3 +89,7 @@ Browser-based hands-on exercise for Working Capital Optimization (Session 3).
 
 Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
 Attribution email: `vinallcontact@gmail.com`
+
+## Business decision
+
+Use this demo to make the central decision in CCC Analyzer explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

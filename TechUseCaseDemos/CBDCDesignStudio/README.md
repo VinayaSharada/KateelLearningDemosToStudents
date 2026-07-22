@@ -26,3 +26,7 @@ Open `index.html` in a browser or via GitHub Pages.
 - Decide which design dimensions are descriptive and which represent contested policy judgments before using it for executive discussion.
 - Use the studio across payments, public-policy, banking, treasury, or classroom settings by changing the debate prompt rather than the core design controls.
 - Keep the underlying simulator course-neutral and put institutional recommendations in the surrounding teaching material.
+
+## Business decision
+
+Use this demo to make the central decision in CBDC Design Studio explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

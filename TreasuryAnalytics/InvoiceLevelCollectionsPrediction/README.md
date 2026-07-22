@@ -71,3 +71,7 @@ Use this demo after the browser-based `Collections Predictor` when you want stud
 - Keep training and scoring separate: scoring your own open invoices does not mean you have built a production-ready model.
 - Revalidate feature definitions, action labels, and approval points with treasury, collections, and data owners before operational use.
 - Treat the cash-value estimate as assumption-driven until you confirm the cost-of-capital, buffer logic, and forecast-accuracy baseline in your context.
+
+## Business decision
+
+Use this demo to make the central decision in Invoice-Level Collections Prediction Notebook Hub explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

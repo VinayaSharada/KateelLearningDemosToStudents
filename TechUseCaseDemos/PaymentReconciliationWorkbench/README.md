@@ -40,3 +40,7 @@ The demo is designed around one finance question:
 - Decide which exceptions truly block close in your environment and which can be monitored after release.
 - Use the workbench with CFO, controller, payments-operations, internal-audit, or faculty audiences by changing the decision prompt rather than the queue structure.
 - Keep the demo output advisory until finance owners confirm the evidence path, escalation rights, and approval rules.
+
+## Business decision
+
+Use this demo to make the central decision in Payment Operations and Reconciliation Workbench explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

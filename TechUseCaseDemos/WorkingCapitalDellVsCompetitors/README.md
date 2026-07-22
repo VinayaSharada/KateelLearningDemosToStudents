@@ -40,3 +40,7 @@ Browser-based treasury case comparing Dell, HP, Lenovo, and Apple using revenue,
 - `app.js`
 - `index.html`
 - `style.css`
+
+## Business decision
+
+Use this demo to make the central decision in Dell vs Competitors Working Capital Case explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

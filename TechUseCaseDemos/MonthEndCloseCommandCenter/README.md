@@ -15,3 +15,7 @@ Browser-based finance close demo for reviewing late reconciliations, material ex
 - Decide which breaks truly block close and which can remain open with monitored remediation.
 - Keep the output advisory until finance owners confirm the evidence path, escalation rights, and no-autonomous-posting boundary.
 - Use the same demo across controllership, CFO, internal-audit, and classroom contexts by changing the decision prompt rather than the close engine.
+
+## Business decision
+
+Use this demo to make the central decision in Month-End Close Command Center explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

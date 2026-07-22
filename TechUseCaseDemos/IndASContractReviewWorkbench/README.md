@@ -15,3 +15,7 @@ Browser-based contract review demo for extracting finance questions while keepin
 - Decide which extracted signals are useful prompts and which require deeper legal or accounting review before action.
 - Keep the workbench focused on surfacing finance questions rather than implying automated accounting judgement.
 - Use the same demo across finance, legal, audit, faculty, and classroom settings by changing the contract case around the shared judgement-boundary logic.
+
+## Business decision
+
+Use this demo to make the central decision in Ind AS Contract Review Workbench explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

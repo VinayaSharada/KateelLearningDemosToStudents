@@ -27,3 +27,7 @@ Open `index.html` in a browser or via GitHub Pages.
 - Confirm which exceptions are customer-visible versus back-office-only before using it for operating-model discussions.
 - Use the demo with payments, operations, fraud, support, or faculty audiences by changing the discussion prompt rather than the core flow.
 - Keep the simulation rule-based and transparent unless you later connect it to real operational data or risk models.
+
+## Business decision
+
+Use this demo to make the central decision in UPI Transaction and Failure Simulator explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

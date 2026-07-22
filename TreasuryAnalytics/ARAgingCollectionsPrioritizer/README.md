@@ -55,3 +55,7 @@ Use this demo alongside or after the Session 3 chat-based Skill demo, when you w
 - Revalidate the segment definitions and thresholds with collections, controllership, and treasury owners before acting on the ranking.
 - Keep the notebook output as a prioritization signal, not a replacement for credit or collections judgement.
 - If faculty use this in different courses, let the notebook stay course-neutral and change only the assignment framing around it.
+
+## Business decision
+
+Use this demo to make the central decision in AR Aging & Collections Prioritizer Notebook Hub explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

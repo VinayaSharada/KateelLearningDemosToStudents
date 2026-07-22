@@ -29,3 +29,7 @@ The demo is designed around one finance question:
 - Decide where speed is valuable and where human review must remain mandatory.
 - Keep the workflow output advisory until process owners confirm the routing, evidence, and approval design.
 - Use the same demo across CFO, controllership, AI/ML, operations, and classroom settings by changing the workflow case around the shared routing logic.
+
+## Business decision
+
+Use this demo to make the central decision in AI Workflow Demo explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

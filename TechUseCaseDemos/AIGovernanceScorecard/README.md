@@ -29,3 +29,7 @@ The demo is designed around one finance question:
 - Decide which gaps are acceptable for pilot use and which must be remediated before any deployment.
 - Keep the scorecard advisory until control owners confirm evidence quality, judgement boundaries, and approval rights.
 - Use the same demo across CFO, audit, compliance, AI/ML, and classroom settings by changing the governance case around the shared scorecard logic.
+
+## Business decision
+
+Use this demo to make the central decision in AI Governance Scorecard explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

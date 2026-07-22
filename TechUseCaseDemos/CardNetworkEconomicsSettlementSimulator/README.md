@@ -26,3 +26,7 @@ Open `index.html` in a browser or via GitHub Pages.
 - Validate whether settlement delay, chargeback timing, and fraud-loss ownership match your jurisdiction and product type.
 - Use the demo across payments, merchant-acquiring, treasury, or strategy teaching by changing the business question, not the participant chain.
 - Keep the core simulator course-neutral and move institution-specific policy commentary into facilitation notes.
+
+## Business decision
+
+Use this demo to make the central decision in Card Network Economics and Settlement Simulator explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

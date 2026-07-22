@@ -29,3 +29,7 @@ The demo is designed around one finance question:
 - Decide what level of citation and review is required before a summary can move toward release.
 - Keep the summarizer focused on reviewer support rather than implying AI-generated commentary is ready for circulation by default.
 - Use the same demo across CFO review, controllership, audit, AI/ML, and classroom settings by changing the narrative case around the shared evidence logic.
+
+## Business decision
+
+Use this demo to make the central decision in AI Content Summarizer explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

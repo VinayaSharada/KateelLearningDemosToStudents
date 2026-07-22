@@ -15,3 +15,7 @@ Browser-based portfolio demo for sequencing finance-transformation initiatives u
 - Decide which dimension matters most in your context: value, readiness, resistance, control risk, or budget constraint.
 - Keep the simulator as a prioritization tool until the organization validates dependencies, sponsorship, and execution capacity.
 - Use the same demo across CFO, CIO, transformation, treasury, and classroom settings by changing the initiative set around the shared portfolio logic.
+
+## Business decision
+
+Use this demo to make the central decision in Digital Finance Portfolio Simulator explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

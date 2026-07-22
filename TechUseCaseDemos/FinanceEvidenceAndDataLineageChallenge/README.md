@@ -15,3 +15,7 @@ Browser-based finance evidence demo for tracing commentary back to source rows a
 - Decide what counts as sufficient source traceability before a finance output can be released.
 - Keep the demo focused on evidence sufficiency rather than treating generated commentary as automatically trustworthy.
 - Use the same demo across CFO, controllership, audit, faculty, and student settings by changing the reporting case around the shared evidence logic.
+
+## Business decision
+
+Use this demo to make the central decision in Finance Evidence and Data-Lineage Challenge explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

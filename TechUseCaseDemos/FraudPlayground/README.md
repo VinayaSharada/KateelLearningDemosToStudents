@@ -89,3 +89,7 @@ Interactive demo for fraud detection using anomaly detection techniques.
 
 Created by **Professor Vinaya Sathyanarayana** as part of [KateelLearningDemosToStudents](https://github.com/VinayaSharada/KateelLearningDemosToStudents).
 Attribution email: `vinallcontact@gmail.com`
+
+## Business decision
+
+Use this demo to make the central decision in Fraud Playground explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.

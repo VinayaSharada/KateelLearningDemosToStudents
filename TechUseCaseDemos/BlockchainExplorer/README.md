@@ -196,3 +196,7 @@ For questions or improvements:
 - Review code comments in JavaScript modules
 - Experiment with the interactive controls
 - Contact: vinallcontact@gmail.com
+
+## Business decision
+
+Use this demo to make the central decision in Blockchain Explorer - Professional Edition explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.
