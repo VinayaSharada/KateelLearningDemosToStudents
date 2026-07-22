@@ -15,3 +15,17 @@ The demo is designed around one finance question:
 - `instructor-guide.md`
 - `participant-task.md`
 - `expected-answer.md`
+
+## What you can enhance on your own
+
+- Add more control domains, evidence artifacts, and deployment states.
+- Add side-by-side policy presets for pilot, controlled deployment, and production release.
+- Add exportable remediation plans with owner, due date, and approval condition.
+- Add stakeholder-specific views for CFO, controllership, audit, and technology owners.
+
+## How to adapt this demo to your use case
+
+- Replace the sample control ratings with the governance criteria used in your organization or course.
+- Decide which gaps are acceptable for pilot use and which must be remediated before any deployment.
+- Keep the scorecard advisory until control owners confirm evidence quality, judgement boundaries, and approval rights.
+- Use the same demo across CFO, audit, compliance, AI/ML, and classroom settings by changing the governance case around the shared scorecard logic.

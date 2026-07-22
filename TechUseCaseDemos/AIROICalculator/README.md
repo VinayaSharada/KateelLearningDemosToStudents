@@ -15,3 +15,17 @@ The demo is designed around one finance question:
 - `instructor-guide.md`
 - `participant-task.md`
 - `expected-answer.md`
+
+## What you can enhance on your own
+
+- Add more scenario bands, hurdle-rate options, and multi-year adoption paths.
+- Add benefit categories that separate labor savings, control improvement, revenue uplift, and risk reduction.
+- Add exportable decision packs with owner, sponsor, and approval notes.
+- Add side-by-side comparisons for conservative, base, and aggressive funding cases.
+
+## How to adapt this demo to your use case
+
+- Replace the sample assumptions with the investment, benefit, and control-remediation drivers relevant to your organization or course.
+- Decide which benefits are measurable in-year and which remain strategic or directional.
+- Keep the output advisory until finance and business owners agree on the business-case logic and approval thresholds.
+- Use the same demo across CFO, finance transformation, AI/ML, and classroom settings by changing the use case around the shared ROI engine.
