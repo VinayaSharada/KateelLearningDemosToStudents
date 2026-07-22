@@ -1,104 +1,137 @@
-// AI Workflow Demo - Learning Resource Recommender
-// KateelLearningDemos - Attribution: vinallcontact@gmail.com
-console.log('AI Demo powered by KateelLearningDemos');
-console.log('Attribution: vinallcontact@gmail.com');
+const workflowScenarios = {
+  ap: {
+    owner: "AP operations manager",
+    approval: "Controller approves exceptions above threshold",
+    exception: "Escalate unresolved invoices to controllership",
+    decision: "AI triage only",
+    note: "AI can classify invoice exceptions, but payment release must stay with finance.",
+    steps: [
+      ["Trigger", "Invoice exception enters queue"],
+      ["AI step", "Model suggests root-cause category and routing"],
+      ["Human review", "AP analyst confirms classification"],
+      ["Approval", "Controller approves write-off, override, or release"],
+    ],
+  },
+  close: {
+    owner: "Close manager",
+    approval: "Controller decides close hold or proceed",
+    exception: "Escalate material late reconciliations",
+    decision: "AI status support only",
+    note: "The workflow is acceptable only if the close hold decision remains human.",
+    steps: [
+      ["Trigger", "Close task is late or unsupported"],
+      ["AI step", "System drafts escalation summary"],
+      ["Human review", "Close manager validates severity"],
+      ["Approval", "Controller decides whether close can proceed"],
+    ],
+  },
+  commentary: {
+    owner: "FP&A lead",
+    approval: "CFO reviewer sign-off before release",
+    exception: "Unsupported claims escalate to source owner",
+    decision: "Drafting support",
+    note: "AI can draft commentary, but cited evidence and reviewer sign-off are mandatory.",
+    steps: [
+      ["Trigger", "Management pack commentary requested"],
+      ["AI step", "Draft commentary generated from source pack"],
+      ["Human review", "FP&A validates claims and tone"],
+      ["Approval", "CFO reviewer signs off before circulation"],
+    ],
+  },
+  forecast: {
+    owner: "Treasury or FP&A analyst",
+    approval: "Business owner confirms assumption changes",
+    exception: "High-variance assumptions escalate to CFO sponsor",
+    decision: "Challenge support",
+    note: "AI may surface assumption outliers, but forecast judgement remains with management.",
+    steps: [
+      ["Trigger", "Forecast submission received"],
+      ["AI step", "System flags assumption outliers"],
+      ["Human review", "Analyst challenges assumptions with evidence"],
+      ["Approval", "Business owner confirms or revises assumptions"],
+    ],
+  },
+};
 
-const workflowSelect = document.getElementById('workflowSelect');
-const queryInput = document.getElementById('queryInput');
-const searchBtn = document.getElementById('searchBtn');
-const promptSection = document.getElementById('promptSection');
-const promptInput = document.getElementById('promptInput');
-const customPromptBtn = document.getElementById('customPromptBtn');
-const resultsGrid = document.getElementById('resultsGrid');
-const resultsTitle = document.getElementById('resultsTitle');
+const stakeholderCopy = {
+  cfo: {
+    note: "Best for executives deciding which parts of a finance workflow can be accelerated without weakening approval.",
+    customize: "Swap in your own workflow names, thresholds, and owners, then validate where approval authority must remain human.",
+  },
+  operator: {
+    note: "Best for process owners, AP managers, treasury teams, and controllership building a safer workflow design.",
+    customize: "Use the scenarios as a starter map, then replace the steps with your actual handoffs and escalation rules.",
+  },
+  faculty: {
+    note: "Best for instructors who want one reusable workflow shell across multiple finance courses.",
+    customize: "Keep the structure but rename the scenarios to match your course cases.",
+  },
+  student: {
+    note: "Best for learners practicing how to separate AI assistance from approval authority.",
+    customize: "Change scenarios and explain where human review must sit.",
+  },
+};
 
-// Sample resources
-const resources = [
-  { id: 1, title: 'Introduction to Machine Learning', type: 'video', duration: '12m', tags: ['ml', 'beginner'], relevance: 0.95 },
-  { id: 2, title: 'Deep Learning Fundamentals', type: 'article', pages: 24, tags: ['dl', 'intermediate'], relevance: 0.88 },
-  { id: 3, title: 'Neural Networks Explained', type: 'video', duration: '18m', tags: ['nn', 'beginner'], relevance: 0.92 },
-  { id: 4, title: 'Python for Data Science', type: 'book', pages: 320, tags: ['python', 'datascience'], relevance: 0.85 },
-  { id: 5, title: 'Statistics for ML', type: 'article', pages: 12, tags: ['stats', 'math'], relevance: 0.78 },
-  { id: 6, title: 'AI Ethics Guide', type: 'guide', pages: 45, tags: ['ethics', 'responsible'], relevance: 0.72 }
-];
-
-// AI-powered recommendation logic
-function getAIRecommendations(query, customPrompt) {
-  const lowerQuery = query.toLowerCase();
-  let filtered = [...resources];
-  
-  // Simulate AI understanding of natural language
-  if (lowerQuery.includes('beginner') || lowerQuery.includes('simple')) {
-    filtered = filtered.filter(r => r.tags.includes('beginner'));
-  }
-  if (lowerQuery.includes('machine learning') || lowerQuery.includes('ml')) {
-    filtered = filtered.filter(r => r.tags.some(t => t.includes('ml') || t.includes('nn')));
-  }
-  if (lowerQuery.includes('data science')) {
-    filtered = filtered.filter(r => r.tags.includes('datascience') || r.tags.includes('python'));
-  }
-  
-  // Simulate prompt-based filtering
-  if (customPrompt && customPrompt.toLowerCase().includes('interactive')) {
-    filtered = filtered.filter(r => r.type === 'video');
-  }
-  
-  return filtered.sort((a, b) => b.relevance - a.relevance).slice(0, 4);
+function downloadText(filename, content) {
+  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
 }
 
-// Traditional recommendation logic
-function getTraditionalRecommendations(query) {
-  const lowerQuery = query.toLowerCase();
-  return resources.filter(r => 
-    r.title.toLowerCase().includes(lowerQuery) || 
-    r.tags.some(t => t.includes(lowerQuery.split(' ')[0]))
-  ).slice(0, 4);
+function renderWorkflow() {
+  const key = document.getElementById("workflowScenario").value;
+  const scenario = workflowScenarios[key];
+  document.getElementById("workflowSteps").innerHTML = scenario.steps.map(([label, text]) => `
+    <div class="workflow-step">
+      <span>${label}</span>
+      <strong>${text}</strong>
+      <p>${label === "AI step" ? "Technology assists here, but it does not carry approval authority." : "This step anchors the control design."}</p>
+    </div>
+  `).join("");
+  document.getElementById("decisionValue").textContent = scenario.decision;
+  document.getElementById("ownerValue").textContent = scenario.owner;
+  document.getElementById("approvalValue").textContent = scenario.approval;
+  document.getElementById("exceptionValue").textContent = scenario.exception;
+  document.getElementById("workflowNote").textContent = scenario.note;
 }
 
-function renderResults(resources, isAI) {
-  resultsGrid.innerHTML = '';
-  resultsTitle.textContent = isAI ? 'AI-Personalized Recommendations' : 'Keyword Search Results';
-  
-  resources.forEach(r => {
-    const card = document.createElement('div');
-    card.className = 'resource-card';
-    card.innerHTML = `
-      <h3>${r.title}</h3>
-      <p>${r.type === 'video' ? `🎬 ${r.duration} video` : r.type === 'book' ? `📚 ${r.pages} pages` : `📄 ${r.pages || 'Article'} pages`}</p>
-      <div class="resource-meta">Relevance: ${(r.relevance * 100).toFixed(0)}%</div>
-    `;
-    resultsGrid.appendChild(card);
+function setStakeholder() {
+  const key = document.getElementById("stakeholderView").value;
+  document.getElementById("stakeholderNote").textContent = stakeholderCopy[key].note;
+  document.getElementById("customizationNote").textContent = stakeholderCopy[key].customize;
+}
+
+function exportWorkflow() {
+  const key = document.getElementById("workflowScenario").value;
+  const scenario = workflowScenarios[key];
+  const content = [
+    "AI Workflow Demo Summary",
+    `Stakeholder: ${document.getElementById("stakeholderView").value}`,
+    `Scenario: ${key}`,
+    `Decision: ${scenario.decision}`,
+    `Owner: ${scenario.owner}`,
+    `Approval: ${scenario.approval}`,
+    `Exception route: ${scenario.exception}`,
+    "",
+    ...scenario.steps.map(([label, text]) => `${label}: ${text}`),
+  ].join("\n");
+  downloadText("ai-workflow-summary.txt", content);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("workflowScenario").addEventListener("change", renderWorkflow);
+  document.getElementById("stakeholderView").addEventListener("change", setStakeholder);
+  document.getElementById("exportWorkflow").addEventListener("click", exportWorkflow);
+  document.getElementById("resetWorkflow").addEventListener("click", () => {
+    document.getElementById("workflowScenario").value = "ap";
+    document.getElementById("stakeholderView").value = "cfo";
+    setStakeholder();
+    renderWorkflow();
   });
-}
-
-searchBtn.addEventListener('click', function() {
-  const query = queryInput.value.trim();
-  if (!query) return;
-  
-  const isAI = workflowSelect.value === 'ai';
-  let results;
-  
-  if (isAI) {
-    const customPrompt = promptInput.value.trim();
-    results = getAIRecommendations(query, customPrompt);
-  } else {
-    results = getTraditionalRecommendations(query);
-  }
-  
-  renderResults(results, isAI);
+  setStakeholder();
+  renderWorkflow();
 });
-
-workflowSelect.addEventListener('change', function() {
-  promptSection.classList.toggle('hidden', this.value !== 'ai');
-});
-
-customPromptBtn.addEventListener('click', function() {
-  const query = queryInput.value.trim();
-  if (!query) return;
-  const customPrompt = promptInput.value.trim();
-  const results = getAIRecommendations(query, customPrompt);
-  renderResults(results, true);
-});
-
-// Initialize
-promptSection.classList.add('hidden');

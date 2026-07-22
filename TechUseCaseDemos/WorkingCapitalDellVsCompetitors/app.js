@@ -94,6 +94,10 @@
         dell.ccc <= best.ccc
           ? "Dell leads on working-capital speed in this scenario. The case now becomes whether the advantage is driven more by operations, receivables discipline, or supplier power."
           : "Dell no longer leads in this scenario. Ask which assumption changed enough to erode the advantage and whether that shift is operationally realistic.";
+      var actions = inferAction(dell);
+      document.getElementById("executiveDecision").textContent = actions.decision;
+      document.getElementById("riskDecision").textContent = actions.risk;
+      document.getElementById("managementAction").textContent = actions.action;
 
       document.getElementById("insightList").innerHTML = [
         "<li>Dell currently ties up $" + number(dell.cashTied) + "B based on the chosen assumptions.</li>",
@@ -123,11 +127,53 @@
       return levers[0].label;
     }
 
+    function inferAction(dell) {
+      var perDay = dell.cashFreedPerDsoDay;
+      if (dell.dso >= dell.dio && dell.dso >= dell.dpo / 2) {
+        return {
+          decision: "Collections should be the first lever. Each 1-day DSO improvement frees about $" + number(perDay) + "B.",
+          risk: "Customer friction can rise if collections pressure is too aggressive.",
+          action: "Tighten dispute resolution, invoicing accuracy, and collections cadence before pushing supplier terms harder."
+        };
+      }
+      if (dell.dio >= dell.dso) {
+        return {
+          decision: "Inventory looks like the bigger lever than receivables in this scenario.",
+          risk: "Lower inventory may increase service or supply-chain risk.",
+          action: "Improve planning and turns while protecting critical service levels."
+        };
+      }
+      return {
+        decision: "Supplier terms remain an important part of the case, but finance should test sustainability.",
+        risk: "Supplier stress or pricing pressure may offset the cash benefit.",
+        action: "Review supplier concentration and balance-sheet impact before extending DPO further."
+      };
+    }
+
     document.querySelectorAll("[data-preset]").forEach(function (button) {
       button.addEventListener("click", function () {
         state = cloneRows(presets[button.getAttribute("data-preset")] || baseData);
         render();
       });
+    });
+
+    document.getElementById("exportCase").addEventListener("click", function () {
+      var content = [
+        "Working Capital Case Summary",
+        "Best CCC: " + document.getElementById("bestCompany").textContent,
+        "Dell cash advantage: " + document.getElementById("dellAdvantage").textContent,
+        "Largest improvement lever: " + document.getElementById("bestLever").textContent,
+        "Executive decision: " + document.getElementById("executiveDecision").textContent,
+        "Risk: " + document.getElementById("riskDecision").textContent,
+        "Management action: " + document.getElementById("managementAction").textContent
+      ].join("\n");
+      var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement("a");
+      link.href = url;
+      link.download = "working-capital-case-summary.txt";
+      link.click();
+      URL.revokeObjectURL(url);
     });
 
     render();

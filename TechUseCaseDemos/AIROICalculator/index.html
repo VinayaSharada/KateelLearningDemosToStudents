@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Kateel demo analytics and error telemetry -->
   <script src="../../assets/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI ROI Calculator - KateelLearningDemos</title>
-  <meta name="description" content="Calculator for estimating the return on investment for AI projects.">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
-  <script defer src="../../assets/site.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -18,151 +17,148 @@
     <a class="brand" href="../../index.html">KateelLearningDemos</a>
     <div class="nav-links">
       <a class="nav-link" href="../../index.html">Home</a>
-      <details class="nav-dropdown">
-  <summary class="nav-link">Courses</summary>
-  <div class="dropdown-content" role="menu">
-    <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
-      <a class="dropdown-link active" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
-      <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
-      <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
-      <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
-      <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
-      <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
-      <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
-  </div>
-</details>
       <a class="nav-link" href="about.html">About Demo</a>
       <a class="nav-link" href="../../courses/ai-ml-workflows.html">AI/ML</a>
-      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
       <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
     </div>
   </div>
 </nav>
-  <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> This demo folder now uses a standardized launch page. Start with <a href="about.html">About Demo</a>, then choose the run mode that fits your class.
-  </div>
-  <main class="container demo-shell">
-    <section class="demo-hero">
-      <p class="demo-kicker">AI/ML Workflows • Browser • 20-30 min</p>
-      <h1>AI ROI Calculator</h1>
-      <p class="demo-lede">Calculator for estimating the return on investment for AI projects.</p>
-      <div class="cta-buttons">
-        <a class="btn btn-primary" href="about.html">Open About Demo</a>
-        <a class="btn btn-secondary" href="README.md">Read README</a>
-        <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
-      </div>
-    </section>
-
-    <section class="demo-widget">
-      <!-- Project Inputs -->
-      <section class="inputs-section">
-        <h2>Project Details</h2>
-        <div class="inputs-grid">
-          <div class="input-group">
-            <label>Development Cost: $<span id="dev-cost-val">100K</span></label>
-            <input type="range" id="dev-cost" min="10" max="500" value="100" step="10">
-          </div>
-          <div class="input-group">
-            <label>Annual Maintenance: $<span id="maint-cost-val">20K</span></label>
-            <input type="range" id="maint-cost" min="5" max="100" value="20" step="5">
-          </div>
-          <div class="input-group">
-            <label>Annual Benefits: $<span id="benefits-val">50K</span></label>
-            <input type="range" id="benefits" min="10" max="500" value="50" step="10">
-          </div>
-          <div class="input-group">
-            <label>Project Duration: <span id="duration-val">3</span> years</label>
-            <input type="range" id="duration" min="1" max="10" value="3">
-          </div>
-        </div>
-      </section>
-
-      <!-- Results -->
-      <section class="results-section">
-        <h2>Financial Analysis</h2>
-        <div class="results-grid">
-          <div class="result-card">
-            <div class="result-value" id="total-cost">$160K</div>
-            <div class="result-label">Total Cost</div>
-          </div>
-          <div class="result-card">
-            <div class="result-value" id="total-benefits">$150K</div>
-            <div class="result-label">Total Benefits</div>
-          </div>
-          <div class="result-card">
-            <div class="result-value" id="net-value">-$10K</div>
-            <div class="result-label">Net Value</div>
-          </div>
-          <div class="result-card">
-            <div class="result-value" id="payback">N/A</div>
-            <div class="result-label">Payback (years)</div>
-          </div>
-        </div>
-        <div class="recommendation" id="recommendation">Recommendation: Consider project carefully</div>
-      </section>
-
-      <!-- Breakdown -->
-      <section class="breakdown-section">
-        <h2>Year-by-Year Breakdown</h2>
-        <table id="year-table">
-          <thead>
-            <tr><th>Year</th><th>Cost</th><th>Benefit</th><th>Cumulative</th></tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </section>
-    </section>
-
-  <section class="demo-standard-guide">
-    <div class="section-header">
-      <p class="section-kicker">Standard demo guide</p>
-      <h2>Use this demo in a logical learning sequence</h2>
-      <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
-    </div>
-    <div class="card-grid">
-      <article class="info-card">
-        <h3>What this demo is about</h3>
-        <p>Calculator for estimating the return on investment for AI projects.</p>
-      </article>
-      <article class="info-card">
-        <h3>Learning objectives</h3>
-        <ul><li>Explain the main ai/ml decision that AI ROI Calculator is designed to support.</li><li>Change input assumptions and predict how the output should respond before running the demo.</li><li>Interpret the result in plain language, not just as a number, chart, or AI recommendation.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Run mode and expectations</h3>
-        <ul>
-          <li>Supported modes: Browser</li>
-          <li>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</li>
-        </ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 1: Inputs</h3>
-        <ul><li>Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.</li><li>Treat each input as a lever that changes the scenario, baseline, or business context behind the result.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 2: Decision buttons</h3>
-        <ul><li>Use the main run or simulate action to compute the scenario after inputs are set.</li><li>Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 3: Outputs and what to notice</h3>
-        <ul><li>Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.</li><li>Students should explain whether the output is descriptive, predictive, simulated, or recommended.</li><li>Look for the investment cost, expected benefit, adoption rate, and time horizon</li><li>Observe how ROI changes when benefits are conservative or adoption is slower</li></ul>
-      </article>
-    </div>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Finance Transformation • Browser • CFO Decision • 20-30 min</p>
+    <h1>AI ROI Calculator</h1>
+    <p class="demo-lede">Build a finance-ready AI business case that includes released capacity, adoption timing, remediation cost, confidence range, and a clear human approval point.</p>
   </section>
 
-    <section class="demo-panel">
-      <div class="panel-grid">
-        <article class="mini-panel">
-          <h3>Available run modes</h3>
-          <ul class="plain-list"><li><strong>Browser:</strong> available for this demo.</li></ul>
-        </article>
-        <article class="mini-panel">
-          <h3>How to proceed</h3>
-          <ol class="plain-list"><li>Choose the run mode that fits the class: Browser.</li><li>Review the default assumptions before changing anything.</li><li>Change one or two inputs, then use `Run the main action`.</li><li>Read the output first, then compare any supporting metrics, charts, or AI text.</li><li>Capture one insight, one limitation, and one action recommendation.</li></ol>
-        </article>
+  <section class="roi-app">
+    <section class="roi-panel roi-mode-panel">
+      <div class="roi-mode-bar">
+        <div>
+          <h2>Teaching Mode</h2>
+          <p id="modeDescription">Facilitator mode highlights the business-case decision and approval logic in 5-8 minutes.</p>
+        </div>
+        <div class="roi-actions">
+          <button id="facilitatorMode" class="btn btn-secondary" type="button">Facilitator Mode</button>
+          <button id="participantMode" class="btn btn-secondary" type="button">Participant Mode</button>
+          <button id="exportSummary" class="btn btn-secondary" type="button">Export Summary</button>
+          <button id="resetScenario" class="btn btn-secondary" type="button">Reset</button>
+        </div>
+      </div>
+      <div class="roi-pill-row">
+        <span class="roi-pill">Business decision first</span>
+        <span class="roi-pill">Fictional/sanitized assumptions</span>
+        <span class="roi-pill">Human approval required</span>
       </div>
     </section>
-  </main>
-<script src="app.js"></script>
+
+    <section class="roi-panel">
+      <div class="roi-grid">
+        <div class="roi-field">
+          <label for="stakeholderView">Primary stakeholder</label>
+          <select id="stakeholderView">
+            <option value="cfo">CFO or aspiring CFO</option>
+            <option value="operator">Finance transformation or controllership</option>
+            <option value="faculty">Faculty or course designer</option>
+            <option value="student">Student or participant</option>
+          </select>
+        </div>
+        <div class="roi-summary-card">
+          <span>Who this is for</span>
+          <strong id="stakeholderNote"></strong>
+        </div>
+      </div>
+      <div class="roi-summary-grid">
+        <div class="roi-summary-card"><span>How to adapt for your organization</span><strong id="customizationNote"></strong></div>
+        <div class="roi-summary-card"><span>What to take back</span><strong>Export a one-page summary, replace default assumptions with your own case inputs, and re-run the approval logic with your internal hurdle rates.</strong></div>
+      </div>
+    </section>
+
+    <div class="roi-grid">
+      <section class="roi-panel">
+        <h2>Scenario Inputs</h2>
+        <div class="roi-field">
+          <label for="implementationCost">Implementation cost (USD m)</label>
+          <input id="implementationCost" type="range" min="1" max="20" step="1" value="6">
+          <div class="roi-inline-value" id="implementationCostValue"></div>
+        </div>
+        <div class="roi-field">
+          <label for="annualBenefit">Steady-state annual benefit (USD m)</label>
+          <input id="annualBenefit" type="range" min="1" max="15" step="1" value="5">
+          <div class="roi-inline-value" id="annualBenefitValue"></div>
+        </div>
+        <div class="roi-field">
+          <label for="capacityReleased">Process capacity released (FTE equivalent)</label>
+          <input id="capacityReleased" type="range" min="5" max="150" step="5" value="35">
+          <div class="roi-inline-value" id="capacityReleasedValue"></div>
+        </div>
+        <div class="roi-field">
+          <label for="adoptionCurve">Adoption curve in year 1</label>
+          <input id="adoptionCurve" type="range" min="20" max="100" step="5" value="55">
+          <div class="roi-inline-value" id="adoptionCurveValue"></div>
+        </div>
+        <div class="roi-field">
+          <label for="controlCost">Control-remediation cost (USD m)</label>
+          <input id="controlCost" type="range" min="0" max="8" step="0.5" value="1.5">
+          <div class="roi-inline-value" id="controlCostValue"></div>
+        </div>
+        <div class="roi-field">
+          <label for="confidenceRange">Benefit confidence</label>
+          <input id="confidenceRange" type="range" min="40" max="100" step="5" value="70">
+          <div class="roi-inline-value" id="confidenceRangeValue"></div>
+        </div>
+        <div class="roi-field">
+          <label for="timeHorizon">Time horizon (years)</label>
+          <input id="timeHorizon" type="range" min="2" max="7" step="1" value="4">
+          <div class="roi-inline-value" id="timeHorizonValue"></div>
+        </div>
+      </section>
+
+      <section class="roi-panel">
+        <h2>CFO Summary</h2>
+        <div class="roi-metrics">
+          <div class="roi-metric"><div class="label">Base NPV view</div><div class="value" id="baseValue"></div></div>
+          <div class="roi-metric"><div class="label">Confidence-adjusted value</div><div class="value" id="confidenceValue"></div></div>
+          <div class="roi-metric"><div class="label">Payback</div><div class="value" id="paybackValue"></div></div>
+          <div class="roi-metric"><div class="label">Released capacity</div><div class="value" id="capacityValue"></div></div>
+        </div>
+        <div class="roi-summary-grid">
+          <div class="roi-summary-card"><span>Decision</span><strong id="decisionValue"></strong></div>
+          <div class="roi-summary-card"><span>Primary risk</span><strong id="riskValue"></strong></div>
+          <div class="roi-summary-card"><span>Owner</span><strong id="ownerValue"></strong></div>
+          <div class="roi-summary-card"><span>Approval point</span><strong id="approvalValue"></strong></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="roi-panel">
+      <h3>Value and Evidence Breakdown</h3>
+      <table class="roi-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Adoption</th>
+            <th>Benefit</th>
+            <th>Control cost</th>
+            <th>Net impact</th>
+            <th>Cumulative</th>
+          </tr>
+        </thead>
+        <tbody id="yearTableBody"></tbody>
+      </table>
+    </section>
+
+    <section class="roi-grid roi-lower-grid">
+      <section class="roi-note" id="businessNote"></section>
+      <section class="roi-panel">
+        <h3>Participant Task</h3>
+        <p id="participantTask">Decide whether the CFO should approve now, phase the initiative, or hold until evidence and controls improve.</p>
+        <div class="roi-actions">
+          <button id="showExpectedAnswer" class="btn btn-secondary" type="button">Show Expected Answer</button>
+        </div>
+        <div class="roi-expected-answer" id="expectedAnswer" hidden></div>
+      </section>
+    </section>
+  </section>
+</main>
 </body>
 </html>

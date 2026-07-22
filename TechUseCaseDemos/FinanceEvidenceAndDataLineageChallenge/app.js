@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{document.getElementById("lineageClaims").innerHTML=[["Revenue claim","Linked to trial balance and sales report"],["Margin claim","Source row not traced"],["Collections claim","Linked to AR aging export"]].map(([a,b])=>`<div class="generic-item"><span>${a}</span><strong>${b}</strong></div>`).join("");});

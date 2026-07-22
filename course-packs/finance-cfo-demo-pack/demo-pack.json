@@ -1,0 +1,81 @@
+{
+  "id": "finance-cfo-demo-pack-core",
+  "title": "Finance CFO Demo Pack",
+  "packType": "core",
+  "status": "draft",
+  "theme": "Finance transformation, evidence, governance, controls, and treasury-linked decision support",
+  "demos": [
+    {
+      "title": "AI ROI Calculator",
+      "launchPath": "TechUseCaseDemos/AIROICalculator/index.html",
+      "aboutPath": "TechUseCaseDemos/AIROICalculator/about.html",
+      "learningObjective": "Evaluate a confidence-adjusted AI business case with control costs and payback."
+    },
+    {
+      "title": "AI Governance Scorecard",
+      "launchPath": "TechUseCaseDemos/AIGovernanceScorecard/index.html",
+      "aboutPath": "TechUseCaseDemos/AIGovernanceScorecard/about.html",
+      "learningObjective": "Assess whether CFO controls are strong enough for deployment."
+    },
+    {
+      "title": "AI Decision Tracker",
+      "launchPath": "TechUseCaseDemos/AIDecisionTracker/index.html",
+      "aboutPath": "TechUseCaseDemos/AIDecisionTracker/about.html",
+      "learningObjective": "Capture a finance decision record with ownership, evidence, and review date."
+    },
+    {
+      "title": "AI Workflow Demo",
+      "launchPath": "TechUseCaseDemos/AIWorkflowDemo/index.html",
+      "aboutPath": "TechUseCaseDemos/AIWorkflowDemo/about.html",
+      "learningObjective": "Design workflow routing and approval points without weakening controls."
+    },
+    {
+      "title": "Payment Operations and Reconciliation Workbench",
+      "launchPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/index.html",
+      "aboutPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/about.html",
+      "learningObjective": "Manage exceptions using materiality, ownership, and escalation logic."
+    },
+    {
+      "title": "AI Content Summarizer",
+      "launchPath": "TechUseCaseDemos/AIContentSummarizer/index.html",
+      "aboutPath": "TechUseCaseDemos/AIContentSummarizer/about.html",
+      "learningObjective": "Review cited evidence, unsupported claims, and sign-off before releasing finance narrative."
+    },
+    {
+      "title": "Lite Parse Demo",
+      "launchPath": "TechUseCaseDemos/LiteParseDemo/index.html",
+      "aboutPath": "TechUseCaseDemos/LiteParseDemo/about.html",
+      "learningObjective": "Separate clause extraction from human accounting judgement."
+    },
+    {
+      "title": "Month-End Close Command Center",
+      "launchPath": "TechUseCaseDemos/MonthEndCloseCommandCenter/index.html",
+      "aboutPath": "TechUseCaseDemos/MonthEndCloseCommandCenter/about.html",
+      "learningObjective": "Review close evidence and enforce the no-autonomous-posting rule."
+    },
+    {
+      "title": "Finance Evidence and Data-Lineage Challenge",
+      "launchPath": "TechUseCaseDemos/FinanceEvidenceAndDataLineageChallenge/index.html",
+      "aboutPath": "TechUseCaseDemos/FinanceEvidenceAndDataLineageChallenge/about.html",
+      "learningObjective": "Trace commentary claims back to source evidence before CFO release."
+    },
+    {
+      "title": "Digital Finance Portfolio Simulator",
+      "launchPath": "TechUseCaseDemos/DigitalFinancePortfolioSimulator/index.html",
+      "aboutPath": "TechUseCaseDemos/DigitalFinancePortfolioSimulator/about.html",
+      "learningObjective": "Sequence initiatives using value, readiness, and control risk."
+    },
+    {
+      "title": "Ind AS Contract Review Workbench",
+      "launchPath": "TechUseCaseDemos/IndASContractReviewWorkbench/index.html",
+      "aboutPath": "TechUseCaseDemos/IndASContractReviewWorkbench/about.html",
+      "learningObjective": "Use extraction to raise finance questions without replacing legal or accounting judgement."
+    },
+    {
+      "title": "Finance Signal Triage",
+      "launchPath": "TechUseCaseDemos/FinanceSignalTriage/index.html",
+      "aboutPath": "TechUseCaseDemos/FinanceSignalTriage/about.html",
+      "learningObjective": "Escalate only when signals are corroborated by finance metrics."
+    }
+  ]
+}

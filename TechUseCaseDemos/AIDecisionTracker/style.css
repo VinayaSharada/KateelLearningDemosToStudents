@@ -1,31 +1,33 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
-  min-height: 100vh;
+.tracker-app { display: grid; gap: 1.5rem; }
+.tracker-grid { display: grid; gap: 1.5rem; grid-template-columns: 420px minmax(0, 1fr); }
+.tracker-lower-grid { grid-template-columns: minmax(0, 1fr) 360px; }
+.tracker-panel, .tracker-metric { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; padding: 1rem 1.1rem; }
+.tracker-panel h2, .tracker-panel h3 { color: #fff; margin: 0 0 .8rem; }
+.tracker-mode-bar { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+.tracker-mode-bar p { color: #dbe7f6; margin: .35rem 0 0; max-width: 58ch; }
+.tracker-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+.tracker-field { display: grid; gap: .45rem; margin-bottom: .85rem; }
+.tracker-field label { color: #fff; font-weight: 600; }
+.tracker-field input, .tracker-field select, .tracker-field textarea { width: 100%; padding: .8rem .9rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); background: rgba(8,12,20,.9); color: #dbe7f6; }
+.tracker-metrics { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tracker-metric .label { color: #9fb2c8; font-size: .82rem; text-transform: uppercase; }
+.tracker-metric .value { color: #fff; font-size: 1.06rem; font-weight: 700; margin-top: .35rem; }
+.tracker-summary-grid { display: grid; gap: .9rem; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem; }
+.tracker-summary-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: .85rem .95rem; background: rgba(8,12,20,.48); }
+.tracker-summary-card span { display: block; color: #9fb2c8; font-size: .8rem; text-transform: uppercase; }
+.tracker-summary-card strong { color: #fff; display: block; margin-top: .35rem; }
+.tracker-snapshot { color: #dbe7f6; display: grid; gap: .75rem; }
+.tracker-snapshot-item { border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: .85rem .95rem; background: rgba(8,12,20,.45); }
+.tracker-snapshot-item span { display: block; color: #9fb2c8; font-size: .8rem; text-transform: uppercase; margin-bottom: .25rem; }
+.tracker-note { background: rgba(16,185,129,.12); border-left: 4px solid #10b981; border-radius: 14px; padding: 1rem 1.1rem; color: #dbe7f6; }
+.tracker-expected-answer { margin-top: 1rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1rem; color: #dbe7f6; background: rgba(8,12,20,.45); }
+.state-ready { color: #86efac; }
+.state-review { color: #fde68a; }
+.state-hold { color: #fca5a5; }
+@media (max-width: 960px) {
+  .tracker-grid, .tracker-lower-grid { grid-template-columns: 1fr; }
+  .tracker-mode-bar { flex-direction: column; }
 }
-.container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-header { margin-bottom: 2rem; }
-header h1 { color: #fff; font-size: 2rem; }
-.subtitle { color: #94a3b8; }
-
-main { display: grid; gap: 2rem; }
-section { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; }
-h2 { color: #fff; margin-bottom: 1rem; }
-
-.field { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
-label { color: #94a3b8; font-size: 0.875rem; }
-input, select { padding: 0.75rem; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; }
-button { padding: 0.75rem 1.5rem; background: #3b82f6; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
-button:hover { background: #2563eb; }
-
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-
-.decision-item {
-  background: rgba(255,255,255,0.05); border-left: 4px solid #3b82f6;
-  padding: 1rem; margin-bottom: 0.75rem; border-radius: 0 8px 8px 0;
+@media (max-width: 640px) {
+  .tracker-metrics, .tracker-summary-grid { grid-template-columns: 1fr; }
 }
-.decision-item .category { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; }
-.decision-item .decision { font-weight: bold; margin: 0.25rem 0; }
-.decision-item .rationale { color: #cbd5e1; font-size: 0.875rem; }

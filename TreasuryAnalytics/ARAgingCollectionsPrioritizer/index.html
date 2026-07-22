@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AR Aging & Collections Prioritizer - KateelLearningDemos</title>
-  <meta name="description" content="Colab launch hub for the AR Aging & Collections Prioritizer notebook in Treasury Management.">
+  <meta name="description" content="Colab launch hub for the AR Aging & Collections Prioritizer notebook with reusable collections queue exports and step-by-step explanations.">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <script defer src="../../assets/site.js"></script>
@@ -29,7 +29,7 @@
   <section class="demo-hero">
     <p class="demo-kicker">Treasury Management • Colab • 30-45 min</p>
     <h1>AR Aging & Collections Prioritizer</h1>
-    <p class="demo-lede">Launch a Colab notebook that reproduces the AR Aging & Collections Prioritizer Claude Skill as a transparent, cell-by-cell walkthrough: aging buckets, a weighted risk score, four-segment collections strategy, and a ranked worklist.</p>
+    <p class="demo-lede">Launch a Colab notebook that reproduces the AR Aging & Collections Prioritizer workflow as a transparent, cell-by-cell walkthrough: aging buckets, a weighted risk score, four-segment collections strategy, a ranked worklist, reusable export files, and explanation text after every code cell.</p>
     <div class="tag-row">
       <span class="tag">AR aging & DSO estimation</span>
       <span class="tag">Receivables segmentation</span>
@@ -50,7 +50,43 @@
       </article>
       <article class="mini-panel">
         <h3>Why Colab helps here</h3>
-        <p>Every chart and table in the notebook is produced by calling the exact same functions the Skill calls, so students can inspect, question, and re-run the logic instead of trusting an opaque result.</p>
+        <p>Every chart and table in the notebook is produced by calling the exact same functions the workflow uses, so students can inspect, question, re-run, and now export the logic instead of trusting an opaque result.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <h2>Self-Service Use</h2>
+    <div class="run-mode-grid">
+      <article class="mini-panel">
+        <h3>Who this is for</h3>
+        <p>Useful for CFOs, treasury teams, collections leaders, faculty, and learners. It can support classroom use or a practitioner-led receivables review.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>How to adapt it</h3>
+        <p>Start with the sample file, map your own sanitized AR export to the same structure, then re-run the scoring and segmentation logic with your business rules.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>What to take back</h3>
+        <p>Use the ranked worklist, top-account cash-at-risk view, and reweighting discussion as a starter pack for your own collections governance conversation.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="demo-panel">
+    <h2>CFO Summary Panel</h2>
+    <div class="run-mode-grid">
+      <article class="mini-panel">
+        <h3>Cash at risk</h3>
+        <p>Use the notebook's ranked worklist to quantify top-account exposure before assigning collections capacity.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Top accounts and actions</h3>
+        <p>The objective is not just a score. The team should identify which accounts need analyst outreach, commercial escalation, or tighter terms.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Judgement boundary</h3>
+        <p>The risk score is a prioritization signal, not a credit or collections judgement. Human ownership stays with finance.</p>
       </article>
     </div>
   </section>
@@ -60,11 +96,11 @@
     <div class="run-mode-grid">
       <article class="mini-panel">
         <h3>Colab</h3>
-        <p>Best for a classroom walkthrough with zero local setup and visible Python cells for each aging, segmentation, and ranking step.</p>
+        <p>Best for a classroom walkthrough with zero local setup and visible Python cells for each aging, segmentation, ranking, and export step.</p>
       </article>
       <article class="mini-panel">
         <h3>What students do</h3>
-        <p>Run the aging/DSO summary, compare the segmentation output to the "Receivables Strategy by Customer Type" slide, re-rank the worklist under a cash-crunch weighting, and reflect on data gaps.</p>
+        <p>Run the aging/DSO summary, compare the segmentation output to the strategy slide, export a reusable collections queue, re-rank the worklist under a cash-crunch weighting, and reflect on data gaps.</p>
       </article>
       <article class="mini-panel">
         <h3>Wait expectation</h3>

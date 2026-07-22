@@ -1,0 +1,29 @@
+{
+  "id": "treasury-course-demo-pack",
+  "title": "Treasury Course Demo Pack",
+  "slug": "treasury-course-demo-pack",
+  "status": "draft",
+  "version": "0.1.0",
+  "createdOn": "2026-07-22",
+  "lastUpdated": "2026-07-22",
+  "purpose": "Reusable treasury teaching pack that sequences shared demos, notebook workflows, participant tasks, and instructor guidance without duplicating demo implementations.",
+  "theme": "Treasury, liquidity, cash forecasting, collections, and working capital",
+  "audience": [
+    "students",
+    "faculty",
+    "executive-education participants"
+  ],
+  "entryPoints": {
+    "coursePage": "courses/treasury-management.html",
+    "catalogSpec": "CourseCatalogs/Treasury/TREASURY_DEMO_PACK_ENHANCEMENT_SPEC.md",
+    "participantGuide": "course-packs/treasury-course-demo-pack/participant-guide.md",
+    "instructorGuide": "course-packs/treasury-course-demo-pack/instructor-guide.md",
+    "corePack": "course-packs/treasury-course-demo-pack/demo-pack.json",
+    "extensionPack": "course-packs/treasury-course-demo-pack/extension-pack.json"
+  },
+  "metadataPolicy": {
+    "demoMetadataAuthority": "central-demo-metadata",
+    "packMetadataAuthority": "course-pack-json",
+    "generatedArtifactsAuthority": "derived-only"
+  }
+}

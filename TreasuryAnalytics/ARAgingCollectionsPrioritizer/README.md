@@ -27,3 +27,17 @@ Colab-based Treasury Management demo that reproduces the AR Aging & Collections 
 ## Teaching use
 
 Use this demo alongside or after the Session 3 chat-based Skill demo, when you want participants to see the aging math, the risk-scoring weights, and the segmentation rules computed directly in front of them instead of only consuming a chat response.
+
+## Who this is for
+
+- CFOs and aspiring CFOs
+- Treasury, controllership, and collections teams
+- Faculty adopting the demo in multiple courses
+- Students learning how collections signals become action
+
+## Self-service use
+
+- Start with the sample data and inspect the logic end to end.
+- Map your own sanitized AR export to the same structure.
+- Use the notebook-generated `ar_aging_data_template.csv` as a starter mapping file for bring-your-own-data scoring.
+- Re-run the notebook and use the resulting worklist and top-account cash view inside your own organization.

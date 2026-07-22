@@ -1,132 +1,76 @@
-// AI Content Summarizer - Traditional vs AI-powered summarization
-// KateelLearningDemos - Attribution: vinallcontact@gmail.com
-console.log('AI Demo powered by KateelLearningDemos');
-console.log('Attribution: vinallcontact@gmail.com');
+const evidenceRows = [
+  ["Revenue growth", "Q2 revenue increased 6% year over year."],
+  ["Margin", "Gross margin improved by 120 basis points."],
+  ["Collections", "DSO improved by 2 days after targeted collections action."],
+];
+const draftClaims = [
+  { claim: "Revenue momentum remained healthy across the quarter.", supported: true, source: "Revenue growth" },
+  { claim: "Margin improvement reflects operating discipline and mix quality.", supported: true, source: "Margin" },
+  { claim: "Collections improvements eliminated working-capital risk.", supported: false, source: "No source support for eliminated risk" },
+];
+let reviewerSigned = false;
 
-const aiToggle = document.getElementById('aiToggle');
-const promptSection = document.getElementById('promptSection');
-const summaryPrompt = document.getElementById('summaryPrompt');
-const contentInput = document.getElementById('contentInput');
-const summarizeBtn = document.getElementById('summarizeBtn');
-const resultSection = document.getElementById('resultSection');
-const traditionalResult = document.getElementById('traditionalResult');
-const aiResult = document.getElementById('aiResult');
+const stakeholderCopy = {
+  cfo: {
+    note: "Best for executive reviewers deciding whether a finance narrative is safe enough to circulate.",
+    customize: "Replace the sample evidence and claims with your own cited narrative and reviewer checklist before using the output internally.",
+  },
+  operator: {
+    note: "Best for FP&A, investor relations, and finance-review teams preparing management-pack commentary.",
+    customize: "Use the evidence-versus-claim pattern on your own narrative and mark unsupported statements before sign-off.",
+  },
+  faculty: {
+    note: "Best for instructors who want one reusable narrative-review shell across finance and governance courses.",
+    customize: "Swap the sample narrative and evidence to fit your own case while keeping the review logic intact.",
+  },
+  student: {
+    note: "Best for learners practicing how to challenge unsupported finance narrative.",
+    customize: "Review one statement at a time and explain what evidence is missing.",
+  },
+};
 
-const STOPWORDS = new Set([
-  'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
-  'of', 'with', 'by', 'from', 'is', 'are', 'was', 'were', 'be', 'been',
-  'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would',
-  'could', 'should', 'may', 'might', 'must', 'shall', 'can', 'this',
-  'that', 'these', 'those', 'it', 'its', 'as', 'if', 'then', 'than',
-  'so', 'such', 'no', 'not', 'only', 'own', 'same', 'too', 'very',
-  'just', 'also', 'now', 'here', 'there', 'when', 'where', 'why', 'how'
-]);
-
-function wordCount(text) {
-  return (text.match(/\b\w+\b/g) || []).length;
+function downloadText(filename, content) {
+  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
 }
 
-// Real extractive summarization: score each sentence by the frequency of
-// its non-stopword terms, then keep the top-scoring sentences in their
-// original order. This is what "traditional" extractive summarization
-// actually does — earlier versions of this demo just took the first three
-// sentences, which isn't extractive summarization at all.
-function getTraditionalSummary(content, maxSentences = 3) {
-  const sentences = content
-    .replace(/([.!?])\s*(?=[A-Z])/g, '$1|SPLIT|')
-    .split('|SPLIT|')
-    .map(s => s.trim())
-    .filter(s => s.length > 20);
-
-  if (sentences.length === 0) return { html: '<p><em>Enter at least one full sentence.</em></p>', summaryWords: 0 };
-
-  const words = content.toLowerCase().match(/\b\w+\b/g) || [];
-  const freq = {};
-  words.forEach(w => {
-    if (!STOPWORDS.has(w) && w.length > 2) freq[w] = (freq[w] || 0) + 1;
+function renderSummary() {
+  document.getElementById("evidenceList").innerHTML = evidenceRows.map(([title, text]) => `<div class="summary-item"><span>${title}</span><strong>${text}</strong></div>`).join("");
+  document.getElementById("draftSummary").innerHTML = draftClaims.map((item) => `<div class="claim-item ${item.supported ? "claim-supported" : "claim-unsupported"}"><span>Claim</span><strong>${item.claim}</strong><p>${item.source}</p></div>`).join("");
+  const unsupported = draftClaims.filter((item) => !item.supported).length;
+  document.getElementById("unsupportedCount").textContent = `${unsupported}`;
+  document.getElementById("evidenceStatus").textContent = unsupported ? "Needs challenge" : "Evidence aligned";
+  document.getElementById("reviewerStatus").textContent = reviewerSigned ? "Signed off" : "Pending";
+  document.getElementById("releaseDecision").textContent = reviewerSigned && unsupported === 0 ? "Ready for release" : "Hold for review";
+  document.getElementById("claimReview").innerHTML = `<div class="summary-item"><span>Business decision</span><strong>${unsupported ? "At least one claim is unsupported; the draft should not move forward unchanged." : "Claims are evidence-backed, subject to reviewer sign-off."}</strong></div>`;
+}
+function setStakeholder() {
+  const key = document.getElementById("stakeholderView").value;
+  document.getElementById("stakeholderNote").textContent = stakeholderCopy[key].note;
+  document.getElementById("customizationNote").textContent = stakeholderCopy[key].customize;
+}
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("reviewToggle").addEventListener("click", () => {
+    reviewerSigned = !reviewerSigned;
+    renderSummary();
   });
-
-  const scored = sentences.map((sentence, index) => {
-    const sentWords = sentence.toLowerCase().match(/\b\w+\b/g) || [];
-    const score = sentWords.reduce((sum, w) => sum + (freq[w] || 0), 0);
-    return { sentence, index, score };
+  document.getElementById("stakeholderView").addEventListener("change", setStakeholder);
+  document.getElementById("exportSummary").addEventListener("click", () => {
+    const content = [
+      "AI Content Summarizer Review",
+      `Stakeholder: ${document.getElementById("stakeholderView").value}`,
+      `Unsupported claims: ${document.getElementById("unsupportedCount").textContent}`,
+      `Evidence status: ${document.getElementById("evidenceStatus").textContent}`,
+      `Reviewer sign-off: ${document.getElementById("reviewerStatus").textContent}`,
+      `Release decision: ${document.getElementById("releaseDecision").textContent}`,
+    ].join("\n");
+    downloadText("ai-content-summarizer-review.txt", content);
   });
-
-  const top = scored
-    .sort((a, b) => b.score - a.score)
-    .slice(0, Math.min(maxSentences, sentences.length))
-    .sort((a, b) => a.index - b.index) // restore original reading order
-    .map(item => item.sentence);
-
-  const summaryText = top.join(' ');
-  return { html: `<p>${summaryText}</p>`, summaryWords: wordCount(summaryText) };
-}
-
-// AI abstractive summary (simulated — no model call happens here; this
-// represents what an LLM response would look like for teaching purposes).
-function getAISummary(content, prompt) {
-  const keyPoints = [
-    "AI has transformed industries through machine learning and automation",
-    "Organizations must balance innovation with ethical governance",
-    "Collaborative efforts are essential for responsible AI development"
-  ];
-
-  let html = '';
-  if (prompt && prompt.toLowerCase().includes('bullet')) {
-    html = '<ul>' + keyPoints.map(p => `<li>${p}</li>`).join('') + '</ul>';
-  } else if (prompt && prompt.toLowerCase().includes('manager')) {
-    html = `<p><strong>Key Insight:</strong> AI transformation requires strategic governance.</p><p>Three critical actions: 1) Establish AI ethics framework, 2) Invest in workforce reskilling, 3) Implement transparent deployment practices.</p>`;
-  } else {
-    html = `<p><strong>Executive Summary:</strong> ${content.substring(0, 200)}... <em>This demonstrates how AI can provide abstractive, contextual summaries that capture the essence beyond just extracting text.</em></p>`;
-  }
-
-  const plainText = html.replace(/<[^>]+>/g, ' ');
-  return { html, summaryWords: wordCount(plainText) };
-}
-
-function renderStats(container, sourceWords, summaryWords) {
-  const ratio = sourceWords > 0 ? Math.round((1 - summaryWords / sourceWords) * 100) : 0;
-  const stats = document.createElement('div');
-  stats.className = 'result-stats';
-  stats.innerHTML = `${summaryWords} words vs. ${sourceWords} source words — ${ratio}% compression`;
-  container.appendChild(stats);
-}
-
-summarizeBtn.addEventListener('click', function() {
-  const content = contentInput.value;
-  const useAI = aiToggle.checked;
-  const customPrompt = summaryPrompt.value || '';
-  const sourceWords = wordCount(content);
-
-  const traditional = getTraditionalSummary(content);
-  traditionalResult.innerHTML = traditional.html;
-  renderStats(traditionalResult, sourceWords, traditional.summaryWords);
-
-  if (useAI) {
-    const ai = getAISummary(content, customPrompt);
-    aiResult.innerHTML = ai.html;
-    renderStats(aiResult, sourceWords, ai.summaryWords);
-  }
-
-  resultSection.classList.remove('hidden');
-});
-
-aiToggle.addEventListener('change', function() {
-  promptSection.classList.toggle('hidden', !this.checked);
-});
-
-// Initialize with sample content
-window.addEventListener('load', function() {
-  const content = contentInput.value;
-  const sourceWords = wordCount(content);
-
-  const traditional = getTraditionalSummary(content);
-  traditionalResult.innerHTML = traditional.html;
-  renderStats(traditionalResult, sourceWords, traditional.summaryWords);
-
-  const ai = getAISummary(content, '');
-  aiResult.innerHTML = ai.html;
-  renderStats(aiResult, sourceWords, ai.summaryWords);
-
-  resultSection.classList.remove('hidden');
+  setStakeholder();
+  renderSummary();
 });

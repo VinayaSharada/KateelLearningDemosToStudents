@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Kateel demo analytics and error telemetry -->
   <script src="../../assets/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Governance Scorecard - KateelLearningDemos</title>
-  <meta name="description" content="Work through a 7-item AI governance checklist — fairness and bias mitigation, model transparency, privacy protection, safety and security, audit trail, validation and testing, and ongoing monitoring — to compute an overall compliance score.">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
-  <script defer src="../../assets/site.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -18,106 +17,109 @@
     <a class="brand" href="../../index.html">KateelLearningDemos</a>
     <div class="nav-links">
       <a class="nav-link" href="../../index.html">Home</a>
-      <details class="nav-dropdown">
-  <summary class="nav-link">Courses</summary>
-  <div class="dropdown-content" role="menu">
-    <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
-      <a class="dropdown-link" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
-      <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
-      <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
-      <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
-      <a class="dropdown-link active" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
-      <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
-      <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
-  </div>
-</details>
       <a class="nav-link" href="about.html">About Demo</a>
       <a class="nav-link" href="../../courses/compliance.html">Compliance</a>
-      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
       <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
     </div>
   </div>
 </nav>
-  <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> This demo folder now uses a standardized launch page. Start with <a href="about.html">About Demo</a>, then choose the run mode that fits your class.
-  </div>
-  <main class="container demo-shell">
-    <section class="demo-hero">
-      <p class="demo-kicker">Compliance & Governance • Browser • 30-40 min</p>
-      <h1>AI Governance Scorecard</h1>
-      <p class="demo-lede">Work through a 7-item AI governance checklist — fairness and bias mitigation, model transparency, privacy protection, safety and security, audit trail, validation and testing, and ongoing monitoring — to compute an overall compliance score.</p>
-      <div class="cta-buttons">
-        <a class="btn btn-primary" href="about.html">Open About Demo</a>
-        <a class="btn btn-secondary" href="README.md">Read README</a>
-        <a class="btn btn-secondary" href="../../courses/compliance.html">View Course Path</a>
-      </div>
-    </section>
-
-    <section class="demo-widget">
-      <section class="checklist-section">
-        <h2>Governance Checklist</h2>
-        <div id="checklist"></div>
-      </section>
-      <section class="results-section">
-        <h2>Score</h2>
-        <div class="score-card">
-          <div class="score-value" id="scoreValue">0</div>
-          <div class="score-label">Compliance Score</div>
-          <div class="score-status" id="scoreStatus">Incomplete</div>
-        </div>
-      </section>
-    </section>
-
-  <section class="demo-standard-guide">
-    <div class="section-header">
-      <p class="section-kicker">Standard demo guide</p>
-      <h2>Use this demo in a logical learning sequence</h2>
-      <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
-    </div>
-    <div class="card-grid">
-      <article class="info-card">
-        <h3>What this demo is about</h3>
-        <p>Work through a 7-item AI governance checklist — fairness and bias mitigation, model transparency, privacy protection, safety and security, audit trail, validation and testing, and ongoing monitoring — to compute an overall compliance score.</p>
-      </article>
-      <article class="info-card">
-        <h3>Learning objectives</h3>
-        <ul><li>Explain the main compliance decision that AI Governance Scorecard is designed to support.</li><li>Change input assumptions and predict how the output should respond before running the demo.</li><li>Interpret the result in plain language, not just as a number, chart, or AI recommendation.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Run mode and expectations</h3>
-        <ul>
-          <li>Supported modes: Browser</li>
-          <li>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</li>
-        </ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 1: Inputs</h3>
-        <ul><li>Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.</li><li>Treat each input as a lever that changes the scenario, baseline, or business context behind the result.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 2: Decision buttons</h3>
-        <ul><li>Use the main run or simulate action to compute the scenario after inputs are set.</li><li>Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 3: Outputs and what to notice</h3>
-        <ul><li>Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.</li><li>Students should explain whether the output is descriptive, predictive, simulated, or recommended.</li><li>Look for governance dimensions, evidence, maturity level, and gaps</li><li>Observe how low scores cluster around documentation, monitoring, or accountability</li></ul>
-      </article>
-    </div>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Finance Controls • Browser • Governance Decision • 20-30 min</p>
+    <h1>AI Governance Scorecard</h1>
+    <p class="demo-lede">Assess whether a finance AI use case has the control design and evidence needed for controlled deployment.</p>
   </section>
 
-    <section class="demo-panel">
-      <div class="panel-grid">
-        <article class="mini-panel">
-          <h3>Available run modes</h3>
-          <ul class="plain-list"><li><strong>Browser:</strong> available for this demo.</li></ul>
-        </article>
-        <article class="mini-panel">
-          <h3>How to proceed</h3>
-          <ol class="plain-list"><li>Choose the run mode that fits the class: Browser.</li><li>Review the default assumptions before changing anything.</li><li>Change one or two inputs, then use `Run the main action`.</li><li>Read the output first, then compare any supporting metrics, charts, or AI text.</li><li>Capture one insight, one limitation, and one action recommendation.</li></ol>
-        </article>
+  <section class="gov-app">
+    <section class="gov-panel gov-mode-panel">
+      <div class="gov-mode-bar">
+        <div>
+          <h2>Teaching Mode</h2>
+          <p id="modeDescription">Facilitator mode highlights the control decision and approval logic in 5-8 minutes.</p>
+        </div>
+        <div class="gov-actions">
+          <button id="facilitatorMode" class="btn btn-secondary" type="button">Facilitator Mode</button>
+          <button id="participantMode" class="btn btn-secondary" type="button">Participant Mode</button>
+          <button id="exportScorecard" class="btn btn-secondary" type="button">Export Summary</button>
+          <button id="resetScorecard" class="btn btn-secondary" type="button">Reset</button>
+        </div>
+      </div>
+      <div class="gov-pill-row">
+        <span class="gov-pill">Business decision first</span>
+        <span class="gov-pill">Human approval required</span>
+        <span class="gov-pill">Accounting judgement stays with finance</span>
       </div>
     </section>
-  </main>
-<script src="app.js"></script>
+
+    <section class="gov-panel">
+      <div class="gov-grid">
+        <div class="gov-item">
+          <label for="stakeholderView">Primary stakeholder</label>
+          <select id="stakeholderView">
+            <option value="cfo">CFO or aspiring CFO</option>
+            <option value="operator">Controller, audit, or process owner</option>
+            <option value="faculty">Faculty or course designer</option>
+            <option value="student">Student or participant</option>
+          </select>
+        </div>
+        <div class="gov-summary-card"><span>Who this is for</span><strong id="stakeholderNote"></strong></div>
+      </div>
+      <div class="gov-summary-grid">
+        <div class="gov-summary-card"><span>How to adapt for your organization</span><strong id="customizationNote"></strong></div>
+        <div class="gov-summary-card"><span>What to take back</span><strong>Export the scorecard, replace the default ratings with your own control assessment, and align the evidence requirements to your approval policy.</strong></div>
+      </div>
+    </section>
+
+    <div class="gov-grid">
+      <section class="gov-panel">
+        <h2>Finance Control Ratings</h2>
+        <div id="scorecardGrid"></div>
+      </section>
+
+      <section class="gov-panel">
+        <h2>CFO Summary</h2>
+        <div class="gov-metrics">
+          <div class="gov-metric"><div class="label">Overall score</div><div class="value" id="overallScore"></div></div>
+          <div class="gov-metric"><div class="label">Weak controls</div><div class="value" id="weakCount"></div></div>
+          <div class="gov-metric"><div class="label">Decision</div><div class="value" id="decisionValue"></div></div>
+          <div class="gov-metric"><div class="label">Approval</div><div class="value" id="approvalValue"></div></div>
+        </div>
+        <div class="gov-summary-grid">
+          <div class="gov-summary-card"><span>Main gap</span><strong id="mainGap"></strong></div>
+          <div class="gov-summary-card"><span>Owner</span><strong id="ownerValue"></strong></div>
+          <div class="gov-summary-card"><span>Evidence needed</span><strong id="evidenceValue"></strong></div>
+          <div class="gov-summary-card"><span>Exception route</span><strong id="exceptionValue"></strong></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="gov-panel">
+      <h3>Control Detail</h3>
+      <table class="gov-table">
+        <thead>
+          <tr>
+            <th>Control area</th>
+            <th>Rating</th>
+            <th>Why it matters</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody id="detailTableBody"></tbody>
+      </table>
+    </section>
+
+    <section class="gov-grid gov-lower-grid">
+      <section class="gov-note" id="businessNote"></section>
+      <section class="gov-panel">
+        <h3>Participant Task</h3>
+        <p id="participantTask">Decide whether the use case is ready for controlled deployment, pilot-only use, or remediation first.</p>
+        <div class="gov-actions">
+          <button id="showExpectedAnswer" class="btn btn-secondary" type="button">Show Expected Answer</button>
+        </div>
+        <div class="gov-expected-answer" id="expectedAnswer" hidden></div>
+      </section>
+    </section>
+  </section>
+</main>
 </body>
 </html>

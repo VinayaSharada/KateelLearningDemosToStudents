@@ -1,16 +1,29 @@
 .recon-app { display:grid; gap:1.5rem; }
 .recon-grid { display:grid; gap:1.5rem; grid-template-columns:340px minmax(0,1fr); }
+.recon-lower-grid { grid-template-columns:minmax(0,1fr) 340px; }
 .recon-panel,.recon-metric,.recon-row { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:18px; padding:1rem 1.1rem; }
 .recon-panel h2,.recon-panel h3 { color:#fff; margin:0 0 .8rem; }
+.recon-mode-bar { display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; }
+.recon-mode-bar p { color:#dbe7f6; margin:.35rem 0 0; max-width:56ch; }
+.recon-actions { display:flex; gap:.75rem; flex-wrap:wrap; }
+.recon-pill-row { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem; }
+.recon-pill { border:1px solid rgba(255,255,255,0.12); border-radius:999px; padding:.4rem .75rem; color:#dbe7f6; font-size:.82rem; background:rgba(255,255,255,0.04); }
 .recon-field { display:grid; gap:.45rem; margin-bottom:.8rem; }
 .recon-field label { color:#fff; font-weight:600; }
-.recon-field input { width:100%; padding:.8rem .9rem; border-radius:12px; border:1px solid rgba(255,255,255,0.12); background:rgba(8,12,20,.9); color:#dbe7f6; }
+.recon-field input,.recon-field select { width:100%; padding:.8rem .9rem; border-radius:12px; border:1px solid rgba(255,255,255,0.12); background:rgba(8,12,20,.9); color:#dbe7f6; }
 .recon-metrics { display:grid; gap:1rem; grid-template-columns:repeat(4,minmax(0,1fr)); }
 .recon-metric .label { color:#9fb2c8; font-size:.82rem; text-transform:uppercase; }
 .recon-metric .value { color:#fff; font-size:1.2rem; font-weight:700; margin-top:.35rem; }
+.recon-summary-grid { display:grid; gap:.9rem; grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:1rem; }
+.recon-summary-card { border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:.85rem .95rem; background:rgba(8,12,20,.48); }
+.recon-summary-card span { display:block; color:#9fb2c8; font-size:.8rem; text-transform:uppercase; }
+.recon-summary-card strong { color:#fff; display:block; margin-top:.35rem; }
 .recon-table { width:100%; border-collapse:collapse; }
 .recon-table th,.recon-table td { border-bottom:1px solid rgba(255,255,255,0.08); padding:.7rem .5rem; text-align:left; color:#dbe7f6; vertical-align:top; }
 .recon-table th { color:#fff; }
 .recon-note { background:rgba(245,158,11,.1); border-left:4px solid #f59e0b; border-radius:14px; padding:1rem 1.1rem; color:#dbe7f6; }
-@media (max-width:960px){ .recon-grid{grid-template-columns:1fr}.recon-metrics{grid-template-columns:repeat(2,minmax(0,1fr));} }
-@media (max-width:640px){ .recon-metrics{grid-template-columns:1fr;} }
+.recon-expected-answer { margin-top:1rem; border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:1rem; color:#dbe7f6; background:rgba(8,12,20,.45); }
+.severity-high { color:#fca5a5; }
+.severity-managed { color:#86efac; }
+@media (max-width:960px){ .recon-grid,.recon-lower-grid{grid-template-columns:1fr}.recon-metrics,.recon-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.recon-mode-bar{flex-direction:column;} }
+@media (max-width:640px){ .recon-metrics,.recon-summary-grid{grid-template-columns:1fr;} }

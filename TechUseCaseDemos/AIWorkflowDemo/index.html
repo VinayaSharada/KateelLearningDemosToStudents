@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Kateel demo analytics and error telemetry -->
   <script src="../../assets/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Workflow - KateelLearningDemos</title>
-  <meta name="description" content="Based on **Boolean retrieval models** where documents are matched using exact keyword matching. Uses TF-IDF (Term Frequency-Inverse Document Frequency) for ranking.">
+  <title>AI Workflow Demo - KateelLearningDemos</title>
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -18,146 +17,73 @@
     <a class="brand" href="../../index.html">KateelLearningDemos</a>
     <div class="nav-links">
       <a class="nav-link" href="../../index.html">Home</a>
-      <details class="nav-dropdown">
-  <summary class="nav-link">Courses</summary>
-  <div class="dropdown-content" role="menu">
-    <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
-      <a class="dropdown-link active" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
-      <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
-      <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
-      <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
-      <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
-      <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
-      <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
-  </div>
-</details>
       <a class="nav-link" href="about.html">About Demo</a>
-      <a class="nav-link" href="../../courses/ai-ml-workflows.html">AI/ML</a>
-      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
       <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
     </div>
   </div>
 </nav>
-  <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> This demo folder now uses a standardized launch page. Start with <a href="about.html">About Demo</a>, then choose the run mode that fits your class.
-  </div>
-  <main class="container demo-shell">
-    <section class="demo-hero">
-      <p class="demo-kicker">AI/ML Workflows • Browser • 20-30 min</p>
-      <h1>AI Workflow</h1>
-      <p class="demo-lede">Based on **Boolean retrieval models** where documents are matched using exact keyword matching. Uses TF-IDF (Term Frequency-Inverse Document Frequency) for ranking.</p>
-      <div class="cta-buttons">
-        <a class="btn btn-primary" href="about.html">Open About Demo</a>
-        <a class="btn btn-secondary" href="README.md">Read README</a>
-        <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
-      </div>
-    </section>
-
-    <section class="demo-widget">
-      <div class="workflow-toggle">
-        <label for="workflowSelect">Select Workflow:</label>
-        <select id="workflowSelect">
-          <option value="traditional">Traditional Workflow</option>
-          <option value="ai">AI-Enriched Workflow</option>
-        </select>
-      </div>
-
-      <section class="search-section">
-        <h2>Your Learning Query</h2>
-        <div class="input-group">
-          <input type="text" id="queryInput" placeholder="What do you want to learn? (e.g., 'Explain machine learning to beginners')" />
-          <button id="searchBtn" class="btn-primary">Find Resources</button>
-        </div>
-      </section>
-
-      <section id="promptSection" class="prompt-section hidden">
-        <h2>AI Prompt Experimentation</h2>
-        <div class="prompt-interface">
-          <textarea id="promptInput" placeholder="Enter your prompt for the AI assistant..." rows="3"></textarea>
-          <button id="customPromptBtn" class="btn-secondary">Run Custom Prompt</button>
-        </div>
-      </section>
-
-      <section class="results-section">
-        <h2 id="resultsTitle">Recommended Resources</h2>
-        <div id="resultsGrid" class="results-grid"></div>
-      </section>
-
-      <section class="comparison-section">
-        <h2>Workflow Comparison</h2>
-        <div class="comparison-grid">
-          <div class="workflow-card">
-            <h3>Traditional Workflow</h3>
-            <ul>
-              <li>Keyword search</li>
-              <li>Manual filtering</li>
-              <li>Static ranking</li>
-              <li>Limited personalization</li>
-            </ul>
-          </div>
-          <div class="workflow-card ai-card">
-            <h3>AI-Enriched Workflow</h3>
-            <ul>
-              <li>Natural language understanding</li>
-              <li>Contextual recommendations</li>
-              <li>Learning style adaptation</li>
-              <li>Prompt experimentation</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </section>
-
-  <section class="demo-standard-guide">
-    <div class="section-header">
-      <p class="section-kicker">Standard demo guide</p>
-      <h2>Use this demo in a logical learning sequence</h2>
-      <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
-    </div>
-    <div class="card-grid">
-      <article class="info-card">
-        <h3>What this demo is about</h3>
-        <p>Based on **Boolean retrieval models** where documents are matched using exact keyword matching. Uses TF-IDF (Term Frequency-Inverse Document Frequency) for ranking.</p>
-      </article>
-      <article class="info-card">
-        <h3>Learning objectives</h3>
-        <ul><li>Explain the main ai/ml decision that AI Workflow is designed to support.</li><li>Change input assumptions and predict how the output should respond before running the demo.</li><li>Interpret the result in plain language, not just as a number, chart, or AI recommendation.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Run mode and expectations</h3>
-        <ul>
-          <li>Supported modes: Browser</li>
-          <li>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</li>
-        </ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 1: Inputs</h3>
-        <ul><li>Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.</li><li>Treat each input as a lever that changes the scenario, baseline, or business context behind the result.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 2: Decision buttons</h3>
-        <ul><li>Use the main run or simulate action to compute the scenario after inputs are set.</li><li>Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 3: Outputs and what to notice</h3>
-        <ul><li>Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.</li><li>Students should explain whether the output is descriptive, predictive, simulated, or recommended.</li><li>Look for the workflow trigger, AI step, human review point, and output destination</li><li>Observe where automation saves time and where human judgment is still needed</li></ul>
-      </article>
-    </div>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Finance Workflow • Browser • 20-30 min</p>
+    <h1>AI Workflow Demo</h1>
+    <p class="demo-lede">Design a finance-safe AI workflow and decide where automation stops, where review starts, and how exceptions escalate.</p>
   </section>
-
-    <section class="demo-panel">
-      <div class="panel-grid">
-        <article class="mini-panel">
-          <h3>Available run modes</h3>
-          <ul class="plain-list"><li><strong>Browser:</strong> available for this demo.</li></ul>
-        </article>
-        <article class="mini-panel">
-          <h3>How to proceed</h3>
-          <ol class="plain-list"><li>Choose the run mode that fits the class: Browser.</li><li>Review the default assumptions before changing anything.</li><li>Change one or two inputs, then use `Run the main action`.</li><li>Read the output first, then compare any supporting metrics, charts, or AI text.</li><li>Capture one insight, one limitation, and one action recommendation.</li></ol>
-        </article>
+  <section class="workflow-app">
+    <section class="workflow-panel">
+      <div class="workflow-controls">
+        <div class="workflow-field">
+          <label for="workflowScenario">Scenario</label>
+          <select id="workflowScenario">
+            <option value="ap">AP exception routing</option>
+            <option value="close">Close-status escalation</option>
+            <option value="commentary">Management-commentary review</option>
+            <option value="forecast">Forecast-assumption challenge</option>
+          </select>
+        </div>
+        <div class="workflow-field">
+          <label for="stakeholderView">Primary stakeholder</label>
+          <select id="stakeholderView">
+            <option value="cfo">CFO or aspiring CFO</option>
+            <option value="operator">Process owner or controller</option>
+            <option value="faculty">Faculty or course designer</option>
+            <option value="student">Student or participant</option>
+          </select>
+        </div>
+        <button id="exportWorkflow" class="btn btn-secondary" type="button">Export Summary</button>
+        <button id="resetWorkflow" class="btn btn-secondary" type="button">Reset</button>
+      </div>
+      <div class="workflow-pill-row">
+        <span class="workflow-pill">Business decision first</span>
+        <span class="workflow-pill">Human approval required</span>
+        <span class="workflow-pill">Exception route visible</span>
       </div>
     </section>
-  </main>
-<script src="app.js"></script>
+    <section class="workflow-panel">
+      <div class="workflow-summary-grid">
+        <div class="workflow-card"><span>Who this is for</span><strong id="stakeholderNote"></strong></div>
+        <div class="workflow-card"><span>How to adapt for your organization</span><strong id="customizationNote"></strong></div>
+      </div>
+    </section>
+    <div class="workflow-grid">
+      <section class="workflow-panel">
+        <h2>Workflow Steps</h2>
+        <div id="workflowSteps"></div>
+      </section>
+      <section class="workflow-panel">
+        <h2>CFO Summary</h2>
+        <div class="workflow-summary-grid">
+          <div class="workflow-card"><span>Decision</span><strong id="decisionValue"></strong></div>
+          <div class="workflow-card"><span>Owner</span><strong id="ownerValue"></strong></div>
+          <div class="workflow-card"><span>Approval point</span><strong id="approvalValue"></strong></div>
+          <div class="workflow-card"><span>Exception route</span><strong id="exceptionValue"></strong></div>
+        </div>
+      </section>
+    </div>
+    <section class="workflow-panel">
+      <h3>Business Note</h3>
+      <div id="workflowNote" class="workflow-note"></div>
+    </section>
+  </section>
+</main>
 </body>
 </html>

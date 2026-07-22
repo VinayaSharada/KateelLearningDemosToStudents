@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{document.getElementById("closeItems").innerHTML=[["Late reconciliation","Bank rec evidence missing"],["Material exception","Inventory accrual under review"],["Agent recommendation","Draft escalation prepared for controller"]].map(([a,b])=>`<div class="generic-item"><span>${a}</span><strong>${b}</strong></div>`).join("");});

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Kateel demo analytics and error telemetry -->
   <script src="../../assets/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Decision Tracker - KateelLearningDemos</title>
-  <meta name="description" content="AI Decision Tracker is a interactive browser demo in the AI/ML Workflows track. It helps students explore the main decision, key inputs, and output interpretation in browser mode.">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
-  <script defer src="../../assets/site.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
 <nav class="site-nav" aria-label="Main navigation">
@@ -18,123 +17,106 @@
     <a class="brand" href="../../index.html">KateelLearningDemos</a>
     <div class="nav-links">
       <a class="nav-link" href="../../index.html">Home</a>
-      <details class="nav-dropdown">
-  <summary class="nav-link">Courses</summary>
-  <div class="dropdown-content" role="menu">
-    <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
-      <a class="dropdown-link active" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
-      <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
-      <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
-      <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
-      <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
-      <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
-      <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
-  </div>
-</details>
       <a class="nav-link" href="about.html">About Demo</a>
       <a class="nav-link" href="../../courses/ai-ml-workflows.html">AI/ML</a>
-      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
       <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
     </div>
   </div>
 </nav>
-  <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> This demo folder now uses a standardized launch page. Start with <a href="about.html">About Demo</a>, then choose the run mode that fits your class.
-  </div>
-  <main class="container demo-shell">
-    <section class="demo-hero">
-      <p class="demo-kicker">AI/ML Workflows • Browser • 20-30 min</p>
-      <h1>AI Decision Tracker</h1>
-      <p class="demo-lede">AI Decision Tracker is a interactive browser demo in the AI/ML Workflows track. It helps students explore the main decision, key inputs, and output interpretation in browser mode.</p>
-      <div class="cta-buttons">
-        <a class="btn btn-primary" href="about.html">Open About Demo</a>
-        <a class="btn btn-secondary" href="README.md">Read README</a>
-        <a class="btn btn-secondary" href="../../courses/ai-ml-workflows.html">View Course Path</a>
-      </div>
-    </section>
-
-    <section class="demo-widget">
-      <section class="form-section">
-        <h2>Add New Decision</h2>
-        <form id="decisionForm">
-          <div class="field">
-            <label for="decision">Decision</label>
-            <input type="text" id="decision" placeholder="What was decided?" required/>
-          </div>
-          <div class="grid">
-            <div class="field">
-              <label for="category">Category</label>
-              <select id="category">
-                <option value="model">Model Selection</option>
-                <option value="data">Data</option>
-                <option value="deployment">Deployment</option>
-                <option value="ethics">Ethics</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="rationale">Rationale</label>
-              <input type="text" id="rationale" placeholder="Why this choice?" required/>
-            </div>
-          </div>
-          <button type="submit">Add Decision</button>
-        </form>
-      </section>
-      <section class="list-section">
-        <h2>Decision Log</h2>
-        <div id="decisionList"></div>
-      </section>
-    </section>
-
-  <section class="demo-standard-guide">
-    <div class="section-header">
-      <p class="section-kicker">Standard demo guide</p>
-      <h2>Use this demo in a logical learning sequence</h2>
-      <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
-    </div>
-    <div class="card-grid">
-      <article class="info-card">
-        <h3>What this demo is about</h3>
-        <p>AI Decision Tracker is a interactive browser demo in the AI/ML Workflows track. It helps students explore the main decision, key inputs, and output interpretation in browser mode.</p>
-      </article>
-      <article class="info-card">
-        <h3>Learning objectives</h3>
-        <ul><li>Explain the main ai/ml decision that AI Decision Tracker is designed to support.</li><li>Change input assumptions and predict how the output should respond before running the demo.</li><li>Interpret the result in plain language, not just as a number, chart, or AI recommendation.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Run mode and expectations</h3>
-        <ul>
-          <li>Supported modes: Browser</li>
-          <li>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</li>
-        </ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 1: Inputs</h3>
-        <ul><li>Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.</li><li>Treat each input as a lever that changes the scenario, baseline, or business context behind the result.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 2: Decision buttons</h3>
-        <ul><li>Use the main run or simulate action to compute the scenario after inputs are set.</li><li>Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 3: Outputs and what to notice</h3>
-        <ul><li>Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.</li><li>Students should explain whether the output is descriptive, predictive, simulated, or recommended.</li><li>Look for the decision record, owner, evidence, and follow-up status</li><li>Observe how adding assumptions or review dates improves accountability</li></ul>
-      </article>
-    </div>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Finance Governance • Browser • Decision Record • 20-30 min</p>
+    <h1>AI Decision Tracker</h1>
+    <p class="demo-lede">Capture the full finance decision record so an initiative can be reviewed with evidence, ownership, risk, and an explicit approval path.</p>
   </section>
 
-    <section class="demo-panel">
-      <div class="panel-grid">
-        <article class="mini-panel">
-          <h3>Available run modes</h3>
-          <ul class="plain-list"><li><strong>Browser:</strong> available for this demo.</li></ul>
-        </article>
-        <article class="mini-panel">
-          <h3>How to proceed</h3>
-          <ol class="plain-list"><li>Choose the run mode that fits the class: Browser.</li><li>Review the default assumptions before changing anything.</li><li>Change one or two inputs, then use `Run the main action`.</li><li>Read the output first, then compare any supporting metrics, charts, or AI text.</li><li>Capture one insight, one limitation, and one action recommendation.</li></ol>
-        </article>
+  <section class="tracker-app">
+    <section class="tracker-panel tracker-mode-panel">
+      <div class="tracker-mode-bar">
+        <div>
+          <h2>Teaching Mode</h2>
+          <p id="modeDescription">Facilitator mode highlights the approval-readiness decision in 5-8 minutes.</p>
+        </div>
+        <div class="tracker-actions">
+          <button id="facilitatorMode" class="btn btn-secondary" type="button">Facilitator Mode</button>
+          <button id="participantMode" class="btn btn-secondary" type="button">Participant Mode</button>
+          <button id="exportTracker" class="btn btn-secondary" type="button">Export Summary</button>
+          <button id="resetTracker" class="btn btn-secondary" type="button">Reset</button>
+        </div>
       </div>
     </section>
-  </main>
-<script src="app.js"></script>
+
+    <section class="tracker-panel">
+      <div class="tracker-grid">
+        <div class="tracker-field">
+          <label for="stakeholderView">Primary stakeholder</label>
+          <select id="stakeholderView">
+            <option value="cfo">CFO or aspiring CFO</option>
+            <option value="operator">Transformation lead or process owner</option>
+            <option value="faculty">Faculty or course designer</option>
+            <option value="student">Student or participant</option>
+          </select>
+        </div>
+        <div class="tracker-summary-card"><span>Who this is for</span><strong id="stakeholderNote"></strong></div>
+      </div>
+      <div class="tracker-summary-grid">
+        <div class="tracker-summary-card"><span>How to adapt for your organization</span><strong id="customizationNote"></strong></div>
+        <div class="tracker-summary-card"><span>What to take back</span><strong>Export the decision record, replace the sample owners with your real governance roles, and use it as a starter template for steering review.</strong></div>
+      </div>
+    </section>
+
+    <div class="tracker-grid">
+      <section class="tracker-panel">
+        <h2>Decision Record</h2>
+        <form id="decisionForm">
+          <div class="tracker-field"><label for="initiativeName">Initiative name</label><input id="initiativeName" type="text"></div>
+          <div class="tracker-field"><label for="initiativeOwner">Initiative owner</label><input id="initiativeOwner" type="text"></div>
+          <div class="tracker-field"><label for="cfoSponsor">CFO sponsor</label><input id="cfoSponsor" type="text"></div>
+          <div class="tracker-field"><label for="cioOwner">CIO owner</label><input id="cioOwner" type="text"></div>
+          <div class="tracker-field"><label for="processOwner">Process owner</label><input id="processOwner" type="text"></div>
+          <div class="tracker-field"><label for="dataOwner">Data owner</label><input id="dataOwner" type="text"></div>
+          <div class="tracker-field"><label for="evidence">Evidence</label><textarea id="evidence" rows="3"></textarea></div>
+          <div class="tracker-field"><label for="risk">Main risk</label><textarea id="risk" rows="2"></textarea></div>
+          <div class="tracker-field"><label for="approval">Approval status</label><select id="approval"><option>Draft review</option><option>Pilot approval</option><option>Ready for steering approval</option></select></div>
+          <div class="tracker-field"><label for="reviewDate">Review date</label><input id="reviewDate" type="date"></div>
+          <button class="btn btn-primary" type="submit">Update decision record</button>
+        </form>
+      </section>
+
+      <section class="tracker-panel">
+        <h2>CFO Summary</h2>
+        <div class="tracker-metrics">
+          <div class="tracker-metric"><div class="label">Readiness</div><div class="value" id="readinessValue"></div></div>
+          <div class="tracker-metric"><div class="label">Primary risk</div><div class="value" id="riskValue"></div></div>
+          <div class="tracker-metric"><div class="label">Approval path</div><div class="value" id="approvalValue"></div></div>
+          <div class="tracker-metric"><div class="label">Review date</div><div class="value" id="reviewValue"></div></div>
+        </div>
+        <div class="tracker-summary-grid">
+          <div class="tracker-summary-card"><span>Initiative owner</span><strong id="ownerValue"></strong></div>
+          <div class="tracker-summary-card"><span>CFO sponsor</span><strong id="sponsorValue"></strong></div>
+          <div class="tracker-summary-card"><span>Evidence status</span><strong id="evidenceValue"></strong></div>
+          <div class="tracker-summary-card"><span>Next action</span><strong id="actionValue"></strong></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="tracker-panel">
+      <h3>Decision Snapshot</h3>
+      <div id="decisionSnapshot" class="tracker-snapshot"></div>
+    </section>
+
+    <section class="tracker-grid tracker-lower-grid">
+      <section class="tracker-note" id="businessNote"></section>
+      <section class="tracker-panel">
+        <h3>Participant Task</h3>
+        <p id="participantTask">Decide whether the initiative record is approval-ready or needs more evidence, ownership clarity, or risk detail.</p>
+        <div class="tracker-actions">
+          <button id="showExpectedAnswer" class="btn btn-secondary" type="button">Show Expected Answer</button>
+        </div>
+        <div class="tracker-expected-answer" id="expectedAnswer" hidden></div>
+      </section>
+    </section>
+  </section>
+</main>
 </body>
 </html>

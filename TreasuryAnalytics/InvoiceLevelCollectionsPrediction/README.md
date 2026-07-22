@@ -44,3 +44,16 @@ The RMSE improvement from the AI regressor is translated into an annual dollar f
 ## Teaching use
 
 Use this demo after the browser-based `Collections Predictor` when you want students to see the underlying feature engineering, synthetic data generation, model scoring, and calendar-forecast path in Python.
+
+## Who this is for
+
+- CFOs and aspiring CFOs
+- Treasury, collections, FP&A, and finance analytics teams
+- Faculty adopting the demo in multiple courses
+- Students learning how invoice signals become cash forecasts
+
+## Self-service use
+
+- Download the template and map your own sanitized ERP invoice export into the required columns.
+- Re-run the notebook on your own data and compare baseline due-date inflows with predicted-date inflows.
+- Use the exported action queue, daily inflow files, and run summary as starter artifacts for your own treasury process.

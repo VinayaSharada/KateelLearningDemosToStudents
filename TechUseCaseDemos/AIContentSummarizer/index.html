@@ -1,146 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Kateel demo analytics and error telemetry -->
   <script src="../../assets/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Content Summarizer - KateelLearningDemos</title>
-  <meta name="description" content="Side-by-side comparison of a real extractive summarizer (frequency-scored sentence selection) versus a simulated AI abstractive summary, each with a compression-ratio readout.">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
-  <script defer src="../../assets/site.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
-<nav class="site-nav" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a class="brand" href="../../index.html">KateelLearningDemos</a>
-    <div class="nav-links">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <details class="nav-dropdown">
-  <summary class="nav-link">Courses</summary>
-  <div class="dropdown-content" role="menu">
-    <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
-      <a class="dropdown-link" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
-      <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
-      <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
-      <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
-      <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
-      <a class="dropdown-link active" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
-      <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
-  </div>
-</details>
-      <a class="nav-link" href="about.html">About Demo</a>
-      <a class="nav-link" href="../../courses/rag-nlp.html">RAG/NLP</a>
-      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
-      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
-    </div>
-  </div>
-</nav>
-  <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> This demo folder now uses a standardized launch page. Start with <a href="about.html">About Demo</a>, then choose the run mode that fits your class.
-  </div>
-  <main class="container demo-shell">
-    <section class="demo-hero">
-      <p class="demo-kicker">RAG & NLP • Browser • 20-30 min</p>
-      <h1>AI Content Summarizer</h1>
-      <p class="demo-lede">Side-by-side comparison of a real extractive summarizer (frequency-scored sentence selection) versus a simulated AI abstractive summary, each with a compression-ratio readout.</p>
-      <div class="cta-buttons">
-        <a class="btn btn-primary" href="about.html">Open About Demo</a>
-        <a class="btn btn-secondary" href="README.md">Read README</a>
-        <a class="btn btn-secondary" href="../../courses/rag-nlp.html">View Course Path</a>
-      </div>
-    </section>
-
-    <section class="demo-widget">
-      <section class="controls">
-        <div class="toggle-section">
-          <label>
-            <input type="checkbox" id="aiToggle" /> Enable AI Summarization
-          </label>
-        </div>
-
-        <div id="promptSection" class="prompt-section hidden">
-          <div class="field">
-            <label for="summaryPrompt">Custom Summary Prompt</label>
-            <input type="text" id="summaryPrompt" placeholder="Summarize in 3 bullet points for a busy manager..." />
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <div class="field">
-          <label for="contentInput">Paste Content to Summarize</label>
-          <textarea id="contentInput" rows="12">The rapid advancement of artificial intelligence has transformed numerous industries. Machine learning algorithms now power recommendation systems, autonomous vehicles, and medical diagnosis tools. While AI brings unprecedented efficiency and capability, it also raises important questions about job displacement, ethical considerations, and the need for robust governance frameworks. Organizations must balance innovation with responsibility, ensuring AI systems are developed and deployed transparently and fairly. The future of AI depends on collaborative efforts between technologists, policymakers, and society as a whole to maximize benefits while mitigating risks.</textarea>
-        </div>
-        <button id="summarizeBtn" class="btn-primary">Summarize</button>
-      </section>
-
-      <section id="resultSection" class="result-section hidden">
-        <div class="results-container">
-          <div class="result-card">
-            <h3>Traditional Summary (Extractive)</h3>
-            <div id="traditionalResult" class="result-content"></div>
-          </div>
-          <div class="result-card ai-result">
-            <h3>AI Summary (Abstractive)</h3>
-            <div id="aiResult" class="result-content"></div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-  <section class="demo-standard-guide">
-    <div class="section-header">
-      <p class="section-kicker">Standard demo guide</p>
-      <h2>Use this demo in a logical learning sequence</h2>
-      <p>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</p>
-    </div>
-    <div class="card-grid">
-      <article class="info-card">
-        <h3>What this demo is about</h3>
-        <p>Side-by-side comparison of a real extractive summarizer (frequency-scored sentence selection) versus a simulated AI abstractive summary, each with a compression-ratio readout.</p>
-      </article>
-      <article class="info-card">
-        <h3>Learning objectives</h3>
-        <ul><li>Explain the main rag/nlp decision that AI Content Summarizer is designed to support.</li><li>Change input assumptions and predict how the output should respond before running the demo.</li><li>Interpret the result in plain language, not just as a number, chart, or AI recommendation.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Run mode and expectations</h3>
-        <ul>
-          <li>Supported modes: Browser</li>
-          <li>Starts immediately in browser with no installs, no API keys, and classroom-safe defaults.</li>
-        </ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 1: Inputs</h3>
-        <ul><li>Start with the default assumptions, then change one variable at a time so students can isolate cause and effect.</li><li>Treat each input as a lever that changes the scenario, baseline, or business context behind the result.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 2: Decision buttons</h3>
-        <ul><li>Use the main run or simulate action to compute the scenario after inputs are set.</li><li>Use export or reset actions, when present, to compare runs or return to a classroom-safe baseline.</li></ul>
-      </article>
-      <article class="info-card">
-        <h3>Step 3: Outputs and what to notice</h3>
-        <ul><li>Read the top-line result first, then look for supporting metrics, tables, or narratives that explain why it changed.</li><li>Students should explain whether the output is descriptive, predictive, simulated, or recommended.</li><li>Look for source text, summary length, key points, and missing details</li><li>Observe how summarization quality changes with document complexity</li></ul>
-      </article>
-    </div>
+<nav class="site-nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand" href="../../index.html">KateelLearningDemos</a><div class="nav-links"><a class="nav-link" href="../../index.html">Home</a><a class="nav-link" href="about.html">About Demo</a><a class="nav-link nav-cta" href="index.html">Launch Demo</a></div></div></nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Finance Narrative • Browser • 20-30 min</p>
+    <h1>AI Content Summarizer</h1>
+    <p class="demo-lede">Compare a management-pack draft against cited evidence, unsupported-claim flags, and the reviewer sign-off requirement.</p>
   </section>
-
-    <section class="demo-panel">
-      <div class="panel-grid">
-        <article class="mini-panel">
-          <h3>Available run modes</h3>
-          <ul class="plain-list"><li><strong>Browser:</strong> available for this demo.</li></ul>
-        </article>
-        <article class="mini-panel">
-          <h3>How to proceed</h3>
-          <ol class="plain-list"><li>Choose the run mode that fits the class: Browser.</li><li>Review the default assumptions before changing anything.</li><li>Change one or two inputs, then use `Run the main action`.</li><li>Read the output first, then compare any supporting metrics, charts, or AI text.</li><li>Capture one insight, one limitation, and one action recommendation.</li></ol>
-        </article>
+  <section class="summary-app">
+    <section class="summary-panel">
+      <div class="summary-grid">
+        <div class="summary-item">
+          <span>Primary stakeholder</span>
+          <select id="stakeholderView">
+            <option value="cfo">CFO or aspiring CFO</option>
+            <option value="operator">FP&amp;A, IR, or finance reviewer</option>
+            <option value="faculty">Faculty or course designer</option>
+            <option value="student">Student or participant</option>
+          </select>
+        </div>
+        <div class="summary-card"><span>Who this is for</span><strong id="stakeholderNote"></strong></div>
+      </div>
+      <div class="summary-metrics">
+        <div class="summary-card"><span>How to adapt for your organization</span><strong id="customizationNote"></strong></div>
+        <div class="summary-card"><span>Bring your own content</span><strong>Replace the fictional evidence rows and claims with your own sanitized management-pack draft.</strong></div>
+        <div class="summary-card"><span>What to take back</span><strong>Export the review outcome and use it as a reviewer checklist before finance narrative is circulated.</strong></div>
+        <div class="summary-card"><span>Export</span><strong><button id="exportSummary" class="btn btn-secondary" type="button">Export Review</button></strong></div>
       </div>
     </section>
-  </main>
-<script src="app.js"></script>
+    <div class="summary-grid">
+      <section class="summary-panel">
+        <h2>Source Evidence</h2>
+        <div id="evidenceList"></div>
+      </section>
+      <section class="summary-panel">
+        <h2>Draft Summary</h2>
+        <div id="draftSummary" class="summary-box"></div>
+        <div class="summary-controls">
+          <button id="reviewToggle" class="btn btn-secondary" type="button">Toggle Reviewer Sign-off</button>
+        </div>
+      </section>
+    </div>
+    <section class="summary-panel">
+      <h2>CFO Review Panel</h2>
+      <div class="summary-metrics">
+        <div class="summary-card"><span>Unsupported claims</span><strong id="unsupportedCount"></strong></div>
+        <div class="summary-card"><span>Evidence status</span><strong id="evidenceStatus"></strong></div>
+        <div class="summary-card"><span>Reviewer sign-off</span><strong id="reviewerStatus"></strong></div>
+        <div class="summary-card"><span>Release decision</span><strong id="releaseDecision"></strong></div>
+      </div>
+      <div id="claimReview"></div>
+    </section>
+  </section>
+</main>
 </body>
 </html>

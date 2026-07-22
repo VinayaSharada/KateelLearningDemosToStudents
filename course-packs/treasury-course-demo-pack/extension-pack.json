@@ -1,0 +1,57 @@
+{
+  "id": "treasury-course-demo-pack-extension",
+  "title": "Treasury Course Demo Pack Extensions",
+  "packType": "extension",
+  "status": "draft",
+  "dependsOn": "treasury-course-demo-pack-core",
+  "bridgeArtifact": "collections_action_queue.csv",
+  "extensions": [
+    {
+      "id": "collections-escalation-automation",
+      "title": "Power Automate Collections Escalation",
+      "objective": "Create follow-up tasks for invoices entering an escalation window.",
+      "inputArtifacts": [
+        "collections_action_queue.csv"
+      ],
+      "outputArtifacts": [
+        "task-routing-design.md"
+      ]
+    },
+    {
+      "id": "collections-commentary-genai",
+      "title": "Collections Commentary and Customer Communication Drafting",
+      "objective": "Use treasury outputs to generate CFO commentary and customer communication drafts with human review.",
+      "inputArtifacts": [
+        "invoice_payment_predictions.csv",
+        "collections_action_queue.csv",
+        "model_run_summary.json"
+      ],
+      "outputArtifacts": [
+        "cash-commentary-draft.md",
+        "customer-email-draft.md"
+      ]
+    },
+    {
+      "id": "treasury-technology-selection",
+      "title": "ERP Rules vs RPA vs ML vs GenAI Decision Exercise",
+      "objective": "Classify which treasury steps should remain deterministic and which should use ML or GenAI support.",
+      "inputArtifacts": [
+        "collections_action_queue.csv"
+      ],
+      "outputArtifacts": [
+        "technology-decision-matrix.md"
+      ]
+    },
+    {
+      "id": "cfo-cio-governance",
+      "title": "Treasury Analytics Governance Exercise",
+      "objective": "Assign data ownership, model ownership, approval rights, and monitoring responsibilities.",
+      "inputArtifacts": [
+        "model_run_summary.json"
+      ],
+      "outputArtifacts": [
+        "governance-raci.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "treasury-course-demo-pack-core",
+  "title": "Treasury Course Demo Pack",
+  "packType": "core",
+  "status": "draft",
+  "theme": "Treasury, Liquidity, and Working Capital",
+  "currencyStandard": "INR-first with explicit generic-currency labels where INR is not yet implemented",
+  "notes": [
+    "This pack references demos already implemented elsewhere in the repository.",
+    "The pack controls teaching sequence and classroom framing, not demo ownership.",
+    "Non-blockchain treasury flow is prioritized for the first implementation pass."
+  ],
+  "demos": [
+    {
+      "demoId": "treasury-control-tower",
+      "title": "Treasury Control Tower",
+      "sequence": 1,
+      "required": true,
+      "durationMinutes": 20,
+      "engineType": "simulation",
+      "runModes": [
+        "browser"
+      ],
+      "aboutPath": "TechUseCaseDemos/TreasuryControlTower/about.html",
+      "launchPath": "TechUseCaseDemos/TreasuryControlTower/demo.html",
+      "learningObjective": "Frame treasury decision-making across liquidity, controls, and alerts before moving into deeper analytics.",
+      "participantTask": "Adjust core controls and explain how the operating picture changes.",
+      "deliverable": "Short control-tower interpretation and top-three action list",
+      "fallbackAsset": "assets/treasury-control-tower-fallback.md"
+    },
+    {
+      "demoId": "invoice-payment-date-prediction",
+      "title": "Invoice-Level Collections Prediction",
+      "sequence": 2,
+      "required": true,
+      "durationMinutes": 55,
+      "engineType": "machine-learning",
+      "runModes": [
+        "colab",
+        "local"
+      ],
+      "aboutPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/about.html",
+      "launchPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/index.html",
+      "learningObjective": "Predict when invoices are likely to be paid and compare contractual versus ML-adjusted inflow timing.",
+      "participantTask": "Compare due-date and expected-payment-date inflows over 7, 14, and 30 days.",
+      "deliverable": "Payment calendar, collections action queue, and model-risk statement",
+      "fallbackAsset": "assets/invoice-prediction-completed-run.md"
+    },
+    {
+      "demoId": "ar-aging-collections-prioritizer",
+      "title": "AR Aging and Collections Prioritizer",
+      "sequence": 3,
+      "required": true,
+      "durationMinutes": 35,
+      "engineType": "rule-based",
+      "runModes": [
+        "colab"
+      ],
+      "aboutPath": "TreasuryAnalytics/ARAgingCollectionsPrioritizer/about.html",
+      "launchPath": "TreasuryAnalytics/ARAgingCollectionsPrioritizer/index.html",
+      "learningObjective": "Translate receivables signals into a collections worklist with operational prioritization.",
+      "participantTask": "Rank customers by urgency and justify the chosen outreach order.",
+      "deliverable": "Collections priority list and owner assignment logic",
+      "fallbackAsset": "assets/ar-aging-prioritizer-fallback.md"
+    },
+    {
+      "demoId": "dell-working-capital-case",
+      "title": "Dell vs Competitors Working Capital Case",
+      "sequence": 4,
+      "required": true,
+      "durationMinutes": 25,
+      "engineType": "simulation",
+      "runModes": [
+        "browser"
+      ],
+      "aboutPath": "TechUseCaseDemos/WorkingCapitalDellVsCompetitors/about.html",
+      "launchPath": "TechUseCaseDemos/WorkingCapitalDellVsCompetitors/index.html",
+      "learningObjective": "Connect receivables timing to broader working-capital strategy and cash release logic.",
+      "participantTask": "Interpret how DSO shifts change cash freed across companies.",
+      "deliverable": "Working-capital comparison note and one treasury implication",
+      "fallbackAsset": "assets/dell-working-capital-fallback.md"
+    },
+    {
+      "demoId": "liquidity-management",
+      "title": "Liquidity Management",
+      "sequence": 5,
+      "required": false,
+      "durationMinutes": 30,
+      "engineType": "simulation",
+      "runModes": [
+        "browser",
+        "colab",
+        "local"
+      ],
+      "aboutPath": "DomainUseCaseDemos/Banking/LiquidityMgmt/about.html",
+      "launchPath": "DomainUseCaseDemos/Banking/LiquidityMgmt/index.html",
+      "learningObjective": "Relate predicted inflows to short-term funding posture and concentration risk.",
+      "participantTask": "Explain how forecast changes alter liquidity actions.",
+      "deliverable": "Funding recommendation and liquidity-risk note",
+      "fallbackAsset": "assets/liquidity-management-fallback.md"
+    }
+  ]
+}
