@@ -1,0 +1,32 @@
+{
+  "id": "cfo-demo-overlay",
+  "title": "CFO Demo Overlay",
+  "slug": "cfo-demo-overlay",
+  "status": "draft",
+  "version": "0.1.0",
+  "createdOn": "2026-07-22",
+  "lastUpdated": "2026-07-22",
+  "purpose": "Cross-cutting overlay that re-curates existing demos for CFO, controllership, treasury, and finance-transformation decisions without duplicating demo ownership.",
+  "theme": "Value, controls, evidence, close, working capital, treasury, and transformation decisions",
+  "audience": [
+    "CFOs",
+    "aspiring CFOs",
+    "controllership",
+    "treasury",
+    "finance transformation",
+    "faculty"
+  ],
+  "entryPoints": {
+    "coursePage": "courses/cfo-office.html",
+    "participantGuide": "course-packs/cfo-demo-overlay/participant-guide.md",
+    "instructorGuide": "course-packs/cfo-demo-overlay/instructor-guide.md",
+    "corePack": "course-packs/cfo-demo-overlay/demo-pack.json",
+    "standards": "CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md",
+    "audienceOverlay": "CourseCatalogs/FinanceTransformation/CFO_DEMO_STANDARDS.md"
+  },
+  "metadataPolicy": {
+    "demoMetadataAuthority": "central-demo-metadata",
+    "packMetadataAuthority": "course-pack-json",
+    "generatedArtifactsAuthority": "derived-only"
+  }
+}

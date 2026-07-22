@@ -12,6 +12,14 @@
 
   var coursePacks = [
     {
+      slug: "cfo-office",
+      title: "CFO Office",
+      path: "courses/cfo-office.html",
+      audience: "CFOs, controllership, treasury, finance transformation",
+      catalogPath: "CourseCatalogs/FinanceTransformation/CFO_DEMO_STANDARDS.md",
+      assignmentPaths: []
+    },
+    {
       slug: "digital-payments",
       title: "Digital Payments",
       path: "courses/digital-payments.html",

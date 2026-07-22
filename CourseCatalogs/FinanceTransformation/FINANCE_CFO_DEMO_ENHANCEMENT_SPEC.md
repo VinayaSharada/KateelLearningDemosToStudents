@@ -208,7 +208,7 @@ CourseCatalogs/
     └── build-notes/
 
 course-packs/
-└── finance-cfo-demo-pack/
+└── cfo-demo-overlay/
     ├── course.json
     ├── demo-pack.json
     ├── participant-guide.md

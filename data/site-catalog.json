@@ -3,6 +3,340 @@
   "generatedFrom": "scripts/build_site_catalog.py",
   "courses": [
     {
+      "slug": "cfo-office",
+      "title": "CFO Office",
+      "audience": "CFOs, controllership, treasury, finance transformation",
+      "subtitle": "A cross-cutting overlay for CFOs, aspiring CFOs, controllership, treasury, and finance-transformation stakeholders who need value, risk, control, evidence, and next-decision framing in one place.",
+      "pagePath": "courses/cfo-office.html",
+      "registeredDemos": "15",
+      "catalogPath": "CourseCatalogs/FinanceTransformation/CFO_DEMO_STANDARDS.md",
+      "assignments": [],
+      "demos": [
+        {
+          "title": "AI ROI Calculator",
+          "level": "Intermediate",
+          "summary": "Test whether an AI initiative has a credible finance case once implementation cost, capacity release, adoption curve, confidence range, and payback are made explicit. This is a CFO-facing value screen, not a hype screen.",
+          "teacherCue": "Teacher cue: Ask which assumption moves the decision most: adoption, controls cost, or benefit confidence. The point is to make fragility visible before approval.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/AIROICalculator/about.html",
+          "launchPath": "TechUseCaseDemos/AIROICalculator/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "AI Governance Scorecard",
+          "level": "Intermediate",
+          "summary": "Pressure-test whether source traceability, approval rights, segregation of duties, human review, audit evidence, and judgement boundaries are strong enough for deployment.",
+          "teacherCue": "Teacher cue: Push beyond generic governance and ask what a controller would need before accepting the workflow in a live finance setting.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "compliance"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "Compliance & Governance"
+          ],
+          "aboutPath": "TechUseCaseDemos/AIGovernanceScorecard/about.html",
+          "launchPath": "TechUseCaseDemos/AIGovernanceScorecard/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "AI Decision Tracker",
+          "level": "Intermediate",
+          "summary": "Capture a finance decision record with initiative owner, sponsor, process owner, data owner, evidence, risk, approval path, and review date so governance does not disappear after the meeting.",
+          "teacherCue": "Teacher cue: Ask who owns the decision six months later when the metric drifts. The answer should be explicit in the record, not implied.",
+          "duration": "15-25 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/AIDecisionTracker/about.html",
+          "launchPath": "TechUseCaseDemos/AIDecisionTracker/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "AI Workflow Demo",
+          "level": "Intermediate",
+          "summary": "Design AP exception routing, close-status escalation, commentary review, or forecast-assumption challenge workflows without weakening controls or losing owner accountability.",
+          "teacherCue": "Teacher cue: Ask which step can be automated safely and which step only looks repetitive but actually contains judgement.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/AIWorkflowDemo/about.html",
+          "launchPath": "TechUseCaseDemos/AIWorkflowDemo/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "AI Content Summarizer",
+          "level": "Intermediate",
+          "summary": "Review management-pack drafts with source evidence, unsupported-claim detection, and mandatory reviewer sign-off before finance narrative is released.",
+          "teacherCue": "Teacher cue: Ask what would make the narrative unfit for CFO release even if the wording sounds plausible.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "rag-nlp"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "RAG & NLP"
+          ],
+          "aboutPath": "TechUseCaseDemos/AIContentSummarizer/about.html",
+          "launchPath": "TechUseCaseDemos/AIContentSummarizer/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Lite Parse Demo",
+          "level": "Intermediate",
+          "summary": "Extract clauses from fictional contracts and invoices while keeping a visible boundary between information extraction and accounting judgement.",
+          "teacherCue": "Teacher cue: Ask which clause can be extracted mechanically and which conclusion still needs finance or legal interpretation.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "rag-nlp"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "RAG & NLP"
+          ],
+          "aboutPath": "TechUseCaseDemos/LiteParseDemo/about.html",
+          "launchPath": "TechUseCaseDemos/LiteParseDemo/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Month-End Close Command Center",
+          "level": "Intermediate",
+          "summary": "Decide whether close can proceed, which exceptions are material, what evidence is missing, and why the no-autonomous-posting rule matters in finance operations.",
+          "teacherCue": "Teacher cue: Ask whether the issue is speed, evidence, materiality, or ownership. CFO-facing close decisions usually combine all four.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office"
+          ],
+          "courseTitles": [
+            "CFO Office"
+          ],
+          "aboutPath": "TechUseCaseDemos/MonthEndCloseCommandCenter/about.html",
+          "launchPath": "TechUseCaseDemos/MonthEndCloseCommandCenter/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Finance Evidence and Data-Lineage Challenge",
+          "level": "Intermediate",
+          "summary": "Trace generated commentary back to source rows and decide whether the output is fit for finance release or still contains unsupported statements.",
+          "teacherCue": "Teacher cue: This is a great moment to contrast impressive output with defensible output. Finance only gets credit for the second one.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office"
+          ],
+          "courseTitles": [
+            "CFO Office"
+          ],
+          "aboutPath": "TechUseCaseDemos/FinanceEvidenceAndDataLineageChallenge/about.html",
+          "launchPath": "TechUseCaseDemos/FinanceEvidenceAndDataLineageChallenge/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Digital Finance Portfolio Simulator",
+          "level": "Intermediate",
+          "summary": "Sequence finance initiatives using value, readiness, dependencies, people resistance, control risk, and investment capacity instead of selecting projects one by one.",
+          "teacherCue": "Teacher cue: Ask what should go in wave one even if it is not the flashiest initiative. Portfolio discipline beats demo glamour.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office"
+          ],
+          "courseTitles": [
+            "CFO Office"
+          ],
+          "aboutPath": "TechUseCaseDemos/DigitalFinancePortfolioSimulator/about.html",
+          "launchPath": "TechUseCaseDemos/DigitalFinancePortfolioSimulator/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Finance Signal Triage",
+          "level": "Beginner to Intermediate",
+          "summary": "Corroborate soft signals with finance metrics before escalation so sentiment, anecdote, and market noise do not masquerade as finance evidence.",
+          "teacherCue": "Teacher cue: Ask which combinations truly deserve escalation and which should remain monitored but not yet amplified.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office"
+          ],
+          "courseTitles": [
+            "CFO Office"
+          ],
+          "aboutPath": "TechUseCaseDemos/FinanceSignalTriage/about.html",
+          "launchPath": "TechUseCaseDemos/FinanceSignalTriage/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Payment Operations and Reconciliation Workbench",
+          "level": "Intermediate",
+          "summary": "Classify mismatches, fee differences, chargebacks, and unresolved exceptions using materiality, ageing, owner, SLA, and escalation outcome rather than just raw queue volume.",
+          "teacherCue": "Teacher cue: Ask which exception is operational noise and which one is becoming a control or stakeholder issue.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "digital-payments"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "Digital Payments"
+          ],
+          "aboutPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/about.html",
+          "launchPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "O2C Process Mining Workbench",
+          "level": "Intermediate",
+          "summary": "Reveal how receivables actually flow through credit holds, disputes, short payments, and control exceptions before anyone decides that automation is the answer.",
+          "teacherCue": "Teacher cue: Ask what should be eliminated upstream, what can be routed, and what still requires human judgement and monitoring.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "treasury"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "Treasury Management"
+          ],
+          "aboutPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/about.html",
+          "launchPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "P2P Process Mining Workbench",
+          "level": "Intermediate",
+          "summary": "Reveal how AP work actually flows through missing PO, missing GRN, duplicate review, approval delays, and control exceptions before workflow tooling is chosen.",
+          "teacherCue": "Teacher cue: Ask which queue is a policy or discipline issue upstream and which part of the stable path is finally ready for workflow enablement.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "treasury"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "Treasury Management"
+          ],
+          "aboutPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/about.html",
+          "launchPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Invoice-Level Collections Prediction",
+          "level": "Intermediate",
+          "summary": "Compare contractual due dates with likely payment behavior so collections, cash forecasting, and human review are grounded in evidence rather than aging alone.",
+          "teacherCue": "Teacher cue: Ask how much trust the CFO should place in the model output before it affects funding, collection actions, or external commitments.",
+          "duration": "35-50 min",
+          "surface": "Colab-ready notebook",
+          "mode": "Colab",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "treasury"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "Treasury Management"
+          ],
+          "aboutPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/about.html",
+          "launchPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Treasury Control Tower",
+          "level": "Intermediate",
+          "summary": "Frame the current treasury operating picture across liquidity, controls, alerts, and action choices so CFO-level decisions have an operating context before deeper analysis begins.",
+          "teacherCue": "Teacher cue: Ask what the top three actions are if the dashboard is directionally right but still incomplete. CFOs act under partial visibility all the time.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office",
+            "treasury"
+          ],
+          "courseTitles": [
+            "CFO Office",
+            "Treasury Management"
+          ],
+          "aboutPath": "TechUseCaseDemos/TreasuryControlTower/about.html",
+          "launchPath": "TechUseCaseDemos/TreasuryControlTower/index.html",
+          "readiness": "Classroom Ready"
+        }
+      ]
+    },
+    {
       "slug": "digital-payments",
       "title": "Digital Payments",
       "audience": "payment rails, UPI, cards, reconciliation, CBDC, wallet operations",
@@ -2662,17 +2996,19 @@
     {
       "title": "AI Content Summarizer",
       "level": "Intermediate",
-      "summary": "50-page report. Summarize to 2 pages. But did summary preserve key insights or oversimplify?",
-      "teacherCue": "Teacher cue: Look for source text, summary length, key points, and missing details.",
+      "summary": "Review management-pack drafts with source evidence, unsupported-claim detection, and mandatory reviewer sign-off before finance narrative is released.",
+      "teacherCue": "Teacher cue: Ask what would make the narrative unfit for CFO release even if the wording sounds plausible.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "rag-nlp",
-      "courseTitle": "RAG & NLP",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "rag-nlp"
       ],
       "courseTitles": [
+        "CFO Office",
         "RAG & NLP"
       ],
       "aboutPath": "TechUseCaseDemos/AIContentSummarizer/about.html",
@@ -2722,17 +3058,19 @@
     {
       "title": "AI Decision Tracker",
       "level": "Intermediate",
-      "summary": "Every AI-assisted decision should have evidence. Document what you decided, why, and what changed your mind. Trace decisions over time to see which assumptions were right and which broke. Build accountability into workflows, not just dashboards.",
-      "teacherCue": "Teacher cue: Ask: \"In 6 months, could you explain why you made this decision? What evidence supported it?\" This teaches decision hygiene and the power of records.",
-      "duration": "20-30 min",
+      "summary": "Capture a finance decision record with initiative owner, sponsor, process owner, data owner, evidence, risk, approval path, and review date so governance does not disappear after the meeting.",
+      "teacherCue": "Teacher cue: Ask who owns the decision six months later when the metric drifts. The answer should be explicit in the record, not implied.",
+      "duration": "15-25 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "ai-ml-workflows",
-      "courseTitle": "AI/ML Workflows",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "ai-ml-workflows"
       ],
       "courseTitles": [
+        "CFO Office",
         "AI/ML Workflows"
       ],
       "aboutPath": "TechUseCaseDemos/AIDecisionTracker/about.html",
@@ -2781,18 +3119,20 @@
     },
     {
       "title": "AI Governance Scorecard",
-      "level": "Advanced",
-      "summary": "Rate AI systems on explainability, fairness, robustness. Build governance maturity model.",
-      "teacherCue": "Teacher cue: Look for governance dimensions, evidence, maturity level, and gaps.",
+      "level": "Intermediate",
+      "summary": "Pressure-test whether source traceability, approval rights, segregation of duties, human review, audit evidence, and judgement boundaries are strong enough for deployment.",
+      "teacherCue": "Teacher cue: Push beyond generic governance and ask what a controller would need before accepting the workflow in a live finance setting.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "compliance",
-      "courseTitle": "Compliance & Governance",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "compliance"
       ],
       "courseTitles": [
+        "CFO Office",
         "Compliance & Governance"
       ],
       "aboutPath": "TechUseCaseDemos/AIGovernanceScorecard/about.html",
@@ -2982,17 +3322,19 @@
     {
       "title": "AI ROI Calculator",
       "level": "Intermediate",
-      "summary": "Calculate payback period, NPV, IRR for AI initiatives. But don't forget: compare against hiring, outsourcing, and rule-based systems. \"AI is cheaper\" is often wrong\u2014context and adoption rates matter more than the algorithm.",
-      "teacherCue": "Teacher cue: Challenge: \"What's your true cost of ownership? Include maintenance, retraining, and updates over 3 years.\" This prevents hidden costs from destroying ROI.",
+      "summary": "Test whether an AI initiative has a credible finance case once implementation cost, capacity release, adoption curve, confidence range, and payback are made explicit. This is a CFO-facing value screen, not a hype screen.",
+      "teacherCue": "Teacher cue: Ask which assumption moves the decision most: adoption, controls cost, or benefit confidence. The point is to make fragility visible before approval.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "ai-ml-workflows",
-      "courseTitle": "AI/ML Workflows",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "ai-ml-workflows"
       ],
       "courseTitles": [
+        "CFO Office",
         "AI/ML Workflows"
       ],
       "aboutPath": "TechUseCaseDemos/AIROICalculator/about.html",
@@ -3040,19 +3382,21 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "AI Workflow",
+      "title": "AI Workflow Demo",
       "level": "Intermediate",
-      "summary": "Your AI confidence is only 75%\u2014don't fully automate. Design workflows with human checkpoints. Where does a human review before action? Automation with oversight beats blind automation. Learn governance inside workflows.",
-      "teacherCue": "Teacher cue: Challenge: \"If your AI makes a $10M decision, do you really not want human review?\" This teaches the governance question that matters.",
+      "summary": "Design AP exception routing, close-status escalation, commentary review, or forecast-assumption challenge workflows without weakening controls or losing owner accountability.",
+      "teacherCue": "Teacher cue: Ask which step can be automated safely and which step only looks repetitive but actually contains judgement.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "ai-ml-workflows",
-      "courseTitle": "AI/ML Workflows",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "ai-ml-workflows"
       ],
       "courseTitles": [
+        "CFO Office",
         "AI/ML Workflows"
       ],
       "aboutPath": "TechUseCaseDemos/AIWorkflowDemo/about.html",
@@ -3482,6 +3826,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Digital Finance Portfolio Simulator",
+      "level": "Intermediate",
+      "summary": "Sequence finance initiatives using value, readiness, dependencies, people resistance, control risk, and investment capacity instead of selecting projects one by one.",
+      "teacherCue": "Teacher cue: Ask what should go in wave one even if it is not the flashiest initiative. Portfolio discipline beats demo glamour.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
+      "courseSlugs": [
+        "cfo-office"
+      ],
+      "courseTitles": [
+        "CFO Office"
+      ],
+      "aboutPath": "TechUseCaseDemos/DigitalFinancePortfolioSimulator/about.html",
+      "launchPath": "TechUseCaseDemos/DigitalFinancePortfolioSimulator/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Efficient Frontier",
       "level": "All Levels",
       "summary": "Diversification reduces risk. Build optimal portfolio\u2014weights that minimize volatility for target return.",
@@ -3599,6 +3963,46 @@
       ],
       "aboutPath": "TechUseCaseDemos/FeatureStoreDemo/about.html",
       "launchPath": "TechUseCaseDemos/FeatureStoreDemo/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "Finance Evidence and Data-Lineage Challenge",
+      "level": "Intermediate",
+      "summary": "Trace generated commentary back to source rows and decide whether the output is fit for finance release or still contains unsupported statements.",
+      "teacherCue": "Teacher cue: This is a great moment to contrast impressive output with defensible output. Finance only gets credit for the second one.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
+      "courseSlugs": [
+        "cfo-office"
+      ],
+      "courseTitles": [
+        "CFO Office"
+      ],
+      "aboutPath": "TechUseCaseDemos/FinanceEvidenceAndDataLineageChallenge/about.html",
+      "launchPath": "TechUseCaseDemos/FinanceEvidenceAndDataLineageChallenge/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "Finance Signal Triage",
+      "level": "Beginner to Intermediate",
+      "summary": "Corroborate soft signals with finance metrics before escalation so sentiment, anecdote, and market noise do not masquerade as finance evidence.",
+      "teacherCue": "Teacher cue: Ask which combinations truly deserve escalation and which should remain monitored but not yet amplified.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
+      "courseSlugs": [
+        "cfo-office"
+      ],
+      "courseTitles": [
+        "CFO Office"
+      ],
+      "aboutPath": "TechUseCaseDemos/FinanceSignalTriage/about.html",
+      "launchPath": "TechUseCaseDemos/FinanceSignalTriage/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -3728,17 +4132,19 @@
     {
       "title": "Invoice-Level Collections Prediction",
       "level": "Intermediate",
-      "summary": "Not all late invoices are the same. One customer is 60 days late but historically pays; another is 45 days late but never has. AI ranks payment risk by customer patterns, dispute likelihood, and relationship tenure\u2014not just days outstanding. See how predictive signals beat static aging rules and recover $$ faster.",
-      "teacherCue": "Teacher cue: Ask: \"Would you pursue a 120-day-late $50K invoice from a tier-1 customer who always pays eventually?\" This reveals strategic collections\u2014sometimes patience pays more than pressure.",
+      "summary": "Compare contractual due dates with likely payment behavior so collections, cash forecasting, and human review are grounded in evidence rather than aging alone.",
+      "teacherCue": "Teacher cue: Ask how much trust the CFO should place in the model output before it affects funding, collection actions, or external commitments.",
       "duration": "35-50 min",
       "surface": "Colab-ready notebook",
       "mode": "Colab",
-      "courseSlug": "treasury",
-      "courseTitle": "Treasury Management",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "treasury"
       ],
       "courseTitles": [
+        "CFO Office",
         "Treasury Management"
       ],
       "aboutPath": "TreasuryAnalytics/InvoiceLevelCollectionsPrediction/about.html",
@@ -3788,19 +4194,21 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "Lite Parse",
-      "level": "All Levels",
-      "summary": "Extract structured data from messy PDFs\u2014invoices, contracts, resumes. NLP + human review for accuracy.",
-      "teacherCue": "Teacher cue: Look for parsed structure, extracted fields, and parsing failures.",
+      "title": "Lite Parse Demo",
+      "level": "Intermediate",
+      "summary": "Extract clauses from fictional contracts and invoices while keeping a visible boundary between information extraction and accounting judgement.",
+      "teacherCue": "Teacher cue: Ask which clause can be extracted mechanically and which conclusion still needs finance or legal interpretation.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "rag-nlp",
-      "courseTitle": "RAG & NLP",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "rag-nlp"
       ],
       "courseTitles": [
+        "CFO Office",
         "RAG & NLP"
       ],
       "aboutPath": "TechUseCaseDemos/LiteParseDemo/about.html",
@@ -3968,6 +4376,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Month-End Close Command Center",
+      "level": "Intermediate",
+      "summary": "Decide whether close can proceed, which exceptions are material, what evidence is missing, and why the no-autonomous-posting rule matters in finance operations.",
+      "teacherCue": "Teacher cue: Ask whether the issue is speed, evidence, materiality, or ownership. CFO-facing close decisions usually combine all four.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
+      "courseSlugs": [
+        "cfo-office"
+      ],
+      "courseTitles": [
+        "CFO Office"
+      ],
+      "aboutPath": "TechUseCaseDemos/MonthEndCloseCommandCenter/about.html",
+      "launchPath": "TechUseCaseDemos/MonthEndCloseCommandCenter/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Mule Account Detection",
       "level": "Intermediate",
       "summary": "Support the course\u2019s AML and account-abuse discussions with a demo that connects suspicious flow patterns to intervention timing and false-positive burden.",
@@ -4072,17 +4500,19 @@
     {
       "title": "O2C Process Mining Workbench",
       "level": "Intermediate",
-      "summary": "Most finance teams can describe the designed order-to-cash flow, but cash gets delayed by the path that work actually takes. Start from a clean happy path, then reveal credit holds, delivery disputes, short payments, unapplied cash, and a control breach from a fictional event log. Use the output to decide what to eliminate, standardize, enable, retain as human judgement, and monitor.",
-      "teacherCue": "Teacher cue: Ask: \"Which O2C delay is a workflow problem, which is an upstream discipline problem, and which must remain controlled?\" This helps students separate process redesign from automation enthusiasm.",
+      "summary": "Reveal how receivables actually flow through credit holds, disputes, short payments, and control exceptions before anyone decides that automation is the answer.",
+      "teacherCue": "Teacher cue: Ask what should be eliminated upstream, what can be routed, and what still requires human judgement and monitoring.",
       "duration": "20-30 min",
-      "surface": "Browser-based process-mining workbench",
+      "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "treasury",
-      "courseTitle": "Treasury Management",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "treasury"
       ],
       "courseTitles": [
+        "CFO Office",
         "Treasury Management"
       ],
       "aboutPath": "TechUseCaseDemos/O2CProcessMiningWorkbench/about.html",
@@ -4172,17 +4602,19 @@
     {
       "title": "P2P Process Mining Workbench",
       "level": "Intermediate",
-      "summary": "Most teams can describe the designed invoice-to-payment-ready flow, but supplier delay and AP friction are driven by the path work actually takes. Start from a clean AP happy path, then reveal missing PO, missing GRN, duplicate review, approval delays, and a control breach from a fictional event log. Use the output to decide what to eliminate, standardize, enable, retain as human judgement, and monitor.",
-      "teacherCue": "Teacher cue: Ask: \"Which AP delay is a workflow problem, which is an upstream discipline problem, and which must remain controlled?\" This helps students separate process redesign from automation enthusiasm.",
+      "summary": "Reveal how AP work actually flows through missing PO, missing GRN, duplicate review, approval delays, and control exceptions before workflow tooling is chosen.",
+      "teacherCue": "Teacher cue: Ask which queue is a policy or discipline issue upstream and which part of the stable path is finally ready for workflow enablement.",
       "duration": "20-30 min",
-      "surface": "Browser-based process-mining workbench",
+      "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "treasury",
-      "courseTitle": "Treasury Management",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "treasury"
       ],
       "courseTitles": [
+        "CFO Office",
         "Treasury Management"
       ],
       "aboutPath": "TechUseCaseDemos/P2PProcessMiningWorkbench/about.html",
@@ -4231,18 +4663,20 @@
     },
     {
       "title": "Payment Operations and Reconciliation Workbench",
-      "level": "Intermediate to Advanced",
-      "summary": "Work through bank, gateway, network, and merchant records with deliberate mismatches. Classify missing transactions, duplicates, fee discrepancies, pending reversals, chargeback timing, and settlement-date differences.",
-      "teacherCue": "Teacher cue: Ask: \"Which exception actually changes money owed, and which one only changes timing or reporting?\" This teaches operational materiality.",
-      "duration": "30-40 min",
+      "level": "Intermediate",
+      "summary": "Classify mismatches, fee differences, chargebacks, and unresolved exceptions using materiality, ageing, owner, SLA, and escalation outcome rather than just raw queue volume.",
+      "teacherCue": "Teacher cue: Ask which exception is operational noise and which one is becoming a control or stakeholder issue.",
+      "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "digital-payments",
-      "courseTitle": "Digital Payments",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "digital-payments"
       ],
       "courseTitles": [
+        "CFO Office",
         "Digital Payments"
       ],
       "aboutPath": "TechUseCaseDemos/PaymentReconciliationWorkbench/about.html",
@@ -4739,22 +5173,24 @@
     },
     {
       "title": "Treasury Control Tower",
-      "level": "Beginner to Intermediate",
-      "summary": "It's Friday 5 PM. Your cash position is $2M but you're expecting a $10M outflow Monday. The AI forecasts a gap. Do you draw a credit line today (cost: facility fee), defer payments, or trust the forecast to adjust? See how AI-powered liquidity monitoring drives real-time treasury decisions.",
-      "teacherCue": "Teacher cue: Challenge the forecast: \"How confident is this AI model? What happens if it's wrong?\" This teaches false confidence\u2014AI is a tool for speed, not certainty. CFOs still own the decision.",
+      "level": "Intermediate",
+      "summary": "Frame the current treasury operating picture across liquidity, controls, alerts, and action choices so CFO-level decisions have an operating context before deeper analysis begins.",
+      "teacherCue": "Teacher cue: Ask what the top three actions are if the dashboard is directionally right but still incomplete. CFOs act under partial visibility all the time.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
-      "courseSlug": "treasury",
-      "courseTitle": "Treasury Management",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
       "courseSlugs": [
+        "cfo-office",
         "treasury"
       ],
       "courseTitles": [
+        "CFO Office",
         "Treasury Management"
       ],
       "aboutPath": "TechUseCaseDemos/TreasuryControlTower/about.html",
-      "launchPath": "TechUseCaseDemos/TreasuryControlTower/demo.html",
+      "launchPath": "TechUseCaseDemos/TreasuryControlTower/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -4979,12 +5415,12 @@
     }
   ],
   "counts": {
-    "coursePacks": 9,
-    "curatedDemos": 116,
+    "coursePacks": 10,
+    "curatedDemos": 120,
     "runModes": 5
   },
   "modeCounts": {
-    "Browser": 106,
+    "Browser": 110,
     "Colab": 5,
     "Local": 1,
     "Multi-Mode": 3,

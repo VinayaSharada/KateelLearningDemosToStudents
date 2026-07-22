@@ -4,6 +4,7 @@ This directory contains course-specific GitHub Pages that use a consistent About
 
 ## Available course pages
 
+- [📊 CFO Office](courses/cfo-office.html) — Cross-cutting overlay for value, controls, evidence, close, working capital, treasury, and finance transformation demos.
 - [🏦 Treasury Management](courses/treasury-management.html) — Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.
 - [🤖 AI/ML Workflows](courses/ai-ml-workflows.html) — Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.
 - [⚠️ Risk Management](courses/risk-management.html) — Credit, market, counterparty, systemic, and cyber-risk modeling demos for finance and analytics courses.
