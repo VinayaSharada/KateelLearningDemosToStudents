@@ -19,6 +19,18 @@
     <h1>Lite Parse Demo</h1>
     <p class="demo-lede">Extract finance-relevant clauses from a fictional contract and invoice pack, then decide what still requires accounting judgement.</p>
   </section>
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Business decision</h3>
+        <p>Decide which extracted clauses require finance, legal, or controllership follow-up before someone over-trusts the output.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>What to look for</h3>
+        <p>Payment terms, rebates, return rights, and renewal clauses may all matter, but they do not all imply the same accounting or commercial action.</p>
+      </article>
+    </div>
+  </section>
   <section class="parse-app">
     <section class="parse-panel">
       <div class="parse-grid">
@@ -34,7 +46,7 @@
         <div class="parse-card"><span>Who this is for</span><strong id="stakeholderNote"></strong></div>
       </div>
       <div class="parse-metrics">
-        <div class="parse-card"><span>How to adapt for your organization</span><strong id="customizationNote"></strong></div>
+        <div class="parse-card"><span>How to adapt this demo to your use case</span><strong id="customizationNote"></strong></div>
         <div class="parse-card"><span>Bring your own document pack</span><strong>Replace the fictional source text with your own sanitized clauses, then review the extracted signals with finance and legal.</strong></div>
         <div class="parse-card"><span>Export</span><strong><button id="exportParse" class="btn btn-secondary" type="button">Export Review</button></strong></div>
         <div class="parse-card"><span>Reminder</span><strong>Extraction is a starting point; accounting judgement stays human.</strong></div>
@@ -59,6 +71,22 @@
       </div>
       <div class="parse-warning">Extraction is not accounting judgement. Revenue recognition, variable consideration, and contractual interpretation remain human decisions.</div>
     </section>
+  </section>
+  <section class="demo-panel">
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>What you can enhance on your own</h3>
+        <p>Add more clause types, reviewer ownership, approval states, and issue-routing outputs once the base extraction-versus-judgement boundary is clear.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Audience fit</h3>
+        <p>This demo supports CFO, controllership, legal, faculty, and student audiences because the same screening question appears in many document-heavy workflows.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Facilitator cue</h3>
+        <p>Ask which extracted clause is easiest to spot automatically and which still needs the deepest human judgement before it affects finance reporting.</p>
+      </article>
+    </div>
   </section>
 </main>
 </body>
