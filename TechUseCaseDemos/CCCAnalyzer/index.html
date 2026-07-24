@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Kateel demo analytics and error telemetry -->
   <script src="../../assets/analytics.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CCC Analyzer - KateelLearningDemos</title>
-  <meta name="description" content="Browser-based hands-on exercise for Working Capital Optimization (Session 3).">
+  <meta name="description" content="Hands-on working capital optimization through three actionable levers: collections, inventory, and payables.">
   <link rel="stylesheet" href="../../assets/site.css">
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <link rel="stylesheet" href="style.css">
@@ -38,161 +37,245 @@
     </div>
   </div>
 </nav>
-  <div class="demo-context-strip" role="note">
-    <strong>About vs. Demo:</strong> This demo folder now uses a standardized launch page. Start with <a href="about.html">About Demo</a>, then choose the run mode that fits your class.
-  </div>
+
   <main class="container demo-shell">
     <section class="demo-hero">
       <p class="demo-kicker">Treasury Management • Browser • 20-30 min</p>
       <h1>CCC Analyzer</h1>
-      <p class="demo-lede">Browser-based hands-on exercise for Working Capital Optimization (Session 3).</p>
-      <div class="cta-buttons">
-        <a class="btn btn-primary" href="about.html">Open About Demo</a>
-        <a class="btn btn-secondary" href="README.md">Read README</a>
-        <a class="btn btn-secondary" href="../../courses/treasury-management.html">View Course Path</a>
+      <p class="demo-lede">Optimize working capital by adjusting three levers: receivables collection, inventory turns, and payables stretch. See the cash impact immediately.</p>
+      <div class="tag-row" aria-label="Demo tags">
+        <span class="tag">Real-time calculations</span>
+        <span class="tag">Three actionable levers</span>
+        <span class="tag">Risk-aware insights</span>
       </div>
     </section>
 
     <section class="demo-widget">
-      <!-- Controls Section -->
-      <section class="controls-section">
-        <h3>Scenario Controls</h3>
-        <div class="control-row">
-          <div class="control-group">
-            <label for="scenarioSelect">Scenario</label>
-            <select id="scenarioSelect">
-              <option value="current">Current State</option>
-              <option value="industry">Industry Benchmark</option>
-              <option value="target">Target State</option>
-              <option value="custom">Custom Scenario</option>
-            </select>
+      <!-- Step 1: Baseline Summary -->
+      <section class="baseline-section">
+        <h2>Step 1: Understand Your Baseline</h2>
+        <p class="section-intro">Your company's current working capital position. All calculations are based on these numbers.</p>
+
+        <div class="baseline-summary">
+          <div class="summary-item">
+            <div class="summary-label">Annual Sales</div>
+            <div class="summary-value" id="salesDisplay">$100.0M</div>
           </div>
-          <div class="control-group">
-            <label>
-              <input type="checkbox" id="aiToggle" checked>
-              Enable AI Insights
-            </label>
+          <div class="summary-item">
+            <div class="summary-label">Credit Sales %</div>
+            <div class="summary-value" id="creditDisplay">80%</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">COGS</div>
+            <div class="summary-value" id="cogsDisplay">$60.0M</div>
+          </div>
+        </div>
+
+        <div class="baseline-components">
+          <div class="component-card">
+            <div class="comp-icon">📊</div>
+            <div class="comp-label">Accounts Receivable</div>
+            <div class="comp-value" id="arDisplay">$15.0M</div>
+            <div class="comp-meta">Customers owe you</div>
+          </div>
+          <div class="component-card">
+            <div class="comp-icon">📦</div>
+            <div class="comp-label">Inventory</div>
+            <div class="comp-value" id="invDisplay">$8.0M</div>
+            <div class="comp-meta">Cash sitting in stock</div>
+          </div>
+          <div class="component-card">
+            <div class="comp-icon">💳</div>
+            <div class="comp-label">Accounts Payable</div>
+            <div class="comp-value" id="apDisplay">$10.0M</div>
+            <div class="comp-meta">You owe suppliers</div>
+          </div>
+        </div>
+
+        <div class="ccc-baseline">
+          <div class="ccc-item">
+            <span class="ccc-label">Days Sales Outstanding (DSO)</span>
+            <span class="ccc-value" id="dsoBaseline">0</span>
+            <span class="ccc-unit">days to collect</span>
+          </div>
+          <div class="ccc-item">
+            <span class="ccc-label">Days Inventory Outstanding (DIO)</span>
+            <span class="ccc-value" id="dioBaseline">0</span>
+            <span class="ccc-unit">days to sell</span>
+          </div>
+          <div class="ccc-item">
+            <span class="ccc-label">Days Payable Outstanding (DPO)</span>
+            <span class="ccc-value" id="dpoBaseline">0</span>
+            <span class="ccc-unit">days to pay</span>
+          </div>
+          <div class="ccc-item highlight">
+            <span class="ccc-label">Cash Conversion Cycle</span>
+            <span class="ccc-value" id="cccBaseline">0</span>
+            <span class="ccc-unit">days tied up</span>
           </div>
         </div>
       </section>
 
-      <!-- Financial Inputs -->
+      <!-- Step 1B: Edit Baseline (Optional) -->
       <section class="input-section">
-        <h3>Financial Data (Editable)</h3>
-        <div class="grid">
-          <div class="field">
-            <label for="totalSales">Total Sales (Annual) $</label>
+        <h3>Edit Baseline Assumptions (Optional)</h3>
+        <p class="section-intro">Change any number to see instant impact on the CCC.</p>
+        <div class="input-grid">
+          <div class="input-field">
+            <label for="totalSales">Annual Sales $</label>
             <input type="number" id="totalSales" value="100000000" step="1000000">
           </div>
-          <div class="field">
-            <label for="creditSales">Credit Sales (%)</label>
+          <div class="input-field">
+            <label for="creditSales">Credit Sales %</label>
             <input type="number" id="creditSales" value="80" min="0" max="100">
           </div>
-          <div class="field">
-            <label for="cogs">Cost of Goods Sold (Annual) $</label>
+          <div class="input-field">
+            <label for="cogs">COGS $</label>
             <input type="number" id="cogs" value="60000000" step="1000000">
           </div>
-          <div class="field">
+          <div class="input-field">
             <label for="accountsReceivable">Accounts Receivable $</label>
             <input type="number" id="accountsReceivable" value="15000000" step="100000">
           </div>
-          <div class="field">
+          <div class="input-field">
             <label for="accountsPayable">Accounts Payable $</label>
             <input type="number" id="accountsPayable" value="10000000" step="100000">
           </div>
-          <div class="field">
-            <label for="inventory">Average Inventory $</label>
+          <div class="input-field">
+            <label for="inventory">Inventory $</label>
             <input type="number" id="inventory" value="8000000" step="100000">
           </div>
         </div>
+        <button class="btn btn-secondary" id="resetBtn">Reset to Defaults</button>
       </section>
 
-      <!-- CCC Calculation Results -->
-      <section class="results-section">
-        <h3>Cash Conversion Cycle Results</h3>
-        <div class="ccc-grid">
-          <div class="ccc-card">
-            <div class="ccc-label">DSO (Days Sales Outstanding)</div>
-            <div class="ccc-value" id="dso">45.6</div>
-            <div class="ccc-target">Target: &lt; 40 days</div>
+      <!-- Step 2: The Three Levers -->
+      <section class="levers-section">
+        <h2>Step 2: Adjust the Three Levers</h2>
+        <p class="section-intro">Each lever below improves CCC by a different mechanism. See the cash impact in real time.</p>
+
+        <div class="lever-card">
+          <div class="lever-header">
+            <span class="lever-number">1️⃣</span>
+            <h3>RECEIVABLES: Collect Faster</h3>
+            <span class="lever-subtitle">Reduce Days Sales Outstanding (DSO)</span>
           </div>
-          <div class="ccc-card">
-            <div class="ccc-label">Inventory Days</div>
-            <div class="ccc-value" id="inventoryDays">48.7</div>
-            <div class="ccc-target">Target: &lt; 45 days</div>
+          <div class="lever-body">
+            <div class="lever-metric">
+              <span class="metric-label">Current DSO</span>
+              <span class="metric-value" id="dsoCurrent">—</span>
+              <span class="metric-target">Target: &lt; 40 days</span>
+            </div>
+            <div class="lever-control">
+              <label for="dsoLever">Reduce DSO by: <span class="lever-pct" id="dsoPct">0%</span></label>
+              <input type="range" id="dsoLever" min="0" max="30" value="0">
+              <div class="lever-scale">0 days ← → 15 days faster</div>
+            </div>
+            <div class="lever-action">
+              <strong>How:</strong> Automated dunning, early payment discounts, or stricter credit terms.
+            </div>
           </div>
-          <div class="ccc-card">
-            <div class="ccc-label">DPO (Days Payable Outstanding)</div>
-            <div class="ccc-value" id="dpo">36.5</div>
-            <div class="ccc-target">Target: &lt; 45 days</div>
+        </div>
+
+        <div class="lever-card">
+          <div class="lever-header">
+            <span class="lever-number">2️⃣</span>
+            <h3>INVENTORY: Turn Faster</h3>
+            <span class="lever-subtitle">Reduce Days Inventory Outstanding (DIO)</span>
           </div>
-          <div class="ccc-card result">
-            <div class="ccc-label">Cash Conversion Cycle</div>
-            <div class="ccc-value" id="ccc">57.8</div>
-            <div class="ccc-target">Target: &lt; 50 days</div>
+          <div class="lever-body">
+            <div class="lever-metric">
+              <span class="metric-label">Current DIO</span>
+              <span class="metric-value" id="dioCurrent">—</span>
+              <span class="metric-target">Target: &lt; 45 days</span>
+            </div>
+            <div class="lever-control">
+              <label for="dioLever">Reduce Inventory by: <span class="lever-pct" id="dioPct">0%</span></label>
+              <input type="range" id="dioLever" min="0" max="20" value="0">
+              <div class="lever-scale">0% ← → 20% reduction</div>
+            </div>
+            <div class="lever-action">
+              <strong>How:</strong> Just-in-time inventory, better demand forecasting, or reduce SKU count.
+            </div>
+          </div>
+        </div>
+
+        <div class="lever-card">
+          <div class="lever-header">
+            <span class="lever-number">3️⃣</span>
+            <h3>PAYABLES: Stretch Payments</h3>
+            <span class="lever-subtitle">Increase Days Payable Outstanding (DPO)</span>
+          </div>
+          <div class="lever-body">
+            <div class="lever-metric">
+              <span class="metric-label">Current DPO</span>
+              <span class="metric-value" id="dpoCurrent">—</span>
+              <span class="metric-target">Target: > 45 days</span>
+            </div>
+            <div class="lever-control">
+              <label for="dpoLever">Extend DPO by: <span class="lever-pct" id="dpoPct">0%</span></label>
+              <input type="range" id="dpoLever" min="0" max="20" value="0">
+              <div class="lever-scale">0 days ← → 12 days longer</div>
+            </div>
+            <div class="lever-action">
+              <strong>How:</strong> Negotiate with suppliers, use supply chain financing, or optimize payment scheduling.
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-toggle-row">
+          <label for="aiToggle">
+            <input type="checkbox" id="aiToggle" checked>
+            Show AI guidance based on my lever choices
+          </label>
+        </div>
+      </section>
+
+      <!-- Step 3: Impact -->
+      <section class="impact-section">
+        <h2>Step 3: See the Impact</h2>
+        <p class="section-intro">How your strategy improves working capital.</p>
+
+        <div class="impact-cards">
+          <div class="impact-card">
+            <div class="impact-label">Your Target CCC</div>
+            <div class="impact-value" id="optimizedCcc">—</div>
+            <div class="impact-change" id="cccChange">No change</div>
+          </div>
+          <div class="impact-card highlight">
+            <div class="impact-label">Annual Cash Released</div>
+            <div class="impact-value success" id="cashRelease">$0M</div>
+            <div class="impact-meta">Can be reinvested or reduce debt</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-label">Carrying Cost Saved</div>
+            <div class="impact-value" id="costSaved">$0K/year</div>
+            <div class="impact-meta">Assume 6% annual rate</div>
           </div>
         </div>
       </section>
 
-      <!-- Optimization Scenario -->
-      <section class="scenario-section">
-        <h3>Optimization Scenario (What-If Analysis)</h3>
-        <div class="scenario-controls">
-          <div class="control-group">
-            <label for="dsoImprovement">DSO Improvement (%): <span id="dsoImpValue">0%</span></label>
-            <input type="range" id="dsoImprovement" min="-50" max="50" value="0">
-          </div>
-          <div class="control-group">
-            <label for="dpoIncrease">DPO Increase (%): <span id="dpoIncValue">0%</span></label>
-            <input type="range" id="dpoIncrease" min="-20" max="30" value="0">
-          </div>
-          <div class="control-group">
-            <label for="inventoryReduce">Inventory Reduction (%): <span id="invRedValue">0%</span></label>
-            <input type="range" id="inventoryReduce" min="-20" max="20" value="0">
-          </div>
-        </div>
-        <div class="scenario-results">
-          <div class="result-item">
-            <span>Optimized CCC:</span>
-            <span class="result-value" id="optimizedCcc">57.8 days</span>
-          </div>
-          <div class="result-item">
-            <span>Cash Release (Annual):</span>
-            <span class="result-value success" id="cashRelease">$0</span>
-          </div>
-          <div class="result-item">
-            <span>CCC Improvement:</span>
-            <span class="result-value" id="cccImprovement">0 days</span>
-          </div>
+      <!-- Reality Check -->
+      <section class="reality-check-section">
+        <h2>⚠️ Reality Check: Tradeoffs & Risks</h2>
+        <p class="section-intro">Every working capital improvement has friction. Consider these risks before implementing.</p>
+        <div class="risks-container" id="risksContainer">
+          <!-- Dynamically populated -->
         </div>
       </section>
 
-      <!-- AI Recommendations -->
-      <section class="recommendation-section">
-        <h3>AI Recommendations</h3>
-        <div class="ai-insight">
-          <strong>AI Recommendation:</strong> <span id="aiRecommendation">Implement automated dunning to reduce DSO by 5-10 days</span>
-        </div>
-        <div class="recommendations-list">
-          <div class="rec-item">
-            <span class="rec-icon">💡</span>
-            <span class="rec-text">Implement automated dunning to reduce DSO by 5-10 days</span>
-          </div>
-          <div class="rec-item">
-            <span class="rec-icon">📦</span>
-            <span class="rec-text">Negotiate extended payment terms with suppliers (extend DPO)</span>
-          </div>
-          <div class="rec-item">
-            <span class="rec-icon">🔄</span>
-            <span class="rec-text">Adopt just-in-time inventory to reduce carrying costs</span>
-          </div>
+      <!-- AI Guidance -->
+      <section class="guidance-section" id="guidanceSection">
+        <h2>💡 AI Guidance (Based on Your Levers)</h2>
+        <div class="guidance-box" id="guidanceBox">
+          <!-- Dynamically populated -->
         </div>
       </section>
 
       <!-- Actions -->
       <section class="actions-section">
-        <button class="btn" id="resetBtn">Reset</button>
-        <button class="btn" id="exportBtn">Export Results</button>
+        <button class="btn btn-primary" id="exportBtn">Export My Analysis</button>
+        <a class="btn btn-secondary" href="about.html">Read Learning Guide</a>
       </section>
     </section>
 
