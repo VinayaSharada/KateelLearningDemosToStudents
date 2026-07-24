@@ -191,6 +191,10 @@ function renderRecon() {
   document.getElementById("ownerName").textContent = topException ? topException.owner : "Finance Controls";
   document.getElementById("slaValue").textContent = topException ? topException.sla : "No action";
   document.getElementById("escalationOutcome").textContent = closeBlocked ? "Escalate before close" : total ? "Monitor and evidence" : "Safe to close";
+  document.getElementById("manualQueueValue").textContent = total ? `${total} mismatches, mixed ownership, slower triage` : "No active mismatches";
+  document.getElementById("controlledQueueValue").textContent = total ? `${materialCount} material items with named owners and SLAs` : "Routine controller review only";
+  document.getElementById("handoffValue").textContent = total ? "Hand off to RPA or workflow only after matching rules are stable" : "No automation handoff needed";
+  document.getElementById("blockingValue").textContent = closeBlocked ? "Close-blocking" : "Monitor-only or provisioned";
 
   const rows = exceptions.length ? exceptions : [{
     className: "No exceptions",

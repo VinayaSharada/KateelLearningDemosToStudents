@@ -86,6 +86,15 @@
         <tbody id="exceptionTableBody"></tbody>
       </table>
     </section>
+    <section class="recon-panel">
+      <h3>Manual Queue vs Controlled Workbench</h3>
+      <div class="recon-summary-grid">
+        <div class="recon-summary-card"><span>Manual queue</span><strong id="manualQueueValue"></strong></div>
+        <div class="recon-summary-card"><span>Controlled workbench</span><strong id="controlledQueueValue"></strong></div>
+        <div class="recon-summary-card"><span>Automation handoff</span><strong id="handoffValue"></strong></div>
+        <div class="recon-summary-card"><span>Close-blocking status</span><strong id="blockingValue"></strong></div>
+      </div>
+    </section>
     <section class="recon-grid recon-lower-grid">
       <section class="recon-note" id="reconNote"></section>
       <section class="recon-panel">
@@ -100,13 +109,26 @@
   </section>
 
 
-<section class="section">
-  <div class="section-header">
-    <p class="section-kicker">Business decision</p>
-    <h2>What decision this demo helps you make</h2>
-    <p>Use this demo to make the central decision in Payment Operations and Reconciliation Workbench explicit, understand the trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own setting.</p>
-  </div>
-</section>
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Control boundary</p>
+      <h2>What remains illustrative, and what must stay human</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Data and evidence note</h3>
+        <p>This demo uses fictional payment, gateway, network, and bank mismatches to teach reconciliation decisions without exposing live transaction files.</p>
+      </article>
+      <article class="info-card">
+        <h3>Human approval point</h3>
+        <p>Automation can route or classify stable mismatches, but controller approval remains necessary before close proceeds on material items.</p>
+      </article>
+      <article class="info-card">
+        <h3>Safe reuse guidance</h3>
+        <p>Reuse the exception classes and handoff logic, but replace thresholds, owners, and close policy with your own payment-control model.</p>
+      </article>
+    </div>
+  </section>
 </main>
 </body>
 </html>

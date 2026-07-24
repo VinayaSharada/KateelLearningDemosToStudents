@@ -4,9 +4,9 @@ const evidenceRows = [
   ["Collections", "DSO improved by 2 days after targeted collections action."],
 ];
 const draftClaims = [
-  { claim: "Revenue momentum remained healthy across the quarter.", supported: true, source: "Revenue growth" },
-  { claim: "Margin improvement reflects operating discipline and mix quality.", supported: true, source: "Margin" },
-  { claim: "Collections improvements eliminated working-capital risk.", supported: false, source: "No source support for eliminated risk" },
+  { claim: "Revenue momentum remained healthy across the quarter.", supported: true, source: "Revenue growth", row: "TB-18 / Sales-B", note: "Trace complete" },
+  { claim: "Margin improvement reflects operating discipline and mix quality.", supported: false, source: "Margin cited, but cost-mix driver not traced", row: "No row trace for driver", note: "Inference exceeds evidence" },
+  { claim: "Collections improvements eliminated working-capital risk.", supported: false, source: "No source support for eliminated risk", row: "No direct source", note: "Unsupported claim" },
 ];
 let reviewerSigned = false;
 
@@ -43,11 +43,16 @@ function renderSummary() {
   document.getElementById("evidenceList").innerHTML = evidenceRows.map(([title, text]) => `<div class="summary-item"><span>${title}</span><strong>${text}</strong></div>`).join("");
   document.getElementById("draftSummary").innerHTML = draftClaims.map((item) => `<div class="claim-item ${item.supported ? "claim-supported" : "claim-unsupported"}"><span>Claim</span><strong>${item.claim}</strong><p>${item.source}</p></div>`).join("");
   const unsupported = draftClaims.filter((item) => !item.supported).length;
+  const releaseState = document.getElementById("releaseState").value;
+  const traceability = unsupported === 0 ? "Complete" : "Partial";
   document.getElementById("unsupportedCount").textContent = `${unsupported}`;
   document.getElementById("evidenceStatus").textContent = unsupported ? "Needs challenge" : "Evidence aligned";
   document.getElementById("reviewerStatus").textContent = reviewerSigned ? "Signed off" : "Pending";
-  document.getElementById("releaseDecision").textContent = reviewerSigned && unsupported === 0 ? "Ready for release" : "Hold for review";
-  document.getElementById("claimReview").innerHTML = `<div class="summary-item"><span>Business decision</span><strong>${unsupported ? "At least one claim is unsupported; the draft should not move forward unchanged." : "Claims are evidence-backed, subject to reviewer sign-off."}</strong></div>`;
+  document.getElementById("traceabilityValue").textContent = traceability;
+  document.getElementById("stalenessValue").textContent = unsupported ? "Reviewer challenge required" : "No stale or contradictory evidence detected";
+  document.getElementById("releaseDecision").textContent = reviewerSigned && unsupported === 0 && releaseState === "internal" ? "Ready for internal release" : "Hold for review";
+  document.getElementById("traceTableBody").innerHTML = draftClaims.map((item) => `<tr><td>${item.claim}</td><td>${item.row}</td><td>${item.supported ? "Supported" : "Challenge"}</td><td>${item.note}</td></tr>`).join("");
+  document.getElementById("claimReview").innerHTML = `<div class="summary-item"><span>Business decision</span><strong>${unsupported ? "At least one claim is unsupported or over-inferred; the draft should not move forward unchanged." : "Claims are evidence-backed, subject to reviewer sign-off."}</strong></div>`;
 }
 function setStakeholder() {
   const key = document.getElementById("stakeholderView").value;
@@ -59,11 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
     reviewerSigned = !reviewerSigned;
     renderSummary();
   });
+  document.getElementById("releaseState").addEventListener("change", renderSummary);
   document.getElementById("stakeholderView").addEventListener("change", setStakeholder);
   document.getElementById("exportSummary").addEventListener("click", () => {
     const content = [
       "AI Content Summarizer Review",
       `Stakeholder: ${document.getElementById("stakeholderView").value}`,
+      `Release state: ${document.getElementById("releaseState").value}`,
       `Unsupported claims: ${document.getElementById("unsupportedCount").textContent}`,
       `Evidence status: ${document.getElementById("evidenceStatus").textContent}`,
       `Reviewer sign-off: ${document.getElementById("reviewerStatus").textContent}`,
