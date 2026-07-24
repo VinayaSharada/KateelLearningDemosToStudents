@@ -1,0 +1,14 @@
+customer_id,customer_name,industry,avg_payment_days,risk_score,key_account_flag,credit_limit_usd
+CUST-A,Acme Corp,Manufacturing,25,0.25,yes,2000000
+CUST-B,BuildCo Inc,Construction,35,0.40,yes,1500000
+CUST-C,TechSys Ltd,Technology,12,0.15,yes,1000000
+CUST-D,Global Trade,Retail,48,0.65,no,500000
+CUST-E,Premier Supply,Wholesale,32,0.35,yes,1200000
+CUST-F,Urban Services,Services,28,0.30,no,600000
+CUST-G,Midwest Logistics,Logistics,55,0.45,yes,3000000
+CUST-H,Coastal Retail,Retail,38,0.50,no,750000
+CUST-I,Northern Metals,Manufacturing,42,0.55,yes,2200000
+CUST-J,Quality Parts,Manufacturing,22,0.20,no,500000
+CUST-K,Distribution Hub,Logistics,45,0.40,yes,1800000
+CUST-L,Innovation Labs,Technology,18,0.10,no,800000
+CUST-M,Specialty Goods,Retail,52,0.70,no,400000
