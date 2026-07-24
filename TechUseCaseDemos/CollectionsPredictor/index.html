@@ -105,58 +105,23 @@
   </section>
 
   <section class="app-frame">
+    <!-- Step 1: Outstanding Invoices - Lead with the data -->
     <section>
-      <h2>Input Variables</h2>
-      <div class="control-row">
-        <div class="control-group">
-          <label for="scenarioSelect">Collection strategy</label>
-          <select id="scenarioSelect">
-            <option value="current">Current process</option>
-            <option value="improved">Improved process</option>
-            <option value="aggressive">Aggressive collection</option>
-          </select>
-        </div>
-        <div class="control-group">
-          <label for="aiToggle">Enable AI recommendation</label>
-          <input id="aiToggle" type="checkbox" checked>
-        </div>
-      </div>
-      <div class="helper-note">
-        Strategy changes the expected recovery and model accuracy. AI guidance adds a plain-language recommendation layer on top of the same scenario math.
-      </div>
-    </section>
-
-    <section>
-      <h2>Decision Buttons</h2>
-      <div class="actions-section">
-        <button class="btn" id="resetBtn" type="button">Reset Scenario</button>
-        <button class="btn" id="exportBtn" type="button">Export Result</button>
-      </div>
-      <div class="helper-note">
-        <strong>Reset Scenario</strong> returns the demo to the default baseline. <strong>Export Result</strong> downloads the current scenario snapshot for discussion or grading.
-      </div>
-    </section>
-
-    <section>
-      <h2>Output Summary</h2>
-      <div class="summary-grid">
-        <article class="summary-card">
-          <div class="summary-label">Total accounts receivable</div>
+      <h2>Step 1: Review Your Outstanding Invoices</h2>
+      <div class="summary-row">
+        <article class="summary-mini">
+          <div class="summary-label">Total AR</div>
           <div class="summary-value number-safe" id="totalAr">$45.2M</div>
         </article>
-        <article class="summary-card">
-          <div class="summary-label">Predicted recovery</div>
-          <div class="summary-value success number-safe" id="predictedRecovery">$39.3M</div>
+        <article class="summary-mini">
+          <div class="summary-label">Overdue >60 days</div>
+          <div class="summary-value number-safe" id="overdueAmount">$3.7M</div>
         </article>
-        <article class="summary-card">
-          <div class="summary-label">Model accuracy</div>
-          <div class="summary-value number-safe" id="accuracy">87%</div>
+        <article class="summary-mini">
+          <div class="summary-label">Critical risk invoices</div>
+          <div class="summary-value number-safe" id="criticalCount">2</div>
         </article>
       </div>
-    </section>
-
-    <section>
-      <h2>Invoice Queue</h2>
       <div class="table-container">
         <table>
           <thead>
@@ -169,29 +134,29 @@
               <th>Risk</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="invoiceTable">
+            <tr data-invoice="INV-2024-001256" data-amount="2400000" data-days="94">
               <td class="mono">INV-2024-001256</td>
               <td>City Council</td>
               <td>$2.4M</td>
               <td class="overdue">94</td>
-              <td><span class="prob-bar"><span class="prob-fill" style="width: 41%"></span></span></td>
+              <td><span class="prob-bar"><span class="prob-fill prob-fill-1" style="width: 41%"></span></span></td>
               <td><span class="risk critical">Critical</span></td>
             </tr>
-            <tr>
+            <tr data-invoice="INV-2024-001198" data-amount="1100000" data-days="73">
               <td class="mono">INV-2024-001198</td>
               <td>Global Solutions</td>
               <td>$1.1M</td>
               <td class="overdue">73</td>
-              <td><span class="prob-bar"><span class="prob-fill" style="width: 54%"></span></span></td>
+              <td><span class="prob-bar"><span class="prob-fill prob-fill-2" style="width: 54%"></span></span></td>
               <td><span class="risk high">High</span></td>
             </tr>
-            <tr>
+            <tr data-invoice="INV-2024-001305" data-amount="640000" data-days="38">
               <td class="mono">INV-2024-001305</td>
               <td>Metro Retail</td>
               <td>$640K</td>
               <td>38</td>
-              <td><span class="prob-bar"><span class="prob-fill" style="width: 83%"></span></span></td>
+              <td><span class="prob-bar"><span class="prob-fill prob-fill-3" style="width: 83%"></span></span></td>
               <td><span class="risk low">Low</span></td>
             </tr>
           </tbody>
@@ -199,11 +164,94 @@
       </div>
     </section>
 
+    <!-- Step 2: Choose Strategy -->
+    <section>
+      <h2>Step 2: Choose Your Collection Strategy</h2>
+      <div class="strategy-buttons">
+        <button class="strategy-btn active" data-strategy="current" type="button">Current Process</button>
+        <button class="strategy-btn" data-strategy="improved" type="button">Improved Process</button>
+        <button class="strategy-btn" data-strategy="aggressive" type="button">Aggressive Collection</button>
+        <button class="strategy-btn" data-strategy="custom" type="button">Custom Weights</button>
+      </div>
+
+      <div id="customWeightsPanel" class="custom-weights-panel hidden">
+        <h3>Customize Your Strategy</h3>
+        <p class="helper-note">Adjust the sliders to balance speed, risk management, and customer relationships.</p>
+
+        <div class="slider-group">
+          <div class="slider-row">
+            <label for="riskSlider">Risk Focus (prioritize critical invoices)</label>
+            <div class="slider-container">
+              <input type="range" id="riskSlider" min="0" max="100" value="50" class="slider">
+              <span class="slider-value" id="riskValue">50%</span>
+            </div>
+          </div>
+          <div class="slider-row">
+            <label for="speedSlider">Speed Focus (prioritize oldest invoices)</label>
+            <div class="slider-container">
+              <input type="range" id="speedSlider" min="0" max="100" value="50" class="slider">
+              <span class="slider-value" id="speedValue">50%</span>
+            </div>
+          </div>
+          <div class="slider-row">
+            <label for="relationshipSlider">Customer Relationship (balance recovery with goodwill)</label>
+            <div class="slider-container">
+              <input type="range" id="relationshipSlider" min="0" max="100" value="50" class="slider">
+              <span class="slider-value" id="relationshipValue">50%</span>
+            </div>
+          </div>
+        </div>
+        <div class="helper-note">
+          Higher risk focus → more collection probability but higher customer risk. Higher speed focus → urgent invoices first. Higher relationship focus → gentle collection approach.
+        </div>
+      </div>
+
+      <div class="ai-toggle-row">
+        <label for="aiToggle">
+          <input id="aiToggle" type="checkbox" checked>
+          Show AI guidance
+        </label>
+      </div>
+    </section>
+
+    <!-- Step 3: Impact Summary -->
+    <section>
+      <h2>Step 3: See the Impact</h2>
+      <div class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-label">Expected recovery</div>
+          <div class="summary-value success number-safe" id="predictedRecovery">$39.3M</div>
+          <div class="summary-change" id="recoveryChange">+$1.8M vs baseline</div>
+        </article>
+        <article class="summary-card">
+          <div class="summary-label">Recovery rate</div>
+          <div class="summary-value number-safe" id="recoveryRate">87%</div>
+        </article>
+        <article class="summary-card">
+          <div class="summary-label">Model confidence</div>
+          <div class="summary-value number-safe" id="accuracy">87%</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- AI Recommendation -->
     <section class="ai-section">
       <h2>AI Recommendation</h2>
-      <p class="ai-insight" id="aiRecommendation">Focus on INV-2024-001256 and INV-2024-001198 first.</p>
+      <p class="ai-insight" id="aiRecommendation">Focus on INV-2024-001256 (City Council) - high amount, critical risk. Consider legal action.</p>
       <div class="helper-note">
-        Most likely interpretation: higher-recovery strategies increase expected cash collection, but can reduce customer goodwill or confidence if pushed too aggressively.
+        The recommendation changes as you adjust your strategy. Higher recovery strategies increase expected cash collection, but can reduce customer goodwill if pushed too aggressively.
+      </div>
+    </section>
+
+    <!-- Decision Buttons -->
+    <section>
+      <h2>Actions</h2>
+      <div class="actions-section">
+        <button class="btn" id="resetBtn" type="button">Reset Scenario</button>
+        <button class="btn" id="exportBtn" type="button">Export Result</button>
+      </div>
+      <div class="helper-note">
+        <strong>Reset Scenario</strong> returns to the current process baseline. <strong>Export Result</strong> downloads your scenario for discussion or grading.
       </div>
     </section>
   </section>
