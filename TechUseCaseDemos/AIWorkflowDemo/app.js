@@ -4,6 +4,8 @@ const workflowScenarios = {
     approval: "Controller approves exceptions above threshold",
     exception: "Escalate unresolved invoices to controllership",
     decision: "AI triage only",
+    buildStance: "Governed build beats shadow IT because invoice exceptions cross approval and evidence boundaries.",
+    warning: "Do not release payment from an ungoverned workflow.",
     note: "AI can classify invoice exceptions, but payment release must stay with finance.",
     steps: [
       ["Trigger", "Invoice exception enters queue"],
@@ -17,6 +19,8 @@ const workflowScenarios = {
     approval: "Controller decides close hold or proceed",
     exception: "Escalate material late reconciliations",
     decision: "AI status support only",
+    buildStance: "Governed build required because close-status escalation touches materiality and close authority.",
+    warning: "A close hold decision cannot be automated away.",
     note: "The workflow is acceptable only if the close hold decision remains human.",
     steps: [
       ["Trigger", "Close task is late or unsupported"],
@@ -30,6 +34,8 @@ const workflowScenarios = {
     approval: "CFO reviewer sign-off before release",
     exception: "Unsupported claims escalate to source owner",
     decision: "Drafting support",
+    buildStance: "Governed build required because evidence citation and reviewer sign-off must be explicit.",
+    warning: "Generated commentary without source review should not circulate.",
     note: "AI can draft commentary, but cited evidence and reviewer sign-off are mandatory.",
     steps: [
       ["Trigger", "Management pack commentary requested"],
@@ -43,6 +49,8 @@ const workflowScenarios = {
     approval: "Business owner confirms assumption changes",
     exception: "High-variance assumptions escalate to CFO sponsor",
     decision: "Challenge support",
+    buildStance: "Governed build preferred because assumption changes affect planning accountability.",
+    warning: "Forecast judgement remains with business and finance owners.",
     note: "AI may surface assumption outliers, but forecast judgement remains with management.",
     steps: [
       ["Trigger", "Forecast submission received"],
@@ -96,6 +104,8 @@ function renderWorkflow() {
   document.getElementById("ownerValue").textContent = scenario.owner;
   document.getElementById("approvalValue").textContent = scenario.approval;
   document.getElementById("exceptionValue").textContent = scenario.exception;
+  document.getElementById("buildStance").textContent = scenario.buildStance;
+  document.getElementById("warningValue").textContent = scenario.warning;
   document.getElementById("workflowNote").textContent = scenario.note;
 }
 

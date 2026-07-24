@@ -8,6 +8,14 @@ const scorecardItems = [
     evidence: "Source-to-output mapping and cited evidence log",
   },
   {
+    id: "dataClassification",
+    title: "Data classification",
+    why: "Sensitive finance data should be classified before model access is approved.",
+    owner: "Data owner",
+    defaultValue: 3,
+    evidence: "Data classification and access rule",
+  },
+  {
     id: "approvalRights",
     title: "Approval rights",
     why: "The workflow must make CFO and controller approvals explicit.",
@@ -46,6 +54,14 @@ const scorecardItems = [
     owner: "Audit liaison",
     defaultValue: 2,
     evidence: "Evidence pack and retention trail",
+  },
+  {
+    id: "loggingMonitoring",
+    title: "Logging and monitoring",
+    why: "Controlled deployment needs logs, monitoring, and post-release trigger ownership.",
+    owner: "Technology owner",
+    defaultValue: 2,
+    evidence: "Monitoring dashboard and trigger log",
   },
   {
     id: "exceptionOwnership",
@@ -128,6 +144,14 @@ function getRatings() {
 }
 
 function classifyDecision(overallScore, weakItems) {
+  if (overallScore >= 4.6 && weakItems.length === 0) {
+    return {
+      decision: "Scale",
+      approval: "Scale approval with routine monitoring",
+      exception: "Continuous monitoring only",
+      className: "state-good",
+    };
+  }
   if (overallScore >= 4 && weakItems.length === 0) {
     return {
       decision: "Controlled deployment",
@@ -144,8 +168,16 @@ function classifyDecision(overallScore, weakItems) {
       className: "state-medium",
     };
   }
+  if (overallScore >= 2.2) {
+    return {
+      decision: "Remediate before pilot",
+      approval: "Do not pilot until named fixes are complete",
+      exception: "Escalate failed controls to CFO sponsor and CIO owner",
+      className: "state-poor",
+    };
+  }
   return {
-    decision: "Remediation first",
+    decision: "Stop",
     approval: "Do not deploy broadly yet",
     exception: "Escalate control gaps to CFO sponsor",
     className: "state-poor",

@@ -1,3 +1,52 @@
-<!DOCTYPE html><html lang="en"><head><script src="../../assets/analytics.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Digital Finance Portfolio Simulator - KateelLearningDemos</title><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/demo-shell.css"><link rel="stylesheet" href="style.css"><script defer src="../../assets/site.js"></script><script defer src="app.js"></script></head><body><nav class="site-nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand" href="../../index.html">KateelLearningDemos</a><div class="nav-links"><a class="nav-link" href="../../index.html">Home</a><a class="nav-link" href="about.html">About Demo</a><a class="nav-link nav-cta" href="index.html">Launch Demo</a></div></div></nav><main class="container demo-shell"><section class="demo-hero"><p class="demo-kicker">Portfolio Planning • Browser • 20-30 min</p><h1>Digital Finance Portfolio Simulator</h1><p class="demo-lede">Prioritize initiatives using value, readiness, and control risk instead of choosing projects in isolation.</p></section><section class="demo-panel"><div class="generic-cards"><div class="generic-card"><span>What you can enhance on your own</span><strong>Dependencies, budget paths, stakeholder scoring</strong></div><div class="generic-card"><span>How to adapt this demo to your use case</span><strong>Use your own initiative set and portfolio logic</strong></div><div class="generic-card"><span>Who else can use it</span><strong>CFO, CIO, transformation, faculty</strong></div><div class="generic-card"><span>Boundary</span><strong>Illustrative portfolio scoring with human investment approval</strong></div></div></section><section class="generic-app"><div class="generic-grid"><section class="generic-panel"><h2>Priority Stack</h2><div id="portfolioItems"></div></section><section class="generic-panel"><h2>CFO Output</h2><div class="generic-cards"><div class="generic-card"><span>Recommended first wave</span><strong>Collections analytics + commentary controls</strong></div><div class="generic-card"><span>Reason</span><strong>High value, manageable risk, lower resistance</strong></div></div></section></div></section><section class="section"><div class="section-header"><p class="section-kicker">Control boundary</p><h2>What remains illustrative, and what must stay human</h2></div><div class="card-grid"><article class="info-card"><h3>Data and evidence note</h3><p>This demo uses fictional initiative choices, weights, and capacity limits to illustrate sequencing logic rather than approve a live portfolio.</p></article><article class="info-card"><h3>Human approval point</h3><p>Leadership still needs to validate dependencies, sponsorship, delivery risk, and budget trade-offs before committing to a wave.</p></article><article class="info-card"><h3>Safe reuse guidance</h3><p>Reuse the prioritization structure and scenario comparison, but replace the initiative set, weights, and governance thresholds for your context.</p></article></div></section>
-
-</main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Finance Portfolio Simulator - KateelLearningDemos</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Portfolio Planning • Browser • 20-30 min</p>
+    <h1>Digital Finance Portfolio Simulator</h1>
+    <p class="demo-lede">Sequence finance initiatives under value, readiness, resistance, control risk, dependency, and three-year capacity limits.</p>
+  </section>
+  <section class="portfolio-panel">
+    <div class="portfolio-controls">
+      <div class="portfolio-field"><label for="budgetSelect">Annual budget (USD m)</label><select id="budgetSelect"><option value="6">6</option><option value="8" selected>8</option><option value="10">10</option></select></div>
+      <div class="portfolio-field"><label for="capacitySelect">Change capacity</label><select id="capacitySelect"><option value="2">2 initiatives</option><option value="3" selected>3 initiatives</option><option value="4">4 initiatives</option></select></div>
+      <button class="btn btn-secondary" id="resetDemo" type="button">Reset</button>
+    </div>
+  </section>
+  <section class="portfolio-panel">
+    <div id="portfolioItems" class="trace-list"></div>
+  </section>
+  <section class="portfolio-panel">
+    <h2>Board output</h2>
+    <div class="portfolio-summary-grid">
+      <article class="portfolio-card"><span>Recommended first wave</span><strong id="waveValue">-</strong></article>
+      <article class="portfolio-card"><span>Value range</span><strong id="valueValue">-</strong></article>
+      <article class="portfolio-card"><span>Key risk</span><strong id="riskValue">-</strong></article>
+      <article class="portfolio-card"><span>Next decision</span><strong id="decisionValue">-</strong></article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

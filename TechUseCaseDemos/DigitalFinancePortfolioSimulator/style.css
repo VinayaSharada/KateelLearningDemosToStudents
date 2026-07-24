@@ -1,1 +1,7 @@
-.generic-app,.generic-grid{display:grid;gap:1.5rem}.generic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.generic-panel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:1rem 1.1rem}.generic-card,.generic-item{border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:.85rem .95rem;background:rgba(8,12,20,.45)}.generic-item{margin-bottom:.75rem}.generic-card span,.generic-item span{display:block;color:#9fb2c8;font-size:.8rem;text-transform:uppercase}.generic-card strong,.generic-item strong{color:#fff;display:block;margin-top:.35rem}.generic-cards{display:grid;gap:.9rem}@media(max-width:960px){.generic-grid{grid-template-columns:1fr}}
+.portfolio-panel { background:#fff; border:1px solid rgba(15,23,42,.08); border-radius:20px; padding:1.2rem; box-shadow:0 16px 36px rgba(15,23,42,.06); }
+.portfolio-controls,.portfolio-summary-grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+.portfolio-field label { display:block; font-weight:600; margin-bottom:.4rem; }
+.portfolio-field select { width:100%; border-radius:12px; border:1px solid #cbd5e1; padding:.7rem .8rem; }
+.portfolio-card,.trace-card { border:1px solid rgba(15,23,42,.08); border-radius:16px; background:#f8fafc; padding:1rem; }
+.portfolio-card span,.trace-card span { display:block; color:#475569; margin-bottom:.35rem; }
+.trace-list { display:grid; gap:.85rem; }

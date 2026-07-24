@@ -1,10 +1,53 @@
-<!DOCTYPE html><html lang="en"><head><script src="../../assets/analytics.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ind AS Contract Review Workbench - KateelLearningDemos</title><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/demo-shell.css"><link rel="stylesheet" href="style.css"><script defer src="../../assets/site.js"></script><script defer src="app.js"></script></head><body><nav class="site-nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand" href="../../index.html">KateelLearningDemos</a><div class="nav-links"><a class="nav-link" href="../../index.html">Home</a><a class="nav-link" href="about.html">About Demo</a><a class="nav-link nav-cta" href="index.html">Launch Demo</a></div></div></nav><main class="container demo-shell"><section class="demo-hero"><p class="demo-kicker">Contract Review • Browser • 20-30 min</p><h1>Ind AS Contract Review Workbench</h1><p class="demo-lede">Use extraction to surface contract questions, not to replace accounting judgement.</p></section><section class="demo-panel"><div class="generic-cards"><div class="generic-card"><span>What you can enhance on your own</span><strong>More clauses, issue exports, reviewer notes</strong></div><div class="generic-card"><span>How to adapt this demo to your use case</span><strong>Use your own Ind AS and contract issues</strong></div><div class="generic-card"><span>Who else can use it</span><strong>Finance, legal, audit, faculty</strong></div></div></section><section class="generic-app"><div class="generic-grid"><section class="generic-panel"><h2>Extracted Questions</h2><div id="contractItems"></div></section><section class="generic-panel"><h2>Decision</h2><div class="generic-cards"><div class="generic-card"><span>Judgement boundary</span><strong>Finance and legal retain final view</strong></div><div class="generic-card"><span>Main issue</span><strong>Return right may affect revenue timing</strong></div></div></section></div></section>
-<section class="section">
-  <div class="section-header">
-    <p class="section-kicker">Business decision</p>
-    <h2>What decision this demo helps you make</h2>
-    <p>Use this demo to make the central decision in Ind AS Contract Review Workbench explicit, understand the trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own setting.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ind AS Contract Review Workbench - KateelLearningDemos</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
   </div>
-</section>
-
-</main></body></html>
+</nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Contract Review • Browser • 20-30 min</p>
+    <h1>Ind AS Contract Review Workbench</h1>
+    <p class="demo-lede">Surface obligations, variable consideration, return rights, rebates, renewal clauses, and financing components while keeping final accounting judgement with finance and legal.</p>
+  </section>
+  <section class="contract-panel">
+    <div class="contract-summary-grid">
+      <article class="contract-card"><span>Warning</span><strong>Extraction is not accounting judgement</strong></article>
+      <article class="contract-card"><span>Decision queue</span><strong>Finance and legal review required</strong></article>
+    </div>
+  </section>
+  <section class="contract-panel">
+    <div id="contractItems" class="trace-list"></div>
+  </section>
+  <section class="contract-panel">
+    <h2>Reviewed obligation register</h2>
+    <div class="table-container">
+      <table class="case-table">
+        <thead>
+          <tr><th>Clause</th><th>Extracted signal</th><th>Finance question</th><th>Legal question</th><th>Owner</th></tr>
+        </thead>
+        <tbody id="contractRows"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+</body>
+</html>
