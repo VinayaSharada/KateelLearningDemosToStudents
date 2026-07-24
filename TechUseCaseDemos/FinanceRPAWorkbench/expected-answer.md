@@ -1,0 +1,1 @@
+A strong answer automates only the stable path, routes exceptions to a named human reviewer, and stops the bot entirely when policy is broken. Payment release and policy override must remain human decisions.

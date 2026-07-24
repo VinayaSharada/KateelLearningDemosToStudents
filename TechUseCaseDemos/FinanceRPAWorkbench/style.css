@@ -1,0 +1,101 @@
+.rpa-panel,
+.metric-panel {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 1.2rem;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+}
+
+.rpa-toolbar,
+.rpa-actions,
+.rpa-summary-grid,
+.rpa-filter-grid,
+.rpa-grid,
+.rpa-metric-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.rpa-toolbar,
+.rpa-grid {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.rpa-actions,
+.rpa-summary-grid,
+.rpa-filter-grid,
+.rpa-metric-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.rpa-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.rpa-chip {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.rpa-card,
+.trace-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  background: #f8fafc;
+  padding: 1rem;
+}
+
+.rpa-card span,
+.trace-card span {
+  display: block;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+
+.rpa-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.rpa-field select {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  padding: 0.7rem 0.8rem;
+}
+
+.trace-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f766e;
+  margin: 0.25rem 0 0;
+}
+
+.expected-answer {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+@media (max-width: 860px) {
+  .rpa-toolbar,
+  .rpa-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,1 @@
+A strong answer approves only a skill with explicit evidence inputs, strong refusal rules, and a named reviewer. The governed skill can draft or analyze, but it cannot replace accountable finance judgement.

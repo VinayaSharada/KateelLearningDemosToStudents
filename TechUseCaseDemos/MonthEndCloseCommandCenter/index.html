@@ -1,3 +1,216 @@
-<!DOCTYPE html><html lang="en"><head><script src="../../assets/analytics.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Month-End Close Command Center - KateelLearningDemos</title><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/demo-shell.css"><link rel="stylesheet" href="style.css"><script defer src="../../assets/site.js"></script><script defer src="app.js"></script></head><body><nav class="site-nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand" href="../../index.html">KateelLearningDemos</a><div class="nav-links"><a class="nav-link" href="../../index.html">Home</a><a class="nav-link" href="about.html">About Demo</a><a class="nav-link nav-cta" href="index.html">Launch Demo</a></div></div></nav><main class="container demo-shell"><section class="demo-hero"><p class="demo-kicker">Finance Close • Browser • 20-30 min</p><h1>Month-End Close Command Center</h1><p class="demo-lede">Decide whether close can proceed, which exceptions are material, and what controller approval is still required.</p></section><section class="demo-panel"><div class="generic-cards"><div class="generic-card"><span>What you can enhance on your own</span><strong>More close exceptions, evidence logs, role views</strong></div><div class="generic-card"><span>How to adapt this demo to your use case</span><strong>Use your own close policy and materiality rules</strong></div><div class="generic-card"><span>Who else can use it</span><strong>Controllership, CFO, audit, faculty</strong></div><div class="generic-card"><span>Boundary</span><strong>Fictional close exceptions with human approval required</strong></div></div></section><section class="generic-app"><div class="generic-grid"><section class="generic-panel"><h2>Close Queue</h2><div id="closeItems"></div></section><section class="generic-panel"><h2>CFO Output</h2><div class="generic-cards"><div class="generic-card"><span>Decision</span><strong>Controller review required</strong></div><div class="generic-card"><span>Rule</span><strong>No autonomous posting</strong></div><div class="generic-card"><span>Highest risk</span><strong>Late reconciliation evidence gap</strong></div></div></section></div></section><section class="section"><div class="section-header"><p class="section-kicker">Control boundary</p><h2>What remains illustrative, and what must stay human</h2></div><div class="card-grid"><article class="info-card"><h3>Data and evidence note</h3><p>This demo uses fictional close exceptions, evidence states, and thresholds to illustrate close governance rather than a live close decision.</p></article><article class="info-card"><h3>Human approval point</h3><p>Controllers and finance owners still need to decide whether unresolved items are material, whether close can proceed, and whether any posting restriction remains necessary.</p></article><article class="info-card"><h3>Safe reuse guidance</h3><p>Reuse the exception framing, owner fields, and approval logic, but replace the thresholds, evidence rules, and close policy with your own standards.</p></article></div></section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Month-End Close Command Center - KateelLearningDemos</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Finance Close • Browser • 20-30 min</p>
+    <h1>Month-End Close Command Center</h1>
+    <p class="demo-lede">Review entity close status, material exceptions, evidence completeness, and agent recommendations while keeping every posting and close decision under human approval.</p>
+  </section>
 
-</main></body></html>
+  <section class="close-panel close-toolbar">
+    <div class="close-toolbar-row">
+      <div>
+        <h2>Teaching mode</h2>
+        <p id="modeDescription">Facilitator mode highlights the close decision, evidence gaps, and approval boundary in 5-8 minutes.</p>
+      </div>
+      <div class="close-actions">
+        <button class="btn btn-secondary" id="facilitatorMode" type="button">Facilitator Mode</button>
+        <button class="btn btn-secondary" id="participantMode" type="button">Participant Mode</button>
+        <button class="btn btn-secondary" id="exportSummary" type="button">Export Summary</button>
+        <button class="btn btn-secondary" id="resetDemo" type="button">Reset</button>
+      </div>
+    </div>
+    <div class="close-chip-row">
+      <span class="close-chip">Business decision first</span>
+      <span class="close-chip">No autonomous posting</span>
+      <span class="close-chip">Human approval required</span>
+    </div>
+  </section>
+
+  <section class="close-panel">
+    <div class="close-summary-grid">
+      <article class="close-card">
+        <span>What you can enhance on your own</span>
+        <strong>Add more entities, exceptions, evidence rules, and close-policy presets.</strong>
+      </article>
+      <article class="close-card">
+        <span>How to adapt this demo to your use case</span>
+        <strong id="customizationNote">Replace the fictional thresholds and owners with your own close policy before operational reuse.</strong>
+      </article>
+      <article class="close-card">
+        <span>Who else can use it</span>
+        <strong>Controller, CFO, shared services, audit, faculty, and learners</strong>
+      </article>
+      <article class="close-card">
+        <span>Boundary</span>
+        <strong>Illustrative close workflow with controller approval before action</strong>
+      </article>
+    </div>
+  </section>
+
+  <section class="close-panel">
+    <div class="close-filter-grid">
+      <div class="close-field">
+        <label for="entityFilter">Entity</label>
+        <select id="entityFilter"></select>
+      </div>
+      <div class="close-field">
+        <label for="ownerFilter">Owner view</label>
+        <select id="ownerFilter">
+          <option value="all">All owners</option>
+          <option value="Controller">Controller</option>
+          <option value="Close manager">Close manager</option>
+          <option value="Treasury lead">Treasury lead</option>
+          <option value="Shared services">Shared services</option>
+        </select>
+      </div>
+      <div class="close-field">
+        <label for="thresholdFilter">Materiality threshold (USD m)</label>
+        <select id="thresholdFilter">
+          <option value="1">1.0</option>
+          <option value="2" selected>2.0</option>
+          <option value="3">3.0</option>
+        </select>
+      </div>
+      <div class="close-field">
+        <label for="approvalDecision">Controller decision</label>
+        <select id="approvalDecision">
+          <option value="request">Request more evidence</option>
+          <option value="approve">Approve action</option>
+          <option value="reassign">Reassign</option>
+          <option value="defer">Defer with risk acceptance</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="close-metric-grid">
+    <article class="close-panel metric-panel"><h3>Close-day status</h3><p class="metric-value" id="closeStatusValue">-</p></article>
+    <article class="close-panel metric-panel"><h3>Blocked tasks</h3><p class="metric-value" id="blockedTasksValue">-</p></article>
+    <article class="close-panel metric-panel"><h3>Material exceptions</h3><p class="metric-value" id="materialExceptionsValue">-</p></article>
+    <article class="close-panel metric-panel"><h3>Evidence completeness</h3><p class="metric-value" id="evidenceCompletenessValue">-</p></article>
+  </section>
+
+  <section class="close-grid">
+    <section class="close-panel">
+      <div class="section-header left">
+        <p class="section-kicker">Screen A</p>
+        <h2>Close calendar and entity status</h2>
+      </div>
+      <div id="calendarGrid" class="calendar-grid"></div>
+    </section>
+    <section class="close-panel">
+      <div class="section-header left">
+        <p class="section-kicker">Screen B</p>
+        <h2>CFO output</h2>
+      </div>
+      <div class="close-summary-grid">
+        <article class="close-card"><span>Decision</span><strong id="decisionValue">-</strong></article>
+        <article class="close-card"><span>Primary risk</span><strong id="riskValue">-</strong></article>
+        <article class="close-card"><span>Owner</span><strong id="ownerValue">-</strong></article>
+        <article class="close-card"><span>Approval point</span><strong id="approvalValue">-</strong></article>
+        <article class="close-card"><span>Exception route</span><strong id="exceptionValue">-</strong></article>
+        <article class="close-card"><span>No-autonomous-posting rule</span><strong>Always on</strong></article>
+      </div>
+    </section>
+  </section>
+
+  <section class="close-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen C</p>
+      <h2>Material exception queue</h2>
+      <p>Six fictional close exceptions are visible so participants can distinguish monitor-only breaks from close-blocking items.</p>
+    </div>
+    <div class="table-container">
+      <table class="case-table">
+        <thead>
+          <tr>
+            <th>Exception</th>
+            <th>Entity</th>
+            <th>Value (USD m)</th>
+            <th>Age (days)</th>
+            <th>Evidence</th>
+            <th>Owner</th>
+            <th>Status</th>
+            <th>Close impact</th>
+          </tr>
+        </thead>
+        <tbody id="exceptionRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="close-grid">
+    <section class="close-panel">
+      <div class="section-header left">
+        <p class="section-kicker">Screen D</p>
+        <h2>Agent trace</h2>
+      </div>
+      <div id="agentTrace" class="trace-list"></div>
+    </section>
+    <section class="close-panel">
+      <div class="section-header left">
+        <p class="section-kicker">Screen E</p>
+        <h2>Evidence log</h2>
+      </div>
+      <div id="evidenceLog" class="trace-list"></div>
+    </section>
+  </section>
+
+  <section class="close-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Participant task</p>
+      <h2>Decide whether close can proceed</h2>
+      <p id="participantTask">Choose a controller decision, then explain which exceptions block close and which can move under monitored remediation.</p>
+    </div>
+    <div class="close-actions">
+      <button class="btn btn-secondary" id="showExpectedAnswer" type="button">Show Expected Answer</button>
+    </div>
+    <div class="expected-answer" id="expectedAnswer" hidden></div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Control boundary</p>
+      <h2>What remains illustrative, and what must stay human</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Data and evidence note</h3>
+        <p>This demo uses fictional entity statuses, exception values, and evidence states to illustrate close governance rather than a live close decision.</p>
+      </article>
+      <article class="info-card">
+        <h3>Human approval point</h3>
+        <p>Controllers and finance owners still decide whether close proceeds, whether a posting restriction remains, and whether risk acceptance is appropriate.</p>
+      </article>
+      <article class="info-card">
+        <h3>Safe reuse guidance</h3>
+        <p>Reuse the exception structure and agent-trace concept, but replace thresholds, owners, and approval logic with your own close policy.</p>
+      </article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,21 +1,34 @@
 # Month-End Close Command Center
 
-Browser-based finance close demo for reviewing late reconciliations, material exceptions, agent recommendations, controller approval, and the no-autonomous-posting rule.
+Browser-based finance close command center for reviewing entity close status, material exceptions, agent recommendations, evidence completeness, and controller approval without allowing autonomous posting.
 
-## What you can enhance on your own
+## What this demo is about
 
-- Add close-calendar milestones, entity-level status, and evidence-log exports.
-- Add more exception classes such as journal support gaps, intercompany mismatches, or late account reconciliations.
-- Add side-by-side facilitator and participant modes with timed decision prompts.
-- Add clearer role views for controller, CFO, shared-services, and internal-audit stakeholders.
+The demo shows how a controller or CFO team can review a fictional close queue that includes late reconciliation support, intercompany mismatches, journal-support gaps, inventory accrual uncertainty, FX revaluation evidence gaps, and late consolidation input.
 
-## How to adapt this demo to your use case
+## Learning objectives
 
-- Replace the sample close exceptions and approval rules with the close policy and materiality standards used in your organization or course.
-- Decide which breaks truly block close and which can remain open with monitored remediation.
-- Keep the output advisory until finance owners confirm the evidence path, escalation rights, and no-autonomous-posting boundary.
-- Use the same demo across controllership, CFO, internal-audit, and classroom contexts by changing the decision prompt rather than the close engine.
+- Distinguish monitor-only close items from true close-blocking exceptions.
+- Use materiality, ageing, evidence completeness, and owner clarity to decide whether close can proceed.
+- Show how an agent can observe, gather evidence, and draft escalation without crossing the no-autonomous-posting boundary.
+- Explain why controller approval remains mandatory even when a recommendation engine seems confident.
+
+## Run mode
+
+- Primary: Browser
 
 ## Business decision
 
-Use this demo to make the central decision in Month-End Close Command Center explicit, surface the key trade-offs, and decide how you would adapt the workflow, assumptions, or outputs in your own context.
+Use this demo to decide whether close can proceed, whether more evidence is required, whether ownership should be reassigned, or whether risk acceptance is necessary before close continues.
+
+## What you can enhance on your own
+
+- Add more entities, close-calendar milestones, evidence logs, and policy presets.
+- Add richer agent traces, export packs, and stakeholder-specific views.
+- Add side-by-side scenarios for aggressive close acceleration versus control-first close discipline.
+
+## How to adapt this demo to your use case
+
+- Replace the fictional thresholds, entities, owners, and close exceptions with your own close policy.
+- Validate which items truly block close and which can remain open under monitored remediation.
+- Keep the output advisory until finance owners confirm approval rights and evidence standards in your environment.

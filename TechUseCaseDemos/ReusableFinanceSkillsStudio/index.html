@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reusable Finance Skills Studio - KateelLearningDemos</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">Finance Transformation • Browser • 20-30 min</p>
+    <h1>Reusable Finance Skills Studio</h1>
+    <p class="demo-lede">Compare ad hoc prompting with a governed finance skill, add refusal rules and evidence requirements, and decide whether the skill is safe enough for controlled internal use.</p>
+  </section>
+
+  <section class="skill-panel">
+    <div class="skill-toolbar">
+      <div>
+        <h2>Skill review controls</h2>
+        <p id="modeDescription">Facilitator mode highlights the prompt-versus-skill contrast and approval boundary in 5-8 minutes.</p>
+      </div>
+      <div class="skill-actions">
+        <button class="btn btn-secondary" id="facilitatorMode" type="button">Facilitator Mode</button>
+        <button class="btn btn-secondary" id="participantMode" type="button">Participant Mode</button>
+        <button class="btn btn-secondary" id="exportSkillCard" type="button">Export Skill Card</button>
+        <button class="btn btn-secondary" id="resetDemo" type="button">Reset</button>
+      </div>
+    </div>
+    <div class="skill-chip-row">
+      <span class="skill-chip">Prompt vs skill</span>
+      <span class="skill-chip">Evidence-first release</span>
+      <span class="skill-chip">Human reviewer required</span>
+    </div>
+  </section>
+
+  <section class="skill-panel">
+    <div class="skill-summary-grid">
+      <article class="skill-card"><span>What you can enhance on your own</span><strong>Add more refusal rules, source types, and output templates.</strong></article>
+      <article class="skill-card"><span>How to adapt this demo to your use case</span><strong>Replace the fictional management-pack source rules with your own governed finance-skill policy.</strong></article>
+      <article class="skill-card"><span>Who else can use it</span><strong>CFO, FP&amp;A, controllership, transformation, faculty</strong></article>
+      <article class="skill-card"><span>Boundary</span><strong>Illustrative skill design with human release approval</strong></article>
+    </div>
+  </section>
+
+  <section class="skill-grid">
+    <section class="skill-panel">
+      <div class="section-header left">
+        <p class="section-kicker">Screen A</p>
+        <h2>Ad hoc prompt versus governed skill</h2>
+      </div>
+      <div id="promptCompare" class="trace-list"></div>
+    </section>
+    <section class="skill-panel">
+      <div class="section-header left">
+        <p class="section-kicker">Screen B</p>
+        <h2>Skill builder</h2>
+      </div>
+      <div class="skill-form-grid">
+        <div class="skill-field">
+          <label for="objectiveSelect">Objective</label>
+          <select id="objectiveSelect">
+            <option value="commentary">Finance pack review skill</option>
+            <option value="variance">Variance commentary skill</option>
+          </select>
+        </div>
+        <div class="skill-field">
+          <label for="sourceRule">Required evidence source</label>
+          <select id="sourceRule">
+            <option value="both">Workbook + commentary draft</option>
+            <option value="draft-only">Draft only</option>
+            <option value="workbook-only">Workbook only</option>
+          </select>
+        </div>
+        <div class="skill-field">
+          <label for="reviewerSelect">Reviewer</label>
+          <select id="reviewerSelect">
+            <option value="FP&A reviewer">FP&A reviewer</option>
+            <option value="Controller">Controller</option>
+            <option value="CFO reviewer">CFO reviewer</option>
+          </select>
+        </div>
+      </div>
+      <div class="check-grid">
+        <label><input type="checkbox" id="refusal1" checked> Refuse unsupported claims</label>
+        <label><input type="checkbox" id="refusal2" checked> Refuse missing source links</label>
+        <label><input type="checkbox" id="refusal3" checked> Refuse external release without review</label>
+      </div>
+    </section>
+  </section>
+
+  <section class="skill-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen C</p>
+      <h2>Acceptance test and skill register</h2>
+    </div>
+    <div class="skill-summary-grid">
+      <article class="skill-card"><span>Version 1 outcome</span><strong id="v1Outcome">-</strong></article>
+      <article class="skill-card"><span>Version 2 outcome</span><strong id="v2Outcome">-</strong></article>
+      <article class="skill-card"><span>Release state</span><strong id="releaseValue">-</strong></article>
+      <article class="skill-card"><span>Next review date</span><strong id="reviewDateValue">-</strong></article>
+      <article class="skill-card"><span>Owner</span><strong id="ownerValue">-</strong></article>
+      <article class="skill-card"><span>Approval point</span><strong id="approvalValue">-</strong></article>
+    </div>
+  </section>
+
+  <section class="skill-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Screen D</p>
+      <h2>Review and release</h2>
+    </div>
+    <div id="reviewLog" class="trace-list"></div>
+  </section>
+
+  <section class="skill-panel">
+    <div class="section-header left">
+      <p class="section-kicker">Participant task</p>
+      <h2>Decide if the skill is safe enough to reuse</h2>
+      <p id="participantTask">Switch evidence rules and refusal settings, then decide whether the skill can be approved for controlled internal use.</p>
+    </div>
+    <div class="skill-actions">
+      <button class="btn btn-secondary" id="showExpectedAnswer" type="button">Show Expected Answer</button>
+    </div>
+    <div class="expected-answer" id="expectedAnswer" hidden></div>
+  </section>
+</main>
+</body>
+</html>

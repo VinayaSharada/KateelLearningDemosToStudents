@@ -1,0 +1,93 @@
+.skill-panel {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 1.2rem;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+}
+
+.skill-toolbar,
+.skill-actions,
+.skill-summary-grid,
+.skill-grid,
+.skill-form-grid,
+.check-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.skill-toolbar,
+.skill-grid {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.skill-actions,
+.skill-summary-grid,
+.skill-form-grid,
+.check-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.skill-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.skill-chip {
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.skill-card,
+.trace-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  background: #f8fafc;
+  padding: 1rem;
+}
+
+.skill-card span,
+.trace-card span {
+  display: block;
+  color: #475569;
+  margin-bottom: 0.35rem;
+}
+
+.skill-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.skill-field select {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  padding: 0.7rem 0.8rem;
+}
+
+.trace-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.expected-answer {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+@media (max-width: 860px) {
+  .skill-toolbar,
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+}

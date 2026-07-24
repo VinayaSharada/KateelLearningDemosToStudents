@@ -56,8 +56,10 @@ const state = {
   cases: [],
   filters: {
     entity: "all",
+    segment: "all",
     amount: "all",
     exception: "all",
+    variant: "all",
     status: "all",
     coverage: 40,
     mode: "instructor"
@@ -122,6 +124,10 @@ function buildCases(rows) {
     const repeatedCount = sequence.length - new Set(sequence).size;
     const firstExceptionEvent = events.find((event) => event.exception_type !== "None");
     const exceptionType = firstExceptionEvent ? firstExceptionEvent.exception_type : "None";
+    const customerName = (first.detail || "").replace(/^Order booked for /, "").trim();
+    const customerSegment = first.entity.includes("India")
+      ? (first.amount_inr > 600000 ? "Enterprise retail" : "Growth accounts")
+      : (first.amount_inr > 500000 ? "Regional enterprise" : "Channel partners");
     const firstException = events.find((event) => event.exception_type !== "None");
     const exceptionAgeHours = firstException ? toHours(last.timestamp - firstException.timestamp) : 0;
     const highValue = first.amount_inr > 500000;
@@ -134,6 +140,8 @@ function buildCases(rows) {
     return {
       caseId: first.case_id,
       entity: first.entity,
+      customerName,
+      customerSegment,
       amount: first.amount_inr,
       events,
       sequence,
@@ -166,8 +174,10 @@ function amountMatches(amount, filter) {
 function filteredCases() {
   return state.cases.filter((item) => {
     if (state.filters.entity !== "all" && item.entity !== state.filters.entity) return false;
+    if (state.filters.segment !== "all" && item.customerSegment !== state.filters.segment) return false;
     if (!amountMatches(item.amount, state.filters.amount)) return false;
     if (state.filters.exception !== "all" && item.exceptionType !== state.filters.exception) return false;
+    if (state.filters.variant !== "all" && item.variant !== state.filters.variant) return false;
     if (state.filters.status !== "all" && item.status !== state.filters.status) return false;
     return true;
   });
@@ -175,14 +185,20 @@ function filteredCases() {
 
 function populateFilters() {
   const entityFilter = document.getElementById("entityFilter");
+  const segmentFilter = document.getElementById("segmentFilter");
   const exceptionFilter = document.getElementById("exceptionFilter");
+  const variantFilter = document.getElementById("variantFilter");
   const statusFilter = document.getElementById("statusFilter");
   const entities = [...new Set(state.cases.map((item) => item.entity))];
+  const segments = [...new Set(state.cases.map((item) => item.customerSegment))];
   const exceptions = [...new Set(state.cases.map((item) => item.exceptionType))];
+  const variants = variantStats(state.cases).map((item) => item.variant);
   const statuses = [...new Set(state.cases.map((item) => item.status))];
 
   entityFilter.innerHTML = `<option value="all">All entities</option>${entities.map((value) => `<option value="${value}">${value}</option>`).join("")}`;
+  segmentFilter.innerHTML = `<option value="all">All segments</option>${segments.map((value) => `<option value="${value}">${value}</option>`).join("")}`;
   exceptionFilter.innerHTML = `<option value="all">All exception types</option>${exceptions.map((value) => `<option value="${value}">${value}</option>`).join("")}`;
+  variantFilter.innerHTML = `<option value="all">All variants</option>${variants.map((value, index) => `<option value="${value}">Variant ${index + 1}</option>`).join("")}`;
   statusFilter.innerHTML = `<option value="all">All statuses</option>${statuses.map((value) => `<option value="${value}">${value}</option>`).join("")}`;
 }
 
@@ -537,12 +553,20 @@ function bindEvents() {
     state.filters.entity = event.target.value;
     renderAll();
   });
+  document.getElementById("segmentFilter").addEventListener("change", (event) => {
+    state.filters.segment = event.target.value;
+    renderAll();
+  });
   document.getElementById("amountFilter").addEventListener("change", (event) => {
     state.filters.amount = event.target.value;
     renderAll();
   });
   document.getElementById("exceptionFilter").addEventListener("change", (event) => {
     state.filters.exception = event.target.value;
+    renderAll();
+  });
+  document.getElementById("variantFilter").addEventListener("change", (event) => {
+    state.filters.variant = event.target.value;
     renderAll();
   });
   document.getElementById("statusFilter").addEventListener("change", (event) => {
@@ -554,7 +578,16 @@ function bindEvents() {
     renderAll();
   });
   document.getElementById("resetDemo").addEventListener("click", () => {
-    state.filters = { entity: "all", amount: "all", exception: "all", status: "all", coverage: 40, mode: "instructor" };
+    state.filters = {
+      entity: "all",
+      segment: "all",
+      amount: "all",
+      exception: "all",
+      variant: "all",
+      status: "all",
+      coverage: 40,
+      mode: "instructor"
+    };
     state.selectedDecision = 0;
     document.getElementById("modeSelect").value = "instructor";
     document.getElementById("amountFilter").value = "all";
