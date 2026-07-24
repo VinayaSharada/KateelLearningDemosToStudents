@@ -2,11 +2,31 @@
 
 ## Purpose
 
-This backlog turns a digital-finance workshop plan into a reusable, browser-based demonstration roadmap for finance leaders, faculty, and learners. All demos must use fictional data, run locally without API keys, make the business decision primary, and show the owner, evidence, exception route, and human-approval boundary.
+This backlog turns a digital-finance workshop plan into a reusable demonstration roadmap for finance leaders, faculty, and learners. Core classroom demos should prefer browser-based, API-key-free delivery where practical, but notebook, Colab, and hybrid modes remain valid when they are the better teaching surface. All demos must use fictional data, make the business decision primary, and show the owner, evidence, exception route, and human-approval boundary.
 
 ## Delivery Rule
 
 Build reusable demo engines in this repository. Keep only local Power Automate Desktop flows, credentials, tenant configuration, and production connections outside the repository.
+
+## Relationship to Library Standards
+
+This backlog is a finance-transformation build note, not a replacement for the repo-wide standards in [CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md](/mnt/c/Users/vsathya/todel/gitrepos/KateelLearningDemosToStudents/CourseCatalogs/DemoLibrary/DEMO_LIBRARY_STANDARDS.md) and [CourseCatalogs/FinanceTransformation/CFO_DEMO_STANDARDS.md](/mnt/c/Users/vsathya/todel/gitrepos/KateelLearningDemosToStudents/CourseCatalogs/FinanceTransformation/CFO_DEMO_STANDARDS.md).
+
+Use this file for:
+
+- build priority
+- enhancement scope
+- implementation notes
+- acceptance criteria for this backlog
+
+Use the standards documents for:
+
+- course neutrality
+- required demo structure
+- self-service expectations
+- audience clarity
+- runtime flexibility
+- evidence and human-approval boundaries
 
 ## Priority Summary
 
@@ -300,12 +320,15 @@ FP&A analysts prepare monthly management commentary inconsistently. The CFO want
 
 ## Common Completion Checklist
 
-Every completed demo must include:
+Every completed demo should satisfy the repo standards, and where relevant should include:
 
-- `README.md`, `about.html`, `index.html`, `app.js`, and `style.css`.
-- `instructor-guide.md`, `participant-task.md`, and `expected-answer.md`.
-- Fictional or sanitised data in a `Data/` folder.
-- Browser-only core mode with no API key or sign-in.
+- `README.md`
+- `about.html` for browser demos
+- `index.html` or a primary notebook entry point
+- `app.js` and `style.css` for browser-based interactive demos that need them
+- `instructor-guide.md`, `participant-task.md`, and `expected-answer.md`
+- fictional or sanitised data in committed assets, with a `Data/` folder where that structure is useful
+- browser-first, API-key-free core mode where practical, while allowing notebook or hybrid delivery when it better fits the learning objective
 - Reset control and deterministic default state.
 - A five-to-eight-minute facilitator path and a ten-minute participant exercise.
 - Visible source evidence, owner, exception route, human-approval point, and limitation statement.
