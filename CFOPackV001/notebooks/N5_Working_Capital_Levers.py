@@ -26,6 +26,7 @@ print()
 gap_analysis = pd.read_csv("../outputs/N4_gap_analysis.csv")
 predictions = pd.read_csv("../outputs/N3_invoice_payment_predictions.csv")
 customers = pd.read_csv("../outputs/N1_customers.csv")
+validated_data = pd.read_csv("../outputs/N1_validated_data.csv")
 
 target_gap = gap_analysis.iloc[-1]['gap']  # Gap at Day 14
 
@@ -41,7 +42,8 @@ print()
 
 # Calculate baseline CCC metrics (from customer data)
 total_ar = predictions['amount_usd'].sum()
-avg_dso = predictions['predicted_days_late'].mean() + predictions['payment_terms_days'].mean()
+avg_payment_terms = validated_data['payment_terms_days'].mean()
+avg_dso = predictions['predicted_days_late'].mean() + avg_payment_terms
 
 # Assumptions for DIO and DPO (would come from accounting system)
 assumed_inventory_value = 8_000_000

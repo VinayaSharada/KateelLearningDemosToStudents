@@ -172,6 +172,8 @@ predicted_days_late = model.predict(outstanding_features[[
 # Build predictions dataframe
 predictions = outstanding[['invoice_id', 'customer_id', 'customer_name', 'due_date', 'amount_usd']].copy()
 predictions['predicted_days_late'] = predicted_days_late
+# Convert due_date to datetime if needed
+predictions['due_date'] = pd.to_datetime(predictions['due_date'])
 predictions['predicted_payment_date'] = predictions['due_date'] + pd.to_timedelta(predicted_days_late, unit='D')
 predictions['predicted_days_late'] = predictions['predicted_days_late'].round(1)
 

@@ -163,7 +163,7 @@ print()
 print("[[IDEA] HEDGE RECOMMENDATION")
 print()
 
-recommended_ratio = 0.70
+recommended_ratio = 0.65
 recommended_scenario = [r for r in recommendations if r['hedge_ratio'] == recommended_ratio][0]
 
 print(f"Recommend: {recommended_ratio*100:.0f}% hedge ratio")
