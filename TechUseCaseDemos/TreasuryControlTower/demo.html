@@ -26,14 +26,38 @@
     .risk { color: var(--risk); }
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
     .card h2 { color: #fff; margin-bottom: 1rem; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     .form-group { margin-bottom: 1rem; }
     .form-group label { display: block; color: var(--text-muted); margin-bottom: 0.5rem; }
     .form-group input, .form-group select { width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid var(--border); border-radius: 8px; color: var(--text); }
+    .custom-hint { color: var(--text-muted); font-size: 0.875rem; }
     .btn { padding: 0.75rem 1.5rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; }
     .btn-primary { background: var(--primary); color: #fff; }
     .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .control-layout { display: grid; grid-template-columns: minmax(280px, 340px) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+    .control-panel { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; }
+    .control-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .control-note { color: var(--text-muted); font-size: 0.92rem; }
+    .comparison-table-wrap { overflow-x: auto; }
+    .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 980px; }
+    .comparison-table th,
+    .comparison-table td { border-bottom: 1px solid var(--border); padding: 1rem 0.9rem; vertical-align: top; }
+    .comparison-table th { text-align: left; color: #fff; background: rgba(255,255,255,0.04); }
+    .comparison-table th:first-child,
+    .comparison-table td:first-child { width: 220px; position: sticky; left: 0; z-index: 2; background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(30,41,59,0.98)); }
+    .comparison-table th:first-child { z-index: 3; }
+    .row-heading { color: #fff; font-weight: 700; }
+    .row-subtext { color: var(--text-muted); font-size: 0.82rem; margin-top: 0.25rem; }
+    .scenario-head { display: grid; gap: 0.75rem; }
+    .scenario-head label { color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .scenario-head select,
+    .scenario-head input { width: 100%; padding: 0.7rem 0.75rem; background: rgba(15,23,42,0.92); border: 1px solid var(--border); border-radius: 10px; color: var(--text); }
+    .value-stack { display: grid; gap: 0.2rem; }
+    .value-main { font-size: 1.2rem; font-weight: 700; color: #fff; }
+    .value-note { color: var(--text-muted); font-size: 0.8rem; }
+    .table-section-title { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 1rem; }
+    .table-section-title p { color: var(--text-muted); max-width: 60ch; }
+    @media (max-width: 900px) { .control-layout { grid-template-columns: 1fr; } }
     .ai-panel { background: rgba(59,130,246,0.1); border-radius: 12px; padding: 1.5rem; margin-top: 1rem; }
     .ai-panel h4 { color: var(--primary); margin-bottom: 0.5rem; }
     footer { text-align: center; padding: 3rem 2rem; color: var(--text-muted); font-size: 0.875rem; }
@@ -123,53 +147,169 @@
       <span class="badge">🌐 Browser-Based | 💰 Treasury Management | ⚙️ Interactive</span>
     </section>
     
-    <div class="grid">
-      <div class="card">
-        <h2>📊 Current Cash Position</h2>
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <div class="kpi-value" id="startingCash">$15,000,000</div>
-            <div class="kpi-label">Starting Cash</div>
+    <section class="card">
+      <h2>🎛️ Controls</h2>
+      <div class="control-layout">
+        <div class="control-panel">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="aiToggle"> Enable AI Insights
+            </label>
           </div>
-          <div class="kpi-card">
-            <div class="kpi-value" id="endingCash">$5,000,000</div>
-            <div class="kpi-label">Ending Cash</div>
+          <div class="form-group">
+            <label for="insightScenario">Primary AI insight scenario</label>
+            <select id="insightScenario">
+              <option value="scenarioA">Scenario A column</option>
+              <option value="scenarioB">Scenario B column</option>
+              <option value="custom">Custom column</option>
+              <option value="base">Normal/Base column</option>
+            </select>
           </div>
-          <div class="kpi-card">
-            <div class="kpi-value" id="borrowingNeed">$0</div>
-            <div class="kpi-label">Borrowing Need</div>
+          <div class="button-row">
+            <button class="btn btn-primary" onclick="resetValues()">Reset</button>
+            <button class="btn btn-secondary" onclick="compareScenarios()">Compare Scenarios</button>
+            <button class="btn btn-secondary" onclick="exportResults()">Export Results</button>
           </div>
-          <div class="kpi-card">
-            <div class="kpi-value" id="surplusCash">$0</div>
-            <div class="kpi-label">Surplus Cash</div>
+        </div>
+        <div class="control-panel">
+          <div class="control-grid">
+            <div>
+              <h3>Use the comparison table</h3>
+              <p class="control-note">Base stays fixed on Normal Operations. Scenario A and Scenario B can each be changed independently from the dropdown in their column headers.</p>
+            </div>
+            <div>
+              <h3>Custom column</h3>
+              <p class="control-note">The Custom column always stays editable so users can enter their own revenue, outflow, and timing stress assumptions and compare them side by side.</p>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="card">
-        <h2>🎛️ Controls</h2>
-        <div class="form-group">
-          <label for="scenarioSelect">Stress Scenario</label>
-          <select id="scenarioSelect">
-            <option value="normal">Normal Operations</option>
-            <option value="revenueDecline">Revenue Decline (-15%)</option>
-            <option value="paymentAcceleration">Payment Acceleration</option>
-            <option value="emergencyOutflow">Emergency Outflow</option>
-            <option value="custom">Custom</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>
-            <input type="checkbox" id="aiToggle"> Enable AI Insights
-          </label>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary" onclick="resetValues()">Reset</button>
-          <button class="btn btn-secondary" onclick="compareScenarios()">Compare Scenarios</button>
-          <button class="btn btn-secondary" onclick="exportResults()">Export Results</button>
+    </section>
+
+    <section class="card">
+      <div class="table-section-title">
+        <div>
+          <h2>📊 Current Cash Position</h2>
+          <p>Compare treasury outcomes side by side across the base view, two selected scenarios, and a live custom case without switching screens.</p>
         </div>
       </div>
-    </div>
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Cash Heading</th>
+              <th>
+                <div class="scenario-head">
+                  <label>Normal / Base</label>
+                  <div class="value-note">Fixed baseline for comparison</div>
+                </div>
+              </th>
+              <th>
+                <div class="scenario-head">
+                  <label for="scenarioASelect">Scenario A</label>
+                  <select id="scenarioASelect">
+                    <option value="revenueDecline">Revenue Decline (-15%)</option>
+                    <option value="paymentAcceleration">Payment Acceleration</option>
+                    <option value="emergencyOutflow">Emergency Outflow</option>
+                  </select>
+                </div>
+              </th>
+              <th>
+                <div class="scenario-head">
+                  <label for="scenarioBSelect">Scenario B</label>
+                  <select id="scenarioBSelect">
+                    <option value="paymentAcceleration">Payment Acceleration</option>
+                    <option value="revenueDecline">Revenue Decline (-15%)</option>
+                    <option value="emergencyOutflow">Emergency Outflow</option>
+                  </select>
+                </div>
+              </th>
+              <th>
+                <div class="scenario-head">
+                  <label>Custom</label>
+                  <input id="customRevenue" type="number" value="-10" step="1" placeholder="Revenue %">
+                  <input id="customExpenses" type="number" value="10" step="1" placeholder="Outflow %">
+                  <input id="customTiming" type="number" value="7" step="1" min="0" placeholder="Timing days">
+                  <div class="custom-hint">Revenue %, outflow %, and timing stress drive this column only.</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="row-heading">Starting Cash</div>
+                <div class="row-subtext">Opening liquidity before any scenario adjustment</div>
+              </td>
+              <td><div class="value-stack"><div class="value-main" id="base-startingCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioA-startingCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioB-startingCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="custom-startingCash"></div></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="row-heading">Projected Inflows</div>
+                <div class="row-subtext">Collections and cash receipts after revenue stress</div>
+              </td>
+              <td><div class="value-stack"><div class="value-main" id="base-inflows"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioA-inflows"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioB-inflows"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="custom-inflows"></div></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="row-heading">Projected Outflows</div>
+                <div class="row-subtext">Supplier, operating, and timing-driven cash use</div>
+              </td>
+              <td><div class="value-stack"><div class="value-main" id="base-outflows"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioA-outflows"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioB-outflows"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="custom-outflows"></div></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="row-heading">Timing Stress</div>
+                <div class="row-subtext">Illustrative acceleration or disruption measured in days</div>
+              </td>
+              <td><div class="value-stack"><div class="value-main" id="base-timing"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioA-timing"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioB-timing"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="custom-timing"></div></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="row-heading">Ending Cash</div>
+                <div class="row-subtext">Resulting liquidity after inflows and outflows</div>
+              </td>
+              <td><div class="value-stack"><div class="value-main" id="base-endingCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioA-endingCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioB-endingCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="custom-endingCash"></div></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="row-heading">Borrowing Need</div>
+                <div class="row-subtext">Incremental liquidity shortfall requiring funding action</div>
+              </td>
+              <td><div class="value-stack"><div class="value-main" id="base-borrowingNeed"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioA-borrowingNeed"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioB-borrowingNeed"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="custom-borrowingNeed"></div></div></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="row-heading">Surplus Cash</div>
+                <div class="row-subtext">Liquidity above the starting position</div>
+              </td>
+              <td><div class="value-stack"><div class="value-main" id="base-surplusCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioA-surplusCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="scenarioB-surplusCash"></div></div></td>
+              <td><div class="value-stack"><div class="value-main" id="custom-surplusCash"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
     
     <div id="aiInsight" class="ai-panel" style="display: none;">
       <h4>🤖 AI Recommendation</h4>
@@ -210,39 +350,72 @@
       paymentAcceleration: { revenue: 0, expenses: 0, timing: 15, name: 'Payment Acceleration' },
       emergencyOutflow: { revenue: 0, expenses: 50, timing: 0, name: 'Emergency Outflow' }
     };
-    
-    const scenarioSelect = document.getElementById('scenarioSelect');
+
     const aiToggle = document.getElementById('aiToggle');
-    const startingCashEl = document.getElementById('startingCash');
-    const endingCashEl = document.getElementById('endingCash');
-    const borrowingNeedEl = document.getElementById('borrowingNeed');
-    const surplusCashEl = document.getElementById('surplusCash');
+    const scenarioASelect = document.getElementById('scenarioASelect');
+    const scenarioBSelect = document.getElementById('scenarioBSelect');
+    const insightScenarioSelect = document.getElementById('insightScenario');
+    const customRevenueEl = document.getElementById('customRevenue');
+    const customExpensesEl = document.getElementById('customExpenses');
+    const customTimingEl = document.getElementById('customTiming');
     const aiInsightEl = document.getElementById('aiInsight');
     const recommendationText = document.getElementById('recommendationText');
-    
-    function updateCalculations() {
-      const scenario = scenarioSelect.value;
-      const scenarioData = scenarios[scenario] || { revenue: 0, expenses: 0, timing: 0 };
-      
+
+    function getCustomScenarioData() {
+      return {
+        revenue: Number(customRevenueEl.value || 0),
+        expenses: Number(customExpensesEl.value || 0),
+        timing: Number(customTimingEl.value || 0),
+        name: 'Custom Scenario'
+      };
+    }
+
+    function calculateScenario(scenarioData) {
       const baseInflows = 5000000;
       const baseOutflows = 4200000;
-      
-      const adjustedInflows = baseInflows * (1 + scenarioData.revenue / 100);
-      const adjustedOutflows = baseOutflows * (1 + scenarioData.expenses / 100);
-      
       const startingCash = 15000000;
+      const adjustedInflows = baseInflows * (1 + scenarioData.revenue / 100);
+      const adjustedOutflows = baseOutflows * (1 + scenarioData.expenses / 100) + (scenarioData.timing * 50000);
       const endingCash = startingCash + adjustedInflows - adjustedOutflows;
       const borrowingNeed = Math.max(0, adjustedOutflows - adjustedInflows - startingCash);
       const surplusCash = Math.max(0, endingCash - startingCash);
-      
-      startingCashEl.textContent = '$' + startingCash.toLocaleString();
-      endingCashEl.textContent = '$' + Math.round(endingCash).toLocaleString();
-      borrowingNeedEl.textContent = '$' + Math.round(borrowingNeed).toLocaleString();
-      surplusCashEl.textContent = '$' + Math.round(surplusCash).toLocaleString();
-      
-      borrowingNeedEl.className = 'kpi-value ' + (borrowingNeed > 1000000 ? 'risk' : 'good');
-      surplusCashEl.className = 'kpi-value ' + (surplusCash > 1000000 ? 'good' : '');
-      
+      return {
+        startingCash,
+        inflows: adjustedInflows,
+        outflows: adjustedOutflows,
+        timing: scenarioData.timing,
+        endingCash,
+        borrowingNeed,
+        surplusCash
+      };
+    }
+
+    function formatCurrency(value) {
+      return '$' + Math.round(value).toLocaleString();
+    }
+
+    function renderColumn(columnId, values) {
+      document.getElementById(`${columnId}-startingCash`).textContent = formatCurrency(values.startingCash);
+      document.getElementById(`${columnId}-inflows`).textContent = formatCurrency(values.inflows);
+      document.getElementById(`${columnId}-outflows`).textContent = formatCurrency(values.outflows);
+      document.getElementById(`${columnId}-timing`).textContent = `${values.timing} days`;
+      document.getElementById(`${columnId}-endingCash`).textContent = formatCurrency(values.endingCash);
+      document.getElementById(`${columnId}-borrowingNeed`).textContent = formatCurrency(values.borrowingNeed);
+      document.getElementById(`${columnId}-surplusCash`).textContent = formatCurrency(values.surplusCash);
+      document.getElementById(`${columnId}-borrowingNeed`).className = `value-main ${values.borrowingNeed > 1000000 ? 'risk' : 'good'}`;
+      document.getElementById(`${columnId}-surplusCash`).className = `value-main ${values.surplusCash > 1000000 ? 'good' : ''}`;
+    }
+
+    function updateCalculations() {
+      const baseScenario = scenarios.normal;
+      const scenarioA = scenarios[scenarioASelect.value];
+      const scenarioB = scenarios[scenarioBSelect.value];
+      const customScenario = getCustomScenarioData();
+
+      renderColumn('base', calculateScenario(baseScenario));
+      renderColumn('scenarioA', calculateScenario(scenarioA));
+      renderColumn('scenarioB', calculateScenario(scenarioB));
+      renderColumn('custom', calculateScenario(customScenario));
       updateAIInsights();
     }
     
@@ -253,35 +426,59 @@
       }
       
       aiInsightEl.style.display = 'block';
-      const scenario = scenarioSelect.value;
+      const source = insightScenarioSelect.value;
+      const scenarioMap = {
+        base: scenarios.normal,
+        scenarioA: scenarios[scenarioASelect.value],
+        scenarioB: scenarios[scenarioBSelect.value],
+        custom: getCustomScenarioData()
+      };
+      const scenarioData = scenarioMap[source];
       
       const recommendations = {
         normal: 'Maintain current cash management practices. Consider investing surplus cash for additional returns.',
         revenueDecline: 'Consider accelerating receivables collection by 5-7 days and negotiating extended payment terms.',
         paymentAcceleration: 'Evaluate early payment discounts and optimize payment timing to preserve cash.',
         emergencyOutflow: 'Activate emergency credit facility immediately. Consider temporary measures.',
-        custom: 'Review cash flow projections. Key actions: 1) Accelerate collections, 2) Delay payments, 3) Secure credit.'
+        custom: `Custom stress is set to revenue ${scenarioData.revenue}%, outflow ${scenarioData.expenses}%, timing ${scenarioData.timing} days. Review collections, payment timing, and funding buffers before acting.`
       };
-      
-      recommendationText.textContent = recommendations[scenario] || recommendations.custom;
+
+      recommendationText.textContent = recommendations[source === 'custom' ? 'custom' : (Object.keys(scenarios).find((key) => scenarios[key].name === scenarioData.name) || 'normal')];
     }
     
     function resetValues() {
-      scenarioSelect.value = 'normal';
+      scenarioASelect.value = 'revenueDecline';
+      scenarioBSelect.value = 'paymentAcceleration';
+      insightScenarioSelect.value = 'scenarioA';
+      customRevenueEl.value = '-10';
+      customExpensesEl.value = '10';
+      customTimingEl.value = '7';
       updateCalculations();
     }
     
     function compareScenarios() {
-      const results = [];
-      for (const [key, data] of Object.entries(scenarios)) {
-        const ending = 15000000 + (5000000 * (1 + data.revenue/100)) - (4200000 * (1 + data.expenses/100));
-        results.push(`${data.name}: $${Math.round(ending/1000000)}M`);
-      }
-      alert('📊 Scenario Comparison:\n\n' + results.join('\n') + '\n\n💡 AI Recommendation: Optimize receivables collection timing.');
+      const scenarioA = scenarios[scenarioASelect.value];
+      const scenarioB = scenarios[scenarioBSelect.value];
+      const custom = getCustomScenarioData();
+      const results = [
+        `Normal/Base: ${formatCurrency(calculateScenario(scenarios.normal).endingCash)}`,
+        `${scenarioA.name}: ${formatCurrency(calculateScenario(scenarioA).endingCash)}`,
+        `${scenarioB.name}: ${formatCurrency(calculateScenario(scenarioB).endingCash)}`,
+        `${custom.name}: ${formatCurrency(calculateScenario(custom).endingCash)}`
+      ];
+      alert('📊 Scenario Comparison:\n\n' + results.join('\n') + '\n\n💡 Use the side-by-side table to compare borrowing need and surplus before acting.');
     }
     
     function exportResults() {
-      const data = { scenario: scenarioSelect.value, aiEnabled: aiToggle.checked, timestamp: new Date().toISOString() };
+      const data = {
+        base: calculateScenario(scenarios.normal),
+        scenarioA: { name: scenarios[scenarioASelect.value].name, values: calculateScenario(scenarios[scenarioASelect.value]) },
+        scenarioB: { name: scenarios[scenarioBSelect.value].name, values: calculateScenario(scenarios[scenarioBSelect.value]) },
+        custom: { name: 'Custom Scenario', inputs: getCustomScenarioData(), values: calculateScenario(getCustomScenarioData()) },
+        aiEnabled: aiToggle.checked,
+        insightSource: insightScenarioSelect.value,
+        timestamp: new Date().toISOString()
+      };
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -291,8 +488,13 @@
       URL.revokeObjectURL(url);
     }
     
-    scenarioSelect.addEventListener('change', updateCalculations);
+    scenarioASelect.addEventListener('change', updateCalculations);
+    scenarioBSelect.addEventListener('change', updateCalculations);
+    insightScenarioSelect.addEventListener('change', updateAIInsights);
     aiToggle.addEventListener('change', updateAIInsights);
+    [customRevenueEl, customExpensesEl, customTimingEl].forEach((input) => {
+      input.addEventListener('input', updateCalculations);
+    });
     updateCalculations();
   </script>
 </body>

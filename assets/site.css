@@ -489,6 +489,24 @@ code { color: #bfdbfe; background: rgba(59, 130, 246, 0.16); padding: 0.12rem 0.
   font: inherit;
 }
 
+select {
+  color-scheme: dark;
+}
+
+select,
+select option,
+select optgroup {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+select option:checked,
+select option:hover,
+select option:focus {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
 .input-control input::placeholder {
   color: #94a3b8;
 }

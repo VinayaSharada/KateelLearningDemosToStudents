@@ -237,6 +237,24 @@ button {
   max-width: 100%;
 }
 
+select {
+  color-scheme: dark;
+}
+
+select,
+select option,
+select optgroup {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+select option:checked,
+select option:hover,
+select option:focus {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
 textarea {
   min-height: 170px;
 }
