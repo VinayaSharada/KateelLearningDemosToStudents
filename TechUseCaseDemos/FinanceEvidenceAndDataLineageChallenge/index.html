@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../assets/demo-shell.css">
   <link rel="stylesheet" href="style.css">
   <script defer src="../../assets/site.js"></script>
+  <script defer src="../../assets/finance-management-pack-scenario.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
@@ -29,7 +30,39 @@
     <p class="demo-lede">Trace management-pack claims back to source rows, identify unsupported or stale statements, and decide whether the pack is fit for release.</p>
   </section>
   <section class="lineage-panel">
+    <div class="lineage-summary-grid">
+      <article class="lineage-card"><span>Shared scenario</span><strong id="scenarioValue"></strong></article>
+      <article class="lineage-card"><span>Release state</span><strong id="releaseStateValue"></strong></article>
+      <article class="lineage-card"><span>Reviewer</span><strong id="reviewerValue"></strong></article>
+      <article class="lineage-card"><span>Approver</span><strong id="approverValue"></strong></article>
+    </div>
+  </section>
+  <section class="lineage-panel">
     <div id="lineageClaims" class="trace-list"></div>
+  </section>
+  <section class="lineage-panel">
+    <h2>Source evidence map</h2>
+    <table class="lineage-table">
+      <thead>
+        <tr>
+          <th>Row</th>
+          <th>Area</th>
+          <th>Concept</th>
+          <th>Status</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody id="evidenceTableBody"></tbody>
+    </table>
+  </section>
+  <section class="lineage-panel">
+    <h2>Fact, inference, uncertainty, judgement</h2>
+    <div class="lineage-summary-grid">
+      <article class="lineage-card"><span>Fact</span><strong>Rows that directly state a result or condition.</strong></article>
+      <article class="lineage-card"><span>Inference</span><strong>Draft commentary that summarizes evidence within its limits.</strong></article>
+      <article class="lineage-card"><span>Uncertainty</span><strong>Watchlist items or open risks that keep the conclusion from being absolute.</strong></article>
+      <article class="lineage-card"><span>Judgement</span><strong>Human interpretation and approval remain outside automation.</strong></article>
+    </div>
   </section>
   <section class="lineage-panel">
     <h2>Release decision</h2>
@@ -37,7 +70,17 @@
       <article class="lineage-card"><span>Fit for release</span><strong id="releaseValue">Only after unsupported claim is resolved</strong></article>
       <article class="lineage-card"><span>Main gap</span><strong id="gapValue">Margin claim lacks source row trace</strong></article>
       <article class="lineage-card"><span>Reviewer sign-off</span><strong id="signoffValue">Pending</strong></article>
+      <article class="lineage-card"><span>Evidence conflict</span><strong id="conflictValue">Pending review</strong></article>
     </div>
+    <div class="lineage-actions">
+      <button id="lineageReleaseToggle" class="btn btn-secondary" type="button">Cycle Release State</button>
+      <button id="lineageSignoffToggle" class="btn btn-secondary" type="button">Toggle Reviewer Sign-off</button>
+      <button id="lineageReset" class="btn btn-secondary" type="button">Reset</button>
+    </div>
+  </section>
+  <section class="lineage-panel">
+    <h2>Reviewer decision note</h2>
+    <div id="decisionNote" class="trace-card"></div>
   </section>
 </main>
 </body>

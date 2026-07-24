@@ -6,6 +6,9 @@ const scorecardItems = [
     owner: "Data owner",
     defaultValue: 4,
     evidence: "Source-to-output mapping and cited evidence log",
+    remediation: "Complete the trace register for every material output field.",
+    dueDate: "2026-08-07",
+    approvalCondition: "CFO sees claim-to-source trace for all material outputs."
   },
   {
     id: "dataClassification",
@@ -14,6 +17,9 @@ const scorecardItems = [
     owner: "Data owner",
     defaultValue: 3,
     evidence: "Data classification and access rule",
+    remediation: "Apply data labels and restrict model access to approved datasets.",
+    dueDate: "2026-08-05",
+    approvalCondition: "CIO confirms protected-data handling and access controls."
   },
   {
     id: "approvalRights",
@@ -22,6 +28,9 @@ const scorecardItems = [
     owner: "CFO sponsor",
     defaultValue: 3,
     evidence: "Approval matrix and sign-off path",
+    remediation: "Name approvers and block release until the sign-off path is enforced.",
+    dueDate: "2026-08-03",
+    approvalCondition: "Controller and CFO sign-off are explicit in the workflow."
   },
   {
     id: "humanReview",
@@ -30,6 +39,9 @@ const scorecardItems = [
     owner: "Process owner",
     defaultValue: 4,
     evidence: "Reviewer checkpoint before release",
+    remediation: "Add a reviewer checkpoint before any external or management release.",
+    dueDate: "2026-08-10",
+    approvalCondition: "Human review cannot be bypassed for material outputs."
   },
   {
     id: "judgementBoundary",
@@ -38,6 +50,9 @@ const scorecardItems = [
     owner: "Controller",
     defaultValue: 2,
     evidence: "Documented judgement boundary and escalation rule",
+    remediation: "Document where extraction ends and accounting judgement begins.",
+    dueDate: "2026-07-31",
+    approvalCondition: "Accounting judgement stays with finance and controllership."
   },
   {
     id: "segregation",
@@ -46,6 +61,9 @@ const scorecardItems = [
     owner: "Controls lead",
     defaultValue: 3,
     evidence: "Role separation design",
+    remediation: "Separate generation, review, approval, and posting roles.",
+    dueDate: "2026-08-12",
+    approvalCondition: "No single actor can draft, approve, and post outcomes."
   },
   {
     id: "auditEvidence",
@@ -54,6 +72,9 @@ const scorecardItems = [
     owner: "Audit liaison",
     defaultValue: 2,
     evidence: "Evidence pack and retention trail",
+    remediation: "Add evidence retention, reviewer notes, and retrieval controls.",
+    dueDate: "2026-08-01",
+    approvalCondition: "Audit can retrieve the evidence trail for sampled outputs."
   },
   {
     id: "loggingMonitoring",
@@ -62,6 +83,9 @@ const scorecardItems = [
     owner: "Technology owner",
     defaultValue: 2,
     evidence: "Monitoring dashboard and trigger log",
+    remediation: "Turn on prompt, output, and exception monitoring with ownership.",
+    dueDate: "2026-08-04",
+    approvalCondition: "Named owners review logs and exception trends routinely."
   },
   {
     id: "exceptionOwnership",
@@ -70,6 +94,9 @@ const scorecardItems = [
     owner: "Operations lead",
     defaultValue: 3,
     evidence: "Exception register and SLA",
+    remediation: "Assign exception owners, SLAs, and escalation outcomes.",
+    dueDate: "2026-08-06",
+    approvalCondition: "Material exceptions have owners and timed escalation."
   },
 ];
 
@@ -80,7 +107,7 @@ const modeCopy = {
   },
   participant: {
     description: "Participant mode gives learners 10 minutes to test governance assumptions and make a deployment call.",
-    task: "Change the control ratings and decide whether the use case is deployment-ready, pilot-only, or needs remediation first.",
+    task: "Change the control ratings and decide whether the use case is deployment-ready, pilot with conditions, or needs remediation first.",
   },
 };
 
@@ -162,9 +189,9 @@ function classifyDecision(overallScore, weakItems) {
   }
   if (overallScore >= 3) {
     return {
-      decision: "Pilot only",
-      approval: "Pilot approval with remediation gate",
-      exception: "Track exceptions weekly",
+      decision: "Pilot with conditions",
+      approval: "Pilot approval with named remediation gates",
+      exception: "Track exceptions weekly and stop if gates fail",
       className: "state-medium",
     };
   }
@@ -179,9 +206,42 @@ function classifyDecision(overallScore, weakItems) {
   return {
     decision: "Stop",
     approval: "Do not deploy broadly yet",
-    exception: "Escalate control gaps to CFO sponsor",
+    exception: "Escalate control gaps to CFO sponsor and CIO owner",
     className: "state-poor",
   };
+}
+
+function renderFailedControls(failedControls) {
+  const root = document.getElementById("failedControls");
+  if (!failedControls.length) {
+    root.innerHTML = `<div class="gov-summary-card"><span>Status</span><strong>No failed controls. Continue routine monitoring and periodic review.</strong></div>`;
+    return;
+  }
+  root.innerHTML = failedControls.map((item) => `
+    <div class="gov-summary-card gov-failure-card">
+      <span>${item.title} • ${item.rating}/5</span>
+      <strong>${item.owner}</strong>
+      <p><strong>Evidence:</strong> ${item.evidence}</p>
+      <p><strong>Remediation:</strong> ${item.remediation}</p>
+      <p><strong>Due date:</strong> ${item.dueDate}</p>
+      <p><strong>Approval condition:</strong> ${item.approvalCondition}</p>
+    </div>
+  `).join("");
+}
+
+function renderApprovalMemo(decisionState, mainGap, failedControls) {
+  const followUps = failedControls.length
+    ? failedControls.map((item) => `${item.title} (${item.owner}) by ${item.dueDate}`).join("; ")
+    : "No open red-control actions";
+  document.getElementById("approvalMemo").innerHTML = `
+    <p><strong>To:</strong> CFO sponsor, CIO owner</p>
+    <p><strong>Decision:</strong> ${decisionState.decision}</p>
+    <p><strong>Conditional approval:</strong> ${decisionState.approval}.</p>
+    <p><strong>Main governance gap:</strong> ${mainGap.title} owned by ${mainGap.owner}.</p>
+    <p><strong>Evidence required:</strong> ${mainGap.evidence}.</p>
+    <p><strong>Mandatory follow-up:</strong> ${followUps}.</p>
+    <p><strong>Boundary:</strong> No autonomous accounting judgement, posting, or approval action is permitted.</p>
+  `;
 }
 
 function renderScorecard() {
@@ -212,13 +272,19 @@ function renderScorecard() {
     <tr>
       <td>${item.title}</td>
       <td>${item.rating}/5</td>
-      <td>${item.why}</td>
       <td>${item.owner}</td>
+      <td>${item.evidence}</td>
+      <td>${item.rating <= 2 ? item.remediation : "Continue monitoring"}</td>
+      <td>${item.dueDate}</td>
+      <td>${item.approvalCondition}</td>
     </tr>
   `).join("");
 
+  renderFailedControls(weakItems);
+  renderApprovalMemo(decisionState, mainGap, weakItems);
+
   document.getElementById("businessNote").textContent =
-    `Business decision: ${decisionState.decision}. The main gap is ${mainGap.title.toLowerCase()}, owned by ${mainGap.owner}. Approval should depend on clear evidence for ${mainGap.evidence.toLowerCase()}.`;
+    `Business decision: ${decisionState.decision}. The main gap is ${mainGap.title.toLowerCase()}, owned by ${mainGap.owner}. Approval should depend on clear evidence for ${mainGap.evidence.toLowerCase()} and completion of named remediation where controls are red.`;
 
   document.getElementById("expectedAnswer").innerHTML =
     `<p><strong>Expected answer:</strong> ${decisionState.decision} is appropriate because the overall governance score is <strong>${overallScore.toFixed(1)}/5</strong>. The main control gap is <strong>${mainGap.title}</strong>, owned by <strong>${mainGap.owner}</strong>. Approval remains human and should require <strong>${mainGap.evidence}</strong> before broader deployment.</p>`;
@@ -232,6 +298,7 @@ function setStakeholder() {
 
 function exportScorecard() {
   const ratings = getRatings();
+  const weakItems = ratings.filter((item) => item.rating <= 2);
   const content = [
     "AI Governance Scorecard Summary",
     `Stakeholder: ${document.getElementById("stakeholderView").value}`,
@@ -241,6 +308,14 @@ function exportScorecard() {
     `Main gap: ${document.getElementById("mainGap").textContent}`,
     `Owner: ${document.getElementById("ownerValue").textContent}`,
     `Evidence needed: ${document.getElementById("evidenceValue").textContent}`,
+    "",
+    "Conditional approval memo",
+    document.getElementById("approvalMemo").innerText.trim(),
+    "",
+    "Failed controls",
+    ...(weakItems.length
+      ? weakItems.map((item) => `${item.title}: owner=${item.owner}; remediation=${item.remediation}; due=${item.dueDate}; condition=${item.approvalCondition}`)
+      : ["None"]),
     "",
     "Ratings",
     ...ratings.map((item) => `${item.title}: ${item.rating}/5`),

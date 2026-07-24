@@ -1,5 +1,17 @@
 .lineage-panel { background:#fff; border:1px solid rgba(15,23,42,.08); border-radius:20px; padding:1.2rem; box-shadow:0 16px 36px rgba(15,23,42,.06); }
+.lineage-panel h2 { margin:0 0 1rem; color:#0f172a; }
 .lineage-summary-grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
 .lineage-card,.trace-card { border:1px solid rgba(15,23,42,.08); border-radius:16px; background:#f8fafc; padding:1rem; }
-.lineage-card span,.trace-card span { display:block; color:#475569; margin-bottom:.35rem; }
+.lineage-card span,.trace-card span { display:block; color:#475569; margin-bottom:.35rem; text-transform:uppercase; font-size:.82rem; }
+.lineage-card strong,.trace-card strong { color:#0f172a; display:block; margin-bottom:.35rem; }
+.trace-card p { margin:.35rem 0 0; color:#334155; }
 .trace-list { display:grid; gap:.85rem; }
+.trace-supported { border-left:4px solid #16a34a; }
+.trace-challenge { border-left:4px solid #f59e0b; }
+.lineage-table { width:100%; border-collapse:collapse; }
+.lineage-table th,.lineage-table td { border-bottom:1px solid rgba(15,23,42,.08); padding:.75rem .55rem; text-align:left; vertical-align:top; color:#1e293b; }
+.lineage-table th { color:#0f172a; }
+.lineage-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem; }
+@media (max-width: 720px) {
+  .lineage-table { display:block; overflow-x:auto; }
+}

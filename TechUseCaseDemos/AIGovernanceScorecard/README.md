@@ -1,6 +1,6 @@
 # AI Governance Scorecard
 
-Browser-based finance-governance demo for deciding whether an AI-enabled finance process is ready for deployment, should remain in pilot mode, or needs remediation first.
+Browser-based finance-governance demo for deciding whether an AI-enabled finance process should stop, remediate, pilot with conditions, move to controlled deployment, or scale.
 
 ## Decision focus
 
@@ -15,6 +15,7 @@ The demo is designed around one finance question:
 - `instructor-guide.md`
 - `participant-task.md`
 - `expected-answer.md`
+- per-control remediation owner, due date, approval condition, and an in-browser CFO-CIO conditional approval memo
 
 ## What you can enhance on your own
 

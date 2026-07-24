@@ -22,11 +22,15 @@
 .gov-summary-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: .85rem .95rem; background: rgba(8,12,20,.48); }
 .gov-summary-card span { display: block; color: #9fb2c8; font-size: .8rem; text-transform: uppercase; }
 .gov-summary-card strong { color: #fff; display: block; margin-top: .35rem; }
+.gov-summary-card p { margin: .45rem 0 0; color: #dbe7f6; }
 .gov-table { width: 100%; border-collapse: collapse; }
 .gov-table th, .gov-table td { border-bottom: 1px solid rgba(255,255,255,0.08); padding: .7rem .5rem; text-align: left; color: #dbe7f6; vertical-align: top; }
 .gov-table th { color: #fff; }
 .gov-note { background: rgba(245,158,11,.12); border-left: 4px solid #f59e0b; border-radius: 14px; padding: 1rem 1.1rem; color: #dbe7f6; }
 .gov-expected-answer { margin-top: 1rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1rem; color: #dbe7f6; background: rgba(8,12,20,.45); }
+.gov-memo { border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1rem; background: rgba(8,12,20,.45); color: #dbe7f6; }
+.gov-memo p { margin: 0 0 .7rem; }
+.gov-failure-card { border-left: 4px solid #f59e0b; }
 .state-good { color: #86efac; }
 .state-medium { color: #fde68a; }
 .state-poor { color: #fca5a5; }

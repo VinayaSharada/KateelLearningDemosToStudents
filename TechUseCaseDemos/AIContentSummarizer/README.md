@@ -1,12 +1,12 @@
 # AI Content Summarizer
 
-Browser-based finance summarization demo for comparing a management-pack draft, its cited source evidence, unsupported-claim detection, and reviewer sign-off.
+Browser-based finance summarization demo for comparing a management-pack draft, its cited source evidence, unsupported-claim detection, reviewer sign-off, and release-state discipline.
 
 ## Decision focus
 
 The demo is designed around one finance question:
 
-`Is this AI-assisted summary safe enough for CFO review, or does it still contain unsupported claims that block release?`
+`Is this AI-assisted summary safe enough for CFO review, or does it still contain unsupported, stale, or contradicted claims that block release?`
 
 ## Included guidance files
 
@@ -15,6 +15,7 @@ The demo is designed around one finance question:
 - `instructor-guide.md`
 - `participant-task.md`
 - `expected-answer.md`
+- shared fictional scenario from `assets/finance-management-pack-scenario.js`
 
 ## What you can enhance on your own
 

@@ -1,6 +1,10 @@
 # Finance Evidence and Data-Lineage Challenge
 
-Browser-based finance evidence demo for tracing commentary back to source rows and deciding whether the output is fit for CFO release.
+Browser-based finance evidence demo for tracing commentary back to source rows, separating fact from inference and judgement, and deciding whether the output is fit for CFO release.
+
+## Shared scenario
+
+This companion demo uses the same fictional management-pack scenario as `AIContentSummarizer` so learners can move from draft commentary review into row-level lineage and release-control testing.
 
 ## What you can enhance on your own
 
