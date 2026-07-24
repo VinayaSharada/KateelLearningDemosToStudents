@@ -151,7 +151,7 @@ Each memo shows: evidence-based reasoning, quantified impact, risk assessment, i
 
 1. **Read** MODULE6_NEXT_STEPS.md (10 min) — Context
 2. **Skim** CASE_ANALYSIS_WORKBOOK.md Part 1 (20 min) — Model
-3. **Watch** NAVIGATE_PRESENTATION_DECK.md (45 min) — Framework
+3. **Watch** [NAVIGATE_PRESENTATION_DECK.md](https://github.com/KateelDeviPrivate/spjain-cfo-v001/blob/agent/add-cfo-book/Module6/Presentations/NAVIGATE_PRESENTATION_DECK.md) (45 min) — Framework (in SPJainModule6)
 4. **Analyze** one case using Part 2 templates (2-3 hours) — Application
 5. **Write** recommendation memo using Part 4 template (1 hour) — Output
 6. **Compare** your memo against EXAMPLE_MEMOS (15 min) — Validation
@@ -180,11 +180,11 @@ Each memo shows: evidence-based reasoning, quantified impact, risk assessment, i
 - Day 2: Cases 4-6 (6 hours)
 
 **Facilitator uses:**
-- INSTRUCTOR_FACILITATION_NOTES.md (full guide)
-- NAVIGATE_PRESENTATION_DECK.md (show slides)
-- CASE_ANALYSIS_WORKBOOK.md (group templates)
-- 8_STEP_QUICK_REFERENCE.md (handout)
-- DECISION_TRACKING_SPREADSHEET.md (record results)
+- [INSTRUCTOR_FACILITATION_NOTES.md](https://github.com/KateelDeviPrivate/spjain-cfo-v001/blob/agent/add-cfo-book/Module6/Instructor_Guides/INSTRUCTOR_FACILITATION_NOTES.md) (full guide — in SPJainModule6)
+- [NAVIGATE_PRESENTATION_DECK.md](https://github.com/KateelDeviPrivate/spjain-cfo-v001/blob/agent/add-cfo-book/Module6/Presentations/NAVIGATE_PRESENTATION_DECK.md) (show slides — in SPJainModule6)
+- CASE_ANALYSIS_WORKBOOK.md (group templates — in KateelLearningDemos)
+- 8_STEP_QUICK_REFERENCE.md (handout — in KateelLearningDemos)
+- DECISION_TRACKING_SPREADSHEET.md (record results — in KateelLearningDemos)
 
 **Post-class:**
 - Instructor uses tracking spreadsheet to analyze performance
@@ -403,8 +403,8 @@ Each memo shows: evidence-based reasoning, quantified impact, risk assessment, i
 |--------------|----------|------|
 | Understand the bridge | README.md | 5 min |
 | See an example | CASE_ANALYSIS_WORKBOOK.md Part 1 | 20 min |
-| Teach a class | INSTRUCTOR_FACILITATION_NOTES.md | 45 min prep |
-| Give a presentation | NAVIGATE_PRESENTATION_DECK.md | 45 min presentation |
+| Teach a class | [INSTRUCTOR_FACILITATION_NOTES.md](https://github.com/KateelDeviPrivate/spjain-cfo-v001/blob/agent/add-cfo-book/Module6/Instructor_Guides/INSTRUCTOR_FACILITATION_NOTES.md) (SPJainModule6) | 45 min prep |
+| Give a presentation | [NAVIGATE_PRESENTATION_DECK.md](https://github.com/KateelDeviPrivate/spjain-cfo-v001/blob/agent/add-cfo-book/Module6/Presentations/NAVIGATE_PRESENTATION_DECK.md) (SPJainModule6) | 45 min presentation |
 | Do a case myself | CASE_ANALYSIS_WORKBOOK.md Part 2 | 2-3 hours |
 | Compare recommendations | EXAMPLE_MEMOS_CASES_2_6.md | 15 min |
 | Track student progress | DECISION_TRACKING_SPREADSHEET.md | 5 min per group |
