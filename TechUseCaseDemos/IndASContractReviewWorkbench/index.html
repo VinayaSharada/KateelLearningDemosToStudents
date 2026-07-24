@@ -32,6 +32,21 @@
     <div class="contract-summary-grid">
       <article class="contract-card"><span>Warning</span><strong>Extraction is not accounting judgement</strong></article>
       <article class="contract-card"><span>Decision queue</span><strong>Finance and legal review required</strong></article>
+      <article class="contract-card"><span>Qualifier check</span><strong id="qualifierValue">One extracted clause needs human correction</strong></article>
+      <article class="contract-card"><span>Review state</span><strong id="reviewStateValue">Open</strong></article>
+    </div>
+  </section>
+  <section class="contract-panel">
+    <div class="contract-summary-grid">
+      <article class="contract-card">
+        <span>Error exercise</span>
+        <strong>One renewal clause misses an important qualifier.</strong>
+        <button class="btn btn-secondary" id="fixQualifier" type="button">Apply Human Correction</button>
+      </article>
+      <article class="contract-card">
+        <span>Obligation register</span>
+        <strong id="registerValue">Awaiting finance and legal review</strong>
+      </article>
     </div>
   </section>
   <section class="contract-panel">
@@ -42,7 +57,7 @@
     <div class="table-container">
       <table class="case-table">
         <thead>
-          <tr><th>Clause</th><th>Extracted signal</th><th>Finance question</th><th>Legal question</th><th>Owner</th></tr>
+          <tr><th>Clause</th><th>Source clause</th><th>Extracted signal</th><th>Confidence</th><th>Finance question</th><th>Legal question</th><th>Decision queue</th><th>Owner</th></tr>
         </thead>
         <tbody id="contractRows"></tbody>
       </table>

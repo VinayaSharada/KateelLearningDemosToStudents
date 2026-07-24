@@ -4,4 +4,8 @@
 .portfolio-field select { width:100%; border-radius:12px; border:1px solid #cbd5e1; padding:.7rem .8rem; }
 .portfolio-card,.trace-card { border:1px solid rgba(15,23,42,.08); border-radius:16px; background:#f8fafc; padding:1rem; }
 .portfolio-card span,.trace-card span { display:block; color:#475569; margin-bottom:.35rem; }
+.portfolio-card strong,.trace-card strong { color:#0f172a; display:block; margin-bottom:.35rem; }
+.portfolio-card p,.trace-card p { margin:.35rem 0 0; color:#334155; }
+.trace-card label { display:block; font-weight:600; margin-top:.75rem; margin-bottom:.35rem; }
+.trace-card select { width:100%; border-radius:12px; border:1px solid #cbd5e1; padding:.7rem .8rem; background:#fff; }
 .trace-list { display:grid; gap:.85rem; }

@@ -32,7 +32,16 @@
     <div class="portfolio-controls">
       <div class="portfolio-field"><label for="budgetSelect">Annual budget (USD m)</label><select id="budgetSelect"><option value="6">6</option><option value="8" selected>8</option><option value="10">10</option></select></div>
       <div class="portfolio-field"><label for="capacitySelect">Change capacity</label><select id="capacitySelect"><option value="2">2 initiatives</option><option value="3" selected>3 initiatives</option><option value="4">4 initiatives</option></select></div>
+      <div class="portfolio-field"><label for="viewpointSelect">Primary viewpoint</label><select id="viewpointSelect"><option value="cfo">CFO</option><option value="cio">CIO</option><option value="process">Process owner</option><option value="data">Data owner</option></select></div>
       <button class="btn btn-secondary" id="resetDemo" type="button">Reset</button>
+    </div>
+  </section>
+  <section class="portfolio-panel">
+    <div class="portfolio-summary-grid">
+      <article class="portfolio-card"><span>CLEAR lens</span><strong>Clarify, Lean out, Enable, Assure, Realise before scaling spend.</strong></article>
+      <article class="portfolio-card"><span>Viewpoint note</span><strong id="viewpointNote">-</strong></article>
+      <article class="portfolio-card"><span>Dependency status</span><strong id="dependencyValue">-</strong></article>
+      <article class="portfolio-card"><span>Year 1 budget used</span><strong id="budgetUsedValue">-</strong></article>
     </div>
   </section>
   <section class="portfolio-panel">
@@ -42,9 +51,12 @@
     <h2>Board output</h2>
     <div class="portfolio-summary-grid">
       <article class="portfolio-card"><span>Recommended first wave</span><strong id="waveValue">-</strong></article>
+      <article class="portfolio-card"><span>Year 1 plan</span><strong id="year1Value">-</strong></article>
+      <article class="portfolio-card"><span>Years 2-3 scale</span><strong id="scaleValue">-</strong></article>
       <article class="portfolio-card"><span>Value range</span><strong id="valueValue">-</strong></article>
       <article class="portfolio-card"><span>Key risk</span><strong id="riskValue">-</strong></article>
       <article class="portfolio-card"><span>Next decision</span><strong id="decisionValue">-</strong></article>
+      <article class="portfolio-card"><span>90-day proof point</span><strong id="proofValue">-</strong></article>
     </div>
   </section>
 </main>

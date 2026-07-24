@@ -50,6 +50,15 @@
           <option value="close">Close</option>
         </select>
       </div>
+      <div class="triage-field">
+        <label for="scenarioFilter">Teaching scenario</label>
+        <select id="scenarioFilter">
+          <option value="all">All scenarios</option>
+          <option value="false-positive">False positive</option>
+          <option value="missed-risk">Missed risk</option>
+          <option value="corroborated">Corroborated risk</option>
+        </select>
+      </div>
       <button class="btn btn-secondary" id="resetDemo" type="button">Reset</button>
     </div>
     <div class="triage-summary-grid">
@@ -57,6 +66,8 @@
       <article class="triage-card"><span>Decision rule</span><strong>Sentiment alone never determines action</strong></article>
       <article class="triage-card"><span>Owner</span><strong id="ownerValue">-</strong></article>
       <article class="triage-card"><span>Escalation outcome</span><strong id="decisionValue">-</strong></article>
+      <article class="triage-card"><span>Corroborated risks</span><strong id="corroboratedValue">-</strong></article>
+      <article class="triage-card"><span>False positives</span><strong id="falsePositiveValue">-</strong></article>
     </div>
   </section>
   <section class="triage-panel">
@@ -67,10 +78,19 @@
     <div class="table-container">
       <table class="case-table">
         <thead>
-          <tr><th>Signal</th><th>Corroboration</th><th>Materiality</th><th>Actionability</th><th>Owner</th><th>SLA</th><th>Recommended action</th></tr>
+          <tr><th>Signal</th><th>Corroboration</th><th>Materiality</th><th>Corroboration score</th><th>Actionability</th><th>Owner</th><th>SLA</th><th>Review state</th><th>Recommended action</th></tr>
         </thead>
         <tbody id="triageRows"></tbody>
       </table>
+    </div>
+  </section>
+  <section class="triage-panel">
+    <h2>Escalation note</h2>
+    <div class="triage-summary-grid">
+      <article class="triage-card"><span>Lead case</span><strong id="leadCaseValue">-</strong></article>
+      <article class="triage-card"><span>Escalation route</span><strong id="routeValue">-</strong></article>
+      <article class="triage-card"><span>Business decision</span><strong id="businessDecisionValue">-</strong></article>
+      <article class="triage-card"><span>Representativeness warning</span><strong>Soft signals can be biased, late, or non-representative without transaction evidence.</strong></article>
     </div>
   </section>
 </main>

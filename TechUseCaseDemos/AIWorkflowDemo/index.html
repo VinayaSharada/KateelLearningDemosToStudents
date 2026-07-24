@@ -49,6 +49,27 @@
             <option value="student">Student or participant</option>
           </select>
         </div>
+        <div class="workflow-field">
+          <label for="ownerState">Owner named?</label>
+          <select id="ownerState">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div class="workflow-field">
+          <label for="evidenceState">Evidence checkpoint?</label>
+          <select id="evidenceState">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div class="workflow-field">
+          <label for="approvalState">Approval boundary?</label>
+          <select id="approvalState">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
         <button id="exportWorkflow" class="btn btn-secondary" type="button">Export Summary</button>
         <button id="resetWorkflow" class="btn btn-secondary" type="button">Reset</button>
       </div>
@@ -79,9 +100,19 @@
           <div class="workflow-card"><span>Approval point</span><strong id="approvalValue"></strong></div>
           <div class="workflow-card"><span>Exception route</span><strong id="exceptionValue"></strong></div>
           <div class="workflow-card"><span>Governance warning</span><strong id="warningValue"></strong></div>
+          <div class="workflow-card"><span>Evidence checkpoint</span><strong id="evidenceValue"></strong></div>
+          <div class="workflow-card"><span>SLA</span><strong id="slaValue"></strong></div>
+          <div class="workflow-card"><span>Fallback</span><strong id="fallbackValue"></strong></div>
         </div>
       </section>
     </div>
+    <section class="workflow-panel">
+      <h3>Shadow IT vs governed build</h3>
+      <div class="workflow-summary-grid">
+        <div class="workflow-card"><span>Shadow IT risk</span><strong id="shadowRisk"></strong></div>
+        <div class="workflow-card"><span>Governed alternative</span><strong id="governedValue"></strong></div>
+      </div>
+    </section>
     <section class="workflow-panel">
       <h3>Business Note</h3>
       <div id="workflowNote" class="workflow-note"></div>
