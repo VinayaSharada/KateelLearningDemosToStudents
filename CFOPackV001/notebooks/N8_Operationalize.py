@@ -1,0 +1,378 @@
+"""
+N8: Operationalize
+CFO Pack V001 - Treasury Decision Workshop
+
+Purpose: Create detailed implementation plan for the recommended decision
+Output: operationalization_plan.csv with tasks, owners, timelines, monitoring
+
+This is the "how to execute" notebook that turns the decision into action
+
+Estimated time: 15-20 minutes
+"""
+
+import pandas as pd
+import os
+from datetime import datetime, timedelta
+
+print("=" * 80)
+print("N8: OPERATIONALIZATION")
+print("=" * 80)
+print()
+
+# Load decision data
+predictions = pd.read_csv("../outputs/N3_invoice_payment_predictions.csv")
+
+print("✓ Building implementation plan")
+print()
+
+# ============================================================================
+# BUILD OPERATIONAL PLAN
+# ============================================================================
+
+# Define tasks
+tasks = []
+
+# PHASE 1: PRE-LAUNCH (Day 0-1)
+
+tasks.append({
+    'phase': 'PRE-LAUNCH',
+    'phase_order': 1,
+    'task': 'CFO Approval & Team Notification',
+    'owner': 'CFO',
+    'start_day': 0,
+    'end_day': 0,
+    'priority': 'High',
+    'description': 'CFO signs decision memo; brief sales, procurement, accounting leads',
+    'success_criteria': 'Memo signed; teams understand plan & timeline'
+})
+
+tasks.append({
+    'phase': 'PRE-LAUNCH',
+    'phase_order': 1,
+    'task': 'Identify Target Invoices for Collections',
+    'owner': 'Accounting/Collections',
+    'start_day': 0,
+    'end_day': 1,
+    'priority': 'High',
+    'description': 'Filter outstanding invoices >30 days overdue; identify key accounts to exempt',
+    'success_criteria': '40-50 invoices identified; $2M+ in target AR'
+})
+
+tasks.append({
+    'phase': 'PRE-LAUNCH',
+    'phase_order': 1,
+    'task': 'Prepare Supplier Contact List',
+    'owner': 'Procurement',
+    'start_day': 0,
+    'end_day': 1,
+    'priority': 'High',
+    'description': 'Identify 3 key suppliers; document current terms & contact info',
+    'success_criteria': 'List complete with decision maker contacts'
+})
+
+# PHASE 2: LAUNCH (Day 1-7)
+
+tasks.append({
+    'phase': 'LAUNCH',
+    'phase_order': 2,
+    'task': 'Activate Dunning Automation (Dry Run)',
+    'owner': 'Treasurer/IT',
+    'start_day': 1,
+    'end_day': 1,
+    'priority': 'High',
+    'description': 'Test dunning automation on 5 sample invoices; validate customer communication',
+    'success_criteria': 'Process tested; no errors; communication templates approved'
+})
+
+tasks.append({
+    'phase': 'LAUNCH',
+    'phase_order': 2,
+    'task': 'Go-Live: Collections Campaign',
+    'owner': 'Collections Lead',
+    'start_day': 1,
+    'end_day': 7,
+    'priority': 'High',
+    'description': 'Launch automated dunning on 40-50 invoices; make targeted calls to top 5 customers',
+    'success_criteria': 'Achieve $150K+ collected by Day 7'
+})
+
+tasks.append({
+    'phase': 'LAUNCH',
+    'phase_order': 2,
+    'task': 'Supplier Negotiations - Initial Outreach',
+    'owner': 'Procurement Lead',
+    'start_day': 1,
+    'end_day': 2,
+    'priority': 'High',
+    'description': 'Soft outreach to 3 key suppliers; gauge openness to term extension',
+    'success_criteria': 'Initial positive response from 2+ suppliers'
+})
+
+tasks.append({
+    'phase': 'LAUNCH',
+    'phase_order': 2,
+    'task': 'Daily Monitoring Setup',
+    'owner': 'Treasurer',
+    'start_day': 1,
+    'end_day': 1,
+    'priority': 'High',
+    'description': 'Build cash position dashboard; set up daily reporting to CFO',
+    'success_criteria': 'Dashboard live; daily email sent to CFO with key metrics'
+})
+
+# PHASE 3: SCALE (Day 7-14)
+
+tasks.append({
+    'phase': 'SCALE',
+    'phase_order': 3,
+    'task': 'Mid-Point Review & Go/No-Go Decision',
+    'owner': 'CFO + Treasurer',
+    'start_day': 7,
+    'end_day': 7,
+    'priority': 'High',
+    'description': 'Review Day 7 results; decide on continuing, adjusting, or escalating',
+    'success_criteria': 'Decision documented; team alignment on next steps'
+})
+
+tasks.append({
+    'phase': 'SCALE',
+    'phase_order': 3,
+    'task': 'Supplier Negotiations - Formal Offers',
+    'owner': 'Procurement Lead',
+    'start_day': 7,
+    'end_day': 14,
+    'priority': 'High',
+    'description': 'Present formal term extension proposals; negotiate final terms',
+    'success_criteria': 'Secure 2-3 agreements on extended terms'
+})
+
+tasks.append({
+    'phase': 'SCALE',
+    'phase_order': 3,
+    'task': 'Optimize Collections Strategy',
+    'owner': 'Collections Lead',
+    'start_day': 7,
+    'end_day': 14,
+    'priority': 'Medium',
+    'description': 'Adjust outreach based on early results; focus on highest-impact invoices',
+    'success_criteria': 'Adjust tactics to improve collection rate'
+})
+
+tasks.append({
+    'phase': 'SCALE',
+    'phase_order': 3,
+    'task': 'Monitor Customer Satisfaction',
+    'owner': 'Sales Lead',
+    'start_day': 7,
+    'end_day': 14,
+    'priority': 'Medium',
+    'description': 'Track customer complaints; identify accounts at churn risk',
+    'success_criteria': 'Churn rate < 3%; escalate if higher'
+})
+
+# PHASE 4: CLOSE (Day 14+)
+
+tasks.append({
+    'phase': 'CLOSE',
+    'phase_order': 4,
+    'task': 'Final Results Assessment',
+    'owner': 'Treasurer',
+    'start_day': 14,
+    'end_day': 14,
+    'priority': 'High',
+    'description': 'Calculate actual cash impact; compare to forecast',
+    'success_criteria': 'Results documented vs. plan'
+})
+
+tasks.append({
+    'phase': 'CLOSE',
+    'phase_order': 4,
+    'task': 'CFO Decision: Sustain, Adjust, or Wind Down',
+    'owner': 'CFO',
+    'start_day': 14,
+    'end_day': 14,
+    'priority': 'High',
+    'description': 'Decide whether to keep operational changes, modify, or revert',
+    'success_criteria': 'Decision documented and communicated'
+})
+
+tasks.append({
+    'phase': 'CLOSE',
+    'phase_order': 4,
+    'task': 'Post-Implementation Review & Lessons Learned',
+    'owner': 'Treasury + CFO',
+    'start_day': 15,
+    'end_day': 15,
+    'priority': 'Medium',
+    'description': 'Document what worked, what didn\'t, what to do differently next time',
+    'success_criteria': 'Lessons learned memo completed'
+})
+
+# Convert to dataframe
+tasks_df = pd.DataFrame(tasks)
+
+# ============================================================================
+# PHASE SUMMARY
+# ============================================================================
+
+print("📋 IMPLEMENTATION PLAN SUMMARY")
+print()
+
+for phase in tasks_df['phase'].unique():
+    phase_tasks = tasks_df[tasks_df['phase'] == phase]
+    print(f"\n{phase} (Days {int(phase_tasks['start_day'].min())}-{int(phase_tasks['end_day'].max())}):")
+    print(f"  {len(phase_tasks)} tasks")
+
+    for idx, task in phase_tasks.iterrows():
+        print(f"  • {task['task']}")
+        print(f"    Owner: {task['owner']}")
+        print(f"    Success: {task['success_criteria']}")
+
+print()
+
+# ============================================================================
+# MONITORING FRAMEWORK
+# ============================================================================
+
+print("📊 MONITORING & ESCALATION")
+print()
+
+monitoring_metrics = [
+    {
+        'metric': 'Daily Cash Position',
+        'target': '>$1.5M',
+        'frequency': 'Daily',
+        'owner': 'Treasurer',
+        'escalation': 'If <$1.5M: activate credit facility'
+    },
+    {
+        'metric': 'Collections Achievement',
+        'target': '$150K by Day 7',
+        'frequency': 'Daily',
+        'owner': 'Collections Lead',
+        'escalation': 'If <60% of target: escalate to sales VP'
+    },
+    {
+        'metric': 'Payables Negotiation Status',
+        'target': '2-3 agreements by Day 14',
+        'frequency': 'Daily',
+        'owner': 'Procurement',
+        'escalation': 'If stalled: escalate to CFO for authority increase'
+    },
+    {
+        'metric': 'Customer Churn Rate',
+        'target': '<3%',
+        'frequency': 'Weekly',
+        'owner': 'Sales',
+        'escalation': 'If >3%: reduce collection intensity on key accounts'
+    }
+]
+
+monitoring_df = pd.DataFrame(monitoring_metrics)
+
+for idx, row in monitoring_df.iterrows():
+    print(f"{row['metric']}:")
+    print(f"  Target: {row['target']}")
+    print(f"  Frequency: {row['frequency']}")
+    print(f"  Owner: {row['owner']}")
+    print(f"  Escalation: {row['escalation']}")
+    print()
+
+# ============================================================================
+# RISK MITIGATION CONTROLS
+# ============================================================================
+
+print("⚙️  OPERATIONAL CONTROLS")
+print()
+
+controls = [
+    {
+        'control': 'Dunning Automation Approval Gate',
+        'description': 'No automated dunning without human review + customer approval',
+        'owner': 'Collections Lead',
+        'frequency': 'Per-customer'
+    },
+    {
+        'control': 'Collections Exception Handling',
+        'description': 'Key accounts require VP-level approval before aggressive tactics',
+        'owner': 'Sales VP',
+        'frequency': 'Per-exception'
+    },
+    {
+        'control': 'Supplier Communication Log',
+        'description': 'All supplier interactions documented; professional tone maintained',
+        'owner': 'Procurement',
+        'frequency': 'Per-interaction'
+    },
+    {
+        'control': 'Daily Reconciliation',
+        'description': 'Cash forecast vs. actual; >$50K variance investigation required',
+        'owner': 'Treasurer',
+        'frequency': 'Daily'
+    }
+]
+
+for control in controls:
+    print(f"• {control['control']}")
+    print(f"  What: {control['description']}")
+    print(f"  Owner: {control['owner']}")
+    print(f"  Frequency: {control['frequency']}")
+    print()
+
+# ============================================================================
+# EXPORT PLAN
+# ============================================================================
+
+print("💾 Exporting operational plan...")
+
+export_path = "../outputs/N8_operationalization_plan.csv"
+os.makedirs(os.path.dirname(export_path), exist_ok=True)
+tasks_df.to_csv(export_path, index=False)
+
+print(f"✓ Exported: {export_path}")
+
+export_path = "../outputs/N8_monitoring_framework.csv"
+monitoring_df.to_csv(export_path, index=False)
+print(f"✓ Exported: {export_path}")
+
+print()
+
+# ============================================================================
+# KEY SUMMARY
+# ============================================================================
+
+print("=" * 80)
+print("✅ N8 COMPLETE - Implementation Plan Built")
+print("=" * 80)
+print()
+
+print("📖 Implementation Summary:")
+print(f"  • 14 core tasks across 4 phases")
+print(f"  • Pre-Launch (1 day): Prepare teams & process")
+print(f"  • Launch (7 days): Collections campaign + supplier outreach")
+print(f"  • Scale (7 days): Finalize agreements & optimize")
+print(f"  • Close (1+ days): Review results & decide next steps")
+print()
+
+print("🎯 Key Deliverables:")
+print(f"  • Collections: Target $150K collected by Day 7")
+print(f"  • Payables: Secure 2-3 agreements by Day 14")
+print(f"  • Monitoring: Daily cash position reporting to CFO")
+print(f"  • Controls: Approval gates + reconciliation")
+print()
+
+print("✅ WORKSHOP COMPLETE")
+print()
+print("📖 What you learned:")
+print("  1. How to identify liquidity gaps using data analysis")
+print("  2. How to predict payment behavior using ML")
+print("  3. How to model operational levers (collections, payables, inventory)")
+print("  4. How to build a CFO-ready decision memo")
+print("  5. How to create an implementation plan with monitoring & controls")
+print()
+print("🏠 Take-home:")
+print("  • All notebooks are reusable for your own company data")
+print("  • Templates (decision memo, governance, checklist) are in /templates/")
+print("  • Claude prompts (for interpretation) are in /claude_prompts/")
+print("  • Adapt to your business context and run with your data")
+print()

@@ -1,0 +1,262 @@
+"""
+N5: Working Capital Levers
+CFO Pack V001 - Treasury Decision Workshop
+
+Purpose: Model DSO/DIO/DPO optimization scenarios to close the cash gap
+Output: ccc_scenarios.csv with impact analysis
+
+Levers modeled:
+  1. Reduce DSO (Days Sales Outstanding) - aggressive collections
+  2. Reduce DIO (Days Inventory Outstanding) - inventory reduction
+  3. Increase DPO (Days Payable Outstanding) - extend payables
+
+Estimated time: 20-25 minutes
+"""
+
+import pandas as pd
+import numpy as np
+import os
+
+print("=" * 80)
+print("N5: WORKING CAPITAL LEVERS")
+print("=" * 80)
+print()
+
+# Load data
+gap_analysis = pd.read_csv("../outputs/N4_gap_analysis.csv")
+predictions = pd.read_csv("../outputs/N3_invoice_payment_predictions.csv")
+customers = pd.read_csv("../outputs/N1_customers.csv")
+
+target_gap = gap_analysis.iloc[-1]['gap']  # Gap at Day 14
+
+print(f"📊 Target: Close ${target_gap:,.0f} cash gap")
+print()
+
+# ============================================================================
+# CURRENT STATE METRICS
+# ============================================================================
+
+print("📈 Current Working Capital Metrics")
+print()
+
+# Calculate baseline CCC metrics (from customer data)
+total_ar = predictions['amount_usd'].sum()
+avg_dso = predictions['predicted_days_late'].mean() + predictions['payment_terms_days'].mean()
+
+# Assumptions for DIO and DPO (would come from accounting system)
+assumed_inventory_value = 8_000_000
+assumed_payables_value = 10_000_000
+assumed_cogs = 60_000_000
+
+dio = (assumed_inventory_value / assumed_cogs) * 365
+dpo = (assumed_payables_value / assumed_cogs) * 365
+
+ccc = avg_dso + dio - dpo
+
+print(f"  DSO (Days Sales Outstanding):        {avg_dso:.1f} days")
+print(f"  DIO (Days Inventory Outstanding):    {dio:.1f} days")
+print(f"  DPO (Days Payable Outstanding):      {dpo:.1f} days")
+print(f"  CCC (Cash Conversion Cycle):         {ccc:.1f} days")
+print()
+
+# ============================================================================
+# SCENARIO MODELING
+# ============================================================================
+
+print("🎯 SCENARIO ANALYSIS")
+print()
+
+scenarios = []
+
+# Scenario 0: Baseline (no changes)
+scenarios.append({
+    'scenario': 'Baseline',
+    'dso_reduction': 0,
+    'dio_reduction': 0,
+    'dpo_increase': 0,
+    'description': 'No changes'
+})
+
+# Scenario 1: Aggressive Collections (reduce DSO 5 days)
+dso_reduction = 5
+cash_impact_1 = (dso_reduction / 365) * total_ar
+scenarios.append({
+    'scenario': 'Collections Push',
+    'dso_reduction': dso_reduction,
+    'dio_reduction': 0,
+    'dpo_increase': 0,
+    'description': 'Activate dunning + early-pay discounts',
+    'cash_impact': cash_impact_1
+})
+
+# Scenario 2: Inventory Reduction (reduce DIO 10%)
+dio_reduction_pct = 10
+cash_impact_2 = (dio_reduction_pct / 100) * assumed_inventory_value
+scenarios.append({
+    'scenario': 'Inventory Reduction',
+    'dso_reduction': 0,
+    'dio_reduction': dio_reduction_pct,
+    'dpo_increase': 0,
+    'description': 'JIT inventory + demand forecast',
+    'cash_impact': cash_impact_2
+})
+
+# Scenario 3: Extend Payables (increase DPO 7 days)
+dpo_increase = 7
+cash_impact_3 = (dpo_increase / 365) * assumed_cogs
+scenarios.append({
+    'scenario': 'Extend Payables',
+    'dso_reduction': 0,
+    'dio_reduction': 0,
+    'dpo_increase': dpo_increase,
+    'description': 'Negotiate extended terms with suppliers',
+    'cash_impact': cash_impact_3
+})
+
+# Scenario 4: Combined (Collections + Payables)
+cash_impact_4 = cash_impact_1 + cash_impact_3
+scenarios.append({
+    'scenario': 'Combined (Collections + Payables)',
+    'dso_reduction': dso_reduction,
+    'dio_reduction': 0,
+    'dpo_increase': dpo_increase,
+    'description': 'Both collections push AND payables extension',
+    'cash_impact': cash_impact_4
+})
+
+# Scenario 5: Aggressive Combined
+cash_impact_5 = cash_impact_1 + cash_impact_2 + cash_impact_3
+scenarios.append({
+    'scenario': 'All Three Levers',
+    'dso_reduction': dso_reduction,
+    'dio_reduction': dio_reduction_pct,
+    'dpo_increase': dpo_increase,
+    'description': 'Collections + Inventory + Payables',
+    'cash_impact': cash_impact_5
+})
+
+# Convert to dataframe
+scenarios_df = pd.DataFrame(scenarios)
+
+print("Scenario Summary:")
+print("-" * 100)
+
+for idx, row in scenarios_df.iterrows():
+    if 'cash_impact' in row and pd.notna(row['cash_impact']):
+        impact = row['cash_impact']
+        pct_closed = (impact / target_gap * 100) if target_gap > 0 else 0
+        status = "✓ CLOSES GAP" if impact >= target_gap else f"{pct_closed:.0f}% closes gap"
+
+        print(f"{row['scenario']:30s}")
+        print(f"  {row['description']}")
+        print(f"  Cash impact: ${impact:,.0f}  ({status})")
+
+        if row['dso_reduction'] > 0:
+            print(f"    • DSO reduction: {row['dso_reduction']:.0f} days")
+        if row['dio_reduction'] > 0:
+            print(f"    • DIO reduction: {row['dio_reduction']:.0f}%")
+        if row['dpo_increase'] > 0:
+            print(f"    • DPO increase: {row['dpo_increase']:.0f} days")
+        print()
+
+print("-" * 100)
+print()
+
+# ============================================================================
+# RISK ASSESSMENT BY LEVER
+# ============================================================================
+
+print("⚠️  RISK ANALYSIS")
+print()
+
+risks = {
+    'Collections': {
+        'impact': cash_impact_1,
+        'risks': [
+            'Customer churn from aggressive dunning',
+            'Early-pay discounts reduce margin',
+            'Sales team pushback on key accounts'
+        ],
+        'timeline': '1-2 weeks',
+        'feasibility': 'Medium'
+    },
+    'Inventory': {
+        'impact': cash_impact_2,
+        'risks': [
+            'Stockout risk if demand increases',
+            'Supply chain disruption impact',
+            'Requires operations coordination'
+        ],
+        'timeline': '4-8 weeks',
+        'feasibility': 'Hard'
+    },
+    'Payables': {
+        'impact': cash_impact_3,
+        'risks': [
+            'Supplier relationship tension',
+            'Lose early-pay discounts',
+            'May lose preferred status'
+        ],
+        'timeline': '2-3 weeks',
+        'feasibility': 'Medium'
+    }
+}
+
+for lever, details in risks.items():
+    print(f"{lever} (${details['impact']:,.0f} impact):")
+    print(f"  Timeline: {details['timeline']}")
+    print(f"  Feasibility: {details['feasibility']}")
+    for risk in details['risks']:
+        print(f"  • {risk}")
+    print()
+
+# ============================================================================
+# RECOMMENDATION
+# ============================================================================
+
+print("💡 RECOMMENDATION")
+print()
+
+print("Based on impact, timeline, and feasibility:")
+print()
+print(f"✓ BEST APPROACH: Collections + Payables (Scenario 4)")
+print(f"  Impact: ${cash_impact_4:,.0f}")
+print(f"  Closes {(cash_impact_4/target_gap*100):.0f}% of gap")
+print()
+print("  Why this approach:")
+print("  1. Collections is fast (1-2 weeks) and impactful")
+print("  2. Payables is negotiation-based (medium-term)")
+print("  3. Both independent (can do in parallel)")
+print("  4. If one stalls, you still have the other")
+print()
+
+# ============================================================================
+# EXPORT SCENARIOS
+# ============================================================================
+
+print("💾 Exporting scenarios...")
+
+export_path = "../outputs/N5_ccc_scenarios.csv"
+os.makedirs(os.path.dirname(export_path), exist_ok=True)
+scenarios_df.to_csv(export_path, index=False)
+print(f"✓ Exported: {export_path}")
+print()
+
+# ============================================================================
+# KEY INSIGHTS
+# ============================================================================
+
+print("=" * 80)
+print("✅ N5 COMPLETE - Working Capital Levers Modeled")
+print("=" * 80)
+print()
+
+print("📖 Key Insights:")
+print(f"  • ${target_gap:,.0f} gap needs to be closed")
+print(f"  • Collections alone can close {(cash_impact_1/target_gap*100):.0f}% of gap")
+print(f"  • Payables alone can close {(cash_impact_3/target_gap*100):.0f}% of gap")
+print(f"  • Combined can close {(cash_impact_4/target_gap*100):.0f}% of gap")
+print()
+
+print("🎯 Next step: N6_FX_Hedge_Decision.py")
+print("   Consider FX hedging strategy for open exposures")
