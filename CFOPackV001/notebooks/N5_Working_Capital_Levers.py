@@ -17,9 +17,9 @@ import pandas as pd
 import numpy as np
 import os
 
-print("=" * 80)
-print("N5: WORKING CAPITAL LEVERS")
-print("=" * 80)
+print("[=" * 80)
+print("[N5: WORKING CAPITAL LEVERS")
+print("[=" * 80)
 print()
 
 # Load data
@@ -29,14 +29,14 @@ customers = pd.read_csv("../outputs/N1_customers.csv")
 
 target_gap = gap_analysis.iloc[-1]['gap']  # Gap at Day 14
 
-print(f"📊 Target: Close ${target_gap:,.0f} cash gap")
+print(f"[CHART] Target: Close ${target_gap:,.0f} cash gap")
 print()
 
 # ============================================================================
 # CURRENT STATE METRICS
 # ============================================================================
 
-print("📈 Current Working Capital Metrics")
+print("[ Current Working Capital Metrics")
 print()
 
 # Calculate baseline CCC metrics (from customer data)
@@ -63,7 +63,7 @@ print()
 # SCENARIO MODELING
 # ============================================================================
 
-print("🎯 SCENARIO ANALYSIS")
+print("[[GOAL] SCENARIO ANALYSIS")
 print()
 
 scenarios = []
@@ -138,35 +138,35 @@ scenarios.append({
 # Convert to dataframe
 scenarios_df = pd.DataFrame(scenarios)
 
-print("Scenario Summary:")
-print("-" * 100)
+print("[Scenario Summary:")
+print("[-" * 100)
 
 for idx, row in scenarios_df.iterrows():
     if 'cash_impact' in row and pd.notna(row['cash_impact']):
         impact = row['cash_impact']
         pct_closed = (impact / target_gap * 100) if target_gap > 0 else 0
-        status = "✓ CLOSES GAP" if impact >= target_gap else f"{pct_closed:.0f}% closes gap"
+        status = "[OK] CLOSES GAP" if impact >= target_gap else f"{pct_closed:.0f}% closes gap"
 
         print(f"{row['scenario']:30s}")
         print(f"  {row['description']}")
         print(f"  Cash impact: ${impact:,.0f}  ({status})")
 
         if row['dso_reduction'] > 0:
-            print(f"    • DSO reduction: {row['dso_reduction']:.0f} days")
+            print(f"     DSO reduction: {row['dso_reduction']:.0f} days")
         if row['dio_reduction'] > 0:
-            print(f"    • DIO reduction: {row['dio_reduction']:.0f}%")
+            print(f"     DIO reduction: {row['dio_reduction']:.0f}%")
         if row['dpo_increase'] > 0:
-            print(f"    • DPO increase: {row['dpo_increase']:.0f} days")
+            print(f"     DPO increase: {row['dpo_increase']:.0f} days")
         print()
 
-print("-" * 100)
+print("[-" * 100)
 print()
 
 # ============================================================================
 # RISK ASSESSMENT BY LEVER
 # ============================================================================
 
-print("⚠️  RISK ANALYSIS")
+print("[[WARNING]  RISK ANALYSIS")
 print()
 
 risks = {
@@ -207,56 +207,56 @@ for lever, details in risks.items():
     print(f"  Timeline: {details['timeline']}")
     print(f"  Feasibility: {details['feasibility']}")
     for risk in details['risks']:
-        print(f"  • {risk}")
+        print(f"   {risk}")
     print()
 
 # ============================================================================
 # RECOMMENDATION
 # ============================================================================
 
-print("💡 RECOMMENDATION")
+print("[[IDEA] RECOMMENDATION")
 print()
 
-print("Based on impact, timeline, and feasibility:")
+print("[Based on impact, timeline, and feasibility:")
 print()
-print(f"✓ BEST APPROACH: Collections + Payables (Scenario 4)")
+print(f"[OK] BEST APPROACH: Collections + Payables (Scenario 4)")
 print(f"  Impact: ${cash_impact_4:,.0f}")
 print(f"  Closes {(cash_impact_4/target_gap*100):.0f}% of gap")
 print()
-print("  Why this approach:")
-print("  1. Collections is fast (1-2 weeks) and impactful")
-print("  2. Payables is negotiation-based (medium-term)")
-print("  3. Both independent (can do in parallel)")
-print("  4. If one stalls, you still have the other")
+print("[  Why this approach:")
+print("[  1. Collections is fast (1-2 weeks) and impactful")
+print("[  2. Payables is negotiation-based (medium-term)")
+print("[  3. Both independent (can do in parallel)")
+print("[  4. If one stalls, you still have the other")
 print()
 
 # ============================================================================
 # EXPORT SCENARIOS
 # ============================================================================
 
-print("💾 Exporting scenarios...")
+print("[[SAVE] Exporting scenarios...")
 
 export_path = "../outputs/N5_ccc_scenarios.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 scenarios_df.to_csv(export_path, index=False)
-print(f"✓ Exported: {export_path}")
+print(f"[OK] Exported: {export_path}")
 print()
 
 # ============================================================================
 # KEY INSIGHTS
 # ============================================================================
 
-print("=" * 80)
-print("✅ N5 COMPLETE - Working Capital Levers Modeled")
-print("=" * 80)
+print("[=" * 80)
+print("[[DONE] N5 COMPLETE - Working Capital Levers Modeled")
+print("[=" * 80)
 print()
 
-print("📖 Key Insights:")
-print(f"  • ${target_gap:,.0f} gap needs to be closed")
-print(f"  • Collections alone can close {(cash_impact_1/target_gap*100):.0f}% of gap")
-print(f"  • Payables alone can close {(cash_impact_3/target_gap*100):.0f}% of gap")
-print(f"  • Combined can close {(cash_impact_4/target_gap*100):.0f}% of gap")
+print("[[INFO] Key Insights:")
+print(f"   ${target_gap:,.0f} gap needs to be closed")
+print(f"   Collections alone can close {(cash_impact_1/target_gap*100):.0f}% of gap")
+print(f"   Payables alone can close {(cash_impact_3/target_gap*100):.0f}% of gap")
+print(f"   Combined can close {(cash_impact_4/target_gap*100):.0f}% of gap")
 print()
 
-print("🎯 Next step: N6_FX_Hedge_Decision.py")
-print("   Consider FX hedging strategy for open exposures")
+print("[[GOAL] Next step: N6_FX_Hedge_Decision.py")
+print("[   Consider FX hedging strategy for open exposures")

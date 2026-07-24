@@ -18,16 +18,16 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score
 import os
 
-print("=" * 80)
-print("N3: COLLECTIONS INTELLIGENCE (ML Prediction Model)")
-print("=" * 80)
+print("[=" * 80)
+print("[N3: COLLECTIONS INTELLIGENCE (ML Prediction Model)")
+print("[=" * 80)
 print()
 
 # ============================================================================
 # STEP 1: PREPARE TRAINING DATA
 # ============================================================================
 
-print("📚 Preparing training data from historical payments...")
+print("[ Preparing training data from historical payments...")
 print()
 
 # Load historical payments
@@ -57,14 +57,14 @@ training_data = training_data.merge(
 # Remove rows with missing features
 training_data = training_data.dropna()
 
-print(f"✓ Training data: {len(training_data)} historical payments")
+print(f"[OK] Training data: {len(training_data)} historical payments")
 print()
 
 # ============================================================================
 # STEP 2: BUILD FEATURES & TARGET
 # ============================================================================
 
-print("🔧 Engineering features...")
+print("[ Engineering features...")
 print()
 
 # Features
@@ -79,10 +79,10 @@ X = training_data[[
 y = training_data['days_late']
 
 print(f"Features used:")
-print(f"  • Invoice amount (USD)")
-print(f"  • Payment terms (days)")
-print(f"  • Customer's historical avg payment days")
-print(f"  • Customer risk score")
+print(f"   Invoice amount (USD)")
+print(f"   Payment terms (days)")
+print(f"   Customer's historical avg payment days")
+print(f"   Customer risk score")
 print()
 print(f"Target: Days Late (from historical payments)")
 print(f"  Average: {y.mean():.1f} days")
@@ -94,7 +94,7 @@ print()
 # STEP 3: TRAIN MODEL
 # ============================================================================
 
-print("🤖 Training Random Forest model...")
+print("[[AI] Training Random Forest model...")
 print()
 
 # Split data for training and validation
@@ -112,12 +112,12 @@ train_mae = mean_absolute_error(y_train, y_pred_train)
 test_mae = mean_absolute_error(y_test, y_pred_test)
 test_r2 = r2_score(y_test, y_pred_test)
 
-print(f"✓ Model trained on {len(X_train)} historical records")
+print(f"[OK] Model trained on {len(X_train)} historical records")
 print()
 print(f"Model Performance:")
 print(f"  Train MAE:  {train_mae:.2f} days")
 print(f"  Test MAE:   {test_mae:.2f} days")
-print(f"  Test R²:    {test_r2:.3f}")
+print(f"  Test R:    {test_r2:.3f}")
 print()
 
 # Feature importance
@@ -126,10 +126,10 @@ feature_importance = pd.DataFrame({
     'importance': model.feature_importances_
 }).sort_values('importance', ascending=False)
 
-print("Feature Importance:")
+print("[Feature Importance:")
 for idx, row in feature_importance.iterrows():
     pct = row['importance'] * 100
-    bar = "█" * int(pct / 5)
+    bar = "" * int(pct / 5)
     print(f"  {row['feature']:30s} {pct:5.1f}% {bar}")
 print()
 
@@ -137,7 +137,7 @@ print()
 # STEP 4: PREDICT ON OUTSTANDING INVOICES
 # ============================================================================
 
-print("🎯 Making predictions on outstanding invoices...")
+print("[[GOAL] Making predictions on outstanding invoices...")
 print()
 
 # Load current outstanding invoices
@@ -175,14 +175,14 @@ predictions['predicted_days_late'] = predicted_days_late
 predictions['predicted_payment_date'] = predictions['due_date'] + pd.to_timedelta(predicted_days_late, unit='D')
 predictions['predicted_days_late'] = predictions['predicted_days_late'].round(1)
 
-print(f"✓ Predicted payment dates for {len(predictions)} outstanding invoices")
+print(f"[OK] Predicted payment dates for {len(predictions)} outstanding invoices")
 print()
 
 # ============================================================================
 # STEP 5: IDENTIFY AT-RISK INVOICES
 # ============================================================================
 
-print("⚠️  AT-RISK INVOICE ANALYSIS")
+print("[[WARNING]  AT-RISK INVOICE ANALYSIS")
 print()
 
 # Invoices predicted to be >7 days late
@@ -194,20 +194,20 @@ print(f"Total at-risk amount: ${at_risk['amount_usd'].sum():,.0f}")
 print()
 
 if len(at_risk) > 0:
-    print("Top at-risk invoices:")
-    print("-" * 100)
+    print("[Top at-risk invoices:")
+    print("[-" * 100)
     for idx, row in at_risk.head(10).iterrows():
         print(f"  {row['invoice_id']:12s} {row['customer_name']:30s} "
               f"${row['amount_usd']:>10,.0f}  Due: {row['due_date'].date()} "
               f"(Predicted {row['predicted_days_late']:.0f} days late)")
-    print("-" * 100)
+    print("[-" * 100)
     print()
 
 # ============================================================================
 # STEP 6: CONCENTRATION ANALYSIS
 # ============================================================================
 
-print("📊 CUSTOMER CONCENTRATION (At-Risk)")
+print("[[CHART] CUSTOMER CONCENTRATION (At-Risk)")
 print()
 
 concentration = predictions.groupby('customer_id').agg({
@@ -220,28 +220,28 @@ concentration['customer_name'] = concentration.index.map(
     dict(zip(outstanding['customer_id'], outstanding['customer_name']))
 )
 
-print("Top customers by AR exposure:")
-print("-" * 80)
+print("[Top customers by AR exposure:")
+print("[-" * 80)
 for idx, row in concentration.head(5).iterrows():
     pct = (row['amount_usd'] / predictions['amount_usd'].sum()) * 100
-    risk = "🟢" if row['predicted_days_late'] < 5 else "🟡" if row['predicted_days_late'] < 10 else "🔴"
+    risk = "[GREEN]" if row['predicted_days_late'] < 5 else "[YELLOW]" if row['predicted_days_late'] < 10 else "[RED]"
     print(f"  {row['customer_name']:30s} ${row['amount_usd']:>10,.0f} ({pct:5.1f}%) "
           f"Avg {row['predicted_days_late']:5.1f} days late  {risk}")
-print("-" * 80)
+print("[-" * 80)
 print()
 
 # ============================================================================
 # STEP 7: EXPORT PREDICTIONS
 # ============================================================================
 
-print("💾 Exporting predictions...")
+print("[[SAVE] Exporting predictions...")
 print()
 
 export_path = "../outputs/N3_invoice_payment_predictions.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 predictions.to_csv(export_path, index=False)
 
-print(f"✓ Exported: {export_path}")
+print(f"[OK] Exported: {export_path}")
 print(f"  Records: {len(predictions)}")
 print()
 
@@ -254,33 +254,33 @@ model_metadata = {
     'features': list(X.columns)
 }
 
-print("Model saved for reference")
+print("[Model saved for reference")
 print()
 
 # ============================================================================
 # STEP 8: KEY INSIGHTS
 # ============================================================================
 
-print("=" * 80)
-print("✅ N3 COMPLETE - Collections Predictions Built")
-print("=" * 80)
+print("[=" * 80)
+print("[[DONE] N3 COMPLETE - Collections Predictions Built")
+print("[=" * 80)
 print()
 
 avg_predicted_days_late = predictions['predicted_days_late'].mean()
 total_ar = predictions['amount_usd'].sum()
 
-print("📖 Key Insights:")
-print(f"  • Model predicts average payment will be {avg_predicted_days_late:.1f} days late")
-print(f"  • Total outstanding AR: ${total_ar:,.0f}")
-print(f"  • {len(at_risk)} invoices ({len(at_risk)/len(predictions)*100:.1f}%) predicted >7 days late")
-print(f"  • Top 3 customers = {(concentration.head(3)['amount_usd'].sum()/total_ar*100):.1f}% of exposure")
+print("[[INFO] Key Insights:")
+print(f"   Model predicts average payment will be {avg_predicted_days_late:.1f} days late")
+print(f"   Total outstanding AR: ${total_ar:,.0f}")
+print(f"   {len(at_risk)} invoices ({len(at_risk)/len(predictions)*100:.1f}%) predicted >7 days late")
+print(f"   Top 3 customers = {(concentration.head(3)['amount_usd'].sum()/total_ar*100):.1f}% of exposure")
 print()
 
-print("🎯 Comparison to Baseline:")
-print(f"  • N2 (Baseline): Assumed all invoices pay on their due date")
-print(f"  • N3 (Realistic): Model predicts average {avg_predicted_days_late:.1f} days late")
-print(f"  • Difference: Actual cash could be ~$500K-$800K LOWER than baseline forecast")
+print("[[GOAL] Comparison to Baseline:")
+print(f"   N2 (Baseline): Assumed all invoices pay on their due date")
+print(f"   N3 (Realistic): Model predicts average {avg_predicted_days_late:.1f} days late")
+print(f"   Difference: Actual cash could be ~$500K-$800K LOWER than baseline forecast")
 print()
 
-print("🎯 Next step: N4_Revised_Forecast.py")
-print("   Rebuild the cash forecast using these predicted payment dates")
+print("[[GOAL] Next step: N4_Revised_Forecast.py")
+print("[   Rebuild the cash forecast using these predicted payment dates")

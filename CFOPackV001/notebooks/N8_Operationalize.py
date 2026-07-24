@@ -14,15 +14,15 @@ import pandas as pd
 import os
 from datetime import datetime, timedelta
 
-print("=" * 80)
-print("N8: OPERATIONALIZATION")
-print("=" * 80)
+print("[=" * 80)
+print("[N8: OPERATIONALIZATION")
+print("[=" * 80)
 print()
 
 # Load decision data
 predictions = pd.read_csv("../outputs/N3_invoice_payment_predictions.csv")
 
-print("✓ Building implementation plan")
+print("[[OK] Building implementation plan")
 print()
 
 # ============================================================================
@@ -215,7 +215,7 @@ tasks_df = pd.DataFrame(tasks)
 # PHASE SUMMARY
 # ============================================================================
 
-print("📋 IMPLEMENTATION PLAN SUMMARY")
+print("[[LIST] IMPLEMENTATION PLAN SUMMARY")
 print()
 
 for phase in tasks_df['phase'].unique():
@@ -224,7 +224,7 @@ for phase in tasks_df['phase'].unique():
     print(f"  {len(phase_tasks)} tasks")
 
     for idx, task in phase_tasks.iterrows():
-        print(f"  • {task['task']}")
+        print(f"   {task['task']}")
         print(f"    Owner: {task['owner']}")
         print(f"    Success: {task['success_criteria']}")
 
@@ -234,7 +234,7 @@ print()
 # MONITORING FRAMEWORK
 # ============================================================================
 
-print("📊 MONITORING & ESCALATION")
+print("[[CHART] MONITORING & ESCALATION")
 print()
 
 monitoring_metrics = [
@@ -282,7 +282,7 @@ for idx, row in monitoring_df.iterrows():
 # RISK MITIGATION CONTROLS
 # ============================================================================
 
-print("⚙️  OPERATIONAL CONTROLS")
+print("[[CONFIG]  OPERATIONAL CONTROLS")
 print()
 
 controls = [
@@ -313,7 +313,7 @@ controls = [
 ]
 
 for control in controls:
-    print(f"• {control['control']}")
+    print(f" {control['control']}")
     print(f"  What: {control['description']}")
     print(f"  Owner: {control['owner']}")
     print(f"  Frequency: {control['frequency']}")
@@ -323,17 +323,17 @@ for control in controls:
 # EXPORT PLAN
 # ============================================================================
 
-print("💾 Exporting operational plan...")
+print("[[SAVE] Exporting operational plan...")
 
 export_path = "../outputs/N8_operationalization_plan.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 tasks_df.to_csv(export_path, index=False)
 
-print(f"✓ Exported: {export_path}")
+print(f"[OK] Exported: {export_path}")
 
 export_path = "../outputs/N8_monitoring_framework.csv"
 monitoring_df.to_csv(export_path, index=False)
-print(f"✓ Exported: {export_path}")
+print(f"[OK] Exported: {export_path}")
 
 print()
 
@@ -341,38 +341,38 @@ print()
 # KEY SUMMARY
 # ============================================================================
 
-print("=" * 80)
-print("✅ N8 COMPLETE - Implementation Plan Built")
-print("=" * 80)
+print("[=" * 80)
+print("[[DONE] N8 COMPLETE - Implementation Plan Built")
+print("[=" * 80)
 print()
 
-print("📖 Implementation Summary:")
-print(f"  • 14 core tasks across 4 phases")
-print(f"  • Pre-Launch (1 day): Prepare teams & process")
-print(f"  • Launch (7 days): Collections campaign + supplier outreach")
-print(f"  • Scale (7 days): Finalize agreements & optimize")
-print(f"  • Close (1+ days): Review results & decide next steps")
+print("[[INFO] Implementation Summary:")
+print(f"   14 core tasks across 4 phases")
+print(f"   Pre-Launch (1 day): Prepare teams & process")
+print(f"   Launch (7 days): Collections campaign + supplier outreach")
+print(f"   Scale (7 days): Finalize agreements & optimize")
+print(f"   Close (1+ days): Review results & decide next steps")
 print()
 
-print("🎯 Key Deliverables:")
-print(f"  • Collections: Target $150K collected by Day 7")
-print(f"  • Payables: Secure 2-3 agreements by Day 14")
-print(f"  • Monitoring: Daily cash position reporting to CFO")
-print(f"  • Controls: Approval gates + reconciliation")
+print("[[GOAL] Key Deliverables:")
+print(f"   Collections: Target $150K collected by Day 7")
+print(f"   Payables: Secure 2-3 agreements by Day 14")
+print(f"   Monitoring: Daily cash position reporting to CFO")
+print(f"   Controls: Approval gates + reconciliation")
 print()
 
-print("✅ WORKSHOP COMPLETE")
+print("[[DONE] WORKSHOP COMPLETE")
 print()
-print("📖 What you learned:")
-print("  1. How to identify liquidity gaps using data analysis")
-print("  2. How to predict payment behavior using ML")
-print("  3. How to model operational levers (collections, payables, inventory)")
-print("  4. How to build a CFO-ready decision memo")
-print("  5. How to create an implementation plan with monitoring & controls")
+print("[[INFO] What you learned:")
+print("[  1. How to identify liquidity gaps using data analysis")
+print("[  2. How to predict payment behavior using ML")
+print("[  3. How to model operational levers (collections, payables, inventory)")
+print("[  4. How to build a CFO-ready decision memo")
+print("[  5. How to create an implementation plan with monitoring & controls")
 print()
-print("🏠 Take-home:")
-print("  • All notebooks are reusable for your own company data")
-print("  • Templates (decision memo, governance, checklist) are in /templates/")
-print("  • Claude prompts (for interpretation) are in /claude_prompts/")
-print("  • Adapt to your business context and run with your data")
+print("[ Take-home:")
+print("[   All notebooks are reusable for your own company data")
+print("[   Templates (decision memo, governance, checklist) are in /templates/")
+print("[   Claude prompts (for interpretation) are in /claude_prompts/")
+print("[   Adapt to your business context and run with your data")
 print()

@@ -16,23 +16,23 @@ import numpy as np
 from datetime import datetime, timedelta
 import os
 
-print("=" * 80)
-print("N2: BASELINE CASH FORECAST (Optimistic Scenario)")
-print("=" * 80)
+print("[=" * 80)
+print("[N2: BASELINE CASH FORECAST (Optimistic Scenario)")
+print("[=" * 80)
 print()
 
 # ============================================================================
 # STEP 1: LOAD DATA
 # ============================================================================
 
-print("📂 Loading data...")
+print("[[FILES] Loading data...")
 
 # Load validated data and cash flow schedule
 validated_data = pd.read_csv("../outputs/N1_validated_data.csv")
 cash_flow = pd.read_csv("../outputs/N1_cash_flow.csv")
 
-print(f"✓ Loaded {len(validated_data)} invoice records")
-print(f"✓ Loaded {len(cash_flow)} days of cash flow schedule")
+print(f"[OK] Loaded {len(validated_data)} invoice records")
+print(f"[OK] Loaded {len(cash_flow)} days of cash flow schedule")
 print()
 
 # Convert date columns
@@ -44,7 +44,7 @@ cash_flow['date'] = pd.to_datetime(cash_flow['date'])
 # STEP 2: SET UP THE FORECAST PERIOD
 # ============================================================================
 
-print("📅 Forecast Setup")
+print("[ Forecast Setup")
 print()
 
 # Forecast starts today (using the earliest date in cash_flow as "today")
@@ -65,7 +65,7 @@ print()
 # STEP 3: PROJECT INFLOWS (Invoice Receipts)
 # ============================================================================
 
-print("💰 INFLOWS - Projected Invoice Receipts")
+print("[[MONEY] INFLOWS - Projected Invoice Receipts")
 print()
 
 # In this BASELINE scenario, invoices are assumed to pay on their due date
@@ -81,7 +81,7 @@ print(f"Total inflows: ${inflows['payment_amount'].sum():,.0f}")
 print()
 
 # Show top inflows
-print("Top 5 inflows:")
+print("[Top 5 inflows:")
 top_inflows = inflows.nlargest(5, 'payment_amount')
 for idx, row in top_inflows.iterrows():
     print(f"  {row['payment_date'].date()}: {row['customer_name']:30s} ${row['payment_amount']:>10,.0f}")
@@ -91,7 +91,7 @@ print()
 # STEP 4: BUILD DAILY CASH POSITION
 # ============================================================================
 
-print("🏦 Building Daily Cash Position")
+print("[[BANK] Building Daily Cash Position")
 print()
 
 # Create a day-by-day cash position
@@ -129,14 +129,14 @@ for day_num in range(len(cash_flow)):
 
 cash_forecast = pd.DataFrame(daily_data)
 
-print(f"✓ 14-day baseline forecast complete")
+print(f"[OK] 14-day baseline forecast complete")
 print()
 
 # ============================================================================
 # STEP 5: FORECAST SUMMARY
 # ============================================================================
 
-print("📊 BASELINE FORECAST SUMMARY")
+print("[[CHART] BASELINE FORECAST SUMMARY")
 print()
 
 print(f"Starting cash position:    ${cash_forecast.iloc[0]['opening_cash']:>12,.0f}")
@@ -147,7 +147,7 @@ print(f"Ending cash position:      ${cash_forecast.iloc[-1]['closing_cash']:>12,
 print()
 
 # Critical days
-print("Cash position key points:")
+print("[Cash position key points:")
 min_cash_day = cash_forecast.loc[cash_forecast['closing_cash'].idxmin()]
 print(f"  Lowest point: Day {int(min_cash_day['day'])}, ${min_cash_day['closing_cash']:,.0f}")
 
@@ -157,78 +157,78 @@ print(f"  Highest point: Day {int(max_cash_day['day'])}, ${max_cash_day['closing
 print()
 
 # Daily detail
-print("Daily cash position:")
-print("-" * 80)
+print("[Daily cash position:")
+print("[-" * 80)
 for idx, row in cash_forecast.iterrows():
-    status = "✓" if row['closing_cash'] > 1_000_000 else "⚠️" if row['closing_cash'] > 500_000 else "🚨"
+    status = "[OK]" if row['closing_cash'] > 1_000_000 else "[WARNING]" if row['closing_cash'] > 500_000 else "[ALERT]"
     print(f"  Day {int(row['day']):2d} ({row['date'].strftime('%a %m-%d')}): "
           f"${row['opening_cash']:>10,.0f} "
           f"+ ${row['inflows']:>10,.0f} "
           f"- ${row['outflows']:>10,.0f} "
           f"= ${row['closing_cash']:>10,.0f}  {status}")
 
-print("-" * 80)
+print("[-" * 80)
 print()
 
 # ============================================================================
 # STEP 6: RISK ASSESSMENT
 # ============================================================================
 
-print("⚠️  RISK ASSESSMENT (Baseline Scenario)")
+print("[[WARNING]  RISK ASSESSMENT (Baseline Scenario)")
 print()
 
 min_cash = cash_forecast['closing_cash'].min()
 if min_cash < 500_000:
-    print("🚨 HIGH RISK: Cash balance drops below $500K")
+    print("[[ALERT] HIGH RISK: Cash balance drops below $500K")
 elif min_cash < 1_000_000:
-    print("⚠️  MEDIUM RISK: Cash balance drops below $1M")
+    print("[[WARNING]  MEDIUM RISK: Cash balance drops below $1M")
 else:
-    print("✓ LOW RISK: Comfortable cash balance maintained")
+    print("[[OK] LOW RISK: Comfortable cash balance maintained")
 
 print()
-print("⚠️  CRITICAL ASSUMPTION:")
-print("   This baseline assumes ALL invoices pay on their due date.")
-print("   Historical data shows this is OPTIMISTIC.")
-print("   Average payment is 8-10 days LATE.")
+print("[[WARNING]  CRITICAL ASSUMPTION:")
+print("[   This baseline assumes ALL invoices pay on their due date.")
+print("[   Historical data shows this is OPTIMISTIC.")
+print("[   Average payment is 8-10 days LATE.")
 print()
 
 # ============================================================================
 # STEP 7: EXPORT FORECAST
 # ============================================================================
 
-print("💾 Exporting baseline forecast...")
+print("[[SAVE] Exporting baseline forecast...")
 
 export_path = "../outputs/N2_baseline_forecast.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 cash_forecast.to_csv(export_path, index=False)
 
-print(f"✓ Exported: {export_path}")
+print(f"[OK] Exported: {export_path}")
 print()
 
 # ============================================================================
 # STEP 8: KEY INSIGHTS
 # ============================================================================
 
-print("=" * 80)
-print("✅ N2 COMPLETE - Baseline Forecast Built")
-print("=" * 80)
+print("[=" * 80)
+print("[[DONE] N2 COMPLETE - Baseline Forecast Built")
+print("[=" * 80)
 print()
 
-print("📖 Key Insights:")
-print(f"  • If all invoices pay on time, we end with ${cash_forecast.iloc[-1]['closing_cash']:,.0f}")
-print(f"  • Minimum cash point: Day {int(min_cash_day['day'])} (${min_cash_day['closing_cash']:,.0f})")
+print("[[INFO] Key Insights:")
+print(f"   If all invoices pay on time, we end with ${cash_forecast.iloc[-1]['closing_cash']:,.0f}")
+print(f"   Minimum cash point: Day {int(min_cash_day['day'])} (${min_cash_day['closing_cash']:,.0f})")
 
 if min_cash < 1_500_000:
-    print(f"  • ⚠️  Our cash balance dips below $1.5M on Day {int(min_cash_day['day'])}")
-    print(f"  • This is approaching our minimum comfort zone")
+    print(f"   [WARNING]  Our cash balance dips below $1.5M on Day {int(min_cash_day['day'])}")
+    print(f"   This is approaching our minimum comfort zone")
 else:
-    print(f"  • ✓ Cash position remains healthy throughout")
+    print(f"   [OK] Cash position remains healthy throughout")
 
 print()
-print("🎯 BUT WAIT - Why This Might Be Wrong:")
-print("  • Historical payment data shows customers pay ~8 days LATE on average")
-print("  • Top 3 customers (57% of AR) have mixed payment behavior")
-print("  • If payments slip, our actual cash could be $500K-$800K LOWER")
+print("[[GOAL] BUT WAIT - Why This Might Be Wrong:")
+print("[   Historical payment data shows customers pay ~8 days LATE on average")
+print("[   Top 3 customers (57% of AR) have mixed payment behavior")
+print("[   If payments slip, our actual cash could be $500K-$800K LOWER")
 print()
-print("🎯 Next step: N3_Collections_Intelligence.py")
-print("   Use ML to predict which invoices will actually be late and by how many days")
+print("[[GOAL] Next step: N3_Collections_Intelligence.py")
+print("[   Use ML to predict which invoices will actually be late and by how many days")

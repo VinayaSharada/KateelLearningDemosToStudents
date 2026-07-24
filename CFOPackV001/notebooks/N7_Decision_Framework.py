@@ -14,9 +14,9 @@ import pandas as pd
 import os
 from datetime import datetime
 
-print("=" * 80)
-print("N7: DECISION FRAMEWORK")
-print("=" * 80)
+print("[=" * 80)
+print("[N7: DECISION FRAMEWORK")
+print("[=" * 80)
 print()
 
 # Load all analysis outputs
@@ -27,7 +27,7 @@ predictions = pd.read_csv("../outputs/N3_invoice_payment_predictions.csv")
 scenarios = pd.read_csv("../outputs/N5_ccc_scenarios.csv")
 hedge_rec = pd.read_csv("../outputs/N6_hedge_recommendation.csv")
 
-print("✓ All analysis loaded")
+print("[[OK] All analysis loaded")
 print()
 
 # ============================================================================
@@ -168,7 +168,7 @@ memo_content += f"""Current FX exposure: $4.7M notional
 
 2. **Supplier Negotiations**
    - Contact 3 key suppliers for term extensions
-   - Request 7-day extension (45→52, 60→67 days)
+   - Request 7-day extension (4552, 6067 days)
    - Emphasize mutual benefit
    - Expected cash improvement: $180K
 
@@ -260,14 +260,14 @@ memo_content += f"""Current FX exposure: $4.7M notional
 
 """
 
-print("📝 Decision memo generated")
+print("[ Decision memo generated")
 print()
 
 # ============================================================================
 # EXPORT MEMO
 # ============================================================================
 
-print("💾 Exporting decision memo...")
+print("[[SAVE] Exporting decision memo...")
 
 export_path = "../outputs/N7_decision_memo.md"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
@@ -275,25 +275,25 @@ os.makedirs(os.path.dirname(export_path), exist_ok=True)
 with open(export_path, 'w') as f:
     f.write(memo_content)
 
-print(f"✓ Exported: {export_path}")
+print(f"[OK] Exported: {export_path}")
 print()
 
 # ============================================================================
 # SUMMARY FOR PRESENTATION
 # ============================================================================
 
-print("=" * 80)
-print("✅ N7 COMPLETE - Decision Memo Built")
-print("=" * 80)
+print("[=" * 80)
+print("[[DONE] N7 COMPLETE - Decision Memo Built")
+print("[=" * 80)
 print()
 
-print("📖 Memo highlights:")
-print(f"  • Problem: $500K 14-day cash gap")
-print(f"  • Root cause: Payment delays (avg {predictions['predicted_days_late'].mean():.1f} days late)")
-print(f"  • Solution: Collections + Payables lever strategy")
-print(f"  • Impact: $380K recovery (76% of gap)")
-print(f"  • Timeline: 2-3 weeks")
+print("[[INFO] Memo highlights:")
+print(f"   Problem: $500K 14-day cash gap")
+print(f"   Root cause: Payment delays (avg {predictions['predicted_days_late'].mean():.1f} days late)")
+print(f"   Solution: Collections + Payables lever strategy")
+print(f"   Impact: $380K recovery (76% of gap)")
+print(f"   Timeline: 2-3 weeks")
 print()
 
-print("🎯 Next step: N8_Operationalize.py")
-print("   Create implementation plan and operational checklist")
+print("[[GOAL] Next step: N8_Operationalize.py")
+print("[   Create implementation plan and operational checklist")

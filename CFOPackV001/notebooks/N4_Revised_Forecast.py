@@ -15,9 +15,9 @@ import pandas as pd
 import numpy as np
 import os
 
-print("=" * 80)
-print("N4: REVISED CASH FORECAST (Realistic Scenario)")
-print("=" * 80)
+print("[=" * 80)
+print("[N4: REVISED CASH FORECAST (Realistic Scenario)")
+print("[=" * 80)
 print()
 
 # Load data
@@ -38,7 +38,7 @@ print()
 # REBUILD FORECAST WITH PREDICTED PAYMENT DATES
 # ============================================================================
 
-print("🏦 Building revised forecast using predicted payment dates...")
+print("[[BANK] Building revised forecast using predicted payment dates...")
 print()
 
 forecast_start = cash_flow['date'].min()
@@ -89,14 +89,14 @@ for day_num in range(len(cash_flow)):
 
 revised_forecast = pd.DataFrame(daily_revised)
 
-print("✓ Revised 14-day forecast complete")
+print("[[OK] Revised 14-day forecast complete")
 print()
 
 # ============================================================================
 # GAP ANALYSIS
 # ============================================================================
 
-print("📊 BASELINE vs REVISED COMPARISON")
+print("[[CHART] BASELINE vs REVISED COMPARISON")
 print()
 
 # Merge for comparison
@@ -105,15 +105,15 @@ comparison.columns = ['day', 'date', 'baseline_closing_cash']
 comparison['revised_closing_cash'] = revised_forecast['closing_cash'].values
 comparison['gap'] = comparison['baseline_closing_cash'] - comparison['revised_closing_cash']
 
-print("Day-by-day gap:")
-print("-" * 100)
+print("[Day-by-day gap:")
+print("[-" * 100)
 for idx, row in comparison.iterrows():
     if row['gap'] > 0:
         print(f"  Day {int(row['day']):2d}: Baseline ${row['baseline_closing_cash']:>10,.0f}  "
               f"Revised ${row['revised_closing_cash']:>10,.0f}  "
               f"Gap ${row['gap']:>10,.0f}")
 
-print("-" * 100)
+print("[-" * 100)
 print()
 
 # Key metrics
@@ -128,18 +128,18 @@ print(f"  Gap on Day 14:    ${total_gap_day14:,.0f}")
 print()
 
 # Interpretation
-print("⚠️  WHAT THIS MEANS:")
-print(f"  • Baseline (optimistic): Assumes all invoices pay on time")
-print(f"  • Revised (realistic): Assumes invoices pay {predictions['predicted_days_late'].mean():.1f} days late")
-print(f"  • Cash gap on Day 14: ${total_gap_day14:,.0f}")
+print("[[WARNING]  WHAT THIS MEANS:")
+print(f"   Baseline (optimistic): Assumes all invoices pay on time")
+print(f"   Revised (realistic): Assumes invoices pay {predictions['predicted_days_late'].mean():.1f} days late")
+print(f"   Cash gap on Day 14: ${total_gap_day14:,.0f}")
 print()
 
 if total_gap_day14 > 500_000:
-    print(f"  🚨 This is a MATERIAL gap. Needs action.")
+    print(f"  [ALERT] This is a MATERIAL gap. Needs action.")
 elif total_gap_day14 > 200_000:
-    print(f"  ⚠️  This is SIGNIFICANT. Consider mitigation strategies.")
+    print(f"  [WARNING]  This is SIGNIFICANT. Consider mitigation strategies.")
 else:
-    print(f"  ✓ Gap is manageable with existing credit facility.")
+    print(f"  [OK] Gap is manageable with existing credit facility.")
 
 print()
 
@@ -147,7 +147,7 @@ print()
 # RISK ZONES
 # ============================================================================
 
-print("📍 CASH POSITION RISK ZONES")
+print("[ CASH POSITION RISK ZONES")
 print()
 
 danger_threshold = 1_000_000
@@ -155,41 +155,41 @@ danger_threshold = 1_000_000
 revised_in_danger = revised_forecast[revised_forecast['closing_cash'] < danger_threshold]
 
 if len(revised_in_danger) > 0:
-    print(f"⚠️  Days when cash falls below ${danger_threshold:,.0f}:")
+    print(f"[WARNING]  Days when cash falls below ${danger_threshold:,.0f}:")
     for idx, row in revised_in_danger.iterrows():
         print(f"    Day {int(row['day'])}: ${row['closing_cash']:,.0f}")
     print()
 else:
-    print(f"✓ Cash stays above ${danger_threshold:,.0f} throughout forecast period")
+    print(f"[OK] Cash stays above ${danger_threshold:,.0f} throughout forecast period")
     print()
 
 # ============================================================================
 # EXPORT RESULTS
 # ============================================================================
 
-print("💾 Exporting revised forecast...")
+print("[[SAVE] Exporting revised forecast...")
 
 export_path = "../outputs/N4_revised_forecast.csv"
 revised_forecast.to_csv(export_path, index=False)
-print(f"✓ Exported: {export_path}")
+print(f"[OK] Exported: {export_path}")
 
 export_path = "../outputs/N4_gap_analysis.csv"
 comparison.to_csv(export_path, index=False)
-print(f"✓ Exported: {export_path}")
+print(f"[OK] Exported: {export_path}")
 print()
 
 # ============================================================================
 # KEY INSIGHTS
 # ============================================================================
 
-print("=" * 80)
-print("✅ N4 COMPLETE - Revised Forecast Built")
-print("=" * 80)
+print("[=" * 80)
+print("[[DONE] N4 COMPLETE - Revised Forecast Built")
+print("[=" * 80)
 print()
 
-print("📖 Key Finding:")
+print("[[INFO] Key Finding:")
 print(f"  Realistic cash position is ${total_gap_day14:,.0f} LOWER than baseline on Day 14")
 print()
 
-print("🎯 Next step: N5_Working_Capital_Levers.py")
-print("   Model which operational levers (collections, inventory, payables) can close this gap")
+print("[[GOAL] Next step: N5_Working_Capital_Levers.py")
+print("[   Model which operational levers (collections, inventory, payables) can close this gap")
