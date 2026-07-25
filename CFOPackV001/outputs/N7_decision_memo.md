@@ -2,7 +2,7 @@
 
 **TO:** Chief Financial Officer
 **FROM:** Treasury Team
-**DATE:** July 24, 2026
+**DATE:** July 25, 2026
 **SUBJECT:** Liquidity Management Action Plan - Cash Forecast Gap Analysis
 **PRIORITY:** High
 
@@ -39,9 +39,9 @@ Maintain liquidity above danger zone (~$1.5M minimum) while executing operationa
 The baseline forecast assumes all invoices pay on their contractual due dates. This is **optimistic**.
 
 **Reality Check:**
-- Historical payment data: 12.2 days average late
-- Current overdue invoices: 50 of 50
-- At-risk invoices (>7 days late): 49
+- Historical payment data: 42.3 days average late
+- Current overdue invoices: 2000 of 2000
+- At-risk invoices (>7 days late): 1987
 
 
 ### 2. REVISED (REALISTIC) FORECAST

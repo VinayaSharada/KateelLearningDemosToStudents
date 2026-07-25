@@ -99,15 +99,15 @@ Automates matching bank statement entries to invoices using Phi-3 LLM running lo
 **Objective:** Load and assess data quality
 
 Load 5 CSV files:
-- Invoices (50 outstanding, $16.9M total)
-- Payments (200 historical records)
-- Customers (13 unique, 5 industries)
-- Cash flows (14-day outflow schedule)
-- FX exposures ($5.1M open positions)
+- Invoices (10,000 total: 8,000 paid + 2,000 outstanding; $546.9M total AR)
+- Payments (8,200 records: 8,000 invoice-linked + 200 unrelated like tax refunds)
+- Customers (148 unique, 5 industries with realistic payment delays)
+- Cash flows (30-day outflow schedule with payables, payroll, capex, tax)
+- FX exposures ($3.6M open positions across 4 currencies)
 
 **Output:** Data quality score (95/100 - GOOD)
 
-**Key insight:** "Data is clean, but payment history shows customers don't pay on time."
+**Key insight:** "Scale matters. 10K invoices reveal customer concentration (top 20 = 60% of AR) and industry payment patterns that toy datasets hide."
 
 ---
 
@@ -115,17 +115,16 @@ Load 5 CSV files:
 
 **Objective:** Build optimistic cash forecast
 
-Forecast 14-day cash position assuming all invoices pay on contractual due dates.
+Forecast 30-day cash position assuming all invoices pay on contractual due dates.
 
 **Finding:**
 ```
 Starting cash:      $5.0M
-Day 7 minimum:      $1.7M
-Day 12 minimum:     $0 (CRISIS!)
-Day 14 closing:     $495K
+Baseline assumption: All 2,000 outstanding invoices pay on due date
+Day 30 ending:      $43.5M
 ```
 
-**Key insight:** "Forecast looks OK only if everyone pays on time."
+**Key insight:** "Baseline looks healthy ONLY if 99% of invoices pay exactly on time—unrealistic given historical data shows 42.1 days average late."
 
 ---
 
@@ -133,19 +132,21 @@ Day 14 closing:     $495K
 
 **Objective:** Use ML to predict realistic payment behavior
 
-Train Random Forest model on 12 months of historical payment data.
+Train Random Forest model on 8,000 historical paid invoices.
 
 **Model Performance:**
-- Accuracy: ±1.32 days (mean absolute error)
-- Feature importance: Amount (53%), Risk Score (24%), History (18%)
+- Accuracy: 77.4% (R² score)
+- Mean Absolute Error: 7.42 days
+- Feature importance: **92.4% on customer payment history**, 5.9% on amount, 1.7% on other factors
 
 **Prediction:**
 ```
-Outstanding invoices will pay AVERAGE 12.2 days LATE
-(not on time, like the baseline assumed)
+Outstanding invoices (2,000) will pay AVERAGE 42.3 days LATE
+1,987 invoices (99.4%) predicted >7 days late
+Total at-risk AR: $108.6M
 ```
 
-**Key insight:** "Customers will actually pay 12 days late. That changes everything."
+**Key insight:** "Customer payment behavior is highly predictable (92% feature importance). Baseline's optimistic assumption is completely wrong for this customer base."
 
 ---
 

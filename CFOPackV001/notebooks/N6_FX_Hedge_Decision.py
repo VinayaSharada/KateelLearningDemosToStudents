@@ -36,17 +36,16 @@ print()
 print(f"Current Open Exposures:")
 print("[-" * 80)
 
-total_exposure = fx_exposure['notional_exposure_usd'].sum()
+total_exposure = fx_exposure['notional_amount'].sum()
 
 for idx, row in fx_exposure.iterrows():
-    pct_total = (row['notional_exposure_usd'] / total_exposure) * 100
+    pct_total = (row['notional_amount'] / total_exposure) * 100
     current_hedge = row['current_hedge_ratio'] * 100
 
     print(f"{row['currency']} Exposure:")
-    print(f"  Notional:        ${row['notional_exposure_usd']:>10,.0f} ({pct_total:5.1f}% of total)")
+    print(f"  Notional:        ${row['notional_amount']:>10,.0f} ({pct_total:5.1f}% of total)")
     print(f"  Type:            {row['transaction_type']}")
     print(f"  Current hedge:   {current_hedge:>10.0f}%")
-    print(f"  Counterparty:    {row['counterparty']}")
     print()
 
 print(f"Total FX exposure: ${total_exposure:,.0f}")
@@ -74,7 +73,7 @@ total_exposure_at_risk = 0
 
 for idx, row in fx_exposure.iterrows():
     currency = row['currency']
-    notional = row['notional_exposure_usd']
+    notional = row['notional_amount']
 
     if currency in volatility_assumptions:
         vol = volatility_assumptions[currency]['volatility']

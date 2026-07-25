@@ -46,11 +46,11 @@
   - [ ] N8_Operationalize.ipynb
 
 - [ ] Synthetic data files exist in `data/synthetic/`
-  - [ ] invoices.csv (50 rows)
-  - [ ] payments.csv (200 rows)
-  - [ ] customers.csv (13 rows)
-  - [ ] cash_flow.csv (14 rows)
-  - [ ] fx_exposure.csv (4 rows)
+  - [ ] invoices.csv (10,000 rows: 8,000 paid + 2,000 outstanding)
+  - [ ] payments.csv (8,200 rows: 8,000 invoice-linked + 200 unrelated)
+  - [ ] customers.csv (148 rows across 5 industries)
+  - [ ] cash_flow.csv (30 rows: 30-day outflow schedule)
+  - [ ] fx_exposure.csv (4 rows: EUR, GBP, JPY, INR)
 
 - [ ] Templates exist in `templates/`
   - [ ] decision_memo_template.md

@@ -11,72 +11,78 @@ CFOPackV001 includes fully synthetic data (realistic but not real) designed for 
 
 ## Provided Data Files
 
-### **invoices.csv** (500 rows)
+### **invoices.csv** (10,000 rows)
 
-Outstanding customer invoices ready for collection/forecasting.
+Customer invoices (paid and outstanding) for analysis and forecasting.
 
 **Schema:**
 ```
-invoice_id              (string)   INV-001, INV-002, ...
-customer_id            (string)   CUST-A, CUST-B, ...
-customer_name          (string)   Acme Corp, BuildCo Inc, ...
-invoice_date           (date)     YYYY-MM-DD (when invoice was issued)
+invoice_id              (string)   INV-000001 to INV-010000
+customer_id            (int)      1-148 (customer master reference)
+invoice_date           (date)     YYYY-MM-DD (date issued, past 24 months)
 due_date               (date)     YYYY-MM-DD (contractual payment date)
-amount_usd             (float)    Invoice amount in USD
-industry               (string)   Manufacturing, Construction, Technology, ...
-payment_terms_days     (int)      30, 45, 60 (contractual terms)
-prior_payment_avg_days (float)    Customer's historical avg days to pay
-days_overdue_currently (int)      How many days past due (0 if not overdue)
+amount_usd             (float)    $5K-$500K (realistic distribution: 80% small, 15% medium, 5% large)
+payment_terms_days     (int)      15, 30, or 60 (contractual terms)
+status                 (string)   'paid' (8,000 records) or 'outstanding' (2,000 records)
 ```
 
 **Notes:**
-- Some invoices are currently overdue (use for collections priority)
-- Date range: 2024-07-15 to 2024-08-18
-- Invoice amounts: $85K-$1.2M
-- 13 unique customers across 5 industries
+- 8,000 paid invoices: used for ML training in N3
+- 2,000 outstanding invoices: used for ML prediction targets
+- Date range: 2024-07-25 to 2026-07-25 (realistic 24-month spread)
+- Total AR: $546.9M
+- 148 unique customers across 5 industries
+- Customer concentration: top 20 customers = 60% of AR
 
 ---
 
-### **payments.csv** (200 rows)
+### **payments.csv** (8,200 rows)
 
-Historical payment data (12 months of history) used for training the ML model.
+Historical payment records: 8,000 invoice payments + 200 unrelated payments.
 
 **Schema:**
 ```
-invoice_id     (string)   Invoice that was paid
-payment_date   (date)     When the payment actually arrived
-amount_paid    (float)    Amount paid (usually full invoice amount)
-days_late      (int)      How many days after due date it arrived
-                          0 = on time, >0 = late
+payment_id               (int)      Payment record ID
+invoice_id              (string)    Invoice paid (NULL for unrelated payments)
+customer_id             (int)       Customer making payment (NULL for unrelated payments)
+payment_date            (date)      When payment was received
+amount_paid             (float)     Payment amount in USD
+payment_type            (string)    'invoice_payment' or unrelated ('tax_refund', 'interest_income', 'rebate', etc.)
+days_late               (int/NULL)  For invoice payments: 0=on time, >0=late; NULL for unrelated payments
 ```
 
 **Notes:**
-- Key for N3 (ML model training)
-- Shows real payment behavior
-- Average: 8 days late
-- Range: 0 (on time) to 20 (very late)
+- 8,000 records: tied to invoices, used for N3 ML training
+- 200 records: unrelated (tax refunds, interest income, rebates, credit memos) - realistic treasury activity
+- Average days late (invoice payments): 42.1 days
+- Range: 0 (on time) to 127 days (very late)
+- Shows industry-specific patterns: Tech ~12 days late, Retail ~59 days late, Government ~61 days late
 
 ---
 
-### **customers.csv** (13 rows)
+### **customers.csv** (148 rows)
 
-Master customer data for AR management.
+Master customer data for AR and payment behavior analysis.
 
 **Schema:**
 ```
-customer_id         (string)   CUST-A, CUST-B, ...
-customer_name       (string)   Legal name
-industry            (string)   Manufacturing, Construction, ...
-avg_payment_days    (float)    Historical average days to pay
+customer_id         (int)      1-148 (unique customer reference)
+customer_name       (string)   [company name] Technology Co., [industry] Inc., etc.
+industry            (string)   'Technology', 'Manufacturing', 'Retail', 'Government', 'Healthcare'
+avg_days_late       (float)    Historical average days late (customer-specific behavior)
 risk_score          (float)    0.0 (low risk) to 1.0 (high risk)
-key_account_flag    (string)   'yes' or 'no' (flagship customer?)
-credit_limit_usd    (float)    Max exposure for this customer
+concentration_weight (float)   Gini coefficient weight for realistic concentration (top 20 = 60% of AR)
 ```
 
 **Notes:**
-- Risk score correlates with payment slowness
-- Key accounts require careful handling (avoid aggressive collections)
-- Credit limits sum to ~$15M total
+- Industry-specific payment patterns emerge naturally:
+  - Technology: 11.9 days late (fast, reliable)
+  - Manufacturing: 37.9 days late (medium)
+  - Healthcare: 44.3 days late (slow)
+  - Retail: 58.9 days late (very slow)
+  - Government: 61.1 days late (extremely slow)
+- avg_days_late is the MOST important feature (92.4%) for ML model predictions
+- Concentration weight ensures realistic customer distribution (essential for working capital strategy)
 
 ---
 
@@ -86,18 +92,18 @@ Open foreign exchange positions requiring hedging decision.
 
 **Schema:**
 ```
-currency                   (string)   EUR, GBP, JPY, CAD
-notional_exposure_usd      (float)    Total position value in USD
-transaction_type           (string)   'receivables' or 'payables'
-maturity_month             (date)     When exposure settles
-current_hedge_ratio        (float)    0.0-1.0 (0% = unhedged, 100% = fully hedged)
-counterparty               (string)   JP Morgan, Bank of America, etc.
-current_rate               (float)    Current spot rate
+currency                   (string)   EUR, GBP, JPY, INR (4 currencies)
+notional_amount            (float)    Total position value in USD (ranges $854K-$987K)
+transaction_type           (string)   'accounts_payable', 'accounts_receivable', 'intercompany', 'forecasted'
+month                      (string)   YYYY-MM (current month for timing)
+current_hedge_ratio        (float)    0.0-1.0 (0% = unhedged, 100% = fully hedged; currently 16%-42%)
 ```
 
 **Notes:**
-- Total exposure: ~$4.7M notional
-- EUR is largest ($2.5M)
+- Total exposure: ~$3.6M notional
+- All positions currently UNDER-HEDGED (16-42% vs 50-75% board-approved range)
+- Key for N6 hedging decision analysis
+- Demonstrates FX risk as complement to liquidity management
 - Used for N6 (FX hedging analysis)
 
 ---

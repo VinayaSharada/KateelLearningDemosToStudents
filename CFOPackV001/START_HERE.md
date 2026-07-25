@@ -83,18 +83,18 @@ Click any of these buttons to open in Google Colab (no installation needed):
 ### **Module 1: Import & Validate Data**
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV001/notebooks/N1_Import_and_Validate.ipynb)
 
-**What:** Load & validate $16.9M in customer invoices  
+**What:** Load & validate 10,000 invoices ($546.9M in AR)  
 **Time:** 15 min  
-**Output:** Data quality assessment
+**Output:** Data quality score (95/100), customer analysis across 5 industries
 
 ---
 
 ### **Module 2: Baseline Forecast**
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV001/notebooks/N2_Baseline_Forecast.ipynb)
 
-**What:** Build optimistic cash forecast (assumes on-time payment)  
+**What:** Build optimistic 30-day cash forecast (assumes on-time payment)  
 **Time:** 20 min  
-**Output:** 14-day cash position forecast
+**Output:** Baseline forecast shows healthy $43.5M ending balance
 
 ---
 

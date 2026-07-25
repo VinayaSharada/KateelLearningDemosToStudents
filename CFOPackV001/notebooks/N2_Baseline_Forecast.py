@@ -71,8 +71,8 @@ print()
 # In this BASELINE scenario, invoices are assumed to pay on their due date
 # So inflow amount = invoice amount, inflow date = due date
 
-inflows = validated_data[['invoice_id', 'customer_id', 'customer_name', 'due_date', 'amount_usd']].copy()
-inflows.columns = ['invoice_id', 'customer_id', 'customer_name', 'payment_date', 'payment_amount']
+inflows = validated_data[['invoice_id', 'customer_id', 'due_date', 'amount_usd']].copy()
+inflows.columns = ['invoice_id', 'customer_id', 'payment_date', 'payment_amount']
 inflows = inflows[inflows['payment_date'] >= forecast_start]
 inflows = inflows[inflows['payment_date'] <= forecast_end]
 
@@ -84,7 +84,7 @@ print()
 print("[Top 5 inflows:")
 top_inflows = inflows.nlargest(5, 'payment_amount')
 for idx, row in top_inflows.iterrows():
-    print(f"  {row['payment_date'].date()}: {row['customer_name']:30s} ${row['payment_amount']:>10,.0f}")
+    print(f"  {row['payment_date'].date()}: Customer {row['customer_id']:>3d} ${row['payment_amount']:>10,.0f}")
 print()
 
 # ============================================================================
@@ -105,7 +105,7 @@ for day_num in range(len(cash_flow)):
     day_inflows = inflows[inflows['payment_date'] == day_date]['payment_amount'].sum()
 
     # Get outflows for this day
-    day_outflows = day_row['total_outflows_usd']
+    day_outflows = day_row['total_outflows']
 
     # Calculate cumulative cash
     if day_num == 0:

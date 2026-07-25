@@ -1,5 +1,5 @@
-currency,notional_exposure_usd,transaction_type,maturity_month,current_hedge_ratio,counterparty,current_rate
-EUR,2500000,receivables,2024-09,0.50,JP Morgan,1.08
-GBP,1200000,payables,2024-10,0.60,JP Morgan,1.27
-JPY,800000,receivables,2024-11,0.00,Unhedged,0.0067
-CAD,600000,payables,2024-09,0.75,Bank of America,0.74
+currency,notional_amount,transaction_type,month,current_hedge_ratio
+EUR,854489.78,accounts_receivable,2026-07,0.42195570043413144
+GBP,987187.52,accounts_payable,2026-07,0.15821625225475627
+JPY,893513.23,accounts_receivable,2026-07,0.20261609630131205
+INR,874212.17,accounts_receivable,2026-07,0.3302190353216531

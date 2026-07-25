@@ -46,8 +46,8 @@ forecast_end = cash_flow['date'].max()
 starting_cash = 5_000_000
 
 # Get inflows using PREDICTED payment dates
-revised_inflows = predictions[['invoice_id', 'customer_name', 'predicted_payment_date', 'amount_usd']].copy()
-revised_inflows.columns = ['invoice_id', 'customer_name', 'payment_date', 'payment_amount']
+revised_inflows = predictions[['invoice_id', 'predicted_payment_date', 'amount_usd']].copy()
+revised_inflows.columns = ['invoice_id', 'payment_date', 'payment_amount']
 revised_inflows = revised_inflows[revised_inflows['payment_date'] >= forecast_start]
 revised_inflows = revised_inflows[revised_inflows['payment_date'] <= forecast_end]
 
@@ -66,7 +66,7 @@ for day_num in range(len(cash_flow)):
     day_inflows = revised_inflows[revised_inflows['payment_date'] == day_date]['payment_amount'].sum()
 
     # Get outflows
-    day_outflows = day_row['total_outflows_usd']
+    day_outflows = day_row['total_outflows']
 
     # Calculate cash
     if day_num == 0:

@@ -30,29 +30,14 @@ print()
 print("[ Preparing training data from historical payments...")
 print()
 
-# Load historical payments
-payments = pd.read_csv("../outputs/N1_customers.csv")  # Customer reference
-invoices_history = pd.read_csv("../outputs/N1_validated_data.csv")
-payments_history = pd.read_csv("../data/synthetic/payments.csv")
+# Load validated data (already includes customer features from N1)
+validated_data = pd.read_csv("../outputs/N1_validated_data.csv")
 
-# Merge to get features for each paid invoice
-training_data = payments_history.merge(
-    invoices_history[['invoice_id', 'amount_usd', 'payment_terms_days']],
-    on='invoice_id',
-    how='left'
-)
+# Training data = all paid invoices (these have payment history)
+training_data = validated_data[validated_data['status'] == 'paid'].copy()
 
-training_data = training_data.merge(
-    invoices_history[['invoice_id', 'customer_id']],
-    on='invoice_id',
-    how='left'
-)
-
-training_data = training_data.merge(
-    payments[['customer_id', 'avg_payment_days', 'risk_score']],
-    on='customer_id',
-    how='left'
-)
+# Remove rows with missing payment data
+training_data = training_data.dropna(subset=['actual_days_late'])
 
 # Remove rows with missing features
 training_data = training_data.dropna()
@@ -71,12 +56,12 @@ print()
 X = training_data[[
     'amount_usd',           # Invoice size
     'payment_terms_days',   # Payment terms (30, 45, 60 days?)
-    'avg_payment_days',     # Customer's historical avg payment days
+    'avg_days_late',        # Customer's historical avg days late
     'risk_score'            # Customer risk score (0-1)
 ]]
 
-# Target: days_late (how many days late was this payment?)
-y = training_data['days_late']
+# Target: actual_days_late (how many days late was this payment?)
+y = training_data['actual_days_late']
 
 print(f"Features used:")
 print(f"   Invoice amount (USD)")
@@ -140,37 +125,22 @@ print()
 print("[[GOAL] Making predictions on outstanding invoices...")
 print()
 
-# Load current outstanding invoices
-validated_data = pd.read_csv("../outputs/N1_validated_data.csv")
-customers = pd.read_csv("../outputs/N1_customers.csv")
-
 # Outstanding = invoices that haven't been paid yet
-# (actual_days_late is null in validated data)
-outstanding = validated_data[validated_data['actual_days_late'].isna()].copy()
+outstanding = validated_data[validated_data['status'] == 'outstanding'].copy()
 
-# Prepare features for prediction
+# Prepare features for prediction (already in validated_data)
 outstanding_features = outstanding[[
     'amount_usd',
     'payment_terms_days',
-    'customer_id'
+    'avg_days_late',
+    'risk_score'
 ]].copy()
 
-# Add customer features
-outstanding_features = outstanding_features.merge(
-    customers[['customer_id', 'avg_payment_days', 'risk_score']],
-    on='customer_id'
-)
-
 # Make predictions
-predicted_days_late = model.predict(outstanding_features[[
-    'amount_usd',
-    'payment_terms_days',
-    'avg_payment_days',
-    'risk_score'
-]])
+predicted_days_late = model.predict(outstanding_features)
 
 # Build predictions dataframe
-predictions = outstanding[['invoice_id', 'customer_id', 'customer_name', 'due_date', 'amount_usd']].copy()
+predictions = outstanding[['invoice_id', 'customer_id', 'due_date', 'amount_usd']].copy()
 predictions['predicted_days_late'] = predicted_days_late
 # Convert due_date to datetime if needed
 predictions['due_date'] = pd.to_datetime(predictions['due_date'])
@@ -199,7 +169,7 @@ if len(at_risk) > 0:
     print("[Top at-risk invoices:")
     print("[-" * 100)
     for idx, row in at_risk.head(10).iterrows():
-        print(f"  {row['invoice_id']:12s} {row['customer_name']:30s} "
+        print(f"  {row['invoice_id']:12s} Customer {row['customer_id']:>3.0f} "
               f"${row['amount_usd']:>10,.0f}  Due: {row['due_date'].date()} "
               f"(Predicted {row['predicted_days_late']:.0f} days late)")
     print("[-" * 100)
@@ -218,16 +188,12 @@ concentration = predictions.groupby('customer_id').agg({
     'invoice_id': 'count'
 }).rename(columns={'invoice_id': 'count'}).sort_values('amount_usd', ascending=False)
 
-concentration['customer_name'] = concentration.index.map(
-    dict(zip(outstanding['customer_id'], outstanding['customer_name']))
-)
-
 print("[Top customers by AR exposure:")
 print("[-" * 80)
 for idx, row in concentration.head(5).iterrows():
     pct = (row['amount_usd'] / predictions['amount_usd'].sum()) * 100
     risk = "[GREEN]" if row['predicted_days_late'] < 5 else "[YELLOW]" if row['predicted_days_late'] < 10 else "[RED]"
-    print(f"  {row['customer_name']:30s} ${row['amount_usd']:>10,.0f} ({pct:5.1f}%) "
+    print(f"  Customer {idx:3.0f}      ${row['amount_usd']:>10,.0f} ({pct:5.1f}%) "
           f"Avg {row['predicted_days_late']:5.1f} days late  {risk}")
 print("[-" * 80)
 print()

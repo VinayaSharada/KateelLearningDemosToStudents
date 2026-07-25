@@ -101,17 +101,17 @@ else:
 
 # Check 6: FX exposure sanity check
 print("[\nCheck 6: FX Exposure Validation")
-if fx_exposure['notional_exposure_usd'].sum() > 0:
-    print(f"  [OK] Total FX notional exposure: ${fx_exposure['notional_exposure_usd'].sum():,.0f}")
+if fx_exposure['notional_amount'].sum() > 0:
+    print(f"  [OK] Total FX notional exposure: ${fx_exposure['notional_amount'].sum():,.0f}")
 else:
     print(f"  [WARNING]  No FX exposure found")
 
 # Check 7: Cash flow consistency
 print("[\nCheck 7: Cash Flow Schedule")
-if len(cash_flow) == 14:
-    print(f"  [OK] 14-day cash flow schedule present")
+if len(cash_flow) >= 14:
+    print(f"  [OK] {len(cash_flow)}-day cash flow schedule present")
 else:
-    print(f"  [WARNING]  Only {len(cash_flow)} days in schedule (expected 14)")
+    print(f"  [WARNING]  Only {len(cash_flow)} days in schedule (expected 14+)")
 
 print()
 
@@ -128,12 +128,13 @@ print(f"  Total AR value: ${invoices['amount_usd'].sum():,.0f}")
 print(f"  Average invoice: ${invoices['amount_usd'].mean():,.0f}")
 print(f"  Date range: {invoices['invoice_date'].min()} to {invoices['invoice_date'].max()}")
 print(f"  Unique customers: {invoices['customer_id'].nunique()}")
-print(f"  Industries: {invoices['industry'].nunique()} unique")
+print(f"  Paid invoices: {(invoices['status']=='paid').sum():,}")
+print(f"  Outstanding invoices: {(invoices['status']=='outstanding').sum():,}")
 
 print("[\nCUSTOMERS Summary:")
 print(f"  Total customers: {len(customers)}")
-print(f"  Total credit limit: ${customers['credit_limit_usd'].sum():,.0f}")
-print(f"  Key accounts: {(customers['key_account_flag'] == 'yes').sum()}")
+print(f"  Industries: {customers['industry'].nunique()} unique")
+print(f"  Avg days late: {customers['avg_days_late'].mean():.1f}")
 print(f"  Avg risk score: {customers['risk_score'].mean():.2f}")
 
 print("[\nPAYMENT HISTORY Summary:")
@@ -145,13 +146,13 @@ print(f"  Late (>7 days): {(payments['days_late'] > 7).sum()}")
 print("[\nFX EXPOSURE Summary:")
 for idx, row in fx_exposure.iterrows():
     hedge_pct = row['current_hedge_ratio'] * 100
-    print(f"  {row['currency']}: ${row['notional_exposure_usd']:,.0f} ({hedge_pct:.0f}% hedged)")
+    print(f"  {row['currency']}: ${row['notional_amount']:,.0f} ({hedge_pct:.0f}% hedged)")
 
-print("[\nCASH FLOW Summary (14-day):")
-total_outflows = cash_flow['total_outflows_usd'].sum()
-print(f"  Total 14-day outflows: ${total_outflows:,.0f}")
-print(f"  Largest outflow day: Day {cash_flow.loc[cash_flow['total_outflows_usd'].idxmax(), 'day']:.0f}")
-print(f"    (${cash_flow['total_outflows_usd'].max():,.0f})")
+print(f"[\nCASH FLOW Summary ({len(cash_flow)}-day):")
+total_outflows = cash_flow['total_outflows'].sum()
+print(f"  Total outflows: ${total_outflows:,.0f}")
+print(f"  Largest outflow day: Day {cash_flow.loc[cash_flow['total_outflows'].idxmax(), 'day']:.0f}")
+print(f"    (${cash_flow['total_outflows'].max():,.0f})")
 
 print()
 
@@ -182,9 +183,9 @@ if len(undefined_customers) > 0:
     quality_score -= 10
     quality_issues.append(f"{len(undefined_customers)} undefined customers")
 
-if len(cash_flow) != 14:
+if len(cash_flow) < 14:
     quality_score -= 5
-    quality_issues.append(f"Cash flow incomplete ({len(cash_flow)} days instead of 14)")
+    quality_issues.append(f"Cash flow incomplete ({len(cash_flow)} days instead of 14+)")
 
 quality_score = max(0, quality_score)
 
@@ -215,7 +216,7 @@ print()
 
 # Combine invoices with customer info
 invoices_with_customers = invoices.merge(
-    customers[['customer_id', 'avg_payment_days', 'risk_score', 'key_account_flag']],
+    customers[['customer_id', 'avg_days_late', 'risk_score', 'industry']],
     on='customer_id',
     how='left'
 )
