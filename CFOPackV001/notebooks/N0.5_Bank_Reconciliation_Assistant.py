@@ -147,7 +147,7 @@ bank_statement = pd.read_csv("../data/synthetic/bank_statement.csv")
 invoices = pd.read_csv("../data/synthetic/invoices.csv")
 
 # Filter to outstanding invoices (not yet paid)
-outstanding = invoices[invoices['actual_days_late'].isna()].copy()
+outstanding = invoices[invoices['status'] == 'outstanding'].copy()
 
 print(f"[OK] Loaded bank statement: {len(bank_statement)} entries")
 print(f"[OK] Loaded outstanding invoices: {len(outstanding)} invoices")
@@ -159,7 +159,7 @@ print(bank_statement.head(3).to_string())
 print()
 
 print("[OUTSTANDING INVOICES SAMPLE:")
-print(outstanding[['invoice_id', 'customer_name', 'amount_usd', 'due_date']].head(3).to_string())
+print(outstanding[['invoice_id', 'customer_id', 'amount_usd', 'due_date']].head(3).to_string())
 print()
 
 # ============================================================================
@@ -292,27 +292,25 @@ def get_heuristic_reconciliation(bank_entry, outstanding_invoices):
 
     for _, invoice in outstanding_invoices.iterrows():
         invoice_amount = invoice['amount_usd']
-        invoice_customer = invoice['customer_name'].lower()
+        invoice_id = invoice['invoice_id']
 
         # Rule 1: Exact amount match
         if abs(bank_amount - invoice_amount) < 0.01:
-            if invoice_customer in bank_desc or invoice['invoice_id'] in bank_desc:
+            if invoice_id in bank_desc:
                 matches.append({
-                    'invoice_id': invoice['invoice_id'],
+                    'invoice_id': invoice_id,
                     'confidence': 'HIGH',
-                    'reason': 'Exact amount match + customer reference'
+                    'reason': 'Exact amount match + invoice ID reference'
+                })
+            else:
+                matches.append({
+                    'invoice_id': invoice_id,
+                    'confidence': 'MEDIUM',
+                    'reason': 'Exact amount match'
                 })
 
-        # Rule 2: Amount match with customer name in description
-        elif abs(bank_amount - invoice_amount) < 0.01:
-            matches.append({
-                'invoice_id': invoice['invoice_id'],
-                'confidence': 'HIGH',
-                'reason': 'Exact amount match'
-            })
-
-        # Rule 3: Customer name in description with reasonable amount (within 5%)
-        elif invoice_customer in bank_desc and abs(bank_amount - invoice_amount) / invoice_amount < 0.05:
+        # Rule 2: Invoice ID in description (even if amount differs slightly)
+        elif invoice_id in bank_desc:
             matches.append({
                 'invoice_id': invoice['invoice_id'],
                 'confidence': 'MEDIUM',
@@ -321,9 +319,9 @@ def get_heuristic_reconciliation(bank_entry, outstanding_invoices):
 
         # Rule 4: Partial payment (bank amount is < invoice amount)
         elif bank_amount < invoice_amount and bank_amount > invoice_amount * 0.3:
-            if invoice_customer in bank_desc or invoice['invoice_id'] in bank_desc:
+            if invoice_id in bank_desc:
                 matches.append({
-                    'invoice_id': invoice['invoice_id'],
+                    'invoice_id': invoice_id,
                     'confidence': 'MEDIUM',
                     'reason': f'Possible partial payment ({bank_amount/invoice_amount*100:.0f}% of invoice)'
                 })
@@ -510,7 +508,7 @@ if len(unmatched_invoices) > 0:
     for idx, row in unmatched_invoices.iterrows():
         days_overdue = (pd.Timestamp.now() - pd.to_datetime(row['due_date'])).days
         status = "[URGENT]" if days_overdue > 30 else "[WARNING]" if days_overdue > 7 else "[OK]"
-        print(f"  {row['invoice_id']:15s} {row['customer_name']:30s} ${row['amount_usd']:>12,.2f} "
+        print(f"  {row['invoice_id']:15s} Customer {row['customer_id']:3.0f}           ${row['amount_usd']:>12,.2f} "
               f"due {row['due_date']} ({days_overdue:3d} days overdue) {status}")
     print("[-" * 100)
 else:
