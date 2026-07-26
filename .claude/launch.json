@@ -6,6 +6,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8123"],
       "port": 8123
+    },
+    {
+      "name": "kateelraksha",
+      "runtimeExecutable": "wsl",
+      "runtimeArgs": ["-d", "Ubuntu-22.04", "--", "bash", "-lc", "export PATH=\"$HOME/.nvm/versions/node/v20.20.2/bin:$PATH\"; cd /home/ubuntu/wslgit/KateelRaksha001 && npm run dev"],
+      "port": 4321
     }
   ]
 }
