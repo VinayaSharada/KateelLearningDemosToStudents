@@ -1,0 +1,431 @@
+<title>From Idea to Shipped: A De-Identified Product Development Case</title>
+<style>
+  :root {
+    --paper: #eef0ee;
+    --paper-raised: #e4e8e4;
+    --ink: #1c2321;
+    --muted: #5b6660;
+    --accent: #1f6f5c;
+    --accent-soft: #e1ede9;
+    --rule: #c9cdc5;
+    --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+    --font-body: Seravek, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14181a;
+      --paper-raised: #1b201f;
+      --ink: #e7ece9;
+      --muted: #93a19b;
+      --accent: #4fb99e;
+      --accent-soft: #16302b;
+      --rule: #2a3330;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-raised: #1b201f;
+    --ink: #e7ece9;
+    --muted: #93a19b;
+    --accent: #4fb99e;
+    --accent-soft: #16302b;
+    --rule: #2a3330;
+  }
+  :root[data-theme="light"] {
+    --paper: #eef0ee;
+    --paper-raised: #e4e8e4;
+    --ink: #1c2321;
+    --muted: #5b6660;
+    --accent: #1f6f5c;
+    --accent-soft: #e1ede9;
+    --rule: #c9cdc5;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .cover-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.1rem;
+  }
+
+  h1.title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    line-height: 1.15;
+    font-weight: 400;
+    margin: 0 0 0.9rem;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0 0 2.2rem;
+    text-wrap: balance;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.85rem 0;
+    margin-bottom: 2.6rem;
+  }
+  .cover-meta span b { color: var(--ink); font-weight: 600; }
+
+  .abstract {
+    font-size: 1.02rem;
+    background: var(--paper-raised);
+    border-left: 3px solid var(--accent);
+    padding: 1.1rem 1.3rem;
+    border-radius: 2px;
+    margin-bottom: 3rem;
+  }
+  .abstract p { margin: 0; }
+  .abstract p + p { margin-top: 0.8rem; }
+
+  .timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .timeline .step {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    padding: 0.32rem 0.7rem;
+    white-space: nowrap;
+  }
+
+  section.phase {
+    margin-bottom: 3.4rem;
+    padding-top: 0.2rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  h2.phase-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    text-wrap: balance;
+  }
+
+  section.phase p { margin: 0 0 1rem; max-width: 66ch; }
+  section.phase p:last-of-type { margin-bottom: 0; }
+
+  .decision {
+    margin-top: 1.3rem;
+    background: var(--accent-soft);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.1rem 1.3rem;
+  }
+  .decision .label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .decision dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.35rem 1rem;
+  }
+  .decision dt {
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 0.1rem;
+  }
+  .decision dd {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+
+  hr.div {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 3.5rem 0;
+  }
+
+  h2.section-head {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.65rem;
+    margin: 0 0 1.4rem;
+  }
+
+  ul.lessons {
+    list-style: none;
+    margin: 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  ul.lessons li {
+    padding-left: 1.4rem;
+    position: relative;
+    max-width: 66ch;
+  }
+  ul.lessons li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  ul.lessons li b { color: var(--ink); }
+
+  ol.questions {
+    margin: 0;
+    padding-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  ol.questions li {
+    max-width: 62ch;
+    padding-left: 0.3rem;
+  }
+  ol.questions li::marker {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  .instructor-note {
+    margin-top: 3rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.6rem 1.7rem;
+  }
+  .instructor-note .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
+  }
+  .instructor-note p { max-width: 66ch; margin: 0 0 1rem; }
+  .instructor-note p:last-child { margin-bottom: 0; }
+
+  .colophon {
+    margin-top: 3.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 520px) {
+    .page { padding: 2.8rem 1.2rem 4rem; }
+    .decision dl { grid-template-columns: 1fr; }
+    .decision dt { padding-top: 0.4rem; }
+  }
+</style>
+
+<div class="page">
+
+  <div class="cover-eyebrow">Product Development Case — De-Identified for Classroom Use</div>
+  <h1 class="title">From Idea to Shipped, One Verified Decision at a Time</h1>
+  <p class="subtitle">How a small team built an AI-assisted security-analysis tool over roughly ten weeks — and what each pivot reveals about managing AI products.</p>
+
+  <div class="cover-meta">
+    <span><b>Domain</b> — software threat modeling</span>
+    <span><b>Form</b> — browser-based analysis tool with tiered AI assistance</span>
+    <span><b>Span</b> — ~12 incremental releases</span>
+    <span><b>Status</b> — v1 scope complete</span>
+  </div>
+
+  <div class="abstract">
+    <p>This note reconstructs the decision trail behind a real, still-private product build — with every company name, brand name, and business-model specific removed at the founder's request. What's kept is the sequence of judgment calls: what problem got chosen, what got de-risked before a line of production code was written, what broke, and what got revised when reality disagreed with the plan.</p>
+    <p>It is offered as raw material for a course on managing AI products, not as a polished success story. Several of the more useful moments here are the ones where an assumption was wrong.</p>
+  </div>
+
+  <div class="timeline">
+    <span class="step">01 · Spotting the gap</span>
+    <span class="step">02 · Defining the product</span>
+    <span class="step">03 · Designing around a constraint</span>
+    <span class="step">04 · De-risking first</span>
+    <span class="step">05 · Verify-first build</span>
+    <span class="step">06 · Coverage reveals architecture</span>
+    <span class="step">07 · Disclosed limits as a feature</span>
+    <span class="step">08 · Course-correcting on real numbers</span>
+  </div>
+
+  <section class="phase">
+    <div class="eyebrow">Phase 01</div>
+    <h2 class="phase-title">Spotting the Gap</h2>
+    <p>The starting point was not a blank page — it was an existing, free educational tool that already taught a classic structured method for reasoning about security risk to students. The founder's first instinct was to ask a sharper question than "does this still work?": does it hold up against what a modern reviewer would actually expect — visual editing, machine-readable diagrams, and AI-assisted remediation, not just a checklist? The honest answer was no on all three.</p>
+    <p>That answer, on its own, didn't justify a new product. The justification came from a second observation: none of the popular threat-modeling frameworks in wide use had caught up to a fast-moving new category of risk — the failure modes specific to products built around large language models. A teaching tool and a professional tool were, at this point, revealed to be two different problems wearing the same name.</p>
+    <div class="decision">
+      <div class="label">Decision point</div>
+      <dl>
+        <dt>Choice</dt><dd>Start a new, separate product rather than extend the educational one.</dd>
+        <dt>Alternative considered</dt><dd>Bolt AI-assistance and modern frameworks onto the existing teaching demo.</dd>
+        <dt>Why</dt><dd>A free teaching artifact and a professional tool have different audiences, different quality bars, and different reasons to exist. Merging them would have compromised both rather than strengthened either.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="eyebrow">Phase 02</div>
+    <h2 class="phase-title">Defining the Product, Not Just the Feature</h2>
+    <p>Early conversations resisted the pull toward "add AI to the existing thing" and instead worked through what the finished product needed to be true of, feature by feature: it had to reason using several established security-review frameworks at once — not just the original structured method, but ones covering web applications, APIs, and mobile apps, plus, notably, the new failure modes specific to AI-integrated products — and it had to go beyond flagging a risk to proposing a concrete fix, otherwise it would just be a fancier documentation generator, not a tool anyone would return to.</p>
+    <p>Deciding the product's job before deciding its architecture turned out to matter later: every one of the harder engineering calls in the phases below trace back to "must cover many frameworks" and "must produce an actionable fix," not to a technology preference chosen first.</p>
+  </section>
+
+  <section class="phase">
+    <div class="eyebrow">Phase 03</div>
+    <h2 class="phase-title">Designing Around a Hard Constraint</h2>
+    <p>One requirement shaped almost everything that followed: the tool had to run at effectively zero operating cost through its early trial period, with no guarantee yet that anyone would pay for it. At the same time, the team didn't want to build something so cheap it would need a rewrite the moment the product found traction.</p>
+    <p>The resolution was architectural rather than financial: build every AI-touching part of the system behind a narrow internal interface, so that "where does the AI call actually run" became a swappable implementation detail instead of a foundational assumption. That one abstraction is what let the team later offer three different ways of getting AI assistance — a user's own account with a commercial AI provider, a model that runs entirely inside the user's browser with no account at all, and a built-in rule-based fallback that needs neither — without three different codebases.</p>
+    <div class="decision">
+      <div class="label">Decision point</div>
+      <dl>
+        <dt>Choice</dt><dd>A provider-abstraction layer, so the "who answers the AI request" decision is configuration, not architecture.</dd>
+        <dt>Alternative considered</dt><dd>Hard-code a single AI vendor integration to move faster, revisit later.</dd>
+        <dt>Why</dt><dd>The zero-cost constraint was explicitly temporary. Designing only for today's constraint would have guaranteed a rewrite the day the constraint lifted; the abstraction cost a little more up front and removed that risk entirely.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="eyebrow">Phase 04</div>
+    <h2 class="phase-title">De-Risking Before Building</h2>
+    <p>The riskiest open question wasn't a product question, it was a plumbing one: could a browser-based tool call a commercial AI provider's API directly, with no server of its own in between, without running into the cross-origin security restrictions browsers enforce by default? If the answer was no for the intended providers, the entire "runs anywhere, costs nothing" premise needed a backend before phase one shipped.</p>
+    <p>Rather than assume an answer and build around it, the team wrote the smallest possible test — a single static page that makes one real call to each candidate provider — and had the one person who could safely hold a live API key run it. The test came back positive for one provider and confirmed later, live, by the founder directly. The lesson generalizes past this specific technical question: when a single unverified assumption could invalidate months of planned work, the cheapest thing to do is spend an afternoon finding out, before spending the months.</p>
+    <div class="decision">
+      <div class="label">Decision point</div>
+      <dl>
+        <dt>Choice</dt><dd>Build a minimal, disposable spike to test the riskiest assumption before writing any product code.</dd>
+        <dt>Alternative considered</dt><dd>Assume direct browser-to-provider calls would work (or wouldn't) based on general reputation, and design the architecture around that guess.</dd>
+        <dt>Why</dt><dd>A wrong guess here would have meant the whole "no backend needed yet" plan was unsound. A few hours of spike work removed that uncertainty for a fraction of the cost of discovering it after the fact.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="eyebrow">Phase 05</div>
+    <h2 class="phase-title">Building With a Verify-First Discipline</h2>
+    <p>As the product's three ways of authoring a design diagram — a guided wizard, a visual canvas, and a type-to-edit chat interface — came together, the team kept a strict separation between the underlying logic (what a valid change to the model looks like, what a threat rule actually checks) and the interface presenting it. Every piece of logic got a small, fast, dependency-free verification script before it was wired into a screen.</p>
+    <p>This discipline was not free, but it paid for itself quickly: several real defects were caught this way before a user ever saw them — mismatched matching logic that would have quietly under- or over-flagged certain designs, a text-parsing rule that missed a valid phrasing pattern, and a build-tooling misconfiguration that made a large open-source component get needlessly (and slowly) processed as if it were the team's own proprietary code. None of these were found by guessing where bugs might be; they were found because the team had a habit of asking "prove it" before "ship it."</p>
+  </section>
+
+  <section class="phase">
+    <div class="eyebrow">Phase 06</div>
+    <h2 class="phase-title">Scaling Coverage Reveals Hidden Architecture</h2>
+    <p>Adding the remaining industry-standard threat frameworks looked, at the outset, like a content task — more entries in a list. It wasn't. Once several frameworks were live at once, the same underlying design flaw would often get flagged by three or four frameworks simultaneously, each using slightly different wording. Shown as separate findings, this didn't read as thoroughness — it read as noise, and noise erodes trust in a tool faster than a missed finding does.</p>
+    <p>The fix was a small, additive change to how findings get grouped: give related findings across frameworks an optional shared identity, so the tool can present "four frameworks agree this is a problem" as one clear card instead of four repetitive ones. The broader lesson is one that applies to almost any product expanding its scope: a feature that looks purely additive on paper ("just add more coverage") can expose an assumption baked into the original, smaller-scale design that only breaks once you're operating at the new scale.</p>
+    <div class="decision">
+      <div class="label">Decision point</div>
+      <dl>
+        <dt>Choice</dt><dd>Add a lightweight, optional grouping mechanism so overlapping findings from different frameworks merge into one card.</dd>
+        <dt>Alternative considered</dt><dd>Ship all frameworks' findings independently and let users mentally de-duplicate.</dd>
+        <dt>Why</dt><dd>More coverage without de-duplication would have made the product feel noisier, not more thorough — the opposite of the intended value of adding frameworks in the first place.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="eyebrow">Phase 07</div>
+    <h2 class="phase-title">Treating Disclosed Limitations as a Feature</h2>
+    <p>Throughout the build, the team kept a running, honest ledger of exactly what had and had not been verified — which AI behaviors were confirmed live versus assumed, which parts of the interface had been tested only in a simulated environment rather than a real browser, which claims about performance or model quality were still open questions. Nothing on that ledger was hidden from the product's own design documentation.</p>
+    <p>For a product whose core feature is AI-generated output — output that is, by nature, probabilistic and not fully predictable — this practice is arguably more valuable than it would be for an ordinary feature. A user (or a buyer) who is told exactly where the edges of current confidence are can decide how much to trust the tool today; a user given only confident-sounding claims has no way to make that judgment, and will make it anyway, often wrongly, the first time the tool disappoints them.</p>
+  </section>
+
+  <section class="phase">
+    <div class="eyebrow">Phase 08</div>
+    <h2 class="phase-title">Course-Correcting on Real Numbers, Not Assumptions</h2>
+    <p>An early technical decision — which specific in-browser AI model to use for the fully private, no-account tier — was made on a size and quality assumption before the team had actually measured the model in question. When the real, quantized size of that model turned out to be roughly four times the budget the team had promised itself (and, implicitly, its future users), that assumption was wrong in a way that mattered: a browser-based "runs entirely offline" feature is only viable if the download is genuinely small.</p>
+    <p>What made this a non-event rather than a crisis was that the original design had explicitly reserved the right to swap models later, in writing, before the mistake was ever discovered. Because the swap was pre-authorized and the model choice lived behind a single configuration point, correcting course took a one-line change and a re-verification pass — not a redesign. The general pattern is worth naming directly: writing "we might be wrong about X, and here's how we'd change it if so" into a design up front turns a future surprise into routine maintenance instead of an emergency.</p>
+    <div class="decision">
+      <div class="label">Decision point</div>
+      <dl>
+        <dt>Choice</dt><dd>Swap to a smaller model that met the original size budget, once real measurements contradicted the initial pick.</dd>
+        <dt>Alternative considered</dt><dd>Keep the original model and quietly relax the size promise instead.</dd>
+        <dt>Why</dt><dd>The size budget existed for a concrete user-facing reason (a genuinely lightweight, no-account tier); relaxing it to avoid a small rework would have undermined the actual feature, not just a number on a spec sheet.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <h2 class="section-head">What This Illustrates About Managing AI Products</h2>
+  <ul class="lessons">
+    <li><b>An AI-provider strategy is a product decision, not just an engineering one.</b> Choosing between "bring your own key," an embedded local model, and a deterministic fallback shapes who can use the product, at what privacy posture, and at what cost — before a single line of interface code is written.</li>
+    <li><b>Scope expansion has hidden architectural cost.</b> "Add more coverage" sounds additive; it can quietly require a de-duplication or reconciliation layer that didn't need to exist at the smaller scale.</li>
+    <li><b>De-risk the assumption that would invalidate the plan, first, cheaply.</b> A day spent testing the one fact that everything else depends on is cheaper than discovering it's false after building around it.</li>
+    <li><b>Verification has to happen at build time, not launch time.</b> Every real defect in this build was caught by a deliberate habit of proving logic correct before wiring it into a screen — not by hoping, and not by waiting for a user to find it.</li>
+    <li><b>Disclosed uncertainty builds more durable trust than confident claims do</b> — especially for a product whose main feature is inherently probabilistic AI output.</li>
+    <li><b>Pre-authorizing your own pivots is cheap insurance.</b> Writing "we may be wrong about this, here's the fallback" into a design before you need it turns a contradicted assumption into routine maintenance.</li>
+  </ul>
+
+  <hr class="div">
+
+  <h2 class="section-head">Discussion Questions</h2>
+  <ol class="questions">
+    <li>At Phase 01, the team chose to start a new product rather than extend an existing one serving a related need. What signals should a team look for to tell "this needs a new product" apart from "this needs a new feature"?</li>
+    <li>Phase 03's zero-cost constraint drove a significant architecture investment (the provider-abstraction layer) that had no visible user-facing payoff on day one. How should a team decide when an invisible architectural investment is worth making versus over-engineering for a future that may not arrive?</li>
+    <li>In Phase 04, the team asked someone else to run the riskiest test rather than run it themselves, to avoid handling a sensitive credential. What other product decisions carry a similar tension between "get the answer fast" and "get the answer safely"?</li>
+    <li>Phase 06 shows a feature (more framework coverage) that was good for the product's positioning but bad for its usability until a second, less visible fix (de-duplication) shipped alongside it. Can you think of a feature in a product you know well where the "obviously good" version and the "actually good" version differ this way?</li>
+    <li>Phase 07 argues that disclosing unverified assumptions builds more trust than hiding them. Does this argument hold in a competitive market where a rival might make confident (if less honest) claims? Where are the limits of this strategy?</li>
+    <li>Phase 08's "pre-authorized pivot" pattern worked because the original design explicitly flagged the model-size assumption as unverified. What would you flag as the top three unverified assumptions in an AI product you are currently evaluating, and how would you pre-authorize the pivot for each?</li>
+  </ol>
+
+  <div class="instructor-note">
+    <div class="label">Note to instructor</div>
+    <p>You asked whether a sanitized version of this build could work as a case study for "Management of AI Products." My honest answer: yes, and I think it's a genuinely good fit — better, in some ways, than a case built purely from a public company's press coverage, because it preserves real, in-the-moment decision points with visible trade-offs rather than a retrospective, cleaned-up narrative where every choice looks obvious in hindsight.</p>
+    <p>What makes it specifically useful for an AI-products course rather than a generic product-management case: the AI-provider tiering decision in Phase 03 is a product-strategy call that simply doesn't exist in non-AI products; the verification gaps disclosed in Phase 07 are a direct, teachable example of the "how do you know an AI feature actually works" problem your course likely already centers on; and Phase 08 is a clean, concrete illustration of designing for being wrong about a model's real-world characteristics — a very AI-specific flavor of technical risk.</p>
+    <p>Two suggestions before you use it. First, do one more pass yourself — I've generalized every name, figure, and framework-vendor pairing I was aware of being sensitive, but you're the one who knows exactly where your line is, and a second read from you closes any gap my judgment might have missed. Second, consider teaching it as a "pause and decide" case rather than a straight read: stop the class at each Decision Point callout, ask what they would have chosen before revealing what was actually chosen, then discuss the gap. That structure tends to produce much better discussion than reading a case straight through to its own conclusion.</p>
+  </div>
+
+  <div class="colophon">Prepared as classroom material · names, figures, and vendor pairings generalized at the product owner's request · not for external distribution without a further review pass</div>
+
+</div>
