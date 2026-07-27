@@ -112,8 +112,9 @@ Here's the mapping:
 ## 📚 Ready to Try? Here's How
 
 ### **If you want guided practice:**
-→ Go to [**CFOPackV001_Module6_Bridge** →](../../CFOPackV001_Module6_Bridge/)  
-You'll find a **case analysis workbook** that walks you through one case (Asteron) step-by-step, showing exactly how to apply the 8-step method.
+→ Go to the [**Transformation Investment Committee** →](../../CFOPackV002/extensions/TransformationInvestmentCommittee/)
+The rebuilt participant-safe capstone asks you to choose NOW/NEXT investments
+and defend a 90-day Board gate without exposing worked answers.
 
 ### **If you want to jump in:**
 → Go to [**Module 6 Cases** →](https://github.com/VinayaSharada/KateelLearningDemosToStudents/tree/main/SPJainModule6/Module6/Case_Materials/Cases)  
@@ -180,7 +181,7 @@ CFO: "We need to transform finance. Where should we start?"
 
 **Choose one:**
 
-- **[Go to the Case Analysis Workbook →](../../CFOPackV001_Module6_Bridge/CASE_ANALYSIS_WORKBOOK.md)** (guided, 2 hours)
+- **[Open the Transformation Investment Committee →](../../CFOPackV002/extensions/TransformationInvestmentCommittee/)** (guided capstone)
 - **[Jump to Module 6 Cases →](https://github.com/VinayaSharada/KateelLearningDemosToStudents/tree/main/SPJainModule6/Module6/Case_Materials/Cases)** (independent, your choice)
 - **[Explore Digital Labs →](https://github.com/VinayaSharada/KateelLearningDemosToStudents/tree/main/SPJainModule6/Module6/Digital_Finance_Technology_Labs)** (tech-focused, tools not strategy)
 
@@ -199,4 +200,3 @@ Good luck! 🎯
 
 **Want to share your analysis?**  
 Send your memo to your instructor or use it as a talking point with your own finance team.
-

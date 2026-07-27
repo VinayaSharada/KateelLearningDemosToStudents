@@ -1,6 +1,6 @@
 {
   "scenario_id": "liquidity-war-room-2026-09",
-  "version": "2.0.0-alpha.1",
+  "version": "2.1.0-beta.1",
   "title": "CFO Liquidity War Room",
   "as_of_date": "2026-09-01",
   "forecast_horizon_days": 30,
@@ -48,6 +48,26 @@
     "inventory_release_bounds_pct": [0.0, 0.10],
     "facility_draw_bounds": [0, 12000000]
   },
+  "execution_cases": {
+    "expected": {
+      "label": "Expected execution",
+      "collection_achievement": 1.0,
+      "supplier_achievement": 0.80,
+      "inventory_achievement": 0.85
+    },
+    "downside": {
+      "label": "Partial execution downside",
+      "collection_achievement": 0.50,
+      "supplier_achievement": 0.50,
+      "inventory_achievement": 0.60
+    },
+    "failed": {
+      "label": "Operational actions largely fail",
+      "collection_achievement": 0.0,
+      "supplier_achievement": 0.25,
+      "inventory_achievement": 0.0
+    }
+  },
   "fx_policy": {
     "minimum_hedge_ratio": 0.50,
     "maximum_hedge_ratio": 0.80,
@@ -56,11 +76,17 @@
   "default_participant_decisions": {
     "team_name": "Team Delta",
     "scenario_variant": "base",
+    "shock_revealed": false,
+    "data_approval": "conditional",
+    "model_use": "model",
     "forecast_view": "p75",
+    "execution_case": "expected",
     "collection_strategy": "targeted",
     "payables_extension_days": 5,
     "inventory_release_pct": 0.05,
     "facility_draw": 4000000,
+    "cfo_escalation_threshold": 2000000,
+    "collections_receipt_floor": 0.90,
     "proposed_hedge_ratios": {
       "EUR": 0.65,
       "GBP": 0.60,

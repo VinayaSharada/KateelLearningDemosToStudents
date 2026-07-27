@@ -85,3 +85,4 @@ logs
 !TreasuryAnalytics/ARAgingCollectionsPrioritizer/sample_ar_aging.csv
 !CFOPackV002/data/synthetic/*.csv
 !CFOPackV002/templates/*.csv
+!CFOPackV002/extensions/TransformationInvestmentCommittee/*.csv

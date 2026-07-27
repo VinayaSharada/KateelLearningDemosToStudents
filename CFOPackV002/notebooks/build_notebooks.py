@@ -42,7 +42,7 @@ except ImportError:
     from urllib.request import urlopen
     bootstrap_url = (
         'https://raw.githubusercontent.com/VinayaSharada/'
-        'KateelLearningDemosToStudents/cfopack-v002-v2.0.0-alpha.1/CFOPackV002/src/workshop_bootstrap.py'
+        'KateelLearningDemosToStudents/cfopack-v002-v2.1.0-beta.1/CFOPackV002/src/workshop_bootstrap.py'
     )
     namespace = {}
     exec(compile(urlopen(bootstrap_url).read(), bootstrap_url, 'exec'), namespace)
@@ -54,6 +54,7 @@ from cfopack_v002 import (
     default_decisions,
     load_inputs,
     load_manifest,
+    reveal_team_shock,
     run_pipeline,
 )
 import workshop_visuals as viz
@@ -78,7 +79,7 @@ else:
 '''
 
 
-RUN_PIPELINE = "summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)\nprint(f\"Scenario {summary['scenario_version']} calculated for {DECISIONS['team_name']}\")"
+RUN_PIPELINE = "summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)\nprint(f\"Scenario {summary['scenario_version']} calculated for {DECISIONS['team_name']} (model cache: {'hit' if summary['model_cache_hit'] else 'rebuilt'})\")"
 
 
 def context(module_id: str) -> dict:
@@ -132,12 +133,18 @@ different defensible answers.
             """
 DECISIONS = {
     'team_name': 'Team Delta',
-    'scenario_variant': 'base',  # base, customer_shock, supplier_shock, fx_shock
+    'scenario_variant': 'base',  # surprise event is revealed later in N5
+    'shock_revealed': False,
+    'data_approval': 'conditional',  # approved, conditional, rejected
+    'model_use': 'model',  # model or baseline
     'forecast_view': 'p75',      # expected or p75
+    'execution_case': 'expected',
     'collection_strategy': 'targeted',  # none, targeted, broad
     'payables_extension_days': 5,
     'inventory_release_pct': 0.05,
     'facility_draw': 4_000_000,
+    'cfo_escalation_threshold': 2_000_000,
+    'collections_receipt_floor': 0.90,
     'proposed_hedge_ratios': {'EUR': 0.65, 'GBP': 0.60, 'JPY': 0.60, 'INR': 0.55},
 }
 
@@ -176,6 +183,9 @@ charter = f'''# TEAM DECISION CHARTER
 - Supplier extension: up to {DECISIONS['payables_extension_days']} days
 - Inventory release: {DECISIONS['inventory_release_pct']:.1%}
 - Facility draw: ${DECISIONS['facility_draw']:,.0f}
+- Data approval: {DECISIONS['data_approval']}
+- Forecast method: {DECISIONS['model_use']}
+- Surprise event revealed: {DECISIONS['shock_revealed']}
 
 ## Evidence required before final approval
 
@@ -240,6 +250,18 @@ viz.validation_chart(validation, assumptions, OUTPUT_DIR)
 
 Identify the three assumptions most likely to change the CFO recommendation.
 For each, name an owner and the evidence required to confirm it.
+"""
+        ),
+        code(
+            """
+# Make the integrity decision operational. Selecting 'rejected' deliberately
+# stops downstream analysis until the data issue is resolved.
+DECISIONS['data_approval'] = 'conditional'  # approved, conditional, rejected
+decision_file.write_text(json.dumps(DECISIONS, indent=2), encoding='utf-8')
+print(f"Data approval recorded: {DECISIONS['data_approval']}")
+if DECISIONS['data_approval'] == 'rejected':
+    raise RuntimeError('Team rejected the data. Resolve the blocking issue before N2.')
+summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)
 """
         ),
         markdown(COMMON_END),
@@ -328,6 +350,15 @@ State the benchmark, error level, uncertainty, and human control supporting your
 choice.
 """
         ),
+        code(
+            """
+# This choice changes N4 and every downstream receipt forecast.
+DECISIONS['model_use'] = 'model'  # model or baseline
+decision_file.write_text(json.dumps(DECISIONS, indent=2), encoding='utf-8')
+summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)
+print(f"Forecast method approved: {DECISIONS['model_use']}")
+"""
+        ),
         markdown(COMMON_END),
     ],
     "N4_Realistic_Forecast.ipynb": [
@@ -369,6 +400,15 @@ print(f"Largest contractual-to-realistic gap: ${largest_gap['scenario_gap']:,.0f
 
 Is this a forecast miss, a liquidity risk, or both? Choose the cash threshold
 and day that should trigger CFO escalation, and explain why.
+"""
+        ),
+        code(
+            """
+DECISIONS['forecast_view'] = 'p75'  # expected or p75
+DECISIONS['cfo_escalation_threshold'] = 2_000_000
+decision_file.write_text(json.dumps(DECISIONS, indent=2), encoding='utf-8')
+summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)
+print(f"Risk view: {DECISIONS['forecast_view'].upper()}; CFO trigger: ${DECISIONS['cfo_escalation_threshold']:,.0f}")
 """
         ),
         markdown(COMMON_END),
@@ -415,11 +455,59 @@ display(selected[['day', 'receipts', 'total_outflows', 'closing_cash', 'below_mi
         ),
         markdown(
             """
+## Freeze the initial recommendation
+
+Record the package before opening the event envelope. The next evidence is new;
+do not rewrite the original decision after seeing it.
+"""
+        ),
+        code(
+            """
+initial_decision = dict(DECISIONS)
+(OUTPUT_DIR / 'N5_pre_shock_decision.json').write_text(
+    json.dumps(initial_decision, indent=2), encoding='utf-8'
+)
+print('Initial package frozen. Open the event envelope only when instructed.')
+"""
+        ),
+        markdown("## Incoming event — revise or defend"),
+        code(
+            """
+if not DECISIONS['shock_revealed']:
+    DECISIONS['scenario_variant'] = reveal_team_shock(DECISIONS['team_name'])
+    DECISIONS['shock_revealed'] = True
+    decision_file.write_text(json.dumps(DECISIONS, indent=2), encoding='utf-8')
+
+event = manifest['scenario_variants'][DECISIONS['scenario_variant']]
+display(Markdown(f"### EVENT ENVELOPE: {event['label']}"))
+summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)
+stress = pd.read_csv(OUTPUT_DIR / 'N5_execution_stress.csv')
+display(stress)
+viz.execution_stress(stress, manifest['minimum_liquidity'], OUTPUT_DIR)
+"""
+        ),
+        markdown(
+            """
 ## Team decision
 
 Choose the lowest-cost package you can defend. Record what must go right, what
-could fail, and which fallback is pre-authorized. Revise `DECISIONS` in N0 and
-rerun if your original package is no longer defensible.
+could fail, and which fallback is pre-authorized. Edit the consequential choices
+below and rerun; do not revise merely to make every metric green.
+"""
+        ),
+        code(
+            """
+DECISIONS.update({
+    'execution_case': 'expected',  # expected, downside, failed
+    'collection_strategy': DECISIONS['collection_strategy'],
+    'payables_extension_days': DECISIONS['payables_extension_days'],
+    'inventory_release_pct': DECISIONS['inventory_release_pct'],
+    'facility_draw': DECISIONS['facility_draw'],
+})
+decision_file.write_text(json.dumps(DECISIONS, indent=2), encoding='utf-8')
+summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)
+display(pd.read_csv(OUTPUT_DIR / 'N5_execution_stress.csv'))
+print('Post-shock package recorded in the decision ledger.')
 """
         ),
         markdown(COMMON_END),
@@ -461,6 +549,18 @@ print(f"One-time forward cost:     ${fx['one_time_forward_cost'].sum():,.0f}")
 For each currency, defend the proposed hedge ratio and identify the exposure
 direction. Then state whether the facility draw preserves enough unused
 headroom for an additional shock.
+"""
+        ),
+        code(
+            """
+# Edit the funding and hedge choices, then persist the approval consequence.
+DECISIONS['facility_draw'] = DECISIONS['facility_draw']
+DECISIONS['proposed_hedge_ratios'] = DECISIONS['proposed_hedge_ratios']
+decision_file.write_text(json.dumps(DECISIONS, indent=2), encoding='utf-8')
+summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)
+fx = pd.read_csv(OUTPUT_DIR / 'N6_fx_decision.csv')
+display(fx[['currency', 'direction', 'signed_spot_move_pct', 'proposed_hedge_ratio',
+            'within_policy', 'within_cfo_authority', 'required_approval']])
 """
         ),
         markdown(COMMON_END),
@@ -510,6 +610,21 @@ Revise the paper before presenting. The generated document is a traceable draft,
 not an automatic approval recommendation.
 """
         ),
+        code(
+            """
+CFO_DECISION = 'approve'  # approve, revise, reject
+approval_record = {
+    'status': CFO_DECISION,
+    'team': DECISIONS['team_name'],
+    'scenario': DECISIONS['scenario_variant'],
+    'evidence_file': 'N7_decision_evidence.csv',
+}
+(OUTPUT_DIR / 'N7_cfo_approval.json').write_text(
+    json.dumps(approval_record, indent=2), encoding='utf-8'
+)
+print(f"CFO decision recorded: {CFO_DECISION.upper()}")
+"""
+        ),
         markdown(COMMON_END),
     ],
     "N8_Execute_and_Monitor.ipynb": [
@@ -525,6 +640,17 @@ trigger forces the team to escalate or change course?
         ),
         code(BOOTSTRAP),
         context("N8"),
+        code(
+            """
+approval_file = OUTPUT_DIR / 'N7_cfo_approval.json'
+if approval_file.exists():
+    approval = json.loads(approval_file.read_text(encoding='utf-8'))
+else:
+    approval = {'status': 'approve', 'note': 'Standalone N8 recovery default'}
+if approval['status'] != 'approve':
+    raise RuntimeError('Execution is blocked until the CFO decision is approved in N7.')
+"""
+        ),
         code(RUN_PIPELINE),
         markdown("## 30-day action plan and scorecard"),
         code(
@@ -550,6 +676,15 @@ Before the CFO defence, confirm:
 
 Your workshop outcome is the defended decision and executable control system—not
 the fact that every notebook ran successfully.
+"""
+        ),
+        code(
+            """
+DECISIONS['collections_receipt_floor'] = 0.90
+decision_file.write_text(json.dumps(DECISIONS, indent=2), encoding='utf-8')
+summary = run_pipeline(ROOT, OUTPUT_DIR, DECISIONS)
+display(pd.read_csv(OUTPUT_DIR / 'decision_ledger.csv'))
+print('Execution controls recorded and linked to the approved decision.')
 """
         ),
         markdown(COMMON_END),

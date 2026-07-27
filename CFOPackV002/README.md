@@ -40,6 +40,22 @@ position, approval path, and final decision paper.
   professionals
 - Final assessment: CFO decision defence
 
+## Optional executive capstone
+
+`extensions/TransformationInvestmentCommittee` is a separate half-day transfer
+lab. Participants choose a finance-transformation investment for NOW, sequence a
+conditional NEXT investment, and define the Day-90 STOP / REVISE / SCALE gate.
+It replaces the earlier answer-heavy Module 6 Bridge with a participant-safe
+case. Facilitator materials are distributed separately.
+
+## Executive-ready outputs
+
+The core engine produces traceable CSV and Markdown evidence. The export
+builder in `src/executive_exports` converts a completed team output folder into
+a formula-driven Excel decision model, an editable PowerPoint board pack and a
+two-page PDF decision paper. These artifacts are designed for copying into the
+documents and approval workflows finance teams already use.
+
 ## Quick start
 
 ### Google Colab
@@ -73,5 +89,6 @@ python CFOPackV002/tests/run_notebooks.py
 - Using company data requires completing the documented data mapping and policy
   inputs; replacing one CSV is not sufficient.
 
-CFOPackV001 remains available as the earlier workshop version while V002 is
-developed and piloted.
+CFOPackV001 remains available as the earlier workshop version. Its legacy
+Module 6 Bridge has been retired from the participant site and replaced by the
+V002 capstone.

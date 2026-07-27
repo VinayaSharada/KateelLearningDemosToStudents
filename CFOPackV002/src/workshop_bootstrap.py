@@ -9,7 +9,7 @@ from urllib.request import urlopen
 
 REPOSITORY = "VinayaSharada/KateelLearningDemosToStudents"
 # Pin workshop assets so a delivered session cannot silently change underneath it.
-RELEASE_REF = "cfopack-v002-v2.0.0-alpha.1"
+RELEASE_REF = "cfopack-v002-v2.1.0-beta.1"
 PACKAGE_PATH = "CFOPackV002"
 
 PUBLIC_ASSETS = [

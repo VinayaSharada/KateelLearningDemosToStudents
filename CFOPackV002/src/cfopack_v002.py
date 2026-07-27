@@ -7,6 +7,7 @@ instructor artifact uses the same versioned financial logic.
 from __future__ import annotations
 
 import json
+import hashlib
 import math
 from pathlib import Path
 from typing import Any
@@ -30,6 +31,8 @@ DATA_FILES = {
     "inventory_options": "inventory_options.csv",
 }
 
+_MODEL_CACHE: dict[tuple[Any, ...], tuple[Pipeline, pd.DataFrame, pd.DataFrame, pd.DataFrame]] = {}
+
 
 def load_manifest(path: str | Path) -> dict[str, Any]:
     return json.loads(Path(path).read_text(encoding="utf-8"))
@@ -45,6 +48,78 @@ def load_inputs(data_dir: str | Path) -> dict[str, pd.DataFrame]:
 
 def default_decisions(manifest: dict[str, Any]) -> dict[str, Any]:
     return json.loads(json.dumps(manifest["default_participant_decisions"]))
+
+
+def reveal_team_shock(team_name: str) -> str:
+    """Assign a stable surprise event without exposing it in the opening brief."""
+    choices = ("customer_shock", "supplier_shock", "fx_shock")
+    digest = hashlib.sha256(team_name.strip().lower().encode("utf-8")).digest()
+    return choices[digest[0] % len(choices)]
+
+
+def validate_decisions(decisions: dict[str, Any], manifest: dict[str, Any]) -> None:
+    """Validate the participant decision contract before any calculation runs."""
+    required = set(manifest["default_participant_decisions"])
+    missing = sorted(required - set(decisions))
+    if missing:
+        raise ValueError(f"Decision charter is missing: {', '.join(missing)}")
+
+    allowed = {
+        "scenario_variant": set(manifest["scenario_variants"]),
+        "data_approval": {"approved", "conditional", "rejected"},
+        "model_use": {"model", "baseline"},
+        "forecast_view": {"expected", "p75"},
+        "execution_case": set(manifest["execution_cases"]),
+        "collection_strategy": set(
+            manifest["liquidity_actions"]["collection_strategies"]
+        ),
+    }
+    for field, values in allowed.items():
+        if decisions[field] not in values:
+            raise ValueError(
+                f"{field} must be one of: {', '.join(sorted(values))}"
+            )
+
+    if not isinstance(decisions["shock_revealed"], bool):
+        raise ValueError("shock_revealed must be true or false")
+    if not decisions["shock_revealed"] and decisions["scenario_variant"] != "base":
+        raise ValueError("A non-base scenario cannot be used before the shock is revealed")
+
+    actions = manifest["liquidity_actions"]
+    extension = int(decisions["payables_extension_days"])
+    low, high = actions["payables_extension_bounds_days"]
+    if not low <= extension <= high:
+        raise ValueError(f"payables_extension_days must be between {low} and {high}")
+
+    release = float(decisions["inventory_release_pct"])
+    low, high = actions["inventory_release_bounds_pct"]
+    if not low <= release <= high:
+        raise ValueError(f"inventory_release_pct must be between {low} and {high}")
+    menu = {0.0, 0.025, 0.05, 0.075, 0.10}
+    if not any(math.isclose(release, option, abs_tol=1e-9) for option in menu):
+        raise ValueError("inventory_release_pct must match a documented inventory option")
+
+    draw = float(decisions["facility_draw"])
+    low, high = actions["facility_draw_bounds"]
+    capacity = float(manifest["credit_facility"]["committed_capacity"])
+    if not low <= draw <= min(high, capacity):
+        raise ValueError(f"facility_draw must be between {low:,.0f} and {min(high, capacity):,.0f}")
+
+    if float(decisions["cfo_escalation_threshold"]) < 0:
+        raise ValueError("cfo_escalation_threshold cannot be negative")
+    floor = float(decisions["collections_receipt_floor"])
+    if not 0 <= floor <= 1:
+        raise ValueError("collections_receipt_floor must be between 0 and 1")
+
+    ratios = decisions["proposed_hedge_ratios"]
+    currencies = set(
+        manifest["default_participant_decisions"]["proposed_hedge_ratios"]
+    )
+    if set(ratios) != currencies:
+        raise ValueError(f"proposed_hedge_ratios must cover exactly: {', '.join(sorted(currencies))}")
+    for currency, ratio in ratios.items():
+        if not 0 <= float(ratio) <= 1:
+            raise ValueError(f"{currency} hedge ratio must be between 0 and 1")
 
 
 def validate_inputs(
@@ -236,6 +311,12 @@ def train_collections_model(
     ].copy()
     predictions["predicted_days_late"] = np.clip(point_prediction, -5, 90).round(1)
     predictions["p75_days_late"] = np.clip(np.quantile(tree_predictions, 0.75, axis=0), -5, 90).round(1)
+    predictions["baseline_days_late"] = (
+        outstanding["industry"].map(industry_median).fillna(train["days_late"].median()).round(1)
+    )
+    predictions["baseline_p75_days_late"] = (
+        predictions["baseline_days_late"] + baseline_mae * 0.675
+    ).clip(-5, 90).round(1)
     predictions["prediction_spread_days"] = (
         np.quantile(tree_predictions, 0.90, axis=0) - np.quantile(tree_predictions, 0.10, axis=0)
     ).round(1)
@@ -248,6 +329,25 @@ def train_collections_model(
     return pipeline, model_card, feature_importance, predictions
 
 
+def cached_collections_model(
+    data: dict[str, pd.DataFrame], seed: int, cache_namespace: str
+) -> tuple[Pipeline, pd.DataFrame, pd.DataFrame, pd.DataFrame, bool]:
+    payments = data["payments"]
+    key = (
+        cache_namespace,
+        seed,
+        len(data["invoices"]),
+        len(payments),
+        float(payments["days_late"].sum()),
+    )
+    if key in _MODEL_CACHE:
+        pipeline, card, importance, predictions = _MODEL_CACHE[key]
+        return pipeline, card.copy(), importance.copy(), predictions.copy(), True
+    pipeline, card, importance, predictions = train_collections_model(data, seed)
+    _MODEL_CACHE[key] = (pipeline, card.copy(), importance.copy(), predictions.copy())
+    return pipeline, card, importance, predictions, False
+
+
 def _forecast_dates(manifest: dict[str, Any]) -> pd.DatetimeIndex:
     return pd.date_range(
         manifest["as_of_date"], periods=int(manifest["forecast_horizon_days"]), freq="D"
@@ -258,9 +358,13 @@ def receipt_schedule(
     predictions: pd.DataFrame,
     manifest: dict[str, Any],
     view: str,
+    model_use: str = "model",
     additional_delay_days: int = 0,
 ) -> pd.DataFrame:
-    delay_column = "p75_days_late" if view == "p75" else "predicted_days_late"
+    if model_use == "model":
+        delay_column = "p75_days_late" if view == "p75" else "predicted_days_late"
+    else:
+        delay_column = "baseline_p75_days_late" if view == "p75" else "baseline_days_late"
     receipts = predictions[["invoice_id", "customer_id", "due_date", "amount_usd", delay_column]].copy()
     receipts["due_date"] = pd.to_datetime(receipts["due_date"])
     receipts["receipt_date"] = receipts["due_date"] + pd.to_timedelta(
@@ -361,6 +465,8 @@ def apply_liquidity_actions(
     manifest: dict[str, Any],
     decisions: dict[str, Any],
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, float]]:
+    execution_name = decisions.get("execution_case", "expected")
+    execution = manifest["execution_cases"][execution_name]
     strategy_name = decisions["collection_strategy"]
     strategy = manifest["liquidity_actions"]["collection_strategies"][strategy_name]
     receipts = base_receipts.copy().sort_values(
@@ -369,13 +475,21 @@ def apply_liquidity_actions(
     selection_count = int(math.ceil(len(receipts) * float(strategy["portfolio_fraction"])))
     if selection_count:
         selected_index = receipts.head(selection_count).index
-        expected_acceleration = int(round(strategy["acceleration_days"] * strategy["success_rate"]))
+        collection_achievement = float(execution["collection_achievement"])
+        expected_acceleration = int(
+            round(
+                strategy["acceleration_days"]
+                * strategy["success_rate"]
+                * collection_achievement
+            )
+        )
         receipts.loc[selected_index, "receipt_date"] -= pd.to_timedelta(expected_acceleration, unit="D")
         receipts.loc[selected_index, "collection_selected"] = True
         receipts.loc[selected_index, "collection_discount"] = (
             receipts.loc[selected_index, "amount_usd"]
             * float(strategy["discount_rate"])
             * float(strategy["success_rate"])
+            * collection_achievement
         )
         receipts.loc[selected_index, "receipt_amount"] -= receipts.loc[
             selected_index, "collection_discount"
@@ -385,8 +499,18 @@ def apply_liquidity_actions(
     suppliers["due_date"] = pd.to_datetime(suppliers["due_date"])
     extension_days = int(decisions["payables_extension_days"])
     eligible = suppliers["extension_eligible"].astype(bool)
-    suppliers.loc[eligible, "applied_extension_days"] = np.minimum(
-        extension_days, suppliers.loc[eligible, "max_extension_days"].astype(int)
+    suppliers["relationship_risk_rank"] = suppliers["relationship_risk"].map(
+        {"Low": 0, "Medium": 1, "High": 2}
+    ).fillna(3)
+    eligible_index = suppliers.loc[eligible].sort_values(
+        ["relationship_risk_rank", "amount_usd"], ascending=[True, False]
+    ).index
+    achieved_count = int(
+        math.floor(len(eligible_index) * float(execution["supplier_achievement"]))
+    )
+    achieved_index = eligible_index[:achieved_count]
+    suppliers.loc[achieved_index, "applied_extension_days"] = np.minimum(
+        extension_days, suppliers.loc[achieved_index, "max_extension_days"].astype(int)
     )
     suppliers["applied_extension_days"] = suppliers["applied_extension_days"].fillna(0).astype(int)
     suppliers["original_due_date"] = suppliers["due_date"]
@@ -396,7 +520,12 @@ def apply_liquidity_actions(
     inventory_options = data["inventory_options"].copy()
     option_index = (inventory_options["release_pct"] - release_pct).abs().idxmin()
     option = inventory_options.loc[option_index]
-    inventory_gross = float(manifest["accounting_inputs"]["inventory_value"]) * release_pct
+    inventory_achievement = float(execution["inventory_achievement"])
+    inventory_gross = (
+        float(manifest["accounting_inputs"]["inventory_value"])
+        * release_pct
+        * inventory_achievement
+    )
     inventory_cost = inventory_gross * float(option["execution_cost_pct"])
     inventory_net = inventory_gross - inventory_cost
 
@@ -443,6 +572,10 @@ def apply_liquidity_actions(
         "facility_draw_fee": draw_fee,
         "direct_action_cost": float(receipts["collection_discount"].sum()) + inventory_cost + interest + draw_fee,
         "supplier_payments_shifted": int((suppliers["applied_extension_days"] > 0).sum()),
+        "execution_case": execution_name,
+        "collection_achievement": float(execution["collection_achievement"]),
+        "supplier_achievement": float(execution["supplier_achievement"]),
+        "inventory_achievement": inventory_achievement,
     }
     return receipts, suppliers, extra_receipts, extra_outflows, metrics
 
@@ -467,10 +600,10 @@ def evaluate_action_scenarios(
     variant_name: str,
 ) -> tuple[pd.DataFrame, dict[str, pd.DataFrame]]:
     candidates = [
-        ("No action", "none", 0, 0.0, 0),
-        ("Operations first", "targeted", 5, 0.05, 0),
-        ("Balanced liquidity", "targeted", 7, 0.05, 4_000_000),
-        ("Liquidity protected", "broad", 10, 0.075, 8_000_000),
+        ("Option A", "none", 0, 0.0, 0),
+        ("Option B", "targeted", 5, 0.05, 0),
+        ("Option C", "targeted", 7, 0.05, 4_000_000),
+        ("Option D", "broad", 10, 0.075, 8_000_000),
     ]
     operating = _apply_variant_outflow(data["operating_outflows"], manifest, variant_name)
     rows = []
@@ -513,6 +646,80 @@ def evaluate_action_scenarios(
     return pd.DataFrame(rows), forecasts
 
 
+def evaluate_execution_stress(
+    realistic_receipts: pd.DataFrame,
+    data: dict[str, pd.DataFrame],
+    manifest: dict[str, Any],
+    decisions: dict[str, Any],
+) -> pd.DataFrame:
+    """Reforecast the selected package under explicit execution achievement cases."""
+    operating = _apply_variant_outflow(
+        data["operating_outflows"], manifest, decisions["scenario_variant"]
+    )
+    rows = []
+    for case_name, case in manifest["execution_cases"].items():
+        stressed = json.loads(json.dumps(decisions))
+        stressed["execution_case"] = case_name
+        receipts, suppliers, extra_receipts, extra_outflows, costs = apply_liquidity_actions(
+            realistic_receipts, data, manifest, stressed
+        )
+        forecast = build_cash_forecast(
+            receipts,
+            operating,
+            suppliers,
+            manifest,
+            extra_receipts=extra_receipts,
+            extra_outflows=extra_outflows,
+        )
+        metrics = forecast_metrics(forecast, manifest)
+        rows.append(
+            {
+                "execution_case": case_name,
+                "label": case["label"],
+                "collection_achievement": case["collection_achievement"],
+                "supplier_achievement": case["supplier_achievement"],
+                "inventory_achievement": case["inventory_achievement"],
+                "minimum_cash": metrics["minimum_cash"],
+                "minimum_cash_day": metrics["minimum_cash_day"],
+                "ending_cash": metrics["ending_cash"],
+                "days_below_minimum": metrics["days_below_minimum"],
+                "direct_action_cost": costs["direct_action_cost"],
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def decision_ledger(decisions: dict[str, Any]) -> pd.DataFrame:
+    modules = {
+        "team_name": "N0",
+        "scenario_variant": "N5 shock reveal",
+        "shock_revealed": "N5 shock reveal",
+        "data_approval": "N1",
+        "model_use": "N3",
+        "forecast_view": "N4",
+        "execution_case": "N5",
+        "collection_strategy": "N5",
+        "payables_extension_days": "N5",
+        "inventory_release_pct": "N5",
+        "facility_draw": "N6",
+        "cfo_escalation_threshold": "N4",
+        "collections_receipt_floor": "N8",
+        "proposed_hedge_ratios": "N6",
+    }
+    rows = []
+    for field, module in modules.items():
+        value = decisions[field]
+        rows.append(
+            {
+                "module": module,
+                "decision": field,
+                "value": json.dumps(value, sort_keys=True) if isinstance(value, dict) else value,
+                "status": "RECORDED",
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 def analyze_fx(
     fx: pd.DataFrame,
     manifest: dict[str, Any],
@@ -527,7 +734,12 @@ def analyze_fx(
         proposed = float(proposed_ratios.get(currency, exposure["current_hedge_ratio"]))
         current = float(exposure["current_hedge_ratio"])
         notional_usd = float(exposure["foreign_notional"] * exposure["spot_usd_per_unit"])
+        direction = str(exposure["direction"]).lower()
+        if direction not in {"receivable", "payable"}:
+            raise ValueError(f"Unsupported FX direction: {direction}")
         adverse_move = float(exposure["adverse_move_pct"]) * multiplier
+        signed_move = -adverse_move if direction == "receivable" else adverse_move
+        adverse_spot = float(exposure["spot_usd_per_unit"]) * (1 + signed_move)
         loss_before = notional_usd * (1 - current) * adverse_move
         loss_after = notional_usd * (1 - proposed) * adverse_move
         incremental_hedge = max(0.0, proposed - current) * notional_usd
@@ -535,9 +747,11 @@ def analyze_fx(
         rows.append(
             {
                 "currency": currency,
-                "direction": exposure["direction"],
+                "direction": direction,
                 "maturity_day": int(exposure["maturity_day"]),
                 "notional_usd": notional_usd,
+                "signed_spot_move_pct": signed_move,
+                "adverse_spot_usd_per_unit": adverse_spot,
                 "current_hedge_ratio": current,
                 "proposed_hedge_ratio": proposed,
                 "incremental_hedge_usd": incremental_hedge,
@@ -552,7 +766,20 @@ def analyze_fx(
                 ),
             }
         )
-    return pd.DataFrame(rows)
+    result = pd.DataFrame(rows)
+    incremental_total = float(result["incremental_hedge_usd"].sum())
+    authority_limit = float(policy["cfo_incremental_hedge_limit"])
+    result["within_cfo_authority"] = incremental_total <= authority_limit
+    result["required_approval"] = np.where(
+        ~result["within_policy"],
+        "Board policy exception",
+        np.where(
+            result["within_cfo_authority"],
+            "CFO approval",
+            "Board approval - aggregate hedge authority exceeded",
+        ),
+    )
+    return result
 
 
 def funding_summary(
@@ -584,7 +811,8 @@ def funding_summary(
 def build_action_plan(
     decisions: dict[str, Any], selected_metrics: dict[str, float], manifest: dict[str, Any]
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    minimum = manifest["minimum_liquidity"]
+    minimum = float(decisions["cfo_escalation_threshold"])
+    collections_floor = float(decisions["collections_receipt_floor"])
     tasks = [
         ("DECIDE", "Approve liquidity package", "CFO", 0, "Signed decision paper and authority record"),
         ("PREPARE", "Validate priority receivables", "Collections Lead", 1, "Target list approved by Sales and Controller"),
@@ -605,7 +833,7 @@ def build_action_plan(
         [
             ("Closing cash", f">=${minimum:,.0f}", "Daily", "Treasurer", "Escalate funding decision"),
             ("Minimum cash forecast", f">=${minimum:,.0f}", "Daily", "Treasurer", "CFO review within 4 hours"),
-            ("Collections receipts vs plan", ">=90%", "Daily", "Collections Lead", "Sales VP intervention"),
+            ("Collections receipts vs plan", f">={collections_floor:.0%}", "Daily", "Collections Lead", "Sales VP intervention"),
             ("Supplier extensions secured", f">=80% of requested", "Twice weekly", "Procurement", "CFO authority review"),
             ("Facility headroom", ">=20% of capacity", "Daily", "Treasurer", "Board notification assessment"),
             ("Forecast variance", "<=10%", "Daily", "Controller", "Root-cause analysis"),
@@ -629,10 +857,14 @@ def render_decision_paper(
     selected_metrics: dict[str, float],
     action_metrics: dict[str, float],
     fx_decision: pd.DataFrame,
+    execution_stress: pd.DataFrame,
 ) -> str:
     card = dict(zip(model_card["metric"], model_card["value"]))
     fx_cost = float(fx_decision["one_time_forward_cost"].sum())
     fx_reduction = float(fx_decision["loss_reduction"].sum())
+    downside = execution_stress.loc[
+        execution_stress["execution_case"].eq("downside")
+    ].iloc[0]
     approvals = []
     draw = action_metrics["facility_draw"]
     if draw > 0:
@@ -643,10 +875,15 @@ def render_decision_paper(
     approval_text = "\n".join(f"{i}. {text}" for i, text in enumerate(approvals, start=1))
     return f"""# CFO LIQUIDITY DECISION PAPER
 
-**Scenario:** {manifest['title']}  
-**As of:** {manifest['as_of_date']}  
-**Team:** {decisions['team_name']}  
-**Variant:** {manifest['scenario_variants'][decisions['scenario_variant']]['label']}  
+**Scenario:** {manifest['title']}
+
+**As of:** {manifest['as_of_date']}
+
+**Team:** {decisions['team_name']}
+
+**Variant:** {manifest['scenario_variants'][decisions['scenario_variant']]['label']}
+
+**Shock revealed:** {'Yes' if decisions['shock_revealed'] else 'No'}
 **Decision horizon:** {manifest['forecast_horizon_days']} days
 
 ## Decision requested
@@ -664,6 +901,7 @@ def render_decision_paper(
 | Selected-action ending cash | {_money(selected_metrics['ending_cash'])} |
 | Selected-action minimum cash | {_money(selected_metrics['minimum_cash'])} on Day {selected_metrics['minimum_cash_day']:.0f} |
 | Days below minimum after actions | {selected_metrics['days_below_minimum']:.0f} |
+| Partial-execution downside minimum cash | {_money(float(downside['minimum_cash']))} on Day {float(downside['minimum_cash_day']):.0f} |
 
 ## Selected actions and cost
 
@@ -672,12 +910,14 @@ def render_decision_paper(
 - Inventory release: **{decisions['inventory_release_pct']:.1%}**
 - Facility draw: **{_money(decisions['facility_draw'])}**
 - Direct 30-day action cost: **{_money(action_metrics['direct_action_cost'])}**
+- Execution assumption: **{manifest['execution_cases'][decisions['execution_case']]['label']}**
 
 ## Model evidence and limitation
 
 The payment model was tested on a chronological holdout. Its MAE is
 **{card['Model MAE (days)']:.1f} days**, versus **{card['Industry-median baseline MAE (days)']:.1f} days**
-for the simple industry baseline. The decision uses the **{decisions['forecast_view'].upper()}** receipt view;
+for the simple industry baseline. The team approved the **{decisions['model_use']}** method and uses the
+**{decisions['forecast_view'].upper()}** receipt view;
 predictions remain estimates and must be replaced by actual receipts during daily reforecasting.
 
 ## FX decision
@@ -686,6 +926,7 @@ predictions remain estimates and must be replaced by actual receipts during dail
 - One-time forward-cost assumption: **{_money(fx_cost)}**
 - Adverse-loss reduction: **{_money(fx_reduction)}**
 - All proposed ratios within policy: **{'Yes' if bool(fx_decision['within_policy'].all()) else 'No — exception approval required'}**
+- Within CFO aggregate hedge authority: **{'Yes' if bool(fx_decision['within_cfo_authority'].all()) else 'No — Board approval required'}**
 
 ## Primary risks and controls
 
@@ -727,19 +968,25 @@ def run_pipeline(
     output_path.mkdir(parents=True, exist_ok=True)
     manifest = load_manifest(root_path / "config" / "scenario_manifest.json")
     participant_decisions = default_decisions(manifest) if decisions is None else decisions
+    validate_decisions(participant_decisions, manifest)
     data = load_inputs(root_path / "data" / "synthetic")
     validation = validate_inputs(data, manifest)
     if validation.loc[validation["blocking"], "status"].eq("FAIL").any():
         raise ValueError("Blocking data validation failure")
+    if participant_decisions["data_approval"] == "rejected":
+        raise ValueError("Participant data approval is rejected; downstream analysis is stopped")
 
     validation.to_csv(output_path / "N1_validation_report.csv", index=False)
     assumptions_register(manifest).to_csv(output_path / "N1_assumptions_register.csv", index=False)
     (output_path / "N0_team_decisions.json").write_text(
         json.dumps(participant_decisions, indent=2), encoding="utf-8"
     )
+    decision_ledger(participant_decisions).to_csv(
+        output_path / "decision_ledger.csv", index=False
+    )
 
-    _, model_card, feature_importance, predictions = train_collections_model(
-        data, int(manifest["random_seed"])
+    _, model_card, feature_importance, predictions, model_cache_hit = cached_collections_model(
+        data, int(manifest["random_seed"]), str(root_path.resolve())
     )
     model_card.to_csv(output_path / "N3_model_card.csv", index=False)
     feature_importance.to_csv(output_path / "N3_feature_importance.csv", index=False)
@@ -757,6 +1004,7 @@ def run_pipeline(
         predictions,
         manifest,
         participant_decisions["forecast_view"],
+        participant_decisions["model_use"],
         int(variant["additional_receipt_delay_days"]),
     )
     realistic = build_cash_forecast(
@@ -788,6 +1036,10 @@ def run_pipeline(
         extra_outflows=extra_outflows,
     )
     selected.to_csv(output_path / "N5_selected_action_forecast.csv", index=False)
+    execution_stress = evaluate_execution_stress(
+        realistic_receipts, data, manifest, participant_decisions
+    )
+    execution_stress.to_csv(output_path / "N5_execution_stress.csv", index=False)
 
     fx_decision = analyze_fx(
         data["fx_exposures"],
@@ -811,6 +1063,7 @@ def run_pipeline(
         selected_metrics,
         action_metrics,
         fx_decision,
+        execution_stress,
     )
     (output_path / "N7_cfo_decision_paper.md").write_text(decision_paper, encoding="utf-8")
     evidence = pd.DataFrame(
@@ -837,15 +1090,19 @@ def run_pipeline(
         "scenario_version": manifest["version"],
         "decisions": participant_decisions,
         "model": dict(zip(model_card["metric"], model_card["value"])),
+        "model_cache_hit": model_cache_hit,
         "contractual": contractual_metrics,
         "realistic": realistic_metrics,
         "selected": selected_metrics,
         "action_metrics": action_metrics,
+        "execution_stress": execution_stress.to_dict(orient="records"),
         "fx": {
             "incremental_hedge_usd": float(fx_decision["incremental_hedge_usd"].sum()),
             "one_time_forward_cost": float(fx_decision["one_time_forward_cost"].sum()),
             "adverse_loss_reduction": float(fx_decision["loss_reduction"].sum()),
             "within_policy": bool(fx_decision["within_policy"].all()),
+            "within_cfo_authority": bool(fx_decision["within_cfo_authority"].all()),
+            "required_approval": sorted(set(fx_decision["required_approval"])),
         },
     }
     (output_path / "pipeline_summary.json").write_text(

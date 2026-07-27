@@ -98,16 +98,38 @@ def main() -> None:
             "N5_action_scenarios.csv",
             "N5_action_scenarios.png",
             "N5_selected_action_forecast.png",
+            "N5_execution_stress.csv",
+            "N5_execution_stress.png",
             "N6_fx_decision.csv",
             "N6_fx_decision.png",
             "N7_cfo_decision_paper.md",
             "N7_executive_summary.png",
+            "N7_cfo_approval.json",
             "N8_action_plan.csv",
             "N8_execution_plan.png",
+            "decision_ledger.csv",
         ]
         missing = [name for name in expected if not (root / "outputs" / name).exists()]
         if missing:
             raise AssertionError(f"Missing notebook outputs: {missing}")
+
+        capstone = root / "extensions" / "TransformationInvestmentCommittee"
+        old_cwd = Path.cwd()
+        os.chdir(capstone)
+        try:
+            execute(capstone / "T1_Transformation_Investment_Committee.ipynb")
+        finally:
+            os.chdir(old_cwd)
+        capstone_expected = [
+            "T1_option_landscape.png",
+            "T1_portfolio_decision.json",
+            "T1_benefits_realization.csv",
+            "T1_board_memo.md",
+        ]
+        missing = [name for name in capstone_expected if not (capstone / "outputs" / name).exists()]
+        if missing:
+            raise AssertionError(f"Missing capstone outputs: {missing}")
+        print("PASS: T1_Transformation_Investment_Committee.ipynb")
     print("PASS: sequential clean-package notebook execution")
 
 

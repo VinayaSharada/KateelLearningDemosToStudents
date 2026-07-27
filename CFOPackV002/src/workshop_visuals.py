@@ -271,6 +271,18 @@ def action_scenarios(scenarios: pd.DataFrame, minimum: float, output_dir: str | 
     return _save(fig, output_dir, "N5_action_scenarios.png")
 
 
+def execution_stress(stress: pd.DataFrame, minimum: float, output_dir: str | Path) -> Path:
+    fig, ax = plt.subplots(figsize=(10.5, 5.2))
+    colors = [GREEN if value >= minimum else RED for value in stress["minimum_cash"]]
+    ax.bar(stress["label"], stress["minimum_cash"] / 1e6, color=colors)
+    ax.axhline(minimum / 1e6, color=NAVY, ls="--", lw=2, label="Minimum liquidity")
+    ax.set_ylabel("Minimum cash (USD millions)")
+    ax.set_title("Selected package under execution uncertainty")
+    ax.tick_params(axis="x", rotation=10)
+    ax.legend(frameon=False)
+    return _save(fig, output_dir, "N5_execution_stress.png")
+
+
 def fx_chart(fx: pd.DataFrame, output_dir: str | Path) -> Path:
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
     x = np.arange(len(fx))
