@@ -1,50 +1,129 @@
-"""
-N1: Import and Validate
-CFO Pack V001 - Treasury Decision Workshop
+# Auto-exported from N1_Import_and_Validate.ipynb. Edit the notebook, then regenerate this file.
 
-Purpose: Load and validate synthetic data files. Check for data quality issues.
-Output: validated_data.csv (combined dataset ready for analysis)
-
-Estimated time: 10-15 minutes
-"""
+# %% [code cell 1]
+# ==============================================================================
+# SETUP: Imports and Configuration
+# ==============================================================================
+# This cell imports all required libraries and configures data sources.
+# No changes needed unless you want to use your own data.
 
 import pandas as pd
 import numpy as np
-from datetime import datetime
+from datetime import datetime, timedelta
+import warnings
 import os
+import sys
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+warnings.filterwarnings('ignore', category=FutureWarning)
 
-# ============================================================================
-# STEP 1: LOAD DATA FILES
-# ============================================================================
+# Colab starts in /content; local Jupyter starts in this notebooks folder.
+OUTPUT_DIR = '/content/outputs' if 'google.colab' in sys.modules else '../outputs'
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+# CONFIGURATION: Choose your data source
+USE_GITHUB_DATA = True
+# Set to False if you want to upload your own data
+GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/data/synthetic'
+
+print('✓ Imports successful')
+print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
+
+# %% [code cell 2]
+def load_data_from_github():
+    """Load synthetic data directly from GitHub repository.
+
+    Advantages:
+    - No API key required
+    - Pre-validated and consistent with reference outputs
+    - Fast (uses GitHub CDN)
+
+    Returns: dict with keys 'invoices', 'payments', 'customers'
+    """
+    try:
+        print('Loading data from GitHub...')
+        invoices = pd.read_csv(f'{GITHUB_RAW_URL}/invoices.csv')
+        payments = pd.read_csv(f'{GITHUB_RAW_URL}/payments.csv')
+        customers = pd.read_csv(f'{GITHUB_RAW_URL}/customers.csv')
+
+        print(f'✓ Loaded {len(invoices):,} invoices')
+        print(f'✓ Loaded {len(payments):,} payments')
+        print(f'✓ Loaded {len(customers):,} customers')
+        return {'invoices': invoices, 'payments': payments, 'customers': customers}
+    except Exception as e:
+        print(f'✗ Error: {e}')
+        print('  Try Option 2: Manual upload')
+        return None
+
+def load_data_from_upload():
+    """Load data from files you upload manually.
+
+    In Colab: Click Files panel → Upload → Select CSVs
+    In Jupyter: Put CSVs in the same folder as this notebook
+
+    Required files: invoices.csv, payments.csv, customers.csv
+    See data/README.md for required columns.
+    """
+    try:
+        print('Loading data from uploaded files...')
+        invoices = pd.read_csv('invoices.csv')
+        payments = pd.read_csv('payments.csv')
+        customers = pd.read_csv('customers.csv')
+
+        print(f'✓ Loaded {len(invoices):,} invoices')
+        print(f'✓ Loaded {len(payments):,} payments')
+        print(f'✓ Loaded {len(customers):,} customers')
+        return {'invoices': invoices, 'payments': payments, 'customers': customers}
+    except FileNotFoundError as e:
+        print(f'✗ File not found: {e}')
+        return None
+
+# Execute data loading based on configuration above
+if USE_GITHUB_DATA:
+    data = load_data_from_github()
+else:
+    data = load_data_from_upload()
+
+if data is None:
+    print('\n⚠ Data loading failed. Check error above.')
+else:
+    invoices = data['invoices']
+    payments = data['payments']
+    customers = data['customers']
+    print('\n✓ All data loaded and ready for analysis!')
+
+# %% [code cell 3]
+# ==============================================================================
 
 print("[=" * 80)
 print("[N1: IMPORT AND VALIDATE DATA")
 print("[=" * 80)
 print()
-
 # Define file paths (adjust if running from different directory)
-data_dir = "../data/synthetic/"
-
+# Try local first, fall back to GitHub
+try:
+    data_dir = "../data/synthetic/"
+    invoices = pd.read_csv(data_dir + "invoices.csv")
+    payments = pd.read_csv(data_dir + "payments.csv")
+    customers = pd.read_csv(data_dir + "customers.csv")
+    fx_exposure = pd.read_csv(data_dir + "fx_exposure.csv")
+    cash_flow = pd.read_csv(data_dir + "cash_flow.csv")
+except FileNotFoundError:
+# Fallback to GitHub if local files not found
+    print("Local data not found, loading from GitHub...")
+    invoices = pd.read_csv(f'{GITHUB_RAW_URL}/invoices.csv')
+    payments = pd.read_csv(f'{GITHUB_RAW_URL}/payments.csv')
+    customers = pd.read_csv(f'{GITHUB_RAW_URL}/customers.csv')
+    fx_exposure = pd.read_csv(f'{GITHUB_RAW_URL}/fx_exposure.csv')
+    cash_flow = pd.read_csv(f'{GITHUB_RAW_URL}/cash_flow.csv')
 print("[[FILES] Loading data files...")
-
-# Load all CSVs
-invoices = pd.read_csv(data_dir + "invoices.csv")
-payments = pd.read_csv(data_dir + "payments.csv")
-customers = pd.read_csv(data_dir + "customers.csv")
-fx_exposure = pd.read_csv(data_dir + "fx_exposure.csv")
-cash_flow = pd.read_csv(data_dir + "cash_flow.csv")
-
 print(f"[OK] invoices.csv: {len(invoices)} rows")
 print(f"[OK] payments.csv: {len(payments)} rows")
 print(f"[OK] customers.csv: {len(customers)} rows")
 print(f"[OK] fx_exposure.csv: {len(fx_exposure)} rows")
 print(f"[OK] cash_flow.csv: {len(cash_flow)} rows")
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 2: DATA QUALITY CHECKS
-# ============================================================================
-
+# %% [code cell 4]
 print("[[CHECK] RUNNING DATA QUALITY CHECKS...")
 print()
 
@@ -115,13 +194,9 @@ else:
 
 print()
 
-# ============================================================================
-# STEP 3: DATA SUMMARY STATISTICS
-# ============================================================================
-
+# %% [code cell 5]
 print("[[CHART] DATA SUMMARY")
 print()
-
 print("[INVOICES Summary:")
 print(f"  Total invoices: {len(invoices)}")
 print(f"  Total AR value: ${invoices['amount_usd'].sum():,.0f}")
@@ -130,36 +205,28 @@ print(f"  Date range: {invoices['invoice_date'].min()} to {invoices['invoice_dat
 print(f"  Unique customers: {invoices['customer_id'].nunique()}")
 print(f"  Paid invoices: {(invoices['status']=='paid').sum():,}")
 print(f"  Outstanding invoices: {(invoices['status']=='outstanding').sum():,}")
-
 print("[\nCUSTOMERS Summary:")
 print(f"  Total customers: {len(customers)}")
 print(f"  Industries: {customers['industry'].nunique()} unique")
 print(f"  Avg days late: {customers['avg_days_late'].mean():.1f}")
 print(f"  Avg risk score: {customers['risk_score'].mean():.2f}")
-
 print("[\nPAYMENT HISTORY Summary:")
 print(f"  Historical payments: {len(payments)}")
 print(f"  Average days late: {payments['days_late'].mean():.1f}")
 print(f"  On-time (0 days late): {(payments['days_late'] == 0).sum()}")
 print(f"  Late (>7 days): {(payments['days_late'] > 7).sum()}")
-
 print("[\nFX EXPOSURE Summary:")
 for idx, row in fx_exposure.iterrows():
     hedge_pct = row['current_hedge_ratio'] * 100
     print(f"  {row['currency']}: ${row['notional_amount']:,.0f} ({hedge_pct:.0f}% hedged)")
-
 print(f"[\nCASH FLOW Summary ({len(cash_flow)}-day):")
 total_outflows = cash_flow['total_outflows'].sum()
 print(f"  Total outflows: ${total_outflows:,.0f}")
 print(f"  Largest outflow day: Day {cash_flow.loc[cash_flow['total_outflows'].idxmax(), 'day']:.0f}")
 print(f"    (${cash_flow['total_outflows'].max():,.0f})")
-
 print()
 
-# ============================================================================
-# STEP 4: DATA QUALITY SCORE
-# ============================================================================
-
+# %% [code cell 6]
 print("[[LIST] DATA QUALITY ASSESSMENT")
 print()
 
@@ -207,61 +274,52 @@ else:
 print(f"\nData Quality Score: {quality_score}/100")
 print()
 
-# ============================================================================
-# STEP 5: PREPARE VALIDATED DATASET
-# ============================================================================
-
+# %% [code cell 7]
+# ==============================================================================
 print("[[SAVE] EXPORTING VALIDATED DATA")
 print()
-
-# Combine invoices with customer info
+# Combine invoices with customer information
 invoices_with_customers = invoices.merge(
     customers[['customer_id', 'avg_days_late', 'risk_score', 'industry']],
     on='customer_id',
     how='left'
 )
-
 # Combine with payment history (for each invoice, was it paid, when, how many days late?)
-# Left join on invoice_id to keep all invoices even if not yet paid
+# Left join keeps outstanding invoices that have no payment yet
 invoices_with_payments = invoices_with_customers.merge(
     payments[['invoice_id', 'payment_date', 'days_late']],
     on='invoice_id',
     how='left',
     suffixes=('', '_actual')
 )
+invoices_with_payments.rename(
+    columns={'days_late': 'actual_days_late'},
+    inplace=True
+)
 
-# Rename for clarity
-invoices_with_payments.rename(columns={
-    'days_late': 'actual_days_late'  # Historical data
-}, inplace=True)
-
-# Export
-export_path = "../outputs/N1_validated_data.csv"
+export_path = f"{OUTPUT_DIR}/N1_validated_data.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 invoices_with_payments.to_csv(export_path, index=False)
-
 print(f"[OK] Exported: {export_path}")
 print(f"  Records: {len(invoices_with_payments)}")
 print(f"  Columns: {len(invoices_with_payments.columns)}")
 print()
-
-# Also save supporting files
-customers.to_csv("../outputs/N1_customers.csv", index=False)
-fx_exposure.to_csv("../outputs/N1_fx_exposure.csv", index=False)
-cash_flow.to_csv("../outputs/N1_cash_flow.csv", index=False)
-
+# Save supporting files for downstream notebooks
+customers.to_csv(f"{OUTPUT_DIR}/N1_customers.csv", index=False)
+fx_exposure.to_csv(f"{OUTPUT_DIR}/N1_fx_exposure.csv", index=False)
+cash_flow.to_csv(f"{OUTPUT_DIR}/N1_cash_flow.csv", index=False)
 print("[[OK] Supporting files exported")
 print()
-
 print("[=" * 80)
 print("[[DONE] N1 COMPLETE - Data validated and ready for forecasting")
 print("[=" * 80)
 print()
 print("[[INFO] What we learned:")
-print("[   Data quality is", "EXCELLENT [OK]" if quality_score == 100 else f"{quality_score}/100")
+print("[   Data quality is", "EXCELLENT [OK]"
+if quality_score == 100 else f"{quality_score}/100")
 print(f"   We have {invoices['customer_id'].nunique()} customers with ${invoices['amount_usd'].sum()/1_000_000:.1f}M in receivables")
 print(f"   Payment history shows customers typically pay {payments['days_late'].mean():.1f} days late")
 print(f"   This suggests our baseline forecast (assuming on-time payment) is OPTIMISTIC")
 print()
-print("[[GOAL] Next step: N2_Baseline_Forecast.py")
+print("[[GOAL] Next step: N2_Baseline_Forecast.ipynb")
 print("[   Build a 14-day cash forecast assuming all invoices pay on their due dates")

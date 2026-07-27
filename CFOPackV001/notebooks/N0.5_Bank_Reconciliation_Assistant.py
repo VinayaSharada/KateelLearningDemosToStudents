@@ -1,230 +1,94 @@
-"""
-N0.5: Bank Reconciliation Assistant
-CFO Pack V001 - Treasury Decision Workshop
+# Auto-exported from N0.5_Bank_Reconciliation_Assistant.ipynb. Edit the notebook, then regenerate this file.
 
-Purpose: Match bank statement entries to outstanding invoices using local SLM
-Output: Reconciliation report with matched, partial, ambiguous, and unmatched entries
-
-Uses: Phi-3 (or Mistral-7B) via ollama for local processing
-Data: Bank statement CSV + Outstanding invoices CSV
-Prompts: Customizable templates for different matching strategies
-
-Key insight: Shows promise and limitations of LLM-based reconciliation
-- What works: Clear matches, exact amounts, customer names in descriptions
-- Challenges: Partial payments, ambiguous amounts, data quality issues, timing mismatches
-
-Estimated time: 30-40 minutes (includes model download + installation)
-"""
+# %% [code cell 1]
+# ==============================================================================
+# SETUP: Imports and Configuration
+# ==============================================================================
+# This cell imports all required libraries and configures data sources.
+# No changes needed unless you want to use your own data.
 
 import pandas as pd
 import numpy as np
-import json
+from datetime import datetime, timedelta
+import warnings
 import os
-import subprocess
 import sys
-from datetime import datetime
+import subprocess
+import json
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+warnings.filterwarnings('ignore', category=FutureWarning)
 
-print("[=" * 80)
-print("[N0.5: BANK RECONCILIATION ASSISTANT (Local SLM)")
-print("[=" * 80)
-print()
+# Colab starts in /content; local Jupyter starts in this notebooks folder.
+OUTPUT_DIR = '/content/outputs' if 'google.colab' in sys.modules else '../outputs'
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# ============================================================================
-# STEP 0: ENVIRONMENT CHECK & OLLAMA SETUP
-# ============================================================================
+# CONFIGURATION: Choose your data source
+USE_GITHUB_DATA = True
+# Set to False if you want to upload your own data
 
-print("[ Step 1: Checking environment and setting up ollama...")
-print()
+GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/data/synthetic'
 
-# Try to detect if we're in Colab
-try:
-    from google.colab import drive
-    IN_COLAB = True
-    print("[OK] Running in Google Colab")
-except:
-    IN_COLAB = False
-    print("[NOTE] Running locally (not Colab)")
+# CONFIGURATION: LLM Settings
+USE_FALLBACK = True  # Set to False if you have ollama running locally
+SELECTED_MODEL = 'phi'  # Local model name (if using ollama)
 
-print()
+print('✓ Imports successful')
+print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
+print(f"✓ Reconciliation mode: {'Heuristic (fallback)' if USE_FALLBACK else 'LLM (ollama)'}")
 
-# Check for ollama installation
-def check_ollama():
-    """Check if ollama is installed and running"""
-    try:
-        result = subprocess.run(['ollama', '--version'], capture_output=True, text=True, timeout=5)
-        if result.returncode == 0:
-            return True, "installed"
-    except FileNotFoundError:
-        return False, "not_found"
-    except Exception as e:
-        return False, str(e)
-
-ollama_installed, ollama_status = check_ollama()
-
-if ollama_installed:
-    print("[OK] Ollama is installed")
-else:
-    print("[WARNING] Ollama not found. Will attempt installation...")
-    print()
-    if IN_COLAB:
-        print("[INSTALLING] Ollama in Colab (this takes ~2-3 minutes)...")
-        print()
-        # Installation commands for Colab
-        install_commands = [
-            "curl -fsSL https://ollama.ai/install.sh | sh",
-        ]
-        for cmd in install_commands:
-            print(f"Running: {cmd}")
-            os.system(cmd)
-        print()
-        print("[NOTE] After installation, you may need to start ollama separately:")
-        print("  In terminal: ollama serve")
-        print()
-
-# Model selection
-print("[[GOAL] Model Selection")
-print()
-
-MODELS_TO_TRY = [
-    {
-        'name': 'phi3',
-        'full_name': 'phi3:3.8b',
-        'size_gb': 2.3,
-        'speed': 'fast',
-        'quality': 'good',
-        'description': 'Phi-3 (3.8B) - Tiny, fast, surprisingly good'
-    },
-    {
-        'name': 'mistral',
-        'full_name': 'mistral:7b',
-        'size_gb': 4.1,
-        'speed': 'medium',
-        'quality': 'excellent',
-        'description': 'Mistral-7B (7B) - Better quality, needs more resources'
-    }
-]
-
-print("[Available models:")
-for model in MODELS_TO_TRY:
-    print(f"  {model['name']:15s} - {model['description']:60s} ({model['size_gb']:.1f}GB)")
-print()
-
-# For demo, we'll use a fallback mode if ollama isn't available
-USE_FALLBACK = True
-SELECTED_MODEL = 'phi3:3.8b'
-
-if ollama_installed:
-    print(f"[Attempting to use {SELECTED_MODEL}...")
-    try:
-        # Try to pull the model (will use cached version if already downloaded)
-        print(f"[Pulling {SELECTED_MODEL}...")
-        os.system(f"ollama pull {SELECTED_MODEL}")
-        USE_FALLBACK = False
-        print(f"[OK] {SELECTED_MODEL} ready")
-    except Exception as e:
-        print(f"[WARNING] Could not load {SELECTED_MODEL}: {e}")
-        print("[FALLING BACK] to demo mode with pre-computed results")
-        USE_FALLBACK = True
-else:
-    print("[DEMO MODE] Using pre-computed reconciliation results")
-    print("[NOTE] To use real SLM:")
-    print("  1. Install ollama: https://ollama.ai")
-    print("  2. Run: ollama serve")
-    print("  3. Run: ollama pull phi3:3.8b")
-    USE_FALLBACK = True
-
-print()
-
-# ============================================================================
-# STEP 1: LOAD DATA
-# ============================================================================
+# %% [code cell 2]
+# ==============================================================================
 
 print("[ Step 2: Loading data...")
 print()
-
-# Load bank statement and invoices
-bank_statement = pd.read_csv("../data/synthetic/bank_statement.csv")
-invoices = pd.read_csv("../data/synthetic/invoices.csv")
-
+# Try to load from local outputs first, fall back to GitHub
+try:
+    bank_statement = pd.read_csv("../data/synthetic/bank_statement.csv")
+    invoices = pd.read_csv("../data/synthetic/invoices.csv")
+except FileNotFoundError:
+# Fallback to GitHub if local files not found
+    print("Local data not found, loading from GitHub...")
+    bank_statement = pd.read_csv(f'{GITHUB_RAW_URL}/bank_statement.csv')
+    invoices = pd.read_csv(f'{GITHUB_RAW_URL}/invoices.csv')
 # Filter to outstanding invoices (not yet paid)
 outstanding = invoices[invoices['status'] == 'outstanding'].copy()
-
 print(f"[OK] Loaded bank statement: {len(bank_statement)} entries")
 print(f"[OK] Loaded outstanding invoices: {len(outstanding)} invoices")
 print()
-
 # Show sample data
 print("[BANK STATEMENT SAMPLE:")
 print(bank_statement.head(3).to_string())
 print()
-
 print("[OUTSTANDING INVOICES SAMPLE:")
 print(outstanding[['invoice_id', 'customer_id', 'amount_usd', 'due_date']].head(3).to_string())
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 2: DEFINE RECONCILIATION PROMPT TEMPLATE
-# ============================================================================
+# %% [code cell 3]
+# ==============================================================================
+
 
 print("[ Step 3: Setting up reconciliation logic...")
 print()
-
 # Prompt template (students can customize this)
-RECONCILIATION_SYSTEM_PROMPT = """
-You are a bank reconciliation expert. Your task is to match bank statement entries
-to outstanding invoices.
-
-For each bank entry, analyze it against the outstanding invoices and:
-1. Identify if there's a CLEAR MATCH (exact or nearly exact amount, customer match)
-2. Identify PARTIAL MATCHES (amount matches part of an invoice, or invoice amount matches multiple entries)
-3. Identify AMBIGUOUS CASES (could match multiple invoices, uncertain customer)
-4. Identify UNMATCHED entries (no reasonable match found)
-
-For each match, provide:
-- Matched invoice ID(s)
-- Match confidence: HIGH (exact match), MEDIUM (reasonable match, minor discrepancy),
-                    LOW (possible match but uncertain), or NONE (no match)
-- Reasoning for your decision
-- Any caveats or notes
-
-Return ONLY valid JSON, no other text.
-"""
-
-RECONCILIATION_USER_PROMPT = """
-Bank Entry:
-  Date: {bank_date}
-  Amount: ${bank_amount:.2f}
-  Description: {bank_description}
-  Reference: {bank_reference}
-
-Outstanding Invoices (to match against):
-{invoices_text}
-
-Analyze this bank entry. Return JSON with this exact structure:
-{{
-  "matched_invoice_ids": [list of invoice IDs that match, or empty if none],
-  "confidence": "HIGH|MEDIUM|LOW|NONE",
-  "reasoning": "Brief explanation of the match logic",
-  "caveats": "Any concerns or ambiguities (empty string if none)",
-  "is_partial_payment": true/false,
-  "requires_manual_review": true/false
-}}
-"""
+RECONCILIATION_SYSTEM_PROMPT = """You are a bank reconciliation expert. Your task is to match bank statement entriesto outstanding invoices.For each bank entry, analyze it against the outstanding invoices and:1. Identify if there's a CLEAR MATCH (exact or nearly exact amount, customer match)2. Identify PARTIAL MATCHES (amount matches part of an invoice, or invoice amount matches multiple entries)3. Identify AMBIGUOUS CASES (could match multiple invoices, uncertain customer)4. Identify UNMATCHED entries (no reasonable match found)For each match, provide:- Matched invoice ID(s)- Match confidence: HIGH (exact match), MEDIUM (reasonable match, minor discrepancy),                    LOW (possible match but uncertain), or NONE (no match)- Reasoning for your decision- Any caveats or notesReturn ONLY valid JSON, no other text."""
+RECONCILIATION_USER_PROMPT = """Bank Entry:  Date: {bank_date}  Amount: ${bank_amount:.2f}  Description: {bank_description}  Reference: {bank_reference}Outstanding Invoices (to match against):{invoices_text}Analyze this bank entry. Return JSON with this exact structure:{{  "matched_invoice_ids": [list of invoice IDs that match, or empty if none],  "confidence": "HIGH|MEDIUM|LOW|NONE",  "reasoning": "Brief explanation of the match logic",  "caveats": "Any concerns or ambiguities (empty string if none)",  "is_partial_payment": true/false,  "requires_manual_review": true/false}}"""
 
 print("[PROMPT TEMPLATE LOADED]")
 print("[Students can customize prompts in ../templates/bank_reconciliation_prompt_template.txt")
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 3: RECONCILIATION FUNCTION (with fallback)
-# ============================================================================
+# %% [code cell 4]
+# ==============================================================================
+# RECONCILIATION FUNCTIONS
+# ==============================================================================
 
 def get_llm_reconciliation(bank_entry, outstanding_invoices):
     """
     Use LLM to match bank entry to invoices.
     Falls back to heuristic matching if ollama unavailable.
     """
-
     if USE_FALLBACK:
         return get_heuristic_reconciliation(bank_entry, outstanding_invoices)
 
@@ -238,7 +102,6 @@ def get_llm_reconciliation(bank_entry, outstanding_invoices):
             f"  {row['invoice_id']}: {row['customer_name']}, ${row['amount_usd']:.2f}, due {row['due_date']}"
             for _, row in outstanding_invoices.iterrows()
         ])
-
         user_prompt = RECONCILIATION_USER_PROMPT.format(
             bank_date=bank_entry['transaction_date'],
             bank_amount=bank_entry['amount_usd'],
@@ -270,7 +133,6 @@ def get_llm_reconciliation(bank_entry, outstanding_invoices):
                     return json.loads(json_str)
             except:
                 pass
-
     except Exception as e:
         print(f"[WARNING] LLM call failed: {e}")
 
@@ -283,11 +145,9 @@ def get_heuristic_reconciliation(bank_entry, outstanding_invoices):
     Fallback: Use heuristic rules for matching when ollama unavailable.
     This demonstrates the limitations of non-LLM approaches.
     """
-
     bank_amount = bank_entry['amount_usd']
     bank_desc = bank_entry['description'].lower()
     bank_date = pd.to_datetime(bank_entry['transaction_date'])
-
     matches = []
 
     for _, invoice in outstanding_invoices.iterrows():
@@ -346,11 +206,10 @@ def get_heuristic_reconciliation(bank_entry, outstanding_invoices):
             'requires_manual_review': True
         }
 
+# ==============================================================================
 
-# ============================================================================
-# STEP 4: RUN RECONCILIATION
-# ============================================================================
-
+# %% [code cell 5]
+# ==============================================================================
 print("[" * 80)
 print("[[GOAL] RUNNING RECONCILIATION")
 print("[" * 80)
@@ -363,7 +222,6 @@ else:
     print(f"[[AI] Using {SELECTED_MODEL} for reconciliation")
 
 print()
-
 reconciliation_results = []
 
 for idx, bank_entry in bank_statement.iterrows():
@@ -388,11 +246,10 @@ for idx, bank_entry in bank_statement.iterrows():
     })
 
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 5: RECONCILIATION SUMMARY
-# ============================================================================
-
+# %% [code cell 6]
+# ==============================================================================
 print("[=" * 80)
 print("[[CHART] RECONCILIATION SUMMARY")
 print("[=" * 80)
@@ -407,7 +264,6 @@ low_confidence = len(results_df[results_df['match_confidence'] == 'LOW'])
 no_match = len(results_df[results_df['match_confidence'] == 'NONE'])
 manual_review = len(results_df[results_df['requires_manual_review'] == True])
 partial_payments = len(results_df[results_df['is_partial_payment'] == True])
-
 total_amount = results_df['amount_usd'].sum()
 matched_amount = results_df[results_df['match_confidence'] != 'NONE']['amount_usd'].sum()
 matched_pct = (matched_amount / total_amount * 100) if total_amount > 0 else 0
@@ -418,21 +274,19 @@ print(f"  MEDIUM confidence:  {medium_confidence:3d} entries (likely matches)")
 print(f"  LOW confidence:     {low_confidence:3d} entries (possible matches)")
 print(f"  NO match:           {no_match:3d} entries (unmatched)")
 print()
-
 print("[MATCH COVERAGE:")
 print(f"  Amount matched:     ${matched_amount:>12,.2f} ({matched_pct:5.1f}%)")
 print(f"  Amount unmatched:   ${total_amount - matched_amount:>12,.2f} ({100-matched_pct:5.1f}%)")
 print(f"  Total bank entries: {len(results_df)}")
 print()
-
 print("[SPECIAL CASES:")
 print(f"  Partial payments:   {partial_payments} entries (payment < invoice amount)")
 print(f"  Manual review:      {manual_review} entries (needs human validation)")
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 6: DETAILED RESULTS
-# ============================================================================
+# %% [code cell 7]
+# ==============================================================================
 
 print("[=" * 80)
 print("[[INFO] DETAILED RESULTS")
@@ -442,49 +296,57 @@ print()
 # Matched entries (high confidence)
 print("[HIGH CONFIDENCE MATCHES (Likely automated):")
 print("[-" * 100)
+
 high_conf = results_df[results_df['match_confidence'] == 'HIGH']
+
 if len(high_conf) > 0:
     for idx, row in high_conf.iterrows():
         print(f"  {row['transaction_date']} ${row['amount_usd']:>10,.2f}  {row['description'][:50]:50s}")
         print(f"    -> Match: {row['matched_invoice_ids']:30s} ({row['match_reasoning']})")
         if row['caveats']:
             print(f"    -> Caveat: {row['caveats']}")
-        print()
+    print()
 else:
     print("  None")
+
 print()
 
 # Medium confidence
 print("[MEDIUM CONFIDENCE MATCHES (Need review):")
 print("[-" * 100)
+
 med_conf = results_df[results_df['match_confidence'] == 'MEDIUM']
+
 if len(med_conf) > 0:
     for idx, row in med_conf.iterrows():
         print(f"  {row['transaction_date']} ${row['amount_usd']:>10,.2f}  {row['description'][:50]:50s}")
         print(f"    -> Match: {row['matched_invoice_ids']:30s} ({row['match_reasoning']})")
         print(f"    -> [WARNING]  Requires review: {row['caveats']}")
-        print()
+    print()
 else:
     print("  None")
+
 print()
 
 # Unmatched entries
 print("[UNMATCHED ENTRIES (Cannot match):")
 print("[-" * 100)
+
 unmatched = results_df[results_df['match_confidence'] == 'NONE']
+
 if len(unmatched) > 0:
     for idx, row in unmatched.iterrows():
         print(f"  {row['transaction_date']} ${row['amount_usd']:>10,.2f}  {row['description'][:50]:50s}")
         print(f"    -> Reason: {row['caveats']}")
-        print()
+    print()
 else:
     print("  None")
+
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 7: INVOICES NOT YET MATCHED
-# ============================================================================
-
+# %% [code cell 8]
+# ==============================================================================
 print("[=" * 80)
 print("[[CHART] INVOICES NOT YET MATCHED")
 print("[=" * 80)
@@ -492,6 +354,7 @@ print()
 
 # Parse matched invoice IDs
 matched_ids = set()
+
 for _, row in results_df.iterrows():
     if row['match_confidence'] != 'NONE':
         try:
@@ -513,19 +376,19 @@ if len(unmatched_invoices) > 0:
     print("[-" * 100)
 else:
     print("[OK] All outstanding invoices have been matched to bank entries!")
+
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 8: EXPORT RESULTS
-# ============================================================================
-
+# %% [code cell 9]
+# ==============================================================================
 print("[=" * 80)
 print("[[SAVE] Exporting reconciliation results...")
 print("[=" * 80)
 print()
 
 # Export matched reconciliation
-export_path = "../outputs/N0.5_reconciliation_results.csv"
+export_path = f"{OUTPUT_DIR}/N0.5_reconciliation_results.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 results_df.to_csv(export_path, index=False)
 print(f"[OK] Exported matched results: {export_path}")
@@ -561,27 +424,25 @@ summary_data = {
 }
 
 summary_df = pd.DataFrame(summary_data)
-export_path_summary = "../outputs/N0.5_reconciliation_summary.csv"
+export_path_summary = f"{OUTPUT_DIR}/N0.5_reconciliation_summary.csv"
 summary_df.to_csv(export_path_summary, index=False)
 print(f"[OK] Exported summary: {export_path_summary}")
 
 # Export unmatched invoices
 if len(unmatched_invoices) > 0:
-    export_path_unmatched = "../outputs/N0.5_unmatched_invoices.csv"
+    export_path_unmatched = f"{OUTPUT_DIR}/N0.5_unmatched_invoices.csv"
     unmatched_invoices.to_csv(export_path_unmatched, index=False)
     print(f"[OK] Exported unmatched invoices: {export_path_unmatched}")
 
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 9: PROMPT CUSTOMIZATION GUIDE
-# ============================================================================
-
+# %% [code cell 10]
+# ==============================================================================
 print("[=" * 80)
 print("[[IDEA] HOW TO CUSTOMIZE THE RECONCILIATION")
 print("[=" * 80)
 print()
-
 print("[STUDENTS: You can modify reconciliation behavior by editing the prompt:")
 print()
 print("[1. Location: ../templates/bank_reconciliation_prompt_template.txt")
@@ -605,23 +466,20 @@ print("     Edit the prompt file")
 print("     Re-run this notebook")
 print("     Compare results to previous run")
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 10: KEY INSIGHTS & CHALLENGES
-# ============================================================================
-
+# %% [code cell 11]
+# ==============================================================================
 print("[=" * 80)
 print("[[INFO] KEY INSIGHTS & CHALLENGES DEMONSTRATED")
 print("[=" * 80)
 print()
-
 print("[WHAT WORKED WELL:")
 print("  ✓ Exact amount matches with customer references")
 print("  ✓ Bank entries with invoice IDs in description")
 print("  ✓ Same-day or near-day matches")
 print("  ✓ Clear customer names in bank description")
 print()
-
 print("[WHAT WAS CHALLENGING:")
 print("  ✗ Partial payments (one invoice, multiple bank entries)")
 print("  ✗ Aggregated payments (multiple invoices, one bank entry)")
@@ -632,23 +490,20 @@ print("  ✗ Transaction fees and adjustments")
 print("  ✗ Foreign exchange conversions")
 print("  ✗ Round-tripping (credit then re-payment)")
 print()
-
 print("[WHY THESE CHALLENGES MATTER:")
 print("  - Manual review still required for ~" + f"{manual_review/len(results_df)*100:.0f}% of entries")
 print("  - Automation saves time but doesn't eliminate human judgment")
 print("  - Data quality is critical (standardize customer names, invoice IDs in descriptions)")
 print("  - Prompt engineering can improve matching (try customizing prompts above)")
 print()
+# ==============================================================================
 
-# ============================================================================
-# STEP 11: COMPARISON TO CLAUDE API
-# ============================================================================
-
+# %% [code cell 12]
+# ==============================================================================
 print("[=" * 80)
 print("[[GOAL] LOCAL SLM vs CLAUDE API TRADEOFF")
 print("[=" * 80)
 print()
-
 print("[LOCAL SLM (Phi-3 via Ollama):")
 print("  Pros:")
 print("    ✓ Data stays local (no external API calls)")
@@ -661,7 +516,6 @@ print("    ✗ Slower (5-10 sec per match vs <1 sec for Claude)")
 print("    ✗ Requires installation & setup (ollama, model download)")
 print("    ✗ Needs GPU for reasonable speed")
 print()
-
 print("[CLAUDE API:")
 print("  Pros:")
 print("    ✓ Higher accuracy (better at ambiguous matches)")
@@ -674,7 +528,6 @@ print("    ✗ Per-call cost (~$0.001 per match)")
 print("    ✗ Rate limits (API quotas)")
 print("    ✗ Requires internet connection")
 print()
-
 print("[RECOMMENDATION:")
 print("  Use Phi-3 locally for:")
 print("    - Sensitive/confidential financial data")
@@ -687,41 +540,32 @@ print("    - Complex matching scenarios")
 print("    - When accuracy is critical")
 print("    - Where convenience > cost")
 print()
-
-# ============================================================================
+# ==============================================================================
 # FINAL STATUS
-# ============================================================================
-
+# ==============================================================================
 print("[=" * 80)
 print("[[DONE] N0.5 RECONCILIATION COMPLETE")
 print("[=" * 80)
 print()
-
 print("[[SUMMARY]")
 print(f"  Processed: {len(results_df)} bank entries")
 print(f"  Matched: {matched_amount:,.2f} ({matched_pct:.1f}%)")
 print(f"  Requires review: {manual_review} entries ({manual_review/len(results_df)*100:.1f}%)")
 print(f"  Unmatched: {no_match} entries")
 print()
-
-if manual_review > 0:
-    print(f"[[WARNING]  {manual_review} entries need manual review")
-    print("[TIP] See detailed results above for entries flagged 'MEDIUM' or 'NONE' confidence")
+if manual_review > 0:    print(f"[[WARNING]  {manual_review} entries need manual review")
+print("[TIP] See detailed results above for entries flagged 'MEDIUM' or 'NONE' confidence")
 print()
-
 print("[[OUTPUT FILES]")
 print(f"  1. N0.5_reconciliation_results.csv - Full matching results")
 print(f"  2. N0.5_reconciliation_summary.csv - Summary statistics")
-if len(unmatched_invoices) > 0:
-    print(f"  3. N0.5_unmatched_invoices.csv - Invoices without matched payments")
+if len(unmatched_invoices) > 0:    print(f"  3. N0.5_unmatched_invoices.csv - Invoices without matched payments")
 print()
-
 print("[[NEXT STEPS]")
-print("  Option A: Import matched results into N1_Import_and_Validate.py")
+print("  Option A: Review matched results, then continue to N1_Import_and_Validate.ipynb")
 print("  Option B: Manually review flagged entries and re-run with updated data")
 print("  Option C: Customize prompts (see section above) for better matching")
 print()
-
 print("[[LEARNING OUTCOMES]")
 print("  ✓ You've seen how LLMs can automate data reconciliation")
 print("  ✓ You understand the limitations (need manual review)")
@@ -729,7 +573,6 @@ print("  ✓ You know the data privacy advantage of local SLMs")
 print("  ✓ You can customize prompts to improve matching")
 print("  ✓ You understand the tradeoff: local SLM (privacy) vs Claude (accuracy)")
 print()
-
 print("[[TIP] For next time:")
 print("  - Standardize customer names across bank and invoice systems")
 print("  - Include invoice IDs in bank statement descriptions when possible")

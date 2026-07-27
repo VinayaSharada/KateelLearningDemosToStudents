@@ -1,38 +1,129 @@
-"""
-N6: FX & Hedge Decision
-CFO Pack V001 - Treasury Decision Workshop
+# Auto-exported from N6_FX_Hedge_Decision.ipynb. Edit the notebook, then regenerate this file.
 
-Purpose: Analyze open FX exposures and model hedging strategy
-Output: hedge_recommendation.csv
-
-Considers: Currency exposure, volatility, hedging costs, policy limits
-Recommends: Hedge ratios and instruments
-
-Estimated time: 15-20 minutes
-"""
+# %% [code cell 1]
+# ==============================================================================
+# SETUP: Imports and Configuration
+# ==============================================================================
+# This cell imports all required libraries and configures data sources.
+# No changes needed unless you want to use your own data.
 
 import pandas as pd
 import numpy as np
+from datetime import datetime, timedelta
+import warnings
 import os
+import sys
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+warnings.filterwarnings('ignore', category=FutureWarning)
 
-print("[=" * 80)
-print("[N6: FX & HEDGE DECISION")
-print("[=" * 80)
+# Colab starts in /content; local Jupyter starts in this notebooks folder.
+OUTPUT_DIR = '/content/outputs' if 'google.colab' in sys.modules else '../outputs'
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+# CONFIGURATION: Choose your data source
+USE_GITHUB_DATA = True
+# Set to False if you want to upload your own data
+GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/data/synthetic'
+
+print('✓ Imports successful')
+print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
+
+# %% [code cell 2]
+print("[[LOAD] Loading FX exposure and gap analysis data...")
 print()
 
-# Load data
-fx_exposure = pd.read_csv("../outputs/N1_fx_exposure.csv")
-gap_analysis = pd.read_csv("../outputs/N4_gap_analysis.csv")
+# Load FX exposure data
+try:
+    fx_exposure = pd.read_csv(f"{OUTPUT_DIR}/N1_fx_exposure.csv")
+    print(f"[OK] Loaded FX exposure from N1: {len(fx_exposure)} currencies")
+except FileNotFoundError:
+    # Fallback to source data
+    try:
+        fx_exposure = pd.read_csv(f'{GITHUB_RAW_URL}/fx_exposure.csv')
+        print(f"[OK] Loaded FX exposure from GitHub: {len(fx_exposure)} currencies")
+    except:
+        print("[WARNING] Could not load FX exposure")
+        fx_exposure = None
 
-target_gap = gap_analysis.iloc[-1]['gap']
+# Load gap analysis for target_gap calculation
+try:
+    gap_analysis = pd.read_csv(f"{OUTPUT_DIR}/N4_gap_analysis.csv")
+    print(f"[OK] Loaded gap analysis from N4")
+    target_gap = max(0, gap_analysis.iloc[-1]['gap'])
+    print(f"[OK] Target gap: ${target_gap:,.0f}")
+except FileNotFoundError:
+    print("[WARNING] N4 gap analysis not found, using default")
+    target_gap = 500000
+    gap_analysis = None
 
-print(f"[CHART] FX Exposure Analysis")
+# Set approved policy range for hedging
+approved_range = (0.50, 0.75)
+print(f"[OK] Board-approved hedge range: {approved_range[0]*100:.0f}% - {approved_range[1]*100:.0f}%")
 print()
 
-# ============================================================================
-# EXPOSURE SUMMARY
-# ============================================================================
+# %% [code cell 3]
+def load_data_from_github():
+    """Load synthetic data directly from GitHub repository.
 
+    Advantages:
+    - No API key required
+    - Pre-validated and consistent with reference outputs
+    - Fast (uses GitHub CDN)
+
+    Returns: dict with keys 'invoices', 'payments', 'customers'
+    """
+    try:
+        print('Loading data from GitHub...')
+        invoices = pd.read_csv(f'{GITHUB_RAW_URL}/invoices.csv')
+        payments = pd.read_csv(f'{GITHUB_RAW_URL}/payments.csv')
+        customers = pd.read_csv(f'{GITHUB_RAW_URL}/customers.csv')
+
+        print(f'✓ Loaded {len(invoices):,} invoices')
+        print(f'✓ Loaded {len(payments):,} payments')
+        print(f'✓ Loaded {len(customers):,} customers')
+        return {'invoices': invoices, 'payments': payments, 'customers': customers}
+    except Exception as e:
+        print(f'✗ Error: {e}')
+        print('  Try Option 2: Manual upload')
+        return None
+
+def load_data_from_upload():
+    """Load data from files you upload manually.
+
+    In Colab: Click Files panel → Upload → Select CSVs
+    In Jupyter: Put CSVs in the same folder as this notebook
+
+    Required files: invoices.csv, payments.csv, customers.csv
+    See data/README.md for required columns.
+    """
+    try:
+        print('Loading data from uploaded files...')
+        invoices = pd.read_csv('invoices.csv')
+        payments = pd.read_csv('payments.csv')
+        customers = pd.read_csv('customers.csv')
+
+        print(f'✓ Loaded {len(invoices):,} invoices')
+        print(f'✓ Loaded {len(payments):,} payments')
+        print(f'✓ Loaded {len(customers):,} customers')
+        return {'invoices': invoices, 'payments': payments, 'customers': customers}
+    except FileNotFoundError as e:
+        print(f'✗ File not found: {e}')
+        return None
+
+# Execute data loading based on configuration above
+if USE_GITHUB_DATA:
+    data = load_data_from_github()
+else:
+    data = load_data_from_upload()
+
+if data is None:
+    print('\n⚠ Data loading failed. Check error above.')
+else:
+    invoices = data['invoices']
+    payments = data['payments']
+    customers = data['customers']
+    print('\n✓ All data loaded and ready for analysis!')
+
+# %% [code cell 4]
 print(f"Current Open Exposures:")
 print("[-" * 80)
 
@@ -41,7 +132,6 @@ total_exposure = fx_exposure['notional_amount'].sum()
 for idx, row in fx_exposure.iterrows():
     pct_total = (row['notional_amount'] / total_exposure) * 100
     current_hedge = row['current_hedge_ratio'] * 100
-
     print(f"{row['currency']} Exposure:")
     print(f"  Notional:        ${row['notional_amount']:>10,.0f} ({pct_total:5.1f}% of total)")
     print(f"  Type:            {row['transaction_type']}")
@@ -51,10 +141,7 @@ for idx, row in fx_exposure.iterrows():
 print(f"Total FX exposure: ${total_exposure:,.0f}")
 print()
 
-# ============================================================================
-# VOLATILITY & RISK ASSESSMENT
-# ============================================================================
-
+# %% [code cell 5]
 print("[[WARNING]  VOLATILITY ANALYSIS")
 print()
 
@@ -63,7 +150,7 @@ volatility_assumptions = {
     'EUR': {'volatility': 0.08, 'current_rate': 1.08, 'worst_case_rate': 1.00},  # 8% volatility
     'GBP': {'volatility': 0.10, 'current_rate': 1.27, 'worst_case_rate': 1.15},
     'JPY': {'volatility': 0.12, 'current_rate': 0.0067, 'worst_case_rate': 0.0063},
-    'CAD': {'volatility': 0.07, 'current_rate': 0.74, 'worst_case_rate': 0.68}
+    'INR': {'volatility': 0.07, 'current_rate': 0.012, 'worst_case_rate': 0.011}
 }
 
 print("[Estimated exposure risk (worst-case 1 standard deviation move):")
@@ -78,9 +165,7 @@ for idx, row in fx_exposure.iterrows():
     if currency in volatility_assumptions:
         vol = volatility_assumptions[currency]['volatility']
         exposure_at_risk = notional * vol
-
         total_exposure_at_risk += exposure_at_risk
-
         print(f"{currency}: ${exposure_at_risk:>10,.0f} (${notional:,.0f}  {vol*100:.0f}% volatility)")
 
 print("[-" * 80)
@@ -96,22 +181,17 @@ else:
 
 print()
 
-# ============================================================================
-# HEDGING SCENARIOS
-# ============================================================================
-
+# %% [code cell 6]
 print("[[GOAL] HEDGING SCENARIOS")
 print()
 
 # Calculate hedging costs (assume ~0.5% of notional for 3-month forward)
 hedging_cost_pct = 0.005
-
 recommendations = []
 
 for hedge_ratio in [0.50, 0.65, 0.75, 0.85]:
     hedge_amount = total_exposure * hedge_ratio
     hedge_cost_monthly = hedge_amount * hedging_cost_pct
-
     recommendations.append({
         'hedge_ratio': hedge_ratio,
         'hedge_amount': hedge_amount,
@@ -127,10 +207,7 @@ for hedge_ratio in [0.50, 0.65, 0.75, 0.85]:
     print(f"  Unhedged exposure:  ${total_exposure * (1 - hedge_ratio):,.0f}")
     print()
 
-# ============================================================================
-# POLICY COMPLIANCE CHECK
-# ============================================================================
-
+# %% [code cell 7]
 print("[[LIST] POLICY COMPLIANCE")
 print()
 
@@ -155,10 +232,7 @@ for idx, row in fx_exposure.iterrows():
 
 print()
 
-# ============================================================================
-# RECOMMENDATION
-# ============================================================================
-
+# %% [code cell 8]
 print("[[IDEA] HEDGE RECOMMENDATION")
 print()
 
@@ -170,19 +244,14 @@ print(f"  EUR: Increase from current to {recommended_ratio*100:.0f}%")
 print(f"  Hedge amount: ${recommended_scenario['hedge_amount']:,.0f}")
 print(f"  Annual cost: ${recommended_scenario['annual_cost']:,.0f}")
 print()
-
 print("[Rationale:")
-print("[   {:.0f}% is within board-approved range ({:.0f}%-{:.0f}%)".format(
-    recommended_ratio*100, approved_range[0]*100, approved_range[1]*100))
+print(f"[   {recommended_ratio*100:.0f}% is within board-approved range ({approved_range[0]*100:.0f}%-{approved_range[1]*100:.0f}%)")
 print(f"   Protects ~${recommended_scenario['unhedged_exposure']:,.0f} of exposure")
 print(f"   Cost (${recommended_scenario['annual_cost']:,.0f}/year) is reasonable")
 print(f"   Leaves some upside if EUR weakens")
 print()
 
-# ============================================================================
-# APPROVAL REQUIREMENTS
-# ============================================================================
-
+# %% [code cell 9]
 print("[[OK] APPROVAL PATH")
 print()
 
@@ -193,38 +262,28 @@ if recommended_ratio > 0.70:
 else:
     print("[This recommendation requires:")
     print("[  1. CFO approval only (within existing authority)")
+    print()
 
-print()
-
-# ============================================================================
-# EXPORT RECOMMENDATION
-# ============================================================================
-
+# %% [code cell 10]
 print("[[SAVE] Exporting hedge recommendation...")
 
 recommendations_df = pd.DataFrame(recommendations)
-export_path = "../outputs/N6_hedge_recommendation.csv"
+export_path = f"{OUTPUT_DIR}/N6_hedge_recommendation.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 recommendations_df.to_csv(export_path, index=False)
-
 print(f"[OK] Exported: {export_path}")
 print()
 
-# ============================================================================
-# KEY INSIGHTS
-# ============================================================================
-
+# %% [code cell 11]
 print("[=" * 80)
 print("[[DONE] N6 COMPLETE - FX Hedge Decision")
 print("[=" * 80)
 print()
-
 print("[[INFO] Key Insights:")
 print(f"   Total FX exposure: ${total_exposure:,.0f}")
 print(f"   Exposure at risk: ${total_exposure_at_risk:,.0f}")
 print(f"   Recommended hedge: {recommended_ratio*100:.0f}%")
 print(f"   Annual hedging cost: ${recommended_scenario['annual_cost']:,.0f}")
 print()
-
-print("[[GOAL] Next step: N7_Decision_Framework.py")
+print("[[GOAL] Next step: N7_Decision_Framework.ipynb")
 print("[   Synthesize all analysis into CFO-ready decision memo")

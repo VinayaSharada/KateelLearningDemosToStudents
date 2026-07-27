@@ -1,275 +1,254 @@
-"""
-N7: Decision Framework
-CFO Pack V001 - Treasury Decision Workshop
+# Auto-exported from N7_Decision_Framework.ipynb. Edit the notebook, then regenerate this file.
 
-Purpose: Synthesize all analysis (N1-N6) into a structured decision memo for CFO
-Output: decision_memo.md (ready to present to CFO)
-
-This notebook assembles the evidence and builds a compelling narrative
-
-Estimated time: 20-25 minutes
-"""
+# %% [code cell 1]
+# ==============================================================================
+# SETUP: Imports and Configuration
+# ==============================================================================
+# This cell imports all required libraries and configures data sources.
+# No changes needed unless you want to use your own data.
 
 import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+import warnings
 import os
-from datetime import datetime
+import sys
+import json
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+warnings.filterwarnings('ignore', category=FutureWarning)
 
-print("[=" * 80)
-print("[N7: DECISION FRAMEWORK")
-print("[=" * 80)
+# Colab starts in /content; local Jupyter starts in this notebooks folder.
+OUTPUT_DIR = '/content/outputs' if 'google.colab' in sys.modules else '../outputs'
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+# CONFIGURATION: Choose your data source
+USE_GITHUB_DATA = True
+# Set to False if you want to upload your own data
+GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/data/synthetic'
+
+print('✓ Imports successful')
+print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
+
+# %% [code cell 2]
+print("[[LOAD] Loading comprehensive analysis data from all previous notebooks...")
 print()
 
-# Load all analysis outputs
-baseline = pd.read_csv("../outputs/N2_baseline_forecast.csv")
-revised = pd.read_csv("../outputs/N4_revised_forecast.csv")
-gap_analysis = pd.read_csv("../outputs/N4_gap_analysis.csv")
-predictions = pd.read_csv("../outputs/N3_invoice_payment_predictions.csv")
-scenarios = pd.read_csv("../outputs/N5_ccc_scenarios.csv")
-hedge_rec = pd.read_csv("../outputs/N6_hedge_recommendation.csv")
+# Load validated data (N1)
+try:
+    validated_data = pd.read_csv(f"{OUTPUT_DIR}/N1_validated_data.csv")
+    print(f"[OK] N1: Loaded validated data ({len(validated_data)} invoices)")
+except FileNotFoundError:
+    validated_data = None
+    print("[WARNING] N1 validated data not found")
 
-print("[[OK] All analysis loaded")
+# Load baseline forecast (N2)
+try:
+    baseline_forecast = pd.read_csv(f"{OUTPUT_DIR}/N2_baseline_forecast.csv")
+    print(f"[OK] N2: Loaded baseline forecast ({len(baseline_forecast)} days)")
+except FileNotFoundError:
+    baseline_forecast = None
+    print("[WARNING] N2 baseline forecast not found")
+
+# Load predictions (N3)
+try:
+    predictions = pd.read_csv(f"{OUTPUT_DIR}/N3_invoice_payment_predictions.csv")
+    print(f"[OK] N3: Loaded payment predictions ({len(predictions)} invoices)")
+except FileNotFoundError:
+    predictions = None
+    print("[WARNING] N3 predictions not found")
+
+# Load revised forecast and gap analysis (N4)
+try:
+    revised_forecast = pd.read_csv(f"{OUTPUT_DIR}/N4_revised_forecast.csv")
+    gap_analysis = pd.read_csv(f"{OUTPUT_DIR}/N4_gap_analysis.csv")
+    print(f"[OK] N4: Loaded revised forecast and gap analysis")
+except FileNotFoundError:
+    revised_forecast = None
+    gap_analysis = None
+    print("[WARNING] N4 outputs not found")
+
+# Load CCC scenarios (N5)
+try:
+    scenarios_df = pd.read_csv(f"{OUTPUT_DIR}/N5_ccc_scenarios.csv")
+    print(f"[OK] N5: Loaded {len(scenarios_df)} working capital scenarios")
+except FileNotFoundError:
+    scenarios_df = None
+    print("[WARNING] N5 scenarios not found")
+
+# Load FX hedge recommendation (N6)
+try:
+    hedge_recommendation = pd.read_csv(f"{OUTPUT_DIR}/N6_hedge_recommendation.csv")
+    print(f"[OK] N6: Loaded FX hedge recommendation")
+except FileNotFoundError:
+    hedge_recommendation = None
+    print("[WARNING] N6 hedge recommendation not found")
+
+# Derive key metrics
+if predictions is not None:
+    avg_predicted_days_late = predictions['predicted_days_late'].mean()
+else:
+    avg_predicted_days_late = 8.5
+    # Default
+
+if gap_analysis is not None:
+    total_gap = max(0, gap_analysis.iloc[-1]['gap'])
+else:
+    total_gap = 500000
+    # Default
+
+print(f"[OK] Key metrics: {avg_predicted_days_late:.1f} days late, ${total_gap:,.0f} gap")
 print()
 
-# ============================================================================
-# BUILD DECISION MEMO
-# ============================================================================
+# %% [code cell 3]
+def load_data_from_github():
+    """Load synthetic data directly from GitHub repository.
 
-memo_content = """# TREASURY DECISION MEMO
+    Advantages:
+    - No API key required
+    - Pre-validated and consistent with reference outputs
+    - Fast (uses GitHub CDN)
+
+    Returns: dict with keys 'invoices', 'payments', 'customers'
+    """
+    try:
+        print('Loading data from GitHub...')
+        invoices = pd.read_csv(f'{GITHUB_RAW_URL}/invoices.csv')
+        payments = pd.read_csv(f'{GITHUB_RAW_URL}/payments.csv')
+        customers = pd.read_csv(f'{GITHUB_RAW_URL}/customers.csv')
+
+        print(f'✓ Loaded {len(invoices):,} invoices')
+        print(f'✓ Loaded {len(payments):,} payments')
+        print(f'✓ Loaded {len(customers):,} customers')
+        return {'invoices': invoices, 'payments': payments, 'customers': customers}
+    except Exception as e:
+        print(f'✗ Error: {e}')
+        print('  Try Option 2: Manual upload')
+        return None
+
+def load_data_from_upload():
+    """Load data from files you upload manually.
+
+    In Colab: Click Files panel → Upload → Select CSVs
+    In Jupyter: Put CSVs in the same folder as this notebook
+
+    Required files: invoices.csv, payments.csv, customers.csv
+    See data/README.md for required columns.
+    """
+    try:
+        print('Loading data from uploaded files...')
+        invoices = pd.read_csv('invoices.csv')
+        payments = pd.read_csv('payments.csv')
+        customers = pd.read_csv('customers.csv')
+
+        print(f'✓ Loaded {len(invoices):,} invoices')
+        print(f'✓ Loaded {len(payments):,} payments')
+        print(f'✓ Loaded {len(customers):,} customers')
+        return {'invoices': invoices, 'payments': payments, 'customers': customers}
+    except FileNotFoundError as e:
+        print(f'✗ File not found: {e}')
+        return None
+
+# Execute data loading based on configuration above
+if USE_GITHUB_DATA:
+    data = load_data_from_github()
+else:
+    data = load_data_from_upload()
+
+if data is None:
+    print('\n⚠ Data loading failed. Check error above.')
+else:
+    invoices = data['invoices']
+    payments = data['payments']
+    customers = data['customers']
+    print('\n✓ All data loaded and ready for analysis!')
+
+# %% [code cell 4]
+forecast_days = len(gap_analysis)
+baseline_end = baseline_forecast.iloc[-1]['closing_cash']
+revised_end = revised_forecast.iloc[-1]['closing_cash']
+final_gap = max(0, gap_analysis.iloc[-1]['gap'])
+revised_min_row = revised_forecast.loc[revised_forecast['closing_cash'].idxmin()]
+at_risk_count = int((predictions['predicted_days_late'] > 7).sum())
+avg_delay = predictions['predicted_days_late'].mean()
+
+def scenario_impact(name):
+    row = scenarios_df.loc[scenarios_df['scenario'] == name, 'cash_impact']
+    return float(row.iloc[0]) if len(row) else 0.0
+
+collections_impact = scenario_impact('Collections Push')
+payables_impact = scenario_impact('Extend Payables')
+inventory_impact = scenario_impact('Inventory Reduction')
+combined_impact = scenario_impact('Combined (Collections + Payables)')
+all_levers_impact = scenario_impact('All Three Levers')
+residual_gap = max(0, final_gap - all_levers_impact)
+combined_pct = (combined_impact / final_gap * 100) if final_gap else 100.0
+all_levers_pct = (all_levers_impact / final_gap * 100) if final_gap else 100.0
+
+def money(value):
+    sign = '-' if value < 0 else ''
+    return f"{sign}${abs(value):,.0f}"
+
+recommended_hedge = hedge_recommendation.iloc[(hedge_recommendation['hedge_ratio'] - 0.65).abs().argsort()[:1]].iloc[0]
+fx_notional = recommended_hedge['hedge_amount'] / recommended_hedge['hedge_ratio']
+
+memo_content = f"""# TREASURY DECISION MEMO
 
 **TO:** Chief Financial Officer
 **FROM:** Treasury Team
-**DATE:** """ + datetime.now().strftime("%B %d, %Y") + """
-**SUBJECT:** Liquidity Management Action Plan - Cash Forecast Gap Analysis
+**DATE:** {datetime.now().strftime('%B %d, %Y')}
+**SUBJECT:** 30-Day Liquidity Response
 **PRIORITY:** High
 
 ---
 
-## EXECUTIVE SUMMARY
+## Executive summary
 
-### Problem Statement
-Our 14-day cash position forecast shows a significant gap between our optimistic baseline and realistic payment expectations. Invoices assume contractual due dates, but historical data shows customers pay an average of 8-10 days late.
+The contractual-due-date forecast ends Day {forecast_days} at **{money(baseline_end)}**. Applying the payment-delay model produces an ending position of **{money(revised_end)}**, a **{money(final_gap)} scenario gap**. The realistic forecast reaches its low point on Day {int(revised_min_row['day'])} at **{money(revised_min_row['closing_cash'])}**.
 
-**Key Numbers:**
-- Baseline forecast (optimistic): $2.3M closing cash on Day 14
-- Revised forecast (realistic): $1.8M closing cash on Day 14
-- **Gap: $500K**
+The model predicts an average delay of **{avg_delay:.1f} days**; **{at_risk_count:,} of {len(predictions):,}** outstanding invoices are predicted more than seven days late.
 
-This gap represents a material liquidity pressure requiring action.
+## Recommended decision
 
-### Recommended Action Plan
-**Activate Collections + Extend Payables in parallel**
-- Collections: Aggressive dunning to accelerate receivables (+$200K impact)
-- Payables: Negotiate extended terms with suppliers (+$180K impact)
-- **Combined impact: $380K (closes 76% of gap)**
-- **Timeline: 2-3 weeks**
-- **Residual gap: $120K (covered by credit facility if needed)**
+1. Launch collections and supplier-term work immediately. Their modeled combined impact is **{money(combined_impact)}** ({combined_pct:.1f}% of the gap).
+2. Prepare the inventory lever as a second wave. All three modeled levers total **{money(all_levers_impact)}** ({all_levers_pct:.1f}% of the gap).
+3. Arrange committed funding, payment deferrals, or other treasury actions for the remaining **{money(residual_gap)}**. The operational levers alone do not close the modeled gap.
+4. Move FX coverage to the policy-compliant **{recommended_hedge['hedge_ratio']:.0%}** scenario, subject to CFO approval.
 
-### Expected Outcome
-Maintain liquidity above danger zone (~$1.5M minimum) while executing operational improvements.
+## Evidence
 
----
+| Measure | Current result |
+|---|---:|
+| Forecast horizon | {forecast_days} days |
+| Baseline ending cash | {money(baseline_end)} |
+| Revised ending cash | {money(revised_end)} |
+| End-of-horizon scenario gap | {money(final_gap)} |
+| Collections impact | {money(collections_impact)} |
+| Payables impact | {money(payables_impact)} |
+| Inventory impact | {money(inventory_impact)} |
+| All-levers residual gap | {money(residual_gap)} |
+| FX notional reviewed | {money(fx_notional)} |
+| Recommended hedge amount | {money(recommended_hedge['hedge_amount'])} |
+| Estimated annual hedge cost | {money(recommended_hedge['annual_cost'])} |
 
-## ANALYSIS SUMMARY
+## Execution and controls
 
-### 1. BASELINE FORECAST LIMITATIONS
-The baseline forecast assumes all invoices pay on their contractual due dates. This is **optimistic**.
+- Begin targeted collections with key-account approval gates.
+- Negotiate supplier extensions in parallel and record every concession.
+- Reforecast cash daily against actual receipts and outflows.
+- Escalate immediately when projected cash falls below the agreed minimum.
+- Treat the working-capital values as scenario estimates; validate accounting assumptions before approval.
 
-**Reality Check:**
+## Decision requested
+
+Approve the operational launch, authorize treasury to secure the residual funding backstop, and approve the {recommended_hedge['hedge_ratio']:.0%} hedge scenario within the stated policy range.
 """
 
-memo_content += f"- Historical payment data: {predictions['predicted_days_late'].mean():.1f} days average late\n"
-memo_content += f"- Current overdue invoices: {len(predictions[predictions['predicted_days_late'] > 0])} of {len(predictions)}\n"
-memo_content += f"- At-risk invoices (>7 days late): {len(predictions[predictions['predicted_days_late'] > 7])}\n"
+print('[OK] Decision memo generated from current pipeline outputs')
+print(f'[OK] End-of-horizon gap: ${final_gap:,.0f}; residual after all levers: ${residual_gap:,.0f}')
 
-memo_content += f"""
-
-### 2. REVISED (REALISTIC) FORECAST
-Using ML predictions based on 12+ months of historical payment data:
-
-**Forecast Comparison (Day 14):**
-- Baseline (optimistic): $2.3M
-- Revised (realistic): $1.8M
-- **Gap: $0.5M**
-
-**Why the gap exists:**
-- Top customers are slower payers
-- Industry factors (construction, logistics) show higher days late
-- Customer risk scores correlate with payment speed
-
-### 3. COLLECTIONS PREDICTION MODEL
-Random Forest model trained on historical payments:
-- **Accuracy: 85% on test data**
-- Top predictor: Customer's historical payment behavior
-- Secondary predictor: Customer risk score
-
-**Model Output:**
-- Predicts which invoices will be late and by how many days
-- Identifies concentration risk (top 3 customers = 57% of AR)
-- Enables targeted collections strategy
-
-### 4. WORKING CAPITAL LEVER ANALYSIS
-"""
-
-# Get impact numbers
-collections_impact = 200000  # From N5
-payables_impact = 180000
-inventory_impact = 150000
-
-memo_content += f"""
-**Option A: Collections Push (reduce DSO 5 days)**
-- Cash impact: ${collections_impact:,.0f}
-- Timeline: 1-2 weeks
-- Feasibility: Medium (sales team coordination needed)
-- Risk: Customer churn from aggressive dunning
-
-**Option B: Extend Payables (increase DPO 7 days)**
-- Cash impact: ${payables_impact:,.0f}
-- Timeline: 2-3 weeks
-- Feasibility: Medium (supplier negotiations)
-- Risk: Supplier relationship tension
-
-**Option C: Inventory Reduction (10% reduction)**
-- Cash impact: ${inventory_impact:,.0f}
-- Timeline: 4-8 weeks
-- Feasibility: Hard (operations coordination)
-- Risk: Stockout risk
-
-**RECOMMENDED: Option A + B Combined**
-- Total impact: ${collections_impact + payables_impact:,.0f}
-- Closes {((collections_impact + payables_impact) / 500000) * 100:.0f}% of gap
-- Parallel execution possible
-- Reasonable risk profile
-- Proven tactics
-
-### 5. FX HEDGE REVIEW
-"""
-
-memo_content += f"""Current FX exposure: $4.7M notional
-- EUR: $2.5M (50% hedged)
-- GBP: $1.2M (60% hedged)
-- JPY: $0.8M (unhedged)
-- CAD: $0.6M (75% hedged)
-
-**Recommendation:** Increase EUR hedge to 70% (within board-approved range)
-- Cost: ~$25K/year
-- Benefit: Protects against $500K+ downside from rate move
-- Status: Within policy, CFO approval only
-
----
-
-## RECOMMENDATION
-
-### Immediate Actions (Next 2-3 weeks)
-1. **Collections Initiative**
-   - Activate automated dunning on 40+ invoices
-   - Place calls to top 5 customers
-   - Offer 2% early-pay discount for 48-hour payment
-   - Expected recovery: $200K
-
-2. **Supplier Negotiations**
-   - Contact 3 key suppliers for term extensions
-   - Request 7-day extension (4552, 6067 days)
-   - Emphasize mutual benefit
-   - Expected cash improvement: $180K
-
-3. **Monitoring & Escalation**
-   - Daily cash position reporting
-   - Weekly collections tracking
-   - Escalate if achievement <60% of target
-   - Fallback: Draw credit facility if needed
-
-### Approval Required
-- CFO: Overall action plan
-- Controller: Collections automation & AR integrity
-- Sales: Exception handling for key accounts
-- Procurement: Supplier negotiation authority
-
-### Success Metrics
-- Collections: Achieve $150K+ by Week 1
-- Payables: Secure 2-3 agreements by Week 2
-- Cash: Maintain above $1.5M minimum daily
-- Customer churn: <3% from collections pressure
-
----
-
-## RISK MITIGATION
-
-| Risk | Probability | Mitigation |
-|------|-------------|-----------|
-| Collections ineffective | Medium | Escalate to sales; offer deeper discounts |
-| Customer churn >5% | Medium | Limit dunning to bottom-tier accounts |
-| Suppliers refuse terms | Medium | Pivot to secondary suppliers |
-| Model prediction wrong | Low | Daily monitoring catches divergence |
-| Market downturn | Low | Credit facility backstop available |
-
----
-
-## FALLBACK PLAN
-
-**If operational levers stall:**
-1. Draw $250-300K on available credit facility
-2. Defer non-critical capex (~$150K planned)
-3. Implement weekly instead of monthly payment cycles
-4. Escalate to CFO + CEO for additional options
-
-**Timeline:** Activate if daily cash < $1.5M
-
----
-
-## GOVERNANCE & APPROVAL
-
-- **Primary Approver:** CFO
-- **Concurrent Review:** Controller, Treasury
-- **Next Review:** Day 7 (mid-point assessment)
-- **Final Review:** Day 21 (end of initiative period)
-
----
-
-## APPENDICES
-
-### A. Key Metrics Summary
-- Starting cash: $5.0M
-- Day 14 cash (baseline): $2.3M
-- Day 14 cash (realistic): $1.8M
-- Cash gap: $500K
-- Proposed mitigation: $380K
-- Residual: $120K (credit facility)
-
-### B. Top At-Risk Invoices
-[Would include table of top 10 invoices by amount, predicted days late]
-
-### C. Customer Concentration
-[Would include concentration analysis by customer]
-
-### D. Decision Timeline
-- Day 1: CFO approval + team notification
-- Days 1-2: Prepare & launch collections + supplier outreach
-- Days 3-7: First results, mid-point review
-- Days 7-14: Finalize agreements, scale efforts
-- Day 14: Assessment & decision (sustain or adjust)
-
----
-
-## SIGN-OFF
-
-**Prepared by:** Treasury Team
-
-**Recommended for Approval:** YES
-
-**CFO Signature:** ________________  **Date:** ________________
-
-"""
-
-print("[ Decision memo generated")
-print()
-
-# ============================================================================
-# EXPORT MEMO
-# ============================================================================
-
+# %% [code cell 5]
 print("[[SAVE] Exporting decision memo...")
 
-export_path = "../outputs/N7_decision_memo.md"
+export_path = f"{OUTPUT_DIR}/N7_decision_memo.md"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 
 with open(export_path, 'w') as f:
@@ -278,22 +257,12 @@ with open(export_path, 'w') as f:
 print(f"[OK] Exported: {export_path}")
 print()
 
-# ============================================================================
-# SUMMARY FOR PRESENTATION
-# ============================================================================
-
-print("[=" * 80)
-print("[[DONE] N7 COMPLETE - Decision Memo Built")
-print("[=" * 80)
-print()
-
-print("[[INFO] Memo highlights:")
-print(f"   Problem: $500K 14-day cash gap")
-print(f"   Root cause: Payment delays (avg {predictions['predicted_days_late'].mean():.1f} days late)")
-print(f"   Solution: Collections + Payables lever strategy")
-print(f"   Impact: $380K recovery (76% of gap)")
-print(f"   Timeline: 2-3 weeks")
-print()
-
-print("[[GOAL] Next step: N8_Operationalize.py")
-print("[   Create implementation plan and operational checklist")
+# %% [code cell 6]
+print('[=' * 80)
+print('N7 COMPLETE - Decision Memo Built')
+print('[=' * 80)
+print(f'Forecast gap: ${final_gap:,.0f}')
+print(f'All-levers impact: ${all_levers_impact:,.0f} ({all_levers_pct:.1f}% of gap)')
+print(f'Residual funding need: ${residual_gap:,.0f}')
+print(f'Recommended FX hedge: {recommended_hedge["hedge_ratio"]:.0%}')
+print('Next step: N8_Operationalize.ipynb')

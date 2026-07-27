@@ -1,70 +1,154 @@
-"""
-N5: Working Capital Levers
-CFO Pack V001 - Treasury Decision Workshop
+# Auto-exported from N5_Working_Capital_Levers.ipynb. Edit the notebook, then regenerate this file.
 
-Purpose: Model DSO/DIO/DPO optimization scenarios to close the cash gap
-Output: ccc_scenarios.csv with impact analysis
-
-Levers modeled:
-  1. Reduce DSO (Days Sales Outstanding) - aggressive collections
-  2. Reduce DIO (Days Inventory Outstanding) - inventory reduction
-  3. Increase DPO (Days Payable Outstanding) - extend payables
-
-Estimated time: 20-25 minutes
-"""
+# %% [code cell 1]
+# ==============================================================================
+# SETUP: Imports and Configuration
+# ==============================================================================
+# This cell imports all required libraries and configures data sources.
+# No changes needed unless you want to use your own data.
 
 import pandas as pd
 import numpy as np
+from datetime import datetime, timedelta
+import warnings
 import os
+import sys
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+warnings.filterwarnings('ignore', category=FutureWarning)
 
-print("[=" * 80)
-print("[N5: WORKING CAPITAL LEVERS")
-print("[=" * 80)
+# Colab starts in /content; local Jupyter starts in this notebooks folder.
+OUTPUT_DIR = '/content/outputs' if 'google.colab' in sys.modules else '../outputs'
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+# CONFIGURATION: Choose your data source
+USE_GITHUB_DATA = True
+# Set to False if you want to upload your own data
+GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/data/synthetic'
+
+print('✓ Imports successful')
+print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
+
+# %% [code cell 2]
+print("[[LOAD] Loading data from previous notebooks...")
 print()
 
-# Load data
-gap_analysis = pd.read_csv("../outputs/N4_gap_analysis.csv")
-predictions = pd.read_csv("../outputs/N3_invoice_payment_predictions.csv")
-customers = pd.read_csv("../outputs/N1_customers.csv")
-validated_data = pd.read_csv("../outputs/N1_validated_data.csv")
+# Load validated data and predictions
+try:
+    validated_data = pd.read_csv(f"{OUTPUT_DIR}/N1_validated_data.csv")
+    print(f"[OK] Loaded validated data from N1: {len(validated_data)} invoices")
+except FileNotFoundError:
+    print("[WARNING] N1 validated data not found")
+    validated_data = None
 
-target_gap = gap_analysis.iloc[-1]['gap']  # Gap at Day 14
+try:
+    predictions = pd.read_csv(f"{OUTPUT_DIR}/N3_invoice_payment_predictions.csv")
+    print(f"[OK] Loaded predictions from N3: {len(predictions)} invoices")
+except FileNotFoundError:
+    print("[WARNING] N3 predictions not found")
+    predictions = None
 
-print(f"[CHART] Target: Close ${target_gap:,.0f} cash gap")
+try:
+    gap_analysis = pd.read_csv(f"{OUTPUT_DIR}/N4_gap_analysis.csv")
+    print(f"[OK] Loaded gap analysis from N4: {len(gap_analysis)} days")
+except FileNotFoundError:
+    print("[WARNING] N4 gap analysis not found")
+    gap_analysis = None
+
+# Calculate target gap (cash to be closed)
+if gap_analysis is not None:
+    target_gap = max(0, gap_analysis.iloc[-1]['gap'])
+    print(f"[OK] Target gap identified: ${target_gap:,.0f}")
+else:
+    target_gap = 500000
+    # Default assumption
+    print(f"[NOTE] Using default target gap: ${target_gap:,.0f}")
+
 print()
 
-# ============================================================================
-# CURRENT STATE METRICS
-# ============================================================================
+# %% [code cell 3]
+def load_data_from_github():
+    """Load synthetic data directly from GitHub repository.
 
+    Advantages:
+    - No API key required
+    - Pre-validated and consistent with reference outputs
+    - Fast (uses GitHub CDN)
+
+    Returns: dict with keys 'invoices', 'payments', 'customers'
+    """
+    try:
+        print('Loading data from GitHub...')
+        invoices = pd.read_csv(f'{GITHUB_RAW_URL}/invoices.csv')
+        payments = pd.read_csv(f'{GITHUB_RAW_URL}/payments.csv')
+        customers = pd.read_csv(f'{GITHUB_RAW_URL}/customers.csv')
+
+        print(f'✓ Loaded {len(invoices):,} invoices')
+        print(f'✓ Loaded {len(payments):,} payments')
+        print(f'✓ Loaded {len(customers):,} customers')
+        return {'invoices': invoices, 'payments': payments, 'customers': customers}
+    except Exception as e:
+        print(f'✗ Error: {e}')
+        print('  Try Option 2: Manual upload')
+        return None
+
+def load_data_from_upload():
+    """Load data from files you upload manually.
+
+    In Colab: Click Files panel → Upload → Select CSVs
+    In Jupyter: Put CSVs in the same folder as this notebook
+
+    Required files: invoices.csv, payments.csv, customers.csv
+    See data/README.md for required columns.
+    """
+    try:
+        print('Loading data from uploaded files...')
+        invoices = pd.read_csv('invoices.csv')
+        payments = pd.read_csv('payments.csv')
+        customers = pd.read_csv('customers.csv')
+
+        print(f'✓ Loaded {len(invoices):,} invoices')
+        print(f'✓ Loaded {len(payments):,} payments')
+        print(f'✓ Loaded {len(customers):,} customers')
+        return {'invoices': invoices, 'payments': payments, 'customers': customers}
+    except FileNotFoundError as e:
+        print(f'✗ File not found: {e}')
+        return None
+
+# Execute data loading based on configuration above
+if USE_GITHUB_DATA:
+    data = load_data_from_github()
+else:
+    data = load_data_from_upload()
+
+if data is None:
+    print('\n⚠ Data loading failed. Check error above.')
+else:
+    invoices = data['invoices']
+    payments = data['payments']
+    customers = data['customers']
+    print('\n✓ All data loaded and ready for analysis!')
+
+# %% [code cell 4]
 print("[ Current Working Capital Metrics")
 print()
-
-# Calculate baseline CCC metrics (from customer data)
+# Calculate baseline CCC metrics
 total_ar = predictions['amount_usd'].sum()
 avg_payment_terms = validated_data['payment_terms_days'].mean()
 avg_dso = predictions['predicted_days_late'].mean() + avg_payment_terms
 
-# Assumptions for DIO and DPO (would come from accounting system)
+# Illustrative accounting assumptions for inventory, payables, and annual COGS
 assumed_inventory_value = 8_000_000
 assumed_payables_value = 10_000_000
 assumed_cogs = 60_000_000
-
 dio = (assumed_inventory_value / assumed_cogs) * 365
 dpo = (assumed_payables_value / assumed_cogs) * 365
-
 ccc = avg_dso + dio - dpo
-
 print(f"  DSO (Days Sales Outstanding):        {avg_dso:.1f} days")
 print(f"  DIO (Days Inventory Outstanding):    {dio:.1f} days")
 print(f"  DPO (Days Payable Outstanding):      {dpo:.1f} days")
 print(f"  CCC (Cash Conversion Cycle):         {ccc:.1f} days")
 print()
 
-# ============================================================================
-# SCENARIO MODELING
-# ============================================================================
-
+# %% [code cell 5]
 print("[[GOAL] SCENARIO ANALYSIS")
 print()
 
@@ -148,11 +232,9 @@ for idx, row in scenarios_df.iterrows():
         impact = row['cash_impact']
         pct_closed = (impact / target_gap * 100) if target_gap > 0 else 0
         status = "[OK] CLOSES GAP" if impact >= target_gap else f"{pct_closed:.0f}% closes gap"
-
         print(f"{row['scenario']:30s}")
         print(f"  {row['description']}")
         print(f"  Cash impact: ${impact:,.0f}  ({status})")
-
         if row['dso_reduction'] > 0:
             print(f"     DSO reduction: {row['dso_reduction']:.0f} days")
         if row['dio_reduction'] > 0:
@@ -164,10 +246,7 @@ for idx, row in scenarios_df.iterrows():
 print("[-" * 100)
 print()
 
-# ============================================================================
-# RISK ASSESSMENT BY LEVER
-# ============================================================================
-
+# %% [code cell 6]
 print("[[WARNING]  RISK ANALYSIS")
 print()
 
@@ -212,13 +291,9 @@ for lever, details in risks.items():
         print(f"   {risk}")
     print()
 
-# ============================================================================
-# RECOMMENDATION
-# ============================================================================
-
+# %% [code cell 7]
 print("[[IDEA] RECOMMENDATION")
 print()
-
 print("[Based on impact, timeline, and feasibility:")
 print()
 print(f"[OK] BEST APPROACH: Collections + Payables (Scenario 4)")
@@ -232,33 +307,25 @@ print("[  3. Both independent (can do in parallel)")
 print("[  4. If one stalls, you still have the other")
 print()
 
-# ============================================================================
-# EXPORT SCENARIOS
-# ============================================================================
-
+# %% [code cell 8]
 print("[[SAVE] Exporting scenarios...")
 
-export_path = "../outputs/N5_ccc_scenarios.csv"
+export_path = f"{OUTPUT_DIR}/N5_ccc_scenarios.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 scenarios_df.to_csv(export_path, index=False)
 print(f"[OK] Exported: {export_path}")
 print()
 
-# ============================================================================
-# KEY INSIGHTS
-# ============================================================================
-
+# %% [code cell 9]
 print("[=" * 80)
 print("[[DONE] N5 COMPLETE - Working Capital Levers Modeled")
 print("[=" * 80)
 print()
-
 print("[[INFO] Key Insights:")
 print(f"   ${target_gap:,.0f} gap needs to be closed")
 print(f"   Collections alone can close {(cash_impact_1/target_gap*100):.0f}% of gap")
 print(f"   Payables alone can close {(cash_impact_3/target_gap*100):.0f}% of gap")
 print(f"   Combined can close {(cash_impact_4/target_gap*100):.0f}% of gap")
 print()
-
-print("[[GOAL] Next step: N6_FX_Hedge_Decision.py")
+print("[[GOAL] Next step: N6_FX_Hedge_Decision.ipynb")
 print("[   Consider FX hedging strategy for open exposures")
