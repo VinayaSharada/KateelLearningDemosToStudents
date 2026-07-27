@@ -39,9 +39,25 @@ def ensure_pipeline_outputs(through):
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
+# Shared workshop chart helpers (local Jupyter or fresh Colab runtime).
+try:
+    import cfopack_visuals as workshop_viz
+except ImportError:
+    from types import SimpleNamespace
+    from urllib.request import urlopen
+    visual_url = (
+        'https://raw.githubusercontent.com/VinayaSharada/'
+        'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
+        'cfopack_visuals.py'
+    )
+    visual_namespace = {}
+    exec(compile(urlopen(visual_url).read(), visual_url, 'exec'), visual_namespace)
+    workshop_viz = SimpleNamespace(**visual_namespace)
+workshop_viz.configure_workshop()
+
 # %% [code cell 2]
 ensure_pipeline_outputs(3)
-print("[[LOAD] Loading data from N1, N2, N3 outputs...")
+print("Loading data from N1, N2, N3 outputs...")
 print()
 
 # Load baseline forecast (from N2)
@@ -49,7 +65,7 @@ try:
     baseline_forecast = pd.read_csv(f"{OUTPUT_DIR}/N2_baseline_forecast.csv")
     print(f"[OK] Loaded baseline forecast from N2: {len(baseline_forecast)} days")
 except FileNotFoundError:
-    print("[WARNING] N2 baseline forecast not found, will create placeholder")
+    print("Warning: N2 baseline forecast not found, will create placeholder")
     baseline_forecast = None
 
 # Load predictions (from N3)
@@ -57,7 +73,7 @@ try:
     predictions = pd.read_csv(f"{OUTPUT_DIR}/N3_invoice_payment_predictions.csv")
     print(f"[OK] Loaded predictions from N3: {len(predictions)} invoices")
 except FileNotFoundError:
-    print("[WARNING] N3 predictions not found, will create placeholder")
+    print("Warning: N3 predictions not found, will create placeholder")
     predictions = None
 
 # Load cash flow (from N1)
@@ -70,7 +86,7 @@ except FileNotFoundError:
         cash_flow = pd.read_csv(f'{GITHUB_RAW_URL}/cash_flow.csv')
         print(f"[OK] Loaded cash flow from GitHub: {len(cash_flow)} days")
     except:
-        print("[ERROR] Could not load cash flow")
+        print("Error: Could not load cash flow")
         cash_flow = None
 
 # Convert date columns
@@ -150,7 +166,10 @@ else:
     print('\n✓ All data loaded and ready for analysis!')
 
 # %% [code cell 4]
-print("[[BANK] Building revised forecast using predicted payment dates...")
+workshop_viz.explore_n4(baseline_forecast, predictions, OUTPUT_DIR)
+
+# %% [code cell 5]
+print("Bank: Building revised forecast using predicted payment dates...")
 print()
 
 forecast_start = cash_flow['date'].min()
@@ -197,11 +216,11 @@ for day_num in range(len(cash_flow)):
     })
 
 revised_forecast = pd.DataFrame(daily_revised)
-print(f"[[OK] Revised {len(revised_forecast)}-day forecast complete")
+print(f"Revised {len(revised_forecast)}-day forecast complete")
 print()
 
-# %% [code cell 5]
-print("[[CHART] BASELINE vs REVISED COMPARISON")
+# %% [code cell 6]
+print("BASELINE vs REVISED COMPARISON")
 print()
 
 # Merge for comparison
@@ -210,15 +229,13 @@ comparison.columns = ['day', 'date', 'baseline_closing_cash']
 comparison['revised_closing_cash'] = revised_forecast['closing_cash'].values
 comparison['gap'] = comparison['baseline_closing_cash'] - comparison['revised_closing_cash']
 
-print("[Day-by-day gap:")
-print("[-" * 100)
+print("Day-by-day gap:")
 for idx, row in comparison.iterrows():
     if row['gap'] > 0:
         print(f"  Day {int(row['day']):2d}: Baseline ${row['baseline_closing_cash']:>10,.0f}  "
               f"Revised ${row['revised_closing_cash']:>10,.0f}  "
               f"Gap ${row['gap']:>10,.0f}")
 
-print("[-" * 100)
 print()
 
 # Key metrics
@@ -233,7 +250,7 @@ print(f"  Gap on Day {len(comparison)}:    ${final_gap:,.0f}")
 print()
 
 # Interpretation
-print("[[WARNING]  WHAT THIS MEANS:")
+print("Warning: WHAT THIS MEANS:")
 print(f"   Baseline (optimistic): Assumes all invoices pay on time")
 print(f"   Revised (realistic): Assumes invoices pay {predictions['predicted_days_late'].mean():.1f} days late")
 print(f"   Cash gap on Day {len(comparison)}: ${final_gap:,.0f}")
@@ -248,8 +265,8 @@ else:
 
 print()
 
-# %% [code cell 6]
-print("[ CASH POSITION RISK ZONES")
+# %% [code cell 7]
+print(" CASH POSITION RISK ZONES")
 print()
 
 danger_threshold = 1_000_000
@@ -264,8 +281,8 @@ else:
     print(f"[OK] Cash stays above ${danger_threshold:,.0f} throughout forecast period")
     print()
 
-# %% [code cell 7]
-print("[[SAVE] Exporting revised forecast...")
+# %% [code cell 8]
+print("Exporting revised forecast...")
 
 export_path = f"{OUTPUT_DIR}/N4_revised_forecast.csv"
 revised_forecast.to_csv(export_path, index=False)
@@ -276,13 +293,14 @@ comparison.to_csv(export_path, index=False)
 print(f"[OK] Exported: {export_path}")
 print()
 
-# %% [code cell 8]
-print("[=" * 80)
-print("[[DONE] N4 COMPLETE - Revised Forecast Built")
-print("[=" * 80)
+# %% [code cell 9]
+print("N4 COMPLETE - Revised Forecast Built")
 print()
-print("[[INFO] Key Finding:")
+print("Key Finding:")
 print(f"  Realistic cash position is ${final_gap:,.0f} LOWER than baseline on Day {len(comparison)}")
 print()
-print("[[GOAL] Next step: N5_Working_Capital_Levers.ipynb")
-print("[   Model which operational levers (collections, inventory, payables) can close this gap")
+print("Next step: N5_Working_Capital_Levers.ipynb")
+print("   Model which operational levers (collections, inventory, payables) can close this gap")
+
+# %% [code cell 10]
+workshop_viz.outcome_n4(comparison, OUTPUT_DIR)

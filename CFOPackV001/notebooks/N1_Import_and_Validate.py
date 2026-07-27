@@ -27,6 +27,22 @@ GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearning
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
+# Shared workshop chart helpers (local Jupyter or fresh Colab runtime).
+try:
+    import cfopack_visuals as workshop_viz
+except ImportError:
+    from types import SimpleNamespace
+    from urllib.request import urlopen
+    visual_url = (
+        'https://raw.githubusercontent.com/VinayaSharada/'
+        'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
+        'cfopack_visuals.py'
+    )
+    visual_namespace = {}
+    exec(compile(urlopen(visual_url).read(), visual_url, 'exec'), visual_namespace)
+    workshop_viz = SimpleNamespace(**visual_namespace)
+workshop_viz.configure_workshop()
+
 # %% [code cell 2]
 def load_data_from_github():
     """Load synthetic data directly from GitHub repository.
@@ -93,9 +109,7 @@ else:
 # %% [code cell 3]
 # ==============================================================================
 
-print("[=" * 80)
-print("[N1: IMPORT AND VALIDATE DATA")
-print("[=" * 80)
+print("N1: IMPORT AND VALIDATE DATA")
 print()
 # Define file paths (adjust if running from different directory)
 # Try local first, fall back to GitHub
@@ -114,7 +128,7 @@ except FileNotFoundError:
     customers = pd.read_csv(f'{GITHUB_RAW_URL}/customers.csv')
     fx_exposure = pd.read_csv(f'{GITHUB_RAW_URL}/fx_exposure.csv')
     cash_flow = pd.read_csv(f'{GITHUB_RAW_URL}/cash_flow.csv')
-print("[[FILES] Loading data files...")
+print("Loading data files...")
 print(f"[OK] invoices.csv: {len(invoices)} rows")
 print(f"[OK] payments.csv: {len(payments)} rows")
 print(f"[OK] customers.csv: {len(customers)} rows")
@@ -124,20 +138,23 @@ print()
 # ==============================================================================
 
 # %% [code cell 4]
-print("[[CHECK] RUNNING DATA QUALITY CHECKS...")
+workshop_viz.explore_n1(invoices, payments, customers, cash_flow, OUTPUT_DIR)
+
+# %% [code cell 5]
+print("RUNNING DATA QUALITY CHECKS...")
 print()
 
 # Check 1: Invoices completeness
-print("[Check 1: Invoices Completeness")
+print("Check 1: Invoices Completeness")
 missing_cols = invoices.columns[invoices.isnull().any()].tolist()
 if missing_cols:
     print(f"  [WARNING]  Missing values in: {missing_cols}")
     print(f"     {invoices[missing_cols].isnull().sum()}")
 else:
-    print("[  [OK] No missing values")
+    print("  [OK] No missing values")
 
 # Check 2: Date format validation
-print("[\nCheck 2: Date Format Validation")
+print("\nCheck 2: Date Format Validation")
 date_cols = ['invoice_date', 'due_date']
 try:
     for col in date_cols:
@@ -147,7 +164,7 @@ except Exception as e:
     print(f"  [WARNING]  Date parsing error: {e}")
 
 # Check 3: Currency amounts are positive
-print("[\nCheck 3: Currency Values")
+print("\nCheck 3: Currency Values")
 amount_cols = [col for col in invoices.columns if 'amount' in col.lower() or 'usd' in col.lower()]
 negative_amounts = (invoices[amount_cols] < 0).sum().sum()
 if negative_amounts > 0:
@@ -156,7 +173,7 @@ else:
     print(f"  [OK] All amounts are positive")
 
 # Check 4: Payments vs Invoices
-print("[\nCheck 4: Payment to Invoice Matching")
+print("\nCheck 4: Payment to Invoice Matching")
 invoices_set = set(invoices['invoice_id'].unique())
 payments_set = set(payments['invoice_id'].unique())
 orphaned_payments = payments_set - invoices_set
@@ -168,7 +185,7 @@ else:
     print(f"  [OK] All payments matched to invoices")
 
 # Check 5: Customer references
-print("[\nCheck 5: Customer Reference Integrity")
+print("\nCheck 5: Customer Reference Integrity")
 invoices_customers = set(invoices['customer_id'].unique())
 defined_customers = set(customers['customer_id'].unique())
 undefined_customers = invoices_customers - defined_customers
@@ -179,14 +196,14 @@ else:
     print(f"  [OK] All invoice customers are in customer master")
 
 # Check 6: FX exposure sanity check
-print("[\nCheck 6: FX Exposure Validation")
+print("\nCheck 6: FX Exposure Validation")
 if fx_exposure['notional_amount'].sum() > 0:
     print(f"  [OK] Total FX notional exposure: ${fx_exposure['notional_amount'].sum():,.0f}")
 else:
     print(f"  [WARNING]  No FX exposure found")
 
 # Check 7: Cash flow consistency
-print("[\nCheck 7: Cash Flow Schedule")
+print("\nCheck 7: Cash Flow Schedule")
 if len(cash_flow) >= 14:
     print(f"  [OK] {len(cash_flow)}-day cash flow schedule present")
 else:
@@ -194,10 +211,10 @@ else:
 
 print()
 
-# %% [code cell 5]
-print("[[CHART] DATA SUMMARY")
+# %% [code cell 6]
+print("DATA SUMMARY")
 print()
-print("[INVOICES Summary:")
+print("INVOICES Summary:")
 print(f"  Total invoices: {len(invoices)}")
 print(f"  Total AR value: ${invoices['amount_usd'].sum():,.0f}")
 print(f"  Average invoice: ${invoices['amount_usd'].mean():,.0f}")
@@ -205,17 +222,17 @@ print(f"  Date range: {invoices['invoice_date'].min()} to {invoices['invoice_dat
 print(f"  Unique customers: {invoices['customer_id'].nunique()}")
 print(f"  Paid invoices: {(invoices['status']=='paid').sum():,}")
 print(f"  Outstanding invoices: {(invoices['status']=='outstanding').sum():,}")
-print("[\nCUSTOMERS Summary:")
+print("\nCUSTOMERS Summary:")
 print(f"  Total customers: {len(customers)}")
 print(f"  Industries: {customers['industry'].nunique()} unique")
 print(f"  Avg days late: {customers['avg_days_late'].mean():.1f}")
 print(f"  Avg risk score: {customers['risk_score'].mean():.2f}")
-print("[\nPAYMENT HISTORY Summary:")
+print("\nPAYMENT HISTORY Summary:")
 print(f"  Historical payments: {len(payments)}")
 print(f"  Average days late: {payments['days_late'].mean():.1f}")
 print(f"  On-time (0 days late): {(payments['days_late'] == 0).sum()}")
 print(f"  Late (>7 days): {(payments['days_late'] > 7).sum()}")
-print("[\nFX EXPOSURE Summary:")
+print("\nFX EXPOSURE Summary:")
 for idx, row in fx_exposure.iterrows():
     hedge_pct = row['current_hedge_ratio'] * 100
     print(f"  {row['currency']}: ${row['notional_amount']:,.0f} ({hedge_pct:.0f}% hedged)")
@@ -226,8 +243,8 @@ print(f"  Largest outflow day: Day {cash_flow.loc[cash_flow['total_outflows'].id
 print(f"    (${cash_flow['total_outflows'].max():,.0f})")
 print()
 
-# %% [code cell 6]
-print("[[LIST] DATA QUALITY ASSESSMENT")
+# %% [code cell 7]
+print("DATA QUALITY ASSESSMENT")
 print()
 
 # Calculate quality score
@@ -257,26 +274,26 @@ if len(cash_flow) < 14:
 quality_score = max(0, quality_score)
 
 if quality_score == 100:
-    print("[[DONE] EXCELLENT - Data quality is good. Ready to proceed.")
+    print("EXCELLENT - Data quality is good. Ready to proceed.")
 elif quality_score >= 80:
-    print("[[OK] GOOD - Minor issues found. Safe to proceed with caution.")
+    print("GOOD - Minor issues found. Safe to proceed with caution.")
     for issue in quality_issues:
         print(f"   {issue}")
 elif quality_score >= 60:
-    print("[[WARNING]  FAIR - Several issues found. Recommend cleaning before analysis.")
+    print("Warning: FAIR - Several issues found. Recommend cleaning before analysis.")
     for issue in quality_issues:
         print(f"   {issue}")
 else:
-    print("[[ERROR] POOR - Major issues found. Data cleaning required.")
+    print("Error: POOR - Major issues found. Data cleaning required.")
     for issue in quality_issues:
         print(f"   {issue}")
 
 print(f"\nData Quality Score: {quality_score}/100")
 print()
 
-# %% [code cell 7]
+# %% [code cell 8]
 # ==============================================================================
-print("[[SAVE] EXPORTING VALIDATED DATA")
+print("EXPORTING VALIDATED DATA")
 print()
 # Combine invoices with customer information
 invoices_with_customers = invoices.merge(
@@ -308,18 +325,19 @@ print()
 customers.to_csv(f"{OUTPUT_DIR}/N1_customers.csv", index=False)
 fx_exposure.to_csv(f"{OUTPUT_DIR}/N1_fx_exposure.csv", index=False)
 cash_flow.to_csv(f"{OUTPUT_DIR}/N1_cash_flow.csv", index=False)
-print("[[OK] Supporting files exported")
+print("Supporting files exported")
 print()
-print("[=" * 80)
-print("[[DONE] N1 COMPLETE - Data validated and ready for forecasting")
-print("[=" * 80)
+print("N1 COMPLETE - Data validated and ready for forecasting")
 print()
-print("[[INFO] What we learned:")
-print("[   Data quality is", "EXCELLENT [OK]"
+print("What we learned:")
+print("   Data quality is", "EXCELLENT [OK]"
 if quality_score == 100 else f"{quality_score}/100")
 print(f"   We have {invoices['customer_id'].nunique()} customers with ${invoices['amount_usd'].sum()/1_000_000:.1f}M in receivables")
 print(f"   Payment history shows customers typically pay {payments['days_late'].mean():.1f} days late")
 print(f"   This suggests our baseline forecast (assuming on-time payment) is OPTIMISTIC")
 print()
-print("[[GOAL] Next step: N2_Baseline_Forecast.ipynb")
-print("[   Build a 14-day cash forecast assuming all invoices pay on their due dates")
+print("Next step: N2_Baseline_Forecast.ipynb")
+print("   Build a 14-day cash forecast assuming all invoices pay on their due dates")
+
+# %% [code cell 9]
+workshop_viz.outcome_n1(invoices, payments, quality_score, OUTPUT_DIR)

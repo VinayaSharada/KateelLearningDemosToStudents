@@ -353,9 +353,15 @@ CFOPackV001/
 5. Use templates/ for your own decisions
 ```
 
+Every notebook begins with a visual exploration of its synthetic inputs and
+ends with a visual summary of what the analysis achieved. The two high-resolution
+PNG charts produced by each module are ready to paste into slides, documents,
+emails, and reports; structured CSV and Markdown outputs are still generated for
+follow-on work.
+
 **Locally:**
 ```
-1. Install: pip install pandas numpy scikit-learn
+1. Install: pip install pandas numpy matplotlib scikit-learn
 2. Download all notebooks and data/synthetic CSVs
 3. Run: jupyter notebook notebooks/N1_Import_and_Validate.py
 4. Continue through N8

@@ -38,6 +38,22 @@ def ensure_pipeline_outputs(through):
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
+# Shared workshop chart helpers (local Jupyter or fresh Colab runtime).
+try:
+    import cfopack_visuals as workshop_viz
+except ImportError:
+    from types import SimpleNamespace
+    from urllib.request import urlopen
+    visual_url = (
+        'https://raw.githubusercontent.com/VinayaSharada/'
+        'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
+        'cfopack_visuals.py'
+    )
+    visual_namespace = {}
+    exec(compile(urlopen(visual_url).read(), visual_url, 'exec'), visual_namespace)
+    workshop_viz = SimpleNamespace(**visual_namespace)
+workshop_viz.configure_workshop()
+
 # %% [code cell 2]
 # ==============================================================================
 # DATA LOADING: GitHub or Manual Upload
@@ -108,6 +124,12 @@ else:
 
 # %% [code cell 3]
 ensure_pipeline_outputs(5)
+exploration_scenarios = pd.read_csv(f'{OUTPUT_DIR}/N5_ccc_scenarios.csv')
+exploration_gap = pd.read_csv(f'{OUTPUT_DIR}/N4_gap_analysis.csv')
+workshop_viz.explore_n8(exploration_gap, exploration_scenarios, OUTPUT_DIR)
+
+# %% [code cell 4]
+ensure_pipeline_outputs(5)
 # Define taskstasks = []
 # PHASE 1: PRE-LAUNCH (Day 0-1)tasks.append({    'phase': 'PRE-LAUNCH',    'phase_order': 1,    'task': 'CFO Approval & Team Notification',    'owner': 'CFO',    'start_day': 0,    'end_day': 0,    'priority': 'High',    'description': 'CFO signs decision memo; brief sales, procurement, accounting leads',    'success_criteria': 'Memo signed; teams understand plan & timeline'})tasks.append({    'phase': 'PRE-LAUNCH',    'phase_order': 1,    'task': 'Identify Target Invoices for Collections',    'owner': 'Accounting/Collections',    'start_day': 0,    'end_day': 1,    'priority': 'High',    'description': 'Filter outstanding invoices >30 days overdue; identify key accounts to exempt',    'success_criteria': '40-50 invoices identified; $2M+ in target AR'})tasks.append({    'phase': 'PRE-LAUNCH',    'phase_order': 1,    'task': 'Prepare Supplier Contact List',    'owner': 'Procurement',    'start_day': 0,    'end_day': 1,    'priority': 'High',    'description': 'Identify 3 key suppliers; document current terms & contact info',    'success_criteria': 'List complete with decision maker contacts'})
 # PHASE 2: LAUNCH (Day 1-7)tasks.append({    'phase': 'LAUNCH',    'phase_order': 2,    'task': 'Activate Dunning Automation (Dry Run)',    'owner': 'Treasurer/IT',    'start_day': 1,    'end_day': 1,    'priority': 'High',    'description': 'Test dunning automation on 5 sample invoices; validate customer communication',    'success_criteria': 'Process tested; no errors; communication templates approved'})tasks.append({    'phase': 'LAUNCH',    'phase_order': 2,    'task': 'Go-Live: Collections Campaign',    'owner': 'Collections Lead',    'start_day': 1,    'end_day': 7,    'priority': 'High',    'description': 'Launch automated dunning on 40-50 invoices; make targeted calls to top 5 customers',    'success_criteria': f'Achieve ${day7_collections_target:,.0f}+ collected by Day 7'})tasks.append({    'phase': 'LAUNCH',    'phase_order': 2,    'task': 'Supplier Negotiations - Initial Outreach',    'owner': 'Procurement Lead',    'start_day': 1,    'end_day': 2,    'priority': 'High',    'description': 'Soft outreach to 3 key suppliers; gauge openness to term extension',    'success_criteria': 'Initial positive response from 2+ suppliers'})tasks.append({    'phase': 'LAUNCH',    'phase_order': 2,    'task': 'Daily Monitoring Setup',    'owner': 'Treasurer',    'start_day': 1,    'end_day': 1,    'priority': 'High',    'description': 'Build cash position dashboard; set up daily reporting to CFO',    'success_criteria': 'Dashboard live; daily email sent to CFO with key metrics'})
@@ -145,8 +167,8 @@ task_columns = [
 ]
 tasks_df = pd.DataFrame(task_rows, columns=task_columns)
 
-# %% [code cell 4]
-print("[[LIST] IMPLEMENTATION PLAN SUMMARY")
+# %% [code cell 5]
+print("IMPLEMENTATION PLAN SUMMARY")
 print()
 
 for phase in tasks_df['phase'].unique():
@@ -159,8 +181,8 @@ for phase in tasks_df['phase'].unique():
         print(f"    Success: {task['success_criteria']}")
     print()
 
-# %% [code cell 5]
-print("[[CHART] MONITORING & ESCALATION")
+# %% [code cell 6]
+print("MONITORING & ESCALATION")
 print()
 
 monitoring_metrics = [
@@ -204,8 +226,8 @@ for idx, row in monitoring_df.iterrows():
     print(f"  Escalation: {row['escalation']}")
     print()
 
-# %% [code cell 6]
-print("[[CONFIG]  OPERATIONAL CONTROLS")
+# %% [code cell 7]
+print("OPERATIONAL CONTROLS")
 print()
 
 controls = [
@@ -242,8 +264,8 @@ for control in controls:
     print(f"  Frequency: {control['frequency']}")
     print()
 
-# %% [code cell 7]
-print("[[SAVE] Exporting operational plan...")
+# %% [code cell 8]
+print("Exporting operational plan...")
 
 export_path = f"{OUTPUT_DIR}/N8_operationalization_plan.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
@@ -255,36 +277,37 @@ monitoring_df.to_csv(export_path, index=False)
 print(f"[OK] Exported: {export_path}")
 print()
 
-# %% [code cell 8]
-print("[=" * 80)
-print("[[DONE] N8 COMPLETE - Implementation Plan Built")
-print("[=" * 80)
+# %% [code cell 9]
+print("N8 COMPLETE - Implementation Plan Built")
 print()
-print("[[INFO] Implementation Summary:")
+print("Implementation Summary:")
 print(f"   {len(tasks_df)} core tasks across {tasks_df['phase'].nunique()} phases")
 print(f"   Pre-Launch (1 day): Prepare teams & process")
 print(f"   Launch (7 days): Collections campaign + supplier outreach")
 print(f"   Scale (7 days): Finalize agreements & optimize")
 print(f"   Close (1+ days): Review results & decide next steps")
 print()
-print("[[GOAL] Key Deliverables:")
+print("Key Deliverables:")
 print(f"   Collections: Target ${day7_collections_target:,.0f} collected by Day 7")
 print(f"   Payables: Secure 2-3 agreements by Day 14")
 print(f"   Monitoring: Daily cash position reporting to CFO")
 print(f"   Controls: Approval gates + reconciliation")
 print()
-print("[[DONE] WORKSHOP COMPLETE")
+print("WORKSHOP COMPLETE")
 print()
-print("[[INFO] What you learned:")
-print("[  1. How to identify liquidity gaps using data analysis")
-print("[  2. How to predict payment behavior using ML")
-print("[  3. How to model operational levers (collections, payables, inventory)")
-print("[  4. How to build a CFO-ready decision memo")
-print("[  5. How to create an implementation plan with monitoring & controls")
+print("What you learned:")
+print("  1. How to identify liquidity gaps using data analysis")
+print("  2. How to predict payment behavior using ML")
+print("  3. How to model operational levers (collections, payables, inventory)")
+print("  4. How to build a CFO-ready decision memo")
+print("  5. How to create an implementation plan with monitoring & controls")
 print()
-print("[ Take-home:")
-print("[   All notebooks are reusable for your own company data")
-print("[   Templates (decision memo, governance, checklist) are in /templates/")
-print("[   Claude prompts (for interpretation) are in /claude_prompts/")
-print("[   Adapt to your business context and run with your data")
+print(" Take-home:")
+print("   All notebooks are reusable for your own company data")
+print("   Templates (decision memo, governance, checklist) are in /templates/")
+print("   Claude prompts (for interpretation) are in /claude_prompts/")
+print("   Adapt to your business context and run with your data")
 print()
+
+# %% [code cell 10]
+workshop_viz.outcome_n8(tasks_df, monitoring_df, OUTPUT_DIR)

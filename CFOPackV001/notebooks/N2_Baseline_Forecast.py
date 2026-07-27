@@ -27,6 +27,22 @@ GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearning
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
+# Shared workshop chart helpers (local Jupyter or fresh Colab runtime).
+try:
+    import cfopack_visuals as workshop_viz
+except ImportError:
+    from types import SimpleNamespace
+    from urllib.request import urlopen
+    visual_url = (
+        'https://raw.githubusercontent.com/VinayaSharada/'
+        'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
+        'cfopack_visuals.py'
+    )
+    visual_namespace = {}
+    exec(compile(urlopen(visual_url).read(), visual_url, 'exec'), visual_namespace)
+    workshop_viz = SimpleNamespace(**visual_namespace)
+workshop_viz.configure_workshop()
+
 # %% [code cell 2]
 def load_data_from_github():
     """Load synthetic data directly from GitHub repository.
@@ -91,7 +107,7 @@ else:
     print('\n✓ All data loaded and ready for analysis!')
 
 # %% [code cell 3]
-print("[[FILES] Loading data...")
+print("Loading data...")
 print()
 
 # Load validated data and cash flow schedule
@@ -130,7 +146,10 @@ validated_data['due_date'] = pd.to_datetime(validated_data['due_date'])
 cash_flow['date'] = pd.to_datetime(cash_flow['date'])
 
 # %% [code cell 4]
-print("[ Forecast Setup")
+workshop_viz.explore_n2(validated_data, cash_flow, OUTPUT_DIR)
+
+# %% [code cell 5]
+print(" Forecast Setup")
 print()
 
 # Forecast starts today (using the earliest date in cash_flow as "today")
@@ -146,8 +165,8 @@ starting_cash = 5_000_000  # $5M starting balance
 print(f"  Starting cash position: ${starting_cash:,.0f}")
 print()
 
-# %% [code cell 5]
-print("[[MONEY] INFLOWS - Projected Invoice Receipts")
+# %% [code cell 6]
+print("INFLOWS - Projected Invoice Receipts")
 print()
 
 # In this BASELINE scenario, invoices are assumed to pay on their due date
@@ -162,15 +181,15 @@ print(f"Total inflows: ${inflows['payment_amount'].sum():,.0f}")
 print()
 
 # Show top inflows
-print("[Top 5 inflows:")
+print("Top 5 inflows:")
 top_inflows = inflows.nlargest(5, 'payment_amount')
 for idx, row in top_inflows.iterrows():
     print(f"  {row['payment_date'].date()}: Customer {row['customer_id']:>3d} ${row['payment_amount']:>10,.0f}")
 
 print()
 
-# %% [code cell 6]
-print("[[BANK] Building Daily Cash Position")
+# %% [code cell 7]
+print("Bank: Building Daily Cash Position")
 print()
 
 # Create a day-by-day cash position
@@ -207,8 +226,8 @@ cash_forecast = pd.DataFrame(daily_data)
 print(f"[OK] {len(cash_forecast)}-day baseline forecast complete")
 print()
 
-# %% [code cell 7]
-print("[[CHART] BASELINE FORECAST SUMMARY")
+# %% [code cell 8]
+print("BASELINE FORECAST SUMMARY")
 print()
 print(f"Starting cash position:    ${cash_forecast.iloc[0]['opening_cash']:>12,.0f}")
 print(f"Total inflows ({len(cash_forecast)} days):  ${cash_forecast['inflows'].sum():>12,.0f}")
@@ -218,7 +237,7 @@ print(f"Ending cash position:      ${cash_forecast.iloc[-1]['closing_cash']:>12,
 print()
 
 # Critical days
-print("[Cash position key points:")
+print("Cash position key points:")
 min_cash_day = cash_forecast.loc[cash_forecast['closing_cash'].idxmin()]
 print(f"  Lowest point: Day {int(min_cash_day['day'])}, ${min_cash_day['closing_cash']:,.0f}")
 max_cash_day = cash_forecast.loc[cash_forecast['closing_cash'].idxmax()]
@@ -226,8 +245,7 @@ print(f"  Highest point: Day {int(max_cash_day['day'])}, ${max_cash_day['closing
 print()
 
 # Daily detail
-print("[Daily cash position:")
-print("[-" * 80)
+print("Daily cash position:")
 for idx, row in cash_forecast.iterrows():
     status = "[OK]" if row['closing_cash'] > 1_000_000 else ("[WARNING]" if row['closing_cash'] > 500_000 else "[ALERT]")
     print(f"  Day {int(row['day']):2d} ({row['date'].strftime('%a %m-%d')}): "
@@ -236,44 +254,41 @@ for idx, row in cash_forecast.iterrows():
           f"- ${row['outflows']:>10,.0f} "
           f"= ${row['closing_cash']:>10,.0f}  {status}")
 
-print("[-" * 80)
 print()
 
-# %% [code cell 8]
-print("[[WARNING]  RISK ASSESSMENT (Baseline Scenario)")
+# %% [code cell 9]
+print("Warning: RISK ASSESSMENT (Baseline Scenario)")
 print()
 
 min_cash = cash_forecast['closing_cash'].min()
 
 if min_cash < 500_000:
-    print("[[ALERT] HIGH RISK: Cash balance drops below $500K")
+    print("Alert: HIGH RISK: Cash balance drops below $500K")
 elif min_cash < 1_000_000:
-    print("[[WARNING]  MEDIUM RISK: Cash balance drops below $1M")
+    print("Warning: MEDIUM RISK: Cash balance drops below $1M")
 else:
-    print("[[OK] LOW RISK: Comfortable cash balance maintained")
+    print("LOW RISK: Comfortable cash balance maintained")
 
 print()
-print("[[WARNING]  CRITICAL ASSUMPTION:")
-print("[   This baseline assumes ALL invoices pay on their due date.")
-print("[   Historical data shows this is OPTIMISTIC.")
+print("Warning: CRITICAL ASSUMPTION:")
+print("   This baseline assumes ALL invoices pay on their due date.")
+print("   Historical data shows this is OPTIMISTIC.")
 historical_avg_late = validated_data['actual_days_late'].dropna().mean()
 print(f"[   Historical average payment delay is {historical_avg_late:.1f} days.")
 print()
 
-# %% [code cell 9]
-print("[[SAVE] Exporting baseline forecast...")
+# %% [code cell 10]
+print("Exporting baseline forecast...")
 export_path = f"{OUTPUT_DIR}/N2_baseline_forecast.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
 cash_forecast.to_csv(export_path, index=False)
 print(f"[OK] Exported: {export_path}")
 print()
 
-# %% [code cell 10]
-print("[=" * 80)
-print("[[DONE] N2 COMPLETE - Baseline Forecast Built")
-print("[=" * 80)
+# %% [code cell 11]
+print("N2 COMPLETE - Baseline Forecast Built")
 print()
-print("[[INFO] Key Insights:")
+print("Key Insights:")
 print(f"   If all invoices pay on time, we end with ${cash_forecast.iloc[-1]['closing_cash']:,.0f}")
 print(f"   Minimum cash point: Day {int(min_cash_day['day'])} (${min_cash_day['closing_cash']:,.0f})")
 
@@ -284,10 +299,13 @@ else:
     print(f"   [OK] Cash position remains healthy throughout")
 
 print()
-print("[[GOAL] BUT WAIT - Why This Might Be Wrong:")
+print("BUT WAIT - Why This Might Be Wrong:")
 print(f"[   Historical payments arrived {historical_avg_late:.1f} days late on average")
-print("[   N3 will estimate the delay invoice by invoice")
-print("[   N4 will quantify the resulting cash-position difference")
+print("   N3 will estimate the delay invoice by invoice")
+print("   N4 will quantify the resulting cash-position difference")
 print()
-print("[[GOAL] Next step: N3_Collections_Intelligence.ipynb")
-print("[   Use ML to predict which invoices will actually be late and by how many days")
+print("Next step: N3_Collections_Intelligence.ipynb")
+print("   Use ML to predict which invoices will actually be late and by how many days")
+
+# %% [code cell 12]
+workshop_viz.outcome_n2(cash_forecast, OUTPUT_DIR)

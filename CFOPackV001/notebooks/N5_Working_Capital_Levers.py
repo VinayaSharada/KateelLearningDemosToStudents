@@ -38,9 +38,25 @@ def ensure_pipeline_outputs(through):
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
+# Shared workshop chart helpers (local Jupyter or fresh Colab runtime).
+try:
+    import cfopack_visuals as workshop_viz
+except ImportError:
+    from types import SimpleNamespace
+    from urllib.request import urlopen
+    visual_url = (
+        'https://raw.githubusercontent.com/VinayaSharada/'
+        'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
+        'cfopack_visuals.py'
+    )
+    visual_namespace = {}
+    exec(compile(urlopen(visual_url).read(), visual_url, 'exec'), visual_namespace)
+    workshop_viz = SimpleNamespace(**visual_namespace)
+workshop_viz.configure_workshop()
+
 # %% [code cell 2]
 ensure_pipeline_outputs(4)
-print("[[LOAD] Loading data from previous notebooks...")
+print("Loading data from previous notebooks...")
 print()
 
 # Load validated data and predictions
@@ -48,21 +64,21 @@ try:
     validated_data = pd.read_csv(f"{OUTPUT_DIR}/N1_validated_data.csv")
     print(f"[OK] Loaded validated data from N1: {len(validated_data)} invoices")
 except FileNotFoundError:
-    print("[WARNING] N1 validated data not found")
+    print("Warning: N1 validated data not found")
     validated_data = None
 
 try:
     predictions = pd.read_csv(f"{OUTPUT_DIR}/N3_invoice_payment_predictions.csv")
     print(f"[OK] Loaded predictions from N3: {len(predictions)} invoices")
 except FileNotFoundError:
-    print("[WARNING] N3 predictions not found")
+    print("Warning: N3 predictions not found")
     predictions = None
 
 try:
     gap_analysis = pd.read_csv(f"{OUTPUT_DIR}/N4_gap_analysis.csv")
     print(f"[OK] Loaded gap analysis from N4: {len(gap_analysis)} days")
 except FileNotFoundError:
-    print("[WARNING] N4 gap analysis not found")
+    print("Warning: N4 gap analysis not found")
     gap_analysis = None
 
 # Calculate target gap (cash to be closed)
@@ -140,7 +156,10 @@ else:
     print('\n✓ All data loaded and ready for analysis!')
 
 # %% [code cell 4]
-print("[ Current Working Capital Metrics")
+workshop_viz.explore_n5(gap_analysis, predictions, OUTPUT_DIR)
+
+# %% [code cell 5]
+print(" Current Working Capital Metrics")
 print()
 # Calculate baseline CCC metrics
 total_ar = predictions['amount_usd'].sum()
@@ -160,8 +179,8 @@ print(f"  DPO (Days Payable Outstanding):      {dpo:.1f} days")
 print(f"  CCC (Cash Conversion Cycle):         {ccc:.1f} days")
 print()
 
-# %% [code cell 5]
-print("[[GOAL] SCENARIO ANALYSIS")
+# %% [code cell 6]
+print("SCENARIO ANALYSIS")
 print()
 
 scenarios = []
@@ -236,8 +255,7 @@ scenarios.append({
 # Convert to dataframe
 scenarios_df = pd.DataFrame(scenarios)
 
-print("[Scenario Summary:")
-print("[-" * 100)
+print("Scenario Summary:")
 
 for idx, row in scenarios_df.iterrows():
     if 'cash_impact' in row and pd.notna(row['cash_impact']):
@@ -255,11 +273,10 @@ for idx, row in scenarios_df.iterrows():
             print(f"     DPO increase: {row['dpo_increase']:.0f} days")
         print()
 
-print("[-" * 100)
 print()
 
-# %% [code cell 6]
-print("[[WARNING]  RISK ANALYSIS")
+# %% [code cell 7]
+print("Warning: RISK ANALYSIS")
 print()
 
 risks = {
@@ -303,24 +320,24 @@ for lever, details in risks.items():
         print(f"   {risk}")
     print()
 
-# %% [code cell 7]
-print("[[IDEA] RECOMMENDATION")
+# %% [code cell 8]
+print("Idea: RECOMMENDATION")
 print()
-print("[Based on impact, timeline, and feasibility:")
+print("Based on impact, timeline, and feasibility:")
 print()
 print(f"[OK] BEST APPROACH: Collections + Payables (Scenario 4)")
 print(f"  Impact: ${cash_impact_4:,.0f}")
 print(f"  Closes {(cash_impact_4/target_gap*100):.0f}% of gap")
 print()
-print("[  Why this approach:")
-print("[  1. Collections is fast (1-2 weeks) and impactful")
-print("[  2. Payables is negotiation-based (medium-term)")
-print("[  3. Both independent (can do in parallel)")
-print("[  4. If one stalls, you still have the other")
+print("  Why this approach:")
+print("  1. Collections is fast (1-2 weeks) and impactful")
+print("  2. Payables is negotiation-based (medium-term)")
+print("  3. Both independent (can do in parallel)")
+print("  4. If one stalls, you still have the other")
 print()
 
-# %% [code cell 8]
-print("[[SAVE] Exporting scenarios...")
+# %% [code cell 9]
+print("Exporting scenarios...")
 
 export_path = f"{OUTPUT_DIR}/N5_ccc_scenarios.csv"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
@@ -328,16 +345,17 @@ scenarios_df.to_csv(export_path, index=False)
 print(f"[OK] Exported: {export_path}")
 print()
 
-# %% [code cell 9]
-print("[=" * 80)
-print("[[DONE] N5 COMPLETE - Working Capital Levers Modeled")
-print("[=" * 80)
+# %% [code cell 10]
+print("N5 COMPLETE - Working Capital Levers Modeled")
 print()
-print("[[INFO] Key Insights:")
+print("Key Insights:")
 print(f"   ${target_gap:,.0f} gap needs to be closed")
 print(f"   Collections alone can close {(cash_impact_1/target_gap*100):.0f}% of gap")
 print(f"   Payables alone can close {(cash_impact_3/target_gap*100):.0f}% of gap")
 print(f"   Combined can close {(cash_impact_4/target_gap*100):.0f}% of gap")
 print()
-print("[[GOAL] Next step: N6_FX_Hedge_Decision.ipynb")
-print("[   Consider FX hedging strategy for open exposures")
+print("Next step: N6_FX_Hedge_Decision.ipynb")
+print("   Consider FX hedging strategy for open exposures")
+
+# %% [code cell 11]
+workshop_viz.outcome_n5(scenarios_df, target_gap, OUTPUT_DIR)

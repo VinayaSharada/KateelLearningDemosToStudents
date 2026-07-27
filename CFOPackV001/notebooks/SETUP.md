@@ -13,7 +13,7 @@ How to run N1-N8 notebooks in Jupyter or Google Colab.
 ### **Step 1: Install Jupyter**
 
 ```bash
-pip install jupyter pandas numpy scikit-learn
+pip install jupyter pandas numpy matplotlib scikit-learn
 ```
 
 ### **Step 2: Convert Python to Jupyter**
@@ -59,38 +59,28 @@ This opens Jupyter in your browser. Click on converted notebook (`.ipynb` file).
 - Google account
 - Internet connection
 
-### **Step 1: Upload to Colab**
+### **Step 1: Open the notebook in Colab**
 
 1. Go to https://colab.research.google.com/
-2. Click `File` → `Open Notebook` → `Upload`
-3. Select Python script (e.g., `N1_Import_and_Validate.py`)
+2. Click `File` → `Open Notebook` → `GitHub`
+3. Enter `VinayaSharada/KateelLearningDemosToStudents`
+4. Select the required `CFOPackV001/notebooks/*.ipynb` notebook
 
-### **Step 2: Fix Path References**
+The notebook automatically downloads its synthetic inputs and any prerequisite
+module outputs. No path editing or manual CSV upload is required.
 
-Colab runs in `/content/` directory. Edit paths in notebooks:
+### **Step 2: Run all cells**
 
-**Change this:**
-```python
-data_dir = "../data/synthetic/"
-```
+- Choose `Runtime` → `Run all`
+- Wait for the completion message and the two workshop charts
+- Continue to the next notebook in the sequence
 
-**To this:**
-```python
-# Upload CSV files to Colab first, then:
-data_dir = "./"  # or upload to Colab
-```
+### **Step 3: Download participant-ready outputs**
 
-Or upload your data files:
-```python
-# In Colab:
-from google.colab import files
-files.upload()  # Select invoices.csv, etc.
-```
-
-### **Step 3: Run Cells**
-
-- Click play button next to each cell
-- Or `Runtime` menu → `Run All`
+Each notebook saves an opening data-overview PNG and a final results-summary
+PNG in `CFOPackV001/outputs`. They can be pasted directly into slides,
+documents, emails, and reports. The existing CSV, Markdown, and text outputs
+remain available for deeper analysis.
 
 ---
 
@@ -102,7 +92,7 @@ Download from https://www.anaconda.com/
 ### **Step 2: Create Environment**
 
 ```bash
-conda create -n cfo-pack python=3.9 jupyter pandas numpy scikit-learn
+conda create -n cfo-pack python=3.9 jupyter pandas numpy matplotlib scikit-learn
 conda activate cfo-pack
 ```
 
@@ -164,7 +154,7 @@ mkdir outputs
 
 **Solution:** Install missing library
 ```bash
-pip install pandas numpy scikit-learn
+pip install pandas numpy matplotlib scikit-learn
 ```
 
 ### **"File not found" error**
@@ -310,4 +300,3 @@ Once set up:
 4. Share results with your team
 
 **Good to go!** 🚀
-

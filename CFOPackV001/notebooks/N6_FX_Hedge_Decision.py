@@ -38,9 +38,25 @@ def ensure_pipeline_outputs(through):
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
+# Shared workshop chart helpers (local Jupyter or fresh Colab runtime).
+try:
+    import cfopack_visuals as workshop_viz
+except ImportError:
+    from types import SimpleNamespace
+    from urllib.request import urlopen
+    visual_url = (
+        'https://raw.githubusercontent.com/VinayaSharada/'
+        'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
+        'cfopack_visuals.py'
+    )
+    visual_namespace = {}
+    exec(compile(urlopen(visual_url).read(), visual_url, 'exec'), visual_namespace)
+    workshop_viz = SimpleNamespace(**visual_namespace)
+workshop_viz.configure_workshop()
+
 # %% [code cell 2]
 ensure_pipeline_outputs(4)
-print("[[LOAD] Loading FX exposure and gap analysis data...")
+print("Loading FX exposure and gap analysis data...")
 print()
 
 # Load FX exposure data
@@ -53,7 +69,7 @@ except FileNotFoundError:
         fx_exposure = pd.read_csv(f'{GITHUB_RAW_URL}/fx_exposure.csv')
         print(f"[OK] Loaded FX exposure from GitHub: {len(fx_exposure)} currencies")
     except:
-        print("[WARNING] Could not load FX exposure")
+        print("Warning: Could not load FX exposure")
         fx_exposure = None
 
 # Load gap analysis for target_gap calculation
@@ -63,7 +79,7 @@ try:
     target_gap = max(0, gap_analysis.iloc[-1]['gap'])
     print(f"[OK] Target gap: ${target_gap:,.0f}")
 except FileNotFoundError:
-    print("[WARNING] N4 gap analysis not found, using default")
+    print("Warning: N4 gap analysis not found, using default")
     target_gap = 500000
     gap_analysis = None
 
@@ -136,8 +152,10 @@ else:
     print('\n✓ All data loaded and ready for analysis!')
 
 # %% [code cell 4]
+workshop_viz.explore_n6(fx_exposure, OUTPUT_DIR)
+
+# %% [code cell 5]
 print(f"Current Open Exposures:")
-print("[-" * 80)
 
 total_exposure = fx_exposure['notional_amount'].sum()
 
@@ -153,8 +171,8 @@ for idx, row in fx_exposure.iterrows():
 print(f"Total FX exposure: ${total_exposure:,.0f}")
 print()
 
-# %% [code cell 5]
-print("[[WARNING]  VOLATILITY ANALYSIS")
+# %% [code cell 6]
+print("Warning: VOLATILITY ANALYSIS")
 print()
 
 # Assume historical volatility (in real system, would pull from market data)
@@ -165,8 +183,7 @@ volatility_assumptions = {
     'INR': {'volatility': 0.07, 'current_rate': 0.012, 'worst_case_rate': 0.011}
 }
 
-print("[Estimated exposure risk (worst-case 1 standard deviation move):")
-print("[-" * 80)
+print("Estimated exposure risk (worst-case 1 standard deviation move):")
 
 total_exposure_at_risk = 0
 
@@ -180,21 +197,20 @@ for idx, row in fx_exposure.iterrows():
         total_exposure_at_risk += exposure_at_risk
         print(f"{currency}: ${exposure_at_risk:>10,.0f} (${notional:,.0f}  {vol*100:.0f}% volatility)")
 
-print("[-" * 80)
 print(f"Total exposure at risk: ${total_exposure_at_risk:,.0f}")
 print()
 
 if total_exposure_at_risk > target_gap:
     print(f"[WARNING]  FX risk (${total_exposure_at_risk:,.0f}) exceeds cash gap (${target_gap:,.0f})")
-    print("[   Hedging recommended to reduce this risk")
+    print("   Hedging recommended to reduce this risk")
 else:
     print(f"[OK] FX risk (${total_exposure_at_risk:,.0f}) is less than cash gap")
-    print("[   But hedging still recommended as prudent risk management")
+    print("   But hedging still recommended as prudent risk management")
 
 print()
 
-# %% [code cell 6]
-print("[[GOAL] HEDGING SCENARIOS")
+# %% [code cell 7]
+print("HEDGING SCENARIOS")
 print()
 
 # Calculate hedging costs (assume ~0.5% of notional for 3-month forward)
@@ -219,8 +235,8 @@ for hedge_ratio in [0.50, 0.65, 0.75, 0.85]:
     print(f"  Unhedged exposure:  ${total_exposure * (1 - hedge_ratio):,.0f}")
     print()
 
-# %% [code cell 7]
-print("[[LIST] POLICY COMPLIANCE")
+# %% [code cell 8]
+print("POLICY COMPLIANCE")
 print()
 
 # Assume board-approved policy: 50-75% EUR hedge ratio
@@ -244,8 +260,8 @@ for idx, row in fx_exposure.iterrows():
 
 print()
 
-# %% [code cell 8]
-print("[[IDEA] HEDGE RECOMMENDATION")
+# %% [code cell 9]
+print("Idea: HEDGE RECOMMENDATION")
 print()
 
 recommended_ratio = 0.65
@@ -256,28 +272,28 @@ print(f"  EUR: Increase from current to {recommended_ratio*100:.0f}%")
 print(f"  Hedge amount: ${recommended_scenario['hedge_amount']:,.0f}")
 print(f"  Annual cost: ${recommended_scenario['annual_cost']:,.0f}")
 print()
-print("[Rationale:")
+print("Rationale:")
 print(f"[   {recommended_ratio*100:.0f}% is within board-approved range ({approved_range[0]*100:.0f}%-{approved_range[1]*100:.0f}%)")
 print(f"   Protects ~${recommended_scenario['unhedged_exposure']:,.0f} of exposure")
 print(f"   Cost (${recommended_scenario['annual_cost']:,.0f}/year) is reasonable")
 print(f"   Leaves some upside if EUR weakens")
 print()
 
-# %% [code cell 9]
-print("[[OK] APPROVAL PATH")
+# %% [code cell 10]
+print("APPROVAL PATH")
 print()
 
 if recommended_ratio > 0.70:
-    print("[This recommendation requires:")
-    print("[  1. CFO approval (within existing authority)")
-    print("[  2. Quarterly board review notification (>70% trigger)")
+    print("This recommendation requires:")
+    print("  1. CFO approval (within existing authority)")
+    print("  2. Quarterly board review notification (>70% trigger)")
 else:
-    print("[This recommendation requires:")
-    print("[  1. CFO approval only (within existing authority)")
+    print("This recommendation requires:")
+    print("  1. CFO approval only (within existing authority)")
     print()
 
-# %% [code cell 10]
-print("[[SAVE] Exporting hedge recommendation...")
+# %% [code cell 11]
+print("Exporting hedge recommendation...")
 
 recommendations_df = pd.DataFrame(recommendations)
 export_path = f"{OUTPUT_DIR}/N6_hedge_recommendation.csv"
@@ -286,16 +302,17 @@ recommendations_df.to_csv(export_path, index=False)
 print(f"[OK] Exported: {export_path}")
 print()
 
-# %% [code cell 11]
-print("[=" * 80)
-print("[[DONE] N6 COMPLETE - FX Hedge Decision")
-print("[=" * 80)
+# %% [code cell 12]
+print("N6 COMPLETE - FX Hedge Decision")
 print()
-print("[[INFO] Key Insights:")
+print("Key Insights:")
 print(f"   Total FX exposure: ${total_exposure:,.0f}")
 print(f"   Exposure at risk: ${total_exposure_at_risk:,.0f}")
 print(f"   Recommended hedge: {recommended_ratio*100:.0f}%")
 print(f"   Annual hedging cost: ${recommended_scenario['annual_cost']:,.0f}")
 print()
-print("[[GOAL] Next step: N7_Decision_Framework.ipynb")
-print("[   Synthesize all analysis into CFO-ready decision memo")
+print("Next step: N7_Decision_Framework.ipynb")
+print("   Synthesize all analysis into CFO-ready decision memo")
+
+# %% [code cell 13]
+workshop_viz.outcome_n6(recommendations_df, OUTPUT_DIR)

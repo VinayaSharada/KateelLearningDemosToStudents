@@ -39,9 +39,25 @@ def ensure_pipeline_outputs(through):
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
+# Shared workshop chart helpers (local Jupyter or fresh Colab runtime).
+try:
+    import cfopack_visuals as workshop_viz
+except ImportError:
+    from types import SimpleNamespace
+    from urllib.request import urlopen
+    visual_url = (
+        'https://raw.githubusercontent.com/VinayaSharada/'
+        'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
+        'cfopack_visuals.py'
+    )
+    visual_namespace = {}
+    exec(compile(urlopen(visual_url).read(), visual_url, 'exec'), visual_namespace)
+    workshop_viz = SimpleNamespace(**visual_namespace)
+workshop_viz.configure_workshop()
+
 # %% [code cell 2]
 ensure_pipeline_outputs(6)
-print("[[LOAD] Loading comprehensive analysis data from all previous notebooks...")
+print("Loading comprehensive analysis data from all previous notebooks...")
 print()
 
 # Load validated data (N1)
@@ -50,7 +66,7 @@ try:
     print(f"[OK] N1: Loaded validated data ({len(validated_data)} invoices)")
 except FileNotFoundError:
     validated_data = None
-    print("[WARNING] N1 validated data not found")
+    print("Warning: N1 validated data not found")
 
 # Load baseline forecast (N2)
 try:
@@ -58,7 +74,7 @@ try:
     print(f"[OK] N2: Loaded baseline forecast ({len(baseline_forecast)} days)")
 except FileNotFoundError:
     baseline_forecast = None
-    print("[WARNING] N2 baseline forecast not found")
+    print("Warning: N2 baseline forecast not found")
 
 # Load predictions (N3)
 try:
@@ -66,7 +82,7 @@ try:
     print(f"[OK] N3: Loaded payment predictions ({len(predictions)} invoices)")
 except FileNotFoundError:
     predictions = None
-    print("[WARNING] N3 predictions not found")
+    print("Warning: N3 predictions not found")
 
 # Load revised forecast and gap analysis (N4)
 try:
@@ -76,7 +92,7 @@ try:
 except FileNotFoundError:
     revised_forecast = None
     gap_analysis = None
-    print("[WARNING] N4 outputs not found")
+    print("Warning: N4 outputs not found")
 
 # Load CCC scenarios (N5)
 try:
@@ -84,7 +100,7 @@ try:
     print(f"[OK] N5: Loaded {len(scenarios_df)} working capital scenarios")
 except FileNotFoundError:
     scenarios_df = None
-    print("[WARNING] N5 scenarios not found")
+    print("Warning: N5 scenarios not found")
 
 # Load FX hedge recommendation (N6)
 try:
@@ -92,7 +108,7 @@ try:
     print(f"[OK] N6: Loaded FX hedge recommendation")
 except FileNotFoundError:
     hedge_recommendation = None
-    print("[WARNING] N6 hedge recommendation not found")
+    print("Warning: N6 hedge recommendation not found")
 
 # Derive key metrics
 if predictions is not None:
@@ -174,6 +190,9 @@ else:
     print('\n✓ All data loaded and ready for analysis!')
 
 # %% [code cell 4]
+workshop_viz.explore_n7(baseline_forecast, revised_forecast, scenarios_df, OUTPUT_DIR)
+
+# %% [code cell 5]
 forecast_days = len(gap_analysis)
 baseline_end = baseline_forecast.iloc[-1]['closing_cash']
 revised_end = revised_forecast.iloc[-1]['closing_cash']
@@ -258,11 +277,11 @@ The model predicts an average delay of **{avg_delay:.1f} days**; **{at_risk_coun
 Approve the operational launch, authorize treasury to secure the residual funding backstop, and approve the {recommended_hedge['hedge_ratio']:.0%} hedge scenario within the stated policy range.
 """
 
-print('[OK] Decision memo generated from current pipeline outputs')
+print('Ok: Decision memo generated from current pipeline outputs')
 print(f'[OK] End-of-horizon gap: ${final_gap:,.0f}; residual after all levers: ${residual_gap:,.0f}')
 
-# %% [code cell 5]
-print("[[SAVE] Exporting decision memo...")
+# %% [code cell 6]
+print("Exporting decision memo...")
 
 export_path = f"{OUTPUT_DIR}/N7_decision_memo.md"
 os.makedirs(os.path.dirname(export_path), exist_ok=True)
@@ -273,12 +292,13 @@ with open(export_path, 'w') as f:
 print(f"[OK] Exported: {export_path}")
 print()
 
-# %% [code cell 6]
-print('[=' * 80)
+# %% [code cell 7]
 print('N7 COMPLETE - Decision Memo Built')
-print('[=' * 80)
 print(f'Forecast gap: ${final_gap:,.0f}')
 print(f'All-levers impact: ${all_levers_impact:,.0f} ({all_levers_pct:.1f}% of gap)')
 print(f'Residual funding need: ${residual_gap:,.0f}')
 print(f'Recommended FX hedge: {recommended_hedge["hedge_ratio"]:.0%}')
 print('Next step: N8_Operationalize.ipynb')
+
+# %% [code cell 8]
+workshop_viz.outcome_n7(final_gap, all_levers_impact, residual_gap, recommended_hedge, OUTPUT_DIR)
