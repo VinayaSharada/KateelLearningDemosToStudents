@@ -1,0 +1,7 @@
+phase,task,owner,due_day,evidence_required,status,escalation_trigger
+DECIDE,[approval required],[owner],0,[signed authority record],Not started,[condition]
+PREPARE,[validation or setup],[owner],1,[documented evidence],Not started,[condition]
+EXECUTE,[cash action],[owner],3,[system or counterparty evidence],Not started,[condition]
+CONTROL,[daily reconciliation],[owner],1,[variance report],Not started,[condition]
+REVIEW,[midpoint decision],[owner],10,[decision record],Not started,[condition]
+REVIEW,[30-day review],[owner],30,[outcome and lessons learned],Not started,[condition]

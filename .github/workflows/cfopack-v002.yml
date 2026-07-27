@@ -1,0 +1,37 @@
+name: CFOPackV002 release gates
+
+on:
+  push:
+    paths:
+      - "CFOPackV002/**"
+      - ".github/workflows/cfopack-v002.yml"
+  pull_request:
+    paths:
+      - "CFOPackV002/**"
+      - ".github/workflows/cfopack-v002.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: CFOPackV002/requirements.txt
+      - name: Install pinned runtime
+        run: python -m pip install -r CFOPackV002/requirements.txt
+      - name: Verify deterministic scenario data
+        run: |
+          python CFOPackV002/data/generate_scenario.py
+          git diff --exit-code -- CFOPackV002/data/synthetic
+      - name: Compile and test calculations
+        run: |
+          python -m py_compile CFOPackV002/src/*.py CFOPackV002/data/generate_scenario.py CFOPackV002/notebooks/build_notebooks.py CFOPackV002/tests/*.py
+          python CFOPackV002/tests/test_financial_invariants.py
+      - name: Execute notebooks in fresh and sequential runtimes
+        env:
+          MPLBACKEND: Agg
+        run: python CFOPackV002/tests/run_notebooks.py

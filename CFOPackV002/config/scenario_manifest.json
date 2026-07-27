@@ -1,0 +1,101 @@
+{
+  "scenario_id": "liquidity-war-room-2026-09",
+  "version": "2.0.0-alpha.1",
+  "title": "CFO Liquidity War Room",
+  "as_of_date": "2026-09-01",
+  "forecast_horizon_days": 30,
+  "reporting_currency": "USD",
+  "random_seed": 20260727,
+  "opening_cash": 8000000,
+  "minimum_liquidity": 2000000,
+  "accounting_inputs": {
+    "inventory_value": 12000000,
+    "accounts_payable": 18000000,
+    "annual_cogs": 120000000
+  },
+  "credit_facility": {
+    "committed_capacity": 12000000,
+    "annual_interest_rate": 0.085,
+    "draw_fee_rate": 0.002,
+    "cfo_approval_threshold": 5000000,
+    "board_notification_threshold": 9000000
+  },
+  "liquidity_actions": {
+    "collection_strategies": {
+      "none": {
+        "portfolio_fraction": 0.0,
+        "success_rate": 0.0,
+        "acceleration_days": 0,
+        "discount_rate": 0.0,
+        "relationship_risk": "Low"
+      },
+      "targeted": {
+        "portfolio_fraction": 0.25,
+        "success_rate": 0.60,
+        "acceleration_days": 8,
+        "discount_rate": 0.004,
+        "relationship_risk": "Low-Medium"
+      },
+      "broad": {
+        "portfolio_fraction": 0.60,
+        "success_rate": 0.48,
+        "acceleration_days": 6,
+        "discount_rate": 0.009,
+        "relationship_risk": "Medium-High"
+      }
+    },
+    "payables_extension_bounds_days": [0, 10],
+    "inventory_release_bounds_pct": [0.0, 0.10],
+    "facility_draw_bounds": [0, 12000000]
+  },
+  "fx_policy": {
+    "minimum_hedge_ratio": 0.50,
+    "maximum_hedge_ratio": 0.80,
+    "cfo_incremental_hedge_limit": 3000000
+  },
+  "default_participant_decisions": {
+    "team_name": "Team Delta",
+    "scenario_variant": "base",
+    "forecast_view": "p75",
+    "collection_strategy": "targeted",
+    "payables_extension_days": 5,
+    "inventory_release_pct": 0.05,
+    "facility_draw": 4000000,
+    "proposed_hedge_ratios": {
+      "EUR": 0.65,
+      "GBP": 0.60,
+      "JPY": 0.60,
+      "INR": 0.55
+    }
+  },
+  "scenario_variants": {
+    "base": {
+      "label": "Base case",
+      "additional_receipt_delay_days": 0,
+      "surprise_outflow_day": null,
+      "surprise_outflow_amount": 0,
+      "fx_adverse_multiplier": 1.0
+    },
+    "customer_shock": {
+      "label": "Strategic customer delay",
+      "additional_receipt_delay_days": 5,
+      "surprise_outflow_day": null,
+      "surprise_outflow_amount": 0,
+      "fx_adverse_multiplier": 1.0
+    },
+    "supplier_shock": {
+      "label": "Supplier disruption",
+      "additional_receipt_delay_days": 0,
+      "surprise_outflow_day": 12,
+      "surprise_outflow_amount": 1500000,
+      "fx_adverse_multiplier": 1.0
+    },
+    "fx_shock": {
+      "label": "Currency volatility spike",
+      "additional_receipt_delay_days": 0,
+      "surprise_outflow_day": null,
+      "surprise_outflow_amount": 0,
+      "fx_adverse_multiplier": 1.5
+    }
+  }
+}

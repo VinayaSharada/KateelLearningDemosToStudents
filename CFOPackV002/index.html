@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CFO Liquidity War Room — CFOPackV002</title>
+  <meta name="description" content="Build and defend a traceable 30-day liquidity decision using contractual and model-adjusted forecasts, dated actions, funding and FX choices.">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/CFOPackV002/">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script defer src="../assets/site.js"></script>
+  <style>
+    .war-hero { padding: 56px 0 28px; max-width: 900px; }
+    .war-hero h1 { max-width: 760px; margin: 8px 0 16px; }
+    .war-hero .lead { font-size: 1.18rem; line-height: 1.65; color: #3c4a55; max-width: 780px; }
+    .eyebrow { color: #0f766e; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+    .pill { background: #e7f5f3; color: #145d57; border: 1px solid #9dd7d1; border-radius: 999px; padding: 7px 12px; font-size: .9rem; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+    .cta { display: inline-block; padding: 11px 18px; border-radius: 6px; background: #0f766e; color: white; text-decoration: none; font-weight: 700; }
+    .cta.secondary { background: #354a5f; }
+    .decision-note { margin: 22px 0 36px; padding: 20px; border-left: 5px solid #d89b2b; background: #fff8e7; color: #3d3524; }
+    .journey { display: grid; gap: 14px; margin: 24px 0 40px; }
+    .module { display: grid; grid-template-columns: minmax(190px, 1fr) minmax(260px, 2fr) auto; gap: 18px; align-items: center; padding: 18px; border: 1px solid #d8e0e6; border-left: 5px solid #178582; border-radius: 8px; background: #fff; }
+    .module h3 { margin: 0 0 5px; font-size: 1rem; }
+    .module p { margin: 0; color: #4d5b66; }
+    .module a { white-space: nowrap; }
+    .section-block { margin: 42px 0; }
+    .grid-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .plain-card { border: 1px solid #d8e0e6; border-radius: 8px; padding: 18px; background: #fff; }
+    .plain-card h3 { margin-top: 0; }
+    @media (max-width: 760px) {
+      .module { grid-template-columns: 1fr; }
+      .grid-three { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../course-packs/index.html">Course Packs</a>
+      <a class="nav-link" href="../courses/treasury-management.html">Treasury</a>
+      <a class="nav-link" href="README.md">README</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <section class="war-hero">
+    <p class="eyebrow">Treasury decision simulation • CFOPackV002 alpha</p>
+    <h1>CFO Liquidity War Room</h1>
+    <p class="lead">Build and defend a 30-day cash action plan. Challenge contractual assumptions, validate a payment-timing model, reforecast dated actions, choose funding and FX protection, and face the CFO with traceable evidence.</p>
+    <div class="pill-row" aria-label="Workshop attributes">
+      <span class="pill">9 decision modules</span>
+      <span class="pill">Deterministic synthetic case</span>
+      <span class="pill">No API key required</span>
+      <span class="pill">Colab or local Jupyter</span>
+      <span class="pill">Teams of 2-4</span>
+    </div>
+    <div class="cta-row">
+      <a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N0_War_Room_Brief.ipynb">Open N0 in Colab</a>
+      <a class="cta secondary" href="participant/PRE_WORK.md">Read the pre-work</a>
+      <a class="cta secondary" href="participant/WORKBOOK.md">Open the workbook</a>
+    </div>
+  </section>
+
+  <div class="decision-note">
+    <strong>This is not a Run All demonstration.</strong> Your team selects a confidence view, collections strategy, supplier extension, inventory release, facility draw and per-currency hedge ratios. Those choices alter the downstream forecast and the approval request.
+  </div>
+
+  <section class="section-block">
+    <h2>The decision journey</h2>
+    <div class="journey">
+      <article class="module"><div><h3>N0 — War Room Brief</h3><p>Set the team decision charter.</p></div><p>Choose the scenario, confidence view and initial action position.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N0_War_Room_Brief.ipynb">Run</a></article>
+      <article class="module"><div><h3>N1 — Data Integrity</h3><p>Decide whether evidence is usable.</p></div><p>Separate blocking failures from assumptions requiring confirmation.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N1_Data_Integrity.ipynb">Run</a></article>
+      <article class="module"><div><h3>N2 — Contractual Forecast</h3><p>Expose fragile cash assumptions.</p></div><p>Build the 30-day due-date view and identify receipts that control the result.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N2_Contractual_Forecast.ipynb">Run</a></article>
+      <article class="module"><div><h3>N3 — Collections Risk</h3><p>Validate incremental model value.</p></div><p>Compare chronological holdout error with a simple benchmark and prioritize receivables.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N3_Collections_Risk.ipynb">Run</a></article>
+      <article class="module"><div><h3>N4 — Realistic Forecast</h3><p>Select the risk view.</p></div><p>Compare contractual cash with expected or P75 timing and the assigned shock.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N4_Realistic_Forecast.ipynb">Run</a></article>
+      <article class="module"><div><h3>N5 — Liquidity Actions</h3><p>Choose the action package.</p></div><p>Apply dated collections, supplier, inventory and facility effects to the forecast.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N5_Liquidity_Actions.ipynb">Run</a></article>
+      <article class="module"><div><h3>N6 — FX and Funding</h3><p>Buy protection deliberately.</p></div><p>Evaluate currency direction, hedge economics, policy and facility headroom.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N6_FX_and_Funding.ipynb">Run</a></article>
+      <article class="module"><div><h3>N7 — CFO Decision</h3><p>Make the approval request.</p></div><p>Review traceable evidence and prepare for adversarial CFO questions.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N7_CFO_Decision.ipynb">Run</a></article>
+      <article class="module"><div><h3>N8 — Execute and Monitor</h3><p>Turn approval into control.</p></div><p>Assign owners, required evidence, daily metrics and escalation triggers.</p><a class="cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/CFOPackV002/notebooks/N8_Execute_and_Monitor.ipynb">Run</a></article>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>What you produce</h2>
+    <div class="grid-three">
+      <article class="plain-card"><h3>Traceable forecast</h3><p>Contractual, realistic and selected-action cash views with explicit minimum-liquidity breaches.</p></article>
+      <article class="plain-card"><h3>CFO decision paper</h3><p>A concise approval request linked to model evidence, action cost, funding and FX downside.</p></article>
+      <article class="plain-card"><h3>30-day control plan</h3><p>Named owners, completion evidence, monitoring targets and escalation paths.</p></article>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>Before using company data</h2>
+    <p>The case is fully synthetic. Company use requires controlled mapping of receivables, payments, outflows, supplier constraints, inventory options, facility terms, FX exposures and approval policy. Read the <a href="participant/CUSTOM_DATA_GUIDE.md">custom-data guide</a> before replacing any input.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><a href="../index.html">KateelLearningDemos</a> • CFO Liquidity War Room • Created by Professor Vinaya Sathyanarayana</p>
+</footer>
+<script>
+  // Keep the public launch page current while pinning workshop notebooks to the
+  // immutable release that was tested with this scenario and calculation engine.
+  document.querySelectorAll('a[href*="/blob/main/CFOPackV002/"]').forEach((link) => {
+    link.href = link.href.replace(
+      '/blob/main/CFOPackV002/',
+      '/blob/cfopack-v002-v2.0.0-alpha.1/CFOPackV002/'
+    );
+  });
+</script>
+</body>
+</html>

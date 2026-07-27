@@ -1,0 +1,5 @@
+exposure_id,currency,direction,foreign_notional,spot_usd_per_unit,maturity_day,current_hedge_ratio,adverse_move_pct,forward_cost_bps
+FX-001,EUR,receivable,1900000,1.09,18,0.42,0.075,34
+FX-002,GBP,payable,1250000,1.27,24,0.35,0.09,39
+FX-003,JPY,receivable,260000000,0.0068,27,0.2,0.105,31
+FX-004,INR,receivable,145000000,0.012,12,0.33,0.065,28
