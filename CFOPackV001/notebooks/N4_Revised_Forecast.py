@@ -24,10 +24,31 @@ USE_GITHUB_DATA = True
 # Set to False if you want to upload your own data
 GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/data/synthetic'
 
+def ensure_pipeline_outputs(through):
+    """Build missing upstream outputs when this notebook runs by itself."""
+    try:
+        from cfopack_pipeline import ensure_outputs
+    except ImportError:
+        import importlib.util
+        from urllib.request import urlretrieve
+        helper_url = (
+            'https://raw.githubusercontent.com/VinayaSharada/'
+            'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
+            'cfopack_pipeline.py'
+        )
+        helper_path = '/content/cfopack_pipeline.py'
+        urlretrieve(helper_url, helper_path)
+        spec = importlib.util.spec_from_file_location('cfopack_pipeline', helper_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        ensure_outputs = module.ensure_outputs
+    ensure_outputs(OUTPUT_DIR, through, GITHUB_RAW_URL)
+
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
 # %% [code cell 2]
+ensure_pipeline_outputs(3)
 print("[[LOAD] Loading data from N1, N2, N3 outputs...")
 print()
 

@@ -106,13 +106,19 @@ except FileNotFoundError:
     print("N1 outputs not found, loading from GitHub source data...")
     invoices = pd.read_csv(f'{GITHUB_RAW_URL}/invoices.csv')
     customers = pd.read_csv(f'{GITHUB_RAW_URL}/customers.csv')
+    payments = pd.read_csv(f'{GITHUB_RAW_URL}/payments.csv')
     cash_flow = pd.read_csv(f'{GITHUB_RAW_URL}/cash_flow.csv')
     # Prepare validated_data similar to N1
     validated_data = invoices.merge(
         customers[['customer_id', 'avg_days_late', 'risk_score', 'industry']],
         on='customer_id',
         how='left'
+    ).merge(
+        payments[['invoice_id', 'payment_date', 'days_late']],
+        on='invoice_id',
+        how='left'
     )
+    validated_data.rename(columns={'days_late': 'actual_days_late'}, inplace=True)
     print(f"[OK] Prepared {len(validated_data)} invoice records")
     print(f"[OK] Loaded {len(cash_flow)} days of cash flow schedule")
 

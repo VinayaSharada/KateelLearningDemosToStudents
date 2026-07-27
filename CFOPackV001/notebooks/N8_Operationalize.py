@@ -24,6 +24,17 @@ USE_GITHUB_DATA = True
 # Set to False if you want to upload your own data
 GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/data/synthetic'
 
+def ensure_pipeline_outputs(through):
+    try:
+        from cfopack_pipeline import ensure_outputs as build_outputs
+    except ImportError:
+        from urllib.request import urlopen
+        helper_url = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/notebooks/cfopack_pipeline.py'
+        namespace = {}
+        exec(compile(urlopen(helper_url).read(), helper_url, 'exec'), namespace)
+        build_outputs = namespace['ensure_outputs']
+    build_outputs(OUTPUT_DIR, through, GITHUB_RAW_URL)
+
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
@@ -96,6 +107,7 @@ else:
     print('\n✓ All data loaded and ready for analysis!')
 
 # %% [code cell 3]
+ensure_pipeline_outputs(5)
 # Define taskstasks = []
 # PHASE 1: PRE-LAUNCH (Day 0-1)tasks.append({    'phase': 'PRE-LAUNCH',    'phase_order': 1,    'task': 'CFO Approval & Team Notification',    'owner': 'CFO',    'start_day': 0,    'end_day': 0,    'priority': 'High',    'description': 'CFO signs decision memo; brief sales, procurement, accounting leads',    'success_criteria': 'Memo signed; teams understand plan & timeline'})tasks.append({    'phase': 'PRE-LAUNCH',    'phase_order': 1,    'task': 'Identify Target Invoices for Collections',    'owner': 'Accounting/Collections',    'start_day': 0,    'end_day': 1,    'priority': 'High',    'description': 'Filter outstanding invoices >30 days overdue; identify key accounts to exempt',    'success_criteria': '40-50 invoices identified; $2M+ in target AR'})tasks.append({    'phase': 'PRE-LAUNCH',    'phase_order': 1,    'task': 'Prepare Supplier Contact List',    'owner': 'Procurement',    'start_day': 0,    'end_day': 1,    'priority': 'High',    'description': 'Identify 3 key suppliers; document current terms & contact info',    'success_criteria': 'List complete with decision maker contacts'})
 # PHASE 2: LAUNCH (Day 1-7)tasks.append({    'phase': 'LAUNCH',    'phase_order': 2,    'task': 'Activate Dunning Automation (Dry Run)',    'owner': 'Treasurer/IT',    'start_day': 1,    'end_day': 1,    'priority': 'High',    'description': 'Test dunning automation on 5 sample invoices; validate customer communication',    'success_criteria': 'Process tested; no errors; communication templates approved'})tasks.append({    'phase': 'LAUNCH',    'phase_order': 2,    'task': 'Go-Live: Collections Campaign',    'owner': 'Collections Lead',    'start_day': 1,    'end_day': 7,    'priority': 'High',    'description': 'Launch automated dunning on 40-50 invoices; make targeted calls to top 5 customers',    'success_criteria': f'Achieve ${day7_collections_target:,.0f}+ collected by Day 7'})tasks.append({    'phase': 'LAUNCH',    'phase_order': 2,    'task': 'Supplier Negotiations - Initial Outreach',    'owner': 'Procurement Lead',    'start_day': 1,    'end_day': 2,    'priority': 'High',    'description': 'Soft outreach to 3 key suppliers; gauge openness to term extension',    'success_criteria': 'Initial positive response from 2+ suppliers'})tasks.append({    'phase': 'LAUNCH',    'phase_order': 2,    'task': 'Daily Monitoring Setup',    'owner': 'Treasurer',    'start_day': 1,    'end_day': 1,    'priority': 'High',    'description': 'Build cash position dashboard; set up daily reporting to CFO',    'success_criteria': 'Dashboard live; daily email sent to CFO with key metrics'})

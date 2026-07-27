@@ -24,10 +24,22 @@ USE_GITHUB_DATA = True
 # Set to False if you want to upload your own data
 GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/data/synthetic'
 
+def ensure_pipeline_outputs(through):
+    try:
+        from cfopack_pipeline import ensure_outputs as build_outputs
+    except ImportError:
+        from urllib.request import urlopen
+        helper_url = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/notebooks/cfopack_pipeline.py'
+        namespace = {}
+        exec(compile(urlopen(helper_url).read(), helper_url, 'exec'), namespace)
+        build_outputs = namespace['ensure_outputs']
+    build_outputs(OUTPUT_DIR, through, GITHUB_RAW_URL)
+
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
 
 # %% [code cell 2]
+ensure_pipeline_outputs(4)
 print("[[LOAD] Loading FX exposure and gap analysis data...")
 print()
 
