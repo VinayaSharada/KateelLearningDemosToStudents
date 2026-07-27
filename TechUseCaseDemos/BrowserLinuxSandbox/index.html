@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browser Linux Sandbox - KateelLearningDemos</title>
+  <meta name="description" content="A real Buildroot Linux machine that boots inside your browser tab using the v86 WebAssembly emulator. No installs, no admin rights, no Docker/WSL/VM software - works on locked-down official laptops.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <script defer src="../../assets/site.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <details class="nav-dropdown">
+  <summary class="nav-link">Courses</summary>
+  <div class="dropdown-content" role="menu">
+    <a class="dropdown-link" href="../../courses/treasury-management.html"><span>🏦</span>Treasury</a>
+      <a class="dropdown-link" href="../../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+      <a class="dropdown-link" href="../../courses/risk-management.html"><span>⚠️</span>Risk</a>
+      <a class="dropdown-link" href="../../courses/quant-finance.html"><span>💰</span>Quant</a>
+      <a class="dropdown-link" href="../../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+      <a class="dropdown-link" href="../../courses/compliance.html"><span>📋</span>Compliance</a>
+      <a class="dropdown-link" href="../../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+      <a class="dropdown-link" href="../../courses/banking.html"><span>🏦</span>Banking</a>
+  </div>
+</details>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-link nav-cta" href="index.html">Launch Demo</a>
+    </div>
+  </div>
+</nav>
+  <div class="demo-context-strip" role="note">
+    <strong>About vs. Demo:</strong> Start with <a href="about.html">About Demo</a> for classroom context, then use this page to run the actual sandbox.
+  </div>
+  <main class="container demo-shell">
+    <section class="demo-hero">
+      <p class="demo-kicker">Cross-course • Browser • 10-15 min</p>
+      <h1>Browser Linux Sandbox</h1>
+      <p class="demo-lede">A real Linux machine, booted entirely inside this browser tab. Built for students on locked-down official laptops who cannot install software, run Docker, or use WSL2/VirtualBox.</p>
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="about.html">Open About Demo</a>
+        <a class="btn btn-secondary" href="README.md">Read README</a>
+      </div>
+    </section>
+
+    <section class="demo-widget">
+      <div class="control-panel">
+        <button id="power-btn" class="btn-primary">⏵ Start Linux</button>
+        <button id="reset-btn" class="btn-secondary" disabled>⟲ Restart</button>
+        <div class="status-indicator" id="status">Ready to start</div>
+        <div class="progress-text" id="progress"></div>
+      </div>
+
+      <div class="emulator-container">
+        <div id="terminal"></div>
+      </div>
+
+      <div class="lab-instructions">
+        <h3>What to try once it boots</h3>
+        <p class="scope-note"><strong>Scope:</strong> this is a real but disposable Linux machine that exists only in this browser tab. Nothing you do here touches your actual laptop, and nothing you do here is saved once you close the tab.</p>
+        <ul>
+          <li><strong>Explore the filesystem:</strong> <code>ls /</code>, <code>cd /etc</code>, <code>cat /etc/os-release</code></li>
+          <li><strong>Check what's running:</strong> <code>ps</code>, <code>whoami</code>, <code>uname -a</code></li>
+          <li><strong>Try networking:</strong> <code>ping -c 3 example.com</code>, <code>curl example.com</code></li>
+          <li><strong>Write a script:</strong> <code>vi hello.lua</code> then run it with <code>lua hello.lua</code></li>
+        </ul>
+        <details>
+          <summary>Show login details</summary>
+          <pre>
+This image boots straight to a shell prompt (~%) - there is no login prompt.
+          </pre>
+        </details>
+      </div>
+    </section>
+
+  <section class="demo-standard-guide">
+    <div class="section-header">
+      <p class="section-kicker">Standard demo guide</p>
+      <h2>Use this demo in a logical learning sequence</h2>
+      <p>First boot downloads a ~10 MB kernel image, so allow 10-30 seconds depending on the network. Later restarts on the same page are instant.</p>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>What this demo is about</h3>
+        <p>This runs a real, unmodified Buildroot Linux kernel using <a href="https://github.com/copy/v86" target="_blank" rel="noopener">v86</a>, an open-source x86 PC emulator compiled to WebAssembly. It is a genuine virtual machine, not a scripted or simulated terminal.</p>
+      </article>
+      <article class="info-card">
+        <h3>Learning objectives</h3>
+        <ul>
+          <li>Practice core Linux shell commands without needing any local install permissions.</li>
+          <li>Understand the difference between a host operating system and a virtualized guest.</li>
+          <li>Experiment freely - the machine resets to a clean state on every restart.</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Run mode and expectations</h3>
+        <ul>
+          <li>Supported modes: Browser only</li>
+          <li>No installs, no admin rights, no Docker/WSL2/VirtualBox required</li>
+          <li>Works on locked-down corporate/official laptops, as long as the browser can reach the internet</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>Step 1: Start the machine</h3>
+        <p>Click <strong>Start Linux</strong>. The browser downloads a small Linux kernel image, then boots it inside a virtual CPU running in your browser tab.</p>
+      </article>
+      <article class="info-card">
+        <h3>Step 2: Click the screen, then type</h3>
+        <p>Click inside the black terminal area to give it keyboard focus, then use the shell like any other Linux terminal.</p>
+      </article>
+      <article class="info-card">
+        <h3>Step 3: Restart to reset</h3>
+        <p>Use <strong>Restart</strong> to reboot back to a clean machine at any time - useful between student attempts or exercises.</p>
+      </article>
+    </div>
+  </section>
+
+    <section class="demo-panel">
+      <div class="panel-grid">
+        <article class="mini-panel">
+          <h3>Why this exists</h3>
+          <p class="plain-list">Some students only have an official/corporate Windows laptop with no admin rights - no WSL2, no VirtualBox, no Docker. This demo gives them a real Linux shell anyway, entirely inside the browser, using WebAssembly-based CPU emulation instead of a hypervisor.</p>
+        </article>
+        <article class="mini-panel">
+          <h3>Requirements and limits</h3>
+          <ul class="plain-list">
+            <li>Needs an unrestricted-enough browser and outbound internet access to load the emulator library and kernel image from public CDNs.</li>
+            <li>Performance is CPU-emulation speed, not native - fine for shell practice, not for heavy compute.</li>
+            <li>Nothing persists after the tab closes; there is no save/restore wired into this demo.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/v86@0.5.424/build/libv86.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

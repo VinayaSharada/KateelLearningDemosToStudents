@@ -112,7 +112,7 @@ Here's the mapping:
 ## 📚 Ready to Try? Here's How
 
 ### **If you want guided practice:**
-→ Go to [**CFOPackV001_Module6_Bridge** →](./CFOPackV001_Module6_Bridge/)  
+→ Go to [**CFOPackV001_Module6_Bridge** →](../../CFOPackV001_Module6_Bridge/)  
 You'll find a **case analysis workbook** that walks you through one case (Asteron) step-by-step, showing exactly how to apply the 8-step method.
 
 ### **If you want to jump in:**
@@ -180,7 +180,7 @@ CFO: "We need to transform finance. Where should we start?"
 
 **Choose one:**
 
-- **[Go to the Case Analysis Workbook →](./CFOPackV001_Module6_Bridge/CASE_ANALYSIS_WORKBOOK.md)** (guided, 2 hours)
+- **[Go to the Case Analysis Workbook →](../../CFOPackV001_Module6_Bridge/CASE_ANALYSIS_WORKBOOK.md)** (guided, 2 hours)
 - **[Jump to Module 6 Cases →](https://github.com/VinayaSharada/KateelLearningDemosToStudents/tree/main/SPJainModule6/Module6/Case_Materials/Cases)** (independent, your choice)
 - **[Explore Digital Labs →](https://github.com/VinayaSharada/KateelLearningDemosToStudents/tree/main/SPJainModule6/Module6/Digital_Finance_Technology_Labs)** (tech-focused, tools not strategy)
 

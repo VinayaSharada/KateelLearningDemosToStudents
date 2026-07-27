@@ -628,18 +628,18 @@
       "audience": "CFO workshops, treasury, liquidity, hedging",
       "subtitle": "Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.",
       "pagePath": "courses/treasury-management.html",
-      "registeredDemos": "19",
+      "registeredDemos": "20",
       "catalogPath": null,
       "assignments": [],
       "demos": [
         {
-          "title": "AI Hedge Orchestrator",
+          "title": "CFOPackV001: Treasury Decision Workshop",
           "level": "Intermediate",
-          "summary": "Your multinational has \u20ac50M in revenue exposure to EUR/USD volatility. AI recommends a hedge\u2014but at what ratio and cost? Decide between full/partial hedges and learn why underhedging can destroy shareholder value faster than overhedging.",
-          "teacherCue": "Teacher cue: Emphasize the tradeoff: cheaper partial hedges leave you exposed. Why would a CFO accept residual risk? When do you fully hedge vs. layer hedges over time?",
-          "duration": "20-30 min",
-          "surface": "Browser-based",
-          "mode": "Browser",
+          "summary": "Build a complete treasury liquidity decision in 3 hours: forecast cash gaps, predict payment timing with ML, model working-capital levers, and write a CFO-ready memo. 9 Jupyter notebooks, synthetic 10K-invoice dataset, no external APIs required. Run in Colab or local Python.",
+          "teacherCue": "Teacher cue: This is a hands-on workshop, not a single demo. Teams of 2-3 rotate roles (Treasurer, Controller, CFO). Emphasize that realistic payment behavior changes the decision, not just the number.",
+          "duration": "3 hours (+ optional 40 min N0.5)",
+          "surface": "Jupyter notebook workshop",
+          "mode": "Colab / Local",
           "courseSlug": "treasury",
           "courseTitle": "Treasury Management",
           "courseSlugs": [
@@ -3140,26 +3140,6 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "AI Hedge Orchestrator",
-      "level": "Intermediate",
-      "summary": "Your multinational has \u20ac50M in revenue exposure to EUR/USD volatility. AI recommends a hedge\u2014but at what ratio and cost? Decide between full/partial hedges and learn why underhedging can destroy shareholder value faster than overhedging.",
-      "teacherCue": "Teacher cue: Emphasize the tradeoff: cheaper partial hedges leave you exposed. Why would a CFO accept residual risk? When do you fully hedge vs. layer hedges over time?",
-      "duration": "20-30 min",
-      "surface": "Browser-based",
-      "mode": "Browser",
-      "courseSlug": "treasury",
-      "courseTitle": "Treasury Management",
-      "courseSlugs": [
-        "treasury"
-      ],
-      "courseTitles": [
-        "Treasury Management"
-      ],
-      "aboutPath": "TechUseCaseDemos/AIHedgeOrchestrator/about.html",
-      "launchPath": "TechUseCaseDemos/AIHedgeOrchestrator/index.html",
-      "readiness": "Classroom Ready"
-    },
-    {
       "title": "AI Launch Gate \u00b7 PM Demo 05",
       "level": "Intermediate",
       "summary": "Ready to ship? Check: accuracy acceptable? Governance in place? Support plan ready? Launch gates prevent disasters.",
@@ -3643,6 +3623,26 @@
       ],
       "aboutPath": "TechUseCaseDemos/CCCAnalyzer/about.html",
       "launchPath": "TechUseCaseDemos/CCCAnalyzer/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "CFOPackV001: Treasury Decision Workshop",
+      "level": "Intermediate",
+      "summary": "Build a complete treasury liquidity decision in 3 hours: forecast cash gaps, predict payment timing with ML, model working-capital levers, and write a CFO-ready memo. 9 Jupyter notebooks, synthetic 10K-invoice dataset, no external APIs required. Run in Colab or local Python.",
+      "teacherCue": "Teacher cue: This is a hands-on workshop, not a single demo. Teams of 2-3 rotate roles (Treasurer, Controller, CFO). Emphasize that realistic payment behavior changes the decision, not just the number.",
+      "duration": "3 hours (+ optional 40 min N0.5)",
+      "surface": "Jupyter notebook workshop",
+      "mode": "Colab / Local",
+      "courseSlug": "treasury",
+      "courseTitle": "Treasury Management",
+      "courseSlugs": [
+        "treasury"
+      ],
+      "courseTitles": [
+        "Treasury Management"
+      ],
+      "aboutPath": "TechUseCaseDemos/AIHedgeOrchestrator/about.html",
+      "launchPath": "TechUseCaseDemos/AIHedgeOrchestrator/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -5417,11 +5417,12 @@
   "counts": {
     "coursePacks": 10,
     "curatedDemos": 120,
-    "runModes": 5
+    "runModes": 6
   },
   "modeCounts": {
-    "Browser": 110,
+    "Browser": 109,
     "Colab": 5,
+    "Colab / Local": 1,
     "Local": 1,
     "Multi-Mode": 3,
     "Browser AI": 1

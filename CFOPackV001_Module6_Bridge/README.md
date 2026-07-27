@@ -25,7 +25,7 @@ A **guided workbook** showing you exactly how to use CFOPackV001's 8-step decisi
 
 ### **Path 1: Self-Study (Recommended)**
 
-1. **Open [CFOPackV001/MODULE6_NEXT_STEPS.md](../CFOPackV001/MODULE6_NEXT_STEPS.md)**  
+1. **Open [MODULE6_NEXT_STEPS.md](../CFOPackV001/participant/MODULE6_NEXT_STEPS.md)**  
    *(5 min)* Quick overview of how the methods connect
 
 2. **Open [CASE_ANALYSIS_WORKBOOK.md](./CASE_ANALYSIS_WORKBOOK.md)**  

@@ -48,12 +48,13 @@ Your CFO says: *"We're forecasting tight liquidity next week. Walk me through ou
 
 ## How It Works
 
-### **8 Integrated Notebooks (N1-N8)**
+### **8 Integrated Notebooks (N1-N8), Plus an Optional N0.5**
 
 Each notebook produces an output that feeds the next one. You're building a data pipeline.
 
 | Notebook | What You Do | Time | Output |
 |----------|------------|------|--------|
+| **N0.5** *(optional)* | Reconcile bank statement to invoices using a local LLM | 30-40 min | Matched reconciliation |
 | **N1** | Load & validate data | 15 min | Cleaned dataset |
 | **N2** | Build baseline forecast (optimistic) | 20 min | Baseline cash position |
 | **N3** | Train ML model to predict late payments | 25 min | Invoice payment predictions |
@@ -63,7 +64,7 @@ Each notebook produces an output that feeds the next one. You're building a data
 | **N7** | Build CFO decision memo | 25 min | Memo ready to present |
 | **N8** | Create implementation plan | 20 min | Action plan + checklist |
 
-**Total: 3 hours**
+**Total: 3 hours (3h 50min if your session includes N0.5)**
 
 ---
 
@@ -75,9 +76,9 @@ Each notebook produces an output that feeds the next one. You're building a data
 - Run locally or use Google Colab (free, no installation)
 
 ### **Data Files (Provided)**
-- `invoices.csv` — 500 current invoices
-- `payments.csv` — Historical payment data
-- `customers.csv` — Customer reference info
+- `invoices.csv` — 10,000 invoices (8,000 paid + 2,000 outstanding), $546.9M total AR
+- `payments.csv` — 8,200 historical payment records
+- `customers.csv` — 148 customers across 5 industries
 - `fx_exposure.csv` — FX positions
 - `cash_flow.csv` — 14-day cash outflow schedule
 
@@ -91,6 +92,12 @@ All data is **fully synthetic** (realistic but not real).
 (Claude is optional. You can run pure notebooks or hybrid.)
 
 ---
+
+## Team Formation
+
+- **Team size:** 2-3 people per team (workshop groups run 3-6 participants, split into 2-3 teams)
+- **How teams form:** The instructor assigns you to a team at the start of the session — you don't need to arrange this beforehand
+- **Roles rotate within your team** every 2 hours (see below), so everyone gets time in each seat
 
 ## Roles (Rotate Every 2 Hours)
 
@@ -241,7 +248,7 @@ Ask instructor before 9:00 AM on workshop day.
 | Setup instructions | `notebooks/SETUP.md` |
 | Data schema | `data/README.md` |
 | Using Claude | `claude_prompts/README.md` |
-| Bringing real data | `participant_guide/DATA_UPLOAD_GUIDE.md` |
-| Taking it home | `participant_guide/POST_WORKSHOP_TAKEAWAY.md` |
+| Bringing real data | `participant/DATA_UPLOAD_GUIDE.md` |
+| Taking it home | `participant/POST_WORKSHOP_TAKEAWAY.md` |
 | Templates | `templates/` (decision memo, checklist, governance) |
 

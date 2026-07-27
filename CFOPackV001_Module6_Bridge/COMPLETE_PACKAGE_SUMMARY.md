@@ -416,16 +416,18 @@ Each memo shows: evidence-based reasoning, quantified impact, risk assessment, i
 
 ```
 CFOPackV001/
-├── START_HERE.md (student entry)
-├── INSTRUCTOR_QUICK_START.md (teaching guide)
-├── MODULE6_NEXT_STEPS.md (bridge connection) ← KEY FILE
-└── [8 notebooks N1-N8]
+├── participant/
+│   ├── START_HERE.md (student entry)
+│   └── MODULE6_NEXT_STEPS.md (bridge connection) ← KEY FILE
+├── instructor/
+│   └── INSTRUCTOR_QUICK_START.md (teaching guide)
+└── notebooks/ [8 notebooks N1-N8]
 
 CFOPackV001_Module6_Bridge/ ← YOU ARE HERE
 ├── README.md (orientation)
 ├── CASE_ANALYSIS_WORKBOOK.md (main tool)
 ├── 8_STEP_QUICK_REFERENCE.md (cheat sheet)
-├── MODULE6_NEXT_STEPS.md (in parent CFOPackV001/)
+├── MODULE6_NEXT_STEPS.md (in CFOPackV001/participant/)
 ├── MODULE6_TECH_LABS_OVERVIEW.md (what comes next)
 ├── EXAMPLE_MEMOS_CASES_2_6.md (reference)
 ├── INSTRUCTOR_FACILITATION_NOTES.md (teaching)

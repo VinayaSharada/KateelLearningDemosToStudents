@@ -14,7 +14,7 @@ You're about to take a **3-hour workshop** on making **data-driven treasury deci
 
 A hands-on workshop where you'll:
 
-1. **Analyze real treasury data** (50 customer invoices, $16.9M in accounts receivable)
+1. **Analyze real treasury data** (10,000 customer invoices, $546.9M in accounts receivable)
 2. **Build ML predictions** (forecast payment timing using Random Forest)
 3. **Model solutions** (test different operational levers)
 4. **Create a CFO decision memo** (evidence-based recommendations)
@@ -333,9 +333,9 @@ The workshop uses synthetic data that's already provided:
 
 ```
 CFOPackV001/data/synthetic/
-├── invoices.csv          (50 outstanding invoices, $16.9M)
-├── payments.csv          (200 historical payment records)
-├── customers.csv         (13 customers, 5 industries)
+├── invoices.csv          (10,000 invoices: 8,000 paid + 2,000 outstanding, $546.9M total AR)
+├── payments.csv          (8,200 historical payment records)
+├── customers.csv         (148 customers, 5 industries)
 ├── cash_flow.csv         (14-day outflow schedule)
 └── fx_exposure.csv       ($5.1M open FX positions)
 ```

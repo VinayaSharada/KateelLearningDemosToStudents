@@ -29,14 +29,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
+
+      - name: Stage public-only site content
+        run: |
+          mkdir -p _site
+          rsync -a --exclude-from='.github/pages-exclude.txt' --exclude='_site' ./ _site/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
           retention-days: 1
       
       - name: Deploy to GitHub Pages

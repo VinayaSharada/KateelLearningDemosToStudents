@@ -1,0 +1,16 @@
+# Paths excluded from the public GitHub Pages build.
+# One rsync-style pattern per line, relative to repo root.
+# Used by .github/workflows/deploy-gh-pages.yml — keep in sync when adding
+# new instructor-only or internal-only content anywhere in the repo.
+
+.git/
+.github/
+.gitignore
+.claude/
+
+# CFOPackV001 instructor material and internal build/QA docs now live in
+# separate private repos (CFOPackV001-Instructor, CFOPackV001-Internal) and
+# are never committed here. These entries are a defensive backstop only, in
+# case either path is ever accidentally reintroduced into this repo.
+CFOPackV001/instructor/
+CFOPackInternal/

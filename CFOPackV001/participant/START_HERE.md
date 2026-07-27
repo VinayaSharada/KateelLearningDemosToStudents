@@ -158,9 +158,9 @@ All data is provided (no download needed - notebooks load automatically):
 
 | Dataset | Size | Details |
 |---------|------|---------|
-| **Invoices** | 50 entries | $16.9M total AR, 13 customers |
-| **Payments** | 200 historical | 12 months of payment history |
-| **Customers** | 13 entities | 5 industries, various risk profiles |
+| **Invoices** | 10,000 entries | $546.9M total AR, 148 customers |
+| **Payments** | 8,200 historical | 24 months of payment history |
+| **Customers** | 148 entities | 5 industries, various risk profiles |
 | **Cash Flows** | 14 days | Scheduled payables & outflows |
 | **FX Exposure** | $5.1M | EUR, GBP, JPY, CAD positions |
 
