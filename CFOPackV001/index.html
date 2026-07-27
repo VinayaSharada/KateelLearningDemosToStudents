@@ -16,20 +16,29 @@
     .workshop-nav a { padding: 10px 20px; background: #0f766e; color: white; border-radius: 5px; text-decoration: none; }
     .workshop-nav a:hover { background: #0d5d56; }
 
-    .notebook-grid { display: grid; gap: 15px; margin: 30px 0; }
-    .notebook-row { display: grid; grid-template-columns: 1fr 2fr auto auto; gap: 15px; align-items: center; padding: 15px; background: #f9fafb; border-radius: 8px; border-left: 4px solid #0f766e; }
-    .notebook-row.header { background: #e0f2f1; font-weight: bold; }
-    .notebook-title { font-weight: 600; }
-    .notebook-desc { color: #666; font-size: 14px; }
-    .notebook-actions { display: flex; gap: 10px; justify-content: flex-end; }
-    .notebook-actions a { padding: 8px 16px; background: #0f766e; color: white; border-radius: 4px; text-decoration: none; font-size: 13px; white-space: nowrap; }
-    .notebook-actions a:hover { background: #0d5d56; }
-    .notebook-actions a.secondary { background: #999; }
-    .notebook-actions a.secondary:hover { background: #777; }
+    .priority-alert { background: #fff3cd; border: 2px solid #ff9800; border-radius: 8px; padding: 20px; margin: 30px 0; }
+    .priority-alert h3 { margin-top: 0; color: #d84315; font-size: 18px; }
+    .priority-alert p { margin: 10px 0; color: #333; font-size: 15px; }
+    .priority-alert a { color: #ff6f00; font-weight: bold; text-decoration: none; }
+    .priority-alert a:hover { text-decoration: underline; }
 
-    .section-title { font-size: 18px; font-weight: 700; margin-top: 40px; margin-bottom: 20px; }
-    .info-box { background: #eff6ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #3b82f6; }
-    .info-box h3 { margin-top: 0; }
+    .notebook-grid { display: grid; gap: 15px; margin: 30px 0; }
+    .notebook-row { display: grid; grid-template-columns: 1fr 2fr auto auto; gap: 15px; align-items: center; padding: 15px; background: #f9fafb; border-radius: 8px; border-left: 4px solid #0f766e; color: #333; }
+    .notebook-row.header { background: #0f766e; font-weight: bold; color: white; }
+    .notebook-title { font-weight: 600; color: #1a1a1a; }
+    .notebook-desc { color: #555; font-size: 14px; }
+    .notebook-actions { display: flex; gap: 10px; justify-content: flex-end; }
+    .notebook-actions a { padding: 8px 16px; background: #0f766e; color: white; border-radius: 4px; text-decoration: none; font-size: 13px; white-space: nowrap; font-weight: 600; }
+    .notebook-actions a:hover { background: #0d5d56; }
+    .notebook-actions a.secondary { background: #666; }
+    .notebook-actions a.secondary:hover { background: #444; }
+
+    .section-title { font-size: 18px; font-weight: 700; margin-top: 40px; margin-bottom: 20px; color: #1a1a1a; }
+    .info-box { background: #e3f2fd; border: 2px solid #2196f3; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    .info-box h3 { margin-top: 0; color: #1565c0; font-size: 16px; }
+    .info-box p { color: #333; margin: 10px 0; }
+    .info-box ul { color: #333; margin: 10px 0; }
+    .info-box li { margin: 5px 0; }
   </style>
 </head>
 <body>
@@ -61,6 +70,25 @@
   <div class="workshop-nav">
     <a href="about.html">← Back to About</a>
     <a href="participant/GETTING_STARTED.md">Participant Guide</a>
+  </div>
+
+  <div class="priority-alert">
+    <h3>⚠️ Before You Start: Read the Participant Guide</h3>
+    <p>
+      This workshop requires preparation and context. <strong>Please read the
+      <a href="participant/GETTING_STARTED.md">Participant Guide</a></strong>
+      before launching any notebooks. It covers:
+    </p>
+    <ul>
+      <li><strong>Team formation & roles:</strong> Who does what (Analyst, Facilitator, Scribe)</li>
+      <li><strong>What data you'll use:</strong> 10K synthetic invoices from 148 companies</li>
+      <li><strong>How to load data:</strong> From GitHub OR upload your own</li>
+      <li><strong>Workshop timeline:</strong> Realistic pacing and break points</li>
+      <li><strong>What to bring:</strong> Laptop, Python 3.8+, and optional API key for enhanced analysis</li>
+    </ul>
+    <p style="margin-top: 15px; color: #d84315;">
+      <strong>Time needed:</strong> 3 hours (or 3h50min if including optional N0.5 Bank Reconciliation module)
+    </p>
   </div>
 
   <h2 style="font-size: 20px; margin-top: 40px; margin-bottom: 20px;">Notebooks</h2>
