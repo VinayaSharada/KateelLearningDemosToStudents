@@ -27,22 +27,14 @@ GITHUB_RAW_URL = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearning
 def ensure_pipeline_outputs(through):
     """Build missing upstream outputs when this notebook runs by itself."""
     try:
-        from cfopack_pipeline import ensure_outputs
+        from cfopack_pipeline import ensure_outputs as build_outputs
     except ImportError:
-        import importlib.util
-        from urllib.request import urlretrieve
-        helper_url = (
-            'https://raw.githubusercontent.com/VinayaSharada/'
-            'KateelLearningDemosToStudents/main/CFOPackV001/notebooks/'
-            'cfopack_pipeline.py'
-        )
-        helper_path = '/content/cfopack_pipeline.py'
-        urlretrieve(helper_url, helper_path)
-        spec = importlib.util.spec_from_file_location('cfopack_pipeline', helper_path)
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-        ensure_outputs = module.ensure_outputs
-    ensure_outputs(OUTPUT_DIR, through, GITHUB_RAW_URL)
+        from urllib.request import urlopen
+        helper_url = 'https://raw.githubusercontent.com/VinayaSharada/KateelLearningDemosToStudents/main/CFOPackV001/notebooks/cfopack_pipeline.py'
+        namespace = {}
+        exec(compile(urlopen(helper_url).read(), helper_url, 'exec'), namespace)
+        build_outputs = namespace['ensure_outputs']
+    build_outputs(OUTPUT_DIR, through, GITHUB_RAW_URL)
 
 print('✓ Imports successful')
 print(f"✓ Data source: {'GitHub (synthetic)' if USE_GITHUB_DATA else 'Manual upload'}")
