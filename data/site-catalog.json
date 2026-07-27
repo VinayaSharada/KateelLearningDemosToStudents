@@ -633,13 +633,13 @@
       "assignments": [],
       "demos": [
         {
-          "title": "CFOPackV001: Treasury Decision Workshop",
-          "level": "Intermediate",
-          "summary": "Build a complete treasury liquidity decision in 3 hours: forecast cash gaps, predict payment timing with ML, model working-capital levers, and write a CFO-ready memo. 9 Jupyter notebooks, synthetic 10K-invoice dataset, no external APIs required. Run in Colab or local Python.",
-          "teacherCue": "Teacher cue: This is a hands-on workshop, not a single demo. Teams of 2-3 rotate roles (Treasurer, Controller, CFO). Emphasize that realistic payment behavior changes the decision, not just the number.",
-          "duration": "3 hours (+ optional 40 min N0.5)",
-          "surface": "Jupyter notebook workshop",
-          "mode": "Colab / Local",
+          "title": "CFO Decision Lab",
+          "level": "Professional cohort",
+          "summary": "Make and defend a 30-day liquidity decision, then transfer the same evidence discipline into a transformation investment committee. The maintained program is delivered through private participant cohorts with a separate instructor and assessment system.",
+          "teacherCue": "Format: Facilitated decision simulation for treasury, controllers, FP&A, transformation leaders, and CFO-1 professionals.",
+          "duration": "Full day or modular labs",
+          "surface": "Facilitated CFO simulation",
+          "mode": "Private cohort",
           "courseSlug": "treasury",
           "courseTitle": "Treasury Management",
           "courseSlugs": [
@@ -650,7 +650,7 @@
           ],
           "aboutPath": "TechUseCaseDemos/AIHedgeOrchestrator/about.html",
           "launchPath": "TechUseCaseDemos/AIHedgeOrchestrator/index.html",
-          "readiness": "Classroom Ready"
+          "readiness": "Decision defence"
         },
         {
           "title": "Treasury Analytics Notebook Hub",
@@ -3626,13 +3626,13 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "CFOPackV001: Treasury Decision Workshop",
-      "level": "Intermediate",
-      "summary": "Build a complete treasury liquidity decision in 3 hours: forecast cash gaps, predict payment timing with ML, model working-capital levers, and write a CFO-ready memo. 9 Jupyter notebooks, synthetic 10K-invoice dataset, no external APIs required. Run in Colab or local Python.",
-      "teacherCue": "Teacher cue: This is a hands-on workshop, not a single demo. Teams of 2-3 rotate roles (Treasurer, Controller, CFO). Emphasize that realistic payment behavior changes the decision, not just the number.",
-      "duration": "3 hours (+ optional 40 min N0.5)",
-      "surface": "Jupyter notebook workshop",
-      "mode": "Colab / Local",
+      "title": "CFO Decision Lab",
+      "level": "Professional cohort",
+      "summary": "Make and defend a 30-day liquidity decision, then transfer the same evidence discipline into a transformation investment committee. The maintained program is delivered through private participant cohorts with a separate instructor and assessment system.",
+      "teacherCue": "Format: Facilitated decision simulation for treasury, controllers, FP&A, transformation leaders, and CFO-1 professionals.",
+      "duration": "Full day or modular labs",
+      "surface": "Facilitated CFO simulation",
+      "mode": "Private cohort",
       "courseSlug": "treasury",
       "courseTitle": "Treasury Management",
       "courseSlugs": [
@@ -3643,7 +3643,7 @@
       ],
       "aboutPath": "TechUseCaseDemos/AIHedgeOrchestrator/about.html",
       "launchPath": "TechUseCaseDemos/AIHedgeOrchestrator/index.html",
-      "readiness": "Classroom Ready"
+      "readiness": "Decision defence"
     },
     {
       "title": "Collections Predictor",
@@ -5422,7 +5422,7 @@
   "modeCounts": {
     "Browser": 109,
     "Colab": 5,
-    "Colab / Local": 1,
+    "Private cohort": 1,
     "Local": 1,
     "Multi-Mode": 3,
     "Browser AI": 1

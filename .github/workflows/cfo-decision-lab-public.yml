@@ -1,0 +1,28 @@
+name: CFO Decision Lab public boundary
+
+on:
+  push:
+    paths:
+      - "CFOPackV001/**"
+      - "CFOPackV001_Module6_Bridge/**"
+      - "CFOPackV002/**"
+      - "scripts/verify_cfo_public_boundary.py"
+      - ".github/workflows/cfo-decision-lab-public.yml"
+  pull_request:
+    paths:
+      - "CFOPackV001/**"
+      - "CFOPackV001_Module6_Bridge/**"
+      - "CFOPackV002/**"
+      - "scripts/verify_cfo_public_boundary.py"
+      - ".github/workflows/cfo-decision-lab-public.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify discovery-only public boundary
+        run: python scripts/verify_cfo_public_boundary.py

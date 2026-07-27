@@ -1,6 +1,0 @@
-option_id,initiative,wave1_cost_usd,annual_benefit_usd,benefit_confidence,day90_visibility,control_risk,adoption_risk,dependency,day90_metric,current_metric,target_metric
-TC-01,Close Command Center,2400000,1150000,0.78,High,Low-Medium,Medium,None,Group close calendar days,11,7
-TC-02,AP Process Redesign and Selective Automation,3200000,1450000,0.74,High,Medium,Low-Medium,Approved process design,Manual-touch rate,0.68,0.45
-TC-03,Finance Data Foundation,5500000,900000,0.62,Medium,Medium,High,Named data owners,Reconciliation hours per month,420,260
-TC-04,Predictive Planning Pilot,4800000,1600000,0.55,Medium,Medium-High,Medium,Trusted planning data,Forecast refresh business days,12,6
-TC-05,FP&A Evidence Copilot,2800000,800000,0.58,High,High,Medium,Source-linked management data,Source-traceable commentary,0.20,0.90

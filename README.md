@@ -3,7 +3,7 @@
 Browser-based AI, machine learning, finance, risk, cybersecurity, and analytics demos for students, faculty, and practitioners. This repository powers the public [GitHub Pages site](https://vinayasharada.github.io/KateelLearningDemosToStudents/) and also includes broader course materials, assignments, and supporting assets for local or Colab-based learning where needed.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-0f766e)](https://vinayasharada.github.io/KateelLearningDemosToStudents/)
-[![Curated demos](https://img.shields.io/badge/Curated%20Demos-112-2563eb)](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html)
+[![Curated demos](https://img.shields.io/badge/Curated%20Demos-120-2563eb)](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html)
 [![Course packs](https://img.shields.io/badge/Course%20Packs-9-d97706)](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html)
 [![Assignment packs](https://img.shields.io/badge/Assignment%20Packs-6-7c3aed)](https://vinayasharada.github.io/KateelLearningDemosToStudents/Assignments/index.html)
 

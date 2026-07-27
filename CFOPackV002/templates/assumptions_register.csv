@@ -1,8 +1,0 @@
-category,assumption,value,source,owner,validation_status,decision_impact,notes
-Liquidity,Opening cash,[amount],[bank evidence],Treasurer,Pending,High,
-Liquidity,Minimum liquidity,[amount],[board policy],CFO,Pending,High,
-Receipts,Payment timing method,[method],[backtest],Controller,Pending,High,
-Funding,Committed facility capacity,[amount],[term sheet],Treasurer,Pending,High,
-Funding,Interest and fees,[terms],[term sheet],Treasurer,Pending,Medium,
-Working capital,Inventory release,[amount and timing],[operations plan],COO,Pending,Medium,
-FX,Hedge policy range,[range],[board policy],Treasurer,Pending,High,
