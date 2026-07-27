@@ -13,6 +13,11 @@ The flagship program combines:
 Visit the [program page](index.html) for outcomes, format, a sample decision
 canvas, and registration contact.
 
+The versioned files under `runtime-data/` are fictional, allowlisted CSV inputs
+used by registered-participant notebooks. They contain no real person or
+company records. Scenario generation, decision logic, shocks, notebooks,
+answers, and instructor materials remain private.
+
 The earlier public notebooks and workshop engine have been retired from the
 current public site. Previously published community-edition releases remain
 historical material and are not the maintained premium program.

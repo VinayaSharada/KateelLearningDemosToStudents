@@ -1,0 +1,43 @@
+{
+  "dataset": "CFO Decision Lab synthetic runtime data",
+  "version": "2.1.0",
+  "classification": "public synthetic participant runtime",
+  "notice": "Fictional educational data; no real person or company records.",
+  "files": {
+    "customers.csv": {
+      "sha256": "af6fb6579d3b61d898080a9d14337cfe449e9976c0c9995a7a134b67a7edc6aa",
+      "bytes": 11834,
+      "rows": 160
+    },
+    "invoices.csv": {
+      "sha256": "953b2225a34d05bf71d64955fcb1ca48ab743eb04159f0e6ddcd2be56c18fcfe",
+      "bytes": 331004,
+      "rows": 5450
+    },
+    "payments.csv": {
+      "sha256": "d8495b06b4af651366850ad1c7a19edec2fa7b216b0eecf1a996705fe7876f42",
+      "bytes": 220295,
+      "rows": 4800
+    },
+    "operating_outflows.csv": {
+      "sha256": "b972f866d7ef6fdfa274156407d20f99b28ee7e60d077fcc7a1cda1eeb2ff0c3",
+      "bytes": 1295,
+      "rows": 30
+    },
+    "supplier_payments.csv": {
+      "sha256": "a9105146b4bda1c7334aa8c29a05cae44d11ef7ce671fcc61c2a30b9c87f8b36",
+      "bytes": 3809,
+      "rows": 72
+    },
+    "fx_exposures.csv": {
+      "sha256": "423ccc5d6c91d908ad9d220d5d96798a8d435c0a35172040c629ffcf0424a12a",
+      "bytes": 343,
+      "rows": 4
+    },
+    "inventory_options.csv": {
+      "sha256": "1e556d0b2d03f27e427bf124cb348673f9743d4290bec0964dfe8175c2467c61",
+      "bytes": 183,
+      "rows": 4
+    }
+  }
+}

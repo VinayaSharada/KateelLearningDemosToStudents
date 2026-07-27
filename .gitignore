@@ -83,6 +83,4 @@ logs
 # Data files (generated)
 *.csv
 !TreasuryAnalytics/ARAgingCollectionsPrioritizer/sample_ar_aging.csv
-!CFOPackV002/data/synthetic/*.csv
-!CFOPackV002/templates/*.csv
-!CFOPackV002/extensions/TransformationInvestmentCommittee/*.csv
+!CFOPackV002/runtime-data/v2.1.0/*.csv
