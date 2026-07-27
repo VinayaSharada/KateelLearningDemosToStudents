@@ -23,6 +23,19 @@ let draggedEntity = null;
 let selectedEntity = null;
 let mode = 'select'; // select, entity, dataflow
 
+// Entity names (via editEntity's prompt()) and data flow labels (via the
+// text input in the modal) are free-text user input that gets rendered
+// straight into innerHTML below. Escaping isn't optional here - values
+// like `<img src=x onerror=...>` or `"><script>` execute as-is otherwise.
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   const resp = await fetch('threatCatalog.json');
   threatCatalog = await resp.json();
@@ -236,7 +249,7 @@ function updateEntityList() {
     div.className = 'entity-item';
     div.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span>${entity.name} (${entity.type})</span>
+        <span>${escapeHtml(entity.name)} (${escapeHtml(entity.type)})</span>
         <button onclick="editEntity('${entity.id}')" class="btn-small">Edit</button>
       </div>
       <div style="margin-top:8px;">
@@ -269,9 +282,9 @@ function updateDataFlowList() {
     const div = document.createElement('div');
     div.className = 'dataflow-item';
     div.innerHTML = `
-      <div style="margin-bottom:8px;"><strong>${fromName} → ${toName}</strong></div>
+      <div style="margin-bottom:8px;"><strong>${escapeHtml(fromName)} → ${escapeHtml(toName)}</strong></div>
       <div>
-        <label>Label: <input type="text" value="${flow.label}" onchange="updateDataFlow(${index}, 'label', this.value)" style="width:100px;"></label>
+        <label>Label: <input type="text" value="${escapeHtml(flow.label)}" onchange="updateDataFlow(${index}, 'label', this.value)" style="width:100px;"></label>
         <label>Protocol: <select onchange="updateDataFlow(${index}, 'protocol', this.value)">
           ${['HTTP', 'HTTPS', 'SMTP', 'FTP', 'SSH', 'gRPC', 'unencrypted'].map(p => `<option ${flow.protocol === p ? 'selected' : ''}>${p}</option>`).join('')}
         </select></label>
@@ -451,20 +464,20 @@ function displayThreats() {
     const categoryThreats = byCategory[category];
     const div = document.createElement('div');
     div.className = 'threat-group';
-    div.innerHTML = `<h3>${category} (${categoryThreats.length})</h3>`;
+    div.innerHTML = `<h3>${escapeHtml(category)} (${categoryThreats.length})</h3>`;
 
     categoryThreats.forEach(threat => {
       const threatDiv = document.createElement('div');
       threatDiv.className = `threat-item severity-${threat.severity.toLowerCase()}`;
       threatDiv.innerHTML = `
         <div style="display:flex; justify-content:space-between;">
-          <strong>${threat.title}</strong>
-          <span class="severity-badge">${threat.severity}</span>
+          <strong>${escapeHtml(threat.title)}</strong>
+          <span class="severity-badge">${escapeHtml(threat.severity)}</span>
         </div>
-        <p style="margin:6px 0; font-size:13px;">${threat.description}</p>
-        <p style="margin:6px 0; font-size:12px; color:#666;"><strong>Affected:</strong> ${threat.affectedEntity}</p>
-        <p style="margin:6px 0; font-size:12px; color:#666;"><strong>Mitigation:</strong> ${threat.mitigation}</p>
-        <p style="margin:6px 0; font-size:12px; color:#666;"><strong>CWE:</strong> ${threat.cwe.join(', ')}</p>
+        <p style="margin:6px 0; font-size:13px;">${escapeHtml(threat.description)}</p>
+        <p style="margin:6px 0; font-size:12px; color:#666;"><strong>Affected:</strong> ${escapeHtml(threat.affectedEntity)}</p>
+        <p style="margin:6px 0; font-size:12px; color:#666;"><strong>Mitigation:</strong> ${escapeHtml(threat.mitigation)}</p>
+        <p style="margin:6px 0; font-size:12px; color:#666;"><strong>CWE:</strong> ${escapeHtml(threat.cwe.join(', '))}</p>
       `;
       div.appendChild(threatDiv);
     });
