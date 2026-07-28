@@ -19,13 +19,14 @@ The demo is designed around one finance question:
 
 `Can the controller allow close, or does the exception queue require escalation first?`
 
-## Included guidance files
+## Included participant files
 
 - `about.html`
 - `index.html`
-- `instructor-guide.md`
 - `participant-task.md`
-- `expected-answer.md`
+
+Instructor calibration and answer guidance are maintained in the private
+instructor repository, not in this public demo.
 
 ## What you can enhance on your own
 

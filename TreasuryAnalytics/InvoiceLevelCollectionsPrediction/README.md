@@ -28,10 +28,12 @@ The notebook generates `invoice_data_template.csv` (a starter file with the exac
 
 Alongside the existing late-payment classifier, the notebook trains a regressor that predicts days late (or early) relative to each invoice's due date. It then builds the expected-inflow calendar **two ways** from the same invoices, so the model's contribution is visible rather than assumed:
 
-- **Without AI** — the naive forecast: assume every invoice pays exactly on its `due_date`.
-- **With AI** — `expected_payment_date = due_date + predicted_days_vs_due`, using the regressor's prediction.
+- **Without AI** — the contractual open-invoice baseline: use the due date, with already-overdue open items placed on the next forecast day rather than silently discarded.
+- **With AI** — use the regressor's predicted delay, but do not bring an open receipt ahead of its contractual due date in the base cash case. Early-payment potential remains upside, not committed liquidity.
 
 Both are charted side by side, summarized as a near-term expected-inflow comparison number, and exported as separate daily-aggregate CSVs (plus a combined per-invoice CSV with both dates) — the outputs needed to drive a calendar tracker or short-term cash forecast, and to argue about whether the AI prediction is actually worth trusting.
+
+The synthetic open ledger deliberately spans overdue and near-future due dates. The action queue is capacity-aware: approximately 15% of invoices receive the highest-priority label, rather than presenting nearly the whole ledger as urgent.
 
 ## Model accuracy: RMSE, train vs. test
 

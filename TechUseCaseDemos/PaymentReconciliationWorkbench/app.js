@@ -224,9 +224,6 @@ function renderRecon() {
     ? `Business decision: ${closeBlocked ? "close should pause until material exceptions are evidenced and approved." : "close may proceed only after controller review confirms the remaining exceptions are immaterial or provisioned."} Evidence required: bank, gateway, network, and merchant file alignment for the highest-value breaks.`
     : "Business decision: close may proceed. Even with a clean run, the controller approval point remains human.";
 
-  document.getElementById("expectedAnswer").innerHTML = total
-    ? `<p><strong>Expected answer:</strong> ${closeBlocked ? "Do not allow close yet." : "Close may proceed after review."} The key break is <strong>${escapeHtml(topException.className)}</strong>, driven by <strong>${escapeHtml(rootCause)}</strong>. The owner is <strong>${escapeHtml(topException.owner)}</strong>, the SLA is <strong>${escapeHtml(topException.sla)}</strong>, and the escalation outcome is <strong>${closeBlocked ? "controller escalation before close" : "document and monitor"}</strong>.</p>`
-    : "<p><strong>Expected answer:</strong> No material exceptions remain. Controller review can document the clean state and allow close.</p>";
 }
 
 function setStakeholder() {
@@ -261,7 +258,6 @@ function resetRecon() {
   Object.entries(defaults).forEach(([id, value]) => {
     document.getElementById(id).value = String(value);
   });
-  document.getElementById("expectedAnswer").hidden = true;
   setMode("facilitator");
   renderRecon();
 }
@@ -272,10 +268,5 @@ document.getElementById("facilitatorMode").addEventListener("click", () => setMo
 document.getElementById("participantMode").addEventListener("click", () => setMode("participant"));
 document.getElementById("stakeholderView").addEventListener("change", setStakeholder);
 document.getElementById("exportRecon").addEventListener("click", exportRecon);
-document.getElementById("showExpectedAnswer").addEventListener("click", () => {
-  const panel = document.getElementById("expectedAnswer");
-  panel.hidden = !panel.hidden;
-});
-
 setStakeholder();
 resetRecon();
