@@ -132,7 +132,7 @@ function updateImpact() {
   // Update lever labels
   dsoPct.textContent = dsoReduction + '%';
   dioPct.textContent = dioReduction + '%';
-  dpoPct.textContent = dpoReduction + '%';
+  dpoPct.textContent = dpoIncrease + '%';
 
   // Calculate optimized metrics
   const optimizedDso = baselineMetrics.dso * (1 - dsoReduction / 100);

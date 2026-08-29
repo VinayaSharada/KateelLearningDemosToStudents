@@ -16,13 +16,13 @@ function calculateRisk() {
   const is = parseInt(document.getElementById('impactScore').value);
 
   // Technical risk: model complexity + data quality
-  const techRisk = Math.round((mc * 0.6 + (10 - dq) * 0.4));
+  const techRisk = Math.round((mc * 0.6 + (10 - dq) * 0.4) * 10);
   
   // Operational risk: business impact + complexity
-  const opRisk = Math.round((is * 0.7 + mc * 0.3));
+  const opRisk = Math.round((is * 0.7 + mc * 0.3) * 10);
   
   // Compliance risk: regulatory pressure + business impact
-  const compRisk = Math.round((rp * 0.6 + is * 0.4));
+  const compRisk = Math.round((rp * 0.6 + is * 0.4) * 10);
   
   // Overall risk
   const overallRisk = Math.round((techRisk + opRisk + compRisk) / 3);
@@ -52,7 +52,13 @@ function calculateRisk() {
 
 sliders.forEach(slider => {
   slider.addEventListener('input', function() {
-    document.getElementById(this.id + 'Value').textContent = this.value;
+    const valueTargets = {
+      modelComplexity: 'mcValue',
+      dataQuality: 'dqValue',
+      regulatoryPressure: 'rpValue',
+      impactScore: 'isValue'
+    };
+    document.getElementById(valueTargets[this.id]).textContent = this.value;
     calculateRisk();
   });
 });

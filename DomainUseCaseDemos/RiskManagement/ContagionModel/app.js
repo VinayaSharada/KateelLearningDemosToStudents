@@ -11,9 +11,15 @@ class ContagionModel {
 
   init() {
     document.getElementById('run-sim').addEventListener('click', () => this.runSimulation());
+    const valueTargets = {
+      'network-size': { id: 'size-val', suffix: '' },
+      'conn-prob': { id: 'prob-val', suffix: '%' },
+      'init-defaults': { id: 'default-val', suffix: '' }
+    };
     ['network-size', 'conn-prob', 'init-defaults'].forEach(id => {
       document.getElementById(id).addEventListener('input', (e) => {
-        document.getElementById(`${id === 'conn-prob' ? 'prob' : id === 'init-defaults' ? 'default' : id}-val`).textContent = e.target.value;
+        const target = valueTargets[id];
+        document.getElementById(target.id).textContent = e.target.value + target.suffix;
       });
     });
     
@@ -31,7 +37,7 @@ class ContagionModel {
     
     for (let i = 0; i < size; i++) {
       for (let j = i + 1; j < size; j++) {
-        if (Math.random() < prob / 100) {
+        if (Math.random() < prob) {
           this.edges.push({ from: i, to: j });
         }
       }
@@ -48,8 +54,10 @@ class ContagionModel {
     while (changed) {
       changed = false;
       this.edges.forEach(edge => {
-        if (!this.defaulted.has(edge.from) || !this.defaulted.has(edge.to)) return;
-        const neighbor = this.defaulted.has(edge.from) ? edge.to : edge.from;
+        const fromDefaulted = this.defaulted.has(edge.from);
+        const toDefaulted = this.defaulted.has(edge.to);
+        if (fromDefaulted === toDefaulted) return;
+        const neighbor = fromDefaulted ? edge.to : edge.from;
         if (!this.defaulted.has(neighbor) && Math.random() < 0.3) {
           this.defaulted.add(neighbor);
           changed = true;
