@@ -1024,7 +1024,7 @@
       "audience": "AI product, governance, workflow design",
       "subtitle": "Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.",
       "pagePath": "courses/ai-ml-workflows.html",
-      "registeredDemos": "38",
+      "registeredDemos": "40",
       "catalogPath": "CourseCatalogs/Management_of_AI_Products_Catalog.md",
       "assignments": [],
       "demos": [
@@ -1689,10 +1689,10 @@
           "readiness": "Classroom Ready"
         },
         {
-          "title": "Feature Prioritization Copilot \u00b7 PM Demo 02",
-          "level": "All Levels",
-          "summary": "50 feature requests. Which matter most? Score by impact, effort, risk. Data-driven prioritization beats gut feel.",
-          "teacherCue": "Teacher cue: Look for value, effort, risk, and strategic alignment scores.",
+          "title": "AI Portfolio and Prerequisite Allocator",
+          "level": "Advanced",
+          "summary": "Allocate capital, delivery capacity and data capacity across initiatives while enforcing risk, prerequisites and explicit exclusions.",
+          "teacherCue": "Teacher cue: Ask teams to commit before the reveal: which initiative is NOW, which is conditional NEXT, and what evidence unlocks it?",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1706,13 +1706,13 @@
           ],
           "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot/about.html",
           "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot/index.html",
-          "readiness": "Classroom Ready"
+          "readiness": "CXO Ready"
         },
         {
-          "title": "Build vs Buy vs API Decision Workbench \u2014 PM Demo 03",
-          "level": "All Levels",
-          "summary": "Build AI in-house? Buy a platform? Use an API? Model TCO, time-to-market, control. Each has trade-offs.",
-          "teacherCue": "Teacher cue: Look for build, buy, and API options across cost, speed, control, and risk.",
+          "title": "Build vs Buy vs API Decision Workbench",
+          "level": "Advanced",
+          "summary": "Stress speed, control, data sensitivity, differentiation, uncertainty, evidence rights and exit obligations before choosing a sourcing boundary.",
+          "teacherCue": "Teacher cue: Ask: what must the enterprise own even when a supplier provides the model or platform?",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1726,13 +1726,13 @@
           ],
           "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/about.html",
           "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/index.html",
-          "readiness": "Classroom Ready"
+          "readiness": "CXO Ready"
         },
         {
-          "title": "Pricing & Unit Economics Explorer \u2014 PM Demo 04",
-          "level": "All Levels",
-          "summary": "AI feature costs $5K/month to run. Charge per user or per transaction? Model margins and break-even.",
-          "teacherCue": "Teacher cue: Look for price, variable cost, contribution margin, and volume assumptions.",
+          "title": "Pricing and Unit Economics Explorer",
+          "level": "Advanced",
+          "summary": "Model contribution per released outcome including inference, retrieval, human review, support and escaped-error cost.",
+          "teacherCue": "Teacher cue: Inject volume and failure-cost shock; identify the review cliff and margin gate.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1746,13 +1746,13 @@
           ],
           "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/about.html",
           "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/4-pricing-unit-economics/index.html",
-          "readiness": "Classroom Ready"
+          "readiness": "CXO Ready"
         },
         {
-          "title": "AI Launch Gate \u00b7 PM Demo 05",
-          "level": "Intermediate",
-          "summary": "Ready to ship? Check: accuracy acceptable? Governance in place? Support plan ready? Launch gates prevent disasters.",
-          "teacherCue": "Teacher cue: Look for readiness criteria, risk checks, owner approval, and launch blockers.",
+          "title": "AI Launch Gate",
+          "level": "Advanced",
+          "summary": "Combine evaluation slices, severe failures, correct abstention, evidence freshness, monitoring and accountable ownership into STOP, REVISE or RELEASE.",
+          "teacherCue": "Teacher cue: Ask who has stop authority and what evidence would reopen release.",
           "duration": "20-30 min",
           "surface": "Browser-based",
           "mode": "Browser",
@@ -1766,7 +1766,47 @@
           ],
           "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/about.html",
           "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/index.html",
-          "readiness": "Classroom Ready"
+          "readiness": "CXO Ready"
+        },
+        {
+          "title": "Governed Copilot Evidence Lab",
+          "level": "Advanced",
+          "summary": "Test a fluent management claim against current, superseded, conflicting, missing and injected evidence before human release.",
+          "teacherCue": "Teacher cue: Require a prediction, then reward correct abstention and named remediation rather than fluency.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "ai-ml-workflows",
+          "courseTitle": "AI/ML Workflows",
+          "courseSlugs": [
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/GovernedCopilotEvidenceLab/about.html",
+          "launchPath": "TechUseCaseDemos/GovernedCopilotEvidenceLab/index.html",
+          "readiness": "CXO Ready"
+        },
+        {
+          "title": "Bounded Agent Authority Lab",
+          "level": "Advanced",
+          "summary": "Trace read, calculate, recommend, stage and execute permissions under evidence-age, approval-token, step-budget and retry controls.",
+          "teacherCue": "Teacher cue: Raise a red card at the first unsafe transition and name the accountable owner.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "ai-ml-workflows",
+          "courseTitle": "AI/ML Workflows",
+          "courseSlugs": [
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/BoundedAgentAuthorityLab/about.html",
+          "launchPath": "TechUseCaseDemos/BoundedAgentAuthorityLab/index.html",
+          "readiness": "CXO Ready"
         },
         {
           "title": "QFD",
@@ -3140,10 +3180,10 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "AI Launch Gate \u00b7 PM Demo 05",
-      "level": "Intermediate",
-      "summary": "Ready to ship? Check: accuracy acceptable? Governance in place? Support plan ready? Launch gates prevent disasters.",
-      "teacherCue": "Teacher cue: Look for readiness criteria, risk checks, owner approval, and launch blockers.",
+      "title": "AI Launch Gate",
+      "level": "Advanced",
+      "summary": "Combine evaluation slices, severe failures, correct abstention, evidence freshness, monitoring and accountable ownership into STOP, REVISE or RELEASE.",
+      "teacherCue": "Teacher cue: Ask who has stop authority and what evidence would reopen release.",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3157,7 +3197,7 @@
       ],
       "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/about.html",
       "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/5-ai-launch-gate/index.html",
-      "readiness": "Classroom Ready"
+      "readiness": "CXO Ready"
     },
     {
       "title": "AI Page Agent",
@@ -3198,6 +3238,26 @@
       "aboutPath": "TechUseCaseDemos/AIPerformanceDashboard/about.html",
       "launchPath": "TechUseCaseDemos/AIPerformanceDashboard/index.html",
       "readiness": "Classroom Ready"
+    },
+    {
+      "title": "AI Portfolio and Prerequisite Allocator",
+      "level": "Advanced",
+      "summary": "Allocate capital, delivery capacity and data capacity across initiatives while enforcing risk, prerequisites and explicit exclusions.",
+      "teacherCue": "Teacher cue: Ask teams to commit before the reveal: which initiative is NOW, which is conditional NEXT, and what evidence unlocks it?",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "ai-ml-workflows",
+      "courseTitle": "AI/ML Workflows",
+      "courseSlugs": [
+        "ai-ml-workflows"
+      ],
+      "courseTitles": [
+        "AI/ML Workflows"
+      ],
+      "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot/about.html",
+      "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot/index.html",
+      "readiness": "CXO Ready"
     },
     {
       "title": "AI PRD Template",
@@ -3526,6 +3586,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Bounded Agent Authority Lab",
+      "level": "Advanced",
+      "summary": "Trace read, calculate, recommend, stage and execute permissions under evidence-age, approval-token, step-budget and retry controls.",
+      "teacherCue": "Teacher cue: Raise a red card at the first unsafe transition and name the accountable owner.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "ai-ml-workflows",
+      "courseTitle": "AI/ML Workflows",
+      "courseSlugs": [
+        "ai-ml-workflows"
+      ],
+      "courseTitles": [
+        "AI/ML Workflows"
+      ],
+      "aboutPath": "TechUseCaseDemos/BoundedAgentAuthorityLab/about.html",
+      "launchPath": "TechUseCaseDemos/BoundedAgentAuthorityLab/index.html",
+      "readiness": "CXO Ready"
+    },
+    {
       "title": "Browser AI Demos \u2014 Edge AI Showcase",
       "level": "Intermediate",
       "summary": "Run models in the browser, no server needed. See latency, accuracy, privacy trade-offs. When is edge AI better than cloud?",
@@ -3546,10 +3626,10 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "Build vs Buy vs API Decision Workbench \u2014 PM Demo 03",
-      "level": "All Levels",
-      "summary": "Build AI in-house? Buy a platform? Use an API? Model TCO, time-to-market, control. Each has trade-offs.",
-      "teacherCue": "Teacher cue: Look for build, buy, and API options across cost, speed, control, and risk.",
+      "title": "Build vs Buy vs API Decision Workbench",
+      "level": "Advanced",
+      "summary": "Stress speed, control, data sensitivity, differentiation, uncertainty, evidence rights and exit obligations before choosing a sourcing boundary.",
+      "teacherCue": "Teacher cue: Ask: what must the enterprise own even when a supplier provides the model or platform?",
       "duration": "20-30 min",
       "surface": "Browser-based",
       "mode": "Browser",
@@ -3563,7 +3643,7 @@
       ],
       "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/about.html",
       "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/3-build-buy-api-workbench/index.html",
-      "readiness": "Classroom Ready"
+      "readiness": "CXO Ready"
     },
     {
       "title": "Card Network Economics and Settlement Simulator",
@@ -3926,26 +4006,6 @@
       "readiness": "Classroom Ready"
     },
     {
-      "title": "Feature Prioritization Copilot \u00b7 PM Demo 02",
-      "level": "All Levels",
-      "summary": "50 feature requests. Which matter most? Score by impact, effort, risk. Data-driven prioritization beats gut feel.",
-      "teacherCue": "Teacher cue: Look for value, effort, risk, and strategic alignment scores.",
-      "duration": "20-30 min",
-      "surface": "Browser-based",
-      "mode": "Browser",
-      "courseSlug": "ai-ml-workflows",
-      "courseTitle": "AI/ML Workflows",
-      "courseSlugs": [
-        "ai-ml-workflows"
-      ],
-      "courseTitles": [
-        "AI/ML Workflows"
-      ],
-      "aboutPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot/about.html",
-      "launchPath": "\ud83e\udd16 Browser-AI-Demos/PM-Product-Demos/2-feature-prioritization-copilot/index.html",
-      "readiness": "Classroom Ready"
-    },
-    {
       "title": "Feature Store",
       "level": "All Levels",
       "summary": "100 models, each needs features. Centralize them\u2014governance, reproducibility, speed. Avoid reimplementing the same feature.",
@@ -4046,6 +4106,26 @@
       "aboutPath": "TechUseCaseDemos/FXHedgeSimulator/about.html",
       "launchPath": "TechUseCaseDemos/FXHedgeSimulator/index.html",
       "readiness": "Classroom Ready"
+    },
+    {
+      "title": "Governed Copilot Evidence Lab",
+      "level": "Advanced",
+      "summary": "Test a fluent management claim against current, superseded, conflicting, missing and injected evidence before human release.",
+      "teacherCue": "Teacher cue: Require a prediction, then reward correct abstention and named remediation rather than fluency.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "ai-ml-workflows",
+      "courseTitle": "AI/ML Workflows",
+      "courseSlugs": [
+        "ai-ml-workflows"
+      ],
+      "courseTitles": [
+        "AI/ML Workflows"
+      ],
+      "aboutPath": "TechUseCaseDemos/GovernedCopilotEvidenceLab/about.html",
+      "launchPath": "TechUseCaseDemos/GovernedCopilotEvidenceLab/index.html",
+      "readiness": "CXO Ready"
     },
     {
       "title": "Graph RAG",
@@ -5416,11 +5496,11 @@
   ],
   "counts": {
     "coursePacks": 10,
-    "curatedDemos": 120,
+    "curatedDemos": 122,
     "runModes": 6
   },
   "modeCounts": {
-    "Browser": 109,
+    "Browser": 111,
     "Colab": 5,
     "Private cohort": 1,
     "Local": 1,
