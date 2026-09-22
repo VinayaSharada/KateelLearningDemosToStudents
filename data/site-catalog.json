@@ -628,7 +628,7 @@
       "audience": "CFO workshops, treasury, liquidity, hedging",
       "subtitle": "Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.",
       "pagePath": "courses/treasury-management.html",
-      "registeredDemos": "20",
+      "registeredDemos": "21",
       "catalogPath": null,
       "assignments": [],
       "demos": [
@@ -914,6 +914,26 @@
           ],
           "aboutPath": "TechUseCaseDemos/CollectionsPredictor/about.html",
           "launchPath": "TechUseCaseDemos/CollectionsPredictor/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Working Capital Control Tower",
+          "level": "Intermediate to Advanced",
+          "summary": "An agent swarm turns five ordinary CSV exports into a collections plan, a reconciled cash position, a 13-week forecast and a funded borrow/invest plan. Flip the AI toggle and watch peak borrowing fall from \u20b914.9 cr to \u20b912.5 cr\u2014because narrower forecast bands need a smaller cash cushion. Every number is computed by deterministic code; agents only decide and explain.",
+          "teacherCue": "Teacher cue: Ask: \"The AI found no new cash\u2014so where did \u20b92.4 crore of borrowing go?\" This reveals that forecast quality is a funding cost: uncertainty itself is what the working-capital line is pricing.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "treasury",
+          "courseTitle": "Treasury Management",
+          "courseSlugs": [
+            "treasury"
+          ],
+          "courseTitles": [
+            "Treasury Management"
+          ],
+          "aboutPath": "TechUseCaseDemos/WorkingCapitalControlTower/about.html",
+          "launchPath": "TechUseCaseDemos/WorkingCapitalControlTower/index.html",
           "readiness": "Classroom Ready"
         },
         {
@@ -5474,6 +5494,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Working Capital Control Tower",
+      "level": "Intermediate to Advanced",
+      "summary": "An agent swarm turns five ordinary CSV exports into a collections plan, a reconciled cash position, a 13-week forecast and a funded borrow/invest plan. Flip the AI toggle and watch peak borrowing fall from \u20b914.9 cr to \u20b912.5 cr\u2014because narrower forecast bands need a smaller cash cushion. Every number is computed by deterministic code; agents only decide and explain.",
+      "teacherCue": "Teacher cue: Ask: \"The AI found no new cash\u2014so where did \u20b92.4 crore of borrowing go?\" This reveals that forecast quality is a funding cost: uncertainty itself is what the working-capital line is pricing.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "treasury",
+      "courseTitle": "Treasury Management",
+      "courseSlugs": [
+        "treasury"
+      ],
+      "courseTitles": [
+        "Treasury Management"
+      ],
+      "aboutPath": "TechUseCaseDemos/WorkingCapitalControlTower/about.html",
+      "launchPath": "TechUseCaseDemos/WorkingCapitalControlTower/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Zero Trust",
       "level": "All Levels",
       "summary": "Assume breach. Verify every access, even inside the network. Learn zero trust architecture.",
@@ -5496,11 +5536,11 @@
   ],
   "counts": {
     "coursePacks": 10,
-    "curatedDemos": 122,
+    "curatedDemos": 123,
     "runModes": 6
   },
   "modeCounts": {
-    "Browser": 111,
+    "Browser": 112,
     "Colab": 5,
     "Private cohort": 1,
     "Local": 1,

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working Capital Control Tower — Agent Swarm Simulation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Working Capital Control Tower — Agent Swarm Simulation</h1>
+  <p>Kaveri Auto Components Ltd (fictional) &middot; all data synthetic and
+     pre-computed &middot; no network calls, no keys &middot;
+     <a href="about.html" style="color:#e8b54d">About this demo</a></p>
+</header>
+<main>
+  <div class="toolbar">
+    <div class="toggle" id="aiToggle" title="Switch between aging-bucket rules and ML predictions">
+      <span id="tRules">Aging rules</span><span id="tMl" class="on">AI predictions</span>
+    </div>
+    <span class="hint">Flip the toggle — watch <b>days to cash</b> and
+      <b>peak borrowing</b> move. Same invoices, same bank, same policy.</span>
+  </div>
+
+  <div class="metrics" id="metrics"></div>
+
+  <div class="layout">
+    <aside class="swarm">
+      <h3>The swarm at work</h3>
+      <div id="steps"></div>
+      <button id="replay">&#9654; Replay the swarm run</button>
+    </aside>
+
+    <section>
+      <div class="tabs" id="tabs">
+        <button data-tab="collections" class="active">Collections</button>
+        <button data-tab="recon">Reconciliation</button>
+        <button data-tab="forecast">13-Week Forecast</button>
+        <button data-tab="treasury">Borrow / Invest</button>
+      </div>
+      <div class="panel" id="panel"></div>
+    </section>
+  </div>
+
+  <p class="notice" id="notice"></p>
+</main>
+<footer>Kateel Learning Demos &middot; educational simulation &middot;
+  the live tier (real ML pipeline + multi-provider agent swarm) is available
+  to registered executive-education participants.</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

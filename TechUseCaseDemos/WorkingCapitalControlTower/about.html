@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Working Capital Control Tower</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>About: Working Capital Control Tower</h1>
+  <p>Concept, learning objectives and how to adapt this demo to your data</p>
+</header>
+<main>
+  <div class="panel" style="border-radius:10px">
+    <h3>Overview</h3>
+    <p>An agent swarm turns five ordinary finance exports — open invoices,
+    payment history, a bank statement, supplier invoices, operating outflows —
+    into a collections plan, a reconciled cash position, a 13-week forecast
+    and a funded borrow/invest plan for a fictional mid-market manufacturer
+    (Kaveri Auto Components Ltd, INR).</p>
+
+    <h3>The architecture idea (the part worth stealing)</h3>
+    <p><b>Deterministic core, agentic shell.</b> Every number is computed by
+    plain, auditable code: quantile ML for payment dates, a five-rung
+    reconciliation ladder, direct cash-flow math, a greedy treasury planner.
+    Agents decide, delegate and explain — they never produce a figure. This
+    page replays pre-computed results of that pipeline; the live tier runs it
+    for real with a multi-provider agent swarm on top.</p>
+
+    <h3>Learning objectives</h3>
+    <ul>
+      <li>See why <b>forecast quality is a funding cost</b>: the treasury plan
+      holds a cash cushion sized to the P50&ndash;P90 uncertainty band, so
+      narrower predictions mean less standby borrowing (flip the AI toggle:
+      peak draw falls &#8377;14.9&nbsp;cr &rarr; &#8377;12.5&nbsp;cr).</li>
+      <li>Understand reconciliation as an <b>exception-queue discipline</b>:
+      auto-matching is plumbing; the value is a scored queue that tells a
+      human exactly what evidence clears each item.</li>
+      <li>Read a working example of <b>governed agent design</b>: specialists
+      with narrow tools, an orchestrator with judgment, humans holding every
+      signature.</li>
+    </ul>
+
+    <h3>The business decision it supports</h3>
+    <p>How much working-capital line do we really need this quarter, which
+    invoices do we chase first, and which early-payment discounts are worth
+    taking against a 9.5% cost of funds?</p>
+
+    <h3>Run modes</h3>
+    <p><b>Browser (this page):</b> pre-computed simulation, no setup, no keys.
+    <br><b>Live tier (registered participants):</b> the full Python pipeline,
+    Streamlit control tower and agent swarm (Anthropic / OpenAI / OpenRouter /
+    Groq via a .env file), with seeded synthetic data you can regenerate — or
+    replace with your own ERP exports via a column-mapping file.</p>
+
+    <h3>How to adapt this demo to your use case</h3>
+    <p>The live tier validates eight CSV contracts (customers, open invoices,
+    invoice history, bank transactions, remittance advice, suppliers, supplier
+    invoices, operating outflows). Export those from your ERP, map your
+    headers once in a YAML file, and the same pipeline — predictions,
+    reconciliation, forecast, funding plan — runs on your business. A data
+    steward step reports anything missing before a single number is
+    computed.</p>
+
+    <h3>Files in this folder</h3>
+    <p><code>index.html</code> (launch) &middot; <code>about.html</code> (this
+    page) &middot; <code>app.js</code> + <code>data.js</code> (simulation
+    logic and pre-computed results) &middot; <code>style.css</code></p>
+
+    <p class="notice">All company names, customers, invoices and bank lines
+    are fictional. Synthetic educational data; no real records.
+    <a href="index.html">&larr; Launch the demo</a></p>
+  </div>
+</main>
+<footer>Kateel Learning Demos &middot; Prof. Vinaya Sathyanarayana</footer>
+</body>
+</html>

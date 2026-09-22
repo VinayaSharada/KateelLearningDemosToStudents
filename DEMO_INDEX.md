@@ -8,7 +8,7 @@
 - **Launch Demo** links open the actual interactive app separately.
 - Course pages use the same About Demo → Launch Demo flow.
 
-## 🏦 Treasury Management (8 demos)
+## 🏦 Treasury Management (9 demos)
 
 Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.
 
@@ -22,6 +22,7 @@ Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury,
 | Stablecoin Manager | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/StablecoinManager/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/StablecoinManager/index.html) | Advanced |
 | Treasury Control Tower | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryControlTower/demo.html) | Beginner to Intermediate |
 | Treasury Transform Blueprint | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/index.html) | Beginner to Intermediate |
+| Working Capital Control Tower | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WorkingCapitalControlTower/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WorkingCapitalControlTower/index.html) | Intermediate to Advanced |
 
 ## 🤖 AI/ML Workflows (37 demos)
 
