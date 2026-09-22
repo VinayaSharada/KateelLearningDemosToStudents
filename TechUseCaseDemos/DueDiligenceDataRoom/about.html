@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Project Anvil Due-Diligence Data Room</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>About: Project Anvil — Due-Diligence Data Room</h1>
+  <p>Concept, learning objectives and how to adapt this demo to your own case</p>
+</header>
+<main>
+  <div class="panel" style="border-radius:10px">
+    <h3>Overview</h3>
+    <p>A fictional acquirer evaluates a fictional precision-machining target
+    at an &#8377;85 cr ask — and the seller's numbers genuinely support it
+    (&#8377;86.4 cr at 6&times; reported EBITDA). Then diligence takes the
+    story apart: eight red flags, a valuation bridge down to &#8377;62.8 cr,
+    and a bear case of &#8377;24 cr. Nobody lied; the annual numbers were
+    true. That is the lesson.</p>
+
+    <h3>The architecture idea (the part worth stealing)</h3>
+    <p><b>Institutionalize the argument.</b> In the live tier, a Deal Sponsor
+    agent is required to make the strongest honest bull case and an
+    Adversarial Auditor is required to attack it — while a deterministic
+    scanner supplies the findings and neither agent may invent a number. The
+    IC-chair agent adjudicates on evidence and recommends; the committee of
+    humans decides.</p>
+
+    <h3>Learning objectives</h3>
+    <ul>
+      <li><b>Grain reveals what aggregates hide</b>: annual revenue was flat
+      and true; the monthly volume-vs-price split exposed a shrinking anchor
+      account behind price increases.</li>
+      <li><b>Findings must land as price</b>: a risk without a &#8377; impact
+      is an opinion — the bridge converts eight findings into one negotiating
+      position.</li>
+      <li><b>Clause risk lives in documents</b>: read the change-of-control
+      extract the legal agent read; it makes 44% of revenue conditional on
+      this very deal.</li>
+    </ul>
+
+    <h3>The business decision it supports</h3>
+    <p>Proceed at &#8377;85 cr, renegotiate at &le;&#8377;59.6 cr with four
+    conditions precedent, or walk?</p>
+
+    <h3>Run modes</h3>
+    <p><b>Browser (this page):</b> pre-computed findings, bridge, scenarios
+    and contract extracts; no setup, no keys.<br><b>Live tier (registered
+    participants):</b> the full data-room scanner, Streamlit app, and the
+    sponsor-vs-auditor agent committee (Anthropic / OpenAI / OpenRouter /
+    Groq via a .env file), re-runnable on a fresh seed per cohort — or on an
+    anonymized real deal.</p>
+
+    <h3>How to adapt this demo to your use case</h3>
+    <p>The live tier validates nine CSV contracts (financials, monthly
+    revenue by customer, customers, related parties, contracts, HR census,
+    asset register, litigation, receivables aging) plus markdown contract
+    extracts. Load your last real deal, anonymized, and see what the scan
+    finds; deal terms (ask, multiple) live in one YAML file.</p>
+
+    <h3>Files in this folder</h3>
+    <p><code>index.html</code> &middot; <code>about.html</code> &middot;
+    <code>app.js</code> + <code>data.js</code> (simulation logic and
+    pre-computed results) &middot; <code>style.css</code></p>
+
+    <p class="notice">Project Anvil, both companies, all customers, contracts
+    and figures are fictional. Synthetic educational data; no real records.
+    <a href="index.html">&larr; Launch the demo</a></p>
+  </div>
+</main>
+<footer>Kateel Learning Demos &middot; Prof. Vinaya Sathyanarayana</footer>
+</body>
+</html>

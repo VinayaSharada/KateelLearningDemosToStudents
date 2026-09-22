@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Anvil — Due-Diligence Data Room Simulation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Project Anvil — Due-Diligence Data Room Simulation</h1>
+  <p>Kaveri Auto Components evaluating Varaha Precision Works (both fictional)
+     &middot; all data synthetic and pre-computed &middot; no network calls,
+     no keys &middot; <a href="about.html" style="color:#e8b54d">About this demo</a></p>
+</header>
+<main>
+  <div class="metrics" id="metrics"></div>
+
+  <div class="layout">
+    <aside class="swarm">
+      <h3>The committee convenes</h3>
+      <div id="steps"></div>
+      <button id="replay">&#9654; Replay the committee</button>
+      <p style="font-size:12px;margin-top:12px;color:#cadcfc">The rule of the
+      game: the sponsor and the auditor may argue anything — but neither may
+      invent a number. The bridge is not negotiable; the interpretation is.</p>
+    </aside>
+
+    <section>
+      <div class="tabs" id="tabs">
+        <button data-tab="flags" class="active">Red flags</button>
+        <button data-tab="bridge">Valuation bridge</button>
+        <button data-tab="scenarios">Scenarios &amp; verdict</button>
+        <button data-tab="extracts">Contract extracts</button>
+      </div>
+      <div class="panel" id="panel"></div>
+    </section>
+  </div>
+
+  <p class="notice" id="notice"></p>
+</main>
+<footer>Kateel Learning Demos &middot; educational simulation &middot;
+  the live tier (real red-flag scanner + sponsor-vs-auditor agent committee)
+  is available to registered executive-education participants.</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

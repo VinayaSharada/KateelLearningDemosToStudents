@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supply-Chain Disruption War Room — Agent Swarm Simulation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Supply-Chain Disruption War Room — Agent Swarm Simulation</h1>
+  <p>Kaveri Auto Components Ltd (fictional) &middot; all data synthetic and
+     pre-computed &middot; no network calls, no keys &middot;
+     <a href="about.html" style="color:#e8b54d">About this demo</a></p>
+</header>
+<main>
+  <div class="toolbar">
+    <span class="hint"><b>Pick a scenario</b> — the exposure, mitigation plan
+      and customer impact were re-derived deterministically for each:</span>
+    <div class="tabs" id="scenarioTabs" style="margin:0"></div>
+  </div>
+
+  <div class="metrics" id="metrics"></div>
+
+  <div class="layout">
+    <aside class="swarm">
+      <h3>The war room convenes</h3>
+      <div id="steps"></div>
+      <button id="replay">&#9654; Replay the swarm run</button>
+      <p style="font-size:12px;margin-top:12px;color:#cadcfc">Agents analyze,
+      argue and draft — the &#8377;-crore expedite, the customer note and the
+      supplier qualification all wait for a human signature.</p>
+    </aside>
+
+    <section>
+      <div class="tabs" id="tabs">
+        <button data-tab="lines" class="active">Line-stop risk</button>
+        <button data-tab="plan">Mitigation plan</button>
+        <button data-tab="customers">Customer impact</button>
+      </div>
+      <div class="panel" id="panel"></div>
+    </section>
+  </div>
+
+  <p class="notice" id="notice"></p>
+</main>
+<footer>Kateel Learning Demos &middot; educational simulation &middot;
+  the live tier (real scenario engine + multi-provider agent swarm with shock
+  sliders) is available to registered executive-education participants.</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

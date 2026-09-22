@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Supply-Chain Disruption War Room</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>About: Supply-Chain Disruption War Room</h1>
+  <p>Concept, learning objectives and how to adapt this demo to your data</p>
+</header>
+<main>
+  <div class="panel" style="border-radius:10px">
+    <h3>Overview</h3>
+    <p>Two disruptions land the same morning: container congestion at a major
+    port (+21 days on sea freight) and a fire at the primary casting supplier
+    (4 weeks down). A war-room agent swarm — Supply Chain, Procurement,
+    Finance, Comms — turns nine ordinary planning exports into line-stop
+    dates, a priced mitigation plan and a customer-contact list, then stops
+    at the approvals. Fictional company (Kaveri Auto Components Ltd, INR);
+    all data synthetic.</p>
+
+    <h3>The architecture idea (the part worth stealing)</h3>
+    <p><b>Deterministic core, agentic shell.</b> The scenario engine, the
+    13-week stock projection, the line-stop math and every mitigation price
+    are plain auditable code. Agents interpret, argue execution risk and
+    draft communications — they never produce a figure, and they never
+    execute: the &#8377;-crore expedite, the customer note and the emergency
+    supplier qualification all wait for named human signatures.</p>
+
+    <h3>Learning objectives</h3>
+    <ul>
+      <li><b>Scenario latency is a strategic asset</b>: &quot;what if it gets
+      worse?&quot; goes from a three-day analyst exercise to an instant
+      re-derivation — compare the four scenarios on the launch page.</li>
+      <li><b>Price the levers, then decide</b>: air uplift vs alternate
+      supplier vs accept, each with a cost and a relief date — including the
+      honest case where no economic fix exists.</li>
+      <li><b>The swarm mirrors the org chart</b>: each agent is a function at
+      the table; the orchestrator is the meeting you no longer schedule.</li>
+    </ul>
+
+    <h3>The business decision it supports</h3>
+    <p>Spend &#8377;0.61 cr today to protect &#8377;1.71 cr of margin — or
+    wait for certainty and own the full &#8377;3.11 cr exposure?</p>
+
+    <h3>Run modes</h3>
+    <p><b>Browser (this page):</b> four pre-computed scenarios, no setup, no
+    keys.<br><b>Live tier (registered participants):</b> the full Python
+    scenario engine with shock sliders (port delay 0&ndash;35 days, outage
+    0&ndash;8 weeks), a Streamlit war room, and the multi-provider agent
+    swarm (Anthropic / OpenAI / OpenRouter / Groq via a .env file).</p>
+
+    <h3>How to adapt this demo to your use case</h3>
+    <p>The live tier validates nine CSV contracts — products, BOM,
+    components, suppliers, component-supplier options, inventory, inbound
+    shipments, key accounts, freight rates — the shapes your MRP already
+    exports. Add your own ports, single-source suppliers and monsoon weeks to
+    a scenarios file, and run your real top-5 risks as a quarterly
+    business-continuity drill.</p>
+
+    <h3>Files in this folder</h3>
+    <p><code>index.html</code> &middot; <code>about.html</code> &middot;
+    <code>app.js</code> + <code>data.js</code> (simulation logic and
+    pre-computed results) &middot; <code>style.css</code></p>
+
+    <p class="notice">All companies, suppliers, ports-as-used, customers and
+    shipments are fictional. Synthetic educational data; no real records.
+    <a href="index.html">&larr; Launch the demo</a></p>
+  </div>
+</main>
+<footer>Kateel Learning Demos &middot; Prof. Vinaya Sathyanarayana</footer>
+</body>
+</html>

@@ -1044,7 +1044,7 @@
       "audience": "AI product, governance, workflow design",
       "subtitle": "Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.",
       "pagePath": "courses/ai-ml-workflows.html",
-      "registeredDemos": "40",
+      "registeredDemos": "43",
       "catalogPath": "CourseCatalogs/Management_of_AI_Products_Catalog.md",
       "assignments": [],
       "demos": [
@@ -1847,6 +1847,66 @@
           "aboutPath": "TechUseCaseDemos/QFDDemo/about.html",
           "launchPath": "TechUseCaseDemos/QFDDemo/index.html",
           "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Supply-Chain War Room",
+          "level": "Intermediate to Advanced",
+          "summary": "Port congestion and a supplier fire hit the same morning. A war-room agent swarm\u2014Supply Chain, Procurement, Finance, Comms\u2014derives line-stop dates, prices every mitigation lever (air uplift vs alternate supplier vs accept) and stages the customer calls. Spending \u20b90.61 cr protects \u20b91.71 cr\u2014and the signatures stay human.",
+          "teacherCue": "Teacher cue: Ask: \"Which of your escalation meetings does this replace\u2014and which does it make better instead of replacing?\" The swarm mirrors the org chart; the orchestrator is the meeting you no longer schedule.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "ai-ml-workflows",
+          "courseTitle": "AI/ML Workflows",
+          "courseSlugs": [
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/SupplyChainWarRoom/about.html",
+          "launchPath": "TechUseCaseDemos/SupplyChainWarRoom/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Due-Diligence Data Room (Project Anvil)",
+          "level": "Intermediate to Advanced",
+          "summary": "An \u20b985 cr acquisition ask the seller's numbers genuinely support\u2014until diligence finds eight red flags and bridges the value to \u20b962.8 cr. A Deal Sponsor agent argues the honest bull case, an Adversarial Auditor attacks it, and neither may invent a number. Read the change-of-control clause the legal agent read.",
+          "teacherCue": "Teacher cue: Ask: \"Nobody lied\u2014the annual numbers were true. So where did \u20b922 crore go?\" Grain reveals what aggregates hide: monthly volumes fell behind flat revenue.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "ai-ml-workflows",
+          "courseTitle": "AI/ML Workflows",
+          "courseSlugs": [
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/DueDiligenceDataRoom/about.html",
+          "launchPath": "TechUseCaseDemos/DueDiligenceDataRoom/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Kaveri Enterprise Flash",
+          "level": "Intermediate to Advanced",
+          "summary": "One fictional company, four crises\u2014working capital, supply chain, an acquisition, a cyber incident\u2014on one CEO pane. A Chief-of-Staff swarm assembles the flash and finds where risks compound across functions. Sixteen agent-prepared decisions, zero agent-executed ones: that ratio is the operating model.",
+          "teacherCue": "Teacher cue: Ask: \"No function saw these couplings\u2014the pane did. What standing mechanism hunts for them in your company?\" AI reimagination is an enterprise property, not a use-case list.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "ai-ml-workflows",
+          "courseTitle": "AI/ML Workflows",
+          "courseSlugs": [
+            "ai-ml-workflows"
+          ],
+          "courseTitles": [
+            "AI/ML Workflows"
+          ],
+          "aboutPath": "TechUseCaseDemos/KaveriFlashReport/about.html",
+          "launchPath": "TechUseCaseDemos/KaveriFlashReport/index.html",
+          "readiness": "Classroom Ready"
         }
       ]
     },
@@ -2222,7 +2282,7 @@
       "audience": "IoT, network, malware, threat modeling",
       "subtitle": "IoT, network, threat-modeling, malware, vulnerability, and secure-code demos for responsible security learning.",
       "pagePath": "courses/cybersecurity.html",
-      "registeredDemos": "13",
+      "registeredDemos": "14",
       "catalogPath": "CourseCatalogs/Cyber_Security_Catalog.md",
       "assignments": [],
       "demos": [
@@ -2504,6 +2564,26 @@
           ],
           "aboutPath": "TechUseCaseDemos/StackSmashingVisualizer/about.html",
           "launchPath": "TechUseCaseDemos/StackSmashingVisualizer/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Cyber Incident War Room",
+          "level": "Intermediate to Advanced",
+          "summary": "A fictional critical CVE with an exploit in the wild. Seven systems vulnerable, one likely compromised\u2014the log evidence (403s vs 200s) shows exactly why\u2014and 182,000 PII records start a six-hour CERT-In filing clock you can watch burn. An incident swarm scopes, sequences and drafts the filing; isolation and disclosure stay human.",
+          "teacherCue": "Teacher cue: Ask: \"Who can approve \u20b925 lakh of self-inflicted downtime before 9 a.m.\u2014and how long does finding them take today?\" The filing comes before the fix: systems clear at T+16h, the report is due at T+6h.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cyber",
+          "courseTitle": "Cybersecurity",
+          "courseSlugs": [
+            "cyber"
+          ],
+          "courseTitles": [
+            "Cybersecurity"
+          ],
+          "aboutPath": "TechUseCaseDemos/CyberIncidentResponse/about.html",
+          "launchPath": "TechUseCaseDemos/CyberIncidentResponse/index.html",
           "readiness": "Classroom Ready"
         }
       ]
@@ -3886,6 +3966,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Cyber Incident War Room",
+      "level": "Intermediate to Advanced",
+      "summary": "A fictional critical CVE with an exploit in the wild. Seven systems vulnerable, one likely compromised\u2014the log evidence (403s vs 200s) shows exactly why\u2014and 182,000 PII records start a six-hour CERT-In filing clock you can watch burn. An incident swarm scopes, sequences and drafts the filing; isolation and disclosure stay human.",
+      "teacherCue": "Teacher cue: Ask: \"Who can approve \u20b925 lakh of self-inflicted downtime before 9 a.m.\u2014and how long does finding them take today?\" The filing comes before the fix: systems clear at T+16h, the report is due at T+6h.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "cyber",
+      "courseTitle": "Cybersecurity",
+      "courseSlugs": [
+        "cyber"
+      ],
+      "courseTitles": [
+        "Cybersecurity"
+      ],
+      "aboutPath": "TechUseCaseDemos/CyberIncidentResponse/about.html",
+      "launchPath": "TechUseCaseDemos/CyberIncidentResponse/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Data Drift Detector",
       "level": "All Levels",
       "summary": "Model trained 2022; still works 2025? Explore concept drift. Customer behavior changed, competition shifted. When do you retrain?",
@@ -3943,6 +4043,26 @@
       ],
       "aboutPath": "TechUseCaseDemos/DigitalFinancePortfolioSimulator/about.html",
       "launchPath": "TechUseCaseDemos/DigitalFinancePortfolioSimulator/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "Due-Diligence Data Room (Project Anvil)",
+      "level": "Intermediate to Advanced",
+      "summary": "An \u20b985 cr acquisition ask the seller's numbers genuinely support\u2014until diligence finds eight red flags and bridges the value to \u20b962.8 cr. A Deal Sponsor agent argues the honest bull case, an Adversarial Auditor attacks it, and neither may invent a number. Read the change-of-control clause the legal agent read.",
+      "teacherCue": "Teacher cue: Ask: \"Nobody lied\u2014the annual numbers were true. So where did \u20b922 crore go?\" Grain reveals what aggregates hide: monthly volumes fell behind flat revenue.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "ai-ml-workflows",
+      "courseTitle": "AI/ML Workflows",
+      "courseSlugs": [
+        "ai-ml-workflows"
+      ],
+      "courseTitles": [
+        "AI/ML Workflows"
+      ],
+      "aboutPath": "TechUseCaseDemos/DueDiligenceDataRoom/about.html",
+      "launchPath": "TechUseCaseDemos/DueDiligenceDataRoom/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -4269,6 +4389,26 @@
       ],
       "aboutPath": "TechUseCaseDemos/IoT_Ethernet_PenTest_v86/about.html",
       "launchPath": "TechUseCaseDemos/IoT_Ethernet_PenTest_v86/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "Kaveri Enterprise Flash",
+      "level": "Intermediate to Advanced",
+      "summary": "One fictional company, four crises\u2014working capital, supply chain, an acquisition, a cyber incident\u2014on one CEO pane. A Chief-of-Staff swarm assembles the flash and finds where risks compound across functions. Sixteen agent-prepared decisions, zero agent-executed ones: that ratio is the operating model.",
+      "teacherCue": "Teacher cue: Ask: \"No function saw these couplings\u2014the pane did. What standing mechanism hunts for them in your company?\" AI reimagination is an enterprise property, not a use-case list.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "ai-ml-workflows",
+      "courseTitle": "AI/ML Workflows",
+      "courseSlugs": [
+        "ai-ml-workflows"
+      ],
+      "courseTitles": [
+        "AI/ML Workflows"
+      ],
+      "aboutPath": "TechUseCaseDemos/KaveriFlashReport/about.html",
+      "launchPath": "TechUseCaseDemos/KaveriFlashReport/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -5190,6 +5330,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Supply-Chain War Room",
+      "level": "Intermediate to Advanced",
+      "summary": "Port congestion and a supplier fire hit the same morning. A war-room agent swarm\u2014Supply Chain, Procurement, Finance, Comms\u2014derives line-stop dates, prices every mitigation lever (air uplift vs alternate supplier vs accept) and stages the customer calls. Spending \u20b90.61 cr protects \u20b91.71 cr\u2014and the signatures stay human.",
+      "teacherCue": "Teacher cue: Ask: \"Which of your escalation meetings does this replace\u2014and which does it make better instead of replacing?\" The swarm mirrors the org chart; the orchestrator is the meeting you no longer schedule.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "ai-ml-workflows",
+      "courseTitle": "AI/ML Workflows",
+      "courseSlugs": [
+        "ai-ml-workflows"
+      ],
+      "courseTitles": [
+        "AI/ML Workflows"
+      ],
+      "aboutPath": "TechUseCaseDemos/SupplyChainWarRoom/about.html",
+      "launchPath": "TechUseCaseDemos/SupplyChainWarRoom/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "SYNAPSE \u2014 Semantic Word Game",
       "level": "All Levels",
       "summary": "Game tests your knowledge of semantic relationships. Explore word embeddings\u2014how AI understands meaning.",
@@ -5536,11 +5696,11 @@
   ],
   "counts": {
     "coursePacks": 10,
-    "curatedDemos": 123,
+    "curatedDemos": 127,
     "runModes": 6
   },
   "modeCounts": {
-    "Browser": 112,
+    "Browser": 116,
     "Colab": 5,
     "Private cohort": 1,
     "Local": 1,

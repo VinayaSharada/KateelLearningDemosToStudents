@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaveri Enterprise Flash — Capstone Simulation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Kaveri Enterprise Flash — Capstone Simulation</h1>
+  <p>One fictional company, four crises, one pane &middot; all data synthetic
+     and pre-computed &middot; no network calls, no keys &middot;
+     <a href="about.html" style="color:#e8b54d">About this demo</a></p>
+</header>
+<main>
+  <div class="metrics" id="metrics"></div>
+
+  <div class="layout">
+    <aside class="swarm">
+      <h3>The Chief of Staff convenes</h3>
+      <div id="steps"></div>
+      <button id="replay">&#9654; Replay the swarm run</button>
+      <p style="font-size:12px;margin-top:12px;color:#cadcfc"><b>16 : 0</b> —
+      sixteen agent-prepared decisions, zero agent-executed ones. Each reporter
+      reads only its own lens; the couplings emerge where the Chief of Staff
+      joins them.</p>
+    </aside>
+
+    <section>
+      <div class="tabs" id="tabs">
+        <button data-tab="flash" class="active">The flash</button>
+        <button data-tab="compound">Where risks compound</button>
+        <button data-tab="register">Decisions register</button>
+      </div>
+      <div class="panel" id="panel"></div>
+    </section>
+  </div>
+
+  <p class="notice" id="notice"></p>
+</main>
+<footer>Kateel Learning Demos &middot; educational simulation &middot; the
+  live tier assembles this flash from the real outputs of four sibling demos
+  and writes the CEO's Monday note with a Chief-of-Staff agent swarm.</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

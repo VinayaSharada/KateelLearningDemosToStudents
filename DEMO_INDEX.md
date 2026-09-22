@@ -24,7 +24,7 @@ Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury,
 | Treasury Transform Blueprint | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/index.html) | Beginner to Intermediate |
 | Working Capital Control Tower | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WorkingCapitalControlTower/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WorkingCapitalControlTower/index.html) | Intermediate to Advanced |
 
-## 🤖 AI/ML Workflows (37 demos)
+## 🤖 AI/ML Workflows (40 demos)
 
 Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.
 
@@ -45,13 +45,16 @@ Hands-on AI product, model, workflow, governance, and decision-support demos for
 | Bank Failure Prediction | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/BankFailurePrediction/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/BankFailurePrediction/index.html) | Intermediate |
 | Copilot Kit | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CopilotKitDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CopilotKitDemo/index.html) | All Levels |
 | Data Drift Detector | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/DataDriftDetector/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/DataDriftDetector/index.html) | All Levels |
+| Due-Diligence Data Room (Project Anvil) | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/DueDiligenceDataRoom/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/DueDiligenceDataRoom/index.html) | Intermediate to Advanced |
 | Emotional Support Assistant | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/EmotionalSupportAssistant/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/EmotionalSupportAssistant/index.html) | All Levels |
 | Feature Store | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FeatureStoreDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FeatureStoreDemo/index.html) | All Levels |
 | Greeks Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/GreeksCalculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/GreeksCalculator/index.html) | Intermediate |
+| Kaveri Enterprise Flash | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/KaveriFlashReport/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/KaveriFlashReport/index.html) | Intermediate to Advanced |
 | ML Model Registry | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MLModelRegistry/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MLModelRegistry/index.html) | All Levels |
 | Model Version Comparator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/index.html) | All Levels |
 | Monte Carlo Company Valuation | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloCompanyValuation/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloCompanyValuation/index.html) | Advanced |
 | Probabilistic Decision Engine | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/index.html) | All Levels |
+| Supply-Chain War Room | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SupplyChainWarRoom/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SupplyChainWarRoom/index.html) | Intermediate to Advanced |
 | Browser AI Demos — Edge AI Showcase | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/index.html) | Intermediate |
 | Local Chat Advisor | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/1-local-chat-advisor/index.html) | All Levels |
 | Smart Ticket Tagger | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/2-customer-support-tagger/index.html) | All Levels |
@@ -101,12 +104,13 @@ Derivatives, portfolio optimization, fixed income, VaR, Greeks, and supply-chain
 | Efficient Frontier | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/efficient-frontier/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/efficient-frontier/index.html) | All Levels |
 | NPV Calculator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/npv-calculator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WealthManagement/npv-calculator/index.html) | All Levels |
 
-## 🔐 Cybersecurity (10 demos)
+## 🔐 Cybersecurity (11 demos)
 
 IoT, network, threat-modeling, malware, vulnerability, and secure-code demos for responsible security learning.
 
 | Demo | About Demo | Launch Demo | Level |
 |------|------------|-------------|-------|
+| Cyber Incident War Room | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CyberIncidentResponse/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CyberIncidentResponse/index.html) | Intermediate to Advanced |
 | Intrusion Detection | [About Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/IntrusionDetection/about.html) | [Launch Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/IntrusionDetection/index.html) | All Levels |
 | Network Traffic Analyzer | [About Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/NetworkTrafficAnalyzer/about.html) | [Launch Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/NetworkTrafficAnalyzer/index.html) | All Levels |
 | Pen Test Simulator | [About Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/PenTestSimulator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/CyberSecurityDemos/IoTAircraftNetwork/PenTestSimulator/index.html) | Advanced |
