@@ -8,7 +8,7 @@
       "audience": "CFOs, controllership, treasury, finance transformation",
       "subtitle": "A cross-cutting overlay for CFOs, aspiring CFOs, controllership, treasury, and finance-transformation stakeholders who need value, risk, control, evidence, and next-decision framing in one place.",
       "pagePath": "courses/cfo-office.html",
-      "registeredDemos": "15",
+      "registeredDemos": "16",
       "catalogPath": "CourseCatalogs/FinanceTransformation/CFO_DEMO_STANDARDS.md",
       "assignments": [],
       "demos": [
@@ -332,6 +332,26 @@
           ],
           "aboutPath": "TechUseCaseDemos/TreasuryControlTower/about.html",
           "launchPath": "TechUseCaseDemos/TreasuryControlTower/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Month-End Close Forensics",
+          "level": "Intermediate to Advanced",
+          "summary": "Three lines are over budget at the close. A forensic agent swarm attributes each with evidence: \u20b961 lakh traces to a signed approval (governance working), \u20b918.3 lakh is a GPU deploy that missed a 48% contract discount, and the rest is SaaS nobody logs into. Includes a Swarm Replay of the actual recorded agent run.",
+          "teacherCue": "Teacher cue: Ask: \"Does your close distinguish governed variances from surprises \u2014 or does every red line get the same meeting?\" Classification before conversation is the reframe.",
+          "duration": "20-30 min",
+          "surface": "Browser-based",
+          "mode": "Browser",
+          "courseSlug": "cfo-office",
+          "courseTitle": "CFO Office",
+          "courseSlugs": [
+            "cfo-office"
+          ],
+          "courseTitles": [
+            "CFO Office"
+          ],
+          "aboutPath": "TechUseCaseDemos/MonthEndCloseForensics/about.html",
+          "launchPath": "TechUseCaseDemos/MonthEndCloseForensics/index.html",
           "readiness": "Classroom Ready"
         }
       ]
@@ -4636,6 +4656,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Month-End Close Forensics",
+      "level": "Intermediate to Advanced",
+      "summary": "Three lines are over budget at the close. A forensic agent swarm attributes each with evidence: \u20b961 lakh traces to a signed approval (governance working), \u20b918.3 lakh is a GPU deploy that missed a 48% contract discount, and the rest is SaaS nobody logs into. Includes a Swarm Replay of the actual recorded agent run.",
+      "teacherCue": "Teacher cue: Ask: \"Does your close distinguish governed variances from surprises \u2014 or does every red line get the same meeting?\" Classification before conversation is the reframe.",
+      "duration": "20-30 min",
+      "surface": "Browser-based",
+      "mode": "Browser",
+      "courseSlug": "cfo-office",
+      "courseTitle": "CFO Office",
+      "courseSlugs": [
+        "cfo-office"
+      ],
+      "courseTitles": [
+        "CFO Office"
+      ],
+      "aboutPath": "TechUseCaseDemos/MonthEndCloseForensics/about.html",
+      "launchPath": "TechUseCaseDemos/MonthEndCloseForensics/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Mule Account Detection",
       "level": "Intermediate",
       "summary": "Support the course\u2019s AML and account-abuse discussions with a demo that connects suspicious flow patterns to intervention timing and false-positive burden.",
@@ -5696,11 +5736,11 @@
   ],
   "counts": {
     "coursePacks": 10,
-    "curatedDemos": 127,
+    "curatedDemos": 128,
     "runModes": 6
   },
   "modeCounts": {
-    "Browser": 116,
+    "Browser": 117,
     "Colab": 5,
     "Private cohort": 1,
     "Local": 1,

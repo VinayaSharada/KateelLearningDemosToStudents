@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Month-End Close Forensics</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>About: Month-End Close Forensics</h1>
+  <p>Concept, learning objectives and how to adapt this demo to your close</p>
+</header>
+<main>
+  <div class="panel" style="border-radius:10px">
+    <h3>Overview</h3>
+    <p>The month closes with three line items over budget. Explaining them
+    usually takes days of cross-team email archaeology. Here a forensic agent
+    swarm attributes each one with evidence: a freight spike that traces to a
+    <b>signed approval</b> (the supply-chain war room's expedite — governance
+    working, not failing), a cloud leak pinned to a specific engineering
+    deploy while a 48% contract discount sat unused, and SaaS seats nobody
+    has opened in 95 days. Fictional company; all data synthetic.</p>
+
+    <h3>The architecture idea (the part worth stealing)</h3>
+    <p><b>Classify before you convene.</b> Red ink is not one thing:
+    APPROVED, AVOIDABLE LEAK and PROCESS GAP each deserve a different
+    conversation. The joins that produce those verdicts — cloud billing
+    &times; deploy log &times; contract clause, ledger &times; approvals
+    register, SaaS spend &times; usage telemetry — are deterministic; the
+    agents narrate and draft, and every corrective action awaits a human
+    signature.</p>
+
+    <h3>The Swarm Replay (new in this demo)</h3>
+    <p>The &#127917; tab replays the <b>actual recorded trace</b> of a live
+    forensic run: agent cards pulse while thinking, tool chips appear as each
+    specialist reads its governed data, and a timestamped ticker narrates the
+    delegations. Nothing is scripted — it is event-sourced from a real run.
+    In the live tier you press one button and watch it happen in real
+    time.</p>
+
+    <h3>Learning objectives</h3>
+    <ul>
+      <li>Separate governed variances from surprises — a variance with a
+      signature is a feature.</li>
+      <li>See where close answers actually live: in the systems Finance
+      never opens, joined by keys every company already has.</li>
+      <li>Attribution without blame: PR-412 is a fact; the fix is a tagging
+      policy, not a bigger budget.</li>
+    </ul>
+
+    <h3>Run modes</h3>
+    <p><b>Browser (this page):</b> pre-computed scan, findings, cloud
+    drill-down and the recorded swarm replay; no setup, no keys.<br>
+    <b>Live tier (registered participants):</b> the full pipeline with a
+    threshold slider, and the Swarm Theater running the forensic swarm live
+    (Anthropic / OpenAI / OpenRouter / Groq via a .env file).</p>
+
+    <h3>How to adapt this demo to your use case</h3>
+    <p>Seven CSV contracts match exports you already have: ERP trial
+    balance, budget, cloud console billing, git/deploy log, vendor contract
+    register, approvals file, SSO usage report. Run it read-only beside one
+    real close and count the emails it deletes — that number is the business
+    case.</p>
+
+    <h3>Files in this folder</h3>
+    <p><code>index.html</code> &middot; <code>about.html</code> &middot;
+    <code>app.js</code> + <code>data.js</code> (simulation logic,
+    pre-computed results and the recorded swarm trace) &middot;
+    <code>style.css</code></p>
+
+    <p class="notice">All vendors, systems, deploys and figures are
+    fictional. Synthetic educational data; no real records.
+    <a href="index.html">&larr; Launch the demo</a></p>
+  </div>
+</main>
+<footer>Kateel Learning Demos &middot; Prof. Vinaya Sathyanarayana</footer>
+</body>
+</html>

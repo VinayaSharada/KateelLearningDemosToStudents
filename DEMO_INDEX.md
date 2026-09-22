@@ -24,7 +24,7 @@ Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury,
 | Treasury Transform Blueprint | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/TreasuryTransformBlueprint/index.html) | Beginner to Intermediate |
 | Working Capital Control Tower | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WorkingCapitalControlTower/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/WorkingCapitalControlTower/index.html) | Intermediate to Advanced |
 
-## 🤖 AI/ML Workflows (40 demos)
+## 🤖 AI/ML Workflows (41 demos)
 
 Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.
 
@@ -53,6 +53,7 @@ Hands-on AI product, model, workflow, governance, and decision-support demos for
 | ML Model Registry | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MLModelRegistry/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MLModelRegistry/index.html) | All Levels |
 | Model Version Comparator | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ModelVersionComparator/index.html) | All Levels |
 | Monte Carlo Company Valuation | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloCompanyValuation/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonteCarloCompanyValuation/index.html) | Advanced |
+| Month-End Close Forensics | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonthEndCloseForensics/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/MonthEndCloseForensics/index.html) | Intermediate to Advanced |
 | Probabilistic Decision Engine | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/ProbabilisticDecisionEngine/index.html) | All Levels |
 | Supply-Chain War Room | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SupplyChainWarRoom/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/SupplyChainWarRoom/index.html) | Intermediate to Advanced |
 | Browser AI Demos — Edge AI Showcase | [About Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/about.html) | [Launch Demo](/KateelLearningDemosToStudents/🤖 Browser-AI-Demos/Browser-AI-Product-Demos/index.html) | Intermediate |
