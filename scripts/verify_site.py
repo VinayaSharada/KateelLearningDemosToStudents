@@ -33,6 +33,7 @@ PUBLIC_DIRS = (
     ROOT / "browse",
     ROOT / "Assignments",
     ROOT / "assets",
+    ROOT / "fitml",
 )
 TOP_LEVEL_HTML = (ROOT / "index.html", ROOT / "DEMO_INDEX.html")
 URL_ATTRIBUTES = {

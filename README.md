@@ -3,9 +3,9 @@
 Browser-based AI, machine learning, finance, risk, cybersecurity, and analytics demos for students, faculty, and practitioners. This repository powers the public [GitHub Pages site](https://vinayasharada.github.io/KateelLearningDemosToStudents/) and also includes broader course materials, assignments, and supporting assets for local or Colab-based learning where needed.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-0f766e)](https://vinayasharada.github.io/KateelLearningDemosToStudents/)
-[![Curated demos](https://img.shields.io/badge/Curated%20Demos-128-2563eb)](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html)
-[![Course packs](https://img.shields.io/badge/Course%20Packs-9-d97706)](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html)
-[![Assignment packs](https://img.shields.io/badge/Assignment%20Packs-6-7c3aed)](https://vinayasharada.github.io/KateelLearningDemosToStudents/Assignments/index.html)
+[![Curated demos](https://img.shields.io/badge/Curated%20Demos-132-2563eb)](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html)
+[![Course packs](https://img.shields.io/badge/Course%20Packs-11-d97706)](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html)
+[![Assignment packs](https://img.shields.io/badge/Assignment%20Packs-7-7c3aed)](https://vinayasharada.github.io/KateelLearningDemosToStudents/Assignments/index.html)
 
 Created by **Professor Vinaya Sathyanarayana**  
 GitHub: [@VinayaSharada](https://github.com/VinayaSharada)  
@@ -33,7 +33,7 @@ Contact: [vinallcontact@gmail.com](mailto:vinallcontact@gmail.com)
 |---|---|---|
 | Home | Overall orientation to the platform | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/) |
 | Browse Demos | Finding classroom-ready demos by topic, level, and run mode | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/browse/index.html) |
-| Course Packs | Teaching journeys for treasury, AI/ML, risk, quant, cyber, compliance, RAG/NLP, and banking | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html) |
+| Course Packs | Teaching journeys for FITML, CFO office, treasury, AI/ML, risk, quant, cyber, compliance, RAG/NLP, and banking | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html) |
 | Assignments | Structured assessment and reflection scaffolds | [Open](https://vinayasharada.github.io/KateelLearningDemosToStudents/Assignments/index.html) |
 
 ## Major Topics Covered

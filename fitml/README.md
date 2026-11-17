@@ -1,7 +1,39 @@
-# Fair, Accountable, and Transparent Machine Learning (FAccT ML) — Webinar Series Welcome to the 4-part webinar series for FAccT ML. 
+# Fair Interpretable Trustworthy Machine Learning (FITML / FAccT ML)
+**Course 2 of 28,001** • *Curated Classroom & Executive Demo Series*  
+**Instructor:** Professor Vinaya Sathyanarayana ([vinallcontact@gmail.com](mailto:vinallcontact@gmail.com))
 
-Below are the presentation decks, student assignment prompts, and single-click Google Colab launch buttons for each lab session. 
+Welcome to the 4-part webinar and hands-on lab series for **Fair Interpretable Trustworthy Machine Learning**. This curriculum bridges theoretical foundations with code execution, covering algorithmic fairness audits, in-processing debiasing, local and global feature attribution (LIME & SHAP), and vision adversarial robustness.
 
-| Session | Date &amp; Topic | PowerPoint Deck | Student Assignment | Open In Colab | 
-| :--- | :--- | :---: | :---: | :---: | | 
-\*\*Webinar 1\*\* | Nov 18: Bias Detection &amp; Pre-Processing | [Download \`.pptx\`](./decks/Webinar\_01\_Bias\_Detection\_and\_Preprocessing.pptx) | [Download \`.pdf\`](./assignments/Webinar\_01\_Student\_Assignment\_Prompt.pdf) | [![Open In Colab]([suspicious link removed])]([suspicious link removed]) | | \*\*Webinar 2\*\* | Dec 02: In-Processing &amp; Causal Fairness | [Download \`.pptx\`](./decks/Webinar\_02\_Inprocessing\_and\_Causal\_Fairness.pptx) | [Download \`.pdf\`](./assignments/Webinar\_02\_Student\_Assignment\_Prompt.pdf) | [![Open In Colab]([suspicious link removed])]([suspicious link removed]) | | \*\*Webinar 3\*\* | Jan 13: Feature Attribution (LIME &amp; SHAP) | [Download \`.pptx\`](./decks/Webinar\_03\_Feature\_Attribution\_LIME\_SHAP.pptx) | [Download \`.pdf\`](./assignments/Webinar\_03\_Student\_Assignment\_Prompt.pdf) | [![Open In Colab]([suspicious link removed])]([suspicious link removed]) | | \*\*Webinar 4\*\* | Jan 28: Vision XAI &amp; Adversarial Attacks | [Download \`.pptx\`](./decks/Webinar\_04\_Vision\_XAI\_and\_Adversarial\_Robustness.pptx) | [Download \`.pdf\`](./assignments/Webinar\_04\_Student\_Assignment\_Prompt.pdf) | [![Open In Colab]([suspicious link removed])]([suspicious link removed]) |
+---
+
+## 📚 Curriculum Structure & Lab Resources
+
+| Session | Topic & Focus | About Demo | Interactive Lab | Open in Colab | Lecture Deck | Student Assignment | Solution Guide |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Webinar 1** | **Algorithmic Bias Detection & Pre-Processing**<br>Disparate impact (80% rule), statistical parity difference, reweighting, and DIR on COMPAS & Adult Income. | [About Guide](lab01-bias-detection/about.html) | [Launch Lab](lab01-bias-detection/index.html) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_01_bias_detection_lab.ipynb) | [Download `.pptx`](decks/Webinar_01_Bias_Detection_and_Preprocessing.pptx) | [Download Prompt `.pdf`](assignments/Webinar_01_Student_Assignment_Prompt.pdf) | [Download Solution `.pdf`](guides/Webinar_01_Assignment_Prompt_and_Solution.pdf) |
+| **Webinar 2** | **In-Processing & Causal Fairness**<br>Constrained optimization loss, adversarial debiasing representations, causal DAGs, and counterfactual invariance. | [About Guide](lab02-causal-fairness/about.html) | [Launch Lab](lab02-causal-fairness/index.html) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_02_inprocessing_lab.ipynb) | [Download `.pptx`](decks/Webinar_02_Inprocessing_and_Causal_Fairness.pptx) | [Download Prompt `.pdf`](assignments/Webinar_02_Student_Assignment_Prompt.pdf) | [Download Solution `.pdf`](guides/Webinar_02_Assignment_Prompt_and_Solution.pdf) |
+| **Webinar 3** | **Feature Attribution (LIME & SHAP)**<br>Shapley value cooperative game theory, TreeSHAP, KernelSHAP waterfall charts, and local linear surrogate models. | [About Guide](lab03-lime-shap/about.html) | [Launch Lab](lab03-lime-shap/index.html) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_03_interpretability_lab.ipynb) | [Download `.pptx`](decks/Webinar_03_Feature_Attribution_LIME_SHAP.pptx) | [Download Prompt `.pdf`](assignments/Webinar_03_Student_Assignment_Prompt.pdf) | [Download Solution `.pdf`](guides/Webinar_03_Assignment_Prompt_and_Solution.pdf) |
+| **Webinar 4** | **Vision XAI & Adversarial Attacks**<br>Grad-CAM convolutional saliency maps, FGSM & PGD evasion attacks, and Madry robust min-max adversarial training. | [About Guide](lab04-adversarial-robustness/about.html) | [Launch Lab](lab04-adversarial-robustness/index.html) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_04_adversarial_robustness_lab.ipynb) | [Download `.pptx`](decks/Webinar_04_Vision_XAI_and_Adversarial_Robustness.pptx) | [Download Prompt `.pdf`](assignments/Webinar_04_Student_Assignment_Prompt.pdf) | [Download Solution `.pdf`](guides/Webinar_04_Assignment_Prompt_and_Solution.pdf) |
+
+---
+
+## 📖 Theoretical Monograph
+- **Mathematical Foundations:** [Download Theoretical Foundations and Mathematical Tutorials (PDF)](guides/Theoretical_Foundations_and_Mathematical_Tutorials.pdf) — comprehensive 4-part theoretical guide covering proofs, lemmas, and optimization formulations.
+
+---
+
+## 📊 Benchmark Datasets
+All datasets used in the notebooks and labs are located in [`fitml/data/`](data/):
+1. [`adult_income.csv`](data/adult_income.csv) — US Census Bureau income prediction dataset with demographic indicators (gender, race, age).
+2. [`compas_recidivism.csv`](data/compas_recidivism.csv) — ProPublica COMPAS criminal recidivism risk assessment benchmark dataset.
+3. [`german_credit.csv`](data/german_credit.csv) — UCI German Credit risk dataset with protected demographic attributes.
+4. [`diabetes_data.csv`](data/diabetes_data.csv) — Clinical diabetes health indicator tabular dataset for feature attribution auditing.
+
+---
+
+## 🚀 Running the Notebooks
+Each notebook can be launched with a single click in Google Colab using the badges above, or executed locally:
+```bash
+pip install -r requirements.txt # or: pip install numpy pandas scikit-learn matplotlib seaborn shap lime torch torchvision
+jupyter notebook fitml/notebooks/webinar_01_bias_detection_lab.ipynb
+```

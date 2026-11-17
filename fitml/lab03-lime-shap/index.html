@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feature Attribution (LIME &amp; SHAP) - Interactive Lab - KateelLearningDemos</title>
+  <meta name="description" content="Interactive SHAP waterfall & LIME feature attribution sandbox and Google Colab launch hub for model interpretability.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <script defer src="../../assets/site.js"></script>
+  <style>
+    .xai-workbench {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .profile-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .profile-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .profile-btn.active {
+      background: #0d9488;
+      border-color: #14b8a6;
+      color: #fff;
+    }
+    .wb-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .wb-control {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.85rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .wb-control label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .wb-control input[type="range"] {
+      width: 100%;
+      accent-color: #0d9488;
+    }
+    .wb-readout {
+      float: right;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+    .waterfall-container {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .waterfall-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .waterfall-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 80px;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.85rem;
+    }
+    .wf-bar-wrapper {
+      position: relative;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .wf-bar {
+      height: 100%;
+      position: absolute;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .wf-pos {
+      background: #ef4444; /* Increases risk / negative outcome */
+    }
+    .wf-neg {
+      background: #22c55e; /* Lowers risk / positive outcome */
+    }
+    .wf-val {
+      font-weight: 800;
+      text-align: right;
+      font-family: monospace;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .metric-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      border-left: 4px solid #0d9488;
+    }
+    .metric-val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin: 0.25rem 0;
+    }
+    .metric-lbl {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .metric-status {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html">Browse Demos</a>
+      <a class="nav-link" href="../../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_03_interpretability_lab.ipynb" target="_blank" rel="noopener">Open in Colab</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">FITML Course • Webinar 03 Lab • Colab + Interactive</p>
+    <h1>Feature Attribution (LIME &amp; SHAP)</h1>
+    <p class="demo-lede">Interactive SHAP waterfall explanation workbench and Google Colab launch hub. Adjust applicant feature variables below to see real-time Shapley value attributions decompose model predictions.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_03_interpretability_lab.ipynb" target="_blank" rel="noopener">Run in Google Colab</a>
+      <a class="btn btn-secondary" href="about.html">Read About Demo Guide</a>
+      <a class="btn btn-soft" href="../assignments/Webinar_03_Student_Assignment_Prompt.pdf" target="_blank" rel="noopener">Assignment Prompt (PDF)</a>
+    </div>
+  </section>
+
+  <!-- Interactive Workbench Component -->
+  <section class="xai-workbench">
+    <div class="section-header left" style="margin-bottom: 1.25rem;">
+      <p class="section-kicker">Interactive Simulation</p>
+      <h2>SHAP Waterfall &amp; Local Surrogate Workbench</h2>
+      <p>Simulate an AI underwriting / risk prediction model. Select a baseline profile or tweak sliders to observe how each individual feature pushes the risk prediction away from baseline $E[f(x)] = 0.28$.</p>
+    </div>
+
+    <div class="profile-tabs">
+      <button class="profile-btn active" id="btnProfileA">Profile A: High Risk Applicant</button>
+      <button class="profile-btn" id="btnProfileB">Profile B: Prime Credit Applicant</button>
+      <button class="profile-btn" id="btnProfileC">Profile C: Borderline Applicant</button>
+    </div>
+
+    <div class="wb-controls">
+      <div class="wb-control">
+        <label>Debt-to-Income (DTI %): <span id="valDTI" class="wb-readout">44%</span></label>
+        <input type="range" id="sliderDTI" min="10" max="65" value="44">
+      </div>
+      <div class="wb-control">
+        <label>Credit Bureau Score: <span id="valScore" class="wb-readout">615</span></label>
+        <input type="range" id="sliderScore" min="500" max="850" value="615">
+      </div>
+      <div class="wb-control">
+        <label>Revolving Utilization: <span id="valUtil" class="wb-readout">82%</span></label>
+        <input type="range" id="sliderUtil" min="5" max="100" value="82">
+      </div>
+      <div class="wb-control">
+        <label>Delinquent Accounts (2 yrs): <span id="valDelinq" class="wb-readout">2</span></label>
+        <input type="range" id="sliderDelinq" min="0" max="5" value="2">
+      </div>
+    </div>
+
+    <!-- Waterfall Bars -->
+    <div class="waterfall-container">
+      <div class="waterfall-header">
+        <div><strong>Base Population Expectation: E[f(x)] = 0.280</strong></div>
+        <div>Model Output: <strong id="wfOutputScore" style="color: #f87171; font-size: 1.15rem;">f(x) = 0.695</strong></div>
+      </div>
+
+      <div class="waterfall-row">
+        <span>+ Debt-to-Income</span>
+        <div class="wf-bar-wrapper">
+          <div id="barDTI" class="wf-bar wf-pos" style="left: 45%; width: 22%;"></div>
+        </div>
+        <span id="txtDTI" class="wf-val" style="color: #f87171;">+0.142</span>
+      </div>
+
+      <div class="waterfall-row">
+        <span>- Credit Score</span>
+        <div class="wf-bar-wrapper">
+          <div id="barScore" class="wf-bar wf-pos" style="left: 45%; width: 26%;"></div>
+        </div>
+        <span id="txtScore" class="wf-val" style="color: #f87171;">+0.165</span>
+      </div>
+
+      <div class="waterfall-row">
+        <span>+ Revolving Util</span>
+        <div class="wf-bar-wrapper">
+          <div id="barUtil" class="wf-bar wf-pos" style="left: 45%; width: 14%;"></div>
+        </div>
+        <span id="txtUtil" class="wf-val" style="color: #f87171;">+0.088</span>
+      </div>
+
+      <div class="waterfall-row">
+        <span>+ Delinquencies</span>
+        <div class="wf-bar-wrapper">
+          <div id="barDelinq" class="wf-bar wf-pos" style="left: 45%; width: 5%;"></div>
+        </div>
+        <span id="txtDelinq" class="wf-val" style="color: #f87171;">+0.020</span>
+      </div>
+    </div>
+
+    <div class="metric-grid">
+      <div class="metric-box">
+        <div class="metric-lbl">Predicted Default Probability</div>
+        <div class="metric-val" id="dispProb" style="color: #f87171;">69.5%</div>
+        <div class="metric-status" id="dispDecision" style="color: #f87171;">Adverse Action (Declined)</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-lbl">Primary Adverse Driver</div>
+        <div class="metric-val" id="dispDriver" style="font-size: 1.25rem;">Credit Score</div>
+        <div class="metric-status" style="color: #38bdf8;">Requires ECOA Adverse Notice</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-lbl">LIME Local Surrogate R²</div>
+        <div class="metric-val" id="dispFidelity">0.962</div>
+        <div class="metric-status" style="color: #4ade80;">High Local Faithfulness</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Self-Service Steps -->
+  <section class="demo-panel">
+    <h2>Self-Service Lab Workflow</h2>
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Step 1: Open Google Colab</h3>
+        <p>Launch the verified notebook directly in Google Colab. Dependencies (shap, lime, xgboost) are pre-configured.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 2: Train Gradient Boosted Model</h3>
+        <p>Fit an XGBoost / LightGBM model on the tabular German Credit and Diabetes benchmark datasets.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 3: Compute TreeSHAP</h3>
+        <p>Generate exact TreeSHAP waterfall and beeswarm summary plots. Compare top global factors against individual predictions.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 4: LIME Local Surrogates</h3>
+        <p>Generate local perturbation samples, fit sparse Ridge regressors, and compare explanation stability across perturbations.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Downloadable Resources -->
+  <section class="demo-panel">
+    <h2>Session Downloads &amp; Reference Assets</h2>
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Colab Notebook</h3>
+        <p>Complete lab Jupyter notebook ready to execute.</p>
+        <div class="demo-actions"><a class="btn-mini" href="../notebooks/webinar_03_interpretability_lab.ipynb" download>Download .ipynb</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>PowerPoint Deck</h3>
+        <p>Webinar 03 lecture presentation on XAI and SHAP.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../decks/Webinar_03_Feature_Attribution_LIME_SHAP.pptx">Download .pptx</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Student Assignment</h3>
+        <p>Assignment prompt with explainability auditing tasks.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../assignments/Webinar_03_Student_Assignment_Prompt.pdf" target="_blank">Download Prompt</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Solution Guide</h3>
+        <p>Faculty solution guide with benchmark explanations.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Webinar_03_Assignment_Prompt_and_Solution.pdf" target="_blank">Download Guide</a></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var sliderDTI = document.getElementById("sliderDTI");
+    var sliderScore = document.getElementById("sliderScore");
+    var sliderUtil = document.getElementById("sliderUtil");
+    var sliderDelinq = document.getElementById("sliderDelinq");
+
+    var valDTI = document.getElementById("valDTI");
+    var valScore = document.getElementById("valScore");
+    var valUtil = document.getElementById("valUtil");
+    var valDelinq = document.getElementById("valDelinq");
+
+    var barDTI = document.getElementById("barDTI");
+    var barScore = document.getElementById("barScore");
+    var barUtil = document.getElementById("barUtil");
+    var barDelinq = document.getElementById("barDelinq");
+
+    var txtDTI = document.getElementById("txtDTI");
+    var txtScore = document.getElementById("txtScore");
+    var txtUtil = document.getElementById("txtUtil");
+    var txtDelinq = document.getElementById("txtDelinq");
+
+    var wfOutputScore = document.getElementById("wfOutputScore");
+    var dispProb = document.getElementById("dispProb");
+    var dispDecision = document.getElementById("dispDecision");
+    var dispDriver = document.getElementById("dispDriver");
+
+    var btnProfileA = document.getElementById("btnProfileA");
+    var btnProfileB = document.getElementById("btnProfileB");
+    var btnProfileC = document.getElementById("btnProfileC");
+
+    function renderAttributions() {
+      var dti = parseFloat(sliderDTI.value);
+      var score = parseFloat(sliderScore.value);
+      var util = parseFloat(sliderUtil.value);
+      var delinq = parseFloat(sliderDelinq.value);
+
+      valDTI.textContent = dti + "%";
+      valScore.textContent = score;
+      valUtil.textContent = util + "%";
+      valDelinq.textContent = delinq;
+
+      // SHAP marginal calculations
+      var baseProb = 0.280;
+      var phiDTI = (dti - 30) * 0.0095;
+      var phiScore = (690 - score) * 0.0019;
+      var phiUtil = (util - 35) * 0.0035;
+      var phiDelinq = delinq * 0.065;
+
+      var totalProb = baseProb + phiDTI + phiScore + phiUtil + phiDelinq;
+      totalProb = Math.max(0.02, Math.min(0.98, totalProb));
+
+      wfOutputScore.textContent = "f(x) = " + totalProb.toFixed(3);
+      dispProb.textContent = (totalProb * 100).toFixed(1) + "%";
+
+      if (totalProb > 0.45) {
+        dispDecision.textContent = "Adverse Action (Declined)";
+        dispDecision.style.color = "#f87171";
+        dispProb.style.color = "#f87171";
+        wfOutputScore.style.color = "#f87171";
+      } else {
+        dispDecision.textContent = "Approved (Low Risk)";
+        dispDecision.style.color = "#4ade80";
+        dispProb.style.color = "#4ade80";
+        wfOutputScore.style.color = "#4ade80";
+      }
+
+      function updateBar(bar, txt, phi) {
+        var pct = Math.min(45, Math.abs(phi) * 120);
+        if (phi >= 0) {
+          bar.className = "wf-bar wf-pos";
+          bar.style.left = "50%";
+          bar.style.width = pct + "%";
+          txt.style.color = "#f87171";
+          txt.textContent = "+" + phi.toFixed(3);
+        } else {
+          bar.className = "wf-bar wf-neg";
+          bar.style.left = (50 - pct) + "%";
+          bar.style.width = pct + "%";
+          txt.style.color = "#4ade80";
+          txt.textContent = phi.toFixed(3);
+        }
+      }
+
+      updateBar(barDTI, txtDTI, phiDTI);
+      updateBar(barScore, txtScore, phiScore);
+      updateBar(barUtil, txtUtil, phiUtil);
+      updateBar(barDelinq, txtDelinq, phiDelinq);
+
+      // Determine top adverse driver
+      var drivers = [
+        { name: "Debt-to-Income", val: phiDTI },
+        { name: "Credit Score", val: phiScore },
+        { name: "Revolving Util", val: phiUtil },
+        { name: "Delinquencies", val: phiDelinq }
+      ].sort(function(a, b) { return b.val - a.val; });
+
+      dispDriver.textContent = drivers[0].name;
+    }
+
+    sliderDTI.addEventListener("input", renderAttributions);
+    sliderScore.addEventListener("input", renderAttributions);
+    sliderUtil.addEventListener("input", renderAttributions);
+    sliderDelinq.addEventListener("input", renderAttributions);
+
+    function setProfile(dti, score, util, delinq, activeBtn) {
+      sliderDTI.value = dti;
+      sliderScore.value = score;
+      sliderUtil.value = util;
+      sliderDelinq.value = delinq;
+      [btnProfileA, btnProfileB, btnProfileC].forEach(function (b) { b.classList.remove("active"); });
+      activeBtn.classList.add("active");
+      renderAttributions();
+    }
+
+    btnProfileA.addEventListener("click", function() { setProfile(44, 615, 82, 2, btnProfileA); });
+    btnProfileB.addEventListener("click", function() { setProfile(18, 775, 12, 0, btnProfileB); });
+    btnProfileC.addEventListener("click", function() { setProfile(36, 680, 48, 0, btnProfileC); });
+
+    renderAttributions();
+  })();
+</script>
+
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • <a href="../../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>

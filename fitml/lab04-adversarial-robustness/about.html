@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vision XAI &amp; Adversarial Robustness - About Demo - KateelLearningDemos</title>
+  <meta name="description" content="About Demo learning guide for Vision XAI &amp; Adversarial Robustness: inspect deep vision representations with Grad-CAM and audit robustness against FGSM/PGD adversarial attacks.">
+  <meta name="keywords" content="Vision XAI, Grad-CAM, Saliency Maps, Adversarial Robustness, FGSM, Fast Gradient Sign Method, PGD, Adversarial Attacks, Trustworthy AI, FITML, FAccT ML">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab04-adversarial-robustness/about.html">
+  <link rel="manifest" href="../../site.webmanifest">
+  <meta property="og:site_name" content="KateelLearningDemos">
+  <meta property="og:title" content="Vision XAI &amp; Adversarial Robustness - About Demo - KateelLearningDemos">
+  <meta property="og:description" content="Inspect deep vision representations with Grad-CAM and audit robustness against FGSM/PGD adversarial attacks.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab04-adversarial-robustness/about.html">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <meta property="og:image:alt" content="Vision XAI &amp; Adversarial Robustness learning demo preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vision XAI &amp; Adversarial Robustness - About Demo">
+  <meta name="twitter:description" content="Inspect deep vision representations with Grad-CAM and audit robustness against FGSM/PGD adversarial attacks.">
+  <meta name="twitter:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Vision XAI & Adversarial Robustness About Demo",
+  "description": "Inspect deep vision representations with Grad-CAM and audit robustness against FGSM/PGD adversarial attacks.",
+  "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab04-adversarial-robustness/about.html",
+  "isAccessibleForFree": true,
+  "learningResourceType": "About Demo",
+  "educationalLevel": "Advanced",
+  "timeRequired": "30-45 min",
+  "teaches": [
+    "Formulate and compute Grad-CAM (Gradient-weighted Class Activation Mapping) visual heatmaps to verify neural network spatial grounding.",
+    "Generate adversarial evasion examples using the Fast Gradient Sign Method (FGSM) and Projected Gradient Descent (PGD).",
+    "Evaluate how imperceptible high-dimensional gradient perturbations cause drastic classification flips while bypassing human perception.",
+    "Implement adversarial training defenses (min-max robust optimization) and evaluate robust accuracy vs clean accuracy tradeoffs."
+  ],
+  "keywords": "Vision XAI, Grad-CAM, Adversarial Attacks, FGSM, PGD, Adversarial Robustness, FITML",
+  "inLanguage": "en",
+  "provider": {
+    "@type": "Person",
+    "name": "Professor Vinaya Sathyanarayana",
+    "email": "vinallcontact@gmail.com",
+    "url": "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Fair Interpretable Trustworthy Machine Learning",
+    "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Course Packs",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Fair Interpretable Trustworthy Machine Learning",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Vision XAI & Adversarial Robustness",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab04-adversarial-robustness/about.html"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script defer src="../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="../../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="../../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <a class="nav-link" href="../../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+<main class="container">
+  <section class="site-hero page-hero">
+    <p class="hero-eyebrow">Fair Interpretable Trustworthy Machine Learning • Webinar 04 / Lab 04</p>
+    <h1>Vision XAI &amp; Adversarial Robustness</h1>
+    <p class="hero-subtitle">Visualize convolutional and vision transformer attention with Grad-CAM heatmaps, construct adversarial evasion attacks, and defend models via robust adversarial training.</p>
+    <div class="pill-row">
+      <span class="pill">Colab + In-Browser Interactive</span>
+      <span class="pill">30-45 min</span>
+      <span class="pill">Advanced</span>
+      <span class="pill">Classroom Ready</span>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="index.html">Launch Interactive Demo</a>
+      <a class="btn btn-secondary" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_04_adversarial_robustness_lab.ipynb" target="_blank" rel="noopener">Open Colab Notebook</a>
+      <a class="btn btn-soft" href="../assignments/Webinar_04_Student_Assignment_Prompt.pdf" target="_blank" rel="noopener">Assignment Prompt (PDF)</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Learning Objectives</p>
+      <h2>What students learn in this lab</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>1. Grad-CAM Visual Saliency</h3>
+        <p>Compute gradients of target class scores with respect to feature maps in final convolutional layers to generate semantically grounded visual explanation heatmaps.</p>
+      </article>
+      <article class="info-card">
+        <h3>2. FGSM Adversarial Crafting</h3>
+        <p>Formulate Goodfellow's Fast Gradient Sign Method (FGSM) to compute worst-case $L_\infty$-bounded input perturbations that maximize cross-entropy loss in a single gradient step.</p>
+      </article>
+      <article class="info-card">
+        <h3>3. Iterative PGD Attacks</h3>
+        <p>Implement Projected Gradient Descent (PGD), the universal first-order adversarial adversary, projecting back onto the $\epsilon$-ball after each inner gradient step.</p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>4. Adversarial Defense &amp; Tradeoffs</h3>
+        <p>Implement Madry's min-max adversarial training formulation and evaluate the inevitable trade-off between clean test accuracy and robust adversarial accuracy.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Mathematical Formulations</p>
+      <h2>Vision XAI &amp; Adversarial Equations</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Grad-CAM Weight &amp; Heatmap</h3>
+        <p>Importance weight $\alpha_k^c$ for feature map $A^k$ and target class $c$:</p>
+        <p><code>α_k^c = (1 / Z) · ∑_i ∑_j (∂y^c / ∂A_{i,j}^k)</code></p>
+        <p><code>L_{Grad-CAM}^c = ReLU( ∑_k α_k^c · A^k )</code></p>
+        <p>Applies ReLU to highlight only features that positively correlate with class score.</p>
+      </article>
+      <article class="info-card">
+        <h3>FGSM Perturbation Formula</h3>
+        <p>Crafting adversarial sample $x_{adv}$ bounded by max perturbation $\epsilon$:</p>
+        <p><code>x_adv = x + ε · sign( ∇_x L(θ, x, y) )</code></p>
+        <p>Moves each input pixel along the direction that most steepens the classification loss.</p>
+      </article>
+      <article class="info-card">
+        <h3>Madry Robust Min-Max Objective</h3>
+        <p>Adversarial training formulates model optimization as a saddle point problem:</p>
+        <p><code>min_θ  E_{(x,y)} [ max_{δ ∈ S} L(θ, x + δ, y) ]</code></p>
+        <p>Trained weights withstand worst-case perturbations within ball $S = \{\delta : ||\delta||_\infty \le \epsilon\}$.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Faculty Teaching Prompts</p>
+      <h2>Classroom Discussion &amp; Reflection</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>During Class Activity</h3>
+        <p>Have students use the interactive perturbation slider. Start with $\epsilon = 0.02$ (imperceptible noise) and observe how the Grad-CAM activation heatmap shifts from the object center to background noise, causing a confidence collapse.</p>
+      </article>
+      <article class="info-card">
+        <h3>Safety &amp; Robustness Prompt</h3>
+        <p><em>"In autonomous vehicles or medical imaging diagnostics, why is high standard test accuracy completely insufficient without certified or empirical adversarial robustness bounds?"</em></p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>Take-Home Assignment Prompt</h3>
+        <p>Students submit attack success rate curves against $\epsilon \in [0.0, 0.3]$ and evaluate adversarial training defense in <a href="../assignments/Webinar_04_Student_Assignment_Prompt.pdf">Webinar 04 Student Assignment Prompt</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Lab Resources &amp; Downloads</p>
+      <h2>Materials for this webinar session</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Lecture Slide Deck</h3>
+        <p>Webinar 04 PowerPoint slide deck covering vision XAI, Grad-CAM, and adversarial attacks.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../decks/Webinar_04_Vision_XAI_and_Adversarial_Robustness.pptx">Download .pptx</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Student Assignment</h3>
+        <p>Official student prompt for the adversarial attack and defense lab.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../assignments/Webinar_04_Student_Assignment_Prompt.pdf" target="_blank">Download PDF</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Solution Guide</h3>
+        <p>Comprehensive faculty solutions with Python code and attack curves.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Webinar_04_Assignment_Prompt_and_Solution.pdf" target="_blank">Download Solution</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Theoretical Foundations Guide</h3>
+        <p>Complete mathematical monograph covering the mathematical tutorials for all four webinars.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Theoretical_Foundations_and_Mathematical_Tutorials.pdf" target="_blank">Download Monograph</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="demo-rating" data-demo-id="fitml_webinar_04_vision_xai_adversarial">
+      <h3>Rate this learning guide</h3>
+      <div class="rating-stars">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+      <div class="rating-meta"><span class="average">0.0</span> <span class="count">(0 ratings)</span></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • <a href="../../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>

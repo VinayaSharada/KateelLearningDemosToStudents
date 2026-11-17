@@ -3,6 +3,103 @@
   "generatedFrom": "scripts/build_site_catalog.py",
   "courses": [
     {
+      "slug": "fitml",
+      "title": "Fair Interpretable Trustworthy Machine Learning",
+      "audience": "algorithmic fairness, causal DAGs, XAI (SHAP & LIME), adversarial robustness, trustworthy AI",
+      "subtitle": "Algorithmic bias detection, causal fairness DAGs, LIME/SHAP interpretability, and vision adversarial robustness for trustworthy AI.",
+      "pagePath": "courses/fitml.html",
+      "registeredDemos": "4",
+      "catalogPath": "fitml/README.md",
+      "assignments": [
+        "fitml/assignments/Webinar_01_Student_Assignment_Prompt.pdf",
+        "fitml/assignments/Webinar_02_Student_Assignment_Prompt.pdf",
+        "fitml/assignments/Webinar_03_Student_Assignment_Prompt.pdf",
+        "fitml/assignments/Webinar_04_Student_Assignment_Prompt.pdf"
+      ],
+      "demos": [
+        {
+          "title": "Algorithmic Bias Detection & Pre-Processing",
+          "level": "Intermediate",
+          "summary": "Measure algorithmic bias across protected attributes using disparate impact and equalized odds, followed by instance reweighting and disparate impact removal pre-processing on COMPAS and Census data.",
+          "teacherCue": "Teacher cue: Compute disparate impact and statistical parity on COMPAS and Adult Income datasets, then apply reweighting and disparate impact removal pre-processing to evaluate the fairness-accuracy trade-off.",
+          "duration": "30-45 min",
+          "surface": "Colab + In-Browser Interactive",
+          "mode": "Colab",
+          "courseSlug": "fitml",
+          "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+          "courseSlugs": [
+            "fitml"
+          ],
+          "courseTitles": [
+            "Fair Interpretable Trustworthy Machine Learning"
+          ],
+          "aboutPath": "fitml/lab01-bias-detection/about.html",
+          "launchPath": "fitml/lab01-bias-detection/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "In-Processing & Causal Fairness",
+          "level": "Advanced",
+          "summary": "Train fairness-aware machine learning models using in-processing constraints, adversarial debiasing, and causal counterfactual fairness DAGs on German Credit and Adult Income data.",
+          "teacherCue": "Teacher cue: Trace causal DAG confounding paths and train fairness-constrained classifiers using adversarial debiasing on German Credit and Adult Income data.",
+          "duration": "30-45 min",
+          "surface": "Colab + In-Browser Interactive",
+          "mode": "Colab",
+          "courseSlug": "fitml",
+          "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+          "courseSlugs": [
+            "fitml"
+          ],
+          "courseTitles": [
+            "Fair Interpretable Trustworthy Machine Learning"
+          ],
+          "aboutPath": "fitml/lab02-causal-fairness/about.html",
+          "launchPath": "fitml/lab02-causal-fairness/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Feature Attribution (LIME & SHAP)",
+          "level": "Intermediate",
+          "summary": "Audit black-box models using Shapley values (SHAP) and local surrogate models (LIME) to deliver stakeholder-ready prediction attributions and detect spurious correlations.",
+          "teacherCue": "Teacher cue: Generate local LIME explanations and Tree SHAP force plots for individual predictions; compare local fidelity against global feature importance.",
+          "duration": "30-45 min",
+          "surface": "Colab + In-Browser Interactive",
+          "mode": "Colab",
+          "courseSlug": "fitml",
+          "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+          "courseSlugs": [
+            "fitml"
+          ],
+          "courseTitles": [
+            "Fair Interpretable Trustworthy Machine Learning"
+          ],
+          "aboutPath": "fitml/lab03-lime-shap/about.html",
+          "launchPath": "fitml/lab03-lime-shap/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Vision XAI & Adversarial Robustness",
+          "level": "Advanced",
+          "summary": "Inspect vision neural networks using Grad-CAM saliency maps and test vulnerability against FGSM and PGD adversarial evasion attacks with robust min-max training defense.",
+          "teacherCue": "Teacher cue: Craft fast gradient sign method (FGSM) adversarial perturbations against a computer vision model, visualize the gradient saliency map shifts with Grad-CAM, and evaluate robustness after adversarial training.",
+          "duration": "30-45 min",
+          "surface": "Colab + In-Browser Interactive",
+          "mode": "Colab",
+          "courseSlug": "fitml",
+          "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+          "courseSlugs": [
+            "fitml"
+          ],
+          "courseTitles": [
+            "Fair Interpretable Trustworthy Machine Learning"
+          ],
+          "aboutPath": "fitml/lab04-adversarial-robustness/about.html",
+          "launchPath": "fitml/lab04-adversarial-robustness/index.html",
+          "readiness": "Classroom Ready"
+        }
+      ]
+    },
+    {
       "slug": "cfo-office",
       "title": "CFO Office",
       "audience": "CFOs, controllership, treasury, finance transformation",
@@ -3584,6 +3681,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Algorithmic Bias Detection & Pre-Processing",
+      "level": "Intermediate",
+      "summary": "Measure algorithmic bias across protected attributes using disparate impact and equalized odds, followed by instance reweighting and disparate impact removal pre-processing on COMPAS and Census data.",
+      "teacherCue": "Teacher cue: Compute disparate impact and statistical parity on COMPAS and Adult Income datasets, then apply reweighting and disparate impact removal pre-processing to evaluate the fairness-accuracy trade-off.",
+      "duration": "30-45 min",
+      "surface": "Colab + In-Browser Interactive",
+      "mode": "Colab",
+      "courseSlug": "fitml",
+      "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+      "courseSlugs": [
+        "fitml"
+      ],
+      "courseTitles": [
+        "Fair Interpretable Trustworthy Machine Learning"
+      ],
+      "aboutPath": "fitml/lab01-bias-detection/about.html",
+      "launchPath": "fitml/lab01-bias-detection/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "AR Aging & Collections Prioritizer",
       "level": "Intermediate",
       "summary": "Your AR team has $10M outstanding across 500 customers. Age alone doesn't tell the story. Risk-score by customer health, payment history, and relationship tenure to focus collections effort where it matters. See how intelligent segmentation recovers more cash faster than \"call everyone 60 days late.\"",
@@ -4166,6 +4283,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Feature Attribution (LIME & SHAP)",
+      "level": "Intermediate",
+      "summary": "Audit black-box models using Shapley values (SHAP) and local surrogate models (LIME) to deliver stakeholder-ready prediction attributions and detect spurious correlations.",
+      "teacherCue": "Teacher cue: Generate local LIME explanations and Tree SHAP force plots for individual predictions; compare local fidelity against global feature importance.",
+      "duration": "30-45 min",
+      "surface": "Colab + In-Browser Interactive",
+      "mode": "Colab",
+      "courseSlug": "fitml",
+      "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+      "courseSlugs": [
+        "fitml"
+      ],
+      "courseTitles": [
+        "Fair Interpretable Trustworthy Machine Learning"
+      ],
+      "aboutPath": "fitml/lab03-lime-shap/about.html",
+      "launchPath": "fitml/lab03-lime-shap/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Feature Store",
       "level": "All Levels",
       "summary": "100 models, each needs features. Centralize them\u2014governance, reproducibility, speed. Avoid reimplementing the same feature.",
@@ -4325,6 +4462,26 @@
       ],
       "aboutPath": "TechUseCaseDemos/GreeksCalculator/about.html",
       "launchPath": "TechUseCaseDemos/GreeksCalculator/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
+      "title": "In-Processing & Causal Fairness",
+      "level": "Advanced",
+      "summary": "Train fairness-aware machine learning models using in-processing constraints, adversarial debiasing, and causal counterfactual fairness DAGs on German Credit and Adult Income data.",
+      "teacherCue": "Teacher cue: Trace causal DAG confounding paths and train fairness-constrained classifiers using adversarial debiasing on German Credit and Adult Income data.",
+      "duration": "30-45 min",
+      "surface": "Colab + In-Browser Interactive",
+      "mode": "Colab",
+      "courseSlug": "fitml",
+      "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+      "courseSlugs": [
+        "fitml"
+      ],
+      "courseTitles": [
+        "Fair Interpretable Trustworthy Machine Learning"
+      ],
+      "aboutPath": "fitml/lab02-causal-fairness/about.html",
+      "launchPath": "fitml/lab02-causal-fairness/index.html",
       "readiness": "Classroom Ready"
     },
     {
@@ -5574,6 +5731,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Vision XAI & Adversarial Robustness",
+      "level": "Advanced",
+      "summary": "Inspect vision neural networks using Grad-CAM saliency maps and test vulnerability against FGSM and PGD adversarial evasion attacks with robust min-max training defense.",
+      "teacherCue": "Teacher cue: Craft fast gradient sign method (FGSM) adversarial perturbations against a computer vision model, visualize the gradient saliency map shifts with Grad-CAM, and evaluate robustness after adversarial training.",
+      "duration": "30-45 min",
+      "surface": "Colab + In-Browser Interactive",
+      "mode": "Colab",
+      "courseSlug": "fitml",
+      "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+      "courseSlugs": [
+        "fitml"
+      ],
+      "courseTitles": [
+        "Fair Interpretable Trustworthy Machine Learning"
+      ],
+      "aboutPath": "fitml/lab04-adversarial-robustness/about.html",
+      "launchPath": "fitml/lab04-adversarial-robustness/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Voice Graph RAG",
       "level": "Intermediate",
       "summary": "Speak your question, get answers from a knowledge graph. Better reasoning than keyword search.",
@@ -5735,13 +5912,13 @@
     }
   ],
   "counts": {
-    "coursePacks": 10,
-    "curatedDemos": 128,
+    "coursePacks": 11,
+    "curatedDemos": 132,
     "runModes": 6
   },
   "modeCounts": {
     "Browser": 117,
-    "Colab": 5,
+    "Colab": 9,
     "Private cohort": 1,
     "Local": 1,
     "Multi-Mode": 3,

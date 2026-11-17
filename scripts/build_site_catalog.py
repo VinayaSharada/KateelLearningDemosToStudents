@@ -9,6 +9,19 @@ OUTPUT = ROOT / "data" / "site-catalog.json"
 
 COURSE_PACKS = [
     {
+        "slug": "fitml",
+        "title": "Fair Interpretable Trustworthy Machine Learning",
+        "path": "courses/fitml.html",
+        "audience": "algorithmic fairness, causal DAGs, XAI (SHAP & LIME), adversarial robustness, trustworthy AI",
+        "catalogPath": "fitml/README.md",
+        "assignmentPaths": [
+            "fitml/assignments/Webinar_01_Student_Assignment_Prompt.pdf",
+            "fitml/assignments/Webinar_02_Student_Assignment_Prompt.pdf",
+            "fitml/assignments/Webinar_03_Student_Assignment_Prompt.pdf",
+            "fitml/assignments/Webinar_04_Student_Assignment_Prompt.pdf",
+        ],
+    },
+    {
         "slug": "cfo-office",
         "title": "CFO Office",
         "path": "courses/cfo-office.html",

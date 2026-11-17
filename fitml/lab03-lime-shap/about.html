@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feature Attribution (LIME &amp; SHAP) - About Demo - KateelLearningDemos</title>
+  <meta name="description" content="About Demo learning guide for Feature Attribution (LIME &amp; SHAP): explain complex model predictions with Shapley values and local linear surrogates on tabular data.">
+  <meta name="keywords" content="Feature Attribution, SHAP, Shapley Additive Explanations, LIME, Explainable AI, XAI, Model Interpretability, TreeSHAP, FITML, FAccT ML">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab03-lime-shap/about.html">
+  <link rel="manifest" href="../../site.webmanifest">
+  <meta property="og:site_name" content="KateelLearningDemos">
+  <meta property="og:title" content="Feature Attribution (LIME &amp; SHAP) - About Demo - KateelLearningDemos">
+  <meta property="og:description" content="Explain complex model predictions with Shapley values and local linear surrogates on tabular data.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab03-lime-shap/about.html">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <meta property="og:image:alt" content="Feature Attribution LIME &amp; SHAP learning demo preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Feature Attribution (LIME &amp; SHAP) - About Demo">
+  <meta name="twitter:description" content="Explain complex model predictions with Shapley values and local linear surrogates on tabular data.">
+  <meta name="twitter:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Feature Attribution (LIME & SHAP) About Demo",
+  "description": "Explain complex model predictions with Shapley values and local linear surrogates on tabular data.",
+  "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab03-lime-shap/about.html",
+  "isAccessibleForFree": true,
+  "learningResourceType": "About Demo",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "30-45 min",
+  "teaches": [
+    "Explain the cooperative game-theoretic axioms of Shapley values: efficiency, symmetry, dummy player, and additivity.",
+    "Compute TreeSHAP and KernelSHAP feature attributions on gradient-boosted trees and deep neural networks.",
+    "Formulate LIME (Local Interpretable Model-agnostic Explanations) as an exponentially weighted local surrogate linear model.",
+    "Detect data leakage, spurious correlations, and model fragility using global summary beeswarm and local waterfall plots."
+  ],
+  "keywords": "Feature Attribution, SHAP, LIME, Shapley Values, Explainable AI, XAI, FITML",
+  "inLanguage": "en",
+  "provider": {
+    "@type": "Person",
+    "name": "Professor Vinaya Sathyanarayana",
+    "email": "vinallcontact@gmail.com",
+    "url": "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Fair Interpretable Trustworthy Machine Learning",
+    "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Course Packs",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Fair Interpretable Trustworthy Machine Learning",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Feature Attribution (LIME & SHAP)",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab03-lime-shap/about.html"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script defer src="../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="../../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="../../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <a class="nav-link" href="../../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+<main class="container">
+  <section class="site-hero page-hero">
+    <p class="hero-eyebrow">Fair Interpretable Trustworthy Machine Learning • Webinar 03 / Lab 03</p>
+    <h1>Feature Attribution (LIME &amp; SHAP)</h1>
+    <p class="hero-subtitle">Deconstruct black-box machine learning models into local and global explanations using cooperative game theory (SHAP) and local sparse linear surrogates (LIME).</p>
+    <div class="pill-row">
+      <span class="pill">Colab + In-Browser Interactive</span>
+      <span class="pill">30-45 min</span>
+      <span class="pill">Intermediate</span>
+      <span class="pill">Classroom Ready</span>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="index.html">Launch Interactive Demo</a>
+      <a class="btn btn-secondary" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_03_interpretability_lab.ipynb" target="_blank" rel="noopener">Open Colab Notebook</a>
+      <a class="btn btn-soft" href="../assignments/Webinar_03_Student_Assignment_Prompt.pdf" target="_blank" rel="noopener">Assignment Prompt (PDF)</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Learning Objectives</p>
+      <h2>What students learn in this lab</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>1. Game-Theoretic Foundations</h3>
+        <p>Understand how Shapley values uniquely satisfy the four axiomatic properties of fair attribution: Efficiency, Symmetry, Dummy Player, and Additivity.</p>
+      </article>
+      <article class="info-card">
+        <h3>2. Local vs Global Interpretability</h3>
+        <p>Distinguish local explanations (why did <em>this</em> customer get denied?) from global explanations (what are the top risk drivers across the whole portfolio?).</p>
+      </article>
+      <article class="info-card">
+        <h3>3. LIME Perturbation Surrogates</h3>
+        <p>Generate perturbations around an instance, weight them with an exponential distance kernel, and train an interpretable sparse linear surrogate model.</p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>4. Auditing Model Reliability</h3>
+        <p>Identify confounding variables, shortcut learning, and data leakage where a model achieves high accuracy by relying on illegitimate proxy features.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Mathematical Formulations</p>
+      <h2>Attribution Mechanics</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Shapley Value Definition</h3>
+        <p>The marginal contribution of feature $i$ across all possible coalitions $S \subseteq F \setminus \{i\}$:</p>
+        <p><code>ϕ_i(v) = ∑ [|S|!(|F| - |S| - 1)! / |F|!] · [v(S ∪ {i}) - v(S)]</code></p>
+        <p>Guarantees that the sum of attributions equals the total deviation from base value: $\sum \phi_i = f(x) - E[f(X)]$.</p>
+      </article>
+      <article class="info-card">
+        <h3>LIME Surrogate Objective</h3>
+        <p>Minimize unfaithfulness of simple model $g \in G$ within local neighborhood $\pi_x(z)$:</p>
+        <p><code>arg min_g  L(f, g, π_x) + Ω(g)</code></p>
+        <p>where $\pi_x(z) = \exp(-D(x,z)^2 / \sigma^2)$ measures proximity to instance $x$.</p>
+      </article>
+      <article class="info-card">
+        <h3>Waterfall Attribution</h3>
+        <p>Visualizing baseline prior $E[f(x)]$ moving to prediction $f(x)$:</p>
+        <p><code>f(x) = E[f(X)] + ϕ_1 + ϕ_2 + ... + ϕ_M</code></p>
+        <p>Positive SHAP values push towards higher risk, negative values reduce risk.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Faculty Teaching Prompts</p>
+      <h2>Classroom Discussion &amp; Reflection</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>During Class Activity</h3>
+        <p>Select an individual with a borderline credit score. Have students compare the LIME top-3 explanations with the TreeSHAP waterfall plot. Ask why the two methods might slightly disagree on feature ranking.</p>
+      </article>
+      <article class="info-card">
+        <h3>Auditing Question</h3>
+        <p><em>"How does a SHAP summary plot allow a risk officer to detect model leakage (e.g. an internal ID column mistakenly included in training) that cross-validation missed?"</em></p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>Take-Home Assignment Prompt</h3>
+        <p>Students generate local waterfall plots and global dependence plots for 5 diverse test samples in <a href="../assignments/Webinar_03_Student_Assignment_Prompt.pdf">Webinar 03 Student Assignment Prompt</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Lab Resources &amp; Downloads</p>
+      <h2>Materials for this webinar session</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Lecture Slide Deck</h3>
+        <p>Webinar 03 presentation slides on LIME, SHAP, and feature attribution.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../decks/Webinar_03_Feature_Attribution_LIME_SHAP.pptx">Download .pptx</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Student Assignment</h3>
+        <p>Student assignment prompt with practical explainability exercises.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../assignments/Webinar_03_Student_Assignment_Prompt.pdf" target="_blank">Download PDF</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Solution Guide</h3>
+        <p>Solution guide with benchmark SHAP plots and interpretation write-ups.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Webinar_03_Assignment_Prompt_and_Solution.pdf" target="_blank">Download Solution</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Benchmark Datasets</h3>
+        <p>Tabular diabetes and credit risk datasets for explainability:</p>
+        <div class="demo-actions">
+          <a class="btn-mini outline" href="../data/diabetes_data.csv">Diabetes CSV</a>
+          <a class="btn-mini outline" href="../data/german_credit.csv">German Credit CSV</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="demo-rating" data-demo-id="fitml_webinar_03_feature_attribution">
+      <h3>Rate this learning guide</h3>
+      <div class="rating-stars">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+      <div class="rating-meta"><span class="average">0.0</span> <span class="count">(0 ratings)</span></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • <a href="../../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>

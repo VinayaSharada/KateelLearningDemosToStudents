@@ -75,19 +75,21 @@
       <a class="nav-link" href="course-packs/index.html" data-kld-nav="packs">Course Packs</a>
       <a class="nav-link" href="Assignments/index.html" data-kld-nav="assignments">Assignments</a>
       <details class="nav-dropdown">
-  <summary class="nav-link">Courses</summary>
-  <div class="dropdown-content" role="menu">
-    <a class="dropdown-link" href="courses/cfo-office.html"><span>📊</span>CFO Office</a>
-    <a class="dropdown-link" href="courses/treasury-management.html"><span>🏦</span>Treasury</a>
-      <a class="dropdown-link" href="courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
-      <a class="dropdown-link" href="courses/risk-management.html"><span>⚠️</span>Risk</a>
-      <a class="dropdown-link" href="courses/quant-finance.html"><span>💰</span>Quant</a>
-      <a class="dropdown-link" href="courses/cybersecurity.html"><span>🔐</span>Cyber</a>
-      <a class="dropdown-link" href="courses/compliance.html"><span>📋</span>Compliance</a>
-      <a class="dropdown-link" href="courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
-      <a class="dropdown-link" href="courses/banking.html"><span>🏦</span>Banking</a>
-  </div>
-</details>
+        <summary class="nav-link">Courses</summary>
+        <div class="dropdown-content" role="menu">
+          <a class="dropdown-link" href="courses/fitml.html"><span>⚖️</span>FITML (28,001)</a>
+          <a class="dropdown-link" href="courses/cfo-office.html"><span>📊</span>CFO Office</a>
+          <a class="dropdown-link" href="courses/treasury-management.html"><span>🏦</span>Treasury</a>
+          <a class="dropdown-link" href="courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+          <a class="dropdown-link" href="courses/risk-management.html"><span>⚠️</span>Risk</a>
+          <a class="dropdown-link" href="courses/quant-finance.html"><span>💰</span>Quant</a>
+          <a class="dropdown-link" href="courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+          <a class="dropdown-link" href="courses/compliance.html"><span>📋</span>Compliance</a>
+          <a class="dropdown-link" href="courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+          <a class="dropdown-link" href="courses/banking.html"><span>🏦</span>Banking</a>
+          <a class="dropdown-link" href="courses/digital-payments.html"><span>💳</span>Payments</a>
+        </div>
+      </details>
       <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
@@ -98,24 +100,47 @@
       <h1>Kateel Learning Demos</h1>
       <p class="hero-subtitle">A curated GitHub Pages learning platform for demos, course packs, and classroom-ready walkthroughs. Start with About, launch only when the run mode fits, and use GitHub for the deeper library.</p>
       <div class="pill-row">
-        <span class="pill"><span data-kld-curated-demos>128</span> curated demos</span>
-        <span class="pill"><span data-kld-course-packs>10</span> course packs</span>
+        <span class="pill"><span data-kld-curated-demos>132</span> curated demos</span>
+        <span class="pill"><span data-kld-course-packs>11</span> course packs</span>
         <span class="pill">No API keys</span>
         <span class="pill"><span data-kld-run-modes>6</span> run-mode families</span>
       </div>
       <div class="cta-buttons">
-        <a class="btn btn-primary" href="browse/index.html">Browse curated demos</a>
-        <a class="btn btn-secondary" href="course-packs/index.html">Open course packs</a>
-        <a class="btn btn-soft" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">Star on GitHub</a>
+        <a class="btn btn-primary" href="#search-demos">Search all demos</a>
+        <a class="btn btn-secondary" href="browse/index.html">Browse full catalog</a>
+        <a class="btn btn-soft" href="course-packs/index.html">Open course packs</a>
       </div>
     </section>
 
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-value" data-kld-curated-demos>128</div><div class="stat-label">Curated public demos</div></div>
-      <div class="stat-card"><div class="stat-value" data-kld-course-packs>10</div><div class="stat-label">Course packs</div></div>
+      <div class="stat-card"><div class="stat-value" data-kld-curated-demos>132</div><div class="stat-label">Curated public demos</div></div>
+      <div class="stat-card"><div class="stat-value" data-kld-course-packs>11</div><div class="stat-label">Course packs</div></div>
       <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">API keys required</div></div>
       <div class="stat-card"><div class="stat-value" data-kld-run-modes>6</div><div class="stat-label">Run-mode families</div></div>
     </div>
+
+    <!-- Direct Demo Search & Course Discovery Section -->
+    <section class="section" id="search-demos">
+      <div class="toolbar-card">
+        <div class="section-header left" style="margin-bottom: 1rem;">
+          <p class="section-kicker">Instant Discovery</p>
+          <h2>Search all 132 demos or pick a course</h2>
+          <p id="homeSearchSummary">Type any topic, algorithm, or keyword, or click a course pack chip to see its demos immediately.</p>
+        </div>
+        <div class="search-bar-wrapper">
+          <input id="homeSearch" type="search" placeholder="Search 132 demos: e.g. bias detection, SHAP, causal, FX hedge, liquidity, SIEM, credit, RAG...">
+          <button type="button" id="homeSearchClear" class="search-clear-btn" title="Clear search">×</button>
+        </div>
+        <div id="homeCourseChips" class="course-chips-container" style="margin-top: 1rem;"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <h3 style="margin: 0;">Interactive Demo Explorer</h3>
+        <a id="homeFullBrowseBtn" class="btn-mini outline" href="browse/index.html">Open these demos in full catalog view →</a>
+      </div>
+      <div id="homeDemoGrid" class="demo-grid">
+        <!-- Rendered dynamically by assets/portal.js from data/site-catalog.json -->
+      </div>
+    </section>
 
     <section class="section" id="start-here">
       <div class="section-header">
@@ -163,44 +188,50 @@
       </div>
       <div class="course-grid">
 
+<a class="course-card" href="courses/fitml.html">
+  <div class="course-card-top"><h3>⚖️ FITML (28,001)</h3><span>4 demos</span></div>
+  <p>Course 2 of 28,001: Fair Interpretable Trustworthy Machine Learning. Algorithmic bias audits, causal fairness DAGs, LIME/SHAP interpretability, and vision adversarial robustness.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Colab + Interactive</span></div>
+</a>
+
 <a class="course-card" href="courses/cfo-office.html">
-  <div class="course-card-top"><h3>📊 CFO Office</h3><span>15 demos</span></div>
+  <div class="course-card-top"><h3>📊 CFO Office</h3><span>16 demos</span></div>
   <p>Cross-cutting overlay for value, controls, evidence, close, working capital, treasury, and finance transformation demos.</p>
   <div class="course-meta"><span>About-first navigation</span><span>Audience overlay</span></div>
 </a>
         
 <a class="course-card" href="courses/treasury-management.html">
-  <div class="course-card-top"><h3>🏦 Treasury Management</h3><span>9 demos</span></div>
+  <div class="course-card-top"><h3>🏦 Treasury Management</h3><span>20 demos</span></div>
   <p>Liquidity, working capital, FX hedging, cash conversion cycle, digital treasury, and AI-enabled treasury transformation for CFO aspirants.</p>
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
 
 <a class="course-card" href="courses/ai-ml-workflows.html">
-  <div class="course-card-top"><h3>🤖 AI/ML Workflows</h3><span>37 demos</span></div>
+  <div class="course-card-top"><h3>🤖 AI/ML Workflows</h3><span>43 demos</span></div>
   <p>Hands-on AI product, model, workflow, governance, and decision-support demos for finance and business learners.</p>
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
 
 <a class="course-card" href="courses/risk-management.html">
-  <div class="course-card-top"><h3>⚠️ Risk Management</h3><span>9 demos</span></div>
+  <div class="course-card-top"><h3>⚠️ Risk Management</h3><span>6 demos</span></div>
   <p>Credit, market, counterparty, systemic, and cyber-risk modeling demos for finance and analytics courses.</p>
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
 
 <a class="course-card" href="courses/quant-finance.html">
-  <div class="course-card-top"><h3>💰 Quant Finance</h3><span>10 demos</span></div>
+  <div class="course-card-top"><h3>💰 Quant Finance</h3><span>11 demos</span></div>
   <p>Derivatives, portfolio optimization, fixed income, VaR, Greeks, and supply-chain finance models for applied finance education.</p>
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
 
 <a class="course-card" href="courses/cybersecurity.html">
-  <div class="course-card-top"><h3>🔐 Cybersecurity</h3><span>10 demos</span></div>
+  <div class="course-card-top"><h3>🔐 Cybersecurity</h3><span>15 demos</span></div>
   <p>IoT, network, threat-modeling, malware, vulnerability, and secure-code demos for responsible security learning.</p>
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
 
 <a class="course-card" href="courses/compliance.html">
-  <div class="course-card-top"><h3>📋 Compliance & Governance</h3><span>6 demos</span></div>
+  <div class="course-card-top"><h3>📋 Compliance & Governance</h3><span>7 demos</span></div>
   <p>AI governance, regulatory tracking, public-sector governance, alert triage, and AML pattern demos.</p>
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
@@ -211,8 +242,14 @@
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
 
+<a class="course-card" href="courses/digital-payments.html">
+  <div class="course-card-top"><h3>💳 Digital Payments</h3><span>13 demos</span></div>
+  <p>Payment rails, UPI, cards, reconciliation, CBDC, wallet operations, and transaction integrity models.</p>
+  <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
+</a>
+
 <a class="course-card" href="courses/banking.html">
-  <div class="course-card-top"><h3>🏦 Banking & Finance</h3><span>3 demos</span></div>
+  <div class="course-card-top"><h3>🏦 Banking & Finance</h3><span>6 demos</span></div>
   <p>Banking, credit, customer, fraud, and financial-services analytics demos for applied business education.</p>
   <div class="course-meta"><span>About-first navigation</span><span>Browser-based</span></div>
 </a>
@@ -228,76 +265,76 @@
       </div>
       <div class="demo-grid">
         
+<a class="demo-card featured-demo" href="fitml/lab01-bias-detection/about.html">
+  <div class="demo-card-top"><h3>Algorithmic Bias Detection</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for Algorithmic Bias Detection &amp; Pre-Processing: evaluate disparate impact and statistical parity on COMPAS and Census data.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
+</a>
+
+<a class="demo-card featured-demo" href="fitml/lab03-lime-shap/about.html">
+  <div class="demo-card-top"><h3>Feature Attribution (LIME &amp; SHAP)</h3><span class="level-badge">Intermediate</span></div>
+  <p>About Demo learning guide for Feature Attribution: explain complex predictions with Shapley values and local linear surrogates.</p>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
+</a>
+
 <a class="demo-card featured-demo" href="TechUseCaseDemos/ABTestingFramework/about.html">
   <div class="demo-card-top"><h3>AB Testing Framework</h3><span class="level-badge">All Levels</span></div>
   <p>About Demo learning guide for AB Testing Framework: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/ABTestingFramework/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AICostBenefitAnalyzer/about.html">
   <div class="demo-card-top"><h3>AI Cost Benefit Analyzer</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI Cost Benefit Analyzer: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AICostBenefitAnalyzer/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AIDataAnalyzer/about.html">
   <div class="demo-card-top"><h3>AI Data Analyzer</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI Data Analyzer: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIDataAnalyzer/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AIDecisionTracker/about.html">
   <div class="demo-card-top"><h3>AI Decision Tracker</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI Decision Tracker: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIDecisionTracker/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AIFeatureImpact/about.html">
   <div class="demo-card-top"><h3>AI Feature Impact</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI Feature Impact: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIFeatureImpact/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AIPRDTemplate/about.html">
   <div class="demo-card-top"><h3>AI PRD Template</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI PRD Template: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIPRDTemplate/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AIPerformanceDashboard/about.html">
   <div class="demo-card-top"><h3>AI Performance Dashboard</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI Performance Dashboard: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIPerformanceDashboard/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AIProductCanvas/about.html">
   <div class="demo-card-top"><h3>AI Product Canvas</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI Product Canvas: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIProductCanvas/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AIROICalculator/about.html">
   <div class="demo-card-top"><h3>AI ROI Calculator</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI ROI Calculator: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIROICalculator/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
 <a class="demo-card featured-demo" href="TechUseCaseDemos/AIResourcePlanner/about.html">
   <div class="demo-card-top"><h3>AI Resource Planner</h3><span class="level-badge">Intermediate</span></div>
   <p>About Demo learning guide for AI Resource Planner: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIResourcePlanner/index.html">Launch</a></div>
-</a>
-
-<a class="demo-card featured-demo" href="TechUseCaseDemos/AITeamCollaboration/about.html">
-  <div class="demo-card-top"><h3>AI Team Collaboration</h3><span class="level-badge">Intermediate</span></div>
-  <p>About Demo learning guide for AI Team Collaboration: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AITeamCollaboration/index.html">Launch</a></div>
-</a>
-
-<a class="demo-card featured-demo" href="TechUseCaseDemos/AIWorkflowDemo/about.html">
-  <div class="demo-card-top"><h3>AI Workflow</h3><span class="level-badge">Intermediate</span></div>
-  <p>About Demo learning guide for AI Workflow: a browser-based ai/ml workflows learning activity with no cloud or API keys required.</p>
-  <div class="demo-actions"><span class="btn-mini">About Demo</span><a class="btn-mini outline launch-demo" href="TechUseCaseDemos/AIWorkflowDemo/index.html">Launch</a></div>
+  <div class="demo-actions"><span class="btn-mini">About Demo</span><span class="btn-mini outline">Launch</span></div>
 </a>
 
       </div>

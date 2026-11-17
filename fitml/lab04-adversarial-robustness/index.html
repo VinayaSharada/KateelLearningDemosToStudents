@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vision XAI &amp; Adversarial Robustness - Interactive Lab - KateelLearningDemos</title>
+  <meta name="description" content="Interactive Grad-CAM saliency visualizer, FGSM adversarial attack simulator, and Google Colab launch hub for trustworthy vision AI.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <script defer src="../../assets/site.js"></script>
+  <style>
+    .vision-workbench {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .img-display-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .img-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .img-card h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .canvas-box {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .wb-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .wb-control {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .wb-control label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .wb-control input[type="range"] {
+      width: 100%;
+      accent-color: #0d9488;
+    }
+    .wb-readout {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-top: 0.35rem;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .metric-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      border-left: 4px solid #0d9488;
+    }
+    .metric-val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin: 0.25rem 0;
+    }
+    .metric-lbl {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .metric-status {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+    .status-pass { color: #4ade80; }
+    .status-alert { color: #f59e0b; }
+    .status-fail { color: #f87171; }
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html">Browse Demos</a>
+      <a class="nav-link" href="../../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_04_adversarial_robustness_lab.ipynb" target="_blank" rel="noopener">Open in Colab</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">FITML Course • Webinar 04 Lab • Colab + Interactive</p>
+    <h1>Vision XAI &amp; Adversarial Robustness</h1>
+    <p class="demo-lede">Interactive vision explainability &amp; FGSM attack simulator and Google Colab launch hub. Tweak perturbation noise level &epsilon; to watch Grad-CAM heatmaps degrade and predictions flip.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_04_adversarial_robustness_lab.ipynb" target="_blank" rel="noopener">Run in Google Colab</a>
+      <a class="btn btn-secondary" href="about.html">Read About Demo Guide</a>
+      <a class="btn btn-soft" href="../assignments/Webinar_04_Student_Assignment_Prompt.pdf" target="_blank" rel="noopener">Assignment Prompt (PDF)</a>
+    </div>
+  </section>
+
+  <!-- Interactive Vision Simulator Component -->
+  <section class="vision-workbench">
+    <div class="section-header left" style="margin-bottom: 1.25rem;">
+      <p class="section-kicker">Interactive Simulation</p>
+      <h2>Grad-CAM Heatmap &amp; Adversarial Evasion Sandbox</h2>
+      <p>Simulate a deep convolutional network classifying an input image. Drag the perturbation budget &epsilon; slider to generate high-frequency adversarial gradient sign noise.</p>
+    </div>
+
+    <div class="wb-controls">
+      <div class="wb-control">
+        <label for="sampleSelect">Select Target Scenario:</label>
+        <select id="sampleSelect" style="margin-top: 0.35rem; width: 100%; padding: 0.5rem; border-radius: 8px; background: #0f172a; color: #fff; border: 1px solid var(--border);">
+          <option value="stopsign" selected>Autonomous Driving: Stop Sign &rarr; Speed Limit 80</option>
+          <option value="medical">Medical Diagnostic: Chest X-Ray &rarr; Normal Artifact</option>
+          <option value="finance">FinTech Check Deposit: Altered Numeric Payee</option>
+        </select>
+        <small style="color: var(--muted);">Choose the high-stakes deployment scenario.</small>
+      </div>
+
+      <div class="wb-control">
+        <label for="epsilonSlider">Perturbation Budget (&epsilon;): <span id="epsilonVal" class="wb-readout">0.02</span></label>
+        <input type="range" id="epsilonSlider" min="0.00" max="0.25" step="0.01" value="0.02">
+        <small style="color: var(--muted);">Max pixel alteration bounded by ||&delta;||_&infin; &le; &epsilon;.</small>
+      </div>
+
+      <div class="wb-control">
+        <label for="defenseToggle">Model Defense Mode:</label>
+        <select id="defenseToggle" style="margin-top: 0.35rem; width: 100%; padding: 0.5rem; border-radius: 8px; background: #0f172a; color: #fff; border: 1px solid var(--border);">
+          <option value="standard">Standard Baseline Model (No Defense)</option>
+          <option value="adv_trained">Adversarially Trained (Madry Min-Max)</option>
+        </select>
+        <small style="color: var(--muted);">Toggle robust min-max regularization.</small>
+      </div>
+    </div>
+
+    <div class="img-display-grid">
+      <div class="img-card">
+        <h4>1. Clean Input Image (x)</h4>
+        <div class="canvas-box" id="cleanCanvas">
+          <svg viewBox="0 0 100 100" width="100" height="100">
+            <polygon points="30,10 70,10 90,30 90,70 70,90 30,90 10,70 10,30" fill="#dc2626" stroke="#fff" stroke-width="3" />
+            <text x="50" y="55" fill="#fff" font-size="14" font-weight="900" text-anchor="middle" dominant-baseline="middle">STOP</text>
+          </svg>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #4ade80;">True Label: Stop Sign</p>
+      </div>
+
+      <div class="img-card">
+        <h4>2. Adversarial Noise (sign(&nabla;L))</h4>
+        <div class="canvas-box" id="noiseCanvas">
+          <svg viewBox="0 0 100 100" width="100" height="100" id="noiseSvg">
+            <!-- Simulated high-frequency noise grid -->
+            <rect width="100" height="100" fill="#0f172a" />
+            <g id="noiseDots"></g>
+          </svg>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #38bdf8;">Perturbation &epsilon; = <span id="noiseLbl">0.02</span></p>
+      </div>
+
+      <div class="img-card">
+        <h4>3. Grad-CAM Saliency Heatmap</h4>
+        <div class="canvas-box" id="camCanvas">
+          <svg viewBox="0 0 100 100" width="100" height="100">
+            <defs>
+              <radialGradient id="camGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ef4444" id="gradStop1" stop-opacity="0.85" />
+                <stop offset="60%" stop-color="#f59e0b" id="gradStop2" stop-opacity="0.5" />
+                <stop offset="100%" stop-color="#3b82f6" id="gradStop3" stop-opacity="0.1" />
+              </radialGradient>
+            </defs>
+            <polygon points="30,10 70,10 90,30 90,70 70,90 30,90 10,70 10,30" fill="#7f1d1d" opacity="0.6" />
+            <circle id="camSpot" cx="50" cy="50" r="38" fill="url(#camGrad)" />
+          </svg>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;" id="camStatusText">Grounded on Sign Octagon</p>
+      </div>
+    </div>
+
+    <div class="metric-grid">
+      <div class="metric-box" id="predBox">
+        <div class="metric-lbl">Model Prediction</div>
+        <div class="metric-val" id="dispPredLabel" style="font-size: 1.35rem;">Stop Sign</div>
+        <div class="metric-status status-pass" id="dispPredStatus">Correct Classification</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-lbl">Confidence Probability</div>
+        <div class="metric-val" id="dispConf">98.4%</div>
+        <div class="metric-status" id="dispConfStatus">High Confidence</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-lbl">Robustness Margin</div>
+        <div class="metric-val" id="dispMargin">+0.74</div>
+        <div class="metric-status status-pass" id="dispMarginStatus">Certified Safe</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Self-Service Steps -->
+  <section class="demo-panel">
+    <h2>Self-Service Lab Workflow</h2>
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Step 1: Open Google Colab</h3>
+        <p>Launch the verified notebook directly in Google Colab. PyTorch, torchvision, and Grad-CAM libraries load automatically.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 2: Generate Grad-CAM</h3>
+        <p>Hook into the final convolutional feature maps (e.g. ResNet-50 layer4) to produce class activation maps for sample images.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 3: Craft FGSM Attacks</h3>
+        <p>Compute input gradients with PyTorch backward pass and craft single-step FGSM perturbations bounded by &epsilon;.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 4: Adversarial Training</h3>
+        <p>Implement the Madry PGD min-max inner loop to harden model weights and plot robust vs clean accuracy tradeoffs.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Downloadable Resources -->
+  <section class="demo-panel">
+    <h2>Session Downloads &amp; Reference Assets</h2>
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Colab Notebook</h3>
+        <p>Complete vision lab Jupyter notebook with PyTorch implementation.</p>
+        <div class="demo-actions"><a class="btn-mini" href="../notebooks/webinar_04_adversarial_robustness_lab.ipynb" download>Download .ipynb</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>PowerPoint Deck</h3>
+        <p>Webinar 04 presentation slides on vision XAI and attacks.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../decks/Webinar_04_Vision_XAI_and_Adversarial_Robustness.pptx">Download .pptx</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Student Assignment</h3>
+        <p>Official student prompt for the adversarial attack and defense lab.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../assignments/Webinar_04_Student_Assignment_Prompt.pdf" target="_blank">Download Prompt</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Theoretical Monograph</h3>
+        <p>Mathematical tutorial monograph covering theoretical foundations.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Theoretical_Foundations_and_Mathematical_Tutorials.pdf" target="_blank">Download Guide</a></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var epsilonSlider = document.getElementById("epsilonSlider");
+    var epsilonVal = document.getElementById("epsilonVal");
+    var defenseToggle = document.getElementById("defenseToggle");
+    var sampleSelect = document.getElementById("sampleSelect");
+    var noiseLbl = document.getElementById("noiseLbl");
+    var noiseDots = document.getElementById("noiseDots");
+    var camSpot = document.getElementById("camSpot");
+    var camStatusText = document.getElementById("camStatusText");
+    var dispPredLabel = document.getElementById("dispPredLabel");
+    var dispPredStatus = document.getElementById("dispPredStatus");
+    var dispConf = document.getElementById("dispConf");
+    var dispMargin = document.getElementById("dispMargin");
+    var dispMarginStatus = document.getElementById("dispMarginStatus");
+    var predBox = document.getElementById("predBox");
+
+    // Populate noise dots
+    for (var i = 0; i < 40; i++) {
+      var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", Math.floor(Math.random() * 100));
+      circle.setAttribute("cy", Math.floor(Math.random() * 100));
+      circle.setAttribute("r", (Math.random() * 2 + 1).toFixed(1));
+      circle.setAttribute("fill", Math.random() > 0.5 ? "#ef4444" : "#3b82f6");
+      circle.setAttribute("opacity", "0.6");
+      noiseDots.appendChild(circle);
+    }
+
+    function updateVision() {
+      var eps = parseFloat(epsilonSlider.value);
+      var defense = defenseToggle.value;
+      var scenario = sampleSelect.value;
+
+      epsilonVal.textContent = eps.toFixed(2);
+      noiseLbl.textContent = eps.toFixed(2);
+
+      // Adjust noise visual opacity
+      noiseDots.style.opacity = Math.min(1.0, eps * 4.5);
+
+      var flipThreshold = defense === "adv_trained" ? 0.16 : 0.05;
+
+      if (eps < flipThreshold) {
+        // Correct classification
+        dispPredLabel.textContent = scenario === "stopsign" ? "Stop Sign" : (scenario === "medical" ? "Normal Lungs" : "Valid Check");
+        dispPredLabel.style.color = "#4ade80";
+        dispPredStatus.className = "metric-status status-pass";
+        dispPredStatus.textContent = "Correct Classification";
+        predBox.style.borderLeftColor = "#22c55e";
+
+        var conf = 99.2 - eps * 180;
+        dispConf.textContent = Math.max(52.0, conf).toFixed(1) + "%";
+
+        camSpot.setAttribute("cx", "50");
+        camSpot.setAttribute("cy", "50");
+        camSpot.setAttribute("r", "38");
+        camStatusText.style.color = "#4ade80";
+        camStatusText.textContent = "Grounded on Target Object";
+
+        var margin = 0.85 - eps * 3.5;
+        dispMargin.textContent = "+" + Math.max(0.08, margin).toFixed(2);
+        dispMarginStatus.className = "metric-status status-pass";
+        dispMarginStatus.textContent = defense === "adv_trained" ? "Robust Defense Active" : "Clean Margin";
+      } else {
+        // Adversarial attack succeeded
+        dispPredLabel.textContent = scenario === "stopsign" ? "Speed Limit 80" : (scenario === "medical" ? "False Pneumonia" : "Fraud Check");
+        dispPredLabel.style.color = "#f87171";
+        dispPredStatus.className = "metric-status status-fail";
+        dispPredStatus.textContent = "Adversarial Misclassification (Attacked!)";
+        predBox.style.borderLeftColor = "#ef4444";
+
+        var advConf = 82.0 + Math.min(16.0, (eps - flipThreshold) * 70);
+        dispConf.textContent = advConf.toFixed(1) + "%";
+
+        // Diffuse Grad-CAM into corner noise
+        camSpot.setAttribute("cx", "80");
+        camSpot.setAttribute("cy", "20");
+        camSpot.setAttribute("r", "24");
+        camStatusText.style.color = "#f87171";
+        camStatusText.textContent = "Distorted onto Background Noise";
+
+        dispMargin.textContent = "-0.45";
+        dispMarginStatus.className = "metric-status status-fail";
+        dispMarginStatus.textContent = "Security Breach / Evasion";
+      }
+    }
+
+    epsilonSlider.addEventListener("input", updateVision);
+    defenseToggle.addEventListener("change", updateVision);
+    sampleSelect.addEventListener("change", updateVision);
+    updateVision();
+  })();
+</script>
+
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • <a href="../../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>

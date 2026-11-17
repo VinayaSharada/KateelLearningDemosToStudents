@@ -52,6 +52,22 @@
       <a class="nav-link active" href="./index.html" data-kld-nav="browse">Browse Demos</a>
       <a class="nav-link" href="../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
       <a class="nav-link" href="../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <details class="nav-dropdown">
+        <summary class="nav-link">Courses</summary>
+        <div class="dropdown-content" role="menu">
+          <a class="dropdown-link" href="../courses/fitml.html"><span>⚖️</span>FITML (28,001)</a>
+          <a class="dropdown-link" href="../courses/cfo-office.html"><span>📊</span>CFO Office</a>
+          <a class="dropdown-link" href="../courses/digital-payments.html"><span>💳</span>Payments</a>
+          <a class="dropdown-link" href="../courses/treasury-management.html"><span>🏦</span>Treasury</a>
+          <a class="dropdown-link" href="../courses/ai-ml-workflows.html"><span>🤖</span>AI/ML</a>
+          <a class="dropdown-link" href="../courses/risk-management.html"><span>⚠️</span>Risk</a>
+          <a class="dropdown-link" href="../courses/quant-finance.html"><span>💰</span>Quant</a>
+          <a class="dropdown-link" href="../courses/cybersecurity.html"><span>🔐</span>Cyber</a>
+          <a class="dropdown-link" href="../courses/compliance.html"><span>📋</span>Compliance</a>
+          <a class="dropdown-link" href="../courses/rag-nlp.html"><span>📝</span>RAG/NLP</a>
+          <a class="dropdown-link" href="../courses/banking.html"><span>🏦</span>Banking</a>
+        </div>
+      </details>
       <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
@@ -60,69 +76,62 @@
   <section class="site-hero page-hero">
     <p class="hero-eyebrow">Curated Demo Catalog</p>
     <h1>Browse Demos</h1>
-    <p class="hero-subtitle">This is the canonical public catalog for the curated GitHub Pages experience. Use filters to find classroom-ready demos by course, level, and run mode.</p>
+    <p class="hero-subtitle">Search and discover all 132 classroom-ready demos. Search directly by topic, keyword, or run mode, or filter instantly by course pack.</p>
     <div class="pill-row">
-      <span class="pill"><span data-kld-browse-demo-count>128</span> curated demos</span>
-      <span class="pill"><span data-kld-browse-course-count>9</span> course packs</span>
+      <span class="pill"><span data-kld-browse-demo-count>132</span> curated demos</span>
+      <span class="pill"><span data-kld-browse-course-count>11</span> course packs</span>
       <span class="pill">About → Launch flow</span>
       <span class="pill">Browser, Colab, Local, Multi-Mode</span>
     </div>
   </section>
 
   <section class="section">
-    <div class="card-grid">
-      <article class="info-card">
-        <h3>Why this page exists</h3>
-        <p>Older manual indexes drifted out of sync with the real demo pages. This surface is meant to become the trusted public browsing layer.</p>
-      </article>
-      <article class="info-card">
-        <h3>How to use it</h3>
-        <p>Open the About page first for context, then launch the demo only when the run mode and expectations make sense for your class.</p>
-      </article>
-      <article class="info-card highlight-card">
-        <h3>What is included</h3>
-        <p>Only the curated GitHub Pages course-pack surface is included here. Legacy or partial repo assets can still live in GitHub without crowding student navigation.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
     <div class="toolbar-card">
-      <div class="section-header left">
-        <p class="section-kicker">Filters</p>
-        <h2>Find the right demo faster</h2>
+      <div class="section-header left" style="margin-bottom: 1rem;">
+        <p class="section-kicker">Interactive Search &amp; Discovery</p>
+        <h2>Search by Course or Find Any Demo Directly</h2>
         <p id="browseSummary">Loading curated demo catalog...</p>
       </div>
+
       <div class="filter-grid">
-        <label class="input-control">
-          <span>Search</span>
-          <input id="browseSearch" type="search" placeholder="Search by title, topic, cue, or mode">
+        <label class="input-control" style="grid-column: span 2;">
+          <span>Direct Search All Demos</span>
+          <div class="search-bar-wrapper">
+            <input id="browseSearch" type="search" placeholder="Type keywords: e.g. bias detection, SHAP, causal, FX, liquidity, SIEM, credit...">
+            <button type="button" id="browseSearchClear" class="search-clear-btn" title="Clear search">×</button>
+          </div>
         </label>
         <label class="input-control">
-          <span>Course</span>
+          <span>Filter by Course</span>
           <select id="browseCourse">
-            <option value="all">All course packs</option>
+            <option value="all">🌐 All Course Packs</option>
           </select>
         </label>
         <label class="input-control">
+          <span>Run Mode</span>
+          <select id="browseMode">
+            <option value="all">All Modes</option>
+          </select>
+        </label>
+        <label class="input-control" style="display: none;">
           <span>Level</span>
           <select id="browseLevel">
-            <option value="all">All levels</option>
-          </select>
-        </label>
-        <label class="input-control">
-          <span>Run mode</span>
-          <select id="browseMode">
-            <option value="all">All modes</option>
+            <option value="all">All Levels</option>
           </select>
         </label>
       </div>
+
+      <!-- Quick-select Course Chips -->
+      <div id="courseChipsMount"></div>
     </div>
+
+    <!-- Active Course Banner or Matched Course Alert -->
+    <div id="courseBannerMount"></div>
   </section>
 
   <section class="section">
     <div id="browseDemoGrid" class="demo-grid"></div>
-    <div id="browseEmpty" class="empty-state" hidden>No demos matched the current filters. Try a broader search or switch back to all run modes.</div>
+    <div id="browseEmpty" class="empty-state" hidden>No demos matched the current search. Try a broader keyword or switch back to All Courses.</div>
   </section>
 </main>
 <footer class="site-footer">

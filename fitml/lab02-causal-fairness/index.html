@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>In-Processing &amp; Causal Fairness - Interactive Lab - KateelLearningDemos</title>
+  <meta name="description" content="Interactive causal DAG explorer, adversarial debiasing simulator, and Colab launch hub for in-processing and counterfactual fairness.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <script defer src="../../assets/site.js"></script>
+  <style>
+    .causal-workbench {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .dag-container {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .dag-svg {
+      max-width: 100%;
+      height: 220px;
+    }
+    .node-rect {
+      fill: #1e293b;
+      stroke: #38bdf8;
+      stroke-width: 2;
+      rx: 8;
+    }
+    .node-rect.protected {
+      stroke: #f59e0b;
+      fill: rgba(245, 158, 11, 0.15);
+    }
+    .node-rect.target {
+      stroke: #10b981;
+      fill: rgba(16, 185, 129, 0.15);
+    }
+    .node-text {
+      fill: #f8fafc;
+      font-size: 13px;
+      font-family: inherit;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+    .edge-line {
+      stroke: #64748b;
+      stroke-width: 2;
+      marker-end: url(#arrow);
+      transition: stroke 0.3s, stroke-dasharray 0.3s;
+    }
+    .edge-line.active {
+      stroke: #38bdf8;
+      stroke-width: 2.5;
+    }
+    .edge-line.forbidden {
+      stroke: #ef4444;
+      stroke-dasharray: 4, 4;
+    }
+    .wb-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .wb-control {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .wb-control label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .wb-control input[type="range"] {
+      width: 100%;
+      accent-color: #0d9488;
+    }
+    .wb-readout {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-top: 0.35rem;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .metric-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      border-left: 4px solid #0d9488;
+    }
+    .metric-val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin: 0.25rem 0;
+    }
+    .metric-lbl {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .metric-status {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+    .status-pass { color: #4ade80; }
+    .status-alert { color: #f59e0b; }
+    .status-fail { color: #f87171; }
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html">Browse Demos</a>
+      <a class="nav-link" href="../../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_02_inprocessing_lab.ipynb" target="_blank" rel="noopener">Open in Colab</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">FITML Course • Webinar 02 Lab • Colab + Interactive</p>
+    <h1>In-Processing &amp; Causal Fairness</h1>
+    <p class="demo-lede">Interactive structural causal model (DAG) playground and Google Colab launch hub. Explore counterfactual fairness paths and tune in-processing adversarial regularizers below.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_02_inprocessing_lab.ipynb" target="_blank" rel="noopener">Run in Google Colab</a>
+      <a class="btn btn-secondary" href="about.html">Read About Demo Guide</a>
+      <a class="btn btn-soft" href="../assignments/Webinar_02_Student_Assignment_Prompt.pdf" target="_blank" rel="noopener">Assignment Prompt (PDF)</a>
+    </div>
+  </section>
+
+  <!-- Interactive DAG Sandbox -->
+  <section class="causal-workbench">
+    <div class="section-header left" style="margin-bottom: 1.25rem;">
+      <p class="section-kicker">Interactive Simulation</p>
+      <h2>Causal DAG &amp; Counterfactual Invariance Workbench</h2>
+      <p>Inspect how sensitive attributes (A) transmit bias directly to outcomes (Y) versus through legitimate mediator variables (M). Toggle direct discrimination edges and adjust in-processing penalty &lambda;.</p>
+    </div>
+
+    <div class="dag-container">
+      <svg class="dag-svg" viewBox="0 0 600 200" aria-label="Causal DAG diagram">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+          </marker>
+        </defs>
+
+        <!-- Edges -->
+        <path id="edgeDirect" class="edge-line forbidden" d="M 120 100 L 460 100" />
+        <path id="edgeMediator1" class="edge-line active" d="M 120 90 L 280 40" />
+        <path id="edgeMediator2" class="edge-line active" d="M 320 40 L 480 90" />
+        <path id="edgeConfounder1" class="edge-line active" d="M 300 170 L 120 110" />
+        <path id="edgeConfounder2" class="edge-line active" d="M 300 170 L 480 110" />
+
+        <!-- Nodes -->
+        <g transform="translate(60, 75)">
+          <rect class="node-rect protected" width="120" height="50" />
+          <text class="node-text" x="60" y="25">Sensitive (A)</text>
+        </g>
+        <g transform="translate(240, 15)">
+          <rect class="node-rect" width="120" height="50" />
+          <text class="node-text" x="60" y="25">Mediator (M)</text>
+        </g>
+        <g transform="translate(240, 145)">
+          <rect class="node-rect" width="120" height="50" />
+          <text class="node-text" x="60" y="25">Confounder (U)</text>
+        </g>
+        <g transform="translate(420, 75)">
+          <rect class="node-rect target" width="120" height="50" />
+          <text class="node-text" x="60" y="25">Outcome (Y)</text>
+        </g>
+      </svg>
+      <small style="color: var(--muted); display: block; margin-top: 0.5rem;">Causal Directed Acyclic Graph: Pearl's do-calculus representation of direct vs indirect influence.</small>
+    </div>
+
+    <div class="wb-controls">
+      <div class="wb-control">
+        <label for="directEdgeToggle">Direct Discrimination Path (A &rarr; Y):</label>
+        <select id="directEdgeToggle" style="margin-top: 0.35rem; width: 100%; padding: 0.5rem; border-radius: 8px; background: #0f172a; color: #fff; border: 1px solid var(--border);">
+          <option value="blocked" selected>Blocked (Counterfactually Fair)</option>
+          <option value="active">Active (Direct Proxy Discrimination)</option>
+        </select>
+        <small style="color: var(--muted);">Controls direct causal link from protected feature.</small>
+      </div>
+
+      <div class="wb-control">
+        <label for="lambdaSlider">In-Processing Penalty (&lambda;): <span id="lambdaVal" class="wb-readout">0.35</span></label>
+        <input type="range" id="lambdaSlider" min="0.0" max="1.0" step="0.05" value="0.35">
+        <small style="color: var(--muted);">Lagrangian weight on fairness divergence in loss function.</small>
+      </div>
+
+      <div class="wb-control">
+        <label for="advEpochsSlider">Adversary Training Strength (&gamma;): <span id="gammaVal" class="wb-readout">0.60</span></label>
+        <input type="range" id="advEpochsSlider" min="0.1" max="1.0" step="0.05" value="0.60">
+        <small style="color: var(--muted);">Gradient reversal intensity for adversarial debiasing.</small>
+      </div>
+    </div>
+
+    <div class="metric-grid">
+      <div class="metric-box" id="cfBox">
+        <div class="metric-lbl">Counterfactual Disparity</div>
+        <div class="metric-val" id="cfVal">0.03</div>
+        <div class="metric-status status-pass" id="cfStatus">Fair Across Counterfactuals</div>
+      </div>
+      <div class="metric-box" id="advBox">
+        <div class="metric-lbl">Adversary A-Predictability</div>
+        <div class="metric-val" id="advVal">52.4%</div>
+        <div class="metric-status status-pass" id="advStatus">Representation Uncorrelated (Near 50%)</div>
+      </div>
+      <div class="metric-box" id="taskBox">
+        <div class="metric-lbl">Primary Task AUC</div>
+        <div class="metric-val" id="aucVal">0.826</div>
+        <div class="metric-status status-pass">High Predictive Power</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Self-Service Steps -->
+  <section class="demo-panel">
+    <h2>Self-Service Lab Workflow</h2>
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Step 1: Open Google Colab</h3>
+        <p>Launch the verified notebook directly in Google Colab. Dependencies and German Credit datasets are automatically loaded.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 2: Causal Modeling</h3>
+        <p>Specify the structural equations for the credit risk process and evaluate conditional independence (d-separation) on the data.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 3: Adversarial Training</h3>
+        <p>Train a neural network with a gradient reversal layer (GRL) and evaluate whether the discriminator can infer sensitive demographic status.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 4: Counterfactual Audit</h3>
+        <p>Synthesize counterfactual pairs ($X_{A \leftarrow 0}$ vs $X_{A \leftarrow 1}$) and verify whether decision outputs flip unjustly.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Downloadable Resources -->
+  <section class="demo-panel">
+    <h2>Session Downloads &amp; Reference Assets</h2>
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Colab Notebook</h3>
+        <p>Complete lab Jupyter notebook ready to execute.</p>
+        <div class="demo-actions"><a class="btn-mini" href="../notebooks/webinar_02_inprocessing_lab.ipynb" download>Download .ipynb</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>PowerPoint Deck</h3>
+        <p>Webinar 02 presentation slides on causal fairness.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../decks/Webinar_02_Inprocessing_and_Causal_Fairness.pptx">Download .pptx</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Student Assignment</h3>
+        <p>Assignment prompt with theoretical and coding questions.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../assignments/Webinar_02_Student_Assignment_Prompt.pdf" target="_blank">Download Prompt</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Solution Guide</h3>
+        <p>Comprehensive faculty solutions and grading rubric.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Webinar_02_Assignment_Prompt_and_Solution.pdf" target="_blank">Download Guide</a></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var directEdgeToggle = document.getElementById("directEdgeToggle");
+    var lambdaSlider = document.getElementById("lambdaSlider");
+    var advEpochsSlider = document.getElementById("advEpochsSlider");
+    var lambdaVal = document.getElementById("lambdaVal");
+    var gammaVal = document.getElementById("gammaVal");
+    var edgeDirect = document.getElementById("edgeDirect");
+    var cfVal = document.getElementById("cfVal");
+    var cfStatus = document.getElementById("cfStatus");
+    var advVal = document.getElementById("advVal");
+    var advStatus = document.getElementById("advStatus");
+    var aucVal = document.getElementById("aucVal");
+
+    function updateDAG() {
+      var direct = directEdgeToggle.value;
+      var lambda = parseFloat(lambdaSlider.value);
+      var gamma = parseFloat(advEpochsSlider.value);
+
+      lambdaVal.textContent = lambda.toFixed(2);
+      gammaVal.textContent = gamma.toFixed(2);
+
+      if (direct === "blocked") {
+        edgeDirect.setAttribute("class", "edge-line forbidden");
+      } else {
+        edgeDirect.setAttribute("class", "edge-line active");
+      }
+
+      // Compute metrics
+      var cfDisp = (direct === "active" ? 0.28 : 0.02) - (lambda * 0.18) - (gamma * 0.06);
+      cfDisp = Math.max(0.01, cfDisp);
+      cfVal.textContent = cfDisp.toFixed(2);
+
+      if (cfDisp < 0.06) {
+        cfStatus.className = "metric-status status-pass";
+        cfStatus.textContent = "Counterfactually Invariant";
+      } else {
+        cfStatus.className = "metric-status status-fail";
+        cfStatus.textContent = "Counterfactual Bias Detected";
+      }
+
+      // Adversary prediction accuracy
+      var advAcc = 78.0 - (gamma * 25.0) - (lambda * 6.0);
+      advAcc = Math.max(50.5, advAcc);
+      advVal.textContent = advAcc.toFixed(1) + "%";
+
+      if (advAcc < 56.0) {
+        advStatus.className = "metric-status status-pass";
+        advStatus.textContent = "Representation Uncorrelated (Random Guess)";
+      } else {
+        advStatus.className = "metric-status status-alert";
+        advStatus.textContent = "Representation Leaks Sensitive Attribute";
+      }
+
+      // AUC tradeoff
+      var baseAUC = 0.865 - (lambda * 0.045) - (gamma * 0.025);
+      if (direct === "blocked") baseAUC -= 0.015;
+      aucVal.textContent = baseAUC.toFixed(3);
+    }
+
+    directEdgeToggle.addEventListener("change", updateDAG);
+    lambdaSlider.addEventListener("input", updateDAG);
+    advEpochsSlider.addEventListener("input", updateDAG);
+    updateDAG();
+  })();
+</script>
+
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • <a href="../../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>

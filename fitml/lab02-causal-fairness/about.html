@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>In-Processing &amp; Causal Fairness - About Demo - KateelLearningDemos</title>
+  <meta name="description" content="About Demo learning guide for In-Processing &amp; Causal Fairness: train fairness-constrained classifiers using adversarial debiasing and causal counterfactual fairness DAGs.">
+  <meta name="keywords" content="In-Processing, Causal Fairness, Counterfactual Fairness, Adversarial Debiasing, Causal DAG, Fair Machine Learning, FITML, FAccT ML">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab02-causal-fairness/about.html">
+  <link rel="manifest" href="../../site.webmanifest">
+  <meta property="og:site_name" content="KateelLearningDemos">
+  <meta property="og:title" content="In-Processing &amp; Causal Fairness - About Demo - KateelLearningDemos">
+  <meta property="og:description" content="Train fairness-constrained classifiers using adversarial debiasing and causal counterfactual fairness DAGs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab02-causal-fairness/about.html">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <meta property="og:image:alt" content="In-Processing &amp; Causal Fairness learning demo preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="In-Processing &amp; Causal Fairness - About Demo">
+  <meta name="twitter:description" content="Train fairness-constrained classifiers using adversarial debiasing and causal counterfactual fairness DAGs.">
+  <meta name="twitter:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "In-Processing & Causal Fairness About Demo",
+  "description": "Train fairness-constrained classifiers using adversarial debiasing and causal counterfactual fairness DAGs.",
+  "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab02-causal-fairness/about.html",
+  "isAccessibleForFree": true,
+  "learningResourceType": "About Demo",
+  "educationalLevel": "Advanced",
+  "timeRequired": "30-45 min",
+  "teaches": [
+    "Formulate in-processing optimization objectives with demographic parity and equalized odds Lagrangian penalty constraints.",
+    "Implement adversarial debiasing networks where an adversary attempts to predict protected attributes from model representations.",
+    "Construct and interpret causal Directed Acyclic Graphs (DAGs) to identify direct, indirect, and confounding paths.",
+    "Define and test counterfactual fairness: ensuring predictions remain invariant under hypothetical interventions on protected attributes."
+  ],
+  "keywords": "In-Processing, Causal Fairness, Counterfactual Fairness, Adversarial Debiasing, DAG, FITML",
+  "inLanguage": "en",
+  "provider": {
+    "@type": "Person",
+    "name": "Professor Vinaya Sathyanarayana",
+    "email": "vinallcontact@gmail.com",
+    "url": "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Fair Interpretable Trustworthy Machine Learning",
+    "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Course Packs",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Fair Interpretable Trustworthy Machine Learning",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "In-Processing & Causal Fairness",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab02-causal-fairness/about.html"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script defer src="../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="../../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="../../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <a class="nav-link" href="../../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+<main class="container">
+  <section class="site-hero page-hero">
+    <p class="hero-eyebrow">Fair Interpretable Trustworthy Machine Learning • Webinar 02 / Lab 02</p>
+    <h1>In-Processing &amp; Causal Fairness</h1>
+    <p class="hero-subtitle">Incorporate fairness constraints directly into the model training loss function and evaluate causal counterfactual fairness DAGs on German Credit and Census data.</p>
+    <div class="pill-row">
+      <span class="pill">Colab + In-Browser Interactive</span>
+      <span class="pill">30-45 min</span>
+      <span class="pill">Advanced</span>
+      <span class="pill">Classroom Ready</span>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="index.html">Launch Interactive Demo</a>
+      <a class="btn btn-secondary" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_02_inprocessing_lab.ipynb" target="_blank" rel="noopener">Open Colab Notebook</a>
+      <a class="btn btn-soft" href="../assignments/Webinar_02_Student_Assignment_Prompt.pdf" target="_blank" rel="noopener">Assignment Prompt (PDF)</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Learning Objectives</p>
+      <h2>What students learn in this lab</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>1. Constrained In-Processing</h3>
+        <p>Formulate multi-objective optimization problems where prediction loss is minimized subject to equality or inequality fairness constraints (Lagrangian duality).</p>
+      </article>
+      <article class="info-card">
+        <h3>2. Adversarial Debiasing</h3>
+        <p>Set up an adversarial min-max game where a primary network predicts the outcome while an adversary attempts to infer protected attributes from internal representations.</p>
+      </article>
+      <article class="info-card">
+        <h3>3. Causal DAGs &amp; Confounding</h3>
+        <p>Draw and inspect structural causal models (Pearl's do-calculus) to distinguish permissible business mediators from impermissible proxy discrimination pathways.</p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>4. Counterfactual Fairness</h3>
+        <p>Mathematically audit whether an individual's decision outcome would remain invariant in a counterfactual world where their sensitive attribute had been different.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Theoretical Foundations</p>
+      <h2>In-Processing &amp; Causal Formulations</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Constrained Loss Formulation</h3>
+        <p>Minimize cross-entropy loss $\mathcal{L}_{task}$ subject to fairness penalty parameter $\lambda$:</p>
+        <p><code>min_θ  L_task(y, ŷ) + λ · |P(ŷ=1|A=0) - P(ŷ=1|A=1)|</code></p>
+        <p>Tuning $\lambda$ controls the frontier between pure predictive accuracy and group demographic parity.</p>
+      </article>
+      <article class="info-card">
+        <h3>Counterfactual Fairness Condition</h3>
+        <p>A predictor $Ŷ$ is counterfactually fair if for all individuals $X=x$ and attributes $A=a$:</p>
+        <p><code>P(Ŷ_{A ← a} = y | X = x, A = a) = P(Ŷ_{A ← a'} = y | X = x, A = a)</code></p>
+        <p>Changing $A$ to $a'$ in the causal graph must not change the distribution of the prediction.</p>
+      </article>
+      <article class="info-card">
+        <h3>Adversarial Min-Max Objective</h3>
+        <p>The prediction head minimizes prediction loss while confusing the discriminator:</p>
+        <p><code>min_W max_U  [ L_pred(y, f_W(x)) - γ · L_adv(a, g_U(f_W(x))) ]</code></p>
+        <p>Removes linear and non-linear mutual information regarding $A$.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Faculty Teaching Prompts</p>
+      <h2>Classroom Discussion &amp; Reflection</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>During Class Activity</h3>
+        <p>Guide students through the causal DAG editor. Have them remove the direct arrow from Age to Credit Approval while preserving the mediated arrow through Credit History, and observe the resulting model behavior.</p>
+      </article>
+      <article class="info-card">
+        <h3>Ethical &amp; Legal Prompt</h3>
+        <p><em>"If an attribute is causally correlated with risk due to historical societal injustice, is a model that uses that attribute 'fair' because it is causally accurate, or 'unfair' because it perpetuates historical harm?"</em></p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>Take-Home Assignment Prompt</h3>
+        <p>Students complete the implementation tasks in <a href="../assignments/Webinar_02_Student_Assignment_Prompt.pdf">Webinar 02 Student Assignment Prompt</a>, training both standard and adversarially debiased models.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Lab Resources &amp; Downloads</p>
+      <h2>Materials for this webinar session</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Lecture Slide Deck</h3>
+        <p>Webinar 02 PowerPoint slide deck covering in-processing, causal DAGs, and counterfactual fairness.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../decks/Webinar_02_Inprocessing_and_Causal_Fairness.pptx">Download .pptx</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Student Assignment</h3>
+        <p>Student assignment prompt with causal diagramming tasks and debiasing exercises.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../assignments/Webinar_02_Student_Assignment_Prompt.pdf" target="_blank">Download PDF</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Solution Guide</h3>
+        <p>Complete solution guide with mathematical proofs and Colab reference solutions.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Webinar_02_Assignment_Prompt_and_Solution.pdf" target="_blank">Download Solution</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Benchmark Datasets</h3>
+        <p>German Credit Risk dataset and Adult Income dataset:</p>
+        <div class="demo-actions">
+          <a class="btn-mini outline" href="../data/german_credit.csv">German Credit CSV</a>
+          <a class="btn-mini outline" href="../data/adult_income.csv">Adult Income CSV</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="demo-rating" data-demo-id="fitml_webinar_02_inprocessing_causal">
+      <h3>Rate this learning guide</h3>
+      <div class="rating-stars">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+      <div class="rating-meta"><span class="average">0.0</span> <span class="count">(0 ratings)</span></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • <a href="../../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>

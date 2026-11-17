@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algorithmic Bias Detection &amp; Pre-Processing - About Demo - KateelLearningDemos</title>
+  <meta name="description" content="About Demo learning guide for Algorithmic Bias Detection &amp; Pre-Processing: evaluate disparate impact, statistical parity, and equal opportunity on COMPAS and Adult Income datasets.">
+  <meta name="keywords" content="Algorithmic Bias Detection, Disparate Impact, Statistical Parity, Equal Opportunity, Reweighting, Disparate Impact Remover, COMPAS, Adult Income, Fair Interpretable Trustworthy Machine Learning, FITML, FAccT ML">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab01-bias-detection/about.html">
+  <link rel="manifest" href="../../site.webmanifest">
+  <meta property="og:site_name" content="KateelLearningDemos">
+  <meta property="og:title" content="Algorithmic Bias Detection &amp; Pre-Processing - About Demo - KateelLearningDemos">
+  <meta property="og:description" content="Evaluate disparate impact, statistical parity, and equal opportunity on COMPAS and Adult Income datasets with pre-processing mitigation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab01-bias-detection/about.html">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <meta property="og:image:alt" content="Algorithmic Bias Detection learning demo preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Algorithmic Bias Detection &amp; Pre-Processing - About Demo">
+  <meta name="twitter:description" content="Evaluate disparate impact, statistical parity, and equal opportunity on COMPAS and Adult Income datasets with pre-processing mitigation.">
+  <meta name="twitter:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Algorithmic Bias Detection & Pre-Processing About Demo",
+  "description": "Evaluate disparate impact, statistical parity, and equal opportunity on COMPAS and Adult Income datasets with pre-processing mitigation.",
+  "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab01-bias-detection/about.html",
+  "isAccessibleForFree": true,
+  "learningResourceType": "About Demo",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "30-45 min",
+  "teaches": [
+    "Formulate and compute quantitative fairness metrics: Disparate Impact (four-fifths rule), Statistical Parity Difference, and Equalized Odds.",
+    "Perform bias auditing on real-world benchmark datasets including COMPAS recidivism and Census Adult Income.",
+    "Implement data pre-processing mitigation strategies: instance reweighting and disparate impact feature editing.",
+    "Evaluate the Pareto frontier between algorithmic fairness constraints and model predictive performance."
+  ],
+  "keywords": "Algorithmic Bias, Disparate Impact, Fairness Metrics, Equalized Odds, Reweighting, COMPAS, Adult Income, FITML",
+  "inLanguage": "en",
+  "provider": {
+    "@type": "Person",
+    "name": "Professor Vinaya Sathyanarayana",
+    "email": "vinallcontact@gmail.com",
+    "url": "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Fair Interpretable Trustworthy Machine Learning",
+    "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Course Packs",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Fair Interpretable Trustworthy Machine Learning",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Algorithmic Bias Detection & Pre-Processing",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fitml/lab01-bias-detection/about.html"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script defer src="../../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="../../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="../../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <a class="nav-link" href="../../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+<main class="container">
+  <section class="site-hero page-hero">
+    <p class="hero-eyebrow">Fair Interpretable Trustworthy Machine Learning • Webinar 01 / Lab 01</p>
+    <h1>Algorithmic Bias Detection &amp; Pre-Processing</h1>
+    <p class="hero-subtitle">Audit baseline models for disparate impact and statistical parity on benchmark datasets (COMPAS, Adult Income) and apply pre-processing debiasing techniques before training.</p>
+    <div class="pill-row">
+      <span class="pill">Colab + In-Browser Interactive</span>
+      <span class="pill">30-45 min</span>
+      <span class="pill">Intermediate</span>
+      <span class="pill">Classroom Ready</span>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="index.html">Launch Interactive Demo</a>
+      <a class="btn btn-secondary" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_01_bias_detection_lab.ipynb" target="_blank" rel="noopener">Open Colab Notebook</a>
+      <a class="btn btn-soft" href="../assignments/Webinar_01_Student_Assignment_Prompt.pdf" target="_blank" rel="noopener">Assignment Prompt (PDF)</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Learning Objectives</p>
+      <h2>What students learn in this lab</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>1. Disparate Impact &amp; Parity</h3>
+        <p>Formulate and compute Disparate Impact ratio (the EEOC 80% four-fifths rule) and Statistical Parity Difference across sensitive groups defined by protected attributes (gender, race, age).</p>
+      </article>
+      <article class="info-card">
+        <h3>2. Auditing Benchmark Data</h3>
+        <p>Perform empirical audits on the COMPAS recidivism risk dataset and the US Census Adult Income dataset to uncover systemic historical sampling and label bias.</p>
+      </article>
+      <article class="info-card">
+        <h3>3. Pre-Processing Mitigation</h3>
+        <p>Implement instance reweighting and disparate impact feature editing to balance privileged and unprivileged representation before model training.</p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>4. Accuracy vs Fairness Trade-Off</h3>
+        <p>Plot the Pareto frontier between classification accuracy (F1-score, AUC) and demographic fairness to evaluate decision trade-offs for compliance and executive governance.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Mathematical Formulations</p>
+      <h2>Quantitative Fairness Metrics</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Disparate Impact (DI)</h3>
+        <p>The ratio of selection rates between unprivileged ($A=0$) and privileged ($A=1$) groups:</p>
+        <p><code>DI = P(Ŷ = 1 | A = 0) / P(Ŷ = 1 | A = 1)</code></p>
+        <p>Under regulatory guidelines (US EEOC), a value $DI &lt; 0.80$ demonstrates adverse impact.</p>
+      </article>
+      <article class="info-card">
+        <h3>Statistical Parity Difference (SPD)</h3>
+        <p>The absolute difference in positive outcome probability across protected groups:</p>
+        <p><code>SPD = P(Ŷ = 1 | A = 0) - P(Ŷ = 1 | A = 1)</code></p>
+        <p>A completely fair classifier under demographic parity satisfies $SPD = 0$.</p>
+      </article>
+      <article class="info-card">
+        <h3>Reweighting Weight Formulation</h3>
+        <p>Instance weights assigned during pre-processing to eliminate empirical statistical dependence:</p>
+        <p><code>W(A=a, Y=y) = [P(A=a) × P(Y=y)] / P(A=a, Y=y)</code></p>
+        <p>Samples from under-represented positive pairs receive higher weights.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Faculty Teaching Prompts</p>
+      <h2>Classroom Discussion &amp; Reflection</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>During Class Activity</h3>
+        <p>Ask students to compute the Disparate Impact ratio on the baseline logistic regression model. Then have them apply reweighting and observe what happens to overall accuracy versus false positive rate parity.</p>
+      </article>
+      <article class="info-card">
+        <h3>Governance &amp; Policy Question</h3>
+        <p><em>"Why might achieving demographic parity (equal selection rates) be legally required in hiring, but potentially counterproductive or unfair in medical diagnosis where true prevalence differs?"</em></p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>Take-Home Assignment Prompt</h3>
+        <p>Students submit a 2-page algorithmic fairness audit using the template in <a href="../assignments/Webinar_01_Student_Assignment_Prompt.pdf">Webinar 01 Student Assignment Prompt</a> with their code and Pareto curves.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Lab Resources &amp; Downloads</p>
+      <h2>Materials for this webinar session</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Lecture Slide Deck</h3>
+        <p>Webinar 01 PowerPoint slide deck detailing algorithmic bias concepts, case studies, and mathematics.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../decks/Webinar_01_Bias_Detection_and_Preprocessing.pptx">Download .pptx</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Student Assignment</h3>
+        <p>Official student assignment prompt with questions, grading rubric, and submission requirements.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../assignments/Webinar_01_Student_Assignment_Prompt.pdf" target="_blank">Download PDF</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Solution Guide</h3>
+        <p>Faculty solution guide with step-by-step mathematical answers and Python benchmark code.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Webinar_01_Assignment_Prompt_and_Solution.pdf" target="_blank">Download Solution</a></div>
+      </article>
+      <article class="info-card">
+        <h3>Benchmark Datasets</h3>
+        <p>Download clean CSV data used in this lab session:</p>
+        <div class="demo-actions">
+          <a class="btn-mini outline" href="../data/compas_recidivism.csv">COMPAS CSV</a>
+          <a class="btn-mini outline" href="../data/adult_income.csv">Adult Income CSV</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="demo-rating" data-demo-id="fitml_webinar_01_bias_detection">
+      <h3>Rate this learning guide</h3>
+      <div class="rating-stars">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+      <div class="rating-meta"><span class="average">0.0</span> <span class="count">(0 ratings)</span></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • <a href="../../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>

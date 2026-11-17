@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algorithmic Bias Detection &amp; Pre-Processing - Interactive Lab - KateelLearningDemos</title>
+  <meta name="description" content="Interactive fairness audit simulator and Colab launch hub for algorithmic bias detection, disparate impact metrics, and pre-processing mitigation.">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/demo-shell.css">
+  <script defer src="../../assets/site.js"></script>
+  <style>
+    .fairness-workbench {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .wb-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .wb-control {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .wb-control label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .wb-control input[type="range"] {
+      width: 100%;
+      accent-color: #0d9488;
+    }
+    .wb-readout {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-top: 0.35rem;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .metric-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      border-left: 4px solid #0d9488;
+    }
+    .metric-box.alert-fail {
+      border-left-color: #ef4444;
+    }
+    .metric-box.alert-pass {
+      border-left-color: #22c55e;
+    }
+    .metric-val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin: 0.25rem 0;
+    }
+    .metric-lbl {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .metric-status {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+    .status-pass { color: #4ade80; }
+    .status-fail { color: #f87171; }
+    .viz-bar-container {
+      margin: 1.25rem 0;
+    }
+    .viz-bar-row {
+      margin-bottom: 0.75rem;
+    }
+    .viz-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .viz-bar-track {
+      background: rgba(255, 255, 255, 0.1);
+      height: 18px;
+      border-radius: 9px;
+      overflow: hidden;
+      position: relative;
+    }
+    .viz-bar-fill {
+      height: 100%;
+      border-radius: 9px;
+      transition: width 0.3s ease;
+    }
+    .fill-priv { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+    .fill-unpriv { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../../index.html">Home</a>
+      <a class="nav-link" href="../../browse/index.html">Browse Demos</a>
+      <a class="nav-link" href="../../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="about.html">About Demo</a>
+      <a class="nav-link nav-cta" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_01_bias_detection_lab.ipynb" target="_blank" rel="noopener">Open in Colab</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container demo-shell">
+  <section class="demo-hero">
+    <p class="demo-kicker">FITML Course • Webinar 01 Lab • Colab + Interactive</p>
+    <h1>Algorithmic Bias Detection &amp; Pre-Processing</h1>
+    <p class="demo-lede">Interactive in-browser fairness workbench and Google Colab launch hub. Tweak decision thresholds and pre-processing debiasing weights below to inspect disparate impact and statistical parity across protected groups.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="https://colab.research.google.com/github/VinayaSharada/KateelLearningDemosToStudents/blob/main/fitml/notebooks/webinar_01_bias_detection_lab.ipynb" target="_blank" rel="noopener">Run in Google Colab</a>
+      <a class="btn btn-secondary" href="about.html">Read About Demo Guide</a>
+      <a class="btn btn-soft" href="../assignments/Webinar_01_Student_Assignment_Prompt.pdf" target="_blank" rel="noopener">Assignment Prompt (PDF)</a>
+    </div>
+  </section>
+
+  <!-- Interactive Simulator Component -->
+  <section class="fairness-workbench">
+    <div class="section-header left" style="margin-bottom: 1.25rem;">
+      <p class="section-kicker">Interactive Simulation</p>
+      <h2>In-Browser Disparate Impact &amp; Fairness Sandbox</h2>
+      <p>Simulate a credit or recidivism risk scoring model. Adjust the classification threshold and mitigation toggle to see how selection rates and compliance ratios shift dynamically.</p>
+    </div>
+
+    <div class="wb-controls">
+      <div class="wb-control">
+        <label for="threshSlider">Decision Threshold (Cutoff): <span id="threshVal" class="wb-readout">0.50</span></label>
+        <input type="range" id="threshSlider" min="0.10" max="0.90" step="0.05" value="0.50">
+        <small style="color: var(--muted);">Higher cutoff lowers overall positive selection rates.</small>
+      </div>
+
+      <div class="wb-control">
+        <label for="shiftSlider">Historical Score Shift (Bias Gap): <span id="shiftVal" class="wb-readout">0.18</span></label>
+        <input type="range" id="shiftSlider" min="0.0" max="0.40" step="0.02" value="0.18">
+        <small style="color: var(--muted);">Difference in underlying score distribution by group.</small>
+      </div>
+
+      <div class="wb-control">
+        <label for="preprocToggle">Pre-Processing Mitigation:</label>
+        <select id="preprocToggle" style="margin-top: 0.35rem; width: 100%; padding: 0.5rem; border-radius: 8px; background: #0f172a; color: #fff; border: 1px solid var(--border);">
+          <option value="none">None (Raw Historical Baseline)</option>
+          <option value="reweight" selected>Instance Reweighting</option>
+          <option value="dir">Disparate Impact Remover (DIR)</option>
+        </select>
+        <small style="color: var(--muted);">Select data-level debiasing algorithm.</small>
+      </div>
+    </div>
+
+    <div class="viz-bar-container">
+      <div class="viz-bar-row">
+        <div class="viz-bar-label">
+          <span>Privileged Group (A = 1) Selection Rate</span>
+          <span id="ratePrivLabel">62.0%</span>
+        </div>
+        <div class="viz-bar-track">
+          <div id="barPriv" class="viz-bar-fill fill-priv" style="width: 62%;"></div>
+        </div>
+      </div>
+      <div class="viz-bar-row">
+        <div class="viz-bar-label">
+          <span>Unprivileged Group (A = 0) Selection Rate</span>
+          <span id="rateUnprivLabel">42.0%</span>
+        </div>
+        <div class="viz-bar-track">
+          <div id="barUnpriv" class="viz-bar-fill fill-unpriv" style="width: 42%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metric-grid">
+      <div class="metric-box" id="diCard">
+        <div class="metric-lbl">Disparate Impact Ratio</div>
+        <div class="metric-val" id="diVal">0.68</div>
+        <div class="metric-status" id="diStatus">Adverse Impact (&lt; 0.80)</div>
+      </div>
+      <div class="metric-box" id="spdCard">
+        <div class="metric-lbl">Statistical Parity Diff</div>
+        <div class="metric-val" id="spdVal">-0.20</div>
+        <div class="metric-status" id="spdStatus">Substantial Disparity</div>
+      </div>
+      <div class="metric-box" id="accCard">
+        <div class="metric-lbl">Model Accuracy Estimate</div>
+        <div class="metric-val" id="accVal">83.4%</div>
+        <div class="metric-status status-pass">Predictive Quality</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Self-Service & Lab Steps -->
+  <section class="demo-panel">
+    <h2>Self-Service Lab Workflow</h2>
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Step 1: Open Google Colab</h3>
+        <p>Launch the verified notebook directly in Google Colab. The notebook auto-installs scikit-learn, pandas, numpy, and fairness metric modules.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 2: Inspect Datasets</h3>
+        <p>Load the COMPAS and Adult Income datasets from the <code>fitml/data/</code> folder. Inspect demographic feature distributions and label base rates.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 3: Evaluate Baseline</h3>
+        <p>Train a baseline classifier and calculate Disparate Impact and Equalized Odds. Observe the statistical disparity between groups.</p>
+      </article>
+      <article class="mini-panel">
+        <h3>Step 4: Pre-Processing Mitigation</h3>
+        <p>Apply sample reweighting and evaluate the new model. Document the trade-off in accuracy versus fairness metrics for your assignment.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Downloadable Resources -->
+  <section class="demo-panel">
+    <h2>Session Downloads &amp; Reference Assets</h2>
+    <div class="panel-grid">
+      <article class="mini-panel">
+        <h3>Colab Notebook</h3>
+        <p>Full Jupyter notebook with code cells and explanations.</p>
+        <div class="demo-actions"><a class="btn-mini" href="../notebooks/webinar_01_bias_detection_lab.ipynb" download>Download .ipynb</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>PowerPoint Deck</h3>
+        <p>Webinar 01 lecture slides on bias detection and preprocessing.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../decks/Webinar_01_Bias_Detection_and_Preprocessing.pptx">Download .pptx</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Student Assignment</h3>
+        <p>Official student prompt with questions and grading rubric.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../assignments/Webinar_01_Student_Assignment_Prompt.pdf" target="_blank">Download Prompt</a></div>
+      </article>
+      <article class="mini-panel">
+        <h3>Solution Guide</h3>
+        <p>Instructor and student reference solution with benchmarks.</p>
+        <div class="demo-actions"><a class="btn-mini outline" href="../guides/Webinar_01_Assignment_Prompt_and_Solution.pdf" target="_blank">Download Guide</a></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var threshSlider = document.getElementById("threshSlider");
+    var shiftSlider = document.getElementById("shiftSlider");
+    var preprocToggle = document.getElementById("preprocToggle");
+    var threshVal = document.getElementById("threshVal");
+    var shiftVal = document.getElementById("shiftVal");
+    var ratePrivLabel = document.getElementById("ratePrivLabel");
+    var rateUnprivLabel = document.getElementById("rateUnprivLabel");
+    var barPriv = document.getElementById("barPriv");
+    var barUnpriv = document.getElementById("barUnpriv");
+    var diVal = document.getElementById("diVal");
+    var diCard = document.getElementById("diCard");
+    var diStatus = document.getElementById("diStatus");
+    var spdVal = document.getElementById("spdVal");
+    var spdCard = document.getElementById("spdCard");
+    var spdStatus = document.getElementById("spdStatus");
+    var accVal = document.getElementById("accVal");
+
+    function updateSim() {
+      var threshold = parseFloat(threshSlider.value);
+      var biasGap = parseFloat(shiftSlider.value);
+      var mitigation = preprocToggle.value;
+
+      threshVal.textContent = threshold.toFixed(2);
+      shiftVal.textContent = biasGap.toFixed(2);
+
+      // Baseline distributions
+      var privMean = 0.65;
+      var unprivMean = privMean - biasGap;
+
+      if (mitigation === "reweight") {
+        unprivMean += biasGap * 0.72; // partial correction
+      } else if (mitigation === "dir") {
+        unprivMean += biasGap * 0.90; // strong correction
+        privMean -= biasGap * 0.10;
+      }
+
+      // Sigmoid selection rate approximation
+      function calcRate(mean, thresh) {
+        var z = (mean - thresh) * 7.5;
+        var r = 1 / (1 + Math.exp(-z));
+        return Math.max(0.02, Math.min(0.98, r));
+      }
+
+      var ratePriv = calcRate(privMean, threshold);
+      var rateUnpriv = calcRate(unprivMean, threshold);
+
+      var pPct = (ratePriv * 100).toFixed(1);
+      var uPct = (rateUnpriv * 100).toFixed(1);
+
+      ratePrivLabel.textContent = pPct + "%";
+      rateUnprivLabel.textContent = uPct + "%";
+      barPriv.style.width = pPct + "%";
+      barUnpriv.style.width = uPct + "%";
+
+      var di = rateUnpriv / (ratePriv || 0.001);
+      var spd = rateUnpriv - ratePriv;
+
+      diVal.textContent = di.toFixed(2);
+      spdVal.textContent = (spd > 0 ? "+" : "") + spd.toFixed(2);
+
+      // Accuracy penalty under mitigation
+      var baseAcc = 85.5 - Math.abs(threshold - 0.5) * 12;
+      if (mitigation === "reweight") baseAcc -= 1.8;
+      if (mitigation === "dir") baseAcc -= 2.5;
+      accVal.textContent = baseAcc.toFixed(1) + "%";
+
+      if (di >= 0.80) {
+        diCard.className = "metric-box alert-pass";
+        diStatus.className = "metric-status status-pass";
+        diStatus.textContent = "Passes 80% Rule (Compliant)";
+      } else {
+        diCard.className = "metric-box alert-fail";
+        diStatus.className = "metric-status status-fail";
+        diStatus.textContent = "Adverse Impact (< 0.80)";
+      }
+
+      if (Math.abs(spd) <= 0.08) {
+        spdCard.className = "metric-box alert-pass";
+        spdStatus.className = "metric-status status-pass";
+        spdStatus.textContent = "Near Demographic Parity";
+      } else {
+        spdCard.className = "metric-box alert-fail";
+        spdStatus.className = "metric-status status-fail";
+        spdStatus.textContent = "Substantial Disparity";
+      }
+    }
+
+    threshSlider.addEventListener("input", updateSim);
+    shiftSlider.addEventListener("input", updateSim);
+    preprocToggle.addEventListener("change", updateSim);
+    updateSim();
+  })();
+</script>
+
+<footer class="site-footer">
+  <p><a href="../../index.html">KateelLearningDemos</a> • <a href="../../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>
