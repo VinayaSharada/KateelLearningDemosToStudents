@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DISCOM AT&C Loss & Smart Meter Anomaly Analytics - Kateel Learning Demos</title>
+  <meta name="description" content="Interactive browser demo simulating power distribution company (DISCOM) AT&C losses, physical line losses, smart meter electricity theft, and AI audit prioritization.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <!-- Header / Hero -->
+    <header class="hero">
+      <div class="hero-copy panel">
+        <p class="eyebrow">Domain Track: Energy & Power Distribution / Smart Grid</p>
+        <h1>DISCOM AT&C Loss & Smart Meter Anomaly Analytics</h1>
+        <p class="hero-text">
+          Simulate an 11kV electrical distribution network. Disentangle physical technical line losses ($I^2R$) from electricity theft and meter tampering, and prioritize field vigilance inspections using unsupervised anomaly detection.
+        </p>
+        <div class="pill-row">
+          <span class="pill">⚡ 100% Client-Side Browser</span>
+          <span class="pill pill-green">Zero API Keys Required</span>
+          <span class="pill">Classroom & MBA Ready</span>
+          <span class="pill">Linked to Catalog: APP-AUTH-06</span>
+        </div>
+      </div>
+      <aside class="hero-side panel">
+        <h2>Run Mode & Learning Companion</h2>
+        <p><strong>Supported mode:</strong> Browser-first interactive simulation</p>
+        <p><strong>Startup Time:</strong> Instant (< 50ms, zero install)</p>
+        <p><strong>Target Personas:</strong> Energy Analysts, MBA Infrastructure, DISCOM Regulators</p>
+        <a href="about.html" class="nav-link">📖 Read the Full Teaching & Math Guide &rarr;</a>
+      </aside>
+    </header>
+
+    <!-- Main Application Grid -->
+    <main class="main-grid">
+      <!-- Controls Column -->
+      <div class="controls-col">
+        <section class="panel">
+          <h2>1. Feeder & Grid Setup</h2>
+          
+          <div class="control-group">
+            <label for="feederSelect">Select 11kV Distribution Feeder</label>
+            <select id="feederSelect">
+              <option value="all">All Feeders (30 DTR Transformers)</option>
+              <option value="Feeder-11kV-NorthUrban">Feeder 01: North Urban (High Density)</option>
+              <option value="Feeder-11kV-IndustrialEast">Feeder 02: Industrial East (Heavy kVA)</option>
+              <option value="Feeder-11kV-AgriSouth">Feeder 03: Agri South (Long Distance)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="rSlider">Feeder Line Resistance ($I^2R$ Factor) <span id="rVal" class="val">1.0x</span></label>
+            <input type="range" id="rSlider" min="0.4" max="2.5" step="0.1" value="1.0">
+            <small style="color: var(--muted); font-size: 0.78rem;">Simulates conductor aging, loose jumpers, and line length.</small>
+          </div>
+
+          <div class="control-group">
+            <label for="pfSlider">Grid Power Factor ($\cos \phi$) <span id="pfVal" class="val">0.92</span></label>
+            <input type="range" id="pfSlider" min="0.70" max="0.99" step="0.01" value="0.92">
+            <small style="color: var(--muted); font-size: 0.78rem;">Low PF elevates current ($I$), quadratically inflating heat dissipation losses.</small>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>2. Shock Injection & AI Triage</h2>
+
+          <div class="control-group">
+            <label for="theftSlider">Theft / Tampering Rate (% DTRs) <span id="theftVal" class="val">15%</span></label>
+            <input type="range" id="theftSlider" min="0" max="50" step="5" value="15">
+            <small style="color: var(--muted); font-size: 0.78rem;">Simulates bypassed smart meters, neutral shifts, and illegal hooking.</small>
+          </div>
+
+          <div class="control-group">
+            <label for="sensSlider">AI Anomaly Sensitivity <span id="sensVal" class="val">0.75</span></label>
+            <input type="range" id="sensSlider" min="0.40" max="0.98" step="0.02" value="0.75">
+            <small style="color: var(--muted); font-size: 0.78rem;">Isolation Forest / Heuristic sensitivity threshold for flagging DTRs.</small>
+          </div>
+
+          <div class="btn-row">
+            <button id="btnSimulate" class="btn btn-primary">Simulate Cycle</button>
+            <button id="btnTheft" class="btn btn-warning">Inject Theft (+35%)</button>
+            <button id="btnTriage" class="btn btn-primary">AI Triage Max</button>
+            <button id="btnReset" class="btn btn-secondary">Reset Defaults</button>
+            <button id="btnExport" class="btn btn-secondary btn-full">📥 Export Audit Work Order (CSV)</button>
+          </div>
+          <div id="statusMsg" style="color: var(--accent-2); font-size: 0.85rem; margin-top: 10px; text-align: center; height: 18px; transition: opacity 0.3s; opacity: 0;"></div>
+        </section>
+      </div>
+
+      <!-- Visuals & Analytics Column -->
+      <div class="visuals-col">
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Input Energy</div>
+            <div id="kpiInput" class="kpi-value">-- MWh</div>
+            <div class="kpi-sub">Substation Metered</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Billed Sales</div>
+            <div id="kpiBilled" class="kpi-value">-- MWh</div>
+            <div class="kpi-sub">Consumer Metered</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Billing Efficiency</div>
+            <div id="kpiBillingEff" class="kpi-value">--%</div>
+            <div class="kpi-sub">Energy Billed / Input</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Collection Eff.</div>
+            <div id="kpiCollEff" class="kpi-value">--%</div>
+            <div class="kpi-sub">Revenue Collected / Billed</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">AT&C Loss Rate</div>
+            <div id="kpiATC" class="kpi-value">--%</div>
+            <div class="kpi-sub">Composite Loss Benchmark</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Recoverable Loss</div>
+            <div id="kpiRecoverable" class="kpi-value">₹-- Lakh</div>
+            <div class="kpi-sub">Field Audit Potential</div>
+          </div>
+        </div>
+
+        <!-- Energy Balance Canvas -->
+        <section class="panel" style="margin-bottom: 24px;">
+          <h2>Energy Balance & Loss Decomposition (Sankey Flow)</h2>
+          <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 12px;">
+            Decomposing total electrical energy entering the 11kV bus into physical technical dissipation vs non-technical commercial leakage.
+          </p>
+          <div class="canvas-wrap">
+            <canvas id="energyCanvas"></canvas>
+          </div>
+        </section>
+
+        <!-- DTR Transformer Network Topology -->
+        <section class="panel" style="margin-bottom: 24px;">
+          <h2>Distribution Transformer (DTR) Cluster Grid (30 Nodes)</h2>
+          <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 12px;">
+            Amber outline indicates AI-flagged anomaly; red tint reveals ground-truth electricity theft / meter tampering.
+          </p>
+          <div id="dtrGrid" class="dtr-grid-container"></div>
+        </section>
+
+        <!-- Audit Prioritization Table -->
+        <section class="panel">
+          <h2>Prioritized Field Vigilance Work Order</h2>
+          <p style="color: var(--muted); font-size: 0.88rem;">
+            DTRs ranked by AI anomaly confidence. Field inspection crews should be dispatched to Top-10 prioritized nodes.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>DTR ID</th>
+                  <th>Feeder</th>
+                  <th>Input (kWh)</th>
+                  <th>Billed (kWh)</th>
+                  <th>Tech Loss %</th>
+                  <th>Anomaly Score</th>
+                  <th>Status</th>
+                  <th>Recoverable Loss</th>
+                </tr>
+              </thead>
+              <tbody id="auditTableBody"></tbody>
+            </table>
+          </div>
+
+          <!-- Interpretation Guide -->
+          <div class="interpretation-box">
+            <strong>What To Notice in This Simulation:</strong>
+            <ul style="margin: 8px 0 0 18px; padding: 0;">
+              <li><strong>Quadratic Technical Losses:</strong> Lowering the Power Factor from $0.98$ to $0.75$ dramatically increases technical losses because current $I = P / (\sqrt{3} V \cos \phi)$, dissipating heat via $I^2 R$.</li>
+              <li><strong>The AT&C Multiplier:</strong> Even with a 90% billing efficiency, an 85% collection efficiency yields an AT&C loss of $1 - (0.90 	imes 0.85) = 23.5\%$, threatening utility solvency.</li>
+              <li><strong>AI Triage Precision:</strong> By correlating line resistance with consumer billing variances, the unsupervised anomaly detector isolates real meter tampering while avoiding false accusations on long, lossy feeders.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

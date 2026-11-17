@@ -164,6 +164,14 @@ Banking, credit, customer, fraud, and financial-services analytics demos for app
 | Credit Scoring | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CreditScoringDemo/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/CreditScoringDemo/index.html) | Beginner to Intermediate |
 | Fraud Playground | [About Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FraudPlayground/about.html) | [Launch Demo](/KateelLearningDemosToStudents/TechUseCaseDemos/FraudPlayground/index.html) | Intermediate |
 
+## ⚡ Energy & Infrastructure (1 demo)
+
+Power distribution, smart grid AT&C losses, and utility predictive analytics for energy and infrastructure courses.
+
+| Demo | About Demo | Launch Demo | Level |
+|------|------------|-------------|-------|
+| DISCOM AT&C Loss Analytics | [About Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/Energy/DISCOMLossAnalytics/about.html) | [Launch Demo](/KateelLearningDemosToStudents/DomainUseCaseDemos/Energy/DISCOMLossAnalytics/index.html) | All Levels |
+
 ## Getting started
 
 1. Start at the [Home](/KateelLearningDemosToStudents/).
