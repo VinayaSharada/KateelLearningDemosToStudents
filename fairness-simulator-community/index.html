@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Algorithmic Fairness Simulator (Community Edition) | Vinaya Sathyanarayana</title>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #1e293b;
+      --border-color: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-blue: #38bdf8;
+      --accent-blue-bg: rgba(56, 189, 248, 0.12);
+      --accent-green: #4ade80;
+      --accent-green-bg: rgba(74, 222, 128, 0.12);
+      --accent-amber: #fbbf24;
+      --accent-amber-bg: rgba(251, 191, 36, 0.12);
+      --accent-purple: #c084fc;
+      --accent-purple-bg: rgba(192, 132, 252, 0.12);
+      --accent-red: #f87171;
+      --accent-red-bg: rgba(248, 113, 113, 0.12);
+      --radius: 10px;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body.light-theme {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: #ffffff;
+      --border-color: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent-blue: #0284c7;
+      --accent-blue-bg: rgba(2, 132, 199, 0.10);
+      --accent-green: #16a34a;
+      --accent-green-bg: rgba(22, 163, 74, 0.10);
+      --accent-amber: #d97706;
+      --accent-amber-bg: rgba(217, 119, 6, 0.10);
+      --accent-purple: #9333ea;
+      --accent-purple-bg: rgba(147, 51, 234, 0.10);
+      --accent-red: #dc2626;
+      --accent-red-bg: rgba(220, 38, 38, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1380px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 24px;
+    }
+    .institution-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-blue);
+      background: var(--accent-blue-bg);
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--accent-blue);
+      margin-bottom: 8px;
+    }
+    .header-title { margin: 0 0 6px 0; font-size: 1.75rem; font-weight: 800; }
+    .header-subtitle { margin: 0; font-size: 0.90rem; color: var(--text-secondary); }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn:hover { background: var(--bg-secondary); border-color: var(--accent-blue); }
+    .btn-primary { background: var(--accent-blue); color: #000000; border-color: var(--accent-blue); font-weight: 700; }
+    body.light-theme .btn-primary { color: #ffffff; }
+
+    .badge-tag {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .card-title { margin: 0; font-size: 1.25rem; font-weight: 700; }
+    .card-subtitle { margin: 4px 0 0 0; font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* Presets */
+    .presets-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn-preset {
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-preset:hover, .btn-preset.active {
+      background: var(--accent-blue);
+      color: #000000;
+      border-color: var(--accent-blue);
+      font-weight: 700;
+    }
+    body.light-theme .btn-preset:hover, body.light-theme .btn-preset.active { color: #ffffff; }
+
+    /* Controls Grid */
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .control-box {
+      background: var(--bg-secondary);
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    .control-box h3 { margin: 0 0 12px 0; font-size: 0.95rem; display: flex; align-items: center; gap: 6px; }
+    .slider-row { margin-bottom: 10px; }
+    .slider-label { display: flex; justify-content: space-between; font-size: 0.80rem; margin-bottom: 4px; }
+    input[type=range] { width: 100%; accent-color: var(--accent-blue); cursor: pointer; }
+
+    /* Three Matrices Grid */
+    .matrices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .matrix-panel {
+      background: var(--bg-secondary);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .matrix-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .cm-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 4px;
+      margin-bottom: 12px;
+    }
+    .cm-table th, .cm-table td {
+      text-align: center;
+      padding: 10px 6px;
+      font-size: 0.85rem;
+      border-radius: 6px;
+    }
+    .cm-header {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cell-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      transition: all 0.25s ease;
+    }
+    .cell-val { font-size: 1.15rem; font-weight: 800; font-family: var(--font-mono); }
+    .cell-name { font-size: 0.70rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+    .cell-pct { font-size: 0.75rem; color: var(--text-secondary); }
+
+    /* Slicing Highlights */
+    .highlight-toprow { background: var(--accent-green-bg) !important; border: 2px solid var(--accent-green) !important; color: var(--accent-green) !important; }
+    .highlight-botrow { background: var(--accent-red-bg) !important; border: 2px solid var(--accent-red) !important; color: var(--accent-red) !important; }
+    .highlight-leftcol { background: var(--accent-blue-bg) !important; border: 2px solid var(--accent-blue) !important; color: var(--accent-blue) !important; }
+    .highlight-marginal { background: var(--accent-amber-bg) !important; border: 2px solid var(--accent-amber) !important; color: var(--accent-amber) !important; }
+    .highlight-diag { background: var(--accent-purple-bg) !important; border: 2px solid var(--accent-purple) !important; color: var(--accent-purple) !important; }
+
+    /* Slice Toolbar */
+    .slice-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 12px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      align-items: center;
+    }
+    .slice-btn {
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .slice-btn:hover { border-color: var(--accent-blue); transform: translateY(-1px); }
+
+    /* KPI Summary Strip */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+      gap: 6px;
+      background: var(--bg-card);
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      margin-top: auto;
+    }
+    .kpi-item { text-align: center; }
+    .kpi-label { font-size: 0.68rem; color: var(--text-muted); font-weight: 700; }
+    .kpi-value { font-size: 0.95rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-blue); }
+
+    /* Disparity Table */
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 12px;
+    }
+    .audit-table th {
+      background: var(--bg-secondary);
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .audit-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .badge-pass { background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+    .badge-fail { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid #ef4444; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+    .badge-neutral { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid #94a3b8; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+
+    /* Promotional Upgrade Banner */
+    .upgrade-banner {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid var(--accent-blue);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .upgrade-banner::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .upgrade-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #000000;
+      background: var(--accent-blue);
+      padding: 3px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .upgrade-banner h3 { margin: 0 0 8px 0; font-size: 1.35rem; color: #ffffff; }
+    .upgrade-banner p { margin: 0 0 14px 0; font-size: 0.90rem; color: #94a3b8; line-height: 1.6; }
+    .upgrade-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+    .upgrade-list li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      background: rgba(255,255,255,0.03);
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .upgrade-action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+
+    #atlasToast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--accent-blue);
+      color: #000000;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Header -->
+    <header class="header">
+      <div class="header-branding">
+        <span class="institution-pill">Community Learning Edition &bull; Free Self-Study Lab</span>
+        <h1 class="header-title">Interactive Algorithmic Fairness Simulator</h1>
+        <p class="header-subtitle">Visual Confusion Matrix Anatomy &bull; Demographic Parity &bull; Disparate Impact &bull; By Vinaya Sathyanarayana</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn" onclick="toggleTheme()">🌙 Theme</button>
+        <button class="btn" onclick="exportMarkdown()">📝 Copy Audit Table</button>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Print / PDF</button>
+      </div>
+    </header>
+
+    <!-- Presets Toolbar -->
+    <div class="card" style="margin-bottom:16px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <span style="font-weight:700; font-size:0.85rem; color:var(--text-secondary);">⚡ EXPLORE CLASSROOM SCENARIOS:</span>
+        <div class="presets-bar">
+          <button class="btn-preset active" onclick="loadPreset('standard')">Standard Hiring Disparity (DIR = 0.50)</button>
+          <button class="btn-preset" onclick="loadPreset('demographic_parity')">Strict Demographic Parity (DIR = 1.00)</button>
+          <button class="btn-preset" onclick="loadPreset('equal_opportunity')">Equal Opportunity (TPR Parity = 85%)</button>
+          <button class="btn-preset" onclick="loadPreset('oracle')">Perfect Classifier Oracle (Zero Error)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sliders Grid -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">🎛️ Population Cohort & Classifier Controls</h2>
+          <p class="card-subtitle">Adjust demographic base rates, sample sizes, and error rates to observe real-time disparity shifts.</p>
+        </div>
+      </div>
+
+      <div class="controls-grid">
+        <!-- Men / Privileged (A=1) -->
+        <div class="control-box" style="border-left: 4px solid var(--accent-blue);">
+          <h3 style="color:var(--accent-blue);">🔵 Group A=1: Men (Privileged)</h3>
+          <div class="slider-row">
+            <div class="slider-label"><span>Cohort Size (N₁)</span><strong id="val_nM">100</strong></div>
+            <input type="range" id="slider_nM" min="20" max="400" step="10" value="100" oninput="updateSimulation()">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>Base Qualification Rate (p₁)</span><strong id="val_pM">50%</strong></div>
+            <input type="range" id="slider_pM" min="5" max="95" step="1" value="50" oninput="updateSimulation()">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>True Positive Rate (TPR₁ / Recall)</span><strong id="val_tprM">90.0%</strong></div>
+            <input type="range" id="slider_tprM" min="10" max="100" step="1" value="90" oninput="updateSimulation()">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>False Positive Rate (FPR₁ / Fallout)</span><strong id="val_fprM">30.0%</strong></div>
+            <input type="range" id="slider_fprM" min="0" max="90" step="1" value="30" oninput="updateSimulation()">
+          </div>
+        </div>
+
+        <!-- Women / Unprivileged (A=0) -->
+        <div class="control-box" style="border-left: 4px solid var(--accent-amber);">
+          <h3 style="color:var(--accent-amber);">🟠 Group A=0: Women (Unprivileged)</h3>
+          <div class="slider-row">
+            <div class="slider-label"><span>Cohort Size (N₀)</span><strong id="val_nW">100</strong></div>
+            <input type="range" id="slider_nW" min="20" max="400" step="10" value="100" oninput="updateSimulation()">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>Base Qualification Rate (p₀)</span><strong id="val_pW">30%</strong></div>
+            <input type="range" id="slider_pW" min="5" max="95" step="1" value="30" oninput="updateSimulation()">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>True Positive Rate (TPR₀ / Recall)</span><strong id="val_tprW">66.7%</strong></div>
+            <input type="range" id="slider_tprW" min="10" max="100" step="1" value="67" oninput="updateSimulation()">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>False Positive Rate (FPR₀ / Fallout)</span><strong id="val_fprW">14.3%</strong></div>
+            <input type="range" id="slider_fprW" min="0" max="90" step="1" value="14" oninput="updateSimulation()">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Three Cuts Slicing Toolbar -->
+    <div class="slice-bar">
+      <span style="font-size:0.80rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase;">🔍 Interactive Visual Slices:</span>
+      <button class="slice-btn" onclick="highlightSlice('marginal')" style="border-color:var(--accent-amber); color:var(--accent-amber);">⚡ Marginal Cut (Demographic Parity / DIR)</button>
+      <button class="slice-btn" onclick="highlightSlice('toprow')" style="border-color:var(--accent-green); color:var(--accent-green);">🟢 Top Row Cut (Equal Opportunity / TPR)</button>
+      <button class="slice-btn" onclick="highlightSlice('botrow')" style="border-color:var(--accent-red); color:var(--accent-red);">🔴 Bottom Row Cut (Predictive Equality / FPR)</button>
+      <button class="slice-btn" onclick="highlightSlice('leftcol')" style="border-color:var(--accent-blue); color:var(--accent-blue);">🔵 Left Col Cut (Predictive Parity / PPV)</button>
+      <button class="slice-btn" onclick="highlightSlice('diagonal')" style="border-color:var(--accent-purple); color:var(--accent-purple);">🟣 Diagonal Cut (Overall Accuracy)</button>
+      <button class="slice-btn" onclick="highlightSlice('none')">✕ Clear Highlight</button>
+    </div>
+
+    <!-- Three Confusion Matrices Grid -->
+    <div class="matrices-grid">
+      
+      <!-- Men Matrix -->
+      <div class="matrix-panel">
+        <div class="matrix-title">
+          <span>🔵 Men Matrix (A=1)</span>
+          <span class="badge-tag">N₁ = <span id="val_m_grandN">100</span></span>
+        </div>
+        <table class="cm-table">
+          <tr>
+            <th class="cm-header">Truth \ Pred</th>
+            <th class="cm-header">Pred Pos (Ŷ=1)</th>
+            <th class="cm-header">Pred Neg (Ŷ=0)</th>
+            <th class="cm-header">Act Totals</th>
+          </tr>
+          <tr>
+            <th class="cm-header">Act Pos (Y=1)</th>
+            <td class="cell-box cell-toprow cell-diag" id="cell_m_tp">
+              <div class="cell-val" id="val_m_tp">45</div>
+              <div class="cell-name">TP</div>
+              <div class="cell-pct" id="pct_m_tp">(45.0%)</div>
+            </td>
+            <td class="cell-box cell-toprow" id="cell_m_fn">
+              <div class="cell-val" id="val_m_fn">5</div>
+              <div class="cell-name">FN</div>
+              <div class="cell-pct" id="pct_m_fn">(5.0%)</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_m_actPos">50</div>
+              <div class="cell-name">Pos (P₁)</div>
+              <div class="cell-pct" id="pct_m_actPos">50.0%</div>
+            </td>
+          </tr>
+          <tr>
+            <th class="cm-header">Act Neg (Y=0)</th>
+            <td class="cell-box cell-botrow" id="cell_m_fp">
+              <div class="cell-val" id="val_m_fp">15</div>
+              <div class="cell-name">FP</div>
+              <div class="cell-pct" id="pct_m_fp">(15.0%)</div>
+            </td>
+            <td class="cell-box cell-botrow cell-diag" id="cell_m_tn">
+              <div class="cell-val" id="val_m_tn">35</div>
+              <div class="cell-name">TN</div>
+              <div class="cell-pct" id="pct_m_tn">(35.0%)</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_m_actNeg">50</div>
+              <div class="cell-name">Neg (N₁)</div>
+              <div class="cell-pct" id="pct_m_actNeg">50.0%</div>
+            </td>
+          </tr>
+          <tr>
+            <th class="cm-header">Pred Totals</th>
+            <td class="cell-box cell-marginal cell-leftcol" id="cell_m_predPos">
+              <div class="cell-val" id="val_m_predPos">60</div>
+              <div class="cell-name">Hired (Ŷ=1)</div>
+              <div class="cell-pct" id="pct_m_predPos">60.0%</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_m_predNeg">40</div>
+              <div class="cell-name">Rejected</div>
+              <div class="cell-pct" id="pct_m_predNeg">40.0%</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-card); font-weight:800; font-family:var(--font-mono);" id="val_m_total">100</td>
+          </tr>
+        </table>
+        <div class="kpi-strip">
+          <div class="kpi-item"><div class="kpi-label">Recall (TPR)</div><div class="kpi-value" id="kpi_m_tpr">90.0%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Fallout (FPR)</div><div class="kpi-value" id="kpi_m_fpr">30.0%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Precision</div><div class="kpi-value" id="kpi_m_ppv">75.0%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Selection (SR)</div><div class="kpi-value" id="kpi_m_sr">60.0%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Accuracy</div><div class="kpi-value" id="kpi_m_acc">80.0%</div></div>
+        </div>
+      </div>
+
+      <!-- Women Matrix -->
+      <div class="matrix-panel">
+        <div class="matrix-title">
+          <span>🟠 Women Matrix (A=0)</span>
+          <span class="badge-tag">N₀ = <span id="val_w_grandN">100</span></span>
+        </div>
+        <table class="cm-table">
+          <tr>
+            <th class="cm-header">Truth \ Pred</th>
+            <th class="cm-header">Pred Pos (Ŷ=1)</th>
+            <th class="cm-header">Pred Neg (Ŷ=0)</th>
+            <th class="cm-header">Act Totals</th>
+          </tr>
+          <tr>
+            <th class="cm-header">Act Pos (Y=1)</th>
+            <td class="cell-box cell-toprow cell-diag" id="cell_w_tp">
+              <div class="cell-val" id="val_w_tp">20</div>
+              <div class="cell-name">TP</div>
+              <div class="cell-pct" id="pct_w_tp">(20.0%)</div>
+            </td>
+            <td class="cell-box cell-toprow" id="cell_w_fn">
+              <div class="cell-val" id="val_w_fn">10</div>
+              <div class="cell-name">FN</div>
+              <div class="cell-pct" id="pct_w_fn">(10.0%)</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_w_actPos">30</div>
+              <div class="cell-name">Pos (P₀)</div>
+              <div class="cell-pct" id="pct_w_actPos">30.0%</div>
+            </td>
+          </tr>
+          <tr>
+            <th class="cm-header">Act Neg (Y=0)</th>
+            <td class="cell-box cell-botrow" id="cell_w_fp">
+              <div class="cell-val" id="val_w_fp">10</div>
+              <div class="cell-name">FP</div>
+              <div class="cell-pct" id="pct_w_fp">(10.0%)</div>
+            </td>
+            <td class="cell-box cell-botrow cell-diag" id="cell_w_tn">
+              <div class="cell-val" id="val_w_tn">60</div>
+              <div class="cell-name">TN</div>
+              <div class="cell-pct" id="pct_w_tn">(60.0%)</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_w_actNeg">70</div>
+              <div class="cell-name">Neg (N₀)</div>
+              <div class="cell-pct" id="pct_w_actNeg">70.0%</div>
+            </td>
+          </tr>
+          <tr>
+            <th class="cm-header">Pred Totals</th>
+            <td class="cell-box cell-marginal cell-leftcol" id="cell_w_predPos">
+              <div class="cell-val" id="val_w_predPos">30</div>
+              <div class="cell-name">Hired (Ŷ=1)</div>
+              <div class="cell-pct" id="pct_w_predPos">30.0%</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_w_predNeg">70</div>
+              <div class="cell-name">Rejected</div>
+              <div class="cell-pct" id="pct_w_predNeg">70.0%</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-card); font-weight:800; font-family:var(--font-mono);" id="val_w_total">100</td>
+          </tr>
+        </table>
+        <div class="kpi-strip">
+          <div class="kpi-item"><div class="kpi-label">Recall (TPR)</div><div class="kpi-value" id="kpi_w_tpr">66.7%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Fallout (FPR)</div><div class="kpi-value" id="kpi_w_fpr">14.3%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Precision</div><div class="kpi-value" id="kpi_w_ppv">66.7%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Selection (SR)</div><div class="kpi-value" id="kpi_w_sr">30.0%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Accuracy</div><div class="kpi-value" id="kpi_w_acc">80.0%</div></div>
+        </div>
+      </div>
+
+      <!-- Combined Matrix -->
+      <div class="matrix-panel" style="border-color:var(--accent-purple);">
+        <div class="matrix-title">
+          <span style="color:var(--accent-purple);">🟣 Overall Population Matrix</span>
+          <span class="badge-tag">N_total = <span id="val_tot_grandN">200</span></span>
+        </div>
+        <table class="cm-table">
+          <tr>
+            <th class="cm-header">Truth \ Pred</th>
+            <th class="cm-header">Pred Pos (Ŷ=1)</th>
+            <th class="cm-header">Pred Neg (Ŷ=0)</th>
+            <th class="cm-header">Act Totals</th>
+          </tr>
+          <tr>
+            <th class="cm-header">Act Pos (Y=1)</th>
+            <td class="cell-box cell-toprow cell-diag" id="cell_tot_tp">
+              <div class="cell-val" id="val_tot_tp">65</div>
+              <div class="cell-name">TP</div>
+              <div class="cell-pct" id="pct_tot_tp">(32.5%)</div>
+            </td>
+            <td class="cell-box cell-toprow" id="cell_tot_fn">
+              <div class="cell-val" id="val_tot_fn">15</div>
+              <div class="cell-name">FN</div>
+              <div class="cell-pct" id="pct_tot_fn">(7.5%)</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_tot_actPos">80</div>
+              <div class="cell-name">Pos Total</div>
+              <div class="cell-pct" id="pct_tot_actPos">40.0%</div>
+            </td>
+          </tr>
+          <tr>
+            <th class="cm-header">Act Neg (Y=0)</th>
+            <td class="cell-box cell-botrow" id="cell_tot_fp">
+              <div class="cell-val" id="val_tot_fp">25</div>
+              <div class="cell-name">FP</div>
+              <div class="cell-pct" id="pct_tot_fp">(12.5%)</div>
+            </td>
+            <td class="cell-box cell-botrow cell-diag" id="cell_tot_tn">
+              <div class="cell-val" id="val_tot_tn">95</div>
+              <div class="cell-name">TN</div>
+              <div class="cell-pct" id="pct_tot_tn">(47.5%)</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_tot_actNeg">120</div>
+              <div class="cell-name">Neg Total</div>
+              <div class="cell-pct" id="pct_tot_actNeg">60.0%</div>
+            </td>
+          </tr>
+          <tr>
+            <th class="cm-header">Pred Totals</th>
+            <td class="cell-box cell-marginal cell-leftcol" id="cell_tot_predPos">
+              <div class="cell-val" id="val_tot_predPos">90</div>
+              <div class="cell-name">Hired (Ŷ=1)</div>
+              <div class="cell-pct" id="pct_tot_predPos">45.0%</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-secondary);">
+              <div class="cell-val" id="val_tot_predNeg">110</div>
+              <div class="cell-name">Rejected</div>
+              <div class="cell-pct" id="pct_tot_predNeg">55.0%</div>
+            </td>
+            <td class="cell-box" style="background:var(--bg-card); font-weight:800; font-family:var(--font-mono);" id="val_tot_total">200</td>
+          </tr>
+        </table>
+        <div class="kpi-strip">
+          <div class="kpi-item"><div class="kpi-label">Recall (TPR)</div><div class="kpi-value" id="kpi_tot_tpr">81.3%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Fallout (FPR)</div><div class="kpi-value" id="kpi_tot_fpr">20.8%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Precision</div><div class="kpi-value" id="kpi_tot_ppv">72.2%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Selection (SR)</div><div class="kpi-value" id="kpi_tot_sr">45.0%</div></div>
+          <div class="kpi-item"><div class="kpi-label">Accuracy</div><div class="kpi-value" id="kpi_tot_acc">80.0%</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disparity Table -->
+    <div class="card" style="margin-top:24px;">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">⚖️ Disparity Audit & Legal Compliance Table</h2>
+          <p class="card-subtitle">Comparing Men vs. Women metrics under EEOC Title VII Uniform Guidelines.</p>
+        </div>
+      </div>
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Fairness Metric</th>
+            <th>Men (A=1)</th>
+            <th>Women (A=0)</th>
+            <th>Disparity Measure</th>
+            <th>Compliance Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Demographic Parity / Disparate Impact</strong></td>
+            <td id="tbl_m_sr">60.0%</td>
+            <td id="tbl_w_sr">30.0%</td>
+            <td>
+              DIR = <strong id="tbl_dir">0.500</strong><br>
+              <span style="font-size:0.75rem; color:var(--text-secondary);">SPD = <span id="tbl_spd">-0.300</span></span>
+            </td>
+            <td>
+              <span id="tbl_eeoc_badge" class="badge-fail">VIOLATES EEOC 80% RULE</span>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Equal Opportunity (Recall / TPR Parity)</strong></td>
+            <td id="tbl_m_tpr">90.0%</td>
+            <td id="tbl_w_tpr">66.7%</td>
+            <td>EOD = <strong id="tbl_eod">-0.233</strong></td>
+            <td><span id="tbl_eod_badge" class="badge-fail">SEVERE DISPARITY</span></td>
+          </tr>
+          <tr>
+            <td><strong>Predictive Equality (FPR Parity)</strong></td>
+            <td id="tbl_m_fpr">30.0%</td>
+            <td id="tbl_w_fpr">14.3%</td>
+            <td>dFPR = <strong id="tbl_dfpr">-0.157</strong></td>
+            <td><span class="badge-neutral">GROUP FALLOUT DIFFERENCE</span></td>
+          </tr>
+          <tr>
+            <td><strong>Precision Parity (PPV / Calibration)</strong></td>
+            <td id="tbl_m_ppv">75.0%</td>
+            <td id="tbl_w_ppv">66.7%</td>
+            <td>dPPV = <strong id="tbl_dppv">-0.083</strong></td>
+            <td><span class="badge-neutral">CALIBRATION DIFFERENCE</span></td>
+          </tr>
+          <tr>
+            <td><strong>Accuracy Equality</strong></td>
+            <td id="tbl_m_acc">80.0%</td>
+            <td id="tbl_w_acc">80.0%</td>
+            <td>dAcc = <strong id="tbl_dacc">0.000</strong></td>
+            <td><span class="badge-pass">PERFECT ACCURACY PARITY</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Promotional Upgrade Callout -->
+    <div class="upgrade-banner">
+      <div class="upgrade-badge">Community Edition &bull; Free Resource</div>
+      <h3>Looking for Enterprise Impossibility Proofs, ROC Disparity Vectors &amp; Compounding Pipeline Solvers?</h3>
+      <p>
+        This community edition visualizes the foundational 3-confusion-matrix anatomy for binary classification. 
+        The <strong>Advanced Enterprise Diagnostic Suite</strong> delivers five additional production laboratories:
+      </p>
+      <ul class="upgrade-list">
+        <li>📈 <strong>Dynamic ROC Space &amp; Operating Points:</strong> Visualizes threshold shifts vs. model capacity defects with live Euclidean disparity vector ||Δ||₂.</li>
+        <li>⚖️ <strong>Kleinberg &amp; Chouldechova Impossibility Sandbox:</strong> Interactive mathematical proof showing why Separation and Sufficiency collide when base rates differ.</li>
+        <li>⛓️ <strong>Multi-Stage Compounding Pipeline Simulator:</strong> Models 3-stage funnel bias compounding ($DIR_{	ext{pipe}} = \prod DIR_i$) and solves Lagrangian sourcing compensation.</li>
+        <li>🧭 <strong>8-Leaf Metric Decision Engine:</strong> Dynamic diagnostic wizard matching application context to defensible metrics, formulas, and hostile objection shields.</li>
+        <li>📚 <strong>42-Concept Master Encyclopedia:</strong> Searchable dictionary with official definitions, plain-English analogies, numerical proofs, and A–Z fast jump.</li>
+      </ul>
+      <div class="upgrade-action">
+        <div>
+          Designed &amp; Authored by <strong>Vinaya Sathyanarayana</strong> &bull; Machine Learning &amp; AI Governance Studio
+        </div>
+        <span class="badge-tag" style="color:var(--accent-blue); border-color:var(--accent-blue);">Available in Executive Masterclasses &amp; Corporate Audits</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="margin-top: 36px; padding: 20px 0; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+      <p style="margin: 0 0 6px 0;">Interactive Algorithmic Fairness Simulator &bull; Community Edition</p>
+      <p style="margin: 0; font-size: 0.80rem;">&copy; Vinaya Sathyanarayana &bull; All Rights Reserved &bull; Free for Non-Commercial Educational Self-Study</p>
+    </footer>
+
+  </div>
+
+  <div id="atlasToast">Copied to clipboard!</div>
+
+  <script>
+    const state = {
+      nM: 100, nW: 100,
+      pM: 0.50, pW: 0.30,
+      tprM: 0.90, fprM: 0.30,
+      tprW: 0.67, fprW: 0.14
+    };
+
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('atlasToast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2500);
+    }
+
+    function loadPreset(name) {
+      document.querySelectorAll('.btn-preset').forEach(b => b.classList.remove('active'));
+      if (event && event.target) event.target.classList.add('active');
+
+      if (name === 'standard') {
+        state.nM = 100; state.nW = 100;
+        state.pM = 0.50; state.pW = 0.30;
+        state.tprM = 0.90; state.fprM = 0.30;
+        state.tprW = 0.67; state.fprW = 0.14;
+      } else if (name === 'demographic_parity') {
+        state.nM = 100; state.nW = 100;
+        state.pM = 0.50; state.pW = 0.30;
+        state.tprM = 0.80; state.fprM = 0.20;
+        state.tprW = 0.83; state.fprW = 0.36;
+      } else if (name === 'equal_opportunity') {
+        state.nM = 100; state.nW = 100;
+        state.pM = 0.50; state.pW = 0.30;
+        state.tprM = 0.85; state.fprM = 0.25;
+        state.tprW = 0.85; state.fprW = 0.25;
+      } else if (name === 'oracle') {
+        state.nM = 100; state.nW = 100;
+        state.pM = 0.50; state.pW = 0.30;
+        state.tprM = 1.00; state.fprM = 0.00;
+        state.tprW = 1.00; state.fprW = 0.00;
+      }
+
+      document.getElementById('slider_nM').value = state.nM;
+      document.getElementById('slider_nW').value = state.nW;
+      document.getElementById('slider_pM').value = Math.round(state.pM * 100);
+      document.getElementById('slider_pW').value = Math.round(state.pW * 100);
+      document.getElementById('slider_tprM').value = Math.round(state.tprM * 100);
+      document.getElementById('slider_fprM').value = Math.round(state.fprM * 100);
+      document.getElementById('slider_tprW').value = Math.round(state.tprW * 100);
+      document.getElementById('slider_fprW').value = Math.round(state.fprW * 100);
+
+      updateSimulation();
+    }
+
+    function updateSimulation() {
+      state.nM = parseInt(document.getElementById('slider_nM').value);
+      state.nW = parseInt(document.getElementById('slider_nW').value);
+      state.pM = parseInt(document.getElementById('slider_pM').value) / 100.0;
+      state.pW = parseInt(document.getElementById('slider_pW').value) / 100.0;
+      state.tprM = parseInt(document.getElementById('slider_tprM').value) / 100.0;
+      state.fprM = parseInt(document.getElementById('slider_fprM').value) / 100.0;
+      state.tprW = parseInt(document.getElementById('slider_tprW').value) / 100.0;
+      state.fprW = parseInt(document.getElementById('slider_fprW').value) / 100.0;
+
+      document.getElementById('val_nM').textContent = state.nM;
+      document.getElementById('val_nW').textContent = state.nW;
+      document.getElementById('val_pM').textContent = Math.round(state.pM * 100) + '%';
+      document.getElementById('val_pW').textContent = Math.round(state.pW * 100) + '%';
+      document.getElementById('val_tprM').textContent = (state.tprM * 100).toFixed(1) + '%';
+      document.getElementById('val_fprM').textContent = (state.fprM * 100).toFixed(1) + '%';
+      document.getElementById('val_tprW').textContent = (state.tprW * 100).toFixed(1) + '%';
+      document.getElementById('val_fprW').textContent = (state.fprW * 100).toFixed(1) + '%';
+
+      // Men
+      const posM = Math.round(state.nM * state.pM);
+      const negM = state.nM - posM;
+      const tpM = Math.round(posM * state.tprM);
+      const fnM = posM - tpM;
+      const fpM = Math.round(negM * state.fprM);
+      const tnM = negM - fpM;
+      const predPosM = tpM + fpM;
+      const predNegM = fnM + tnM;
+      const srM = predPosM / state.nM;
+      const ppvM = predPosM > 0 ? (tpM / predPosM) : 0;
+      const accM = (tpM + tnM) / state.nM;
+
+      // Women
+      const posW = Math.round(state.nW * state.pW);
+      const negW = state.nW - posW;
+      const tpW = Math.round(posW * state.tprW);
+      const fnW = posW - tpW;
+      const fpW = Math.round(negW * state.fprW);
+      const tnW = negW - fpW;
+      const predPosW = tpW + fpW;
+      const predNegW = fnW + tnW;
+      const srW = predPosW / state.nW;
+      const ppvW = predPosW > 0 ? (tpW / predPosW) : 0;
+      const accW = (tpW + tnW) / state.nW;
+
+      // Total
+      const grandN = state.nM + state.nW;
+      const tpTot = tpM + tpW;
+      const fnTot = fnM + fnW;
+      const fpTot = fpM + fpW;
+      const tnTot = tnM + tnW;
+      const posTot = posM + posW;
+      const negTot = negM + negW;
+      const predPosTot = predPosM + predPosW;
+      const predNegTot = predNegM + predNegW;
+      const tprTot = posTot > 0 ? (tpTot / posTot) : 0;
+      const fprTot = negTot > 0 ? (fpTot / negTot) : 0;
+      const srTot = grandN > 0 ? (predPosTot / grandN) : 0;
+      const ppvTot = predPosTot > 0 ? (tpTot / predPosTot) : 0;
+      const accTot = grandN > 0 ? ((tpTot + tnTot) / grandN) : 0;
+
+      // Disparities with Safe Division
+      let dir = 0;
+      let dirStatus = 'normal';
+      if (srM === 0 && srW === 0) {
+        dir = 1.0; dirStatus = 'undefined_zero';
+      } else if (srM === 0 && srW > 0) {
+        dir = 999.0; dirStatus = 'favors_w_zero_m';
+      } else {
+        dir = srW / srM;
+      }
+      const spd = srW - srM;
+      const eod = (posW > 0 ? tpW/posW : 0) - (posM > 0 ? tpM/posM : 0);
+      const dfpr = (negW > 0 ? fpW/negW : 0) - (negM > 0 ? fpM/negM : 0);
+      const dppv = (predPosW > 0 && predPosM > 0) ? (ppvW - ppvM) : 0;
+      const dacc = accW - accM;
+
+      // Update Men DOM
+      document.getElementById('val_m_tp').textContent = tpM;
+      document.getElementById('pct_m_tp').textContent = '(' + (tpM / state.nM * 100).toFixed(1) + '%)';
+      document.getElementById('val_m_fn').textContent = fnM;
+      document.getElementById('pct_m_fn').textContent = '(' + (fnM / state.nM * 100).toFixed(1) + '%)';
+      document.getElementById('val_m_actPos').textContent = posM;
+      document.getElementById('pct_m_actPos').textContent = (posM / state.nM * 100).toFixed(1) + '%';
+      document.getElementById('val_m_fp').textContent = fpM;
+      document.getElementById('pct_m_fp').textContent = '(' + (fpM / state.nM * 100).toFixed(1) + '%)';
+      document.getElementById('val_m_tn').textContent = tnM;
+      document.getElementById('pct_m_tn').textContent = '(' + (tnM / state.nM * 100).toFixed(1) + '%)';
+      document.getElementById('val_m_actNeg').textContent = negM;
+      document.getElementById('pct_m_actNeg').textContent = (negM / state.nM * 100).toFixed(1) + '%';
+      document.getElementById('val_m_predPos').textContent = predPosM;
+      document.getElementById('pct_m_predPos').textContent = (srM * 100).toFixed(1) + '%';
+      document.getElementById('val_m_predNeg').textContent = predNegM;
+      document.getElementById('pct_m_predNeg').textContent = (predNegM / state.nM * 100).toFixed(1) + '%';
+      document.getElementById('val_m_total').textContent = state.nM;
+      document.getElementById('val_m_grandN').textContent = state.nM;
+      document.getElementById('kpi_m_tpr').textContent = (posM > 0 ? (tpM / posM * 100).toFixed(1) : '0') + '%';
+      document.getElementById('kpi_m_fpr').textContent = (negM > 0 ? (fpM / negM * 100).toFixed(1) : '0') + '%';
+      document.getElementById('kpi_m_ppv').textContent = (ppvM * 100).toFixed(1) + '%';
+      document.getElementById('kpi_m_sr').textContent = (srM * 100).toFixed(1) + '%';
+      document.getElementById('kpi_m_acc').textContent = (accM * 100).toFixed(1) + '%';
+
+      // Update Women DOM
+      document.getElementById('val_w_tp').textContent = tpW;
+      document.getElementById('pct_w_tp').textContent = '(' + (tpW / state.nW * 100).toFixed(1) + '%)';
+      document.getElementById('val_w_fn').textContent = fnW;
+      document.getElementById('pct_w_fn').textContent = '(' + (fnW / state.nW * 100).toFixed(1) + '%)';
+      document.getElementById('val_w_actPos').textContent = posW;
+      document.getElementById('pct_w_actPos').textContent = (posW / state.nW * 100).toFixed(1) + '%';
+      document.getElementById('val_w_fp').textContent = fpW;
+      document.getElementById('pct_w_fp').textContent = '(' + (fpW / state.nW * 100).toFixed(1) + '%)';
+      document.getElementById('val_w_tn').textContent = tnW;
+      document.getElementById('pct_w_tn').textContent = '(' + (tnW / state.nW * 100).toFixed(1) + '%)';
+      document.getElementById('val_w_actNeg').textContent = negW;
+      document.getElementById('pct_w_actNeg').textContent = (negW / state.nW * 100).toFixed(1) + '%';
+      document.getElementById('val_w_predPos').textContent = predPosW;
+      document.getElementById('pct_w_predPos').textContent = (srW * 100).toFixed(1) + '%';
+      document.getElementById('val_w_predNeg').textContent = predNegW;
+      document.getElementById('pct_w_predNeg').textContent = (predNegW / state.nW * 100).toFixed(1) + '%';
+      document.getElementById('val_w_total').textContent = state.nW;
+      document.getElementById('val_w_grandN').textContent = state.nW;
+      document.getElementById('kpi_w_tpr').textContent = (posW > 0 ? (tpW / posW * 100).toFixed(1) : '0') + '%';
+      document.getElementById('kpi_w_fpr').textContent = (negW > 0 ? (fpW / negW * 100).toFixed(1) : '0') + '%';
+      document.getElementById('kpi_w_ppv').textContent = (ppvW * 100).toFixed(1) + '%';
+      document.getElementById('kpi_w_sr').textContent = (srW * 100).toFixed(1) + '%';
+      document.getElementById('kpi_w_acc').textContent = (accW * 100).toFixed(1) + '%';
+
+      // Update Total DOM
+      document.getElementById('val_tot_tp').textContent = tpTot;
+      document.getElementById('pct_tot_tp').textContent = '(' + (grandN > 0 ? (tpTot / grandN * 100).toFixed(1) : 0) + '%)';
+      document.getElementById('val_tot_fn').textContent = fnTot;
+      document.getElementById('pct_tot_fn').textContent = '(' + (grandN > 0 ? (fnTot / grandN * 100).toFixed(1) : 0) + '%)';
+      document.getElementById('val_tot_actPos').textContent = posTot;
+      document.getElementById('pct_tot_actPos').textContent = (grandN > 0 ? (posTot / grandN * 100).toFixed(1) : 0) + '%';
+      document.getElementById('val_tot_fp').textContent = fpTot;
+      document.getElementById('pct_tot_fp').textContent = '(' + (grandN > 0 ? (fpTot / grandN * 100).toFixed(1) : 0) + '%)';
+      document.getElementById('val_tot_tn').textContent = tnTot;
+      document.getElementById('pct_tot_tn').textContent = '(' + (grandN > 0 ? (tnTot / grandN * 100).toFixed(1) : 0) + '%)';
+      document.getElementById('val_tot_actNeg').textContent = negTot;
+      document.getElementById('pct_tot_actNeg').textContent = (grandN > 0 ? (negTot / grandN * 100).toFixed(1) : 0) + '%';
+      document.getElementById('val_tot_predPos').textContent = predPosTot;
+      document.getElementById('pct_tot_predPos').textContent = (srTot * 100).toFixed(1) + '%';
+      document.getElementById('val_tot_predNeg').textContent = predNegTot;
+      document.getElementById('pct_tot_predNeg').textContent = (grandN > 0 ? (predNegTot / grandN * 100).toFixed(1) : 0) + '%';
+      document.getElementById('val_tot_total').textContent = grandN;
+      document.getElementById('val_tot_grandN').textContent = grandN;
+      document.getElementById('kpi_tot_tpr').textContent = (tprTot * 100).toFixed(1) + '%';
+      document.getElementById('kpi_tot_fpr').textContent = (fprTot * 100).toFixed(1) + '%';
+      document.getElementById('kpi_tot_ppv').textContent = (ppvTot * 100).toFixed(1) + '%';
+      document.getElementById('kpi_tot_sr').textContent = (srTot * 100).toFixed(1) + '%';
+      document.getElementById('kpi_tot_acc').textContent = (accTot * 100).toFixed(1) + '%';
+
+      // Table Disparities
+      document.getElementById('tbl_m_sr').textContent = (srM * 100).toFixed(1) + '%';
+      document.getElementById('tbl_w_sr').textContent = (srW * 100).toFixed(1) + '%';
+      document.getElementById('tbl_dir').textContent = (dirStatus === 'favors_w_zero_m') ? '∞ (Zero Men Hired)' : (dirStatus === 'undefined_zero') ? 'N/A' : dir.toFixed(3);
+      document.getElementById('tbl_spd').textContent = spd.toFixed(3);
+      
+      const badge = document.getElementById('tbl_eeoc_badge');
+      if (dirStatus === 'undefined_zero') {
+        badge.className = 'badge-neutral'; badge.textContent = 'UNDEFINED (ZERO SELECTIONS)';
+      } else if (dirStatus === 'favors_w_zero_m') {
+        badge.className = 'badge-pass'; badge.textContent = 'FAVORS UNPRIVILEGED (ZERO MEN)';
+      } else if (dir >= 0.80 && dir <= 1.25) {
+        badge.className = 'badge-pass'; badge.textContent = 'PASSES EEOC 80% RULE';
+      } else if (dir > 1.25) {
+        badge.className = 'badge-pass'; badge.textContent = 'FAVORABLE TO UNPRIVILEGED (DIR ≥ 1.00)';
+      } else {
+        badge.className = 'badge-fail'; badge.textContent = 'VIOLATES EEOC 80% RULE';
+      }
+
+      document.getElementById('tbl_m_tpr').textContent = (state.tprM * 100).toFixed(1) + '%';
+      document.getElementById('tbl_w_tpr').textContent = (state.tprW * 100).toFixed(1) + '%';
+      document.getElementById('tbl_eod').textContent = eod.toFixed(3);
+      const eodBadge = document.getElementById('tbl_eod_badge');
+      if (Math.abs(eod) < 0.05) {
+        eodBadge.className = 'badge-pass'; eodBadge.textContent = 'PARITY SATISFIED';
+      } else {
+        eodBadge.className = 'badge-fail'; eodBadge.textContent = 'SEVERE DISPARITY';
+      }
+
+      document.getElementById('tbl_m_fpr').textContent = (state.fprM * 100).toFixed(1) + '%';
+      document.getElementById('tbl_w_fpr').textContent = (state.fprW * 100).toFixed(1) + '%';
+      document.getElementById('tbl_dfpr').textContent = dfpr.toFixed(3);
+
+      document.getElementById('tbl_m_ppv').textContent = (ppvM * 100).toFixed(1) + '%';
+      document.getElementById('tbl_w_ppv').textContent = (ppvW * 100).toFixed(1) + '%';
+      document.getElementById('tbl_dppv').textContent = dppv.toFixed(3);
+
+      document.getElementById('tbl_m_acc').textContent = (accM * 100).toFixed(1) + '%';
+      document.getElementById('tbl_w_acc').textContent = (accW * 100).toFixed(1) + '%';
+      document.getElementById('tbl_dacc').textContent = dacc.toFixed(3);
+    }
+
+    function highlightSlice(type) {
+      document.querySelectorAll('.cell-box').forEach(el => {
+        el.classList.remove('highlight-toprow', 'highlight-botrow', 'highlight-leftcol', 'highlight-marginal', 'highlight-diag');
+      });
+
+      if (type === 'toprow') {
+        document.querySelectorAll('.cell-toprow').forEach(el => el.classList.add('highlight-toprow'));
+        showToast('Top Row Highlighted: True Positive Rate (Equal Opportunity / Recall)');
+      } else if (type === 'botrow') {
+        document.querySelectorAll('.cell-botrow').forEach(el => el.classList.add('highlight-botrow'));
+        showToast('Bottom Row Highlighted: False Positive Rate (Predictive Equality / Fallout)');
+      } else if (type === 'leftcol') {
+        document.querySelectorAll('.cell-leftcol').forEach(el => el.classList.add('highlight-leftcol'));
+        showToast('Left Column Highlighted: Positive Predictive Value (Predictive Parity / Precision)');
+      } else if (type === 'marginal') {
+        document.querySelectorAll('.cell-marginal').forEach(el => el.classList.add('highlight-marginal'));
+        showToast('Marginal Row Highlighted: Selection Rate (Demographic Parity / Disparate Impact)');
+      } else if (type === 'diagonal') {
+        document.querySelectorAll('.cell-diag').forEach(el => el.classList.add('highlight-diag'));
+        showToast('Diagonal Highlighted: True Predictions (Overall Accuracy Equality)');
+      }
+    }
+
+    function exportMarkdown() {
+      const md = `### Algorithmic Fairness Audit Summary
+*Audited by Vinaya Sathyanarayana · Algorithmic Fairness Simulator (Community Edition)*
+
+| Fairness Metric | Men (A=1) | Women (A=0) | Disparity Measure | Compliance Evaluation |
+|---|---|---|---|---|
+| **Selection Rate (Demographic Parity)** | ${document.getElementById('tbl_m_sr').textContent} | ${document.getElementById('tbl_w_sr').textContent} | DIR = ${document.getElementById('tbl_dir').textContent} (SPD = ${document.getElementById('tbl_spd').textContent}) | ${document.getElementById('tbl_eeoc_badge').textContent} |
+| **True Positive Rate (Equal Opportunity)** | ${document.getElementById('tbl_m_tpr').textContent} | ${document.getElementById('tbl_w_tpr').textContent} | EOD = ${document.getElementById('tbl_eod').textContent} | ${document.getElementById('tbl_eod_badge').textContent} |
+| **False Positive Rate (Predictive Equality)** | ${document.getElementById('tbl_m_fpr').textContent} | ${document.getElementById('tbl_w_fpr').textContent} | dFPR = ${document.getElementById('tbl_dfpr').textContent} | Group Fallout Parity |
+| **Precision (Predictive Parity)** | ${document.getElementById('tbl_m_ppv').textContent} | ${document.getElementById('tbl_w_ppv').textContent} | dPPV = ${document.getElementById('tbl_dppv').textContent} | Group Calibration Parity |
+| **Overall Accuracy** | ${document.getElementById('tbl_m_acc').textContent} | ${document.getElementById('tbl_w_acc').textContent} | dAcc = ${document.getElementById('tbl_dacc').textContent} | Error Parity |
+`;
+      navigator.clipboard.writeText(md).then(() => {
+        showToast('✓ Markdown Audit Table copied to clipboard!');
+      }).catch(() => {
+        prompt('Copy Markdown table:', md);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateSimulation();
+    });
+  </script>
+</body>
+</html>
