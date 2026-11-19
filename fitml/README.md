@@ -17,6 +17,11 @@ Welcome to the 4-part webinar and hands-on lab series for **Fair Interpretable T
 
 ---
 
+## ⚡ Standalone Interactive Lab
+- **[Interactive Algorithmic Fairness Simulator (Community Edition)](../fairness-simulator-community/index.html)**: In-browser live confusion matrix decomposition laboratory. Explore the Five Slicing Cuts, demographic parity, disparate impact ratio, and real-time EEOC four-fifths rule compliance. Read the [About Guide](../fairness-simulator-community/about.html) for theoretical framing and classroom discussion scenarios.
+
+---
+
 ## 📖 Theoretical Monograph
 - **Mathematical Foundations:** [Download Theoretical Foundations and Mathematical Tutorials (PDF)](guides/Theoretical_Foundations_and_Mathematical_Tutorials.pdf) — comprehensive 4-part theoretical guide covering proofs, lemmas, and optimization formulations.
 

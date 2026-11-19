@@ -26,7 +26,12 @@ Key capabilities included in this community version:
 
 ## 🌐 Live Usage
 
-Double-click `index.html` to run locally in any browser (Chrome, Edge, Safari, Firefox). 
+* 🚀 **Launch Simulator**: [Launch Interactive Simulator](index.html)
+* 📖 **Learning Guide & Math**: [Read About Demo](about.html)
+* ⚖️ **Course Pack**: [Fair Interpretable Trustworthy Machine Learning (FITML)](../courses/fitml.html)
+* 🏛️ **Platform Home**: [KateelLearningDemos](../index.html)
+
+Double-click `index.html` or open in any browser (Chrome, Edge, Safari, Firefox). 
 Requires **zero external dependencies, zero CDNs, and works 100% offline**.
 
 ---

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kateel demo analytics and error telemetry -->
+  <script src="../assets/analytics.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Algorithmic Fairness Simulator (Community Edition) - About Demo - KateelLearningDemos</title>
+  <meta name="description" content="About Demo learning guide for the Interactive Algorithmic Fairness Simulator: explore confusion matrix decomposition, five slicing cuts, disparate impact, equal opportunity, and EEOC four-fifths rule compliance.">
+  <meta name="keywords" content="Algorithmic Fairness Simulator, Confusion Matrix Decomposition, Demographic Parity, Disparate Impact, Equal Opportunity, Predictive Equality, Predictive Parity, Four-Fifths Rule, EEOC Title VII, FITML, Responsible AI">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Professor Vinaya Sathyanarayana">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://vinayasharada.github.io/KateelLearningDemosToStudents/fairness-simulator-community/about.html">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta property="og:site_name" content="KateelLearningDemos">
+  <meta property="og:title" content="Interactive Algorithmic Fairness Simulator (Community Edition) - About Demo">
+  <meta property="og:description" content="Visual confusion matrix anatomy, five interactive slicing cuts, demographic parity, disparate impact ratio, and regulatory compliance live lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/fairness-simulator-community/about.html">
+  <meta property="og:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <meta property="og:image:alt" content="Interactive Algorithmic Fairness Simulator learning demo preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Interactive Algorithmic Fairness Simulator (Community Edition) - About Demo">
+  <meta name="twitter:description" content="Visual confusion matrix anatomy, five interactive slicing cuts, demographic parity, disparate impact ratio, and regulatory compliance live lab.">
+  <meta name="twitter:image" content="https://vinayasharada.github.io/KateelLearningDemosToStudents/assets/seo-preview.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Interactive Algorithmic Fairness Simulator (Community Edition) About Demo",
+  "description": "Visual confusion matrix anatomy, five interactive slicing cuts, demographic parity, disparate impact ratio, and regulatory compliance live lab.",
+  "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fairness-simulator-community/about.html",
+  "isAccessibleForFree": true,
+  "learningResourceType": "About Demo",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "20-30 min",
+  "teaches": [
+    "Deconstruct confusion matrices across privileged and unprivileged demographic cohorts to reveal how algorithmic disparity manifests.",
+    "Apply the Five Slicing Cuts: Demographic Parity (Marginal Row), Equal Opportunity (Top Row), Predictive Equality (Bottom Row), Predictive Parity (Left Column), and Accuracy Equality (Diagonal).",
+    "Evaluate US EEOC Title VII Four-Fifths Rule (80% Rule) compliance and Disparate Impact Ratio (DIR) in hiring and credit underwriting.",
+    "Formulate the trade-offs and mathematical impossibilities (Kleinberg/Chouldechova) between equalized odds and predictive parity under differing base rates.",
+    "Export standardized markdown audit tables for algorithmic impact assessments and classroom assignments."
+  ],
+  "keywords": "Algorithmic Fairness, Confusion Matrix, Demographic Parity, Disparate Impact, Equal Opportunity, Predictive Parity, EEOC, Title VII, FITML",
+  "inLanguage": "en",
+  "provider": {
+    "@type": "Person",
+    "name": "Professor Vinaya Sathyanarayana",
+    "email": "vinallcontact@gmail.com",
+    "url": "https://github.com/VinayaSharada/KateelLearningDemosToStudents"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Fair Interpretable Trustworthy Machine Learning",
+    "url": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Course Packs",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/course-packs/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Fair Interpretable Trustworthy Machine Learning",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/courses/fitml.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Interactive Algorithmic Fairness Simulator",
+      "item": "https://vinayasharada.github.io/KateelLearningDemosToStudents/fairness-simulator-community/about.html"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script defer src="../assets/site.js"></script>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">KateelLearningDemos</a>
+    <div class="nav-links">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../browse/index.html" data-kld-nav="browse">Browse Demos</a>
+      <a class="nav-link" href="../course-packs/index.html" data-kld-nav="packs">Course Packs</a>
+      <a class="nav-link" href="../Assignments/index.html" data-kld-nav="assignments">Assignments</a>
+      <a class="nav-link" href="../courses/fitml.html">FITML Course</a>
+      <a class="nav-link" href="https://github.com/VinayaSharada/KateelLearningDemosToStudents" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+<main class="container">
+  <section class="site-hero page-hero">
+    <p class="hero-eyebrow">Fair Interpretable Trustworthy Machine Learning • Interactive Simulator</p>
+    <h1>Interactive Algorithmic Fairness Simulator</h1>
+    <p class="hero-subtitle">Standalone interactive laboratory to build immediate visual intuition around confusion matrix decomposition, the Five Slicing Cuts, demographic parity, equal opportunity, and EEOC four-fifths regulatory compliance.</p>
+    <div class="pill-row">
+      <span class="pill">In-Browser Interactive</span>
+      <span class="pill">20-30 min</span>
+      <span class="pill">Intermediate</span>
+      <span class="pill">Zero Dependencies</span>
+      <span class="pill">Classroom Ready</span>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="index.html">Launch Interactive Simulator</a>
+      <a class="btn btn-secondary" href="../courses/fitml.html">FITML Course Pack</a>
+      <a class="btn btn-soft" href="README.md">View Demo Readme</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Learning Objectives</p>
+      <h2>What students learn in this simulator</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>1. Three-Matrix Anatomy</h3>
+        <p>Inspect the side-by-side Confusion Matrices for Privileged Cohorts ($A=1$), Unprivileged Cohorts ($A=0$), and the Combined Population to observe how individual group errors compound into macro disparities.</p>
+      </article>
+      <article class="info-card">
+        <h3>2. The Five Slicing Cuts</h3>
+        <p>Visually isolate fairness dimensions with interactive slicing cuts: Marginal Row (Demographic Parity), Top Row (Equal Opportunity), Bottom Row (Predictive Equality), Left Column (Predictive Parity), and Diagonal (Accuracy Equality).</p>
+      </article>
+      <article class="info-card">
+        <h3>3. EEOC Title VII 80% Rule</h3>
+        <p>Calculate the Disparate Impact Ratio ($DIR$) and evaluate regulatory compliance against the EEOC Four-Fifths threshold ($DIR \ge 0.80$) with automatic compliance badge indicators.</p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>4. Instant Audit Reporting</h3>
+        <p>Export a clean, fully-formatted markdown audit table to the clipboard with one click for classroom assignments, AI ethics lab reports, and model governance documentation.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Mathematical Formulations</p>
+      <h2>The Five Slicing Cuts &amp; Quantitative Metrics</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>⚡ Marginal Row Cut: Demographic Parity</h3>
+        <p>Measures positive outcome rate equality regardless of ground truth status:</p>
+        <p><code>SR = (TP + FP) / N</code></p>
+        <p><code>DIR = SR(A=0) / SR(A=1) &ge; 0.80 (EEOC Four-Fifths)</code></p>
+        <p><code>SPD = SR(A=0) - SR(A=1) (Parity when SPD = 0)</code></p>
+      </article>
+      <article class="info-card">
+        <h3>🟢 Top Row Cut: Equal Opportunity (TPR)</h3>
+        <p>Measures equality of recall among qualified individuals ($Y=1$):</p>
+        <p><code>TPR = TP / (TP + FN)</code></p>
+        <p><code>EOD = |TPR(A=0) - TPR(A=1)|</code></p>
+        <p>Guarantees equal opportunity of being selected when qualified.</p>
+      </article>
+      <article class="info-card">
+        <h3>🔴 Bottom Row Cut: Predictive Equality (FPR)</h3>
+        <p>Measures equality of false positive error rates among non-qualified candidates ($Y=0$):</p>
+        <p><code>FPR = FP / (FP + TN)</code></p>
+        <p><code>&Delta;FPR = |FPR(A=0) - FPR(A=1)|</code></p>
+        <p>Critical in criminal recidivism (COMPAS) and punitive AI models.</p>
+      </article>
+      <article class="info-card">
+        <h3>🔵 Left Column Cut: Predictive Parity (PPV)</h3>
+        <p>Measures positive predictive value (precision) calibration:</p>
+        <p><code>PPV = TP / (TP + FP)</code></p>
+        <p><code>&Delta;PPV = |PPV(A=0) - PPV(A=1)|</code></p>
+        <p>Ensures a positive prediction carries the same probability of success across groups.</p>
+      </article>
+      <article class="info-card">
+        <h3>🟣 Diagonal Cut: Accuracy Equality</h3>
+        <p>Measures overall classification correctness across groups:</p>
+        <p><code>Acc = (TP + TN) / N</code></p>
+        <p><code>&Delta;Acc = |Acc(A=0) - Acc(A=1)|</code></p>
+        <p>Evaluates whether model fidelity is uniform across demographic lines.</p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>⚖️ Impossibility Theorems (Kleinberg / Chouldechova)</h3>
+        <p>When base rates differ between groups ($P(Y=1|A=1) \neq P(Y=1|A=0)$), it is mathematically impossible to simultaneously satisfy:</p>
+        <ul>
+          <li>Equalized Odds (TPR and FPR equality)</li>
+          <li>Predictive Parity (PPV calibration)</li>
+        </ul>
+        <p>Unless the classifier achieves 100% perfect prediction accuracy (Oracle mode).</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <p class="section-kicker">Faculty Teaching Prompts</p>
+      <h2>Classroom Discussion &amp; Reflection Scenarios</h2>
+    </div>
+    <div class="card-grid">
+      <article class="info-card">
+        <h3>Scenario 1: Standard Hiring Disparity</h3>
+        <p>Load the default preset ($DIR = 0.50$). Have students identify which slice button clearly exposes the Title VII adverse impact violation. Ask how adjusting the decision threshold changes the False Positive Rate.</p>
+      </article>
+      <article class="info-card">
+        <h3>Scenario 2: The Base Rate Conflict</h3>
+        <p>Adjust Group base rate ($P(Y=1)$) to 60% for Men and 30% for Women. Challenge students to find any classifier setting that satisfies both Equal Opportunity and Predictive Parity without forcing an oracle classifier.</p>
+      </article>
+      <article class="info-card highlight-card">
+        <h3>Scenario 3: Audit Report Submission</h3>
+        <p>Have students click <strong>Copy Audit Table</strong> and paste the resulting markdown into their assignment submission, explaining which metric should take legal precedence in an automated credit scoring system.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="demo-rating" data-demo-id="fairness_simulator_community">
+      <h3>Rate this learning guide</h3>
+      <div class="rating-stars">
+        <span data-value="1">★</span>
+        <span data-value="2">★</span>
+        <span data-value="3">★</span>
+        <span data-value="4">★</span>
+        <span data-value="5">★</span>
+      </div>
+      <div class="rating-meta"><span class="average">0.0</span> <span class="count">(0 ratings)</span></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p><a href="../index.html">KateelLearningDemos</a> • <a href="../courses/fitml.html">FITML Course Pack</a> • Attribution: <a href="mailto:vinallcontact@gmail.com">vinallcontact@gmail.com</a></p>
+</footer>
+</body>
+</html>

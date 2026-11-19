@@ -8,7 +8,7 @@
       "audience": "algorithmic fairness, causal DAGs, XAI (SHAP & LIME), adversarial robustness, trustworthy AI",
       "subtitle": "Algorithmic bias detection, causal fairness DAGs, LIME/SHAP interpretability, and vision adversarial robustness for trustworthy AI.",
       "pagePath": "courses/fitml.html",
-      "registeredDemos": "4",
+      "registeredDemos": "5",
       "catalogPath": "fitml/README.md",
       "assignments": [
         "fitml/assignments/Webinar_01_Student_Assignment_Prompt.pdf",
@@ -95,6 +95,26 @@
           ],
           "aboutPath": "fitml/lab04-adversarial-robustness/about.html",
           "launchPath": "fitml/lab04-adversarial-robustness/index.html",
+          "readiness": "Classroom Ready"
+        },
+        {
+          "title": "Interactive Algorithmic Fairness Simulator",
+          "level": "Intermediate",
+          "summary": "Deconstruct confusion matrices across demographic cohorts with five slicing cuts, demographic parity, disparate impact ratio, and live EEOC Title VII four-fifths rule evaluation.",
+          "teacherCue": "Teacher cue: Manipulate confusion matrix cells across privileged and unprivileged groups; demonstrate why satisfying equal opportunity and predictive parity simultaneously is impossible when base rates differ.",
+          "duration": "20-30 min",
+          "surface": "In-Browser Interactive",
+          "mode": "Browser",
+          "courseSlug": "fitml",
+          "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+          "courseSlugs": [
+            "fitml"
+          ],
+          "courseTitles": [
+            "Fair Interpretable Trustworthy Machine Learning"
+          ],
+          "aboutPath": "fairness-simulator-community/about.html",
+          "launchPath": "fairness-simulator-community/index.html",
           "readiness": "Classroom Ready"
         }
       ]
@@ -4485,6 +4505,26 @@
       "readiness": "Classroom Ready"
     },
     {
+      "title": "Interactive Algorithmic Fairness Simulator",
+      "level": "Intermediate",
+      "summary": "Deconstruct confusion matrices across demographic cohorts with five slicing cuts, demographic parity, disparate impact ratio, and live EEOC Title VII four-fifths rule evaluation.",
+      "teacherCue": "Teacher cue: Manipulate confusion matrix cells across privileged and unprivileged groups; demonstrate why satisfying equal opportunity and predictive parity simultaneously is impossible when base rates differ.",
+      "duration": "20-30 min",
+      "surface": "In-Browser Interactive",
+      "mode": "Browser",
+      "courseSlug": "fitml",
+      "courseTitle": "Fair Interpretable Trustworthy Machine Learning",
+      "courseSlugs": [
+        "fitml"
+      ],
+      "courseTitles": [
+        "Fair Interpretable Trustworthy Machine Learning"
+      ],
+      "aboutPath": "fairness-simulator-community/about.html",
+      "launchPath": "fairness-simulator-community/index.html",
+      "readiness": "Classroom Ready"
+    },
+    {
       "title": "Interest Rate Risk",
       "level": "Intermediate",
       "summary": "About Demo learning guide for Interest Rate Risk: a browser launch surface with Colab and local notebook support for deposit repricing and shock analysis.",
@@ -5913,11 +5953,11 @@
   ],
   "counts": {
     "coursePacks": 11,
-    "curatedDemos": 132,
+    "curatedDemos": 133,
     "runModes": 6
   },
   "modeCounts": {
-    "Browser": 117,
+    "Browser": 118,
     "Colab": 9,
     "Private cohort": 1,
     "Local": 1,

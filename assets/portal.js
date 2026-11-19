@@ -96,7 +96,7 @@
       demo.mode,
       demo.level,
       // Common abbreviations
-      demo.courseSlug === "fitml" ? "fitml facct fairness xai shap lime trust ethics" : "",
+      demo.courseSlug === "fitml" ? "fitml facct fairness xai shap lime trust ethics confusion matrix disparate impact demographic parity four-fifths eeoc simulator" : "",
       demo.courseSlug === "treasury" ? "treasury cfo cash liquidity fx hedging dso ar aging" : "",
       demo.courseSlug === "ai-ml-workflows" ? "aiml product ml workflow swarm" : "",
       demo.courseSlug === "cyber" ? "cyber security siem incident malware soc" : ""

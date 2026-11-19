@@ -8,7 +8,7 @@
 - **Launch Demo** links open the actual interactive app separately.
 - Course pages use the same About Demo → Launch Demo flow.
 
-## ⚖️ Fair Interpretable Trustworthy Machine Learning (4 demos)
+## ⚖️ Fair Interpretable Trustworthy Machine Learning (5 demos)
 
 Course 2 of 28,001: Algorithmic bias audits, causal fairness DAGs, LIME/SHAP interpretability, and vision adversarial robustness.
 
@@ -18,6 +18,7 @@ Course 2 of 28,001: Algorithmic bias audits, causal fairness DAGs, LIME/SHAP int
 | In-Processing & Causal Fairness | [About Demo](/KateelLearningDemosToStudents/fitml/lab02-causal-fairness/about.html) | [Launch Demo](/KateelLearningDemosToStudents/fitml/lab02-causal-fairness/index.html) | Advanced |
 | Feature Attribution (LIME & SHAP) | [About Demo](/KateelLearningDemosToStudents/fitml/lab03-lime-shap/about.html) | [Launch Demo](/KateelLearningDemosToStudents/fitml/lab03-lime-shap/index.html) | Intermediate |
 | Vision XAI & Adversarial Robustness | [About Demo](/KateelLearningDemosToStudents/fitml/lab04-adversarial-robustness/about.html) | [Launch Demo](/KateelLearningDemosToStudents/fitml/lab04-adversarial-robustness/index.html) | Advanced |
+| Interactive Algorithmic Fairness Simulator | [About Demo](/KateelLearningDemosToStudents/fairness-simulator-community/about.html) | [Launch Demo](/KateelLearningDemosToStudents/fairness-simulator-community/index.html) | Intermediate |
 
 ## 🏦 Treasury Management (9 demos)
 

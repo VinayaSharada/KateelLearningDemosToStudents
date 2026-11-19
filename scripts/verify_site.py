@@ -34,6 +34,7 @@ PUBLIC_DIRS = (
     ROOT / "Assignments",
     ROOT / "assets",
     ROOT / "fitml",
+    ROOT / "fairness-simulator-community",
 )
 TOP_LEVEL_HTML = (ROOT / "index.html", ROOT / "DEMO_INDEX.html")
 URL_ATTRIBUTES = {
